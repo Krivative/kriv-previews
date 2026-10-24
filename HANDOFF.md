@@ -10,7 +10,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - Repo: `Krivative/kriv-previews` (private) to be created by Kriv on github.com (the Claude GitHub connection gets 403 on repo creation). Local commit on `main` is ready to push.
 - Branch / last commit / PR / deployment: local `main` only. No PR, no deployment.
 - Tests (local, 2026-10-24): `pnpm lint` clean, `pnpm typecheck` pass, `pnpm test` 55/55 pass, `pnpm build` pass, `pnpm test:smoke` 7/7 pass (test-lead 200 with banner and noindex; test-expired shows the expired notice; draft, unknown, uppercase, encoded-traversal slugs and `/for` return 404; `X-Robots-Tag: noindex, nofollow` on all). Screenshots at 1440 and 390 px: no overflow, no console errors.
-- Next action: Kriv creates the empty repo; push; then Phase 2 (Vercel project) needs Kriv's approval for Pro billing and production protection settings.
+- Next action: Kriv creates the empty repo; push; then Phase 2 (Vercel project on Hobby) with Kriv's approval for production protection settings.
 
 ## Verified facts
 
@@ -23,6 +23,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 ## Decisions (approved direction from Kriv in chat, 2026-10-24)
 
 Added after Phase 0 (Kriv, 2026-10-24): written OK from Site Arsenal's original owner for KRIV commercial use received (per Kriv); Phase 1 approved including repo creation; copy all 20 Site Arsenal templates; call, message, email, map and social links on previews are disabled.
+Kriv, 2026-10-24: stay on Vercel Hobby until the first paying client, then upgrade to Pro. Risk accepted by Kriv: Vercel's Hobby terms are non-commercial and previews sent to leads may count as commercial use regardless of revenue.
 
 
 1. Lead previews are served at `https://kriv.agency/for/<lead-slug>`, not subdomains and not `.vercel.app` links.
@@ -35,7 +36,7 @@ Added after Phase 0 (Kriv, 2026-10-24): written OK from Site Arsenal's original 
 
 - Which Vercel account still deploys Site Arsenal (its public gallery lists every site), and connector access to the team holding the `kriv` project.
 - Whether batch 4 templates ("for review" in docs/TEMPLATES.md) may be used for real leads.
-- Vercel Pro upgrade for the `kriv-previews` project.
+- Upgrade to Vercel Pro (main site and previews in one team) when the first client signs.
 - Lead volume target for the first month.
 - Later: database provider for Phase 5.
 
