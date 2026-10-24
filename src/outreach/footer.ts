@@ -7,7 +7,7 @@ export const SENDER = {
   business: "KRIV",
   email: "hello@kriv.agency",
   website: "kriv.agency",
-  postalAddress: "Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015, Philippines",
+  postalAddress: "Block 3 Lot 7, Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015, Philippines",
 } as const;
 
 export const OPT_OUT_SUBJECT = "Unsubscribe";

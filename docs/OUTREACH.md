@@ -10,7 +10,7 @@ This is our reading of the FTC's CAN-SPAM guidance, not legal advice.
   email is about (for example "A website concept for Acme Heating & Air"). No "Re:" or
   "Fwd:" on a first email, no fake urgency.
 - **Says it is a business offer** and where KRIV is based. The footer does this.
-- **Postal address:** Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015, Philippines.
+- **Postal address:** Block 3 Lot 7, Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015, Philippines.
 - **Opt-out:** "Reply 'unsubscribe' and I won't email you again." It must keep working
   for at least 30 days after sending. In practice: forever.
 - **No claims we can't back up** about them or about KRIV (no invented results,

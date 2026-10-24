@@ -37,6 +37,7 @@ Kriv, 2026-10-24: stay on Vercel Hobby until the first paying client, then upgra
 
 - Which Vercel account still deploys Site Arsenal (its public gallery lists every site), and connector access to the team holding the `kriv` project.
 - Upgrade to Vercel Pro (main site and previews in one team) when the first client signs.
+- Kriv, 2026-10-24: skip Google Places API for the pilot (lead finding by web search and the business's own site); Kriv is Site Arsenal's sole owner, no other copies. Vercel project `kriv-previews` (prj_JzD8zhDBPc2JqXsCzcDZ7FNMgPri) imported by Kriv; Claude's Vercel connector cannot list or fetch its deployments (403) and this environment's network blocks *.vercel.app and kriv.agency.
 - Pilot defaults chosen by Claude at Kriv's request (2026-10-24): San Antonio TX metro; no-website and weak-website leads; emails from the business's own site and listing, no paid finder; Upstash free tier; 20 emails/day for 2 weeks then up to 30. See docs/ROADMAP.md.
 - Lead volume target for the first month.
 - Later: database provider for Phase 5.

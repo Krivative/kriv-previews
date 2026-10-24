@@ -1,13 +1,13 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: templates approved; open decisions filled in (Claude's recommendations, delegated by Kriv)
+Updated: 2026-10-24 · Last step finished: Vercel project imported; address completed; Places API skipped
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: import Krivative/kriv-previews in the Vercel dashboard (Kriv team → Add New → Project → Import; keep the default settings). Claude's Vercel access cannot create projects.
-- [ ] Claude: verify the deployment (test lead live, noindex, real 404s), then Phase 3
+- [ ] Kriv: open the 3 test links (see chat) and say what each shows, OR widen this environment's network access so Claude can check (cloud environment menu → Edit → Network access)
+- [ ] Claude: open the Phase 3 pull request on Krivative/Kriv (kriv.agency/<slug> rewrites)
 
 ## Done
 
@@ -37,16 +37,18 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Batch-4 templates (gym, office, resort): not used in the pilot niches, so left "for review" (Claude, delegated)
 - [x] Daily sending limit: 20 a day for the first 2 weeks, then up to 30 if replies are healthy and nothing lands in spam (Claude, delegated)
 - [x] Separate Vercel project kept (no tracking on previews, main site never redeploys per lead) (Claude, delegated)
+- [x] Vercel project kriv-previews imported in the Kriv team (Kriv)
+- [x] Postal address completed: Block 3 Lot 7, Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015 (Kriv)
+- [x] Site Arsenal: Kriv is the sole owner; no other copies or deployments exist (Kriv)
+- [x] Google Places API skipped for the pilot; leads found by web search, public directories and the business's own site (Kriv)
 
 ## Decisions needed from Kriv
 
-- [ ] Ask Site Arsenal's original owner whether it is still deployed on their Vercel account (it is not in the Kriv team; its public gallery lists every site). Only Kriv can ask.
+- [ ] Network access for this Claude environment: allow full internet (needed to verify previews and read lead websites)
 
 ## Kriv's setup tasks
 
-- [ ] In Gmail, open a test email from hello@kriv.agency → ⋮ → Show original: SPF, DKIM and DMARC should all say PASS (receiving mail does not prove this)
-- [ ] Create a Google Cloud project with billing, enable Places API (New), create an API key restricted to that API, and set a budget alert (steps in docs/GOOGLE-PLACES-SETUP.md). Only Kriv can do this: it needs your Google account and a card.
-- [ ] Confirm mail actually reaches the postal address as written (add a unit, block or lot number if needed)
+- [ ] In the RECEIVING Gmail (e.g. krvinsocito918@gmail.com), open a test email from hello@kriv.agency → ⋮ → Show original: SPF, DKIM and DMARC should all say PASS
 - [ ] Upgrade to Vercel Pro before the first real preview is sent
 
 ## Setup (Claude builds, Kriv approves)
@@ -61,7 +63,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Pipeline (Phase 4)
 
-- [ ] Lead finder: search one niche in one city, filter, deduplicate, skip a do-not-contact list
+- [ ] Lead finder: web search + directories for one niche in one city, check each website, filter, deduplicate, skip a do-not-contact list
 - [ ] Preview builder: facts from sources only, validate, render, screenshot, QA checklist
 - [ ] Email drafter: one personal Gmail draft per lead with address and opt-out line (never sent automatically)
 - [ ] Lead tracker: status per lead and a daily summary

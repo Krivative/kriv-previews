@@ -1,6 +1,6 @@
 # Google Places API setup (Kriv, about 10 minutes)
 
-Needed for the lead finder. Only Kriv can do this: it uses your Google account and a card.
+**Skipped for the pilot (Kriv, 2026-10-24).** Kept for later if the pilot needs more leads. Only Kriv can do this: it uses your Google account and a card.
 
 1. Go to https://console.cloud.google.com/ and create a project named `kriv-leads`.
 2. Billing → link a billing account (add a card). Google gives a monthly amount of free
