@@ -6,12 +6,16 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 - Date: 2026-10-24
 - Agent: Claude Code (cloud session)
-- Current phase: Phase 1 done and pushed. Phase 2 not started.
-- Repo: `Krivative/kriv-previews` (private), created by Kriv on 2026-10-24 (the Claude GitHub connection gets 403 on repo creation, so Kriv creates repos).
-- Branch / last commit / PR / deployment: `main` at `b0a1293` plus this handoff update. No PR, no deployment.
-- Tests (local, 2026-10-24): `pnpm lint` clean, `pnpm typecheck` pass, `pnpm test` 55/55 pass, `pnpm build` pass, `pnpm test:smoke` 7/7 pass (test-lead 200 with banner and noindex; test-expired shows the expired notice; draft, unknown, uppercase, encoded-traversal slugs and `/for` return 404; `X-Robots-Tag: noindex, nofollow` on all). Screenshots at 1440 and 390 px: no overflow, no console errors.
-- Roadmap with checkboxes: docs/ROADMAP.md; PDF snapshots in docs/reports/.
-- Next action: Phase 2 (Vercel project `kriv-previews` on Hobby), with Kriv's approval to create the project and for production protection settings.
+- Current phase: Phase 1 done; Phase 2 project imported by Kriv, not yet verified; templates for all 4 pilot niches approved; outreach footer and opt-out process done.
+- Repos: `Krivative/kriv-previews` main (this repo); `Krivative/Site-Arsenal` work is on branch `claude/new-session-3jaiso` (audit + batch 5 templates, not merged to main); `Krivative/Kriv` untouched.
+- Vercel: project `kriv-previews` in team Kriv (`team_yYcyLMl2aXoeWOfajA5FMlOh`). The Vercel connector can list projects but gets 403 on deployments, project creation and protected fetches.
+- Network: Kriv widened the cloud environment's network access on 2026-10-24 (earlier sessions could not reach *.vercel.app, kriv.agency or business websites).
+- Tests (2026-10-24): lint, typecheck, 77 unit tests, build, 8 smoke checks all pass locally.
+- Roadmap with checkboxes: docs/ROADMAP.md; PDF snapshots in docs/reports/ (send Kriv a new PDF after every finished step, see CLAUDE.md).
+- Next actions, in order:
+  1. Verify production: `BASE_URL=https://kriv-previews.vercel.app/for pnpm test:smoke` (expect 8/8). If you get a Vercel login page, ask Kriv to limit Deployment Protection to preview deployments.
+  2. Phase 3: branch on `Krivative/Kriv` from main, read its PROJECT-HANDOFF.md first, apply docs/MAIN-SITE-REWRITE.md (two rewrites + robots disallow /for/), open a PR, verify on its Vercel preview that `/`, `/about`, `/insights/...` are unchanged and `/test-lead` shows the preview. Do not merge: Kriv approves merges.
+  3. Phase 4 lead finder for San Antonio TX (dental, HVAC, chiropractic, med spa): web search + directories + the business's own site; no Google Places API; facts only from sources.
 
 ## Verified facts
 
