@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: email footer and opt-out process (docs/OUTREACH.md)
+Updated: 2026-10-24 · Last step finished: HVAC and chiropractic templates; previews moved to kriv.agency/<slug>
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,7 +8,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] Kriv: import Krivative/kriv-previews in the Vercel dashboard (Kriv team → Add New → Project → Import; keep the default settings). Claude's Vercel access cannot create projects.
 - [ ] Claude: verify the deployment (test lead live, noindex, real 404s), then Phase 3
-- [ ] Claude: build HVAC and chiropractic templates (calm + bold each)
+- [ ] Kriv: look at the 4 new templates (Breeze, Thermal, Align, Posture) and approve or ask for changes
 
 ## Done
 
@@ -27,6 +27,9 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Email from hello@kriv.agency delivers (Kriv)
 - [x] Postal address for emails: Lapu-Lapu City, Cebu, Philippines; open about being based there (Kriv)
 - [x] Email footer and opt-out process written and tested; Gmail label "KRIV Outreach/Opt-out" created (Claude)
+- [x] Preview address: kriv.agency/<slug>, any letter case, never clashing with main-site pages; tested through a stand-in main site (Claude)
+- [x] HVAC templates built: Breeze (calm) and Thermal (bold) (Claude)
+- [x] Chiropractic templates built: Align (calm) and Posture (bold) (Claude)
 
 ## Decisions needed from Kriv
 
@@ -48,11 +51,9 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 ## Setup (Claude builds, Kriv approves)
 
 - [ ] US-ready content: US spelling, phone and address formats
-- [ ] HVAC templates (calm + bold) built in Site Arsenal, copied here
-- [ ] Chiropractic templates (calm + bold) built in Site Arsenal, copied here
 
 - [ ] Phase 2: Vercel project created, test lead loads publicly with noindex headers
-- [ ] Phase 3: pull request on Krivative/Kriv sending kriv.agency/for/* to the preview app, plus robots.txt disallow
+- [ ] Phase 3: pull request on Krivative/Kriv with the two rewrites in docs/MAIN-SITE-REWRITE.md, plus robots.txt disallow for /for/
 - [ ] Phase 3: Kriv approves the merge and production deploy of the main site
 - [ ] Database adapter for lead records (new leads need no deploy)
 - [ ] Private review link so Kriv can see draft previews before they go live

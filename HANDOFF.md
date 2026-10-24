@@ -27,8 +27,8 @@ Added after Phase 0 (Kriv, 2026-10-24): written OK from Site Arsenal's original 
 Kriv, 2026-10-24: stay on Vercel Hobby until the first paying client, then upgrade to Pro. Risk accepted by Kriv: Vercel's Hobby terms are non-commercial and previews sent to leads may count as commercial use regardless of revenue.
 
 
-1. Lead previews are served at `https://kriv.agency/for/<lead-slug>`, not subdomains and not `.vercel.app` links.
-2. Previews live in a separate app/repo `kriv-previews`; the main site only gets a rewrite rule for `/for/:path*`.
+1. Lead previews are served at `https://kriv.agency/<lead-slug>` (changed from `/for/<lead-slug>` by Kriv on 2026-10-24), not subdomains and not `.vercel.app` links. Main site uses a fallback rewrite: docs/MAIN-SITE-REWRITE.md.
+2. Previews live in a separate app/repo `kriv-previews`; the main site only gets two rewrite rules (see docs/MAIN-SITE-REWRITE.md).
 3. One app renders all leads from data records; no deployment per lead.
 4. Guardrails in the plan's section 3 apply to every preview (noindex, KRIV concept banner, no fake claims, non-working forms, 30-day expiry).
 5. Outreach is personal Gmail drafts reviewed and sent by Kriv.

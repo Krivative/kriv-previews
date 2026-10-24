@@ -11,6 +11,19 @@ const Link = z.object({ label: z.string(), href: z.string() });
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
 
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+// Previews are served at https://kriv.agency/<slug>, next to the main site's own
+// pages. The main site always wins, so a lead may never use one of these names.
+// Keep in sync with the top-level routes and public files of Krivative/Kriv.
+export const RESERVED_SLUGS = new Set([
+  // Krivative/Kriv app routes and files today
+  "about", "api", "book", "build", "insights", "privacy", "robots", "sitemap", "favicon",
+  // this app's own prefix and Next.js internals
+  "for", "_next",
+  // likely future main-site pages
+  "admin", "blog", "careers", "case-studies", "contact", "faq", "jobs", "legal", "login",
+  "pricing", "projects", "services", "terms", "work",
+]);
 export const LeadStatus = z.enum(["draft", "approved", "sent", "replied", "expired"]);
 export type LeadStatus = z.infer<typeof LeadStatus>;
 
@@ -30,7 +43,11 @@ export type SectionRef = z.infer<typeof SectionRef>;
 export type SectionType = SectionRef["type"];
 
 export const SiteData = z.object({
-  slug: z.string().max(80).regex(SLUG_PATTERN),
+  slug: z
+    .string()
+    .max(80)
+    .regex(SLUG_PATTERN)
+    .refine((v) => !RESERVED_SLUGS.has(v), { message: "slug is a kriv.agency page name" }),
   template: z.string(),
   // BCP 47 language tag for the page content, e.g. "en-US", "en-AU".
   lang: z.string().default("en"),

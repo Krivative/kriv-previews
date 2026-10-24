@@ -26,7 +26,8 @@ const checks = [
   ["/test-expired", 200, (b) => b.includes("This preview has expired") && !b.includes("Example Family Dental")],
   ["/test-draft", 404, (b) => !b.includes("Example Family Dental")],
   ["/does-not-exist", 404, (b) => b.includes("Nothing here") && !b.includes("test-lead")],
-  ["/TEST-LEAD", 404, () => true],
+  ["/TEST-LEAD", 200, (b) => b.includes(banner)],
+  ["/about", 404, () => true],
   ["/..%2Fpackage", 404, () => true],
   ["", 404, (b) => !b.includes("test-lead")],
 ];

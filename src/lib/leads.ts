@@ -1,4 +1,4 @@
-import { SiteData, SLUG_PATTERN } from "./site-schema";
+import { RESERVED_SLUGS, SiteData, SLUG_PATTERN } from "./site-schema";
 import { jsonLeadStore, type LeadStore } from "./lead-store";
 import { templates } from "@/templates";
 import type { TemplateDef } from "./templates";
@@ -33,13 +33,15 @@ export function isExpired(site: Pick<SiteData, "status" | "expiresAt">, today: s
 }
 
 /**
- * Looks up a lead by slug. Returns null for anything that must look like a plain
- * 404: a malformed slug, no record, or a draft outside development. A record that
- * fails validation throws, so a broken lead is a loud error, not a silent 404.
+ * Looks up a lead by slug, ignoring case (kriv.agency/Happy-HVAC = /happy-hvac).
+ * Returns null for anything that must look like a plain 404: a malformed or
+ * reserved slug, no record, or a draft outside development. A record that fails
+ * validation throws, so a broken lead is a loud error, not a silent 404.
  */
-export async function getLead(slug: string, opts: GetLeadOptions = {}): Promise<LeadResult | null> {
+export async function getLead(requested: string, opts: GetLeadOptions = {}): Promise<LeadResult | null> {
   const { store = defaultStore, today = todayUtc(), allowDrafts = process.env.NODE_ENV === "development" } = opts;
-  if (!SLUG_PATTERN.test(slug) || slug.length > 80) return null;
+  const slug = requested.toLowerCase();
+  if (!SLUG_PATTERN.test(slug) || slug.length > 80 || RESERVED_SLUGS.has(slug)) return null;
 
   const raw = await store.get(slug);
   if (raw === null) return null;

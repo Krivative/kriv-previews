@@ -35,6 +35,12 @@ describe("schema", () => {
     expect(() => SiteData.parse({ ...testLead, createdAt: "2026-10-24", expiresAt: "2026-10-23" })).toThrow();
   });
 
+  it("rejects reserved slugs", () => {
+    for (const slug of ["about", "book", "insights", "privacy", "for", "pricing"]) {
+      expect(() => SiteData.parse({ ...testLead, slug })).toThrow();
+    }
+  });
+
   it("requires an ISO country code", () => {
     const business = { ...testLead.business, address: { ...testLead.business.address, country: "USA" } };
     expect(() => SiteData.parse({ ...testLead, business })).toThrow();
@@ -61,9 +67,20 @@ describe("getLead", () => {
   });
 
   it("returns null for unknown and malformed slugs", async () => {
-    for (const slug of ["missing", "", "../package", "..%2Fpackage", "Test-Lead", "a/b", "-x", "x-", "a".repeat(81)]) {
+    for (const slug of ["missing", "", "../package", "..%2Fpackage", "a/b", "-x", "x-", "a".repeat(81)]) {
       expect(await get(slug)).toBeNull();
     }
+  });
+
+  it("ignores case in the requested slug", async () => {
+    expect((await get("Test-Lead"))?.kind).toBe("live");
+    expect((await get("TEST-LEAD"))?.kind).toBe("live");
+  });
+
+  it("never serves a kriv.agency page name", async () => {
+    const reserved = memoryStore({ about: { ...testLead, slug: "about" } });
+    expect(await getLead("about", { store: reserved, today })).toBeNull();
+    expect(await getLead("About", { store: reserved, today })).toBeNull();
   });
 
   it("hides drafts unless allowed", async () => {

@@ -4,7 +4,7 @@ Prepared 2026-10-24 in the KRIV Agency Claude Project. Paste this file into the 
 
 ## 1. Objective
 
-Let KRIV produce a tailored concept website for a qualified lead in minutes, host it at `https://kriv.agency/for/<lead-slug>`, and send the lead a personal email linking to it. The system must work the same at 50 leads or 100,000 leads.
+Let KRIV produce a tailored concept website for a qualified lead in minutes, host it at `https://kriv.agency/<lead-slug>` (was `/for/<lead-slug>`; changed 2026-10-24), and send the lead a personal email linking to it. The system must work the same at 50 leads or 100,000 leads.
 
 ## 2. Architecture (decided)
 
@@ -22,7 +22,7 @@ Not chosen, with reasons: building lead pages inside `Krivative/Kriv` (risks the
 
 ## 3. Non-negotiable guardrails for every preview
 
-1. `noindex, nofollow` meta and `X-Robots-Tag` header on every `/for/*` page; `/for/` disallowed in kriv.agency `robots.txt`; never in any sitemap.
+1. `noindex, nofollow` meta and `X-Robots-Tag` header on every preview response; `/for/` (assets) disallowed in kriv.agency `robots.txt`; never in any sitemap. Lead paths are not listed in robots.txt (that would publish every slug).
 2. Visible banner: "Concept preview prepared by KRIV for <Business Name>. Not affiliated with or endorsed by <Business Name>."
 3. Forms, booking and checkout are non-functional and say so. No data is collected from visitors.
 4. Only facts from the lead's own public materials. No invented reviews, testimonials, awards, prices, credentials or results. Placeholder images must be generic or licensed, never another business's photos presented as the lead's.

@@ -1,7 +1,7 @@
 # Keeping templates in sync with Site Arsenal
 
 `Krivative/Site-Arsenal` is where templates are designed and reviewed. This repo
-carries a copy taken from Site Arsenal commit `d579e98` (2026-10-24).
+carries a copy taken from Site Arsenal commit `d8e3581` on branch `claude/new-session-3jaiso` (2026-10-24, 24 templates).
 
 | Path here | Relation to Site Arsenal |
 |---|---|
