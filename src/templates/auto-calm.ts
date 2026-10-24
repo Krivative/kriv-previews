@@ -1,0 +1,45 @@
+import { defineTemplate } from "@/lib/templates";
+
+// Clean workshop. White ground, steel-blue accent, semi-condensed Barlow display, tight 6px radii.
+export const autoCalm = defineTemplate({
+  id: "auto-calm",
+  name: "Workshop",
+  look: "calm",
+  industries: ["auto repair", "car service centre", "tyre and battery shop", "car wash and detailing", "motorcycle shop"],
+  fonts: {
+    display: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif",
+    body: "Inter, system-ui, sans-serif",
+    googleCss: "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap",
+  },
+  tokens: {
+    bg: "#FFFFFF",
+    surface: "#F2F4F7",
+    ink: "#16202B",
+    muted: "#5A6775",
+    line: "#DDE2E8",
+    accent: "#2F5D8A",
+    accentInk: "#FFFFFF",
+    radius: "6px",
+    buttonRadius: "6px",
+    displayWeight: "600",
+    displayTracking: "-0.01em",
+    displayCase: "none",
+  },
+  sections: [
+    { type: "hero", variant: "stacked" },
+    { type: "services", variant: "grid" },
+    { type: "custom", variant: "steps" },
+    { type: "gallery", variant: "strip" },
+    { type: "visit", variant: "card" },
+    { type: "faq", variant: "list" },
+    { type: "close", variant: "band" },
+  ],
+  fingerprint: {
+    grammar: "clean workshop, white with steel blue, semi-condensed headings, 6px radii",
+    nav: "condensed wordmark, steel-blue square-ish CTA",
+    hero: "stacked: condensed headline, wide 16:7 photo, then sub + buttons",
+    sequence: "stacked → service grid → steps → photo strip → visit card → FAQ → band",
+    close: "steel-blue band",
+    signature: "a three-step 'drop off, diagnose, drive home' in blue numerals under a service grid",
+  },
+});

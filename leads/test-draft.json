@@ -1,0 +1,71 @@
+{
+  "slug": "test-draft",
+  "template": "dental-clear",
+  "lang": "en-US",
+  "business": {
+    "name": "Example Family Dental",
+    "category": "Dental clinic",
+    "phoneDisplay": "(512) 555-0100",
+    "phoneE164": "+15125550100",
+    "email": "hello@example.com",
+    "address": {
+      "line1": "[Street address]",
+      "city": "Austin",
+      "region": "TX",
+      "country": "US"
+    },
+    "mapsUrl": "https://maps.google.com/",
+    "hours": [
+      {
+        "days": "Mon to Fri",
+        "time": "8:00 AM to 5:00 PM"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Fictional test lead",
+    "headline": "Family dental care in Austin.",
+    "sub": "A test record for KRIV Previews. The business, phone number and address are fictional."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Check-ups and cleaning",
+        "blurb": "Placeholder service used to test the layout."
+      },
+      {
+        "name": "Fillings",
+        "blurb": "Placeholder service used to test the layout."
+      },
+      {
+        "name": "Whitening",
+        "blurb": "Placeholder service used to test the layout."
+      }
+    ]
+  },
+  "about": {
+    "title": "About this test",
+    "body": "This page exists to check rendering, the concept banner, noindex headers and expiry. It describes no real business."
+  },
+  "faqs": [
+    {
+      "q": "Is this a real clinic?",
+      "a": "No. It is a fictional record used to test KRIV Previews."
+    }
+  ],
+  "close": {
+    "headline": "This is a test preview.",
+    "sub": "Real previews use facts from the lead's own public pages only."
+  },
+  "seo": {
+    "title": "Example Family Dental | Concept preview",
+    "description": "Fictional test lead for KRIV Previews."
+  },
+  "sources": [
+    "https://example.com/"
+  ],
+  "createdAt": "2026-10-24",
+  "expiresAt": "2099-12-31",
+  "status": "draft"
+}

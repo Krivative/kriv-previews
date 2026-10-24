@@ -1,0 +1,16 @@
+.notice {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 96px 24px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.notice h1 {
+  font-size: 1.6rem;
+  margin: 0 0 12px;
+}
+
+.notice a {
+  color: inherit;
+}
