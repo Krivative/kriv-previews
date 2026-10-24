@@ -1,12 +1,12 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: Phase 2 verified (production preview public, 8/8 smoke checks)
+Updated: 2026-10-24 · Last step finished: Phase 3 pull request opened (Krivative/Kriv#19), checked locally
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Claude: open the Phase 3 pull request on Krivative/Kriv (kriv.agency/<slug> rewrites) and check it on its Vercel preview
+- [ ] Kriv: send Claude a share link for the PR's Vercel preview (Vercel → kriv project → the deployment for branch claude/amazing-edison-juyem3 → Share), so Claude can check it there
 - [ ] Claude: start the Phase 4 lead finder for San Antonio, TX
 
 ## Done
@@ -42,6 +42,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Site Arsenal: Kriv is the sole owner; no other copies or deployments exist (Kriv)
 - [x] Google Places API skipped for the pilot; leads found by web search, public directories and the business's own site (Kriv)
 - [x] Network access for this Claude environment widened (Kriv)
+- [x] Phase 3: draft pull request Krivative/Kriv#19 with the two rewrites and the robots.txt disallow for /for/. Local check against the live preview app passed: main-site pages unchanged, /test-lead and /Test-Lead show the preview, unknown paths 404; Vercel build of the PR succeeded (Claude)
 - [x] Phase 2: production preview at kriv-previews.vercel.app/for/test-lead is public; 8/8 smoke checks pass (noindex header and meta, banner, expiry, drafts, unknown slugs); page loads in a browser with styles and no failed requests (Claude)
 
 ## Decisions needed from Kriv
@@ -57,7 +58,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] US-ready content: US spelling, phone and address formats
 
-- [ ] Phase 3: pull request on Krivative/Kriv with the two rewrites in docs/MAIN-SITE-REWRITE.md, plus robots.txt disallow for /for/
+- [ ] Phase 3: check the PR on its Vercel preview (main-site pages unchanged, /test-lead shows the preview)
 - [ ] Phase 3: Kriv approves the merge and production deploy of the main site
 - [ ] Database adapter for lead records (new leads need no deploy)
 - [ ] Private review link so Kriv can see draft previews before they go live

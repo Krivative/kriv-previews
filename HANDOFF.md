@@ -7,14 +7,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - Date: 2026-10-24
 - Agent: Claude Code (cloud session)
 - Current phase: Phases 1 and 2 done (production verified 2026-10-24: 8/8 smoke checks against https://kriv-previews.vercel.app/for, public, no login wall); templates for all 4 pilot niches approved; outreach footer and opt-out process done.
-- Repos: `Krivative/kriv-previews` main (this repo); `Krivative/Site-Arsenal` work is on branch `claude/new-session-3jaiso` (audit + batch 5 templates, not merged to main); `Krivative/Kriv` untouched.
+- Repos: `Krivative/kriv-previews` main, plus docs/lead-finder work on branch `claude/amazing-edison-juyem3` (not merged; a merge to main redeploys production); `Krivative/Site-Arsenal` work is on branch `claude/new-session-3jaiso` (audit + batch 5 templates, not merged to main); `Krivative/Kriv`: draft PR #19 only.
 - Vercel: project `kriv-previews` in team Kriv (`team_yYcyLMl2aXoeWOfajA5FMlOh`). The Vercel connector can list projects but gets 403 on deployments, project creation and protected fetches.
 - Network: Kriv widened the cloud environment's network access on 2026-10-24 (earlier sessions could not reach *.vercel.app, kriv.agency or business websites).
 - Tests (2026-10-24): lint, typecheck, 77 unit tests, build, 8 smoke checks all pass locally.
 - Roadmap with checkboxes: docs/ROADMAP.md; PDF snapshots in docs/reports/ (send Kriv a new PDF after every finished step, see CLAUDE.md).
 - Next actions, in order:
   1. ~~Verify production~~ done 2026-10-24 (8/8).
-  2. Phase 3: branch on `Krivative/Kriv` from main, read its PROJECT-HANDOFF.md first, apply docs/MAIN-SITE-REWRITE.md (two rewrites + robots disallow /for/), open a PR, verify on its Vercel preview that `/`, `/about`, `/insights/...` are unchanged and `/test-lead` shows the preview. Do not merge: Kriv approves merges.
+  2. Phase 3: PR open: https://github.com/Krivative/Kriv/pull/19 (draft, branch `claude/amazing-edison-juyem3`, head `91329b5`). Local check passed and the Vercel build succeeded. NOT yet checked on its Vercel preview: it is behind Vercel Authentication and the Vercel connector gets 403 on team kriv5, so Kriv was asked for a share link. Original instructions: branch on `Krivative/Kriv` from main, read its PROJECT-HANDOFF.md first, apply docs/MAIN-SITE-REWRITE.md (two rewrites + robots disallow /for/), open a PR, verify on its Vercel preview that `/`, `/about`, `/insights/...` are unchanged and `/test-lead` shows the preview. Do not merge: Kriv approves merges.
   3. Phase 4 lead finder for San Antonio TX (dental, HVAC, chiropractic, med spa): web search + directories + the business's own site; no Google Places API; facts only from sources.
 
 ## Verified facts
@@ -62,3 +62,4 @@ Commit secrets or client personal data. Invent reviews, results, prices, credent
 | 2026-10-24 | 0 Access and audit | Claude Code | Repo confirmed, audit written, no secrets found; 3 major gaps (static build per lead, public gallery, soft 404) | Krivative/Site-Arsenal `claude/new-session-3jaiso` |
 | 2026-10-24 | 1 Scaffold | Claude Code | App built: 20 templates, request-time `getLead`, guardrails 1 to 6, tests and smoke check pass locally. Lead schema = Site Arsenal SiteData + lead fields (supersedes plan section 4 field names) | Krivative/kriv-previews `main` `f7cab60` |
 | 2026-10-24 | 2 Vercel project | Claude Code | Production public, 8/8 smoke checks, browser load clean | n/a (verification only) |
+| 2026-10-24 | 3 Main-site rewrite | Claude Code | Draft PR, local check passed, Vercel build OK; preview check blocked by Vercel login | Krivative/Kriv#19 |
