@@ -3,7 +3,7 @@
 Concept websites for qualified leads, served at `https://kriv.agency/for/<slug>`.
 One Next.js app renders every lead from a data record; a new lead needs no deploy.
 
-Start with `HANDOFF.md` (status and approval rules) and `docs/PLAN.md` (the plan).
+Start with `HANDOFF.md` (status and approval rules), `docs/ROADMAP.md` (checklist) and `docs/PLAN.md` (the plan).
 
 ## Layout
 

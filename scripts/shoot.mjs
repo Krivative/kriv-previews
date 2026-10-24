@@ -1,7 +1,12 @@
-// node scripts/shoot.mjs <slug> [more slugs...]   (BASE_URL defaults to http://localhost:3100/for; needs Playwright installed)
+// NODE_PATH=$(npm root -g) node scripts/shoot.mjs <slug> [more slugs...]   (BASE_URL defaults to http://localhost:3100/for)
 // Full-page screenshots at 1440 and 390 px into shots/, plus console errors and
 // horizontal-overflow checks. Exit code 1 if any check fails.
-import { chromium } from "playwright";
+import { createRequire } from "node:module";
+
+// Playwright is not a project dependency; resolve it from the project or NODE_PATH.
+const require = createRequire(import.meta.url);
+const searchPaths = [process.cwd(), ...(process.env.NODE_PATH ?? "").split(":").filter(Boolean)];
+const { chromium } = require(require.resolve("playwright", { paths: searchPaths }));
 import { mkdirSync } from "node:fs";
 
 const base = process.env.BASE_URL ?? "http://localhost:3100/for";

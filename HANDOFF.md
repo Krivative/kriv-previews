@@ -1,6 +1,6 @@
 # HANDOFF: KRIV Previews
 
-Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing this work: read this file top to bottom, then `docs/PLAN.md`. Update the "Latest checkpoint" section at the top after every verified stage. Never mark something done that you have not verified.
+Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing this work: read this file top to bottom, then `docs/PLAN.md`. Update the "Latest checkpoint" section at the top after every verified stage, and tick docs/ROADMAP.md and send Kriv its PDF (see CLAUDE.md). Never mark something done that you have not verified.
 
 ## Latest checkpoint
 
@@ -10,6 +10,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - Repo: `Krivative/kriv-previews` (private), created by Kriv on 2026-10-24 (the Claude GitHub connection gets 403 on repo creation, so Kriv creates repos).
 - Branch / last commit / PR / deployment: `main` at `b0a1293` plus this handoff update. No PR, no deployment.
 - Tests (local, 2026-10-24): `pnpm lint` clean, `pnpm typecheck` pass, `pnpm test` 55/55 pass, `pnpm build` pass, `pnpm test:smoke` 7/7 pass (test-lead 200 with banner and noindex; test-expired shows the expired notice; draft, unknown, uppercase, encoded-traversal slugs and `/for` return 404; `X-Robots-Tag: noindex, nofollow` on all). Screenshots at 1440 and 390 px: no overflow, no console errors.
+- Roadmap with checkboxes: docs/ROADMAP.md; PDF snapshots in docs/reports/.
 - Next action: Phase 2 (Vercel project `kriv-previews` on Hobby), with Kriv's approval to create the project and for production protection settings.
 
 ## Verified facts
