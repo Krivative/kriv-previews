@@ -6,11 +6,11 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 - Date: 2026-10-24
 - Agent: Claude Code (cloud session)
-- Current phase: Phase 1 built and verified locally. Not pushed: the repo does not exist yet.
-- Repo: `Krivative/kriv-previews` (private) to be created by Kriv on github.com (the Claude GitHub connection gets 403 on repo creation). Local commit on `main` is ready to push.
-- Branch / last commit / PR / deployment: local `main` only. No PR, no deployment.
+- Current phase: Phase 1 done and pushed. Phase 2 not started.
+- Repo: `Krivative/kriv-previews` (private), created by Kriv on 2026-10-24 (the Claude GitHub connection gets 403 on repo creation, so Kriv creates repos).
+- Branch / last commit / PR / deployment: `main` at `b0a1293` plus this handoff update. No PR, no deployment.
 - Tests (local, 2026-10-24): `pnpm lint` clean, `pnpm typecheck` pass, `pnpm test` 55/55 pass, `pnpm build` pass, `pnpm test:smoke` 7/7 pass (test-lead 200 with banner and noindex; test-expired shows the expired notice; draft, unknown, uppercase, encoded-traversal slugs and `/for` return 404; `X-Robots-Tag: noindex, nofollow` on all). Screenshots at 1440 and 390 px: no overflow, no console errors.
-- Next action: Kriv creates the empty repo; push; then Phase 2 (Vercel project on Hobby) with Kriv's approval for production protection settings.
+- Next action: Phase 2 (Vercel project `kriv-previews` on Hobby), with Kriv's approval to create the project and for production protection settings.
 
 ## Verified facts
 
@@ -54,4 +54,4 @@ Commit secrets or client personal data. Invent reviews, results, prices, credent
 |---|---|---|---|---|
 | 2026-10-24 | Planning | Claude (Claude.ai) | Plan and handoff written | n/a |
 | 2026-10-24 | 0 Access and audit | Claude Code | Repo confirmed, audit written, no secrets found; 3 major gaps (static build per lead, public gallery, soft 404) | Krivative/Site-Arsenal `claude/new-session-3jaiso` |
-| 2026-10-24 | 1 Scaffold | Claude Code | App built: 20 templates, request-time `getLead`, guardrails 1 to 6, tests and smoke check pass locally. Lead schema = Site Arsenal SiteData + lead fields (supersedes plan section 4 field names) | local `main`, not pushed |
+| 2026-10-24 | 1 Scaffold | Claude Code | App built: 20 templates, request-time `getLead`, guardrails 1 to 6, tests and smoke check pass locally. Lead schema = Site Arsenal SiteData + lead fields (supersedes plan section 4 field names) | Krivative/kriv-previews `main` `f7cab60` |
