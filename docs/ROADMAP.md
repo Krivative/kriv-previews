@@ -1,13 +1,13 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: Vercel project imported; address completed; Places API skipped
+Updated: 2026-10-24 · Last step finished: Phase 2 verified (production preview public, 8/8 smoke checks)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: open the 3 test links (see chat) and say what each shows, OR widen this environment's network access so Claude can check (cloud environment menu → Edit → Network access)
-- [ ] Claude: open the Phase 3 pull request on Krivative/Kriv (kriv.agency/<slug> rewrites)
+- [ ] Claude: open the Phase 3 pull request on Krivative/Kriv (kriv.agency/<slug> rewrites) and check it on its Vercel preview
+- [ ] Claude: start the Phase 4 lead finder for San Antonio, TX
 
 ## Done
 
@@ -41,10 +41,12 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Postal address completed: Block 3 Lot 7, Rajah Townhomes, Mactan, Lapu-Lapu City, Cebu 6015 (Kriv)
 - [x] Site Arsenal: Kriv is the sole owner; no other copies or deployments exist (Kriv)
 - [x] Google Places API skipped for the pilot; leads found by web search, public directories and the business's own site (Kriv)
+- [x] Network access for this Claude environment widened (Kriv)
+- [x] Phase 2: production preview at kriv-previews.vercel.app/for/test-lead is public; 8/8 smoke checks pass (noindex header and meta, banner, expiry, drafts, unknown slugs); page loads in a browser with styles and no failed requests (Claude)
 
 ## Decisions needed from Kriv
 
-- [ ] Network access for this Claude environment: allow full internet (needed to verify previews and read lead websites)
+- [ ] Merge the docs branch `claude/amazing-edison-juyem3` of kriv-previews into main (a merge to main redeploys production)
 
 ## Kriv's setup tasks
 
@@ -55,7 +57,6 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] US-ready content: US spelling, phone and address formats
 
-- [ ] Phase 2: Vercel project created, test lead loads publicly with noindex headers
 - [ ] Phase 3: pull request on Krivative/Kriv with the two rewrites in docs/MAIN-SITE-REWRITE.md, plus robots.txt disallow for /for/
 - [ ] Phase 3: Kriv approves the merge and production deploy of the main site
 - [ ] Database adapter for lead records (new leads need no deploy)

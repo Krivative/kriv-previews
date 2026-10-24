@@ -6,14 +6,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 - Date: 2026-10-24
 - Agent: Claude Code (cloud session)
-- Current phase: Phase 1 done; Phase 2 project imported by Kriv, not yet verified; templates for all 4 pilot niches approved; outreach footer and opt-out process done.
+- Current phase: Phases 1 and 2 done (production verified 2026-10-24: 8/8 smoke checks against https://kriv-previews.vercel.app/for, public, no login wall); templates for all 4 pilot niches approved; outreach footer and opt-out process done.
 - Repos: `Krivative/kriv-previews` main (this repo); `Krivative/Site-Arsenal` work is on branch `claude/new-session-3jaiso` (audit + batch 5 templates, not merged to main); `Krivative/Kriv` untouched.
 - Vercel: project `kriv-previews` in team Kriv (`team_yYcyLMl2aXoeWOfajA5FMlOh`). The Vercel connector can list projects but gets 403 on deployments, project creation and protected fetches.
 - Network: Kriv widened the cloud environment's network access on 2026-10-24 (earlier sessions could not reach *.vercel.app, kriv.agency or business websites).
 - Tests (2026-10-24): lint, typecheck, 77 unit tests, build, 8 smoke checks all pass locally.
 - Roadmap with checkboxes: docs/ROADMAP.md; PDF snapshots in docs/reports/ (send Kriv a new PDF after every finished step, see CLAUDE.md).
 - Next actions, in order:
-  1. Verify production: `BASE_URL=https://kriv-previews.vercel.app/for pnpm test:smoke` (expect 8/8). If you get a Vercel login page, ask Kriv to limit Deployment Protection to preview deployments.
+  1. ~~Verify production~~ done 2026-10-24 (8/8).
   2. Phase 3: branch on `Krivative/Kriv` from main, read its PROJECT-HANDOFF.md first, apply docs/MAIN-SITE-REWRITE.md (two rewrites + robots disallow /for/), open a PR, verify on its Vercel preview that `/`, `/about`, `/insights/...` are unchanged and `/test-lead` shows the preview. Do not merge: Kriv approves merges.
   3. Phase 4 lead finder for San Antonio TX (dental, HVAC, chiropractic, med spa): web search + directories + the business's own site; no Google Places API; facts only from sources.
 
@@ -61,3 +61,4 @@ Commit secrets or client personal data. Invent reviews, results, prices, credent
 | 2026-10-24 | Planning | Claude (Claude.ai) | Plan and handoff written | n/a |
 | 2026-10-24 | 0 Access and audit | Claude Code | Repo confirmed, audit written, no secrets found; 3 major gaps (static build per lead, public gallery, soft 404) | Krivative/Site-Arsenal `claude/new-session-3jaiso` |
 | 2026-10-24 | 1 Scaffold | Claude Code | App built: 20 templates, request-time `getLead`, guardrails 1 to 6, tests and smoke check pass locally. Lead schema = Site Arsenal SiteData + lead fields (supersedes plan section 4 field names) | Krivative/kriv-previews `main` `f7cab60` |
+| 2026-10-24 | 2 Vercel project | Claude Code | Production public, 8/8 smoke checks, browser load clean | n/a (verification only) |
