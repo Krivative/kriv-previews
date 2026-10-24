@@ -22,9 +22,9 @@
 | office-bold | Counsel | bold | law firm, financial advisory, architecture, engineering, corporate services | stacked hero · service columns · steps · quote · visit card · FAQ columns · close card | batch 4, for review |
 | resort-calm | Shore | calm | beach resort, boutique hotel, pool villa, B&B, dive resort | banner hero · room grid · mosaic · quote · steps · visit split · FAQ list · band | batch 4, for review |
 | resort-bold | Fiesta | bold | events venue, wedding venue, resort with halls, party place, mountain resort | stacked hero · package tiles · mosaic · accent strip · visit split · FAQ columns · band | batch 4, for review |
-| hvac-calm | Breeze | calm | HVAC contractor, heating and air, furnace repair, heat pumps, indoor air | split hero · service-area strip · service grid · about split · visit split · FAQ columns · close card | batch 5, for review |
-| hvac-bold | Thermal | bold | HVAC company, 24/7 heating and cooling, commercial HVAC, ductwork, refrigeration | stacked hero · emergency strip · service tiles · quote · mosaic · visit split · FAQ list · statement | batch 5, for review |
-| chiro-calm | Align | calm | chiropractor, family chiropractic, sports chiropractic, physical therapy | centred hero · first-visit steps · treatment rows · about split · visit card · FAQ list · band | batch 5, for review |
-| chiro-bold | Posture | bold | sports chiropractic, spine and posture clinic, sports rehab, mobility studio | poster hero · treatment columns · note · photo strip · quote · visit card · FAQ columns · band | batch 5, for review |
+| hvac-calm | Breeze | calm | HVAC contractor, heating and air, furnace repair, heat pumps, indoor air | split hero · service-area strip · service grid · about split · visit split · FAQ columns · close card | batch 5, approved |
+| hvac-bold | Thermal | bold | HVAC company, 24/7 heating and cooling, commercial HVAC, ductwork, refrigeration | stacked hero · emergency strip · service tiles · quote · mosaic · visit split · FAQ list · statement | batch 5, approved |
+| chiro-calm | Align | calm | chiropractor, family chiropractic, sports chiropractic, physical therapy | centred hero · first-visit steps · treatment rows · about split · visit card · FAQ list · band | batch 5, approved |
+| chiro-bold | Posture | bold | sports chiropractic, spine and posture clinic, sports rehab, mobility studio | poster hero · treatment columns · note · photo strip · quote · visit card · FAQ columns · band | batch 5, approved |
 
 24 templates: the original 10 industries plus HVAC and chiropractic (batch 5, built for the KRIV Previews US pilot).

@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: HVAC and chiropractic templates; previews moved to kriv.agency/<slug>
+Updated: 2026-10-24 · Last step finished: templates approved; open decisions filled in (Claude's recommendations, delegated by Kriv)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,7 +8,6 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] Kriv: import Krivative/kriv-previews in the Vercel dashboard (Kriv team → Add New → Project → Import; keep the default settings). Claude's Vercel access cannot create projects.
 - [ ] Claude: verify the deployment (test lead live, noindex, real 404s), then Phase 3
-- [ ] Kriv: look at the 4 new templates (Breeze, Thermal, Align, Posture) and approve or ask for changes
 
 ## Done
 
@@ -30,22 +29,24 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Preview address: kriv.agency/<slug>, any letter case, never clashing with main-site pages; tested through a stand-in main site (Claude)
 - [x] HVAC templates built: Breeze (calm) and Thermal (bold) (Claude)
 - [x] Chiropractic templates built: Align (calm) and Posture (bold) (Claude)
+- [x] New templates approved: Breeze, Thermal, Align, Posture (Kriv)
+- [x] Pilot area: San Antonio, Texas metro (Claude's pick, delegated by Kriv; easy to change)
+- [x] Lead segments: no website AND weak or outdated website (Claude, delegated)
+- [x] Email finding: read the business's own website and Google listing; no paid finder (Hunter.io) during the pilot (Claude, delegated)
+- [x] Lead records: free Upstash Redis tier (Claude, delegated)
+- [x] Batch-4 templates (gym, office, resort): not used in the pilot niches, so left "for review" (Claude, delegated)
+- [x] Daily sending limit: 20 a day for the first 2 weeks, then up to 30 if replies are healthy and nothing lands in spam (Claude, delegated)
+- [x] Separate Vercel project kept (no tracking on previews, main site never redeploys per lead) (Claude, delegated)
 
 ## Decisions needed from Kriv
 
-- [ ] Pilot city or state to start with (suggested: one metro area)
-- [ ] Also target businesses with a weak or outdated website? (their email is on their site, so it can be found automatically)
-- [ ] Email finder: OK to use Hunter.io (paid, finds emails by domain), or manual lookup only?
-- [ ] OK to use the free Upstash Redis tier for lead records
-- [ ] Can the 5 batch-4 templates (still "for review") be used for real leads?
-- [ ] Is Site Arsenal still deployed from the original client's Vercel account? (it is not in the Kriv team; its public gallery lists every site)
+- [ ] Ask Site Arsenal's original owner whether it is still deployed on their Vercel account (it is not in the Kriv team; its public gallery lists every site). Only Kriv can ask.
 
 ## Kriv's setup tasks
 
 - [ ] In Gmail, open a test email from hello@kriv.agency → ⋮ → Show original: SPF, DKIM and DMARC should all say PASS (receiving mail does not prove this)
-- [ ] Create a Google Cloud project with billing and a Places API key (stored as a Vercel/environment secret, never in Git)
+- [ ] Create a Google Cloud project with billing, enable Places API (New), create an API key restricted to that API, and set a budget alert (steps in docs/GOOGLE-PLACES-SETUP.md). Only Kriv can do this: it needs your Google account and a card.
 - [ ] Confirm mail actually reaches the postal address as written (add a unit, block or lot number if needed)
-- [ ] Agree a daily sending limit (suggested 20 to 30 personal emails a day)
 - [ ] Upgrade to Vercel Pro before the first real preview is sent
 
 ## Setup (Claude builds, Kriv approves)

@@ -36,8 +36,8 @@ Kriv, 2026-10-24: stay on Vercel Hobby until the first paying client, then upgra
 ## Still open (needs Kriv)
 
 - Which Vercel account still deploys Site Arsenal (its public gallery lists every site), and connector access to the team holding the `kriv` project.
-- Whether batch 4 templates ("for review" in docs/TEMPLATES.md) may be used for real leads.
 - Upgrade to Vercel Pro (main site and previews in one team) when the first client signs.
+- Pilot defaults chosen by Claude at Kriv's request (2026-10-24): San Antonio TX metro; no-website and weak-website leads; emails from the business's own site and listing, no paid finder; Upstash free tier; 20 emails/day for 2 weeks then up to 30. See docs/ROADMAP.md.
 - Lead volume target for the first month.
 - Later: database provider for Phase 5.
 
