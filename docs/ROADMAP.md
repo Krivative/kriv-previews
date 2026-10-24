@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: pilot decisions (US; dental, HVAC, chiropractic, med spa; email)
+Updated: 2026-10-24 · Last step finished: email footer and opt-out process (docs/OUTREACH.md)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -25,6 +25,8 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [x] Vercel account: main Kriv team, next to the kriv project (Kriv)
 - [x] Phase 2 go-ahead: create the project and deploy the fictional test lead (Kriv)
 - [x] Email from hello@kriv.agency delivers (Kriv)
+- [x] Postal address for emails: Lapu-Lapu City, Cebu, Philippines; open about being based there (Kriv)
+- [x] Email footer and opt-out process written and tested; Gmail label "KRIV Outreach/Opt-out" created (Claude)
 
 ## Decisions needed from Kriv
 
@@ -39,13 +41,13 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] In Gmail, open a test email from hello@kriv.agency → ⋮ → Show original: SPF, DKIM and DMARC should all say PASS (receiving mail does not prove this)
 - [ ] Create a Google Cloud project with billing and a Places API key (stored as a Vercel/environment secret, never in Git)
-- [ ] Postal address to put in every email (US CAN-SPAM requires a valid physical or PO box address)
+- [ ] Confirm mail actually reaches the postal address as written (add a unit, block or lot number if needed)
 - [ ] Agree a daily sending limit (suggested 20 to 30 personal emails a day)
 - [ ] Upgrade to Vercel Pro before the first real preview is sent
 
 ## Setup (Claude builds, Kriv approves)
 
-- [ ] US-ready content: US spelling, phone and address formats, CAN-SPAM footer text
+- [ ] US-ready content: US spelling, phone and address formats
 - [ ] HVAC templates (calm + bold) built in Site Arsenal, copied here
 - [ ] Chiropractic templates (calm + bold) built in Site Arsenal, copied here
 

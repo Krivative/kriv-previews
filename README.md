@@ -17,7 +17,8 @@ src/sections/            shared section kit (from Site Arsenal; links made inert
 src/templates/           20 templates (from Site Arsenal)
 tests/                   vitest: schema, lookup, expiry, every template renders safely
 scripts/smoke.mjs        HTTP checks against the built server or a deployment
-docs/                    plan, Site Arsenal audit, template catalog, sync notes
+src/outreach/footer.ts   email footer, sender details, opt-out detection
+docs/                    plan, roadmap, outreach rules, audit, template catalog, sync notes
 ```
 
 ## Commands
