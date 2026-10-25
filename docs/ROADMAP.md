@@ -1,15 +1,17 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-24 · Last step finished: Phase 3 pull request opened (Krivative/Kriv#19), checked locally
+Updated: 2026-10-25 · Last step finished: Phase 3 verified on the PR's Vercel preview (Kriv)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: send Claude a share link for the PR's Vercel preview (Vercel → kriv project → the deployment for branch claude/amazing-edison-juyem3 → Share), so Claude can check it there
-- [ ] Claude: start the Phase 4 lead finder for San Antonio, TX
+- [ ] Claude: Phase 4 lead finder for San Antonio, TX (dental, HVAC, chiropractic, med spa); list saved outside Git for Kriv's review
+- [ ] Claude: report on images for the preview photo placeholders (herk-edit-kit or another generic/licensed source)
 
 ## Done
+
+- [x] Phase 3: checked on the PR's Vercel preview: homepage looks like kriv.agency, /test-lead shows the preview with the concept banner, /nope shows "Nothing here"; recorded in the PR description (Kriv, 2026-10-25)
 
 - [x] Phase 0: Site Arsenal located and audited (no secrets, no client data) (Claude)
 - [x] Written OK from Site Arsenal's original owner for commercial use (Kriv)
@@ -58,7 +60,6 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] US-ready content: US spelling, phone and address formats
 
-- [ ] Phase 3: check the PR on its Vercel preview (main-site pages unchanged, /test-lead shows the preview)
 - [ ] Phase 3: Kriv approves the merge and production deploy of the main site
 - [ ] Database adapter for lead records (new leads need no deploy)
 - [ ] Private review link so Kriv can see draft previews before they go live

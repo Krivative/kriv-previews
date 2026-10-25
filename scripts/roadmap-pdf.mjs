@@ -23,7 +23,8 @@ let done = 0;
 let total = 0;
 const body = [];
 let list = false;
-for (const line of md.split("\n")) {
+// \r?\n: Git on Windows checks files out with CRLF line endings.
+for (const line of md.split(/\r?\n/)) {
   const item = line.match(/^- \[( |x)\] (.*)$/);
   if (!item && list) {
     body.push("</ul>");
