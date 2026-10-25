@@ -43,6 +43,16 @@ How leads are found and qualified. The lead lists themselves are never committed
 
 Sources that worked: Hotfrog town pages (49 towns; listings skew to older businesses and often show an email), ChamberMaster directories (Metro SA, Boerne, Logan, Tyler, St. George, Ogden-Weber, Utah Valley), TACCA, medspanear.me, web search. Web search found almost only modern sites (0 weak among 150 town results). Extra checks added in the qualify step: the email's domain must have MX records (dead domains bounce), and a business whose email domain is another working, modern site is not a lead. Weak sites are usually dead domains, and the email on a dead domain is dead too, which is why the near-miss count is high.
 
+## Scripts
+
+All output holds business emails, so the data folder lives outside Git (`/finder-data/` is ignored as a safety net).
+
+1. `node scripts/finder/hotfrog.mjs <data>/hotfrog-<run>.json waco-tx,ocala-fl,...` collects Hotfrog listings for the four niches.
+2. `node scripts/finder/chamber.mjs <data>/chamber-<run>.json <ChamberMaster /list/ URL...>` collects chamber members.
+3. Web-search finds go in `<data>/r<n>-search.txt`, one `state|town|niche|url` per line.
+4. `scripts/finder/grade.sh <data> <list> <prefix>` grades websites in foreground batches of 20 into `<data>/batches/`.
+5. `node scripts/finder/qualify.mjs <data> <outDir>` applies the rules (business mailbox, MX records, chains and specialists, a modern site on the email's domain) and writes `qualified.json`, `near-misses.json` and `not-checked.json`.
+
 ## Checker caveats
 
 - **Bot walls and geo-blocks are not weak sites.** Many US small-business sites answer a non-US or headless visitor with a Cloudflare challenge (403 "Just a moment..."), an empty 202, or "418 Country Blocked". `flagsFor` now marks these, and timeouts and mid-check redirects, as `not-checked` with `weak: false`. Re-check them from a US network before drawing any conclusion.
