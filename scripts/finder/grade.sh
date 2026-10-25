@@ -8,7 +8,8 @@ L=$1; list=$2; prefix=$3; shift 3
 mkdir -p "$L/batches"
 mapfile -t urls < <(tr -d '\r' < "$L/$list" | grep -v '^#' | grep . | awk -F'|' '{print $NF}')
 total=$(( (${#urls[@]} + 19) / 20 ))
-for n in "${@:-$(seq 0 $((total - 1)))}"; do
+[ $# -eq 0 ] && set -- $(seq 0 $((total - 1)))
+for n in "$@"; do
   out="$L/batches/$prefix-$n.json"
   [ -s "$out" ] && { echo "batch $n already done"; continue; }
   chunk=("${urls[@]:$((n * 20)):20}")

@@ -1,17 +1,17 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Vercel Pro active for team Kriv (checked); Kriv sends the lead emails by hand
+Updated: 2026-10-25 · Last step finished: Kriv sent all 10 lead emails by hand (status sent); plumbing and auto repair leads being re-verified
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: send the emails by hand (Springer Bros., Kyle's and the 7 new leads; Air Source 1 on hold) (drafts in C:\Users\user\kriv-leads\emails\)
-- [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
-- [ ] Claude: lead finder for plumbing and auto repair in Texas, Florida and Utah (Hotfrog is challenging this network now; a US cloud run uses Yellowpages)
+- [ ] Claude: draft the plumbing and auto repair leads (cloud run found 10; Kriv pre-approved those that qualify); merge to main needs Kriv's OK
+- [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
 
 ## Done
 
+- [x] Kriv sent all 10 lead emails by hand from hello@kriv.agency (including Air Source 1); lead status set to sent (Kriv, 2026-10-25)
 - [x] 7 more approved leads live (Kriv approved the merge): main fast-forwarded to a838212, production dpl_AQaQZL9VwEyWFj8pFeBdk7x3vm5J; all 7 pages return 200 with noindex and the banner, browser check clean on desktop and phone; the first 3 still live; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the plumbing templates Tap and Pressure, and the 7 new drafts (poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic); open facts: keep the listing's version (Kriv, 2026-10-25)
 - [x] Virtus Outreach sheet reviewed: no rows in KRIV's niches; 61 of 163 website domains don't exist; the 5 Fort Worth plumbing and auto repair rows don't qualify (modern sites, or no public email). Nothing from it used or stored in Git (Claude, 2026-10-25)
@@ -104,6 +104,6 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Pilot and automation
 
-- [ ] 3 real leads end to end, each page and email approved by Kriv
+- [x] 3 real leads end to end, each page and email approved by Kriv: 10 sent by hand on 2026-10-25 (Kriv)
 - [ ] Batches of 10 a day with Kriv's review; track reply rates
 - [ ] Daily scheduled run of the finder, builder and drafter
