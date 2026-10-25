@@ -1,17 +1,19 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: free-mail rule (Kriv) applied: 10 qualified leads (FL 7, TX 3; HVAC 8, chiro 2), target reached
+Updated: 2026-10-25 · Last step finished: 7 more draft previews and email drafts ready for Kriv (10 qualified leads: 3 live, 7 drafts)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
 - [ ] Kriv: upgrade to Vercel Pro, then send the Springer Bros. and Kyle's Air Conditioning emails by hand (drafts in C:\Users\user\kriv-leads\emails\)
-- [ ] Kriv: choose which of the 7 new qualified leads to draft next (previews and emails, same approval flow)
-- [ ] Claude: before sending to Air Source 1, re-check from a US connection that its website address still shows only an error page
+- [ ] Kriv: approve or change the 7 new drafts (Poinciana Air, Fidelity Air, Accurate Air of Lakeland, A/C Best Price, A. J. Monier, Bayside Lakes Chiropractic, Atkinson Chiropractic) on the Lead Desk; 3 have a fact to confirm
+- [ ] Kriv: decide on social profiles for near-miss emails (Facebook pages need a login)
+- [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
 
 ## Done
 
+- [x] 7 more draft previews (status draft, not live): poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic; facts from listings and the business's own pages, street address left out where sources disagree; Unsplash photos credited; QA per docs/LEAD-QA.md, desktop and phone screenshots clean; email drafts outside Git, not sent (Claude, 2026-10-25)
 - [x] Target of 10 qualified leads reached (Kriv's free-mail rule: a Gmail/AOL/BellSouth address the business publishes counts, unless plainly a person's first.last name): Florida 7 (HVAC 6, chiro 1), Texas 3 (HVAC 2, chiro 1), Utah 0; 3 dropped on review; lists outside Git (Kriv decided, Claude, 2026-10-25)
 - [x] Business email rule widened by Kriv: any address on the business's own website domain counts, including a first name (small and family businesses); a person's free-mail address still does not. isBusinessMailbox and tests updated; re-applied: 1 more lead (A.J. Monier Service Co., San Antonio TX HVAC), 5 qualified in total (Kriv decided, Claude, 2026-10-25)
 - [x] Lead finder round 2, Hotfrog in 32 more towns: 66 listings, 42 sites graded, 1 new qualified lead (Fidelity Air & Refrigeration, FL HVAC); totals 4 qualified, 127 near misses, 63 not checked (Claude, 2026-10-25)

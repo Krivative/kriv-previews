@@ -1,0 +1,103 @@
+{
+  "slug": "bayside-lakes-chiropractic",
+  "template": "chiro-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Bayside Lakes Chiropractic",
+    "category": "Chiropractor",
+    "phoneDisplay": "(321) 872-0770",
+    "phoneE164": "+13218720770",
+    "address": {
+      "line1": "754 Malabar Rd SE Ste 1",
+      "city": "Palm Bay",
+      "region": "FL",
+      "postalCode": "32907",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Palm Bay, Florida",
+    "headline": "Chiropractic care in Palm Bay.",
+    "sub": "Chiropractic care for back and neck pain and auto accident injuries, with X-rays on site."
+  },
+  "services": {
+    "title": "Care",
+    "items": [
+      {
+        "name": "Back and neck pain",
+        "blurb": "Chiropractic care for back and neck pain."
+      },
+      {
+        "name": "Auto accident injuries",
+        "blurb": "Care after auto accidents and personal injuries."
+      },
+      {
+        "name": "Trigger point therapy",
+        "blurb": "Trigger point work as part of treatment."
+      },
+      {
+        "name": "X-rays on site",
+        "blurb": "X-rays taken in the office."
+      }
+    ]
+  },
+  "custom": {
+    "title": "On Malabar Road",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "754 Malabar Rd SE Ste 1, Palm Bay, FL 32907"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(321) 872-0770"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Questions about chiropractic care?",
+    "sub": "Call Bayside Lakes Chiropractic at (321) 872-0770."
+  },
+  "seo": {
+    "title": "Bayside Lakes Chiropractic | Concept preview",
+    "description": "Concept preview of a website for Bayside Lakes Chiropractic in Palm Bay, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/AAESZIHZfXmjTERgcMwcQA/bayside-lakes-chiropractic/palm-bay/alternative-health-care",
+    "http://www.lapinechiropractic.com/",
+    "https://www.wellness.com/find/chiropractor/fl/palm%20bay",
+    "https://unsplash.com/photos/red-leather-padded-massage-bed-in-room-96OK7Qn1vHA",
+    "https://unsplash.com/photos/close-up-of-a-human-spine-model-with-red-disc-5thrMBqG5E0",
+    "https://unsplash.com/photos/black-bed-frame-on-brown-wooden-parquet-floor-aANVpKWaldg"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1553267570-9becda98edf8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcyfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1772122028898-1640a4dd2d7f?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTczfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622878179314-0b25f2ad50e4?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTc0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Stuart Poulton",
+        "profileUrl": "https://unsplash.com/@stupox",
+        "photoPage": "https://unsplash.com/photos/red-leather-padded-massage-bed-in-room-96OK7Qn1vHA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Julius Toltesi",
+        "profileUrl": "https://unsplash.com/@julius_toltesi",
+        "photoPage": "https://unsplash.com/photos/close-up-of-a-human-spine-model-with-red-disc-5thrMBqG5E0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "HygienePro",
+        "profileUrl": "https://unsplash.com/@hygienepro",
+        "photoPage": "https://unsplash.com/photos/black-bed-frame-on-brown-wooden-parquet-floor-aANVpKWaldg"
+      }
+    ]
+  }
+}

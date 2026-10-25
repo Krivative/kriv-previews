@@ -1,0 +1,97 @@
+{
+  "slug": "accurate-air-lakeland",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Accurate Air of Lakeland",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(863) 559-1676",
+    "phoneE164": "+18635591676",
+    "address": {
+      "line1": "5528 Cherry Rd.",
+      "city": "Lakeland",
+      "region": "FL",
+      "postalCode": "33810",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Lakeland, Florida",
+    "headline": "Air conditioning service and repair.",
+    "sub": "Service and repair of all makes and models, and installation for homes and businesses, in Lakeland, Florida."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Service and repair",
+        "blurb": "Service and repair for all makes and models."
+      },
+      {
+        "name": "Installation",
+        "blurb": "Installation for residential and commercial customers."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Heating and air conditioning work."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Based in Lakeland, Florida",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "5528 Cherry Rd., Lakeland, FL 33810"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(863) 559-1676"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need your air conditioning looked at?",
+    "sub": "Call Accurate Air of Lakeland at (863) 559-1676."
+  },
+  "seo": {
+    "title": "Accurate Air of Lakeland | Concept preview",
+    "description": "Concept preview of a website for Accurate Air of Lakeland, heating and air conditioning in Lakeland, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/AC4-sjKucy6IlkA6qTOa8w/accurate-air-of-lakeland-inc/lakeland/heating-air",
+    "https://unsplash.com/photos/multiple-air-conditioning-units-mounted-on-a-building-HO6IaLJoFAo",
+    "https://unsplash.com/photos/black-and-gray-box-fan-bpq1X06_yHQ",
+    "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1773952137490-2bea3f95ed39?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY3fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1601993198415-19d86ae28424?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY3fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1705444509014-fed54b6191bf?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "proudlyswazi",
+        "profileUrl": "https://unsplash.com/@proudlyswazi",
+        "photoPage": "https://unsplash.com/photos/multiple-air-conditioning-units-mounted-on-a-building-HO6IaLJoFAo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jose Antonio Gallego Vázquez",
+        "profileUrl": "https://unsplash.com/@joseantoniogall",
+        "photoPage": "https://unsplash.com/photos/black-and-gray-box-fan-bpq1X06_yHQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Illia Horokhovsky",
+        "profileUrl": "https://unsplash.com/@fili_ja",
+        "photoPage": "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+      }
+    ]
+  }
+}

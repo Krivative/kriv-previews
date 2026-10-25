@@ -1,0 +1,104 @@
+{
+  "slug": "ac-best-price",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "A/C Best Price Air Conditioning & Heating",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(210) 460-1438",
+    "phoneE164": "+12104601438",
+    "address": {
+      "city": "San Antonio",
+      "region": "TX",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "San Antonio, Texas",
+    "headline": "Air conditioning and heating for homes and businesses.",
+    "sub": "Residential and commercial air conditioning and heating in San Antonio: maintenance, service contracts, upgrades and remodels."
+  },
+  "services": {
+    "title": "What A/C Best Price does",
+    "items": [
+      {
+        "name": "Preventative maintenance",
+        "blurb": "Preventative maintenance for heating and air conditioning."
+      },
+      {
+        "name": "Service contracts",
+        "blurb": "Air conditioning service contracts."
+      },
+      {
+        "name": "Coil cleaning",
+        "blurb": "Cleaning of air conditioning coils."
+      },
+      {
+        "name": "System upgrades",
+        "blurb": "Upgrades to existing heating and cooling systems."
+      },
+      {
+        "name": "Remodels and new construction",
+        "blurb": "Heating and air for remodels, renovations and new construction."
+      },
+      {
+        "name": "Residential and commercial",
+        "blurb": "Work for homes and for commercial buildings."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Based in San Antonio, Texas",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(210) 460-1438"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need heating or cooling work in San Antonio?",
+    "sub": "Call A/C Best Price at (210) 460-1438."
+  },
+  "seo": {
+    "title": "A/C Best Price Air Conditioning & Heating | Concept preview",
+    "description": "Concept preview of a website for A/C Best Price Air Conditioning & Heating in San Antonio, TX, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/AAwifeO2fSSWTClPaetOpw/ac-best-price-air-conditioning-and-heating/san-antonio",
+    "https://www.thebluebook.com/iProView/809845/a-c-best-price-air-conditioning-heating/subcontractors/",
+    "https://unsplash.com/photos/lush-green-garden-with-flowering-plants-and-air-conditioner-Z2-R2UfByGc",
+    "https://unsplash.com/photos/sunlight-illuminates-an-old-building-with-air-conditioners-vzC0HouXiTw",
+    "https://unsplash.com/photos/a-large-building-with-a-roof-and-a-sky-background-f6XsNY8jmtg"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1761805752397-ebb7ef46258b?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1774851218623-900286a77155?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1737256359080-9354dbcc21ef?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcwfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "George 🦅",
+        "profileUrl": "https://unsplash.com/@geox3",
+        "photoPage": "https://unsplash.com/photos/lush-green-garden-with-flowering-plants-and-air-conditioner-Z2-R2UfByGc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "boris misevic",
+        "profileUrl": "https://unsplash.com/@borisview",
+        "photoPage": "https://unsplash.com/photos/sunlight-illuminates-an-old-building-with-air-conditioners-vzC0HouXiTw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Declan Sun",
+        "profileUrl": "https://unsplash.com/@declansun",
+        "photoPage": "https://unsplash.com/photos/a-large-building-with-a-roof-and-a-sky-background-f6XsNY8jmtg"
+      }
+    ]
+  }
+}

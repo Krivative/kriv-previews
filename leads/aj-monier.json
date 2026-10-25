@@ -1,0 +1,121 @@
+{
+  "slug": "aj-monier",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "A. J. Monier & Co., Inc.",
+    "category": "Mechanical contractor: HVAC and plumbing",
+    "phoneDisplay": "(210) 223-9151",
+    "phoneE164": "+12102239151",
+    "address": {
+      "line1": "1446 N. Flores",
+      "city": "San Antonio",
+      "region": "TX",
+      "postalCode": "78212",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "San Antonio, Texas",
+    "headline": "HVAC, plumbing and piping, around the clock.",
+    "sub": "Technicians available 24 hours a day, seven days a week for HVAC, refrigeration, plumbing and process equipment."
+  },
+  "services": {
+    "title": "Service",
+    "items": [
+      {
+        "name": "HVAC service and repair",
+        "blurb": "Diagnostic repair work on all types of HVAC and plumbing equipment."
+      },
+      {
+        "name": "Maintenance programs",
+        "blurb": "Preventive maintenance programs to protect your equipment."
+      },
+      {
+        "name": "Plumbing service",
+        "blurb": "Drain cleaning and repair, sewer line repair and replacement, gas line repairs."
+      },
+      {
+        "name": "Backflow testing",
+        "blurb": "Annual backflow testing, repairs and installation."
+      },
+      {
+        "name": "Medical gas",
+        "blurb": "Service for medical gas systems and piping."
+      },
+      {
+        "name": "Installation and upgrades",
+        "blurb": "Equipment replacement and installation, retrofits and upgrades to existing systems."
+      }
+    ]
+  },
+  "about": {
+    "title": "A family-owned mechanical contractor",
+    "body": "A. J. Monier & Co., Inc. is a family-owned company serving the San Antonio commercial service and construction market: HVAC, plumbing, piping, sheet metal and temperature controls for commercial, industrial, educational, medical and municipal projects."
+  },
+  "custom": {
+    "title": "Office on N. Flores",
+    "items": [
+      {
+        "name": "Address",
+        "blurb": "1446 N. Flores, San Antonio, TX 78212"
+      },
+      {
+        "name": "Service",
+        "blurb": "(210) 223-9151, 24 hours a day, 7 days a week"
+      },
+      {
+        "name": "Construction",
+        "blurb": "(210) 223-9191"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need HVAC or plumbing service?",
+    "sub": "Call the A. J. Monier Service Department at (210) 223-9151."
+  },
+  "seo": {
+    "title": "A. J. Monier & Co. | Concept preview",
+    "description": "Concept preview of a website for A. J. Monier & Co., Inc., HVAC and plumbing service in San Antonio, TX, prepared by KRIV."
+  },
+  "sources": [
+    "http://www.ajmonier.com/",
+    "http://www.ajmonier.com/contactus.htm",
+    "http://www.ajmonier.com/service.htm",
+    "http://www.ajmonier.com/capabilities.htm",
+    "http://www.ajmonier.com/history.htm",
+    "https://unsplash.com/photos/rooftop-ventilation-units-on-a-corrugated-metal-roof-fMW6eqMSYeQ",
+    "https://unsplash.com/photos/industrial-pipes-and-machinery-in-a-factory-18CHs5JonWQ",
+    "https://unsplash.com/photos/row-of-white-hvac-units-on-a-rooftop-8PuhEqdwaN8"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1776653244534-69d59028af6c?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcwfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1765218933298-dc55fdfb517a?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcxfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1774290331891-5d759056c68d?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcyfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Seyjoon Park",
+        "profileUrl": "https://unsplash.com/@seyjoon",
+        "photoPage": "https://unsplash.com/photos/rooftop-ventilation-units-on-a-corrugated-metal-roof-fMW6eqMSYeQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lionel SEE",
+        "profileUrl": "https://unsplash.com/@b2btosee",
+        "photoPage": "https://unsplash.com/photos/industrial-pipes-and-machinery-in-a-factory-18CHs5JonWQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Carl Wragg",
+        "profileUrl": "https://unsplash.com/@hvac4u",
+        "photoPage": "https://unsplash.com/photos/row-of-white-hvac-units-on-a-rooftop-8PuhEqdwaN8"
+      }
+    ]
+  }
+}

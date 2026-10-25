@@ -1,0 +1,75 @@
+{
+  "slug": "atkinson-chiropractic",
+  "template": "chiro-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Atkinson Chiropractic",
+    "category": "Chiropractor",
+    "phoneDisplay": "(903) 893-2388",
+    "phoneE164": "+19038932388",
+    "address": {
+      "city": "Sherman",
+      "region": "TX",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Sherman, Texas",
+    "headline": "Chiropractic care in Sherman.",
+    "sub": "Chiropractic services from Atkinson Chiropractic in Sherman, Texas."
+  },
+  "custom": {
+    "title": "Based in Sherman, Texas",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(903) 893-2388"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Want to find out more?",
+    "sub": "Call Atkinson Chiropractic at (903) 893-2388."
+  },
+  "seo": {
+    "title": "Atkinson Chiropractic | Concept preview",
+    "description": "Concept preview of a website for Atkinson Chiropractic in Sherman, TX, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/ABA-GRtaeyikbPfZodINOA/atkinson-chiropractic/sherman/alternative-health-care",
+    "http://www.chiropractorsinsherman.com/",
+    "https://unsplash.com/photos/red-leather-padded-massage-bed-inside-building-Cyw1t03KMGk",
+    "https://unsplash.com/photos/black-and-white-massage-bed-4e017fuMeXE",
+    "https://unsplash.com/photos/red-portable-massager-wqoUodkHwho"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1553267570-73887f15b17a?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTc0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1630226040750-d934f017f0e4?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTc1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1553267570-2df1b89ba855?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTc2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Stuart Poulton",
+        "profileUrl": "https://unsplash.com/@stupox",
+        "photoPage": "https://unsplash.com/photos/red-leather-padded-massage-bed-inside-building-Cyw1t03KMGk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nightingale Home nurse",
+        "profileUrl": "https://unsplash.com/@nightingaledxb",
+        "photoPage": "https://unsplash.com/photos/black-and-white-massage-bed-4e017fuMeXE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Stuart Poulton",
+        "profileUrl": "https://unsplash.com/@stupox",
+        "photoPage": "https://unsplash.com/photos/red-portable-massager-wqoUodkHwho"
+      }
+    ]
+  }
+}

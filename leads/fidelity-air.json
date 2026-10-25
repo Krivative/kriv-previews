@@ -1,0 +1,95 @@
+{
+  "slug": "fidelity-air",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Fidelity Air & Refrigeration",
+    "category": "Heating, air conditioning and refrigeration",
+    "phoneDisplay": "(352) 597-5911",
+    "phoneE164": "+13525975911",
+    "address": {
+      "city": "Spring Hill",
+      "region": "FL",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Spring Hill, Florida",
+    "headline": "Air conditioning, heating and refrigeration.",
+    "sub": "Air conditioning and heating repairs, refrigeration service and appliance repairs in Spring Hill, Florida."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Air conditioning repairs",
+        "blurb": "Repairs for air conditioning systems."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Heating repairs and service."
+      },
+      {
+        "name": "Refrigeration",
+        "blurb": "Refrigeration service and repair."
+      },
+      {
+        "name": "Appliance repairs",
+        "blurb": "Repairs for household appliances."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Based in Spring Hill, Florida",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(352) 597-5911"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need air conditioning or refrigeration work?",
+    "sub": "Call Fidelity Air & Refrigeration at (352) 597-5911."
+  },
+  "seo": {
+    "title": "Fidelity Air & Refrigeration | Concept preview",
+    "description": "Concept preview of a website for Fidelity Air & Refrigeration in Spring Hill, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/ADA0_r-heR6RXQii7WgpHQ/fidelity-air-refrigeration-llc/spring-hill/appliances",
+    "https://unsplash.com/photos/air-conditioner-unit-below-large-windows-with-green-curtains-SiRHTf1t-xg",
+    "https://unsplash.com/photos/corrugated-metal-wall-with-overgrown-plants-and-air-conditioner-nAnDxXWEatk",
+    "https://unsplash.com/photos/complex-machinery-with-pipes-and-wires-zN1ZdeDNoPs"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1766201926837-6b8cb0383de8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1760243875486-0a362cab9021?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777360207541-a03390f27bd8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "雙 film",
+        "profileUrl": "https://unsplash.com/@film002",
+        "photoPage": "https://unsplash.com/photos/air-conditioner-unit-below-large-windows-with-green-curtains-SiRHTf1t-xg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "PJH",
+        "profileUrl": "https://unsplash.com/@dokae",
+        "photoPage": "https://unsplash.com/photos/corrugated-metal-wall-with-overgrown-plants-and-air-conditioner-nAnDxXWEatk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gábor Szűts",
+        "profileUrl": "https://unsplash.com/@szutsi",
+        "photoPage": "https://unsplash.com/photos/complex-machinery-with-pipes-and-wires-zN1ZdeDNoPs"
+      }
+    ]
+  }
+}

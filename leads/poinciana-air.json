@@ -1,0 +1,98 @@
+{
+  "slug": "poinciana-air",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Poinciana Air-Conditioning and Refrigeration Company",
+    "category": "Heating, air conditioning and refrigeration",
+    "phoneDisplay": "(407) 574-5491",
+    "phoneE164": "+14075745491",
+    "address": {
+      "line1": "1300 Garden St #B",
+      "city": "Kissimmee",
+      "region": "FL",
+      "postalCode": "34744",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Kissimmee, Florida",
+    "headline": "Heating, air conditioning and refrigeration.",
+    "sub": "HVAC and refrigeration services from Kissimmee, Florida."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Air conditioning",
+        "blurb": "Air conditioning service."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Heating services."
+      },
+      {
+        "name": "Refrigeration",
+        "blurb": "Refrigeration services alongside heating and air."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Based in Kissimmee, Florida",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "1300 Garden St #B, Kissimmee, FL 34744"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(407) 574-5491"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need heating, cooling or refrigeration work?",
+    "sub": "Call Poinciana Air-Conditioning and Refrigeration Company at (407) 574-5491."
+  },
+  "seo": {
+    "title": "Poinciana Air-Conditioning and Refrigeration | Concept preview",
+    "description": "Concept preview of a website for Poinciana Air-Conditioning and Refrigeration Company in Kissimmee, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/ABq2aRphf82Q0dV_K3MGEg/poinciana-air-conditioning-and-refrigeration-company/kissimmee/heating-air",
+    "http://poincianaair.com/",
+    "https://unsplash.com/photos/close-up-of-an-air-conditioning-unit-on-a-sunny-day-Al9lWh3XKGM",
+    "https://unsplash.com/photos/six-industrial-fans-mounted-on-a-white-grid-structure-nzjY3tSUtKU",
+    "https://unsplash.com/photos/network-of-industrial-pipes-valves-and-gauges-3JUg2NLkMfc"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1758798157512-f0a864c696c9?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTYyfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777534360599-4347ab110a25?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTYzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1781330169385-8df0629c99b6?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Khanh Do",
+        "profileUrl": "https://unsplash.com/@donguyenkhanhs",
+        "photoPage": "https://unsplash.com/photos/close-up-of-an-air-conditioning-unit-on-a-sunny-day-Al9lWh3XKGM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maksim Zinchenko",
+        "profileUrl": "https://unsplash.com/@xtoman",
+        "photoPage": "https://unsplash.com/photos/six-industrial-fans-mounted-on-a-white-grid-structure-nzjY3tSUtKU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Daniel Miksha",
+        "profileUrl": "https://unsplash.com/@danielmiksha",
+        "photoPage": "https://unsplash.com/photos/network-of-industrial-pipes-valves-and-gauges-3JUg2NLkMfc"
+      }
+    ]
+  }
+}
