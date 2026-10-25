@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: 3 approved leads live at kriv.agency (main 2f30705, dpl_9oSYKAvLW4w3BRAQXhYjb7J2jwKH); emails ready for Kriv to send by hand
+Updated: 2026-10-25 · Last step finished: Hotfrog in 32 more towns (1 new qualified lead, 4 in total); cloud run on a US network still collecting
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -12,6 +12,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Done
 
+- [x] Lead finder round 2, Hotfrog in 32 more towns: 66 listings, 42 sites graded, 1 new qualified lead (Fidelity Air & Refrigeration, FL HVAC); totals 4 qualified, 127 near misses, 63 not checked (Claude, 2026-10-25)
 - [x] 3 approved leads live (Kriv approved the merge): main fast-forwarded to 2f30705, production dpl_9oSYKAvLW4w3BRAQXhYjb7J2jwKH; kriv.agency/springer-bros, /air-source-1, /kyles-air-conditioning return 200 with noindex and the concept banner, browser check clean on desktop and phone; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the 3 draft leads (Springer Bros., Air Source 1, Kyle's Air Conditioning): status set to approved; production build serves all 3 (200, noindex, banner); not live until the merge to main (Kriv, 2026-10-25)
 - [x] Kriv chose all three ways to reach 10 leads: a cloud run on a US network, business emails from Facebook and Google listings, more Hotfrog towns. Finder scripts moved into scripts/finder (Kriv decided, Claude, 2026-10-25)

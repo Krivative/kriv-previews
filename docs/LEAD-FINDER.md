@@ -43,6 +43,12 @@ How leads are found and qualified. The lead lists themselves are never committed
 
 Sources that worked: Hotfrog town pages (49 towns; listings skew to older businesses and often show an email), ChamberMaster directories (Metro SA, Boerne, Logan, Tyler, St. George, Ogden-Weber, Utah Valley), TACCA, medspanear.me, web search. Web search found almost only modern sites (0 weak among 150 town results). Extra checks added in the qualify step: the email's domain must have MX records (dead domains bounce), and a business whose email domain is another working, modern site is not a lead. Weak sites are usually dead domains, and the email on a dead domain is dead too, which is why the near-miss count is high.
 
+## Round 2 (2026-10-25, Kriv approved all three suggestions)
+
+- Hotfrog in 32 more towns (16 FL, 10 TX, 6 UT): 66 listings, 42 new websites graded. 1 new qualified lead: Fidelity Air & Refrigeration (HVAC, Spring Hill FL area; no website, business-name mailbox). Its address differs between Hotfrog and BuildZoom; confirm before building a page. Ma Mi Skin Care (Orlando) passed the script but sells skincare products, so it is not a med spa.
+- Totals after this step: 4 qualified (all Florida HVAC), 127 near misses, 63 not checked.
+- Cloud run on a US network (Google Cloud, South Carolina): of the 59 blocked sites, 25 load and all are modern, 33 are still bot-walled (Cloudflare blocks datacenter IPs too). Air Source 1's site does not load from the US either (connection timeout). Yellowpages, Superpages and BBB search pages load from there; Yelp, Manta, Hotfrog and BBB profile pages do not.
+
 ## Scripts
 
 All output holds business emails, so the data folder lives outside Git (`/finder-data/` is ignored as a safety net).
