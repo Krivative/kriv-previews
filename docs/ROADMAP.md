@@ -1,15 +1,19 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: first lead finder run for San Antonio (242 sites graded, 0 qualifying leads; list for Kriv outside Git)
+Updated: 2026-10-25 · Last step finished: previews live on kriv.agency (Krivative/Kriv#19 merged and deployed, 20/20 live checks)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
+- [ ] Kriv: approve merging Krivative/Kriv#20 (release note in PROJECT-HANDOFF.md only; merging redeploys the main site)
+
 - [ ] Kriv: review the first run (C:\Users\user\kriv-leads\san-antonio-2026-10-25.md) and choose how to find more qualifying leads: re-check the 28 bot-walled sites from a US network, count a company-name mailbox (named after the business) as a business email, widen sources (directory profiles, more suburbs), or relax the weak-site rule
 - [ ] Kriv: choose the image source for preview placeholders: Openverse public-domain only (no account), or also Unsplash/Pexels (free developer accounts and keys), or AI-generated generic scenes (paid); see docs/PREVIEW-IMAGES.md
 
 ## Done
+
+- [x] Phase 3 live: Kriv approved; Krivative/Kriv#19 merged (be83831) and deployed to production (dpl_G3nuQV6UvDkScFkQPc1ZWU8tqWYG). Live checks 20/20: main-site pages unchanged from a pre-merge baseline, kriv.agency/test-lead and /Test-Lead show the preview with banner and noindex, /nope 404 "Nothing here", robots.txt disallows /for/; browser check clean. Release note: Krivative/Kriv#20 (Claude, 2026-10-25)
 
 - [x] Lead finder first run, San Antonio: 242 business sites graded from web search, Hotfrog, TACCA and medspanear.me; 21 weak (mostly dead domains), 28 could not be checked from this network, none with a weak site and a business email. Near misses and sources in the list for Kriv, outside Git (Claude, 2026-10-25)
 
@@ -65,7 +69,6 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] US-ready content: US spelling, phone and address formats
 
-- [ ] Phase 3: Kriv approves the merge and production deploy of the main site
 - [ ] Database adapter for lead records (new leads need no deploy)
 - [ ] Private review link so Kriv can see draft previews before they go live
 
