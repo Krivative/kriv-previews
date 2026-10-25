@@ -1,0 +1,116 @@
+{
+  "slug": "ronnie-lee-davis-plumbing",
+  "template": "plumbing-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Ronnie Lee Davis Plumbing",
+    "category": "Plumber",
+    "phoneDisplay": "(830) 743-0667",
+    "phoneE164": "+18307430667",
+    "address": {
+      "line1": "491 Lone Oak Rd",
+      "city": "New Braunfels",
+      "region": "TX",
+      "postalCode": "78132",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Friday",
+        "time": "7:30 am to 5:00 pm"
+      },
+      {
+        "days": "After hours",
+        "time": "Emergency service"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Canyon Lake and New Braunfels",
+    "headline": "Residential plumbing for Canyon Lake.",
+    "sub": "Residential plumbing services for Canyon Lake and surrounding areas: emergencies, new construction, sewer work, water heaters and water softeners."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Emergency plumbing",
+        "blurb": "After-hours emergency service."
+      },
+      {
+        "name": "New construction plumbing",
+        "blurb": "Plumbing for new homes."
+      },
+      {
+        "name": "Sewer work",
+        "blurb": "Sewer line work."
+      },
+      {
+        "name": "Water heaters",
+        "blurb": "Water heater service."
+      },
+      {
+        "name": "Water softeners",
+        "blurb": "Water softener service."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Serving Canyon Lake and surrounding areas",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(830) 743-0667"
+      },
+      {
+        "name": "Hours",
+        "blurb": "Monday to Friday, 7:30 am to 5:00 pm; after-hours emergency service"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need a plumber around Canyon Lake?",
+    "sub": "Call Ronnie Lee Davis Plumbing at (830) 743-0667."
+  },
+  "seo": {
+    "title": "Ronnie Lee Davis Plumbing | Concept preview",
+    "description": "Concept preview of a website for Ronnie Lee Davis Plumbing, residential plumbing for Canyon Lake and New Braunfels, TX, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.yellowpages.com/new-braunfels-tx/mip/ronnie-lee-davis-plumbing-582866868",
+    "http://ronnieleedavisplumbingllc.com/",
+    "https://unsplash.com/photos/grey-metal-pipe-on-brown-concrete-wall-rVRvR9VUIoQ",
+    "https://unsplash.com/photos/gray-adjustable-wrench-and-gray-pipe-wrench-4mAcustUNPs",
+    "https://unsplash.com/photos/blue-and-white-plastic-pipe-fwgnat3kLlU"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "approved",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1606340671662-27ee685dd111?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTI0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1503789146722-cf137a3c0fea?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTI1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1615238168577-0970b17e4a5f?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTI2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Compagnons",
+        "profileUrl": "https://unsplash.com/@sigmund",
+        "photoPage": "https://unsplash.com/photos/grey-metal-pipe-on-brown-concrete-wall-rVRvR9VUIoQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Matt Artz",
+        "profileUrl": "https://unsplash.com/@mattartz",
+        "photoPage": "https://unsplash.com/photos/gray-adjustable-wrench-and-gray-pipe-wrench-4mAcustUNPs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Compagnons",
+        "profileUrl": "https://unsplash.com/@sigmund",
+        "photoPage": "https://unsplash.com/photos/blue-and-white-plastic-pipe-fwgnat3kLlU"
+      }
+    ]
+  }
+}

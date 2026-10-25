@@ -1,0 +1,120 @@
+{
+  "slug": "advanced-car-care",
+  "template": "auto-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Advanced Car Care Center",
+    "category": "Auto repair",
+    "phoneDisplay": "(254) 212-1501",
+    "phoneE164": "+12542121501",
+    "address": {
+      "line1": "609 Towne Oaks Dr",
+      "city": "Waco",
+      "region": "TX",
+      "postalCode": "76710",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Friday",
+        "time": "8:00 am to 5:00 pm"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Waco, Texas",
+    "headline": "Car care, from brakes to transmissions.",
+    "sub": "Air conditioning, diagnostics, brakes, engine and transmission service, preventative maintenance, suspension and exhaust for the Waco area."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Air conditioning",
+        "blurb": "Car air conditioning service."
+      },
+      {
+        "name": "Diagnostics",
+        "blurb": "Diagnostic service."
+      },
+      {
+        "name": "Brakes",
+        "blurb": "Brake service."
+      },
+      {
+        "name": "Engine and transmission",
+        "blurb": "Engine and transmission service."
+      },
+      {
+        "name": "Preventative maintenance",
+        "blurb": "Scheduled maintenance."
+      },
+      {
+        "name": "Suspension and exhaust",
+        "blurb": "Suspension work and exhaust service."
+      }
+    ]
+  },
+  "custom": {
+    "title": "On Towne Oaks Drive",
+    "items": [
+      {
+        "name": "Address",
+        "blurb": "609 Towne Oaks Dr, Waco, TX 76710"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(254) 212-1501"
+      },
+      {
+        "name": "Hours",
+        "blurb": "Monday to Friday, 8:00 am to 5:00 pm"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Car due for service?",
+    "sub": "Call Advanced Car Care Center at (254) 212-1501."
+  },
+  "seo": {
+    "title": "Advanced Car Care Center | Concept preview",
+    "description": "Concept preview of a website for Advanced Car Care Center, auto repair in Waco, TX, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.yellowpages.com/waco-tx/mip/advanced-car-care-center-460691881",
+    "http://advancedcarcare.net/",
+    "https://unsplash.com/photos/gray-engine-bay-xFjti9rYILo",
+    "https://unsplash.com/photos/a-close-up-of-a-car-engine-with-a-green-light-9e7OcC1lY3M",
+    "https://unsplash.com/photos/silver-and-black-round-coins-5Y8NrzPya-w"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "approved",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1429772011165-0c2e054367b8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1702146715426-2380c6ad54c5?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599256631012-9c2b32bfa8bc?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Garett Mizunaka",
+        "profileUrl": "https://unsplash.com/@garett3",
+        "photoPage": "https://unsplash.com/photos/gray-engine-bay-xFjti9rYILo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tahamie Farooqui",
+        "profileUrl": "https://unsplash.com/@tami171091",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-car-engine-with-a-green-light-9e7OcC1lY3M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nina Mercado",
+        "profileUrl": "https://unsplash.com/@nina_mercado",
+        "photoPage": "https://unsplash.com/photos/silver-and-black-round-coins-5Y8NrzPya-w"
+      }
+    ]
+  }
+}

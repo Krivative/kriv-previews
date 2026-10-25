@@ -1,0 +1,115 @@
+{
+  "slug": "scooter-plumbing",
+  "template": "plumbing-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Scooter Plumbing",
+    "category": "Plumber",
+    "phoneDisplay": "(352) 572-1051",
+    "phoneE164": "+13525721051",
+    "address": {
+      "line1": "4291 E Highway 316",
+      "city": "Citra",
+      "region": "FL",
+      "postalCode": "32113",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Central Florida",
+    "headline": "Plumbing, water heaters and drains.",
+    "sub": "Central Florida plumbing service: emergency plumbing, water heaters, leak detection, gas lines, drain cleaning and sewer lines."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Emergency plumbing",
+        "blurb": "Emergency plumbing services."
+      },
+      {
+        "name": "Water heaters",
+        "blurb": "Water heater and tankless water heater services."
+      },
+      {
+        "name": "Leak detection",
+        "blurb": "Water leak and gas leak detection."
+      },
+      {
+        "name": "Water and gas lines",
+        "blurb": "Water line and gas line services."
+      },
+      {
+        "name": "Drains",
+        "blurb": "Drain cleaning and hydro jetting."
+      },
+      {
+        "name": "Sewer lines",
+        "blurb": "Sewer video inspection and sewer line repair."
+      },
+      {
+        "name": "Repiping",
+        "blurb": "Repiping services."
+      }
+    ]
+  },
+  "custom": {
+    "title": "Central Florida",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(352) 572-1051"
+      },
+      {
+        "name": "Address",
+        "blurb": "4291 E Highway 316, Citra, FL 32113"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need a plumber in Central Florida?",
+    "sub": "Call Scooter Plumbing at (352) 572-1051."
+  },
+  "seo": {
+    "title": "Scooter Plumbing | Concept preview",
+    "description": "Concept preview of a website for Scooter Plumbing, Central Florida plumbing service, prepared by KRIV."
+  },
+  "sources": [
+    "http://scooterplumbing.com/",
+    "https://www.yellowpages.com/citra-fl/mip/root-scooter-plumbing-6370907",
+    "http://www.rootscooterplumbing.com/",
+    "https://unsplash.com/photos/black-and-silver-hand-tool-pShPBeZf6zg",
+    "https://unsplash.com/photos/assorted-metal-tool-lot-HLFa02aYfRg",
+    "https://unsplash.com/photos/gray-metal-tool-on-black-surface-xkaGd4nsbLA"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "approved",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1629235683532-9e6e71e41fa8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1568868053799-0728ed208ce4?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM0fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1588429717419-f328fe7fc260?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Osarugue Igbinoba",
+        "profileUrl": "https://unsplash.com/@osarugue",
+        "photoPage": "https://unsplash.com/photos/black-and-silver-hand-tool-pShPBeZf6zg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Enzo Tommasi",
+        "profileUrl": "https://unsplash.com/@11x11",
+        "photoPage": "https://unsplash.com/photos/assorted-metal-tool-lot-HLFa02aYfRg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "MacDonald Almeida",
+        "profileUrl": "https://unsplash.com/@macalmeida",
+        "photoPage": "https://unsplash.com/photos/gray-metal-tool-on-black-surface-xkaGd4nsbLA"
+      }
+    ]
+  }
+}

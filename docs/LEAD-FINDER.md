@@ -54,6 +54,12 @@ Sources that worked: Hotfrog town pages (49 towns; listings skew to older busine
 - Free-mail rule (Kriv, 2026-10-25) re-applied: 13 passed the script; 3 dropped on review (one has a modern site elsewhere, one sells skincare products, one is a lash specialist). **10 qualified: Florida 7 (HVAC 6, chiro 1), Texas 3 (HVAC 2, chiro 1), Utah 0.** Target reached. 121 near misses, 63 not checked. Four need a fact confirmed before a page (address or name differs between sources).
 - Cloud run on a US network (Google Cloud, South Carolina): of the 59 blocked sites, 25 load and all are modern, 33 are still bot-walled (Cloudflare blocks datacenter IPs too). Air Source 1's site does not load from the US either (connection timeout). Yellowpages, Superpages and BBB search pages load from there; Yelp, Manta, Hotfrog and BBB profile pages do not.
 
+## Plumbing and auto repair (2026-10-25, US cloud runs)
+
+- Yellowpages search page 1 for "plumbers" and "auto repair" in 28 towns (TX 12, FL 10, UT 6): 1,680 results, 1,021 independent local listings after removing chains and duplicates. All Yellowpages pages loaded from the US cloud network; Yelp, Manta, Hotfrog and BBB profiles did not.
+- 10 picked and re-verified: 7 qualify (TX: Boggs Plumbing, Ronnie Lee Davis Plumbing, Advanced Car Care Center, A&L Mobile Mechanics; FL: Scooter Plumbing, Genesis Auto Service, Michigan Auto Repair). Out: Marc's Master Mechanics and Red Rock Collision (modern sites), Southern Plumbing (site not checkable). About 690 listing sites were not graded (stopped at the target).
+- Cloud sandbox notes: its DNS returns no MX records (check MX through dns.google), and routine logs cut long messages, so ask for one short message per lead.
+
 ## Social profiles (Kriv, 2026-10-25: search engines only)
 
 - Facebook answers 400 to any page request without a login, so pages are not read. Google Maps shows no emails; Instagram, LinkedIn, X and TikTok sit behind logins; YouTube hides emails behind a captcha; Reddit has no business contact details.

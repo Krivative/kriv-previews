@@ -1,0 +1,80 @@
+{
+  "slug": "genesis-auto-service",
+  "template": "auto-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Genesis Auto Service",
+    "category": "Auto repair",
+    "phoneDisplay": "(352) 593-5952",
+    "phoneE164": "+13525935952",
+    "address": {
+      "line1": "17055 Spring Hill Dr",
+      "city": "Brooksville",
+      "region": "FL",
+      "postalCode": "34604",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Brooksville, Florida",
+    "headline": "Auto repair and service in Brooksville.",
+    "sub": "Genesis Auto Service on Spring Hill Drive, Brooksville."
+  },
+  "custom": {
+    "title": "On Spring Hill Drive",
+    "items": [
+      {
+        "name": "Address",
+        "blurb": "17055 Spring Hill Dr, Brooksville, FL 34604"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(352) 593-5952"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Car needs a look?",
+    "sub": "Call Genesis Auto Service at (352) 593-5952."
+  },
+  "seo": {
+    "title": "Genesis Auto Service | Concept preview",
+    "description": "Concept preview of a website for Genesis Auto Service, auto repair in Brooksville, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.yellowpages.com/brooksville-fl/mip/genesis-auto-service-503283774",
+    "https://unsplash.com/photos/a-bunch-of-tools-hanging-up-on-a-wall-lDwKKjlHL2Y",
+    "https://unsplash.com/photos/a-tire-with-a-wrench-next-to-it-IU-mLTtrJgo",
+    "https://unsplash.com/photos/red-and-black-metal-cart-wbUzNuzXyMk"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "approved",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1731694411560-050e5b91e943?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1702146713922-613313be011d?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1583126162406-643011b3f69f?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQwNTM3fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Anton Savinov",
+        "profileUrl": "https://unsplash.com/@tonchik",
+        "photoPage": "https://unsplash.com/photos/a-bunch-of-tools-hanging-up-on-a-wall-lDwKKjlHL2Y"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tahamie Farooqui",
+        "profileUrl": "https://unsplash.com/@tami171091",
+        "photoPage": "https://unsplash.com/photos/a-tire-with-a-wrench-next-to-it-IU-mLTtrJgo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "1 1",
+        "profileUrl": "https://unsplash.com/@one_1_st",
+        "photoPage": "https://unsplash.com/photos/red-and-black-metal-cart-wbUzNuzXyMk"
+      }
+    ]
+  }
+}

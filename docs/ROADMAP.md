@@ -1,16 +1,20 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Kriv sent all 10 lead emails by hand (status sent); plumbing and auto repair leads being re-verified
+Updated: 2026-10-25 · Last step finished: 5 plumbing and auto repair leads drafted and approved (Kriv pre-approved qualifying leads); waiting for Kriv's OK to merge
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Claude: draft the plumbing and auto repair leads (cloud run found 10; Kriv pre-approved those that qualify); merge to main needs Kriv's OK
+- [ ] Kriv: OK to merge into main so the 5 plumbing and auto repair pages go live (boggs-plumbing, ronnie-lee-davis-plumbing, scooter-plumbing, genesis-auto-service, advanced-car-care)
+- [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
 - [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
 
 ## Done
 
+- [x] Plumbing and auto repair lead finder (US cloud runs, Yellowpages): 1,021 independent listings in 28 towns; 10 picked, re-verified: 7 qualify (Boggs Plumbing, Ronnie Lee Davis Plumbing, Scooter Plumbing, Genesis Auto Service, Advanced Car Care Center, A&L Mobile Mechanics, Michigan Auto Repair); Marc's Master Mechanics and Red Rock Collision have modern sites; Southern Plumbing not checked (Claude, 2026-10-25)
+- [x] 5 plumbing and auto repair pages built (Tap, Pressure, Workshop, Torque), QA per docs/LEAD-QA.md, screenshots clean; set to approved under Kriv's pre-approval; email drafts outside Git (Claude, 2026-10-25)
+- [x] Poster hero: headline now scales down on phones so a long uppercase word (e.g. BRAUNFELS) never scrolls sideways (Claude, 2026-10-25)
 - [x] Kriv sent all 10 lead emails by hand from hello@kriv.agency (including Air Source 1); lead status set to sent (Kriv, 2026-10-25)
 - [x] 7 more approved leads live (Kriv approved the merge): main fast-forwarded to a838212, production dpl_AQaQZL9VwEyWFj8pFeBdk7x3vm5J; all 7 pages return 200 with noindex and the banner, browser check clean on desktop and phone; the first 3 still live; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the plumbing templates Tap and Pressure, and the 7 new drafts (poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic); open facts: keep the listing's version (Kriv, 2026-10-25)

@@ -214,9 +214,13 @@
 }
 
 .heroPoster .h1 {
-  font-size: clamp(3.6rem, 13vw, 11rem);
+  /* The 13vw track keeps a long single word (e.g. an uppercase town name) inside a phone screen;
+     hyphens and overflow-wrap are the last resort. */
+  font-size: clamp(2.6rem, 13vw, 11rem);
   line-height: 0.88;
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .heroPosterRow {
