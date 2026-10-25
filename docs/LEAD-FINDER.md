@@ -6,6 +6,7 @@ How leads are found and qualified. The lead lists themselves are never committed
 
 - Areas: smaller cities and towns, where sites tend to be older. Texas: towns around San Antonio (New Braunfels, Seguin, Boerne, Schertz, Universal City, Converse, Helotes, Live Oak), then Waco, Tyler, Killeen/Temple. Florida: Ocala, Lakeland, Port St. Lucie, Sebring, Panama City. Utah: Ogden, Provo/Orem, Logan, St. George, Cedar City. Adjust when a town yields nothing.
 - Business email: a role mailbox (info@, office@, frontdesk@...) or a mailbox named after the business (acmedental@gmail.com for "Acme Dental"): `isBusinessMailbox` in `scripts/site-flags.mjs`. Never a person's address.
+- Any address on the business's own website domain also counts, including a first name (jane@smithdental.com), since small and family businesses often use one (Kriv, 2026-10-25). A person's address on Gmail, Yahoo and similar still does not, and addresses are never guessed.
 - The weak-website rule stays exactly as it is.
 - Bot-walled or geo-blocked sites are not re-checked; list them separately as "not checked".
 - Run `check-site.mjs` in foreground batches of about 20 URLs and save each batch.
@@ -47,6 +48,7 @@ Sources that worked: Hotfrog town pages (49 towns; listings skew to older busine
 
 - Hotfrog in 32 more towns (16 FL, 10 TX, 6 UT): 66 listings, 42 new websites graded. 1 new qualified lead: Fidelity Air & Refrigeration (HVAC, Spring Hill FL area; no website, business-name mailbox). Its address differs between Hotfrog and BuildZoom; confirm before building a page. Ma Mi Skin Care (Orlando) passed the script but sells skincare products, so it is not a med spa.
 - Totals after this step: 4 qualified (all Florida HVAC), 127 near misses, 63 not checked.
+- Own-domain mailbox rule (Kriv, 2026-10-25) re-applied to everything collected: 1 more lead, A.J. Monier Service Co. (San Antonio TX, HVAC; staff address on the company domain). Totals: 5 qualified (FL 4, TX 1, all HVAC), 126 near misses (118 with no email found anywhere), 63 not checked.
 - Cloud run on a US network (Google Cloud, South Carolina): of the 59 blocked sites, 25 load and all are modern, 33 are still bot-walled (Cloudflare blocks datacenter IPs too). Air Source 1's site does not load from the US either (connection timeout). Yellowpages, Superpages and BBB search pages load from there; Yelp, Manta, Hotfrog and BBB profile pages do not.
 
 ## Scripts

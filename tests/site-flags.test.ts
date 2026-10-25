@@ -70,13 +70,15 @@ describe("emails", () => {
   });
 
   // Fictional businesses and addresses only: real lead emails never go into Git.
-  it("counts a mailbox named after the business, never a person's", () => {
+  it("counts a mailbox named after the business or on its own domain, never a person's elsewhere", () => {
     const acme = { name: "Acme Dental", website: "https://www.acmedental.example/" };
     expect(isBusinessMailbox("acmedental@gmail.example", acme)).toBe(true);
     expect(isBusinessMailbox("acme@mail.example", acme)).toBe(true);
     expect(isBusinessMailbox("frontdesk@gmail.example", acme)).toBe(true);
     expect(isBusinessMailbox("bramley@bramley-ac.example", { name: "Bramley Air Conditioning Co.", website: "https://bramley-ac.example/" })).toBe(true);
-    expect(isBusinessMailbox("jdoe@coolsmith.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(false);
+    expect(isBusinessMailbox("jdoe@coolsmith.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(true);
+    expect(isBusinessMailbox("jdoe@othersite.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(false);
+    expect(isBusinessMailbox("jdoe@gmail.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(false);
     expect(isBusinessMailbox("maria.lopez@gmail.example", acme)).toBe(false);
     expect(isBusinessMailbox("dentalmaria@gmail.example", acme)).toBe(false);
     expect(isBusinessMailbox("xqz123@gmail.example", { name: "Best Price Air Conditioning And Heating" })).toBe(false);

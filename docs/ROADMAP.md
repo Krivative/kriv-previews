@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Hotfrog in 32 more towns (1 new qualified lead, 4 in total); cloud run on a US network still collecting
+Updated: 2026-10-25 · Last step finished: own-domain mailbox rule (Kriv) applied: 5 qualified leads (FL 4, TX 1, all HVAC); cloud run on a US network still collecting
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -12,6 +12,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Done
 
+- [x] Business email rule widened by Kriv: any address on the business's own website domain counts, including a first name (small and family businesses); a person's free-mail address still does not. isBusinessMailbox and tests updated; re-applied: 1 more lead (A.J. Monier Service Co., San Antonio TX HVAC), 5 qualified in total (Kriv decided, Claude, 2026-10-25)
 - [x] Lead finder round 2, Hotfrog in 32 more towns: 66 listings, 42 sites graded, 1 new qualified lead (Fidelity Air & Refrigeration, FL HVAC); totals 4 qualified, 127 near misses, 63 not checked (Claude, 2026-10-25)
 - [x] 3 approved leads live (Kriv approved the merge): main fast-forwarded to 2f30705, production dpl_9oSYKAvLW4w3BRAQXhYjb7J2jwKH; kriv.agency/springer-bros, /air-source-1, /kyles-air-conditioning return 200 with noindex and the concept banner, browser check clean on desktop and phone; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the 3 draft leads (Springer Bros., Air Source 1, Kyle's Air Conditioning): status set to approved; production build serves all 3 (200, noindex, banner); not live until the merge to main (Kriv, 2026-10-25)

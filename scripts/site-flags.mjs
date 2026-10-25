@@ -29,16 +29,21 @@ const letters = (s) => s.toLowerCase().normalize("NFKD").replace(/[^a-z]/g, "");
 /**
  * A mailbox that belongs to the business: a role name (info@, office@...) or a local part
  * named after the business, e.g. acmedental@gmail.com for "Acme Dental" (Kriv, 2026-10-25).
- * A person's address (jsmith@, maria.lopez@) never counts, wherever it is hosted.
+ * Any address on the business's own website domain also counts, even a first name
+ * (jane@smithdental.com): small and family businesses often use one (Kriv, 2026-10-25).
+ * A person's address anywhere else (maria.lopez@gmail.com) never counts.
  */
 export function isBusinessMailbox(email, { name = "", website = "" } = {}) {
   if (isRoleEmail(email)) return true;
   const local = letters(email.split("@")[0]);
   const words = name.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length >= 4 && !GENERIC.has(w));
   let label = "";
+  let host = "";
   try {
-    label = letters(new URL(website).hostname.replace(/^www\./, "").split(".")[0]);
+    host = new URL(website).hostname.replace(/^www\./, "").toLowerCase();
+    label = letters(host.split(".")[0]);
   } catch {}
+  if (host && email.toLowerCase().split("@")[1] === host) return true;
   const compactName = letters(name);
   return (
     (compactName.length >= 6 && local.includes(compactName)) ||
