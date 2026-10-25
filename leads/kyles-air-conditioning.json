@@ -19,7 +19,7 @@
   },
   "hero": {
     "eyebrow": "Port Orange, Florida",
-    "headline": "Heating and cooling, serviced and repaired.",
+    "headline": "Heating and cooling, serviced and *repaired.*",
     "sub": "Service and repair for all makes and models of straight-cool and heat pump units, for homes and businesses in Port Orange."
   },
   "custom": {
@@ -65,7 +65,7 @@
     ]
   },
   "close": {
-    "headline": "Heating or cooling need in Port Orange?",
+    "headline": "Heating or cooling need in *Port Orange?*",
     "sub": "Call Kyle's at (386) 527-5893."
   },
   "seo": {

@@ -9,8 +9,10 @@ export const autoCalm = defineTemplate({
   fonts: {
     display: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif",
     body: "Inter, system-ui, sans-serif",
-    googleCss: "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap",
+    accent: "'Instrument Serif', Georgia, serif",
+    googleCss: "https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap",
   },
+  style: { numbered: true, motion: true },
   tokens: {
     bg: "#FFFFFF",
     surface: "#F2F4F7",
@@ -26,8 +28,8 @@ export const autoCalm = defineTemplate({
     displayCase: "none",
   },
   sections: [
-    { type: "hero", variant: "stacked" },
-    { type: "services", variant: "grid" },
+    { type: "hero", variant: "cinematic" },
+    { type: "services", variant: "editorial" },
     { type: "custom", variant: "steps" },
     { type: "gallery", variant: "strip" },
     { type: "visit", variant: "card" },
@@ -37,9 +39,9 @@ export const autoCalm = defineTemplate({
   fingerprint: {
     grammar: "clean workshop, white with steel blue, semi-condensed headings, 6px radii",
     nav: "condensed wordmark, steel-blue square-ish CTA",
-    hero: "stacked: condensed headline, wide 16:7 photo, then sub + buttons",
-    sequence: "stacked → service grid → steps → photo strip → visit card → FAQ → band",
+    hero: "cinematic: full-screen workshop photo, condensed Barlow headline with an italic serif accent",
+    sequence: "cinematic → numbered service rows → how-it-works steps → photo strip → visit card → FAQ list → steel-blue band",
     close: "steel-blue band",
-    signature: "a three-step 'drop off, diagnose, drive home' in blue numerals under a service grid",
+    signature: "condensed type with an italic serif accent over a full-screen workshop photo, numbered service rows",
   },
 });

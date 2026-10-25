@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Port St. Lucie, Florida",
-    "headline": "Air conditioning for homes and businesses.",
+    "headline": "Air conditioning for homes and *businesses.*",
     "sub": "Installation, repair and maintenance of residential and commercial air conditioning in Port St. Lucie, Fort Pierce, Vero Beach and Stuart."
   },
   "custom": {
@@ -59,7 +59,7 @@
     ]
   },
   "close": {
-    "headline": "Need air conditioning work in Port St. Lucie?",
+    "headline": "Need air conditioning work in *Port St. Lucie?*",
     "sub": "Call Air Source 1 at (772) 626-7604."
   },
   "seo": {

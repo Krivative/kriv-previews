@@ -4,7 +4,8 @@
 // Joins every candidate source with every check-site result and applies Kriv's rules:
 // (no website OR weak website) AND a business mailbox (role or named after the business),
 // independent (no chains, franchises, specialists). Writes qualified.json, near-misses.json,
-// not-checked.json to outDir (outside Git).
+// not-checked.json and to-review.json (sites that pass the technical check and show a business
+// email, waiting for the visual review) to outDir (outside Git).
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -74,7 +75,8 @@ const plainFlags = {
 };
 const plain = (f) => plainFlags[f] ?? (f.startsWith("copyright-") ? `newest copyright notice is ${f.slice(10)}` : f);
 
-const qualified = [], near = [], notChecked = [];
+const visual = J("visual.json") ?? {};
+const qualified = [], near = [], notChecked = [], toReview = [];
 for (const c of cands.values()) {
   const r = c.website ? checks.get(host(c.website)) : null;
   const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"');
@@ -83,7 +85,10 @@ for (const c of cands.values()) {
   if (c.website && !r) continue; // not graded yet
   if (r?.flags.includes("not-checked")) { notChecked.push({ state: c.state, town: c.town, niche: c.niche, name, website: c.website, why: r.error ?? `${r.status} ${r.title ?? ""}`.trim() }); continue; }
   const noSite = !c.website;
-  const weak = noSite || r.weak;
+  // Visual review (Kriv, 2026-10-25): a working site that fails 2+ items of the dated/amateur
+  // checklist in docs/LEAD-FINDER.md counts as weak. Results live in <dataDir>/visual.json.
+  const look = c.website ? visual[host(c.website)] : null;
+  const weak = noSite || r.weak || (look?.failed?.length ?? 0) >= 2;
   const siteEmails = (r?.emails ?? r?.roleEmails ?? []).map((e) => ({ email: e, where: r.contactUrl ?? r.finalUrl ?? c.website }));
   const listEmails = (c.emailsListing ?? []).map((e) => ({ email: e, where: c.listingUrl }));
   const biz = [...siteEmails, ...listEmails].filter((e) => isBusinessMailbox(e.email, { name, website: c.website ?? "" }));
@@ -91,7 +96,7 @@ for (const c of cands.values()) {
   const rec = {
     state: c.state ?? null, town: c.town ?? null, niche: c.niche, name, address: c.address ?? null, phone: c.phone ?? null,
     website: c.website, websiteStatus: noSite ? "no website listed" : r.flags.length ? r.flags.map(plain).join("; ") : "modern",
-    flags: noSite ? ["no-website"] : r.flags, email: biz[0]?.email ?? null, emailFoundAt: biz[0]?.where ?? null,
+    flags: noSite ? ["no-website"] : r.flags, looksDated: look?.failed ?? [], email: biz[0]?.email ?? null, emailFoundAt: biz[0]?.where ?? null,
     otherBusinessEmails: biz.slice(1).map((b) => b.email), sources: [...new Set([...(c.sources ?? []), ...(r ? [r.finalUrl ?? c.website] : []), ...(biz[0] ? [biz[0].where] : [])])].filter(Boolean),
     via: c.via, checkedAt: r?.checkedAt ?? null,
   };
@@ -109,7 +114,9 @@ for (const c of cands.values()) {
     qualified.push(rec);
   }
   else if (weak) near.push({ ...rec, why: "weak or no website, but no business email found" });
+  else if (biz.length && !look) toReview.push({ ...rec, why: "site passes the technical check; needs the visual review" });
 }
+writeFileSync(join(outDir, "to-review.json"), JSON.stringify(toReview, null, 2));
 writeFileSync(join(outDir, "qualified.json"), JSON.stringify(qualified, null, 2));
 writeFileSync(join(outDir, "near-misses.json"), JSON.stringify(near, null, 2));
 writeFileSync(join(outDir, "not-checked.json"), JSON.stringify(notChecked, null, 2));

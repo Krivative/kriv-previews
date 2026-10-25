@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "San Antonio, Texas",
-    "headline": "HVAC, plumbing and piping, around the clock.",
+    "headline": "HVAC, plumbing and piping, around *the clock.*",
     "sub": "Technicians available 24 hours a day, seven days a week for HVAC, refrigeration, plumbing and process equipment."
   },
   "services": {
@@ -71,7 +71,7 @@
     ]
   },
   "close": {
-    "headline": "Need HVAC or plumbing service?",
+    "headline": "Need HVAC or plumbing *service?*",
     "sub": "Call the A. J. Monier Service Department at (210) 223-9151."
   },
   "seo": {

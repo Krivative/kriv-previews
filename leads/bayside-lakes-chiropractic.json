@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Palm Bay, Florida",
-    "headline": "Chiropractic care in Palm Bay.",
+    "headline": "Chiropractic care in *Palm Bay.*",
     "sub": "Chiropractic care for back and neck pain and auto accident injuries, with X-rays on site."
   },
   "services": {
@@ -55,7 +55,7 @@
     ]
   },
   "close": {
-    "headline": "Questions about chiropractic care?",
+    "headline": "Questions about chiropractic *care?*",
     "sub": "Call Bayside Lakes Chiropractic at (321) 872-0770."
   },
   "seo": {

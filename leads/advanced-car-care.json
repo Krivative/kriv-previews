@@ -23,7 +23,7 @@
   },
   "hero": {
     "eyebrow": "Waco, Texas",
-    "headline": "Car care, from brakes to transmissions.",
+    "headline": "Car care, from brakes to *transmissions.*",
     "sub": "Air conditioning, diagnostics, brakes, engine and transmission service, preventative maintenance, suspension and exhaust for the Waco area."
   },
   "services": {
@@ -73,7 +73,7 @@
     ]
   },
   "close": {
-    "headline": "Car due for service?",
+    "headline": "Car due for *service?*",
     "sub": "Call Advanced Car Care Center at (254) 212-1501."
   },
   "seo": {

@@ -23,22 +23,24 @@ How to look at a draft: drafts are only served by `next dev` (production returns
 
 ## 3. Photos
 
+- [ ] Own photos and logo first (Kriv, 2026-10-25): when the business's own website or listing shows photos that clearly are of that business (team, vans, premises, finished work), use them with `scripts/pick-site-photos.mjs` (hotlinked, credited "Photos and logo from <Business>'s own website", page in `sources`), and its logo in the header. Never its licensed stock photos, never another business's images. Otherwise Unsplash as below.
+
 - [ ] Each photo is a generic scene of the niche or a service (empty treatment room, tools, an outdoor AC unit, a skincare tray), from Unsplash through `scripts/pick-photos.mjs`, hotlinked from `images.unsplash.com`.
-- [ ] Nothing that could pass for the lead's own office, building, staff, patients, vehicles, logo or results: no readable signs, logos, branded vans or uniforms, no before/after, no recognisable local landmark presented as theirs. Prefer no identifiable faces.
+- [ ] Stock photos only: nothing that could pass for the lead's own office, building, staff, patients, vehicles, logo or results: no readable signs, logos, branded vans or uniforms, no before/after, no recognisable local landmark presented as theirs. Prefer no identifiable faces.
 - [ ] Footer credit present: "Stock photos for illustration, not of <Business Name>: <photographer(s)> on Unsplash."
-- [ ] Each photo's Unsplash page is in `sources`; `brand.photoCredits` matches `brand.photos` one to one.
+- [ ] Each photo's Unsplash page (or, for own photos, the business page it came from) is in `sources`; `brand.photoCredits` matches `brand.photos` one to one.
 - [ ] Brand colour (`design.accent`) taken from the business's own site or logo, or the template default. Not invented.
 
 ## 4. Layout (screenshots)
 
-- [ ] Desktop 1440 px and phone 390 px screenshots taken with `scripts/shoot.mjs`; the script exits 0 (no console errors, no sideways scroll).
+- [ ] Desktop 1440 px and phone 390 px screenshots taken with `scripts/shoot.mjs` (it captures with reduced motion so scroll-reveal sections show); the script exits 0 (no console errors, no sideways scroll).
 - [ ] Looked at both screenshots: no overlapping or clipped text, no empty or broken image boxes, no section that reads oddly with missing data, banner visible on load.
 - [ ] Page title and description (`seo`) name the business and say "Concept preview".
 
 ## 5. Outreach draft (outside Git)
 
 - [ ] One personal email per lead, saved as a text file outside Git, never sent and not yet a Gmail draft.
-- [ ] Honest subject; what we noticed about their current web presence stated as checkable facts (the site's flags, re-checked the same day); the preview link `https://kriv.agency/<slug>`; the footer from `emailFooter()` in `src/outreach/footer.ts`.
+- [ ] Honest subject; what we noticed about their current web presence stated as checkable facts (the site's flags, re-checked the same day; for a visual-review lead, one or two of its failed checklist items in specific, polite words); the preview link `https://kriv.agency/<slug>`; the footer from `emailFooter()` in `src/outreach/footer.ts`.
 - [ ] No claims about their business beyond the sources, no pressure, no fake familiarity.
 
 ## 6. Approval

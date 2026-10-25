@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Kissimmee, Florida",
-    "headline": "Heating, air conditioning and refrigeration.",
+    "headline": "Heating, air conditioning and *refrigeration.*",
     "sub": "HVAC and refrigeration services from Kissimmee, Florida."
   },
   "services": {
@@ -51,7 +51,7 @@
     ]
   },
   "close": {
-    "headline": "Need heating, cooling or refrigeration work?",
+    "headline": "Need heating, cooling or *refrigeration work?*",
     "sub": "Call Poinciana Air-Conditioning and Refrigeration Company at (407) 574-5491."
   },
   "seo": {

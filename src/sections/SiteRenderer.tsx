@@ -26,13 +26,22 @@ export function SiteRenderer({ site, template }: { site: SiteData; template: Tem
     "--display-case": t.displayCase,
     "--font-display": fonts.display,
     "--font-body": fonts.body,
+    "--font-accent": template.fonts.accent ?? fonts.display,
   } as CSSProperties;
+  const style = template.style ?? {};
 
   const sections: SectionRef[] = (site.design.sections ?? template.sections).filter((sec) => hasContent(site, sec.type));
   const googleCss = site.design.fonts ? undefined : template.fonts.googleCss;
 
   return (
-    <div className={s.site} style={vars} lang={site.lang}>
+    <div
+      className={s.site}
+      style={vars}
+      lang={site.lang}
+      data-numbered={style.numbered ? "" : undefined}
+      data-motion={style.motion ? "" : undefined}
+      data-ghost={style.ghost ? "" : undefined}
+    >
       {googleCss ? <link rel="stylesheet" href={googleCss} precedence="fonts" /> : null}
       <Ribbon site={site} />
       <Header site={site} sections={sections} />

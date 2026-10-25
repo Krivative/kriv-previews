@@ -9,9 +9,11 @@ export const dentalClear = defineTemplate({
   fonts: {
     display: "Fraunces, Georgia, serif",
     body: "Outfit, system-ui, sans-serif",
+    accent: "Fraunces, Georgia, serif",
     googleCss:
       "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Outfit:wght@400;500;600&display=swap",
   },
+  style: { numbered: true, motion: true },
   tokens: {
     bg: "#F7FAF9",
     surface: "#FFFFFF",
@@ -27,9 +29,9 @@ export const dentalClear = defineTemplate({
     displayCase: "none",
   },
   sections: [
-    { type: "hero", variant: "split" },
-    { type: "services", variant: "rows" },
-    { type: "about", variant: "quote" },
+    { type: "hero", variant: "cinematic" },
+    { type: "services", variant: "editorial" },
+    { type: "about", variant: "cards" },
     { type: "custom", variant: "note" },
     { type: "visit", variant: "split" },
     { type: "faq", variant: "list" },
@@ -38,9 +40,9 @@ export const dentalClear = defineTemplate({
   fingerprint: {
     grammar: "chaptered editorial, alternating white and tinted bands",
     nav: "wordmark left, text links + pill CTA right",
-    hero: "split: copy left, photo right with one oversized rounded corner",
-    sequence: "hero → services rows → quote → note → visit → FAQ → band",
+    hero: "cinematic: full-screen bright clinic photo, Fraunces headline with a teal italic accent",
+    sequence: "cinematic → numbered service rows → tilted cards → note → visit split → FAQ list → teal band",
     close: "full-width accent band, centred headline, inverted button",
-    signature: "services as a hairline-ruled ledger with a fixed 240px name column",
+    signature: "ledger-like numbered service rows with fixed name column right after a full-screen hero",
   },
 });

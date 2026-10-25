@@ -868,3 +868,362 @@
 .tile span {
   opacity: 0.85;
 }
+
+/* ===================== Cinematic kit (2026-10-25) =====================
+   Shared by the cinematic templates: italic accent words, numbered labels,
+   ghost words, scroll motion, full-screen hero, editorial services, tilted
+   photo cards and the giant close. */
+
+/* *Accent* words in headings: italic accent face in the accent colour. */
+.site :where(h1, h2) em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.btnGhostLight {
+  composes: btn;
+  background: transparent;
+  color: inherit;
+  border-color: color-mix(in srgb, currentColor 55%, transparent);
+}
+
+.brandLogo {
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+/* "01 — Services" above each section heading. */
+.site {
+  counter-reset: kriv-section;
+}
+
+.site[data-numbered] h2[data-label]::before {
+  counter-increment: kriv-section;
+  content: counter(kriv-section, decimal-leading-zero) "  \2014  " attr(data-label);
+  display: block;
+  margin-bottom: 18px;
+  font: 600 0.72rem/1 var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: pre;
+}
+
+/* A large faded word behind section headings. */
+.site[data-ghost] h2[data-label] {
+  position: relative;
+  isolation: isolate;
+}
+
+.site[data-ghost] h2[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  z-index: -1;
+  left: -0.04em;
+  top: -0.42em;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 13vw, 11rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.site[data-ghost] .section,
+.site[data-ghost] .closeGiant {
+  overflow-x: clip;
+}
+
+/* Scroll motion: sections rise in as they enter the viewport. CSS scroll-driven
+   animations only, so browsers without them (and reduced motion) show everything. */
+@keyframes kriv-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .site[data-motion] .section > .wrap > *,
+    .site[data-motion] .edRow {
+      animation: kriv-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+
+  .site[data-motion] .heroCineCopy > * {
+    animation: kriv-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .site[data-motion] .heroCineCopy > :nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .site[data-motion] .heroCineCopy > :nth-child(3) {
+    animation-delay: 0.24s;
+  }
+
+  .site[data-motion] .heroCineCopy > :nth-child(4) {
+    animation-delay: 0.36s;
+  }
+}
+
+/* Hero: cinematic — full-screen photo, dark tinted scrim, copy low on the left. */
+.heroCine {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: min(92svh, 920px);
+  overflow: hidden;
+  color: #fff;
+  background: #111;
+}
+
+.heroCineMedia {
+  position: absolute !important;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  min-height: 0;
+}
+
+.heroCineScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(8 10 12 / 0.25) 0%, rgb(8 10 12 / 0.15) 35%, rgb(8 10 12 / 0.78) 100%),
+    linear-gradient(90deg, rgb(8 10 12 / 0.55) 0%, transparent 65%),
+    color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.heroCineCopy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: clamp(120px, 18vh, 200px) clamp(88px, 12vh, 128px);
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+}
+
+.heroCineCopy .eyebrow {
+  color: rgb(255 255 255 / 0.82);
+  letter-spacing: 0.24em;
+}
+
+.heroCineCopy .h1 {
+  font-size: clamp(2.7rem, 7vw, 6.2rem);
+  line-height: 0.98;
+  max-width: 13ch;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.heroCineCopy .lead {
+  color: rgb(255 255 255 / 0.86);
+  max-width: 46ch;
+}
+
+.scrollCue {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  border-radius: 50%;
+}
+
+.scrollCue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-right: 1.5px solid #fff;
+  border-bottom: 1.5px solid #fff;
+  transform: rotate(45deg);
+}
+
+/* Services: editorial — numbered rows between hairlines. */
+.editorial {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.edRow {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 8px 32px;
+  align-items: baseline;
+  padding-block: clamp(20px, 3vw, 32px);
+  border-bottom: 1px solid var(--line);
+  transition: padding-left 0.25s ease;
+}
+
+.edRow:hover {
+  padding-left: 10px;
+}
+
+.edNum {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.edRow strong {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+  font-size: clamp(1.3rem, 2.3vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.edRow span:last-child {
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .edRow {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .edRow span:last-child {
+    grid-column: 2;
+  }
+}
+
+/* About: copy beside two overlapping, tilted photo cards. */
+.cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.cardsBody {
+  margin: 20px 0 0;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.cardStack {
+  position: relative;
+  min-height: clamp(340px, 40vw, 500px);
+}
+
+.cardA,
+.cardB {
+  border: 6px solid var(--surface);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.22);
+}
+
+.cardA {
+  width: 70%;
+  aspect-ratio: 4 / 5;
+  transform: rotate(-4deg);
+}
+
+.cardB {
+  position: absolute !important;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  aspect-ratio: 4 / 5;
+  transform: rotate(5deg);
+}
+
+@media (max-width: 760px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Close: giant — accent band with oversized type. */
+.closeGiant {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.giantType {
+  composes: display;
+  font-size: clamp(2.8rem, 10vw, 9rem);
+  line-height: 0.92;
+  max-width: 14ch;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.closeGiant em {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.giantRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.giantRow p {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.closeGiant .btnPrimary {
+  background: var(--accent-ink);
+  color: var(--accent);
+  border-color: var(--accent-ink);
+}
+
+/* Coloured strips: the section number takes the strip's text colour; no ghost word there. */
+.site[data-numbered] .customStrip h2[data-label]::before {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.site[data-ghost] .customStrip h2[data-label]::after {
+  content: none;
+}
+
+/* Phones: keep the scroll cue clear of the hero copy. */
+@media (max-width: 720px) {
+  .heroCineCopy {
+    padding-bottom: 96px;
+  }
+}
+
+@media (max-height: 700px) {
+  .scrollCue {
+    display: none;
+  }
+}

@@ -27,7 +27,7 @@
   },
   "hero": {
     "eyebrow": "Canyon Lake and New Braunfels",
-    "headline": "Residential plumbing for Canyon Lake.",
+    "headline": "Residential plumbing for *Canyon Lake.*",
     "sub": "Residential plumbing services for Canyon Lake and surrounding areas: emergencies, new construction, sewer work, water heaters and water softeners."
   },
   "services": {
@@ -69,7 +69,7 @@
     ]
   },
   "close": {
-    "headline": "Need a plumber around Canyon Lake?",
+    "headline": "Need a plumber around *Canyon Lake?*",
     "sub": "Call Ronnie Lee Davis Plumbing at (830) 743-0667."
   },
   "seo": {

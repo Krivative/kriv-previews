@@ -10,8 +10,19 @@ export type TemplateDef = {
   fonts: {
     display: string; // CSS font-family value
     body: string;
-    /** Google Fonts css2 URL loading both families. */
+    /** Italic face for *accent* words in headings; defaults to the display font. */
+    accent?: string;
+    /** Google Fonts css2 URL loading every family above. */
     googleCss: string;
+  };
+  /** Editorial touches shared by the cinematic templates (all optional, off by default). */
+  style?: {
+    /** "01 — Services" labels above section headings. */
+    numbered?: boolean;
+    /** Sections rise in as they scroll into view (CSS only; off for reduced motion). */
+    motion?: boolean;
+    /** A large faded word behind section headings. */
+    ghost?: boolean;
   };
   /** CSS custom properties applied on the site root. See sections.module.css for the list. */
   tokens: {

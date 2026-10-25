@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Brooksville, Florida",
-    "headline": "Auto repair and service in Brooksville.",
+    "headline": "Auto repair and service in *Brooksville.*",
     "sub": "Genesis Auto Service on Spring Hill Drive, Brooksville."
   },
   "custom": {
@@ -34,7 +34,7 @@
     ]
   },
   "close": {
-    "headline": "Car needs a look?",
+    "headline": "Car needs a *look?*",
     "sub": "Call Genesis Auto Service at (352) 593-5952."
   },
   "seo": {

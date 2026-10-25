@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import type { SiteData, SectionRef } from "@/lib/site-schema";
 import { Photo } from "./Photo";
+import { Rich } from "./Rich";
 import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
 import s from "./sections.module.css";
@@ -16,7 +17,7 @@ function Ctas({ site, invert }: Props & { invert?: boolean }) {
         {primary.label}
       </a>
       {secondary ? (
-        <a className={invert ? s.btnGhost : s.btnGhost} {...inert}>
+        <a className={invert ? s.btnGhostLight : s.btnGhost} {...inert}>
           {secondary.label}
         </a>
       ) : null}
@@ -29,11 +30,31 @@ function Ctas({ site, invert }: Props & { invert?: boolean }) {
 export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, { type: "hero" }>["variant"] }) {
   const h = site.hero;
   const photo = site.brand.photos[0];
+  if (variant === "cinematic") {
+    // Full-screen photo with a tinted scrim, copy anchored low on the left, scroll cue.
+    return (
+      <section id="top" className={s.heroCine}>
+        <Photo src={photo} label="Main photo" className={s.heroCineMedia} />
+        <div className={s.heroCineScrim} />
+        <div className={`${s.wrap} ${s.heroCineCopy}`}>
+          {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
+          <h1 className={s.h1}>
+            <Rich text={h.headline} />
+          </h1>
+          <p className={s.lead}>{h.sub}</p>
+          <Ctas site={site} invert />
+        </div>
+        <span className={s.scrollCue} aria-hidden="true" />
+      </section>
+    );
+  }
   if (variant === "poster") {
     return (
       <section id="top" className={`${s.wrap} ${s.heroPoster}`}>
         {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
-        <h1 className={s.h1}>{h.headline}</h1>
+        <h1 className={s.h1}>
+          <Rich text={h.headline} />
+        </h1>
         <div className={s.heroPosterRow}>
           <p className={s.lead}>{h.sub}</p>
           <Ctas site={site} />
@@ -48,7 +69,9 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
       <section id="top" className={s.wrap}>
         <div className={s.heroCentered}>
           {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
-          <h1 className={s.h1}>{h.headline}</h1>
+          <h1 className={s.h1}>
+          <Rich text={h.headline} />
+        </h1>
           <p className={s.lead}>{h.sub}</p>
           <Ctas site={site} />
         </div>
@@ -64,7 +87,9 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
     return (
       <section id="top" className={`${s.wrap} ${s.heroStacked}`}>
         {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
-        <h1 className={s.h1}>{h.headline}</h1>
+        <h1 className={s.h1}>
+          <Rich text={h.headline} />
+        </h1>
         <Photo src={photo} label="Main photo" />
         <div className={s.heroStackedRow}>
           <p className={s.lead}>{h.sub}</p>
@@ -81,7 +106,9 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
         <div className={s.wrap} style={{ width: "100%" }}>
           <div className={s.heroBannerCopy}>
             {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
-            <h1 className={s.h1}>{h.headline}</h1>
+            <h1 className={s.h1}>
+          <Rich text={h.headline} />
+        </h1>
             <p className={s.lead}>{h.sub}</p>
             <Ctas site={site} />
           </div>
@@ -93,7 +120,9 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
     <section id="top" className={`${s.wrap} ${s.heroSplit}`}>
       <div>
         {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
-        <h1 className={s.h1}>{h.headline}</h1>
+        <h1 className={s.h1}>
+          <Rich text={h.headline} />
+        </h1>
         <p className={s.lead}>{h.sub}</p>
         <Ctas site={site} />
       </div>
@@ -136,6 +165,16 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           </div>
         ))}
       </div>
+    ) : variant === "editorial" ? (
+      <ol className={s.editorial}>
+        {items.map((it, i) => (
+          <li key={it.name} className={s.edRow}>
+            <span className={s.edNum}>{String(i + 1).padStart(2, "0")}</span>
+            <strong>{it.name}</strong>
+            <span>{it.blurb}</span>
+          </li>
+        ))}
+      </ol>
     ) : variant === "menu" ? (
       <div className={s.menu}>
         {items.map((it) => (
@@ -159,7 +198,9 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
     <section id="services" className={`${s.section} ${variant === "rows" || variant === "grid" ? s.alt : ""}`}>
       <div className={s.wrap}>
         <div className={s.sectionHead}>
-          <h2 className={s.h2}>{sv.title}</h2>
+          <h2 className={s.h2} data-label="Services">
+            <Rich text={sv.title} />
+          </h2>
           {sv.intro ? <p>{sv.intro}</p> : null}
         </div>
         {body}
@@ -173,13 +214,35 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
 export function About({ site, variant }: Props & { variant: Extract<SectionRef, { type: "about" }>["variant"] }) {
   const a = site.about;
   if (!a) return null;
+  if (variant === "cards") {
+    // Copy beside two overlapping, slightly tilted photo cards.
+    const [p1, p2] = [site.brand.photos[1] ?? site.brand.photos[0], site.brand.photos[2]];
+    return (
+      <section id="about" className={s.section}>
+        <div className={`${s.wrap} ${s.cards}`}>
+          <div>
+            <h2 className={s.h2} data-label="About">
+              <Rich text={a.title ?? "About us"} />
+            </h2>
+            <p className={s.cardsBody}>{a.body}</p>
+          </div>
+          <div className={s.cardStack}>
+            <Photo src={p1} label="Photo" className={s.cardA} />
+            {p2 ? <Photo src={p2} label="Photo" className={s.cardB} /> : null}
+          </div>
+        </div>
+      </section>
+    );
+  }
   if (variant === "split") {
     return (
       <section id="about" className={s.section}>
         <div className={`${s.wrap} ${s.split}`}>
           <Photo src={site.brand.photos[1]} label="Team or interior photo" />
           <div>
-            <h2 className={s.h2}>{a.title ?? "About us"}</h2>
+            <h2 className={s.h2} data-label="About">
+              <Rich text={a.title ?? "About us"} />
+            </h2>
             <p>{a.body}</p>
           </div>
         </div>
@@ -210,7 +273,9 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
       <div className={s.wrap}>
         {g.title ? (
           <div className={s.sectionHead}>
-            <h2 className={s.h2}>{g.title}</h2>
+            <h2 className={s.h2} data-label="Gallery">
+              <Rich text={g.title} />
+            </h2>
           </div>
         ) : null}
         <div className={variant === "strip" ? s.strip : s.mosaic}>
@@ -232,7 +297,9 @@ export function Custom({ site, variant }: Props & { variant: Extract<SectionRef,
     return (
       <section id="custom" className={`${s.section} ${s.customStrip}`}>
         <div className={s.wrap}>
-          <h2 className={s.h2}>{c.title}</h2>
+          <h2 className={s.h2} data-label="Details">
+            <Rich text={c.title} />
+          </h2>
           {c.body ? <p className={s.muted} style={{ marginTop: 12, maxWidth: "52ch" }}>{c.body}</p> : null}
           {c.items.length ? (
             <div className={s.customItems}>
@@ -253,7 +320,9 @@ export function Custom({ site, variant }: Props & { variant: Extract<SectionRef,
       <section id="custom" className={s.section}>
         <div className={s.wrap}>
           <div className={s.sectionHead}>
-            <h2 className={s.h2}>{c.title}</h2>
+            <h2 className={s.h2} data-label="Details">
+            <Rich text={c.title} />
+          </h2>
             {c.body ? <p>{c.body}</p> : null}
           </div>
           <div className={s.steps}>
@@ -317,7 +386,9 @@ export function Visit({ site, variant }: Props & { variant: Extract<SectionRef, 
       <section id="visit" className={s.section}>
         <div className={`${s.wrap} ${s.visitCard}`}>
           <div>
-            <h2 className={s.h2}>Find us</h2>
+            <h2 className={s.h2} data-label="Visit">
+              Find us
+            </h2>
             <AddressBlock site={site} />
             {b.mapsUrl ? <a {...inert}>Open in Google Maps</a> : null}
           </div>
@@ -335,7 +406,9 @@ export function Visit({ site, variant }: Props & { variant: Extract<SectionRef, 
     <section id="visit" className={`${s.section} ${s.alt}`}>
       <div className={`${s.wrap} ${s.visitSplit}`}>
         <div>
-          <h2 className={s.h2}>Visit us</h2>
+          <h2 className={s.h2} data-label="Visit">
+            Visit us
+          </h2>
           <AddressBlock site={site} />
           <Hours site={site} />
           {b.phoneDisplay ? <a {...inert}>{b.phoneDisplay}</a> : null}
@@ -355,7 +428,9 @@ export function Faq({ site, variant }: Props & { variant: Extract<SectionRef, { 
     <section id="faq" className={s.section}>
       <div className={s.wrap}>
         <div className={s.sectionHead}>
-          <h2 className={s.h2}>Questions</h2>
+          <h2 className={s.h2} data-label="Questions">
+            Questions
+          </h2>
         </div>
         <div className={variant === "columns" ? s.faqColumns : s.faqList}>
           {site.faqs.map((f) => (
@@ -381,10 +456,28 @@ export function Close({ site, variant }: Props & { variant: Extract<SectionRef, 
         <div className={`${s.wrap}`}>
           <div className={s.closeCard}>
             <div>
-              <h2 className={s.h2}>{c.headline}</h2>
+              <h2 className={s.h2}>
+            <Rich text={c.headline} />
+          </h2>
               {c.sub ? <p>{c.sub}</p> : null}
             </div>
             <Ctas site={site} />
+          </div>
+        </div>
+      </section>
+    );
+  }
+  if (variant === "giant") {
+    // Accent-coloured band with oversized type, the page's last word before the footer.
+    return (
+      <section className={`${s.section} ${s.closeGiant}`}>
+        <div className={s.wrap}>
+          <h2 className={s.giantType}>
+            <Rich text={c.headline} />
+          </h2>
+          <div className={s.giantRow}>
+            {c.sub ? <p>{c.sub}</p> : <span />}
+            <Ctas site={site} invert />
           </div>
         </div>
       </section>
@@ -394,7 +487,9 @@ export function Close({ site, variant }: Props & { variant: Extract<SectionRef, 
     return (
       <section className={`${s.section} ${s.closeStatement}`}>
         <div className={s.wrap}>
-          <h2 className={s.h2}>{c.headline}</h2>
+          <h2 className={s.h2}>
+            <Rich text={c.headline} />
+          </h2>
           {c.sub ? <p>{c.sub}</p> : null}
           <Ctas site={site} />
         </div>
@@ -404,7 +499,9 @@ export function Close({ site, variant }: Props & { variant: Extract<SectionRef, 
   return (
     <section className={`${s.section} ${s.closeBand}`}>
       <div className={s.wrap}>
-        <h2 className={s.h2}>{c.headline}</h2>
+        <h2 className={s.h2}>
+            <Rich text={c.headline} />
+          </h2>
         {c.sub ? <p>{c.sub}</p> : null}
         <Ctas site={site} invert />
       </div>

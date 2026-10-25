@@ -20,7 +20,7 @@
   },
   "hero": {
     "eyebrow": "Auburndale and Lakeland, Florida",
-    "headline": "Air conditioning and heating for Polk County.",
+    "headline": "Air conditioning and heating for *Polk County.*",
     "sub": "Repairs, new systems, maintenance and duct cleaning for homes and businesses, from offices in Auburndale and Lakeland."
   },
   "custom": {
@@ -88,7 +88,7 @@
     }
   ],
   "close": {
-    "headline": "Heating or cooling trouble in Polk County?",
+    "headline": "Heating or cooling trouble in *Polk County?*",
     "sub": "Call the Auburndale office at (863) 967-0449."
   },
   "seo": {

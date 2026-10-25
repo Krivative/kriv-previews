@@ -8,12 +8,17 @@ import { z } from "zod";
 // at the end and the country-neutral address. See docs/SYNC.md.
 
 const Link = z.object({ label: z.string(), href: z.string() });
-const PhotoCredit = z.object({
-  provider: z.literal("Unsplash"),
-  photographer: z.string(),
-  profileUrl: z.string().url().startsWith("https://unsplash.com/"),
-  photoPage: z.string().url().startsWith("https://unsplash.com/"),
-});
+const PhotoCredit = z.discriminatedUnion("provider", [
+  z.object({
+    provider: z.literal("Unsplash"),
+    photographer: z.string(),
+    profileUrl: z.string().url().startsWith("https://unsplash.com/"),
+    photoPage: z.string().url().startsWith("https://unsplash.com/"),
+  }),
+  // A photo of the business itself, taken from its own website or listing (Kriv, 2026-10-25).
+  // `source` is the page it appears on; the footer credits the business, not a photographer.
+  z.object({ provider: z.literal("Business"), source: z.string().url() }),
+]);
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
 
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -36,14 +41,14 @@ export type LeadStatus = z.infer<typeof LeadStatus>;
 // Section types and their variants. A template picks a default list; a site may
 // override the whole list (to reorder, hide or swap variants) via `design.sections`.
 export const SectionRef = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("hero"), variant: z.enum(["split", "poster", "centered", "banner", "stacked"]) }),
-  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles"]) }),
-  z.object({ type: z.literal("about"), variant: z.enum(["quote", "split"]) }),
+  z.object({ type: z.literal("hero"), variant: z.enum(["split", "poster", "centered", "banner", "stacked", "cinematic"]) }),
+  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles", "editorial"]) }),
+  z.object({ type: z.literal("about"), variant: z.enum(["quote", "split", "cards"]) }),
   z.object({ type: z.literal("gallery"), variant: z.enum(["mosaic", "strip"]) }),
   z.object({ type: z.literal("custom"), variant: z.enum(["strip", "note", "steps"]) }),
   z.object({ type: z.literal("visit"), variant: z.enum(["split", "card"]) }),
   z.object({ type: z.literal("faq"), variant: z.enum(["list", "columns"]) }),
-  z.object({ type: z.literal("close"), variant: z.enum(["band", "card", "statement"]) }),
+  z.object({ type: z.literal("close"), variant: z.enum(["band", "card", "statement", "giant"]) }),
 ]);
 export type SectionRef = z.infer<typeof SectionRef>;
 export type SectionType = SectionRef["type"];

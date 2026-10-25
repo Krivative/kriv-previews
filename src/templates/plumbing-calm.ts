@@ -9,8 +9,10 @@ export const plumbingCalm = defineTemplate({
   fonts: {
     display: "Outfit, system-ui, sans-serif",
     body: "'Source Sans 3', system-ui, sans-serif",
-    googleCss: "https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap",
+    accent: "'Instrument Serif', Georgia, serif",
+    googleCss: "https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Source+Sans+3:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap",
   },
+  style: { numbered: true, motion: true },
   tokens: {
     bg: "#F3FAFA",
     surface: "#FFFFFF",
@@ -26,10 +28,10 @@ export const plumbingCalm = defineTemplate({
     displayCase: "none",
   },
   sections: [
-    { type: "hero", variant: "split" },
-    { type: "services", variant: "rows" },
+    { type: "hero", variant: "cinematic" },
+    { type: "services", variant: "editorial" },
     { type: "custom", variant: "strip" },
-    { type: "about", variant: "split" },
+    { type: "about", variant: "cards" },
     { type: "visit", variant: "card" },
     { type: "faq", variant: "columns" },
     { type: "close", variant: "band" },
@@ -37,9 +39,9 @@ export const plumbingCalm = defineTemplate({
   fingerprint: {
     grammar: "clean-water trade page, white and pale aqua, teal accent, rounded sans (Outfit), 14px radii",
     nav: "rounded sans wordmark, teal rounded CTA",
-    hero: "split: copy left with call button, photo right in a 14px frame",
-    sequence: "split → service rows → teal contact strip → about split → visit card → FAQ columns → band",
+    hero: "cinematic: full-screen photo under a teal-tinted scrim, Outfit headline with an italic serif accent",
+    sequence: "cinematic → numbered service rows → teal contact strip → tilted cards → visit card → FAQ columns → teal band",
     close: "full-width teal band",
-    signature: "services listed as plain rows straight under the hero, with the teal phone-and-area strip after them, not before",
+    signature: "numbered hairline service rows straight under the full-screen hero, teal phone strip after them",
   },
 });

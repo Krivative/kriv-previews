@@ -8,11 +8,24 @@ How leads are found and qualified. The lead lists themselves are never committed
 - Business email: a role mailbox (info@, office@, frontdesk@...) or a mailbox named after the business (acmedental@gmail.com for "Acme Dental"): `isBusinessMailbox` in `scripts/site-flags.mjs`. Never a person's address.
 - Any address on the business's own website domain also counts, including a first name (jane@smithdental.example), since small and family businesses often use one (Kriv, 2026-10-25). A person's address on Gmail, Yahoo and similar still does not, and addresses are never guessed.
 - A free-mail address (Gmail, AOL, BellSouth and similar) also counts when the business publishes it on its site or listing, unless it is plainly a person's first.last name (Kriv, 2026-10-25).
-- The weak-website rule stays exactly as it is.
+- The weak-website rule stays exactly as it is, plus the visual review below (Kriv, 2026-10-25).
 - Bot-walled or geo-blocked sites are not re-checked; list them separately as "not checked".
 - Run `check-site.mjs` in foreground batches of about 20 URLs and save each batch.
 - Record per lead: state, town, niche, name, address, public phone, website, the site's flags in plain English, the business email and where it was found, and the source URL for every fact.
 - Target: at least 10 qualified leads across the three states, then stop and report per state and niche.
+
+## Visual review: dated or amateur sites (Kriv, 2026-10-25)
+
+A site that passes the technical check (`weak: false`) still counts as weak when its homepage fails 2 or more of these, judged from desktop and phone screenshots (`scripts/finder/review-sheets.mjs` makes contact sheets of 9):
+
+1. Unchanged builder template, or builder branding left showing.
+2. No real photos: clip art, tiny or blurry images, or none.
+3. Clashing colours or more than 3 fonts.
+4. Wall of text or a cramped layout with no clear call to action.
+5. Placeholder text, empty sections or broken images; headings that render like default links.
+6. Outdated look (gradients and bevels, tables, fixed narrow width) or newest copyright 2020 or older.
+
+Grades go in `<dataDir>/visual.json` (`{ host: { failed: [plain-English items] } }`); `qualify.mjs` reads it and lists sites still to review in `to-review.json`. The outreach email names one or two failed items, specifically and politely (e.g. "your homepage has no photos of your work"), never "your site is ugly".
 
 ## Rules (Kriv, 2026-10-25, first run)
 

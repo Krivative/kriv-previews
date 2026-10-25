@@ -1,17 +1,23 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: 5 plumbing and auto repair pages live (main 6af2eff, dpl_9WfgoomAcfPjPMw9rS473VwAPHXN); emails ready for Kriv to send by hand
+Updated: 2026-10-26 · Last step finished: the 12 pilot templates rebuilt on a cinematic kit after Kriv's reference sites; waiting for Kriv's review before anything goes live
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
+- [ ] Kriv: review the 12 rebuilt templates (screenshots on the status board); going live means merging to main, which also restyles the 15 live lead pages
+- [ ] Claude: grade the remaining visual-review screenshots (142 sites) and add the new leads to the Lead Desk
 - [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
 - [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
 - [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
 
 ## Done
 
+- [x] Templates rebuilt (batch 7, for review): shared cinematic kit (full-screen photo hero, *italic accent* words, numbered labels, CSS scroll reveals that respect reduced motion, ghost words, editorial service rows, tilted photo cards, giant close) on hvac, chiro, dental, med spa, plumbing and auto templates; Linen and Gloss get new type (Cormorant/Jost, Bodoni/DM Sans). Ideas from Kriv's sites ivorypremier.com and chaayrs-creates.vercel.app, no code copied (Claude, 2026-10-26)
+- [x] Leads may use their own website photos and logo (Kriv, 2026-10-25): `scripts/pick-site-photos.mjs`, "Business" photo credit, footer note, QA rule in docs/LEAD-QA.md (Claude)
+- [x] Lead Desk is interactive (private artifact with a db): status filter and sort, Approve, Decline, Email sent and notes that Claude reads back (Kriv asked, Claude, 2026-10-25)
+- [x] Visual review added to the weak-website rule (Kriv, 2026-10-25): 2+ failed items of the dated/amateur checklist; first 20 sites graded, 8 new qualified leads (Claude)
 - [x] 5 plumbing and auto repair pages live (Kriv approved the merge): main 6af2eff, production dpl_9WfgoomAcfPjPMw9rS473VwAPHXN; all 200 with noindex and banner, browser check clean on desktop and phone; earlier pages still live; 8/8 smoke checks (Claude, 2026-10-25)
 - [x] Plumbing and auto repair lead finder (US cloud runs, Yellowpages): 1,021 independent listings in 28 towns; 10 picked, re-verified: 7 qualify (Boggs Plumbing, Ronnie Lee Davis Plumbing, Scooter Plumbing, Genesis Auto Service, Advanced Car Care Center, A&L Mobile Mechanics, Michigan Auto Repair); Marc's Master Mechanics and Red Rock Collision have modern sites; Southern Plumbing not checked (Claude, 2026-10-25)
 - [x] 5 plumbing and auto repair pages built (Tap, Pressure, Workshop, Torque), QA per docs/LEAD-QA.md, screenshots clean; set to approved under Kriv's pre-approval; email drafts outside Git (Claude, 2026-10-25)

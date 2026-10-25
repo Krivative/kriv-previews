@@ -24,7 +24,7 @@
   },
   "hero": {
     "eyebrow": "Fictional test lead",
-    "headline": "Family dental care in Austin.",
+    "headline": "Family dental care in *Austin.*",
     "sub": "A test record for KRIV Previews. The business, phone number and address are fictional."
   },
   "services": {
@@ -55,7 +55,7 @@
     }
   ],
   "close": {
-    "headline": "This is a test preview.",
+    "headline": "This is a test *preview.*",
     "sub": "Real previews use facts from the lead's own public pages only."
   },
   "seo": {

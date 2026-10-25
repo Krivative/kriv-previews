@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Central Florida",
-    "headline": "Plumbing, water heaters and drains.",
+    "headline": "Plumbing, water heaters and *drains.*",
     "sub": "Central Florida plumbing service: emergency plumbing, water heaters, leak detection, gas lines, drain cleaning and sewer lines."
   },
   "services": {
@@ -67,7 +67,7 @@
     ]
   },
   "close": {
-    "headline": "Need a plumber in Central Florida?",
+    "headline": "Need a plumber in *Central Florida?*",
     "sub": "Call Scooter Plumbing at (352) 572-1051."
   },
   "seo": {

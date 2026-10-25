@@ -83,3 +83,28 @@ describe("stock photo credits", () => {
     expect(() => SiteData.parse({ ...withPhotos, brand: { ...withPhotos.brand, photoCredits: [bad, credit("Ben")] } })).toThrow();
   });
 });
+
+describe("cinematic kit", () => {
+  it("renders *starred* headline words as emphasis without the stars", () => {
+    const html = render({ ...minimal, hero: { headline: "Every journey begins *with a moment.*", sub: "Sub" } }, "aesthetic-calm");
+    expect(html).toContain("<em>with a moment.</em>");
+    expect(html).not.toContain("*with");
+  });
+
+  it("credits the business's own photos and logo without a live link", () => {
+    const html = render({
+      ...minimal,
+      brand: { logo: "https://example.com/logo.png", photos: ["https://example.com/a.jpg"], photoCredits: [{ provider: "Business", source: "https://example.com/about" }] },
+    }, "hvac-bold");
+    expect(html).toContain("Photos and logo from Minimal Co&#x27;s own website");
+    expect(html).toContain('src="https://example.com/logo.png"');
+    for (const href of anchorHrefs(html)) expect(href.startsWith("#")).toBe(true);
+  });
+
+  it("turns on numbered labels, motion and ghost words from the template style", () => {
+    const html = render(testLead, "hvac-bold");
+    expect(html).toMatch(/data-numbered=""/);
+    expect(html).toMatch(/data-motion=""/);
+    expect(html).toMatch(/data-ghost=""/);
+  });
+});

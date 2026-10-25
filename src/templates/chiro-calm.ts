@@ -9,8 +9,10 @@ export const chiroCalm = defineTemplate({
   fonts: {
     display: "Newsreader, Georgia, serif",
     body: "'Hanken Grotesk', system-ui, sans-serif",
-    googleCss: "https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600&display=swap",
+    accent: "Newsreader, Georgia, serif",
+    googleCss: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap",
   },
+  style: { numbered: true, motion: true },
   tokens: {
     bg: "#FBF8F2",
     surface: "#FFFFFF",
@@ -26,10 +28,10 @@ export const chiroCalm = defineTemplate({
     displayCase: "none",
   },
   sections: [
-    { type: "hero", variant: "centered" },
+    { type: "hero", variant: "cinematic" },
     { type: "custom", variant: "steps" },
-    { type: "services", variant: "rows" },
-    { type: "about", variant: "split" },
+    { type: "services", variant: "editorial" },
+    { type: "about", variant: "cards" },
     { type: "visit", variant: "card" },
     { type: "faq", variant: "list" },
     { type: "close", variant: "band" },
@@ -37,9 +39,9 @@ export const chiroCalm = defineTemplate({
   fingerprint: {
     grammar: "warm clinic journal, cream with charcoal and ochre, Newsreader serif, 16px radii, pill buttons",
     nav: "serif wordmark, ochre pill CTA",
-    hero: "centred serif headline over three soft-cornered photo tiles",
-    sequence: "centred → first-visit steps → treatment rows → doctor about split → visit card → FAQ list → band",
+    hero: "cinematic: full-screen calm photo, Newsreader headline with an ochre italic accent",
+    sequence: "cinematic → first-visit steps → numbered treatment rows → tilted cards → visit card → FAQ list → ochre band",
     close: "ochre band",
-    signature: "a three-step 'your first visit' sits straight under the hero, before any treatment is listed",
+    signature: "a three-step 'your first visit' straight under the full-screen hero, treatments as numbered italic rows",
   },
 });

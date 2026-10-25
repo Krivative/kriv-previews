@@ -25,6 +25,9 @@ for (const slug of slugs) {
     ["phone", 390, 844],
   ]) {
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
+    // Scroll-driven reveal animations only play as a visitor scrolls; a full-page capture
+    // never scrolls, so shoot with reduced motion to show every section.
+    await page.emulateMedia({ reducedMotion: "reduce" });
     const errors = [];
     page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
     page.on("pageerror", (e) => errors.push(String(e)));

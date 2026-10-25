@@ -31,6 +31,11 @@ export function Header({ site, sections }: { site: SiteData; sections: SectionRe
     <div className={s.wrap}>
       <header className={s.header}>
         <a href="#top" className={s.brand}>
+          {site.brand.logo ? (
+            // The business's own logo, from its website or listing (Kriv, 2026-10-25).
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className={s.brandLogo} src={site.brand.logo} alt="" />
+          ) : null}
           {site.business.name}
         </a>
         <nav className={s.nav} aria-label="Sections">
@@ -82,13 +87,17 @@ export const UNSPLASH_UTM = "utm_source=kriv_previews&utm_medium=referral";
 const withUtm = (url: string) => `${url}${url.includes("?") ? "&" : "?"}${UNSPLASH_UTM}`;
 
 export function PhotoCredits({ site }: { site: SiteData }) {
-  const credits = site.brand.photoCredits;
-  if (!credits.length) return null;
+  const all = site.brand.photoCredits;
+  const credits = all.flatMap((c) => (c.provider === "Unsplash" ? [c] : []));
+  const own = all.some((c) => c.provider === "Business") || Boolean(site.brand.logo);
+  if (!credits.length && !own) return null;
   const people = [...new Map(credits.map((c) => [c.profileUrl, c])).values()];
   const rel = "noopener noreferrer nofollow";
+  const ownNote = own ? `Photos and logo from ${site.business.name}'s own website, shown only in this concept. ` : "";
+  if (!credits.length) return <span className={s.footerNote}>{ownNote}</span>;
   return (
     <span className={s.footerNote}>
-      Stock photos for illustration, not of {site.business.name}:{" "}
+      {ownNote}Stock photos for illustration, not of {site.business.name}:{" "}
       {people.map((c, i) => (
         <span key={c.profileUrl}>
           {i ? ", " : ""}

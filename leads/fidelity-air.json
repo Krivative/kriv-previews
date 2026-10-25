@@ -15,7 +15,7 @@
   },
   "hero": {
     "eyebrow": "Spring Hill, Florida",
-    "headline": "Air conditioning, heating and refrigeration.",
+    "headline": "Air conditioning, heating and *refrigeration.*",
     "sub": "Air conditioning and heating repairs, refrigeration service and appliance repairs in Spring Hill, Florida."
   },
   "services": {
@@ -49,7 +49,7 @@
     ]
   },
   "close": {
-    "headline": "Need air conditioning or refrigeration work?",
+    "headline": "Need air conditioning or *refrigeration work?*",
     "sub": "Call Fidelity Air & Refrigeration at (352) 597-5911."
   },
   "seo": {

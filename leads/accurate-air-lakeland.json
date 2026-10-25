@@ -17,7 +17,7 @@
   },
   "hero": {
     "eyebrow": "Lakeland, Florida",
-    "headline": "Air conditioning service and repair.",
+    "headline": "Air conditioning service and *repair.*",
     "sub": "Service and repair of all makes and models, and installation for homes and businesses, in Lakeland, Florida."
   },
   "services": {
@@ -51,7 +51,7 @@
     ]
   },
   "close": {
-    "headline": "Need your air conditioning looked at?",
+    "headline": "Need your air conditioning *looked at?*",
     "sub": "Call Accurate Air of Lakeland at (863) 559-1676."
   },
   "seo": {

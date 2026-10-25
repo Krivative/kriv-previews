@@ -23,7 +23,7 @@
   },
   "hero": {
     "eyebrow": "New Braunfels, Texas",
-    "headline": "Plumbing in New Braunfels.",
+    "headline": "Plumbing in *New Braunfels.*",
     "sub": "Boggs Plumbing in New Braunfels, Texas. Open 24 hours, seven days a week."
   },
   "custom": {
@@ -40,7 +40,7 @@
     ]
   },
   "close": {
-    "headline": "Need a plumber in New Braunfels?",
+    "headline": "Need a plumber in *New Braunfels?*",
     "sub": "Call Boggs Plumbing at (830) 237-7211."
   },
   "seo": {

@@ -15,7 +15,7 @@
   },
   "hero": {
     "eyebrow": "Sherman, Texas",
-    "headline": "Chiropractic care in Sherman.",
+    "headline": "Chiropractic care in *Sherman.*",
     "sub": "Chiropractic services from Atkinson Chiropractic in Sherman, Texas."
   },
   "custom": {
@@ -28,7 +28,7 @@
     ]
   },
   "close": {
-    "headline": "Want to find out more?",
+    "headline": "Want to *find out more?*",
     "sub": "Call Atkinson Chiropractic at (903) 893-2388."
   },
   "seo": {

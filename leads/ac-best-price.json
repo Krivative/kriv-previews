@@ -15,7 +15,7 @@
   },
   "hero": {
     "eyebrow": "San Antonio, Texas",
-    "headline": "Air conditioning and heating for homes and businesses.",
+    "headline": "Air conditioning and heating for homes and *businesses.*",
     "sub": "Residential and commercial air conditioning and heating in San Antonio: maintenance, service contracts, upgrades and remodels."
   },
   "services": {
@@ -57,7 +57,7 @@
     ]
   },
   "close": {
-    "headline": "Need heating or cooling work in San Antonio?",
+    "headline": "Need heating or cooling work in *San Antonio?*",
     "sub": "Call A/C Best Price at (210) 460-1438."
   },
   "seo": {
