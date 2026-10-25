@@ -16,7 +16,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - Next actions, in order:
   1. ~~Verify production~~ done 2026-10-24 (8/8).
   2. ~~Phase 3~~ verified 2026-10-25: https://github.com/Krivative/Kriv/pull/19 (draft, branch `claude/amazing-edison-juyem3`, head `91329b5`). Local check passed, Vercel build succeeded, and Kriv checked the PR's Vercel preview (see Current phase); the PR description records it. Do not merge: Kriv approves the merge and the main-site production deploy.
-  3. Phase 4 lead finder for San Antonio TX (dental, HVAC, chiropractic, med spa): in progress. Method, sources that work from Kriv's network, and checker caveats: docs/LEAD-FINDER.md. Lead lists stay outside Git (`C:\Users\user\kriv-leads\`).
+  3. Phase 4 lead finder for San Antonio TX (dental, HVAC, chiropractic, med spa): first run done 2026-10-25. 242 sites graded, 0 businesses met every rule (weak or no site AND a business mailbox); 28 sites sit behind bot walls or geo-blocks from Kriv's network in the Philippines. Review list: `C:\Users\user\kriv-leads\san-antonio-2026-10-25.md` (outside Git). Method, sources and checker caveats: docs/LEAD-FINDER.md. Waiting for Kriv to choose how to widen the search (see ROADMAP "Next up").
   4. Preview images: report done (docs/PREVIEW-IMAGES.md). Waiting for Kriv to choose a source; no account, key or paid service without Kriv's OK.
 - Windows machine note (2026-10-25): two parallel background `check-site.mjs` runs were stopped by Claude Code for low memory. Run the checker in the foreground in batches of about 20 URLs and save each batch.
 

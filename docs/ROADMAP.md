@@ -1,15 +1,17 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: images report for the preview photo placeholders (docs/PREVIEW-IMAGES.md)
+Updated: 2026-10-25 · Last step finished: first lead finder run for San Antonio (242 sites graded, 0 qualifying leads; list for Kriv outside Git)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Claude: Phase 4 lead finder for San Antonio, TX (dental, HVAC, chiropractic, med spa); list saved outside Git for Kriv's review
+- [ ] Kriv: review the first run (C:\Users\user\kriv-leads\san-antonio-2026-10-25.md) and choose how to find more qualifying leads: re-check the 28 bot-walled sites from a US network, count a company-name mailbox (named after the business) as a business email, widen sources (directory profiles, more suburbs), or relax the weak-site rule
 - [ ] Kriv: choose the image source for preview placeholders: Openverse public-domain only (no account), or also Unsplash/Pexels (free developer accounts and keys), or AI-generated generic scenes (paid); see docs/PREVIEW-IMAGES.md
 
 ## Done
+
+- [x] Lead finder first run, San Antonio: 242 business sites graded from web search, Hotfrog, TACCA and medspanear.me; 21 weak (mostly dead domains), 28 could not be checked from this network, none with a weak site and a business email. Near misses and sources in the list for Kriv, outside Git (Claude, 2026-10-25)
 
 - [x] Images report: herk-edit-kit makes video only (its one still-image route is a paid Kie.ai script), so it can't fill placeholders on its own; proposed Openverse CC0/public-domain stock first, with licence and source recorded per image (Claude, 2026-10-25)
 - [x] Site checker fixed: bot walls, geo-blocks and failed checks are "not-checked", never weak; script-rendered sites read after they finish loading (Claude, 2026-10-25)
