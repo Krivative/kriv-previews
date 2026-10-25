@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: previews live on kriv.agency (Krivative/Kriv#19 merged and deployed, 20/20 live checks)
+Updated: 2026-10-25 · Last step finished: kriv-previews branch merged into main and deployed (8/8 smoke checks on production)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -12,6 +12,8 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 - [ ] Kriv: choose the image source for preview placeholders: Openverse public-domain only (no account), or also Unsplash/Pexels (free developer accounts and keys), or AI-generated generic scenes (paid); see docs/PREVIEW-IMAGES.md
 
 ## Done
+
+- [x] kriv-previews: branch claude/amazing-edison-juyem3 merged into main (fast-forward to 2c34918; docs, site checker and tests only, no app code) and deployed to production (dpl_Hknvh92tvv2VZppyz2Kg2zwuuX89); 8/8 smoke checks against kriv-previews.vercel.app/for and kriv.agency live checks still pass (Kriv approved, Claude, 2026-10-25)
 
 - [x] Phase 3 live: Kriv approved; Krivative/Kriv#19 merged (be83831) and deployed to production (dpl_G3nuQV6UvDkScFkQPc1ZWU8tqWYG). Live checks 20/20: main-site pages unchanged from a pre-merge baseline, kriv.agency/test-lead and /Test-Lead show the preview with banner and noindex, /nope 404 "Nothing here", robots.txt disallows /for/; browser check clean. Release note: Krivative/Kriv#20 (Claude, 2026-10-25)
 
@@ -58,7 +60,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Decisions needed from Kriv
 
-- [ ] Merge the docs branch `claude/amazing-edison-juyem3` of kriv-previews into main (a merge to main redeploys production)
+- [x] Merge the docs branch `claude/amazing-edison-juyem3` of kriv-previews into main (approved and done 2026-10-25; later commits on the branch need a new OK to merge)
 
 ## Kriv's setup tasks
 
