@@ -1,17 +1,18 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Kriv approved the 3 Florida HVAC leads (status approved, not live yet); lead finder round 2 running (cloud run on a US network, Hotfrog in 32 more towns)
+Updated: 2026-10-25 · Last step finished: 3 approved leads live at kriv.agency (main 2f30705, dpl_9oSYKAvLW4w3BRAQXhYjb7J2jwKH); emails ready for Kriv to send by hand
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: OK to merge the branch into main (redeploys kriv-previews production; the 3 approved pages go live at kriv.agency/<slug>, still noindex with the concept banner)
+- [ ] Kriv: upgrade to Vercel Pro, then send the Springer Bros. and Kyle's Air Conditioning emails by hand (drafts in C:\Users\user\kriv-leads\emails\)
 - [ ] Claude: finish lead finder round 2 (cloud run on a US network for the 59 blocked sites and near-miss emails; Hotfrog in 32 more towns) and report counts
 - [ ] Claude: before sending to Air Source 1, re-check from a US connection that its website address still shows only an error page
 
 ## Done
 
+- [x] 3 approved leads live (Kriv approved the merge): main fast-forwarded to 2f30705, production dpl_9oSYKAvLW4w3BRAQXhYjb7J2jwKH; kriv.agency/springer-bros, /air-source-1, /kyles-air-conditioning return 200 with noindex and the concept banner, browser check clean on desktop and phone; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the 3 draft leads (Springer Bros., Air Source 1, Kyle's Air Conditioning): status set to approved; production build serves all 3 (200, noindex, banner); not live until the merge to main (Kriv, 2026-10-25)
 - [x] Kriv chose all three ways to reach 10 leads: a cloud run on a US network, business emails from Facebook and Google listings, more Hotfrog towns. Finder scripts moved into scripts/finder (Kriv decided, Claude, 2026-10-25)
 - [x] Lead finder, Texas, Florida and Utah (2026-10-25): 573 businesses collected from web search, Hotfrog (49 towns), 7 chamber directories, TACCA and medspanear.me; 488 sites graded; 3 qualified (all Florida HVAC), 93 near misses (weak or no site but no deliverable business email), 59 not checked (bot walls). Below the target of 10. Lists outside Git in C:\Users\user\kriv-leads\ (Claude)
