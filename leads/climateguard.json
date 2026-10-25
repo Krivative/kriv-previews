@@ -1,0 +1,120 @@
+{
+  "slug": "climateguard",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "design": {
+    "accent": "#E5393B"
+  },
+  "business": {
+    "name": "ClimateGuard Cooling Services",
+    "category": "Heating, air conditioning and electrical",
+    "phoneDisplay": "(863) 991-2180",
+    "phoneE164": "+18639912180",
+    "address": {
+      "line1": "32415 Broadway St",
+      "city": "Sebring",
+      "region": "FL",
+      "postalCode": "33870",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Sunday",
+        "time": "Open 24 hours"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Sebring · Highlands County",
+    "headline": "Cooling and electrical for *Highlands County.*",
+    "sub": "AC repair and installation, mini splits, maintenance and electrical work for homes and businesses in Sebring, Avon Park, Lake Placid, Lake Wales and Okeechobee."
+  },
+  "custom": {
+    "title": "Open 24 hours",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(863) 991-2180"
+      },
+      {
+        "name": "Serving",
+        "blurb": "Sebring, Avon Park, Lake Placid, Lake Wales and Okeechobee"
+      }
+    ]
+  },
+  "services": {
+    "title": "Heating, cooling *and electrical*",
+    "items": [
+      {
+        "name": "AC repair",
+        "blurb": "Diagnosis and repair for air conditioners that stop cooling, leak or break down."
+      },
+      {
+        "name": "AC installation",
+        "blurb": "High-efficiency systems, with financing options."
+      },
+      {
+        "name": "Mini splits",
+        "blurb": "Mini split installation for any space."
+      },
+      {
+        "name": "Maintenance and air quality",
+        "blurb": "AC maintenance, duct sealing and air quality purification."
+      },
+      {
+        "name": "Refrigeration",
+        "blurb": "Refrigeration services."
+      },
+      {
+        "name": "Electrical",
+        "blurb": "Panel changes, generators, surge protection, lighting, rewires and EV stations."
+      }
+    ]
+  },
+  "about": {
+    "title": "Locally *owned*",
+    "body": "ClimateGuard Cooling Services is a locally owned heating, cooling and electrical company serving Sebring and the surrounding Highlands County area."
+  },
+  "close": {
+    "headline": "Need AC or electrical work in *Sebring?*",
+    "sub": "Call ClimateGuard at (863) 991-2180."
+  },
+  "seo": {
+    "title": "ClimateGuard Cooling Services | Concept preview",
+    "description": "Concept preview of a website for ClimateGuard Cooling Services in Sebring, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.climateguardcoolingservices.com/",
+    "https://unsplash.com/photos/close-up-of-an-air-conditioning-unit-on-a-sunny-day-Al9lWh3XKGM",
+    "https://unsplash.com/photos/six-industrial-fans-mounted-on-a-white-grid-structure-nzjY3tSUtKU"
+  ],
+  "brand": {
+    "photos": [
+      "https://static.wixstatic.com/media/b678ab_5ee3ac16cdcd46e19b17be3938516247~mv2.jpg/v1/fill/w_1093,h_549,al_c,q_85,enc_avif,quality_auto/b678ab_5ee3ac16cdcd46e19b17be3938516247~mv2.jpg",
+      "https://images.unsplash.com/photo-1758798157512-f0a864c696c9?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTYyfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777534360599-4347ab110a25?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTYzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "https://www.climateguardcoolingservices.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Khanh Do",
+        "profileUrl": "https://unsplash.com/@donguyenkhanhs",
+        "photoPage": "https://unsplash.com/photos/close-up-of-an-air-conditioning-unit-on-a-sunny-day-Al9lWh3XKGM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maksim Zinchenko",
+        "profileUrl": "https://unsplash.com/@xtoman",
+        "photoPage": "https://unsplash.com/photos/six-industrial-fans-mounted-on-a-white-grid-structure-nzjY3tSUtKU"
+      }
+    ],
+    "logo": "https://static.wixstatic.com/media/25872f_1dabf14c30ce4a159ca209af9164995b~mv2.png/v1/fill/w_261,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Climateguardlogo%20png.png"
+  }
+}

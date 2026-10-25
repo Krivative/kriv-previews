@@ -1,11 +1,12 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: cinematic templates live on all 15 lead pages (main 9be84fe, dpl_GL6MTcV2hzXstotUojKBwXmYqANF); LinkedIn contacts and connection notes on the Lead Desk
+Updated: 2026-10-26 · Last step finished: previews and email drafts for the 7 visual-review leads Kriv approved (branch claude/amazing-edison-juyem3, not merged)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
+- [ ] Kriv: approve merging the 7 visual-review previews to main (production): Hilliard's, Family Dental Center of Sebring, Ridge, ClimateGuard, Long's, Lakeside, Perfected Air; then send their emails by hand (drafts in kriv-leads/emails; Family Dental's email also tells them their About page shows gambling spam)
 - [ ] Claude: grade the remaining visual-review screenshots (142 sites) and add the new leads to the Lead Desk (calibrated by Kriv: a site that already looks professional and only needs tweaks is not a lead)
 - [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
 - [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
@@ -13,6 +14,8 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Done
 
+- [x] 7 visual-review leads Kriv approved on the Lead Desk: preview pages (cinematic templates; own logos for 4, ClimateGuard's own team photo), facts from each business's own website, QA and desktop/phone screenshots clean, email drafts naming 1 to 2 failed visual items, kept outside Git; desk keeps Kriv's approvals and LinkedIn notes on them. Cinematic hero: accent word lifted for contrast on the photo, no auto-hyphenation (Claude, 2026-10-26)
+- [x] Rule from Kriv: every lead always gets an email draft, including leads with a LinkedIn contact (checked: all 8 LinkedIn leads that are not declined have one) (Kriv, 2026-10-26)
 - [x] Cinematic templates live (Kriv approved the merge): main 9be84fe, production dpl_GL6MTcV2hzXstotUojKBwXmYqANF; all 15 lead pages 200 with noindex and banner, browser check clean on desktop and phone, 8/8 smoke checks (Claude, 2026-10-26)
 - [x] LinkedIn: public web search for every live and visual-review lead; 9 contacts found (4 confirmed, 1 likely, 3 to check, 1 company page), each with a suggested connection note under 200 characters, a Copy note and a LinkedIn sent button on the Lead Desk; list outside Git. Kriv sends every request by hand (Claude, 2026-10-26)
 - [x] Templates rebuilt (batch 7, for review): shared cinematic kit (full-screen photo hero, *italic accent* words, numbered labels, CSS scroll reveals that respect reduced motion, ghost words, editorial service rows, tilted photo cards, giant close) on hvac, chiro, dental, med spa, plumbing and auto templates; Linen and Gloss get new type (Cormorant/Jost, Bodoni/DM Sans). Ideas from Kriv's sites ivorypremier.com and chaayrs-creates.vercel.app, no code copied (Claude, 2026-10-26)

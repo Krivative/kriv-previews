@@ -1029,9 +1029,15 @@
 .heroCineCopy .h1 {
   font-size: clamp(2.7rem, 7vw, 6.2rem);
   line-height: 0.98;
-  max-width: 13ch;
+  max-width: 14ch;
   overflow-wrap: break-word;
-  hyphens: auto;
+  /* Whole words only: auto hyphens split words like "electrical" at desktop widths. */
+  hyphens: manual;
+}
+
+/* The accent colour is tuned for light backgrounds; lift it so it reads on the dark photo scrim. */
+.heroCineCopy .h1 em {
+  color: color-mix(in srgb, var(--accent) 60%, white);
 }
 
 .heroCineCopy .lead {

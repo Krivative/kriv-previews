@@ -1,0 +1,127 @@
+{
+  "slug": "family-dental-sebring",
+  "template": "dental-clear",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "business": {
+    "name": "Family Dental Center of Sebring",
+    "category": "Dentist",
+    "phoneDisplay": "(863) 382-3100",
+    "phoneE164": "+18633823100",
+    "address": {
+      "line1": "511 S Eucalyptus St",
+      "city": "Sebring",
+      "region": "FL",
+      "postalCode": "33870",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday, Tuesday, Thursday",
+        "time": "8:30 am to 4:00 pm"
+      },
+      {
+        "days": "Wednesday",
+        "time": "11:00 am to 6:00 pm"
+      },
+      {
+        "days": "Friday to Sunday",
+        "time": "Closed"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Sebring, Florida",
+    "headline": "Family dental care in *Sebring.*",
+    "sub": "Crowns and bridges, implants, dentures, cosmetic dentistry and Invisalign, on South Eucalyptus Street."
+  },
+  "services": {
+    "title": "Care for *every smile*",
+    "items": [
+      {
+        "name": "Crowns and bridges",
+        "blurb": "Restoring the strength and look of damaged or missing teeth."
+      },
+      {
+        "name": "Dental implants",
+        "blurb": "A permanent option for missing teeth."
+      },
+      {
+        "name": "Dentures",
+        "blurb": "Dentures to restore a full smile."
+      },
+      {
+        "name": "Cosmetic dentistry",
+        "blurb": "Whitening, veneers, bonding and smile makeovers."
+      },
+      {
+        "name": "Invisalign",
+        "blurb": "Clear aligners to straighten teeth discreetly."
+      },
+      {
+        "name": "Botox for TMJ",
+        "blurb": "Botox as an adjunct therapy for TMJ disorders and facial pain."
+      }
+    ]
+  },
+  "about": {
+    "title": "A practice built around *comfort*",
+    "body": "Family Dental Center of Sebring offers personalized, gentle dental care for the whole family in Sebring."
+  },
+  "custom": {
+    "title": "Visit us on South Eucalyptus Street",
+    "items": [
+      {
+        "name": "Address",
+        "blurb": "511 S Eucalyptus St, Sebring, FL 33870"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(863) 382-3100"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Ready for your *next visit?*",
+    "sub": "Call Family Dental Center of Sebring at (863) 382-3100."
+  },
+  "seo": {
+    "title": "Family Dental Center of Sebring | Concept preview",
+    "description": "Concept preview of a website for Family Dental Center of Sebring, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.familydentalcenterofsebring.com/",
+    "https://unsplash.com/photos/modern-dental-office-with-chair-and-equipment-e7MJLM5VGjY",
+    "https://unsplash.com/photos/blue-couch-beside-green-potted-plant-B_sK_xgzwVA",
+    "https://unsplash.com/photos/a-dental-room-with-a-chair-and-a-monitor-Pc8lpKJwecM"
+  ],
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQ0MjA1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1629909614456-6b1c5c94cecc?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQ0MjA2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643660527098-559f89e45a92?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTQ0MjA4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Benyamin Bohlouli",
+        "profileUrl": "https://unsplash.com/@benyamin_bohlouli",
+        "photoPage": "https://unsplash.com/photos/modern-dental-office-with-chair-and-equipment-e7MJLM5VGjY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Benyamin Bohlouli",
+        "profileUrl": "https://unsplash.com/@benyamin_bohlouli",
+        "photoPage": "https://unsplash.com/photos/blue-couch-beside-green-potted-plant-B_sK_xgzwVA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ozkan Guner",
+        "profileUrl": "https://unsplash.com/@dentistozkanguner",
+        "photoPage": "https://unsplash.com/photos/a-dental-room-with-a-chair-and-a-monitor-Pc8lpKJwecM"
+      }
+    ]
+  }
+}

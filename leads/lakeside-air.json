@@ -1,0 +1,121 @@
+{
+  "slug": "lakeside-air",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "business": {
+    "name": "Lakeside Air Conditioning",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(863) 385-5806",
+    "phoneE164": "+18633855806",
+    "address": {
+      "line1": "6555 US Highway 27 S",
+      "city": "Sebring",
+      "region": "FL",
+      "postalCode": "33876",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Sunday",
+        "time": "Open 24 hours"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Sebring, Florida",
+    "headline": "Heating and cooling for *Sebring.*",
+    "sub": "AC installation, repair and maintenance, ducts, heat pumps and thermostats for homes, businesses and mobile homes."
+  },
+  "custom": {
+    "title": "Open 24 hours",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "6555 US Highway 27 S, Sebring, FL 33876"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(863) 385-5806"
+      }
+    ]
+  },
+  "services": {
+    "title": "What we *fix*",
+    "items": [
+      {
+        "name": "AC installation",
+        "blurb": "New installations and upgrades of the brand you choose."
+      },
+      {
+        "name": "AC repair and maintenance",
+        "blurb": "Repair and maintenance for air conditioners and heaters."
+      },
+      {
+        "name": "Mobile homes",
+        "blurb": "Specialists in mobile home heating and cooling."
+      },
+      {
+        "name": "Air ducts",
+        "blurb": "Air duct installation, repair and cleaning."
+      },
+      {
+        "name": "Heat pumps",
+        "blurb": "Heat pump services."
+      },
+      {
+        "name": "Thermostats",
+        "blurb": "Thermostat repair."
+      }
+    ]
+  },
+  "about": {
+    "title": "Family *owned*",
+    "body": "Lakeside Air Conditioning is family owned and operated, serving homes, commercial buildings and mobile homes in Sebring."
+  },
+  "close": {
+    "headline": "No cooling in *Sebring?*",
+    "sub": "Call Lakeside at (863) 385-5806."
+  },
+  "seo": {
+    "title": "Lakeside Air Conditioning | Concept preview",
+    "description": "Concept preview of a website for Lakeside Air Conditioning in Sebring, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.lakeside-hvac.com/",
+    "https://www.lakeside-hvac.com/contact-us",
+    "https://unsplash.com/photos/an-air-conditioning-unit-mounted-on-a-wall-ItJsBJlf5Qw",
+    "https://unsplash.com/photos/a-large-building-with-a-roof-and-a-sky-background-f6XsNY8jmtg",
+    "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+  ],
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTcyMjA5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1737256359080-9354dbcc21ef?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTcwfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1705444509014-fed54b6191bf?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTcyMjA5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Andrianto Cahyono Putro",
+        "profileUrl": "https://unsplash.com/@andrianspace",
+        "photoPage": "https://unsplash.com/photos/an-air-conditioning-unit-mounted-on-a-wall-ItJsBJlf5Qw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Declan Sun",
+        "profileUrl": "https://unsplash.com/@declansun",
+        "photoPage": "https://unsplash.com/photos/a-large-building-with-a-roof-and-a-sky-background-f6XsNY8jmtg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Illia Horokhovsky",
+        "profileUrl": "https://unsplash.com/@fili_ja",
+        "photoPage": "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+      }
+    ],
+    "logo": "https://irp.cdn-website.com/b9a93c9a/dms3rep/multi/opt/logononumber-211w.png"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "slug": "hilliards-air",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "business": {
+    "name": "Hilliard's Air Conditioning & Heating Inc.",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(352) 622-9390",
+    "phoneE164": "+13526229390",
+    "address": {
+      "line1": "1010 SW 33rd Ave",
+      "city": "Ocala",
+      "region": "FL",
+      "postalCode": "34474",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Friday",
+        "time": "8:00 am to 5:00 pm"
+      },
+      {
+        "days": "Saturday and Sunday",
+        "time": "Closed"
+      },
+      {
+        "days": "Emergency service",
+        "time": "24/7"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Ocala · Marion County",
+    "headline": "Heating and cooling, *family run in Ocala.*",
+    "sub": "Installation, repair and maintenance of residential and commercial heating and air conditioning, with emergency service around the clock."
+  },
+  "custom": {
+    "title": "Ocala and Marion County",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "1010 SW 33rd Ave, Ocala, FL 34474"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(352) 622-9390"
+      },
+      {
+        "name": "Emergencies",
+        "blurb": "Emergency service 24/7"
+      }
+    ]
+  },
+  "services": {
+    "title": "What we *take care of*",
+    "items": [
+      {
+        "name": "Installations and change-outs",
+        "blurb": "New and replacement systems for homes and commercial buildings."
+      },
+      {
+        "name": "Repairs on all brands",
+        "blurb": "Repairs on all brands and models of heating and cooling equipment."
+      },
+      {
+        "name": "Maintenance and service agreements",
+        "blurb": "Preventative maintenance, with service agreements available."
+      },
+      {
+        "name": "Load calculations",
+        "blurb": "Manual J, D and N load calculations and energy calculations."
+      },
+      {
+        "name": "Mobile homes",
+        "blurb": "Heating and air conditioning for mobile homes."
+      },
+      {
+        "name": "Ducts and insulation",
+        "blurb": "Ductwork, ventilation, dehumidifying and insulation."
+      }
+    ]
+  },
+  "about": {
+    "title": "A *family* business",
+    "body": "Hilliard's Air Conditioning & Heating is a family owned and operated, licensed and insured heating and air conditioning contractor serving Ocala and the Marion County area."
+  },
+  "close": {
+    "headline": "Need heating or cooling work in *Ocala?*",
+    "sub": "Call Hilliard's at (352) 622-9390."
+  },
+  "seo": {
+    "title": "Hilliard's Air Conditioning & Heating | Concept preview",
+    "description": "Concept preview of a website for Hilliard's Air Conditioning & Heating Inc. in Ocala, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hilliardsairandheat.com/",
+    "https://www.hilliardsairandheat.com/contact",
+    "https://www.hilliardsairandheat.com/services",
+    "https://unsplash.com/photos/air-conditioner-unit-below-large-windows-with-green-curtains-SiRHTf1t-xg",
+    "https://unsplash.com/photos/corrugated-metal-wall-with-overgrown-plants-and-air-conditioner-nAnDxXWEatk",
+    "https://unsplash.com/photos/lush-green-garden-with-flowering-plants-and-air-conditioner-Z2-R2UfByGc"
+  ],
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1766201926837-6b8cb0383de8?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1760243875486-0a362cab9021?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1761805752397-ebb7ef46258b?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "雙 film",
+        "profileUrl": "https://unsplash.com/@film002",
+        "photoPage": "https://unsplash.com/photos/air-conditioner-unit-below-large-windows-with-green-curtains-SiRHTf1t-xg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "PJH",
+        "profileUrl": "https://unsplash.com/@dokae",
+        "photoPage": "https://unsplash.com/photos/corrugated-metal-wall-with-overgrown-plants-and-air-conditioner-nAnDxXWEatk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "George 🦅",
+        "profileUrl": "https://unsplash.com/@geox3",
+        "photoPage": "https://unsplash.com/photos/lush-green-garden-with-flowering-plants-and-air-conditioner-Z2-R2UfByGc"
+      }
+    ],
+    "logo": "https://irp.cdn-website.com/d6a375eb/dms3rep/multi/opt/logo-119w.png"
+  }
+}

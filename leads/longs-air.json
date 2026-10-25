@@ -1,0 +1,112 @@
+{
+  "slug": "longs-air",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "business": {
+    "name": "Long's Air Conditioning, Inc.",
+    "category": "Heating, air conditioning and standby generators",
+    "phoneDisplay": "888-376-0866",
+    "phoneE164": "+18883760866",
+    "address": {
+      "line1": "800 US Highway 27",
+      "city": "Avon Park",
+      "region": "FL",
+      "postalCode": "33825",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Every day",
+        "time": "Open 24/7"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Avon Park · Central Florida",
+    "headline": "Cooling Central Florida, *family run.*",
+    "sub": "Sales, service and installation of heating, cooling and standby generators for homes and businesses across Central Florida."
+  },
+  "custom": {
+    "title": "Avon Park, open 24/7",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "800 US Highway 27, Avon Park, FL 33825"
+      },
+      {
+        "name": "Phone",
+        "blurb": "888-376-0866"
+      }
+    ]
+  },
+  "services": {
+    "title": "Heating, cooling *and power*",
+    "items": [
+      {
+        "name": "AC installation",
+        "blurb": "New installation and retrofit of energy-efficient, quiet cooling systems."
+      },
+      {
+        "name": "AC repair and service",
+        "blurb": "Repair and service for central air conditioning, ductless units and heat pumps."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Installation and repair of safe, reliable heating systems, including furnaces."
+      },
+      {
+        "name": "Indoor air quality",
+        "blurb": "Indoor air quality solutions for homes and businesses."
+      },
+      {
+        "name": "Standby generators",
+        "blurb": "Sales and installation of standby generators."
+      },
+      {
+        "name": "Commercial",
+        "blurb": "Heating and cooling for businesses."
+      }
+    ]
+  },
+  "about": {
+    "title": "Four *generations*",
+    "body": "Long's Air Conditioning, Inc. is a family owned business, now in its fourth generation of the family, serving Avon Park and Central Florida."
+  },
+  "close": {
+    "headline": "Need heating, cooling *or power?*",
+    "sub": "Call Long's at 888-376-0866."
+  },
+  "seo": {
+    "title": "Long's Air Conditioning | Concept preview",
+    "description": "Concept preview of a website for Long's Air Conditioning, Inc. in Avon Park, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://longsair.com/",
+    "https://longsair.com/contact/",
+    "https://unsplash.com/photos/sunlight-illuminates-an-old-building-with-air-conditioners-vzC0HouXiTw",
+    "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+  ],
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1774851218623-900286a77155?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1705444509014-fed54b6191bf?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTMyMTY4fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "boris misevic",
+        "profileUrl": "https://unsplash.com/@borisview",
+        "photoPage": "https://unsplash.com/photos/sunlight-illuminates-an-old-building-with-air-conditioners-vzC0HouXiTw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Illia Horokhovsky",
+        "profileUrl": "https://unsplash.com/@fili_ja",
+        "photoPage": "https://unsplash.com/photos/a-row-of-air-conditioners-sitting-on-top-of-a-tiled-floor-YmouSi40T3Q"
+      }
+    ]
+  }
+}
