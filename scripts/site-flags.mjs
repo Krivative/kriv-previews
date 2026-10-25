@@ -30,8 +30,8 @@ const letters = (s) => s.toLowerCase().normalize("NFKD").replace(/[^a-z]/g, "");
  * A mailbox that belongs to the business: a role name (info@, office@...) or a local part
  * named after the business, e.g. acmedental@gmail.com for "Acme Dental" (Kriv, 2026-10-25).
  * Any address on the business's own website domain also counts, even a first name
- * (jane@smithdental.com): small and family businesses often use one (Kriv, 2026-10-25).
- * A person's address anywhere else (maria.lopez@gmail.com) never counts.
+ * (jane@smithdental.example): small and family businesses often use one (Kriv, 2026-10-25).
+ * A person's address anywhere else (maria.lopez@gmail.example) never counts.
  */
 export function isBusinessMailbox(email, { name = "", website = "" } = {}) {
   if (isRoleEmail(email)) return true;

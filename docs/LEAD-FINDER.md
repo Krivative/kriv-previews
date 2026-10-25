@@ -6,7 +6,7 @@ How leads are found and qualified. The lead lists themselves are never committed
 
 - Areas: smaller cities and towns, where sites tend to be older. Texas: towns around San Antonio (New Braunfels, Seguin, Boerne, Schertz, Universal City, Converse, Helotes, Live Oak), then Waco, Tyler, Killeen/Temple. Florida: Ocala, Lakeland, Port St. Lucie, Sebring, Panama City. Utah: Ogden, Provo/Orem, Logan, St. George, Cedar City. Adjust when a town yields nothing.
 - Business email: a role mailbox (info@, office@, frontdesk@...) or a mailbox named after the business (acmedental@gmail.com for "Acme Dental"): `isBusinessMailbox` in `scripts/site-flags.mjs`. Never a person's address.
-- Any address on the business's own website domain also counts, including a first name (jane@smithdental.com), since small and family businesses often use one (Kriv, 2026-10-25). A person's address on Gmail, Yahoo and similar still does not, and addresses are never guessed.
+- Any address on the business's own website domain also counts, including a first name (jane@smithdental.example), since small and family businesses often use one (Kriv, 2026-10-25). A person's address on Gmail, Yahoo and similar still does not, and addresses are never guessed.
 - The weak-website rule stays exactly as it is.
 - Bot-walled or geo-blocked sites are not re-checked; list them separately as "not checked".
 - Run `check-site.mjs` in foreground batches of about 20 URLs and save each batch.
