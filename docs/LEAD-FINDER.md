@@ -25,6 +25,8 @@ A site that passes the technical check (`weak: false`) still counts as weak when
 5. Placeholder text, empty sections or broken images; headings that render like default links.
 6. Outdated look (gradients and bevels, tables, fixed narrow width) or newest copyright 2020 or older.
 
+Calibration (Kriv, 2026-10-26, declining Allin Family Dentistry): a site that already looks professional and only needs tweaks is not a lead; grade only clearly dated or amateur sites as weak.
+
 Grades go in `<dataDir>/visual.json` (`{ host: { failed: [plain-English items] } }`); `qualify.mjs` reads it and lists sites still to review in `to-review.json`. The outreach email names one or two failed items, specifically and politely (e.g. "your homepage has no photos of your work"), never "your site is ugly".
 
 ## Rules (Kriv, 2026-10-25, first run)
