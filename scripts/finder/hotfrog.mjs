@@ -5,7 +5,12 @@ import { writeFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
-const CATS = { dental: ["dentists", "dentist"], chiro: ["chiropractors", "chiropractor"], hvac: ["heating-air-conditioning", "hvac", "air-conditioning"], medspa: ["medical-spa", "medical-spas", "skin-care"] };
+const CATS = {
+  dental: ["dentists", "dentist"], chiro: ["chiropractors", "chiropractor"], hvac: ["heating-air-conditioning", "hvac", "air-conditioning"], medspa: ["medical-spa", "medical-spas", "skin-care"],
+  plumbing: ["plumbers", "plumbing"], auto: ["auto-repair", "car-repair", "mechanics"],
+};
+// Only these niches when NICHES is set, e.g. NICHES=plumbing,auto.
+for (const k of Object.keys(CATS)) if (process.env.NICHES && !process.env.NICHES.split(",").includes(k)) delete CATS[k];
 const pause = () => new Promise((r) => setTimeout(r, 5000 + Math.random() * 4000));
 // curl, not fetch: Hotfrog answers Node's fetch with 403.
 const get = async (url) => {

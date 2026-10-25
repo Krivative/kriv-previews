@@ -23,6 +23,8 @@ import { hvacCalm } from "./hvac-calm";
 import { hvacBold } from "./hvac-bold";
 import { chiroCalm } from "./chiro-calm";
 import { chiroBold } from "./chiro-bold";
+import { plumbingCalm } from "./plumbing-calm";
+import { plumbingBold } from "./plumbing-bold";
 
 // Register every template here. CATALOG.md and FINGERPRINTS.md mirror this list.
 export const templateList: TemplateDef[] = [
@@ -50,6 +52,8 @@ export const templateList: TemplateDef[] = [
   hvacBold,
   chiroCalm,
   chiroBold,
+  plumbingCalm,
+  plumbingBold,
 ];
 
 export const templates: Record<string, TemplateDef> = Object.fromEntries(templateList.map((t) => [t.id, t]));

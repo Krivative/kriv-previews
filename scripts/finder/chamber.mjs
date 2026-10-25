@@ -11,6 +11,8 @@ const NICHE = [
   ["chiro", /chiropract/i],
   ["hvac", /(air[- ]condition|heating|hvac|mechanical)/i],
   ["medspa", /(med(ical)?[- ]spa|aesthetic|skin|cosmetic surg|laser|botox|day spa|spas?\b)/i],
+  ["plumbing", /plumb/i],
+  ["auto", /(auto(motive)? (repair|service)|car repair|mechanic|transmission|brake)/i],
 ];
 const nicheOf = (s) => NICHE.find(([, re]) => re.test(s))?.[0];
 const pause = () => new Promise((r) => setTimeout(r, 4000 + Math.random() * 3000));

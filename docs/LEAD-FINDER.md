@@ -17,6 +17,7 @@ How leads are found and qualified. The lead lists themselves are never committed
 ## Rules (Kriv, 2026-10-25, first run)
 
 - Niches: dental clinics, HVAC companies, chiropractors, med spas. San Antonio metro (first run).
+- Plumbing and auto repair added as niches (Kriv, 2026-10-25), same rules. Plumbing uses the Tap and Pressure templates (for Kriv's review), auto repair uses Workshop and Torque. Chains added to the qualify step (Roto-Rooter, Mr. Rooter, Benjamin Franklin, Meineke, Midas, Firestone, Christian Brothers, AAMCO and others).
 - Sources: web search, public directory listings and the business's own website. No Google Places API, no paid lead lists. A few pages per niche, with pauses between requests. Never get around a block or captcha.
 - Skip chains, franchises, multi-city groups and specialists (orthodontists, pediatric dentists, oral surgeons, periodontists, endodontists).
 - Deduplicate by website domain and by phone number.
