@@ -1,17 +1,18 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: 5 plumbing and auto repair leads drafted and approved (Kriv pre-approved qualifying leads); waiting for Kriv's OK to merge
+Updated: 2026-10-25 · Last step finished: 5 plumbing and auto repair pages live (main 6af2eff, dpl_9WfgoomAcfPjPMw9rS473VwAPHXN); emails ready for Kriv to send by hand
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: OK to merge into main so the 5 plumbing and auto repair pages go live (boggs-plumbing, ronnie-lee-davis-plumbing, scooter-plumbing, genesis-auto-service, advanced-car-care)
+- [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
 - [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
 - [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
 
 ## Done
 
+- [x] 5 plumbing and auto repair pages live (Kriv approved the merge): main 6af2eff, production dpl_9WfgoomAcfPjPMw9rS473VwAPHXN; all 200 with noindex and banner, browser check clean on desktop and phone; earlier pages still live; 8/8 smoke checks (Claude, 2026-10-25)
 - [x] Plumbing and auto repair lead finder (US cloud runs, Yellowpages): 1,021 independent listings in 28 towns; 10 picked, re-verified: 7 qualify (Boggs Plumbing, Ronnie Lee Davis Plumbing, Scooter Plumbing, Genesis Auto Service, Advanced Car Care Center, A&L Mobile Mechanics, Michigan Auto Repair); Marc's Master Mechanics and Red Rock Collision have modern sites; Southern Plumbing not checked (Claude, 2026-10-25)
 - [x] 5 plumbing and auto repair pages built (Tap, Pressure, Workshop, Torque), QA per docs/LEAD-QA.md, screenshots clean; set to approved under Kriv's pre-approval; email drafts outside Git (Claude, 2026-10-25)
 - [x] Poster hero: headline now scales down on phones so a long uppercase word (e.g. BRAUNFELS) never scrolls sideways (Claude, 2026-10-25)
