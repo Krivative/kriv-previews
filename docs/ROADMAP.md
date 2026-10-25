@@ -1,12 +1,12 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: 7 more approved leads live (main a838212, dpl_AQaQZL9VwEyWFj8pFeBdk7x3vm5J); 10 pages live, emails ready for Kriv to send by hand
+Updated: 2026-10-25 · Last step finished: Vercel Pro active for team Kriv (checked); Kriv sends the lead emails by hand
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: upgrade to Vercel Pro, then send the emails by hand (Springer Bros., Kyle's and the 7 new leads; Air Source 1 on hold) (drafts in C:\Users\user\kriv-leads\emails\)
+- [ ] Kriv: send the emails by hand (Springer Bros., Kyle's and the 7 new leads; Air Source 1 on hold) (drafts in C:\Users\user\kriv-leads\emails\)
 - [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
 - [ ] Claude: lead finder for plumbing and auto repair in Texas, Florida and Utah (Hotfrog is challenging this network now; a US cloud run uses Yellowpages)
 
@@ -86,7 +86,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 ## Kriv's setup tasks
 
 - [x] DMARC live; Gmail shows SPF, DKIM and DMARC all PASS for hello@kriv.agency (Kriv, 2026-10-25)
-- [ ] Upgrade to Vercel Pro before the first real preview is sent
+- [x] Vercel Pro: team Kriv (kriv5) is on Pro, checked with `vercel teams ls` (Kriv, 2026-10-25)
 
 ## Setup (Claude builds, Kriv approves)
 
