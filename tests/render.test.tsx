@@ -47,3 +47,39 @@ describe.each(templateList.map((t) => t.id))("template %s", (id) => {
 it("sets the page language from the lead", () => {
   expect(render(testLead)).toContain('lang="en-US"');
 });
+
+describe("stock photo credits", () => {
+  const credit = (who: string) => ({
+    provider: "Unsplash",
+    photographer: who,
+    profileUrl: `https://unsplash.com/@${who.toLowerCase()}`,
+    photoPage: `https://unsplash.com/photos/${who.toLowerCase()}-1`,
+  });
+  const withPhotos = {
+    ...minimal,
+    brand: {
+      photos: ["https://images.unsplash.com/photo-1?w=1600", "https://images.unsplash.com/photo-2?w=1600"],
+      photoCredits: [credit("Ana"), credit("Ben")],
+    },
+  };
+
+  it.each(templateList.map((t) => t.id))("credits each photographer and Unsplash, and links nowhere else (%s)", (id) => {
+    const html = render(withPhotos, id);
+    expect(html).toContain("Stock photos for illustration, not of Minimal Co:");
+    const outbound = anchorHrefs(html).filter((h) => !h.startsWith("#"));
+    expect(outbound).toEqual([
+      "https://unsplash.com/@ana?utm_source=kriv_previews&amp;utm_medium=referral",
+      "https://unsplash.com/@ben?utm_source=kriv_previews&amp;utm_medium=referral",
+      "https://unsplash.com/?utm_source=kriv_previews&amp;utm_medium=referral",
+    ]);
+  });
+
+  it("rejects photos without a matching credit", () => {
+    expect(() => SiteData.parse({ ...withPhotos, brand: { ...withPhotos.brand, photoCredits: [credit("Ana")] } })).toThrow(/credit/);
+  });
+
+  it("rejects credits that do not point at Unsplash", () => {
+    const bad = { ...credit("Ana"), profileUrl: "https://example.com/ana" };
+    expect(() => SiteData.parse({ ...withPhotos, brand: { ...withPhotos.brand, photoCredits: [bad, credit("Ben")] } })).toThrow();
+  });
+});

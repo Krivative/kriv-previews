@@ -1,10 +1,20 @@
-# Lead finder (Phase 4, pilot: San Antonio, TX)
+# Lead finder (Phase 4)
 
-How leads are found and qualified. The lead lists themselves are never committed: they hold business emails and live outside Git (first run: `C:\Users\user\kriv-leads\` on Kriv's Windows machine).
+How leads are found and qualified. The lead lists themselves are never committed: they hold business emails and live outside Git (`C:\Users\user\kriv-leads\` on Kriv's Windows machine). Check results (`check-site.mjs` output) list every visible email, so they stay outside Git too.
 
-## Rules (Kriv, 2026-10-25)
+## Rules (Kriv, 2026-10-25, second update)
 
-- Niches: dental clinics, HVAC companies, chiropractors, med spas. San Antonio metro.
+- Areas: smaller cities and towns, where sites tend to be older. Texas: towns around San Antonio (New Braunfels, Seguin, Boerne, Schertz, Universal City, Converse, Helotes, Live Oak), then Waco, Tyler, Killeen/Temple. Florida: Ocala, Lakeland, Port St. Lucie, Sebring, Panama City. Utah: Ogden, Provo/Orem, Logan, St. George, Cedar City. Adjust when a town yields nothing.
+- Business email: a role mailbox (info@, office@, frontdesk@...) or a mailbox named after the business (acmedental@gmail.com for "Acme Dental"): `isBusinessMailbox` in `scripts/site-flags.mjs`. Never a person's address.
+- The weak-website rule stays exactly as it is.
+- Bot-walled or geo-blocked sites are not re-checked; list them separately as "not checked".
+- Run `check-site.mjs` in foreground batches of about 20 URLs and save each batch.
+- Record per lead: state, town, niche, name, address, public phone, website, the site's flags in plain English, the business email and where it was found, and the source URL for every fact.
+- Target: at least 10 qualified leads across the three states, then stop and report per state and niche.
+
+## Rules (Kriv, 2026-10-25, first run)
+
+- Niches: dental clinics, HVAC companies, chiropractors, med spas. San Antonio metro (first run).
 - Sources: web search, public directory listings and the business's own website. No Google Places API, no paid lead lists. A few pages per niche, with pauses between requests. Never get around a block or captcha.
 - Skip chains, franchises, multi-city groups and specialists (orthodontists, pediatric dentists, oral surgeons, periodontists, endodontists).
 - Deduplicate by website domain and by phone number.

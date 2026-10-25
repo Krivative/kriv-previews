@@ -8,6 +8,12 @@ import { z } from "zod";
 // at the end and the country-neutral address. See docs/SYNC.md.
 
 const Link = z.object({ label: z.string(), href: z.string() });
+const PhotoCredit = z.object({
+  provider: z.literal("Unsplash"),
+  photographer: z.string(),
+  profileUrl: z.string().url().startsWith("https://unsplash.com/"),
+  photoPage: z.string().url().startsWith("https://unsplash.com/"),
+});
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
 
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -79,7 +85,19 @@ export const SiteData = z.object({
       sections: z.array(SectionRef).optional(),
     })
     .default({}),
-  brand: z.object({ logo: z.string().optional(), photos: z.array(z.string()).default([]) }).default({ photos: [] }),
+  brand: z
+    .object({
+      logo: z.string().optional(),
+      photos: z.array(z.string()).default([]),
+      // Stock photos: one credit per photo, same order. Unsplash's API terms require
+      // hotlinked URLs and a visible "Photo by <name> on Unsplash" with links.
+      photoCredits: z.array(PhotoCredit).default([]),
+    })
+    .default({ photos: [], photoCredits: [] })
+    .refine((b) => b.photoCredits.length === 0 || b.photoCredits.length === b.photos.length, {
+      message: "give every photo a credit, in the same order",
+      path: ["photoCredits"],
+    }),
   hero: z.object({
     eyebrow: z.string().max(40).optional(),
     headline: z.string().max(70),

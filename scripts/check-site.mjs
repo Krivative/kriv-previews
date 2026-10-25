@@ -77,6 +77,9 @@ for (const raw of urls) {
       copyrightYear: facts.copyrightYear,
       generator: facts.generator,
       textLength: facts.textLength,
+      // All visible addresses: the lead finder decides with isBusinessMailbox, which needs the
+      // business name. Output files hold emails, so they stay outside Git (docs/LEAD-FINDER.md).
+      emails,
       roleEmails: emails.filter(isRoleEmail),
       otherEmailCount: emails.filter((e) => !isRoleEmail(e)).length,
       bookingLinks: [...new Set(links.map((l) => hostOf(l.href)).filter((h) => h && BOOKING_HOSTS.some((b) => h.endsWith(b))))],

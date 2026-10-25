@@ -1,17 +1,22 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: kriv-previews branch merged into main and deployed (8/8 smoke checks on production)
+Updated: 2026-10-25 · Last step finished: release note live (Krivative/Kriv#20), Unsplash picker and photo credits built, lead rules updated
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: approve merging Krivative/Kriv#20 (release note in PROJECT-HANDOFF.md only; merging redeploys the main site)
-
-- [ ] Kriv: review the first run (C:\Users\user\kriv-leads\san-antonio-2026-10-25.md) and choose how to find more qualifying leads: re-check the 28 bot-walled sites from a US network, count a company-name mailbox (named after the business) as a business email, widen sources (directory profiles, more suburbs), or relax the weak-site rule
-- [ ] Kriv: choose the image source for preview placeholders: Openverse public-domain only (no account), or also Unsplash/Pexels (free developer accounts and keys), or AI-generated generic scenes (paid); see docs/PREVIEW-IMAGES.md
+- [ ] Claude: lead finder runs in Texas, Florida and Utah towns until at least 10 qualified leads; report per state and niche
+- [ ] Claude: lead dashboard (leads.html, outside Git) with state filter, "Needs Kriv" and Kriv's setup tasks; linked from status.html
+- [ ] Claude: 3 best leads end to end as drafts (preview, QA, screenshots, email draft) for Kriv's approval
 
 ## Done
+
+- [x] Krivative/Kriv#20 (release note) merged by Kriv as 1355a1a and deployed (dpl_7maxfVQwFuC1DqhobSz4HnZpAkpx); kriv.agency re-checked: 20/20 live checks, main-site pages unchanged, /test-lead clean in the browser (Claude, 2026-10-25)
+- [x] Image source: Unsplash (Kriv's key in .env.local, never committed; Pexels on hold). Picker `scripts/pick-photos.mjs` (hotlinks, download tracking, flags people, signs and business-owned accounts); footer credit "Stock photos for illustration, not of <Business>: <photographer> on Unsplash"; schema requires one credit per photo (Kriv decided, Claude built, 2026-10-25)
+- [x] Lead rules updated (Kriv, 2026-10-25): next runs in Texas, Florida and Utah towns; a mailbox named after the business counts as a business email, never a person's address; weak-website rule unchanged; bot-walled and geo-blocked sites listed as "not checked", not re-checked
+- [x] docs/LEAD-QA.md written: guardrails, facts against sources, photos, layout screenshots, email draft, approval (Claude, 2026-10-25)
+- [x] Site checker: parked and expired domains (HugeDomains, "Website Expired") now count as placeholder pages (Claude, 2026-10-25)
 
 - [x] kriv-previews: branch claude/amazing-edison-juyem3 merged into main (fast-forward to 2c34918; docs, site checker and tests only, no app code) and deployed to production (dpl_Hknvh92tvv2VZppyz2Kg2zwuuX89); 8/8 smoke checks against kriv-previews.vercel.app/for and kriv.agency live checks still pass (Kriv approved, Claude, 2026-10-25)
 
@@ -64,7 +69,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Kriv's setup tasks
 
-- [ ] In the RECEIVING Gmail (e.g. krvinsocito918@gmail.com), open a test email from hello@kriv.agency → ⋮ → Show original: SPF, DKIM and DMARC should all say PASS
+- [x] DMARC live; Gmail shows SPF, DKIM and DMARC all PASS for hello@kriv.agency (Kriv, 2026-10-25)
 - [ ] Upgrade to Vercel Pro before the first real preview is sent
 
 ## Setup (Claude builds, Kriv approves)

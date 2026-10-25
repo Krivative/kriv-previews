@@ -10,13 +10,41 @@ export const BOOKING_HOSTS = [
 ];
 
 // Mailbox names that belong to the business, not to a person.
-const ROLE_NAMES = /^(info|office|contact|hello|hi|frontdesk|front\.desk|reception|appointments?|appts?|schedul(e|ing)|admin|team|service|services|support|sales|billing|smile|smiles|care|clinic|dental|dentist|chiro|spa|hvac|ac|ask|mail|inquir(y|ies)|booking|bookings)([._-].*)?$/i;
+const ROLE_NAMES = /^(info|office|contact|hello|hi|frontdesk|front\.desk|frontoffice|reception|appointments?|appts?|schedul(e|ing)|admin|team|service|services|customerservice|dispatch|support|sales|billing|smile|smiles|care|clinic|dental|dentist|chiro|spa|hvac|ac|ask|mail|inquir(y|ies)|booking|bookings|newpatients?|patients?)([._-].*)?$/i;
 
 // Addresses in page markup that are never the business's own.
 const IGNORE = /(example\.|sentry|wixpress|godaddy|squarespace|wordpress|domain\.com|email\.com|yourdomain|\.(png|jpe?g|gif|webp|svg)$)/i;
 
 export function isRoleEmail(email) {
   return ROLE_NAMES.test(email.split("@")[0]);
+}
+
+// Words too common in business names to tie a mailbox to one business.
+const GENERIC = new Set(("the and of at for family dental dentistry dentist dds dmd smile smiles clinic center centre care "
+  + "chiropractic chiropractor chiro wellness health medical med spa medspa aesthetic aesthetics skin beauty laser "
+  + "air conditioning heating cooling hvac ac mechanical refrigeration services service company co inc llc pllc pa "
+  + "texas florida utah san antonio new city north south east west").split(" "));
+const letters = (s) => s.toLowerCase().normalize("NFKD").replace(/[^a-z]/g, "");
+
+/**
+ * A mailbox that belongs to the business: a role name (info@, office@...) or a local part
+ * named after the business, e.g. acmedental@gmail.com for "Acme Dental" (Kriv, 2026-10-25).
+ * A person's address (jsmith@, maria.lopez@) never counts, wherever it is hosted.
+ */
+export function isBusinessMailbox(email, { name = "", website = "" } = {}) {
+  if (isRoleEmail(email)) return true;
+  const local = letters(email.split("@")[0]);
+  const words = name.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length >= 4 && !GENERIC.has(w));
+  let label = "";
+  try {
+    label = letters(new URL(website).hostname.replace(/^www\./, "").split(".")[0]);
+  } catch {}
+  const compactName = letters(name);
+  return (
+    (compactName.length >= 6 && local.includes(compactName)) ||
+    (label.length >= 5 && local.includes(label)) ||
+    words.some((w) => local.startsWith(w) || local === w)
+  );
 }
 
 /** Addresses a visitor can see: mailto links and the page's visible text. */
@@ -29,7 +57,7 @@ export function emailsIn(text, links = []) {
   return [...found].filter((e) => !IGNORE.test(e));
 }
 
-const PARKED = /(domain (is )?for sale|buy this domain|this domain may be for sale|parked free|website coming soon|under construction|account (has been )?suspended)/i;
+const PARKED = /(domain (is )?for sale|\.[a-z]{2,}\s+is for sale|buy this domain|this domain may be for sale|hugedomains|afternic|sedo\b|dan\.com|parked free|website coming soon|under construction|website expired|reconnect your domain|account (has been )?suspended)/i;
 
 // Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working
 // site, so these say nothing about the site and must never qualify a lead.

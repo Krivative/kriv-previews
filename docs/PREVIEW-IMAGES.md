@@ -28,9 +28,20 @@ Two sources. Each needs Kriv's OK before any account, key or paid call.
 - No visible business names, signs, logos, uniforms with logos, branded vans or readable text. No before/after or results images (med spa, dental).
 - Prefer no identifiable people. If a person appears, they must not look like the lead's staff or patient. A small "Stock photo" caption under such images is the safe default.
 - Match the lead's services from its sources (a lead offering implants gets an implant or chair scene, an HVAC lead doing heat pumps gets a heat pump), but not its location or equipment brands.
-- Record for each image: source page URL, licence name and URL, creator, download date. Store the source page URL in the lead's `sources`; keep the full licence record next to the image file.
-- Host the files ourselves, in the preview app's `public/` folder or the later database or blob store, not hot-linked. Licence and source travel with the file.
+- Record for each image: source page URL, licence name and URL, creator, download date. Store the source page URL in the lead's `sources`.
+- Hosting depends on the source: Unsplash photos are hotlinked (their API terms require it, see below); Openverse or generated images would be hosted by us with their licence record.
 
-## Next step if approved
+## Decision and setup (Kriv, 2026-10-25): Unsplash
 
-A `scripts/find-images.mjs <niche> <service...>` that searches Openverse (and Unsplash/Pexels if Kriv creates keys), shows candidates with their licence for Kriv to pick, downloads the chosen files and writes their licence records. Generated images only after Kriv approves a provider and budget.
+Kriv chose Unsplash and created a developer key (demo mode, 50 requests an hour). The key lives outside Git in `~/kriv-secrets/unsplash.env` (`UNSPLASH_ACCESS_KEY=...`). Picker: `scripts/pick-photos.mjs`.
+
+Unsplash API guidelines (help.unsplash.com, checked 2026-10-25) and how the app meets them:
+
+| Requirement | How |
+|---|---|
+| Use the hotlinked `photo.urls` returned by the API | `brand.photos` holds the API's `urls.raw` with size parameters; images load from `images.unsplash.com`. |
+| Trigger `photo.links.download_location` when a photo is used | `pick-photos.mjs use` calls it for each photo it writes into a lead. |
+| Credit the photographer and Unsplash, link to the profile, with UTM parameters | `brand.photoCredits` (schema enforces one per photo, Unsplash URLs only); the footer shows "Stock photos for illustration, not of <Business>: <photographer> on Unsplash" with `utm_source=kriv_previews&utm_medium=referral`. These are the only live outbound links on a preview. |
+| No "Unsplash" in the app name or icon; don't replicate Unsplash | Neither applies to previews. |
+
+Before applying for production access (higher rate limit), Unsplash wants screenshots showing the attribution; take them from an approved lead page.

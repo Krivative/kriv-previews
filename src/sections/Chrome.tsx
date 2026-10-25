@@ -70,8 +70,39 @@ export function Footer({ site }: { site: SiteData }) {
           ))}
         </span>
         <span className={s.footerNote}>{conceptNotice(site.business.name)}</span>
+        <PhotoCredits site={site} />
       </footer>
     </div>
+  );
+}
+
+// Unsplash attribution: the photographer's profile and Unsplash, each with the
+// app's UTM tag. These are the only live outbound links a preview may carry.
+export const UNSPLASH_UTM = "utm_source=kriv_previews&utm_medium=referral";
+const withUtm = (url: string) => `${url}${url.includes("?") ? "&" : "?"}${UNSPLASH_UTM}`;
+
+export function PhotoCredits({ site }: { site: SiteData }) {
+  const credits = site.brand.photoCredits;
+  if (!credits.length) return null;
+  const people = [...new Map(credits.map((c) => [c.profileUrl, c])).values()];
+  const rel = "noopener noreferrer nofollow";
+  return (
+    <span className={s.footerNote}>
+      Stock photos for illustration, not of {site.business.name}:{" "}
+      {people.map((c, i) => (
+        <span key={c.profileUrl}>
+          {i ? ", " : ""}
+          <a href={withUtm(c.profileUrl)} target="_blank" rel={rel}>
+            {c.photographer}
+          </a>
+        </span>
+      ))}{" "}
+      on{" "}
+      <a href={withUtm("https://unsplash.com/")} target="_blank" rel={rel}>
+        Unsplash
+      </a>
+      .
+    </span>
   );
 }
 
