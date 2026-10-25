@@ -15,7 +15,7 @@ const hasMx = async (d) => {
   if (!mxCache.has(d)) mxCache.set(d, dns.resolveMx(d).then((r) => r.length > 0, () => false));
   return mxCache.get(d);
 };
-const { isBusinessMailbox } = await import(new URL("../site-flags.mjs", import.meta.url).href);
+const { isBusinessMailbox, FREE_MAIL } = await import(new URL("../site-flags.mjs", import.meta.url).href);
 const J = (f) => (existsSync(join(dir, f)) ? JSON.parse(readFileSync(join(dir, f), "utf8").replace(/^\uFEFF/, "")) : null);
 const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, "").toLowerCase(); } catch { return null; } };
 const CHAIN = /(aspen dental|castle dental|monarch dental|western dental|bright now|kool smiles|comfort dental|brident|coast dental|smile brands|heartland|great expressions|the joint|one hour heating|aire serv|service experts|rescue rooter|mr\.? cool|abc home|ideal image|laseraway|massage envy|hand ?& ?stone|sono bello|woodhouse|restore hyper|drip ?bar|procare injury|topaz dentistry|ace dental|daikin|airtron|td industries)/i;
@@ -87,6 +87,7 @@ for (const c of cands.values()) {
   const siteEmails = (r?.emails ?? r?.roleEmails ?? []).map((e) => ({ email: e, where: r.contactUrl ?? r.finalUrl ?? c.website }));
   const listEmails = (c.emailsListing ?? []).map((e) => ({ email: e, where: c.listingUrl }));
   const biz = [...siteEmails, ...listEmails].filter((e) => isBusinessMailbox(e.email, { name, website: c.website ?? "" }));
+  if (process.env.SHOW_REJECTED && weak) for (const e of [...siteEmails, ...listEmails]) if (!biz.includes(e)) console.error("REJECTED", c.state, c.niche, name, "|", e.email, "|", e.where);
   const rec = {
     state: c.state ?? null, town: c.town ?? null, niche: c.niche, name, address: c.address ?? null, phone: c.phone ?? null,
     website: c.website, websiteStatus: noSite ? "no website listed" : r.flags.length ? r.flags.map(plain).join("; ") : "modern",
@@ -95,9 +96,8 @@ for (const c of cands.values()) {
     via: c.via, checkedAt: r?.checkedAt ?? null,
   };
   // A business whose email domain is another, working, non-weak website already has a good site.
-  const FREE = /(gmail|yahoo|hotmail|outlook|aol|msn|icloud|live|comcast|att|sbcglobal|bellsouth|hughes|earthlink|verizon|cox|charter|me)\./i;
   const mailHost = biz[0] ? biz[0].email.split("@")[1] : null;
-  const other = mailHost && !FREE.test(mailHost) && mailHost !== host(c.website ?? "") ? checks.get(mailHost.replace(/^www\./, "")) : null;
+  const other = mailHost && !FREE_MAIL.test(mailHost) && mailHost !== host(c.website ?? "") ? checks.get(mailHost.replace(/^www\./, "")) : null;
   if (other && !other.weak && !other.flags.includes("not-checked")) {
     near.push({ ...rec, why: `has a working, modern site at ${mailHost} (the domain of its email)` });
     continue;

@@ -78,9 +78,13 @@ describe("emails", () => {
     expect(isBusinessMailbox("bramley@bramley-ac.example", { name: "Bramley Air Conditioning Co.", website: "https://bramley-ac.example/" })).toBe(true);
     expect(isBusinessMailbox("jdoe@coolsmith.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(true);
     expect(isBusinessMailbox("jdoe@othersite.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(false);
-    expect(isBusinessMailbox("jdoe@gmail.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(false);
+    expect(isBusinessMailbox("jdoe@gmail.example", { name: "Coolsmith Inc", website: "https://www.coolsmith.example/" })).toBe(true);
     expect(isBusinessMailbox("maria.lopez@gmail.example", acme)).toBe(false);
-    expect(isBusinessMailbox("dentalmaria@gmail.example", acme)).toBe(false);
-    expect(isBusinessMailbox("xqz123@gmail.example", { name: "Best Price Air Conditioning And Heating" })).toBe(false);
+    expect(isBusinessMailbox("maria_lopez@aol.example", acme)).toBe(false);
+    // Any other free-mail address the business publishes counts (Kriv, 2026-10-25).
+    expect(isBusinessMailbox("dentalmaria@gmail.example", acme)).toBe(true);
+    expect(isBusinessMailbox("xqz123@gmail.example", { name: "Best Price Air Conditioning And Heating" })).toBe(true);
+    expect(isBusinessMailbox("jdoe77@bellsouth.example", acme)).toBe(true);
+    expect(isBusinessMailbox("jdoe@othersite.example", acme)).toBe(false);
   });
 });
