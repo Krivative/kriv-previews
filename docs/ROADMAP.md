@@ -1,18 +1,18 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Kriv approved the plumbing templates and the 7 new drafts (status approved, not live until the merge to main)
+Updated: 2026-10-25 · Last step finished: 7 more approved leads live (main a838212, dpl_AQaQZL9VwEyWFj8pFeBdk7x3vm5J); 10 pages live, emails ready for Kriv to send by hand
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: upgrade to Vercel Pro, then send the Springer Bros. and Kyle's Air Conditioning emails by hand (drafts in C:\Users\user\kriv-leads\emails\)
-- [ ] Kriv: OK to merge the branch into main (redeploys kriv-previews production; the 7 approved pages go live at kriv.agency/<slug>)
+- [ ] Kriv: upgrade to Vercel Pro, then send the emails by hand (Springer Bros., Kyle's and the 7 new leads; Air Source 1 on hold) (drafts in C:\Users\user\kriv-leads\emails\)
 - [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
 - [ ] Claude: lead finder for plumbing and auto repair in Texas, Florida and Utah (Hotfrog is challenging this network now; a US cloud run uses Yellowpages)
 
 ## Done
 
+- [x] 7 more approved leads live (Kriv approved the merge): main fast-forwarded to a838212, production dpl_AQaQZL9VwEyWFj8pFeBdk7x3vm5J; all 7 pages return 200 with noindex and the banner, browser check clean on desktop and phone; the first 3 still live; 8/8 smoke checks on production (Claude, 2026-10-25)
 - [x] Kriv approved the plumbing templates Tap and Pressure, and the 7 new drafts (poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic); open facts: keep the listing's version (Kriv, 2026-10-25)
 - [x] Virtus Outreach sheet reviewed: no rows in KRIV's niches; 61 of 163 website domains don't exist; the 5 Fort Worth plumbing and auto repair rows don't qualify (modern sites, or no public email). Nothing from it used or stored in Git (Claude, 2026-10-25)
 - [x] Plumbing and auto repair added as niches (Kriv, 2026-10-25): finder categories and chain list updated; plumbing templates Tap and Pressure built (batch 6, for review); auto repair uses Workshop and Torque (Claude)
