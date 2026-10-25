@@ -8,11 +8,11 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] Kriv: upgrade to Vercel Pro, then send the Springer Bros. and Kyle's Air Conditioning emails by hand (drafts in C:\Users\user\kriv-leads\emails\)
 - [ ] Kriv: approve or change the 7 new drafts (Poinciana Air, Fidelity Air, Accurate Air of Lakeland, A/C Best Price, A. J. Monier, Bayside Lakes Chiropractic, Atkinson Chiropractic) on the Lead Desk; 3 have a fact to confirm
-- [ ] Kriv: decide on social profiles for near-miss emails (Facebook pages need a login)
 - [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
 
 ## Done
 
+- [x] Social profiles for near misses (Kriv chose search engines only): 16 searched, 0 emails; Facebook needs a login, other networks hide emails; stopped as expected yield is near zero (Kriv decided, Claude, 2026-10-25)
 - [x] 7 more draft previews (status draft, not live): poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic; facts from listings and the business's own pages, street address left out where sources disagree; Unsplash photos credited; QA per docs/LEAD-QA.md, desktop and phone screenshots clean; email drafts outside Git, not sent (Claude, 2026-10-25)
 - [x] Target of 10 qualified leads reached (Kriv's free-mail rule: a Gmail/AOL/BellSouth address the business publishes counts, unless plainly a person's first.last name): Florida 7 (HVAC 6, chiro 1), Texas 3 (HVAC 2, chiro 1), Utah 0; 3 dropped on review; lists outside Git (Kriv decided, Claude, 2026-10-25)
 - [x] Business email rule widened by Kriv: any address on the business's own website domain counts, including a first name (small and family businesses); a person's free-mail address still does not. isBusinessMailbox and tests updated; re-applied: 1 more lead (A.J. Monier Service Co., San Antonio TX HVAC), 5 qualified in total (Kriv decided, Claude, 2026-10-25)

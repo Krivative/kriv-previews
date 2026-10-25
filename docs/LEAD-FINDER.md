@@ -53,6 +53,11 @@ Sources that worked: Hotfrog town pages (49 towns; listings skew to older busine
 - Free-mail rule (Kriv, 2026-10-25) re-applied: 13 passed the script; 3 dropped on review (one has a modern site elsewhere, one sells skincare products, one is a lash specialist). **10 qualified: Florida 7 (HVAC 6, chiro 1), Texas 3 (HVAC 2, chiro 1), Utah 0.** Target reached. 121 near misses, 63 not checked. Four need a fact confirmed before a page (address or name differs between sources).
 - Cloud run on a US network (Google Cloud, South Carolina): of the 59 blocked sites, 25 load and all are modern, 33 are still bot-walled (Cloudflare blocks datacenter IPs too). Air Source 1's site does not load from the US either (connection timeout). Yellowpages, Superpages and BBB search pages load from there; Yelp, Manta, Hotfrog and BBB profile pages do not.
 
+## Social profiles (Kriv, 2026-10-25: search engines only)
+
+- Facebook answers 400 to any page request without a login, so pages are not read. Google Maps shows no emails; Instagram, LinkedIn, X and TikTok sit behind logins; YouTube hides emails behind a captcha; Reddit has no business contact details.
+- Search-engine pass on 16 of the 96 in-niche near misses without an email: 0 emails found. Many of these listings are old or the business has closed or renamed. One had an unknown website (burnscomfort.com), which grades as modern. Stopped there: the rest would cost about 80 more searches for an expected yield near zero.
+
 ## Scripts
 
 All output holds business emails, so the data folder lives outside Git (`/finder-data/` is ignored as a safety net).
