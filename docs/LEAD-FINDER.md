@@ -33,6 +33,16 @@ How leads are found and qualified. The lead lists themselves are never committed
 | medspanear.me | Works; links to about 110 local med spa sites. |
 | wellness.com, chirodirectory.com, dentalclinicdirectory.com, txhealthdirectory.com | Work, but profiles rarely link to the business's site. |
 
+## Texas, Florida and Utah run (2026-10-25)
+
+| | Texas | Florida | Utah | Total |
+|---|---|---|---|---|
+| Qualified (weak or no site + deliverable business email) | 0 | 3 (all HVAC) | 0 | 3 |
+| Near misses (weak or no site, no deliverable business email) | 49 | 28 | 16 | 93 |
+| Not checked (bot wall or geo-block from this network) | 41 | 14 | 4 | 59 |
+
+Sources that worked: Hotfrog town pages (49 towns; listings skew to older businesses and often show an email), ChamberMaster directories (Metro SA, Boerne, Logan, Tyler, St. George, Ogden-Weber, Utah Valley), TACCA, medspanear.me, web search. Web search found almost only modern sites (0 weak among 150 town results). Extra checks added in the qualify step: the email's domain must have MX records (dead domains bounce), and a business whose email domain is another working, modern site is not a lead. Weak sites are usually dead domains, and the email on a dead domain is dead too, which is why the near-miss count is high.
+
 ## Checker caveats
 
 - **Bot walls and geo-blocks are not weak sites.** Many US small-business sites answer a non-US or headless visitor with a Cloudflare challenge (403 "Just a moment..."), an empty 202, or "418 Country Blocked". `flagsFor` now marks these, and timeouts and mid-check redirects, as `not-checked` with `weak: false`. Re-check them from a US network before drawing any conclusion.

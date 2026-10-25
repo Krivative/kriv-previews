@@ -19,6 +19,7 @@ describe("website flags", () => {
     [{ status: 202, title: "", textLength: 0 }],
     [{ status: 200, title: "Checking your browser...", textLength: 0 }],
     [{ error: "page.goto: Timeout 30000ms exceeded." }],
+    [{ error: "page.goto: net::ERR_CONNECTION_TIMED_OUT at https://slow.example/" }],
     [{ status: 200, error: "page.evaluate: Execution context was destroyed, most likely because of a navigation" }],
   ])("never calls a bot wall, geo-block or failed check weak: %j", (r) => {
     expect(flagsFor(r, now)).toEqual({ flags: ["not-checked"], weak: false });

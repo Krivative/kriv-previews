@@ -63,7 +63,7 @@ const PARKED = /(domain (is )?for sale|\.[a-z]{2,}\s+is for sale|buy this domain
 // site, so these say nothing about the site and must never qualify a lead.
 const BLOCKED_STATUS = [202, 401, 403, 418, 429];
 const CHALLENGE = /(just a moment|checking your browser|attention required|access denied|country blocked|request blocked|are you a robot|verify you are human|ddos protection)/i;
-const INCONCLUSIVE_ERROR = /(timeout|execution context was destroyed|navigation|ERR_ABORTED|ERR_HTTP2|ERR_CONNECTION_RESET|ERR_TIMED_OUT)/i;
+const INCONCLUSIVE_ERROR = /(timeout|timed_out|execution context was destroyed|navigation|ERR_ABORTED|ERR_HTTP2|ERR_CONNECTION_RESET)/i;
 
 /** Flags and the weak verdict for one check result. `now` is injectable for tests. */
 export function flagsFor(r, now = new Date()) {

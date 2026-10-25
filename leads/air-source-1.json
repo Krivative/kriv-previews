@@ -1,0 +1,106 @@
+{
+  "slug": "air-source-1",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Air Source 1",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(772) 626-7604",
+    "phoneE164": "+17726267604",
+    "address": {
+      "line1": "585 NW Mercantile Place Suite 103",
+      "city": "Port St. Lucie",
+      "region": "FL",
+      "postalCode": "34986",
+      "country": "US"
+    }
+  },
+  "hero": {
+    "eyebrow": "Port St. Lucie, Florida",
+    "headline": "Air conditioning for homes and businesses.",
+    "sub": "Installation, repair and maintenance of residential and commercial air conditioning in Port St. Lucie, Fort Pierce, Vero Beach and Stuart."
+  },
+  "custom": {
+    "title": "Serving Port St. Lucie, St. Lucie West, Fort Pierce, Vero Beach and Stuart",
+    "items": [
+      {
+        "name": "Office",
+        "blurb": "585 NW Mercantile Place Suite 103, Port St. Lucie, FL 34986"
+      },
+      {
+        "name": "Phone",
+        "blurb": "(772) 626-7604"
+      }
+    ]
+  },
+  "services": {
+    "title": "What Air Source 1 does",
+    "items": [
+      {
+        "name": "AC installation",
+        "blurb": "New air conditioning systems for homes and commercial properties."
+      },
+      {
+        "name": "AC repair",
+        "blurb": "Repairs for residential and commercial air conditioners."
+      },
+      {
+        "name": "AC maintenance",
+        "blurb": "Maintenance for residential and commercial air conditioners."
+      },
+      {
+        "name": "Commercial air conditioning",
+        "blurb": "Air conditioning work for businesses and commercial buildings."
+      },
+      {
+        "name": "Refrigeration",
+        "blurb": "Refrigeration service alongside heating and air."
+      }
+    ]
+  },
+  "close": {
+    "headline": "Need air conditioning work in Port St. Lucie?",
+    "sub": "Call Air Source 1 at (772) 626-7604."
+  },
+  "seo": {
+    "title": "Air Source 1 | Concept preview",
+    "description": "Concept preview of a website for Air Source 1, heating and air conditioning in Port St. Lucie, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://www.hotfrog.com/company/AAXSyCA1f1SppZ2QAzN6tA/air-source-1/port-saint-lucie/heating-air",
+    "http://airsource1llc.com/",
+    "https://unsplash.com/photos/industrial-pressure-gauges-on-machinery-sZoH8p74wIw",
+    "https://unsplash.com/photos/a-close-up-of-a-pressure-gauge-on-a-machine-iQprhuG2ALk",
+    "https://unsplash.com/photos/white-ceiling-sOc7t_qHlqc"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1791218628387-77f9f60f322e?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTYxfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1674471361523-195aa08e69b5?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTYxfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560074696-36fc0189d336?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTYyfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Pierre Goiffon",
+        "profileUrl": "https://unsplash.com/@pir",
+        "photoPage": "https://unsplash.com/photos/industrial-pressure-gauges-on-machinery-sZoH8p74wIw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Anton Savinov",
+        "profileUrl": "https://unsplash.com/@tonchik",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-pressure-gauge-on-a-machine-iQprhuG2ALk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alex Suprun",
+        "profileUrl": "https://unsplash.com/@sooprun",
+        "photoPage": "https://unsplash.com/photos/white-ceiling-sOc7t_qHlqc"
+      }
+    ]
+  }
+}

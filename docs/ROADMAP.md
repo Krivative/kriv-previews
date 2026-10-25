@@ -1,16 +1,20 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: release note live (Krivative/Kriv#20), Unsplash picker and photo credits built, lead rules updated
+Updated: 2026-10-25 · Last step finished: lead finder in Texas, Florida and Utah (3 qualified, below the target of 10); 3 draft previews and email drafts ready for Kriv
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Claude: lead finder runs in Texas, Florida and Utah towns until at least 10 qualified leads; report per state and niche
-- [ ] Claude: lead dashboard (leads.html, outside Git) with state filter, "Needs Kriv" and Kriv's setup tasks; linked from status.html
-- [ ] Claude: 3 best leads end to end as drafts (preview, QA, screenshots, email draft) for Kriv's approval
+- [ ] Kriv: approve or change the 3 draft leads (Springer Bros., Air Source 1, Kyle's Air Conditioning): pages, facts and email drafts on the Lead Desk (C:\Users\user\kriv-reports\leads.html)
+- [ ] Kriv: choose how to reach the target of 10 qualified leads (3 found); options in the lead finder report
+- [ ] Claude: before sending to Air Source 1, re-check from a US connection that its website address still shows only an error page
 
 ## Done
+
+- [x] Lead finder, Texas, Florida and Utah (2026-10-25): 573 businesses collected from web search, Hotfrog (49 towns), 7 chamber directories, TACCA and medspanear.me; 488 sites graded; 3 qualified (all Florida HVAC), 93 near misses (weak or no site but no deliverable business email), 59 not checked (bot walls). Below the target of 10. Lists outside Git in C:\Users\user\kriv-leads\ (Claude)
+- [x] Lead Desk dashboard (leads.html, outside Git): state filter, Needs Kriv, setup tasks, qualified leads, drafts with screenshots, facts and email drafts, near misses, not checked; linked from status.html (Claude, 2026-10-25)
+- [x] 3 draft previews (status draft, not live): springer-bros (Thermal), air-source-1 (Breeze), kyles-air-conditioning (Breeze); facts checked against sources, Unsplash photos credited, QA per docs/LEAD-QA.md, desktop and phone screenshots clean; one email draft each outside Git, not sent and not in Gmail (Claude, 2026-10-25)
 
 - [x] Krivative/Kriv#20 (release note) merged by Kriv as 1355a1a and deployed (dpl_7maxfVQwFuC1DqhobSz4HnZpAkpx); kriv.agency re-checked: 20/20 live checks, main-site pages unchanged, /test-lead clean in the browser (Claude, 2026-10-25)
 - [x] Image source: Unsplash (Kriv's key in .env.local, never committed; Pexels on hold). Picker `scripts/pick-photos.mjs` (hotlinks, download tracking, flags people, signs and business-owned accounts); footer credit "Stock photos for illustration, not of <Business>: <photographer> on Unsplash"; schema requires one credit per photo (Kriv decided, Claude built, 2026-10-25)

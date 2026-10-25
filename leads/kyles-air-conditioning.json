@@ -1,0 +1,114 @@
+{
+  "slug": "kyles-air-conditioning",
+  "template": "hvac-calm",
+  "lang": "en-US",
+  "business": {
+    "name": "Kyle's Air Conditioning and Heating",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(386) 527-5893",
+    "phoneE164": "+13865275893",
+    "address": {
+      "city": "Port Orange",
+      "region": "FL",
+      "postalCode": "32127",
+      "country": "US"
+    }
+  },
+  "design": {
+    "accent": "#0000CC"
+  },
+  "hero": {
+    "eyebrow": "Port Orange, Florida",
+    "headline": "Heating and cooling, serviced and repaired.",
+    "sub": "Service and repair for all makes and models of straight-cool and heat pump units, for homes and businesses in Port Orange."
+  },
+  "custom": {
+    "title": "Based in Port Orange, Florida",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(386) 527-5893"
+      },
+      {
+        "name": "Homes and businesses",
+        "blurb": "Residential and commercial heating and air conditioning."
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Service and repair",
+        "blurb": "All makes and models of straight-cool and heat pump units."
+      },
+      {
+        "name": "Unit replacement",
+        "blurb": "Bids and proposals for replacing existing units, residential and commercial."
+      },
+      {
+        "name": "Duct replacement",
+        "blurb": "Bids and proposals for replacing ductwork."
+      },
+      {
+        "name": "Preventative maintenance",
+        "blurb": "Annual maintenance programs, customized for you and your unit."
+      },
+      {
+        "name": "New construction and remodels",
+        "blurb": "Working with contractors: project assessment, heat load calculations and system recommendations."
+      },
+      {
+        "name": "Energy-saving changes",
+        "blurb": "Ideas and modifications to help a system use less energy."
+      }
+    ]
+  },
+  "close": {
+    "headline": "Heating or cooling need in Port Orange?",
+    "sub": "Call Kyle's at (386) 527-5893."
+  },
+  "seo": {
+    "title": "Kyle's Air Conditioning and Heating | Concept preview",
+    "description": "Concept preview of a website for Kyle's Air Conditioning and Heating in Port Orange, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://kylesac.yourwebsitespace.com/index.html",
+    "https://kylesac.yourwebsitespace.com/services.html",
+    "https://kylesac.yourwebsitespace.com/contact_us.html",
+    "https://www.hotfrog.com/company/ACeFqt44ekiMfGRAA9gCzg/kyles-air-conditioning-heating/port-orange/appliances",
+    "https://unsplash.com/photos/a-white-air-conditioner-sitting-on-top-of-a-brick-wall-JsPkVrHMQoo",
+    "https://unsplash.com/photos/industrial-ceiling-with-ventilation-ducts-and-a-hanging-lamp-w050h1XJL5w",
+    "https://unsplash.com/photos/pressure-gauges-and-valves-are-shown-in-monochrome-eLaCt0BRQvU"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1718203862467-c33159fdc504?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE4Nzk1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776279876113-514976038186?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE4Nzk1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1744302570296-d4bcb55b7002?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE4Nzk2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Everett Pachmann",
+        "profileUrl": "https://unsplash.com/@everettp",
+        "photoPage": "https://unsplash.com/photos/a-white-air-conditioner-sitting-on-top-of-a-brick-wall-JsPkVrHMQoo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dmytro G",
+        "profileUrl": "https://unsplash.com/@gmdmsan",
+        "photoPage": "https://unsplash.com/photos/industrial-ceiling-with-ventilation-ducts-and-a-hanging-lamp-w050h1XJL5w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Miguel Ángel Padriñán Alba",
+        "profileUrl": "https://unsplash.com/@padrinan",
+        "photoPage": "https://unsplash.com/photos/pressure-gauges-and-valves-are-shown-in-monochrome-eLaCt0BRQvU"
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "slug": "springer-bros",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "business": {
+    "name": "Springer Bros. Air Conditioning & Heating",
+    "category": "HVAC company",
+    "phoneDisplay": "(863) 967-0449",
+    "phoneE164": "+18639670449",
+    "address": {
+      "line1": "412 Old Dixie Hwy",
+      "city": "Auburndale",
+      "region": "FL",
+      "postalCode": "33823",
+      "country": "US"
+    }
+  },
+  "design": {
+    "accent": "#FF7D10"
+  },
+  "hero": {
+    "eyebrow": "Auburndale and Lakeland, Florida",
+    "headline": "Air conditioning and heating for Polk County.",
+    "sub": "Repairs, new systems, maintenance and duct cleaning for homes and businesses, from offices in Auburndale and Lakeland."
+  },
+  "custom": {
+    "title": "Serving Lakeland, Auburndale, Winter Haven, Davenport and all of Polk County",
+    "items": [
+      {
+        "name": "Auburndale office",
+        "blurb": "412 Old Dixie Hwy, Auburndale, FL 33823 · (863) 967-0449"
+      },
+      {
+        "name": "Lakeland office",
+        "blurb": "41 Lake Morton Dr #25, Lakeland, FL 33801 · (863) 688-0448 · by appointment only"
+      }
+    ]
+  },
+  "services": {
+    "title": "Heating and cooling services",
+    "items": [
+      {
+        "name": "AC repair",
+        "blurb": "Diagnosis and repair when an air conditioner stops cooling, blows warm air, leaks or freezes up."
+      },
+      {
+        "name": "AC installation and replacement",
+        "blurb": "New air conditioning systems installed, and old ones replaced."
+      },
+      {
+        "name": "AC maintenance",
+        "blurb": "Routine maintenance, including indoor and outdoor coil cleaning."
+      },
+      {
+        "name": "Emergency AC service",
+        "blurb": "Help when a cooling problem can't wait for a routine appointment."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Installation, maintenance and repair of electric heaters, gas furnaces and heat pumps."
+      },
+      {
+        "name": "Duct cleaning",
+        "blurb": "Air ducts, grilles, the air handler and the evaporator coil cleaned and sanitized."
+      },
+      {
+        "name": "Homes and businesses",
+        "blurb": "Residential and commercial heating and cooling."
+      }
+    ]
+  },
+  "about": {
+    "title": "A family-owned Polk County company",
+    "body": "Springer Bros. Air Conditioning & Heating is a family-owned HVAC company with offices in Auburndale and Lakeland, Florida. Its certified, background-checked technicians install, repair and maintain heating and cooling systems for homes and businesses across Polk County, and the company does not subcontract its work."
+  },
+  "faqs": [
+    {
+      "q": "Which areas does Springer Bros. serve?",
+      "a": "Lakeland, Auburndale, Winter Haven, Davenport and the rest of Polk County."
+    },
+    {
+      "q": "Do you work on homes and businesses?",
+      "a": "Yes. Springer Bros. provides residential and commercial heating and cooling services."
+    },
+    {
+      "q": "Can I visit the Lakeland office?",
+      "a": "The Lakeland office at 41 Lake Morton Dr #25 is open by appointment only."
+    }
+  ],
+  "close": {
+    "headline": "Heating or cooling trouble in Polk County?",
+    "sub": "Call the Auburndale office at (863) 967-0449."
+  },
+  "seo": {
+    "title": "Springer Bros. Air Conditioning & Heating | Concept preview",
+    "description": "Concept preview of a website for Springer Bros. Air Conditioning & Heating in Auburndale and Lakeland, FL, prepared by KRIV."
+  },
+  "sources": [
+    "https://springerbros.net/",
+    "https://springerbros.net/auburndale-fl-location/",
+    "https://springerbros.net/lakeland-fl-location/",
+    "https://springerbros.net/air-conditioning/",
+    "https://springerbros.net/air-conditioning-repair/",
+    "https://springerbros.net/air-conditioning-maintenance/",
+    "https://springerbros.net/heating/",
+    "https://springerbros.net/duct-cleaning/",
+    "https://www.hotfrog.com/company/ALEIQjSVdK-1N-v4safVnA/springer-bros-air-conditioning-amp-heating-llc/auburndale/cleaning-services",
+    "https://unsplash.com/photos/a-solar-panel-on-a-roof-gSvCiyLnCeU",
+    "https://unsplash.com/photos/vent-pipe-RAliDqgJKbE",
+    "https://unsplash.com/photos/circular-metal-vent-with-attached-ductwork-LI2rpZB12ms",
+    "https://unsplash.com/photos/a-close-up-view-of-a-metal-object-cI-2N2bV6Lo"
+  ],
+  "createdAt": "2026-10-25",
+  "expiresAt": "2026-11-24",
+  "status": "draft",
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1651474738521-efacfb201039?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE3MDA1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1574334292321-4844f63aefef?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTU5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1770816306659-adcf99a11aeb?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTU5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1645533920626-06e2b9186f43?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTE2OTYwfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Sam Jotham Sutharson",
+        "profileUrl": "https://unsplash.com/@jothamsutharson",
+        "photoPage": "https://unsplash.com/photos/a-solar-panel-on-a-roof-gSvCiyLnCeU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mitchell Luo",
+        "profileUrl": "https://unsplash.com/@mitchel3uo",
+        "photoPage": "https://unsplash.com/photos/vent-pipe-RAliDqgJKbE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tim Schmidbauer",
+        "profileUrl": "https://unsplash.com/@timschmidbauer",
+        "photoPage": "https://unsplash.com/photos/circular-metal-vent-with-attached-ductwork-LI2rpZB12ms"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Steve Pancrate",
+        "profileUrl": "https://unsplash.com/@redaska",
+        "photoPage": "https://unsplash.com/photos/a-close-up-view-of-a-metal-object-cI-2N2bV6Lo"
+      }
+    ]
+  }
+}
