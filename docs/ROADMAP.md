@@ -1,19 +1,19 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: plumbing and auto repair added as niches; plumbing templates Tap and Pressure built for Kriv's review
+Updated: 2026-10-25 · Last step finished: Kriv approved the plumbing templates and the 7 new drafts (status approved, not live until the merge to main)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
 - [ ] Kriv: upgrade to Vercel Pro, then send the Springer Bros. and Kyle's Air Conditioning emails by hand (drafts in C:\Users\user\kriv-leads\emails\)
-- [ ] Kriv: approve or change the 7 new drafts (Poinciana Air, Fidelity Air, Accurate Air of Lakeland, A/C Best Price, A. J. Monier, Bayside Lakes Chiropractic, Atkinson Chiropractic) on the Lead Desk; 3 have a fact to confirm
+- [ ] Kriv: OK to merge the branch into main (redeploys kriv-previews production; the 7 approved pages go live at kriv.agency/<slug>)
 - [ ] Claude: before sending to Air Source 1, re-check airsource1llc.com from a US connection (the cloud run checked airsource1.com by mistake)
-- [ ] Kriv: approve the plumbing templates Tap (calm) and Pressure (bold), or ask for changes
 - [ ] Claude: lead finder for plumbing and auto repair in Texas, Florida and Utah (Hotfrog is challenging this network now; a US cloud run uses Yellowpages)
 
 ## Done
 
+- [x] Kriv approved the plumbing templates Tap and Pressure, and the 7 new drafts (poinciana-air, fidelity-air, accurate-air-lakeland, ac-best-price, aj-monier, bayside-lakes-chiropractic, atkinson-chiropractic); open facts: keep the listing's version (Kriv, 2026-10-25)
 - [x] Virtus Outreach sheet reviewed: no rows in KRIV's niches; 61 of 163 website domains don't exist; the 5 Fort Worth plumbing and auto repair rows don't qualify (modern sites, or no public email). Nothing from it used or stored in Git (Claude, 2026-10-25)
 - [x] Plumbing and auto repair added as niches (Kriv, 2026-10-25): finder categories and chain list updated; plumbing templates Tap and Pressure built (batch 6, for review); auto repair uses Workshop and Torque (Claude)
 - [x] Social profiles for near misses (Kriv chose search engines only): 16 searched, 0 emails; Facebook needs a login, other networks hide emails; stopped as expected yield is near zero (Kriv decided, Claude, 2026-10-25)

@@ -26,7 +26,7 @@
 | hvac-bold | Thermal | bold | HVAC company, 24/7 heating and cooling, commercial HVAC, ductwork, refrigeration | stacked hero · emergency strip · service tiles · quote · mosaic · visit split · FAQ list · statement | batch 5, approved |
 | chiro-calm | Align | calm | chiropractor, family chiropractic, sports chiropractic, physical therapy | centred hero · first-visit steps · treatment rows · about split · visit card · FAQ list · band | batch 5, approved |
 | chiro-bold | Posture | bold | sports chiropractic, spine and posture clinic, sports rehab, mobility studio | poster hero · treatment columns · note · photo strip · quote · visit card · FAQ columns · band | batch 5, approved |
-| plumbing-calm | Tap | calm | plumber, drain cleaning, water heaters, leak repair, repiping | split hero · service rows · contact strip · about split · visit card · FAQ columns · band | batch 6, for review |
-| plumbing-bold | Pressure | bold | plumbing company, emergency plumber, sewer and drain, commercial plumbing, gas lines | poster hero · contact strip · service tiles · photo strip · quote · visit card · FAQ list · band | batch 6, for review |
+| plumbing-calm | Tap | calm | plumber, drain cleaning, water heaters, leak repair, repiping | split hero · service rows · contact strip · about split · visit card · FAQ columns · band | batch 6, approved |
+| plumbing-bold | Pressure | bold | plumbing company, emergency plumber, sewer and drain, commercial plumbing, gas lines | poster hero · contact strip · service tiles · photo strip · quote · visit card · FAQ list · band | batch 6, approved |
 
 26 templates: the original 10 industries plus HVAC and chiropractic (batch 5, built for the KRIV Previews US pilot) and plumbing (batch 6, Kriv added plumbing and auto repair as niches on 2026-10-25; auto repair uses Workshop and Torque).
