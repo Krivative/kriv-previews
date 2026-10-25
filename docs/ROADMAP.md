@@ -1,15 +1,18 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-25 · Last step finished: Phase 3 verified on the PR's Vercel preview (Kriv)
+Updated: 2026-10-25 · Last step finished: images report for the preview photo placeholders (docs/PREVIEW-IMAGES.md)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
 - [ ] Claude: Phase 4 lead finder for San Antonio, TX (dental, HVAC, chiropractic, med spa); list saved outside Git for Kriv's review
-- [ ] Claude: report on images for the preview photo placeholders (herk-edit-kit or another generic/licensed source)
+- [ ] Kriv: choose the image source for preview placeholders: Openverse public-domain only (no account), or also Unsplash/Pexels (free developer accounts and keys), or AI-generated generic scenes (paid); see docs/PREVIEW-IMAGES.md
 
 ## Done
+
+- [x] Images report: herk-edit-kit makes video only (its one still-image route is a paid Kie.ai script), so it can't fill placeholders on its own; proposed Openverse CC0/public-domain stock first, with licence and source recorded per image (Claude, 2026-10-25)
+- [x] Site checker fixed: bot walls, geo-blocks and failed checks are "not-checked", never weak; script-rendered sites read after they finish loading (Claude, 2026-10-25)
 
 - [x] Phase 3: checked on the PR's Vercel preview: homepage looks like kriv.agency, /test-lead shows the preview with the concept banner, /nope shows "Nothing here"; recorded in the PR description (Kriv, 2026-10-25)
 
