@@ -31,6 +31,10 @@ for (const raw of urls) {
     const res = await page.goto(url, { waitUntil: "load", timeout: 30000 });
     r.loadMs = Date.now() - start;
     r.status = res?.status() ?? null;
+    // Script-rendered sites (React, Wix) fill the page after "load", and some redirect
+    // again; read the page once the network settles, as a visitor would.
+    await page.waitForLoadState("networkidle", { timeout: 8000 }).catch(() => {});
+    await page.waitForTimeout(1000);
     r.finalUrl = page.url();
     r.https = r.finalUrl.startsWith("https://");
     const facts = await page.evaluate(() => {
@@ -82,7 +86,7 @@ for (const raw of urls) {
   }
   Object.assign(r, flagsFor(r));
   results.push(r);
-  console.error(`${r.weak ? "WEAK" : r.error ? "ERR " : "ok  "} ${url}  ${r.flags.join(", ")}`);
+  console.error(`${r.weak ? "WEAK" : r.flags.includes("not-checked") ? "SKIP" : r.error ? "ERR " : "ok  "} ${url}  ${r.flags.join(", ")}`);
   await context.close();
 }
 await browser.close();

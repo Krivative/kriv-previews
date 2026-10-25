@@ -14,6 +14,22 @@ describe("website flags", () => {
   });
 
   it.each([
+    [{ status: 403, title: "Just a moment...", textLength: 270 }],
+    [{ status: 418, title: "Country Blocked", textLength: 50 }],
+    [{ status: 202, title: "", textLength: 0 }],
+    [{ status: 200, title: "Checking your browser...", textLength: 0 }],
+    [{ error: "page.goto: Timeout 30000ms exceeded." }],
+    [{ status: 200, error: "page.evaluate: Execution context was destroyed, most likely because of a navigation" }],
+  ])("never calls a bot wall, geo-block or failed check weak: %j", (r) => {
+    expect(flagsFor(r, now)).toEqual({ flags: ["not-checked"], weak: false });
+  });
+
+  it("still calls a dead domain or a missing page unreachable", () => {
+    expect(flagsFor({ status: 404, title: "404 Not Found" }, now).flags).toEqual(["unreachable"]);
+    expect(flagsFor({ error: "net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH" }, now).weak).toBe(true);
+  });
+
+  it.each([
     [{ https: false }, "no-https"],
     [{ viewportMeta: false }, "no-mobile-viewport"],
     [{ overflowPx: 300 }, "sideways-scroll-on-phone"],

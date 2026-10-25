@@ -31,9 +31,18 @@ export function emailsIn(text, links = []) {
 
 const PARKED = /(domain (is )?for sale|buy this domain|this domain may be for sale|parked free|website coming soon|under construction|account (has been )?suspended)/i;
 
+// Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working
+// site, so these say nothing about the site and must never qualify a lead.
+const BLOCKED_STATUS = [202, 401, 403, 418, 429];
+const CHALLENGE = /(just a moment|checking your browser|attention required|access denied|country blocked|request blocked|are you a robot|verify you are human|ddos protection)/i;
+const INCONCLUSIVE_ERROR = /(timeout|execution context was destroyed|navigation|ERR_ABORTED|ERR_HTTP2|ERR_CONNECTION_RESET|ERR_TIMED_OUT)/i;
+
 /** Flags and the weak verdict for one check result. `now` is injectable for tests. */
 export function flagsFor(r, now = new Date()) {
   const flags = [];
+  if (r.error ? INCONCLUSIVE_ERROR.test(r.error) : BLOCKED_STATUS.includes(r.status) || CHALLENGE.test(r.title ?? "")) {
+    return { flags: ["not-checked"], weak: false };
+  }
   if (r.error || (r.status ?? 0) >= 400) flags.push("unreachable");
   else {
     if (!r.https) flags.push("no-https");
