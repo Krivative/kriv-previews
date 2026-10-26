@@ -94,6 +94,7 @@ All output holds business emails, so the data folder lives outside Git (`/finder
 
 ## Checker caveats
 
+- **Visible GoDaddy parking notices (Kriv approved, 2026-10-26).** The checker now recognizes a standalone "This Web page/domain is parked FREE, courtesy of GoDaddy.com" notice in the visible homepage text even when the title is just a domain name. It records only `parkingNotice: true/false` and uses the existing `placeholder-or-empty` flag; it does not save the full page text. Ordinary GoDaddy footers and article mentions are not parking evidence, and contact-page text is not used for this flag. Blocked checks remain "not checked"; mailbox and MX requirements are unchanged. Older saved checks do not gain this evidence automatically. This was verified with synthetic pages, not a fresh check of schc.biz or private lead records; any real recheck needs separate authorization.
 - **Bot walls and geo-blocks are not weak sites.** Many US small-business sites answer a non-US or headless visitor with a Cloudflare challenge (403 "Just a moment..."), an empty 202, or "418 Country Blocked". `flagsFor` now marks these, and timeouts and mid-check redirects, as `not-checked` with `weak: false`. Re-check them from a US network before drawing any conclusion.
 - **Script-rendered sites** (React, Wix) fill the page after the load event; the checker waits for the network to settle before reading it.
 - **Sideways scroll can flicker** (pop-ups, animations). Re-run a site before quoting `sideways-scroll-on-phone` to its owner.

@@ -72,6 +72,13 @@ export function emailsIn(text, links = []) {
 
 const PARKED = /(domain (is )?for sale|\.[a-z]{2,}\s+is for sale|buy this domain|this domain may be for sale|hugedomains|afternic|sedo\b|dan\.com|parked free|website coming soon|under construction|website expired|reconnect your domain|account (has been )?suspended)/i;
 
+// Only a standalone provider notice in the visible home-page text counts here. A GoDaddy
+// footer or an article mentioning parked domains is not evidence that the site is parked.
+// Approved by Kriv, 2026-10-26. Persist the boolean, never the full page text.
+export function hasParkingNotice(text = "") {
+  return /^\s*this\s+(?:web\s*page|domain(?:\s+name)?)\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
+}
+
 // Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working
 // site, so these say nothing about the site and must never qualify a lead.
 const BLOCKED_STATUS = [202, 401, 403, 418, 429];
@@ -91,7 +98,7 @@ export function flagsFor(r, now = new Date()) {
     if ((r.overflowPx ?? 0) > 8) flags.push("sideways-scroll-on-phone");
     if (r.copyrightYear && r.copyrightYear <= now.getUTCFullYear() - 3) flags.push(`copyright-${r.copyrightYear}`);
     if ((r.loadMs ?? 0) > 8000) flags.push("slow-load");
-    if (PARKED.test(r.title ?? "") || (r.textLength ?? 0) < 200) flags.push("placeholder-or-empty");
+    if (PARKED.test(r.title ?? "") || r.parkingNotice === true || (r.textLength ?? 0) < 200) flags.push("placeholder-or-empty");
   }
   // One strong signal is enough; minor ones need company.
   const strong = ["unreachable", "no-https", "no-mobile-viewport", "sideways-scroll-on-phone", "placeholder-or-empty"];

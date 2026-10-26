@@ -7,7 +7,7 @@
 import { createRequire } from "node:module";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { flagsFor, emailsIn, isRoleEmail, BOOKING_HOSTS } from "./site-flags.mjs";
+import { flagsFor, hasParkingNotice, emailsIn, isRoleEmail, BOOKING_HOSTS } from "./site-flags.mjs";
 
 // Playwright is not a project dependency; resolve it from the project or NODE_PATH.
 const require = createRequire(import.meta.url);
@@ -89,6 +89,9 @@ for (const raw of urls) {
       copyrightYear: facts.copyrightYear,
       generator: facts.generator,
       textLength: facts.textLength,
+      // Use the home page only, before contact-page text was appended for email discovery.
+      // Keep the evidence as a boolean; full page text must not enter checker output.
+      parkingNotice: hasParkingNotice(facts.text),
       // All visible addresses: the lead finder decides with isBusinessMailbox, which needs the
       // business name. Output files hold emails, so they stay outside Git (docs/LEAD-FINDER.md).
       emails,
