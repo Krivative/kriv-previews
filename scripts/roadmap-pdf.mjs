@@ -27,7 +27,7 @@ let list = false;
 for (const line of md.split(/\r?\n/)) {
   const item = line.match(/^- \[( |x)\] (.*)$/);
   if (!item && list) {
-    body.push("</ul>");
+    body.push("</tbody></table>");
     list = false;
   }
   if (item) {
@@ -35,15 +35,15 @@ for (const line of md.split(/\r?\n/)) {
     total++;
     if (checked) done++;
     if (!list) {
-      body.push('<ul class="checks">');
+      body.push('<table class="checks"><tbody>');
       list = true;
     }
-    body.push(`<li class="${checked ? "done" : ""}"><span class="box">${checked ? "✓" : ""}</span><span>${inline(item[2])}</span></li>`);
+    body.push(`<tr class="${checked ? "done" : ""}"><td class="checkCell"><span class="box">${checked ? "✓" : ""}</span></td><td>${inline(item[2])}</td></tr>`);
   } else if (line.startsWith("# ")) body.push(`<h1>${inline(line.slice(2))}</h1>`);
   else if (line.startsWith("## ")) body.push(`<h2>${inline(line.slice(3))}</h2>`);
   else if (line.trim()) body.push(`<p>${inline(line)}</p>`);
 }
-if (list) body.push("</ul>");
+if (list) body.push("</tbody></table>");
 const pct = total ? Math.round((done / total) * 100) : 0;
 body.splice(1, 0, `<div class="progress"><div class="bar"><span style="width:${pct}%"></span></div><strong>${done} of ${total} done (${pct}%)</strong></div>`);
 
@@ -56,18 +56,58 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   .progress { display: flex; align-items: center; gap: 12px; margin: 10px 0 4px; }
   .bar { flex: 1; height: 8px; background: #e6e6e6; border-radius: 4px; overflow: hidden; }
   .bar span { display: block; height: 100%; background: #0e5c57; }
-  .checks { list-style: none; padding: 0; margin: 0; }
-  .checks li { display: flex; gap: 10px; align-items: flex-start; padding: 5px 0; break-inside: avoid; }
-  .box { flex: none; width: 14px; height: 14px; margin-top: 2px; border: 1.5px solid #555; border-radius: 3px;
+  .checks { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 0; }
+  .checks tr { break-inside: avoid; page-break-inside: avoid; }
+  .checks td { padding-block: 5px; vertical-align: top; overflow-wrap: anywhere; }
+  .checkCell { width: 24px; }
+  .box { display: block; margin-top: 2px; width: 14px; height: 14px; border: 1.5px solid #555; border-radius: 3px;
          font-size: 11px; line-height: 13px; text-align: center; font-weight: 700; color: #fff; }
   .done .box { background: #0e5c57; border-color: #0e5c57; }
-  .done span:last-child { color: #666; }
+  .done td:last-child { color: #666; }
+  .printPage { display: flow-root; width: 178mm; break-after: page; }
+  .printPage:last-child { break-after: auto; }
 </style></head><body>${body.join("\n")}</body></html>`;
 
 mkdirSync(dirname(out), { recursive: true });
 const browser = await chromium.launch();
-const page = await browser.newPage();
+const page = await browser.newPage({ deviceScaleFactor: 2 });
 await page.setContent(html, { waitUntil: "load" });
+// Pack complete checklist rows before printing. Chromium/Windows PDF rendering
+// can otherwise clip a row's checkbox and first glyphs at an automatic break.
+await page.evaluate(() => {
+  const units = [...document.body.children].flatMap((element) => {
+    if (!element.matches("table.checks")) return [element];
+    return [...element.querySelectorAll("tr")].map((row) => {
+      const table = element.cloneNode(false);
+      const tbody = document.createElement("tbody");
+      tbody.append(row.cloneNode(true));
+      table.append(tbody);
+      return table;
+    });
+  });
+  document.body.replaceChildren();
+  const maxHeight = Math.floor((297 - 36) * 96 / 25.4) - 8;
+  let sheet;
+  for (const unit of units) {
+    if (!sheet) { sheet = document.createElement("div"); sheet.className = "printPage"; document.body.append(sheet); }
+    sheet.append(unit);
+    if (sheet.getBoundingClientRect().height > maxHeight && sheet.children.length > 1) {
+      unit.remove();
+      sheet = document.createElement("div"); sheet.className = "printPage";
+      document.body.append(sheet); sheet.append(unit);
+    }
+  }
+});
+// Rasterize each already-paginated sheet at 2x for Windows PDF compatibility.
+// The native Windows reader can clip the first glyphs of otherwise complete
+// Chromium text runs; a sheet image preserves the checked boxes and every word.
+const sheets = await page.locator(".printPage").all();
+const sheetImages = [];
+for (const sheet of sheets) {
+  const png = await sheet.screenshot();
+  sheetImages.push(`<div class="sheet"><img src="data:image/png;base64,${png.toString("base64")}" /></div>`);
+}
+await page.setContent(`<html><head><style>body{margin:0}.sheet{width:178mm;break-after:page}.sheet:last-child{break-after:auto}img{display:block;width:178mm;height:auto}</style></head><body>${sheetImages.join("")}</body></html>`, { waitUntil: "load" });
 await page.pdf({
   path: out,
   format: "A4",

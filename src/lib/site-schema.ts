@@ -114,10 +114,17 @@ export const SiteData = z.object({
     .object({
       title: z.string().default("What we do"),
       intro: z.string().max(200).optional(),
-      items: z.array(z.object({ name: z.string(), blurb: z.string().max(180) })).max(8),
+      items: z.array(z.object({
+        name: z.string(), blurb: z.string().max(180),
+        detail: z.string().max(1400).optional(),
+        includes: z.array(z.string().max(180)).max(6).optional(),
+      })).max(8),
     })
     .optional(),
-  about: z.object({ title: z.string().optional(), body: z.string().max(700) }).optional(),
+  about: z.object({
+    title: z.string().optional(), body: z.string().max(700),
+    sections: z.array(z.object({ title: z.string().max(100), body: z.string().max(900) })).max(4).optional(),
+  }).optional(),
   // The one section that is written for this lead only.
   custom: z
     .object({

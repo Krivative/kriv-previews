@@ -2,12 +2,14 @@ import type { CSSProperties } from "react";
 import type { SiteData, SectionRef } from "@/lib/site-schema";
 import type { TemplateDef } from "@/lib/templates";
 import { Header, Footer, Ribbon, hasContent } from "./Chrome";
-import { About, Close, Custom, Faq, Gallery, Hero, Services, Visit } from "./Sections";
+import { About, Close, Custom, Faq, Gallery, Hero, Services } from "./Sections";
 import s from "./sections.module.css";
+import { Orientation, PageContent, PageDirectory, Planning, ContactDetails } from "./Pages";
+import type { SitePage } from "@/lib/site-pages";
 
 // Turns template tokens (+ the site's design overrides) into CSS variables and
 // renders the section list in order. Sections without data are skipped.
-export function SiteRenderer({ site, template }: { site: SiteData; template: TemplateDef }) {
+export function SiteRenderer({ site, template, page }: { site: SiteData; template: TemplateDef; page?: SitePage }) {
   const t = template.tokens;
   const fonts = site.design.fonts ?? template.fonts;
   const accent = site.design.accent ?? t.accent;
@@ -41,11 +43,16 @@ export function SiteRenderer({ site, template }: { site: SiteData; template: Tem
       data-numbered={style.numbered ? "" : undefined}
       data-motion={style.motion ? "" : undefined}
       data-ghost={style.ghost ? "" : undefined}
+      data-look={template.look}
     >
       {googleCss ? <link rel="stylesheet" href={googleCss} precedence="fonts" /> : null}
       <Ribbon site={site} />
-      <Header site={site} sections={sections} />
-      {sections.map((sec, i) => {
+      <a className={s.skipLink} href="#main-content">Skip to content</a>
+      <Header site={site} currentPath={page?.path} />
+      <Orientation site={site} />
+      <main id="main-content">
+      {page && page.kind !== "home" ? <PageContent site={site} page={page} bold={template.look === "bold"} /> : <>
+      {sections.filter((sec) => sec.type !== "visit" && sec.type !== "close").map((sec, i) => {
         const key = `${sec.type}-${i}`;
         switch (sec.type) {
           case "hero":
@@ -58,14 +65,16 @@ export function SiteRenderer({ site, template }: { site: SiteData; template: Tem
             return <Gallery key={key} site={site} variant={sec.variant} />;
           case "custom":
             return <Custom key={key} site={site} variant={sec.variant} />;
-          case "visit":
-            return <Visit key={key} site={site} variant={sec.variant} />;
           case "faq":
             return <Faq key={key} site={site} variant={sec.variant} />;
-          case "close":
-            return <Close key={key} site={site} variant={sec.variant} />;
         }
       })}
+      <Planning site={site} />
+      <PageDirectory site={site} />
+      <ContactDetails site={site} />
+      {sections.filter((sec) => sec.type === "close").map((sec, i) => sec.type === "close" ? <Close key={`close-${i}`} site={site} variant={sec.variant} /> : null)}
+      </>}
+      </main>
       <Footer site={site} />
     </div>
   );

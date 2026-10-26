@@ -1,5 +1,11 @@
 # Fingerprints
 
+Multi-page edition (2026-10-27): shared page navigation, orientation, planning,
+discovery and contact panels apply to every row. The intrinsic template recipes
+below retain the original visual fingerprints; `visit` uses the new contact panel
+and the original close follows the added panels. This is a shared-kit update,
+not a set of new template identities. See `ARSENAL-REVAMP.md`.
+
 A new template must differ from EVERY row on at least 4 of 6 axes. If it fails, change the
 plan, not the row. (Adapted from Nate Herk's scroll-craft, MIT.)
 

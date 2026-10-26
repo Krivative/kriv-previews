@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import Link from "next/link";
+import { pageHref, sitePages } from "@/lib/site-pages";
 import type { SiteData, SectionRef } from "@/lib/site-schema";
 import { Photo } from "./Photo";
 import { Rich } from "./Rich";
@@ -137,12 +139,14 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
   const sv = site.services;
   if (!sv || !sv.items.length) return null;
   const items = sv.items;
+  const pages = sitePages(site).filter((p) => p.kind === "service");
+  const name = (it: typeof items[number]) => <Link href={pageHref(site, pages[items.indexOf(it)].path)} prefetch={false}>{it.name}<span className={s.serviceArrow} aria-hidden="true"> ?</span></Link>;
   const body =
     variant === "grid" ? (
       <div className={s.grid}>
         {items.map((it) => (
           <div key={it.name} className={s.cell}>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </div>
         ))}
@@ -151,7 +155,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
       <div className={s.columns}>
         {items.map((it) => (
           <div key={it.name}>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </div>
         ))}
@@ -160,7 +164,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
       <div className={s.tiles}>
         {items.map((it) => (
           <div key={it.name} className={s.tile}>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </div>
         ))}
@@ -170,7 +174,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
         {items.map((it, i) => (
           <li key={it.name} className={s.edRow}>
             <span className={s.edNum}>{String(i + 1).padStart(2, "0")}</span>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </li>
         ))}
@@ -179,7 +183,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
       <div className={s.menu}>
         {items.map((it) => (
           <div key={it.name} className={s.menuItem}>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </div>
         ))}
@@ -188,7 +192,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
       <div className={s.rows}>
         {items.map((it) => (
           <div key={it.name} className={s.row}>
-            <strong>{it.name}</strong>
+            <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
           </div>
         ))}
@@ -238,7 +242,7 @@ export function About({ site, variant }: Props & { variant: Extract<SectionRef, 
     return (
       <section id="about" className={s.section}>
         <div className={`${s.wrap} ${s.split}`}>
-          <Photo src={site.brand.photos[1]} label="Team or interior photo" />
+          <Photo src={site.brand.photos[1] ?? site.brand.photos[0]} label="Illustrative photo" />
           <div>
             <h2 className={s.h2} data-label="About">
               <Rich text={a.title ?? "About us"} />
@@ -264,7 +268,7 @@ export function About({ site, variant }: Props & { variant: Extract<SectionRef, 
 export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef, { type: "gallery" }>["variant"] }) {
   const g = site.gallery;
   if (!g) return null;
-  const photos = site.brand.photos.length ? site.brand.photos.slice(1) : [];
+  const photos = site.brand.photos.length > 1 ? site.brand.photos.slice(1) : site.brand.photos;
   const count = Math.max(g.labels.length, photos.length);
   if (!count) return null;
   const tiles = Array.from({ length: count }, (_, i) => ({ src: photos[i], label: g.labels[i] ?? `Photo ${i + 1}` }));

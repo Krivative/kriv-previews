@@ -1,12 +1,15 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: no-paid-AI Review inbox and background preset preparation
+Updated: 2026-10-27 · Last step finished: whole-arsenal multi-page revamp across 26 templates and 13 niches
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
+
+- [ ] Kriv: review the revamped local Site Arsenal gallery and its About, Contact and offering-detail pages across the niches. Local review: `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `http://localhost:3101`. Local source changes and an exportable patch accompany the preview app checkpoint. Pushes, merges and deployments still require separate explicit approval
+- [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
 - [ ] Kriv: restart the Lead Desk with `pnpm.cmd lead-desk`, reload and select Review inbox, then Start background preparation. Pilot one offer: inspect both screenshots and email, approve/decline or request a preset revision. Publish only through the separate confirmation, and send manually in Gmail once checked live. No 23 manual ticks on this path. Your existing Chucks Ducts edit is preserved; its next preparation will omit unsupported optional location details, or hold if identity/mailbox cannot be confirmed
 - [ ] Verify the first local background cycle with Kriv: inspect held reasons, photo availability and directory blocks; tune only after evidence. No paid AI key or budget is needed. Current source matching and template rotation are deliberately limited; custom revisions can be handled in a Codex session
@@ -19,6 +22,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Whole-arsenal multi-page revamp (Kriv requested, Codex, 2026-10-27): studied all six references and applied their page-depth/navigation patterns to all 26 templates across 13 niches. Working internal Home, About, offering/index/detail, Contact and optional FAQ/Gallery pages; niche-appropriate labels and preparation questions; richer fictional samples and credited stock imagery; responsive menus, breadcrumbs, page discovery and contact panels. Existing real lead data, private information, dependencies, lockfile, noindex, exact concept notice and inert business actions preserved. Preview validation: 247 tests and 16 smoke checks, plus lint/typecheck/build. Source verification: 282 sample pages, 52 homepage screenshots and 78 nested-page screenshots/click-throughs across all 13 niches; visual review prompted contrast and single-photo fixes. Source built with webpack because its local dependency junction lies outside its Git root. Source streamed-404 limitation documented; no push, deployment, approval, publishing or email sending
 
 - [x] Founder Review inbox and background preset preparation (Kriv approved, Codex, 2026-10-26): paused by default; serial preparation/checking/collection while the Desk runs; up to 10 initial offers per UTC day and priority preset revisions. Fresh business-name/mailbox checks, optional-fact omission, credited photos, desktop/phone screenshots and technical checks produce a separate preparation report; no manual QA ticks fabricated. Draft/email/form backups precede replacement, concurrent edits hold the job, and content changes invalidate readiness. Approve/decline/revise are founder decisions; publishing needs another confirmation; Gmail sending/replies remain manual. Legacy paid AI blocked in code, finder/mailbox rules and preview templates unchanged. 218 tests and the complete validation suite pass; synthetic browser flow and real screenshot script fixtures pass without private data or external requests. No actual Desk/private pilot, approval, publish, push, deployment or email occurred
 

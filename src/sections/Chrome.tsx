@@ -1,15 +1,9 @@
 import type { SiteData, SectionRef } from "@/lib/site-schema";
 import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
+import Link from "next/link";
+import { pageHref, sitePages } from "@/lib/site-pages";
 import s from "./sections.module.css";
-
-const navLabels: Partial<Record<SectionRef["type"], string>> = {
-  services: "Services",
-  about: "About",
-  gallery: "Gallery",
-  visit: "Visit",
-  faq: "FAQ",
-};
 
 // Guardrail 2: every preview carries this banner. Do not remove or reword it.
 export function conceptNotice(name: string): string {
@@ -19,37 +13,35 @@ export function conceptNotice(name: string): string {
 export function Ribbon({ site }: { site: SiteData }) {
   return (
     <div className={s.ribbon} role="note">
-      {conceptNotice(site.business.name)} Buttons and links are disabled.
+      {conceptNotice(site.business.name)} Calls, bookings and outbound links are disabled.
     </div>
   );
 }
 
-export function Header({ site, sections }: { site: SiteData; sections: SectionRef[] }) {
+export function Header({ site, currentPath = "" }: { site: SiteData; currentPath?: string }) {
   const { primary } = defaultCtas(site);
-  const links = sections.filter((sec) => navLabels[sec.type] && hasContent(site, sec.type));
+  const links = sitePages(site).filter((p) => p.kind !== "service");
+  const navigation = links.map((p) => <Link key={p.path} href={pageHref(site, p.path)} prefetch={false} aria-current={currentPath === p.path || (p.kind === "services" && currentPath.startsWith("services/")) ? "page" : undefined}>{p.title}</Link>);
   return (
     <div className={s.wrap}>
       <header className={s.header}>
-        <a href="#top" className={s.brand}>
+        <Link href={pageHref(site)} prefetch={false} className={s.brand}>
           {site.brand.logo ? (
             // The business's own logo, from its website or listing (Kriv, 2026-10-25).
             // eslint-disable-next-line @next/next/no-img-element
             <img className={s.brandLogo} src={site.brand.logo} alt="" />
           ) : null}
           {site.business.name}
-        </a>
-        <nav className={s.nav} aria-label="Sections">
-          {links.map((sec) => (
-            <a key={sec.type} href={`#${sec.type}`}>
-              {navLabels[sec.type]}
-            </a>
-          ))}
+        </Link>
+        <nav className={s.nav} aria-label="Main navigation">
+          {navigation}
           {primary ? (
             <a className={s.navCta} {...inert}>
               {primary.label}
             </a>
           ) : null}
         </nav>
+        <details key={currentPath} className={s.mobileMenu}><summary>Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile navigation">{navigation}</nav></details>
       </header>
     </div>
   );
@@ -62,6 +54,8 @@ export function Footer({ site }: { site: SiteData }) {
   return (
     <div className={s.wrap}>
       <footer className={s.footer}>
+        <div className={s.footerIntro}><strong>{site.business.name}</strong><p>{site.business.category}</p></div>
+        <nav className={s.footerNav} aria-label="Footer navigation">{sitePages(site).filter((p) => p.kind !== "service").map((p) => <Link key={p.path} href={pageHref(site, p.path)} prefetch={false}>{p.title}</Link>)}</nav>
         <span>
           {site.business.name} · {place}
         </span>

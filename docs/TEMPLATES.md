@@ -1,5 +1,11 @@
 # Catalog
 
+Multi-page edition (2026-10-27): all 26 templates now include working internal
+navigation, content-backed About/offerings/detail/FAQ/gallery pages and Contact.
+The renderer adds planning, discovery and contact sections before the original
+close; legacy `visit` entries use the consolidated contact panel. The table below
+records each template's original section recipe. See `ARSENAL-REVAMP.md`.
+
 | id | name | look | best for | sections (default) | status |
 |---|---|---|---|---|---|
 | dental-clear | Clear | calm | dental clinic, family dentist, orthodontist, pediatric dentist | cinematic hero · editorial services · cards about · note custom · split visit · list faq · band close | batch 7 cinematic, for review |
