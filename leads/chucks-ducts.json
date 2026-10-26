@@ -1,0 +1,99 @@
+{
+  "slug": "chucks-ducts",
+  "template": "hvac-bold",
+  "lang": "en-US",
+  "createdAt": "2026-10-26",
+  "expiresAt": "2026-11-25",
+  "status": "approved",
+  "business": {
+    "name": "Chucks Ducts",
+    "category": "Dryer vent and air duct cleaning",
+    "phoneDisplay": "(386) 212-1895",
+    "phoneE164": "+13862121895",
+    "address": {
+      "city": "Ormond Beach",
+      "region": "FL",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Volusia and Flagler counties",
+    "headline": "Dryer vent and duct cleaning in *Volusia and Flagler.*",
+    "sub": "Dryer vent cleaning, air duct cleaning and whole home sanitization for homes in Volusia and Flagler counties."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Dryer vent cleaning",
+        "blurb": "Cleaning for all kinds of dryer vents, large or small, with equipment made for dryer vents."
+      },
+      {
+        "name": "Air duct cleaning",
+        "blurb": "Cleaning of the air ducts in your home."
+      },
+      {
+        "name": "Whole home sanitization",
+        "blurb": "Sanitization throughout the air duct system. It takes about 5 minutes and nothing in your home is touched."
+      },
+      {
+        "name": "Viral, odor and bacterial remediation",
+        "blurb": "Treatment for viruses, odors and bacteria in the home."
+      }
+    ]
+  },
+  "about": {
+    "title": "A family business",
+    "body": "Chucks Ducts is a family owned and operated, veteran owned business serving Volusia and Flagler counties. Se habla español."
+  },
+  "custom": {
+    "title": "Volusia and Flagler counties",
+    "items": [
+      {
+        "name": "Phone",
+        "blurb": "(386) 212-1895"
+      },
+      {
+        "name": "Se habla español",
+        "blurb": "Spanish spoken"
+      }
+    ]
+  },
+  "close": {
+    "headline": "Dryer vent or duct cleaning in *Volusia or Flagler?*",
+    "sub": "Call Chucks Ducts at (386) 212-1895."
+  },
+  "seo": {
+    "title": "Chucks Ducts | Concept preview",
+    "description": "Concept preview of a website for Chucks Ducts in Ormond Beach, FL, prepared by KRIV."
+  },
+  "brand": {
+    "logo": "https://chucksducts.com/wp-content/uploads/2018/08/duck-vector.png",
+    "photos": [
+      "https://images.unsplash.com/photo-1778731660248-044f78e8c1fb?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTkxNzA1fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1789352844222-9ea7ea450638?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkyOTkxNzA2fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Franco Debartolo",
+        "profileUrl": "https://unsplash.com/@francotheshooter",
+        "photoPage": "https://unsplash.com/photos/modern-laundry-room-with-matching-washer-and-dryer-DB45fWkHRDc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Josh Lemmon",
+        "profileUrl": "https://unsplash.com/@wolfie_website",
+        "photoPage": "https://unsplash.com/photos/stacked-washer-and-dryer-in-closet-wHHPsKWtgJs"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.chucksducts.com/",
+    "https://www.hotfrog.com/company/AFqgO8h1eiicoHcuriLQqA/chucks-ducts/ormond-beach/appliances",
+    "https://unsplash.com/photos/modern-laundry-room-with-matching-washer-and-dryer-DB45fWkHRDc",
+    "https://unsplash.com/photos/stacked-washer-and-dryer-in-closet-wHHPsKWtgJs"
+  ]
+}
