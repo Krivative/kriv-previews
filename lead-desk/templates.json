@@ -1,0 +1,48 @@
+{
+  "_about": "Fill-in-the-blanks wording for the Lead Desk. {{name}} is filled from the lead; anything still blank shows as [[name]] and must be filled by hand before Gmail opens. The footer (emailFooter() in src/outreach/footer.ts) is added automatically. Facts only from the lead's sources; no claims, no pressure.",
+  "email": [
+    {
+      "id": "no-website",
+      "label": "No website",
+      "subject": "{{business}}: a website idea",
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} around {{town}} and found your listing, but I couldn't find a website for you.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+    },
+    {
+      "id": "dead-site",
+      "label": "Website doesn't load",
+      "subject": "{{business}}: your website address doesn't load",
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} in {{town}} and found your listing, which points to {{website}}. {{what_happens}}, so anyone who tries it finds nothing.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+    },
+    {
+      "id": "phone-problems",
+      "label": "Site problems on phones",
+      "subject": "{{business}} website on phones: a quick concept",
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking at {{niche_plural}} in {{town}} and noticed a couple of things on {{website}} that are easy to check on your own phone:\n\n- {{problem_1}}\n- {{problem_2}}\n\nSo I put together a concept of a phone-first site using only what's already on your site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+    },
+    {
+      "id": "dated-look",
+      "label": "Works, but looks dated",
+      "subject": "{{business}}: a fresher look for your website",
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I came across your website while looking at {{niche_plural}} in {{town}}. Everything works, but the look ({{looks_dated}}) feels older than your business deserves.\n\nIn case it helps, I put together a concept of a cleaner, more modern version using only what's on your own site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+    }
+  ],
+  "linkedinNote": [
+    {
+      "id": "after-email",
+      "label": "After the email",
+      "text": "Hi {{owner_first_name}}, I'm Kriv, a web designer. I emailed {{business}} a concept for a refreshed website: {{preview_url}}. Happy to talk if it's useful."
+    },
+    {
+      "id": "company-page",
+      "label": "Company page message",
+      "text": "Hi {{team}} team, I'm Kriv, a web designer. I emailed you a concept for a refreshed website: {{preview_url}}. Happy to talk if it's useful."
+    }
+  ],
+  "linkedinFollowup": [
+    {
+      "id": "thanks",
+      "label": "Thanks for connecting",
+      "text": "Thanks for connecting, {{owner_first_name}}. In case my email got buried, here's the concept I made for {{business}}: {{preview_url}}. It only uses what's already public about you. No pressure at all; happy to answer questions if it's useful."
+    }
+  ]
+}

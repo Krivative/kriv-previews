@@ -82,6 +82,8 @@ Sources that worked: Hotfrog town pages (49 towns; listings skew to older busine
 
 ## Scripts
 
+The Lead Desk (docs/LEAD-DESK.md) runs these same steps from buttons. The rules (chains, specialists, business mailbox, MX records, visual review) live in `scripts/finder/rules.mjs` and the directory collectors in `scripts/finder/sources.mjs`, shared by the desk and the scripts below.
+
 All output holds business emails, so the data folder lives outside Git (`/finder-data/` is ignored as a safety net).
 
 1. `node scripts/finder/hotfrog.mjs <data>/hotfrog-<run>.json waco-tx,ocala-fl,...` collects Hotfrog listings for the four niches.

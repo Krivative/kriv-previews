@@ -5,6 +5,8 @@
 // links. The lead finder uses `weak` and `flags` to qualify leads; see
 // docs/LEAD-FINDER.md. Reads the home page and at most one contact page.
 import { createRequire } from "node:module";
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
 import { flagsFor, emailsIn, isRoleEmail, BOOKING_HOSTS } from "./site-flags.mjs";
 
 // Playwright is not a project dependency; resolve it from the project or NODE_PATH.
@@ -12,11 +14,16 @@ const require = createRequire(import.meta.url);
 const searchPaths = [process.cwd(), ...(process.env.NODE_PATH ?? "").split(":").filter(Boolean)];
 const { chromium, devices } = require(require.resolve("playwright", { paths: searchPaths }));
 
-const urls = process.argv.slice(2);
+// --shots <dir>: also save the phone view of each home page as <dir>/<host>.png (outside Git).
+const args = process.argv.slice(2);
+const shotsAt = args.indexOf("--shots");
+const shotsDir = shotsAt >= 0 ? args.splice(shotsAt, 2)[1] : null;
+const urls = args;
 if (!urls.length) {
-  console.error("usage: node scripts/check-site.mjs <url> [url...]");
+  console.error("usage: node scripts/check-site.mjs [--shots <dir>] <url> [url...]");
   process.exit(1);
 }
+if (shotsDir) mkdirSync(shotsDir, { recursive: true });
 
 const browser = await chromium.launch();
 const results = [];
@@ -53,6 +60,11 @@ for (const raw of urls) {
       };
     });
     let { links, text } = facts;
+    if (shotsDir) {
+      r.shot = join(shotsDir, `${hostOf(r.finalUrl) ?? "site"}.png`);
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.screenshot({ path: r.shot }).catch(() => (r.shot = null));
+    }
     // One contact page, same site only.
     const contact = links.find((l) => /contact/.test(l.text + " " + l.href) && sameSite(l.href, r.finalUrl));
     if (contact) {

@@ -1,19 +1,23 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: 7 visual-review pages live (main dd6335d, dpl_R1ss5nS6xmRaBPBLYJBAQL23Sn9b)
+Updated: 2026-10-26 · Last step finished: KRIV Lead Desk, a local app for the daily lead pipeline (docs/LEAD-DESK.md)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
+- [ ] Kriv: start the Lead Desk (`corepack pnpm lead-desk`, docs/LEAD-DESK.md) and review the first draft built in it, Chucks Ducts (Ormond Beach FL, dryer vent and duct cleaning): tick the QA items, approve or decline, then publish and email from the desk. Its town comes only from its Hotfrog listing, which this network couldn't read today: confirm it
+- [ ] Kriv: optional AI help in the desk needs an Anthropic API key in .env.local (about US$0.003 per lead with Claude Haiku 5.5); say if you want it before creating one
+- [ ] Kriv: Hotfrog now shows this network a verification page (2026-10-26); the desk reports it and skips. ChamberMaster directories still work
 - [ ] Kriv: send the 7 visual-review emails by hand (drafts in kriv-leads/emails and on the Lead Desk; Family Dental's email also tells them their About page shows gambling spam)
-- [ ] Claude: grade the remaining visual-review screenshots (142 sites) and add the new leads to the Lead Desk (calibrated by Kriv: a site that already looks professional and only needs tweaks is not a lead)
+- [ ] Kriv or Claude: grade the remaining 138 visual-review sites on the desk's Review screen (4 graded on 2026-10-26: Chucks Ducts qualified, 3 not dated; calibrated by Kriv: a site that already looks professional and only needs tweaks is not a lead)
 - [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
 - [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
 - [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
 
 ## Done
 
+- [x] KRIV Lead Desk: local app (`corepack pnpm lead-desk`, http://localhost:4321) with Find, Check, Review, Build, Approve and publish, Email (Gmail compose, never sends), LinkedIn (copy and status only) and a Dashboard; SQLite database outside Git with every earlier lead, check, email draft, LinkedIn contact and Kriv's desk decisions imported (347 businesses); lead rules shared with the finder scripts and proven identical; publish commits one lead file to main from a clean copy after lint, typecheck, tests, build and smoke (dry run passed, nothing pushed); optional AI help off by default. End to end on one real lead (Chucks Ducts) up to approval, without publishing or sending (Claude, 2026-10-26)
 - [x] 7 visual-review pages live (Kriv approved the merge): main dd6335d, production dpl_R1ss5nS6xmRaBPBLYJBAQL23Sn9b; all 7 plus Springer Bros. 200 with noindex and banner, browser check clean on desktop and phone, preview smoke checks pass on kriv.agency (Claude, 2026-10-26)
 - [x] 7 visual-review leads Kriv approved on the Lead Desk: preview pages (cinematic templates; own logos for 4, ClimateGuard's own team photo), facts from each business's own website, QA and desktop/phone screenshots clean, email drafts naming 1 to 2 failed visual items, kept outside Git; desk keeps Kriv's approvals and LinkedIn notes on them. Cinematic hero: accent word lifted for contrast on the photo, no auto-hyphenation (Claude, 2026-10-26)
 - [x] Rule from Kriv: every lead always gets an email draft, including leads with a LinkedIn contact (checked: all 8 LinkedIn leads that are not declined have one) (Kriv, 2026-10-26)
@@ -108,15 +112,15 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 - [ ] US-ready content: US spelling, phone and address formats
 
-- [ ] Database adapter for lead records (new leads need no deploy)
+- [ ] Database adapter for lead records (new leads need no deploy). Lead records now live in the desk's local database; pages still go live through a commit of leads/<slug>.json
 - [ ] Private review link so Kriv can see draft previews before they go live
 
 ## Pipeline (Phase 4)
 
-- [ ] Lead finder: web search + directories for one niche in one city, check each website, filter, deduplicate, skip a do-not-contact list
-- [ ] Preview builder: facts from sources only, validate, render, screenshot, QA checklist
-- [ ] Email drafter: one personal Gmail draft per lead with address and opt-out line (never sent automatically)
-- [ ] Lead tracker: status per lead and a daily summary
+- [x] Lead finder: directories for a state, towns and niches, check each website, filter, deduplicate, skip a do-not-contact list (Lead Desk screens 1 to 3, Claude, 2026-10-26)
+- [x] Preview builder: facts from sources only, validate, render, screenshot, QA checklist (Lead Desk screen 4, Claude, 2026-10-26)
+- [x] Email drafter: one personal email per lead with the footer and opt-out line, opened in Gmail by Kriv's click (never sent automatically) (Lead Desk screen 6, Claude, 2026-10-26)
+- [x] Lead tracker: status and history per lead, Needs Kriv and counts (Lead Desk dashboard, Claude, 2026-10-26)
 
 ## Pilot and automation
 
