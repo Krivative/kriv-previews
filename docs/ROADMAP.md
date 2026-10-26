@@ -1,12 +1,12 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: previews and email drafts for the 7 visual-review leads Kriv approved (branch claude/amazing-edison-juyem3, not merged)
+Updated: 2026-10-26 · Last step finished: 7 visual-review pages live (main dd6335d, dpl_R1ss5nS6xmRaBPBLYJBAQL23Sn9b)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 ## Next up
 
-- [ ] Kriv: approve merging the 7 visual-review previews to main (production): Hilliard's, Family Dental Center of Sebring, Ridge, ClimateGuard, Long's, Lakeside, Perfected Air; then send their emails by hand (drafts in kriv-leads/emails; Family Dental's email also tells them their About page shows gambling spam)
+- [ ] Kriv: send the 7 visual-review emails by hand (drafts in kriv-leads/emails and on the Lead Desk; Family Dental's email also tells them their About page shows gambling spam)
 - [ ] Claude: grade the remaining visual-review screenshots (142 sites) and add the new leads to the Lead Desk (calibrated by Kriv: a site that already looks professional and only needs tweaks is not a lead)
 - [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
 - [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
@@ -14,6 +14,7 @@ Goal: a daily run that finds qualified leads, builds a concept preview for each 
 
 ## Done
 
+- [x] 7 visual-review pages live (Kriv approved the merge): main dd6335d, production dpl_R1ss5nS6xmRaBPBLYJBAQL23Sn9b; all 7 plus Springer Bros. 200 with noindex and banner, browser check clean on desktop and phone, preview smoke checks pass on kriv.agency (Claude, 2026-10-26)
 - [x] 7 visual-review leads Kriv approved on the Lead Desk: preview pages (cinematic templates; own logos for 4, ClimateGuard's own team photo), facts from each business's own website, QA and desktop/phone screenshots clean, email drafts naming 1 to 2 failed visual items, kept outside Git; desk keeps Kriv's approvals and LinkedIn notes on them. Cinematic hero: accent word lifted for contrast on the photo, no auto-hyphenation (Claude, 2026-10-26)
 - [x] Rule from Kriv: every lead always gets an email draft, including leads with a LinkedIn contact (checked: all 8 LinkedIn leads that are not declined have one) (Kriv, 2026-10-26)
 - [x] Cinematic templates live (Kriv approved the merge): main 9be84fe, production dpl_GL6MTcV2hzXstotUojKBwXmYqANF; all 15 lead pages 200 with noindex and banner, browser check clean on desktop and phone, 8/8 smoke checks (Claude, 2026-10-26)
