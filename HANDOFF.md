@@ -2,6 +2,15 @@
 
 Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing this work: read this file top to bottom, then `docs/PLAN.md`. Update the "Latest checkpoint" section at the top after every verified stage, and tick docs/ROADMAP.md and send Kriv its PDF (see CLAUDE.md). Never mark something done that you have not verified.
 
+## Start here (handoff of 2026-10-26, Claude Code → next agent)
+
+- **Branch:** `claude/amazing-edison-juyem3` at `3394488` or later (work branch). `main` = production (`dd6335d`); every merge or push to main redeploys and needs Kriv's OK, except the Lead Desk's own Publish button, which is Kriv's confirm click.
+- **Newest work:** KRIV Lead Desk, a local app for the whole lead pipeline (docs/LEAD-DESK.md; code in `lead-desk/`, tests in `tests/lead-desk.test.ts`, shared lead rules in `scripts/finder/rules.mjs` and `sources.mjs`). All checks passed at `3394488` (169 tests, build, 8/8 smoke).
+- **Data that is NOT in Git** (business emails and personal data, never commit it): the desk database `C:\Users\user\kriv-leads\lead-desk.db`, email drafts, finder output, screenshots and `.env.local` (Unsplash key) live only on Kriv's Windows PC. A cloud agent cannot see them: work on code and docs, and ask Kriv for anything that needs the data.
+- **Waiting for Kriv:** review and approve or decline the first desk-built draft `leads/chucks-ducts.json` (its town "Ormond Beach" comes only from a Hotfrog listing that could not be read on 2026-10-26); send the 4 plumbing and auto emails whose pages are live; decide whether to add an Anthropic API key for the desk's optional AI help (off by default).
+- **Known gaps, good next tasks:** Hotfrog shows Kriv's network a verification page since 2026-10-26 (the desk reports it; never work around blocks); the site checker grades GoDaddy "parked free" pages (e.g. schc.biz) as modern, a change to the weak rule needs Kriv's OK first; 138 sites wait for the visual review; the desk's Build prefill guesses services from page headings and needs Kriv's edits; the AI help is untested against the real API (no key yet).
+- **Never:** approve or publish on Kriv's behalf (the desk's `/approve` and `/publish` endpoints are Kriv's clicks), send email, log in to LinkedIn, invent facts, remove noindex, the concept banner or the inert links.
+
 ## Latest checkpoint
 
 - Date: 2026-10-25
