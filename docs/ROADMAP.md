@@ -1,21 +1,34 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: KRIV Lead Desk, a local app for the daily lead pipeline (docs/LEAD-DESK.md)
+Updated: 2026-10-26 · Last step finished: dependency verification, local code checkpoints and public recheck attempt
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
+Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. Codex verified the local code and checks, not production, private lead counts, outreach status, provider pricing or external accounts. The database adapter and scheduled pipeline remain unfinished. Private data under `C:\Users\user\kriv-leads\` requires Kriv's explicit permission before any agent access; never inspect or display `.env.local` secrets. This documentation step authorizes no lead approval, email sending, publish, push or deployment.
+
 ## Next up
 
-- [ ] Kriv: start the Lead Desk (`corepack pnpm lead-desk`, docs/LEAD-DESK.md) and review the first draft built in it, Chucks Ducts (Ormond Beach FL, dryer vent and duct cleaning): tick the QA items, approve or decline, then publish and email from the desk. Its town comes only from its Hotfrog listing, which this network couldn't read today: confirm it
-- [ ] Kriv: optional AI help in the desk needs an Anthropic API key in .env.local (about US$0.003 per lead with Claude Haiku 5.5); say if you want it before creating one
-- [ ] Kriv: Hotfrog now shows this network a verification page (2026-10-26); the desk reports it and skips. ChamberMaster directories still work
-- [ ] Kriv: send the 7 visual-review emails by hand (drafts in kriv-leads/emails and on the Lead Desk; Family Dental's email also tells them their About page shows gambling spam)
-- [ ] Kriv or Claude: grade the remaining 138 visual-review sites on the desk's Review screen (4 graded on 2026-10-26: Chucks Ducts qualified, 3 not dated; calibrated by Kriv: a site that already looks professional and only needs tweaks is not a lead)
-- [ ] Kriv: send the 5 plumbing and auto repair emails by hand (drafts in kriv-leads/emails)
-- [ ] Claude: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) qualify but their listing details were cut off in the cloud log; fetch them again before drafting
-- [ ] Claude: watch hello@kriv.agency for replies and opt-outs to the 10 sent emails (Kriv forwards or labels them)
+- [ ] Kriv: start the Lead Desk (`corepack pnpm lead-desk`, docs/LEAD-DESK.md) and review its first draft, Chucks Ducts. Claude Code reported Ormond Beach FL, dryer vent and duct cleaning; its town came only from a Hotfrog listing that could not be read on 2026-10-26. Confirm the facts, complete QA and approve or decline personally; publishing and sending remain Kriv's actions
+- [ ] Kriv: confirm outstanding outreach before sending. Claude Code reported 7 visual-review emails awaiting manual sending (including a Family Dental About-page spam observation that needs a current check). Plumbing/auto count is unresolved: the handoff reported 4, this roadmap previously reported 5. Private records were not inspected; drafts remain outside Git
+- [ ] Optional follow-up: if a real parking-page confirmation is needed, investigate schc.biz's HTTPS/TLS failure separately. The authorized public recheck could not load the page; no parking notice was verified and no lead verdict was saved. Private records and older checks remain untouched
+- [ ] Kriv or an explicitly authorized agent: continue the visual-review queue. Claude Code last reported 138 sites remaining, with 4 graded on 2026-10-26 (Chucks Ducts qualified, 3 not dated). A professional site needing only tweaks is not a lead; no fresh count was taken
+- [ ] Kriv: decide whether optional AI help is wanted before creating or adding a key. It remains off by default; the real API and current model availability/pricing are unverified. The earlier estimate was about US$0.003 per lead with Claude Haiku 5.5, not a verified current quote
+- [ ] Finder follow-up, needs separate authorization: Claude Code reported a Hotfrog verification page on this network on 2026-10-26 and working ChamberMaster directories. No fresh network check was made; skip blocks, never work around them
+- [ ] Research follow-up, needs separate authorization: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) were reported qualified, but listing details were cut off in the cloud log; fetch and verify public facts before any draft
+- [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Local verification and code checkpoints (Kriv approved): dependency installation passed with the frozen lockfile and existing shared pnpm store; packages already up to date, no package/lockfile changes. All five checks passed before each local code commit: 565cbde (Lead Desk source review) and 18be6f9 (GoDaddy parking detection). Documentation checkpoint records 192 tests and 8 smoke checks passing, with earlier PDFs preserved. No push or deployment (Codex, 2026-10-26)
+- [x] Public schc.biz recheck attempted (Kriv approved): sandbox denied network access, then the approved external retry failed its HTTPS/TLS handshake with ERR_SSL_UNRECOGNIZED_NAME_ALERT. No page content or parking notice verified; no private-data access or saved lead/check changes. The synthetic detection checks remain the verification for the code fix (Codex, 2026-10-26)
+
+- [x] GoDaddy parked-page detection (Kriv explicitly approved): visible standalone homepage parking notices now supply a boolean to the existing placeholder flag even with a plain domain title. Normal GoDaddy footers, article mentions and contact-only notices do not count; blocked pages stay not checked. Full webpage text is not saved, mailbox/MX rules are unchanged, and scripts/finder/rules.mjs is untouched. Lint, typecheck, 192 tests, build and 8 local smoke checks pass; the actual checker passed five synthetic HTTPS page cases with all requests intercepted. Real sites/private records were not checked or changed; nothing committed, pushed or published (Codex, 2026-10-26); PDF outcome in HANDOFF.md
+
+- [x] Lead Desk source freshness and service suggestions (Kriv approved): reread always fetches fresh sources and preserves form edits; normal reads reuse successful pages only from today (UTC); the source panel shows read/attempt timestamps and flags older or blocked sources. Service suggestions come from clearly labeled service sections or service/treatment pages on the business's own site, carry source URLs and require manual review. Descriptions and hero subtext are left for Kriv to write. Lint, typecheck, 177 tests, build and 8 local smoke checks pass; synthetic browser check covers successful reread, edits during loading, failure/retry and blocked sources. No private-data access, finder-rule changes, commits, pushes or publishing (Codex, 2026-10-26); PDF outcome in HANDOFF.md
+
+- [x] Documentation reconciliation: refreshed the Codex checkpoint and current next actions, preserved Claude Code's history, distinguished local verification from historical production/outreach reports, and flagged the 4-versus-5 email count for Kriv. Post-edit lint, typecheck, 169 tests, build and 8 local smoke checks passed. No application changes, commits, pushes, private-data access or production checks (Codex, 2026-10-26); PDF outcome recorded in HANDOFF.md
+
+Earlier entries below are historical completion records, retained as reported; they do not independently verify today's production or outreach state.
 
 - [x] KRIV Lead Desk: local app (`corepack pnpm lead-desk`, http://localhost:4321) with Find, Check, Review, Build, Approve and publish, Email (Gmail compose, never sends), LinkedIn (copy and status only) and a Dashboard; SQLite database outside Git with every earlier lead, check, email draft, LinkedIn contact and Kriv's desk decisions imported (347 businesses); lead rules shared with the finder scripts and proven identical; publish commits one lead file to main from a clean copy after lint, typecheck, tests, build and smoke (dry run passed, nothing pushed); optional AI help off by default. End to end on one real lead (Chucks Ducts) up to approval, without publishing or sending (Claude, 2026-10-26)
 - [x] 7 visual-review pages live (Kriv approved the merge): main dd6335d, production dpl_R1ss5nS6xmRaBPBLYJBAQL23Sn9b; all 7 plus Springer Bros. 200 with noindex and banner, browser check clean on desktop and phone, preview smoke checks pass on kriv.agency (Claude, 2026-10-26)

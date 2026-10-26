@@ -2,6 +2,15 @@
 
 Prepared 2026-10-24 in the KRIV Agency Claude Project. Paste this file into the first Claude Code session, or commit it to the new repo as `docs/PLAN.md`. Status of every phase lives in `HANDOFF.md`, not here.
 
+## Current-status note (2026-10-26)
+
+This is the original build plan, retained for development history. Use `HANDOFF.md` and `docs/ROADMAP.md` for current status, approval boundaries and next work. The original tables and model recommendations below describe the planning date, not newly verified services or tooling.
+
+- Code verified locally: the existing Next.js app uses internal `basePath: "/for"` and reads `leads/<slug>.json` at request time. The documented public address is `https://kriv.agency/<slug>`, routed by the main site's fallback rewrite (see `docs/MAIN-SITE-REWRITE.md`); production was not rechecked in this documentation step.
+- One preview app serves all leads, but new production JSON records still need a commit and deployment. The future database adapter is what would remove that requirement; the Lead Desk's local SQLite database does not yet serve production preview pages.
+- Claude Code's later records identify `Krivative/Site-Arsenal` as the template source, report Vercel Pro enabled on 2026-10-25, and supersede the original Google Places plan with public directories, web search and business websites. These are historical project reports, not fresh account or network checks.
+- The local Lead Desk replaces the earlier dashboard artifact. Kriv retains approval and publishing control and sends emails by hand. No private-data access, API activation or paid service is authorized by this note.
+
 ## 1. Objective
 
 Let KRIV produce a tailored concept website for a qualified lead in minutes, host it at `https://kriv.agency/<lead-slug>` (was `/for/<lead-slug>`; changed 2026-10-24), and send the lead a personal email linking to it. The system must work the same at 50 leads or 100,000 leads.
