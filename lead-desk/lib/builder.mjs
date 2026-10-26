@@ -61,24 +61,29 @@ const strip = (html) => html.replace(/&#(\d+);/g, (m, n) => String.fromCharCode(
   .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&#39;|&#x27;|&rsquo;/g, "'").replace(/&quot;|&ldquo;|&rdquo;/g, '"').replace(/&ndash;|&mdash;/g, "-")
   .split("\n").map((l) => l.replace(/\s+/g, " ").trim()).filter(Boolean).join("\n");
 
-/** One page, from the cache when fetched in the last week (pages change; facts are re-checked on build day). */
-export async function fetchPage(db, url) {
+/** Reuse successful reads from today (UTC); an explicit reread always goes to the source. */
+export async function fetchPage(db, url, { refresh = false } = {}) {
   const cached = db.prepare("SELECT * FROM pages WHERE url = ?").get(url);
-  if (cached && Date.now() - Date.parse(cached.fetched_at) < 7 * 864e5 && cached.status === 200) return { url, status: cached.status, html: cached.html, text: cached.text };
+  const at = now();
+  const cachedAt = Date.parse(cached?.fetched_at);
+  if (!refresh && cached?.status === 200 && cachedAt <= Date.parse(at) && new Date(cachedAt).toISOString().slice(0, 10) === at.slice(0, 10)) {
+    return { url, status: cached.status, html: cached.html, text: cached.text, fetched_at: cached.fetched_at };
+  }
   const { status, html } = await get(url);
   const text = html ? strip(html) : "";
+  const fetched_at = now();
   db.prepare("INSERT INTO pages (url, status, html, text, fetched_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT(url) DO UPDATE SET status = excluded.status, html = excluded.html, text = excluded.text, fetched_at = excluded.fetched_at")
-    .run(url, status, html.slice(0, 2e6), text.slice(0, 2e5), now());
-  return { url, status, html, text };
+    .run(url, status, html.slice(0, 2e6), text.slice(0, 2e5), fetched_at);
+  return { url, status, html, text, fetched_at };
 }
 
 /** Their home page, a contact page and up to 3 service/about pages, plus their listing pages. */
-export async function readSources(db, lead) {
+export async function readSources(db, lead, { refresh = false } = {}) {
   const out = [];
   const listing = db.prepare("SELECT url FROM sources WHERE lead_id = ?").all(lead.id).map((r) => r.url)
     .filter((u) => !/unsplash\.com|kriv\.agency/.test(u) && (!lead.website || host(u) !== host(lead.website)));
   if (lead.website) {
-    const home = await fetchPage(db, lead.website);
+    const home = await fetchPage(db, lead.website, { refresh });
     out.push(home);
     const links = [...home.html.matchAll(/<a[^>]+href="([^"#]+)"[^>]*>([\s\S]*?)<\/a>/gi)].map((m) => { try { return { href: new URL(m[1], lead.website).href, text: strip(m[2]).toLowerCase() }; } catch { return null; } })
       .filter((l) => l && host(l.href) === host(lead.website) && !/\.(pdf|jpe?g|png)$/i.test(l.href));
@@ -87,10 +92,10 @@ export async function readSources(db, lead) {
       const l = links.find((x) => re.test(x.text + " " + x.href) && !pick.includes(x.href) && x.href !== home.url);
       if (l) pick.push(l.href);
     }
-    for (const u of pick.slice(0, 4)) out.push(await fetchPage(db, u));
+    for (const u of pick.slice(0, 4)) out.push(await fetchPage(db, u, { refresh }));
   }
-  for (const u of [...new Set(listing)].slice(0, 3)) out.push(await fetchPage(db, u));
-  return out.map((p) => ({ url: p.url, status: p.status, html: p.html ?? "", text: p.text.slice(0, 20000), blocked: p.status !== 200 }));
+  for (const u of [...new Set(listing)].slice(0, 3)) out.push(await fetchPage(db, u, { refresh }));
+  return out.map((p) => ({ url: p.url, status: p.status, html: p.html ?? "", text: p.text.slice(0, 20000), fetched_at: p.fetched_at, blocked: p.status !== 200 }));
 }
 
 // ---- Prefill ---------------------------------------------------------------------------
@@ -112,6 +117,34 @@ export function parseAddress(a) {
 }
 const NOT_SERVICE = /^(home|about|contact|menu|call|book|schedule|services|our services|get a|request|learn more|read more|privacy|terms|pay your bill|select page|testimonials?|reviews?|blog|faq|gallery|careers|financing|specials|coupons|veteran|family owned|why choose|what our|follow us|quick links|hours|location)/i;
 const HOURS_LINE =/^(mon|tue|wed|thu|fri|sat|sun|monday|weekdays|weekends|daily|open)[a-z\s.,&-]*[:\s-]+.*\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)/i;
+
+/** Suggestions, never verified facts: only explicit service areas on their own successful pages. */
+export function serviceSuggestions(pages, website) {
+  const ownHost = host(website);
+  if (!ownHost) return [];
+  const out = [];
+  const seen = new Set();
+  for (const p of pages) {
+    if (p.blocked || p.status !== 200 || host(p.url) !== ownHost || !p.html) continue;
+    const body = p.html.replace(/<(nav|header|footer|form|aside|script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, " ");
+    const headings = [...body.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)];
+    const servicePage = /\/(services?|treatments?)(\/|$)/i.test(new URL(p.url).pathname);
+    const areas = servicePage ? [body] : headings.filter((h) => /\b(services|treatments|what we do)\b/i.test(strip(h[2]))).map((h) => {
+      const end = headings.find((next) => next.index > h.index && Number(next[1]) <= Number(h[1]));
+      return body.slice(h.index + h[0].length, end?.index ?? body.length);
+    });
+    for (const area of areas) for (const m of area.matchAll(/<(h[2-4]|li)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+      const name = strip(m[2]).replace(/\n/g, " ").replace(/\.$/, "").trim();
+      const key = name.toLowerCase();
+      if (name.length < 4 || name.length > 70 || name.split(/\s+/).length > 6 || /[!?:|©@]|\d{3}/.test(name)
+        || !/[a-z]/i.test(name) || NOT_SERVICE.test(name) || /^(meet|our team|welcome|awards|certifications|locations|areas we serve)\b/i.test(name) || seen.has(key)) continue;
+      seen.add(key);
+      out.push({ name, blurb: "", s: p.url });
+      if (out.length === 6) return out;
+    }
+  }
+  return out;
+}
 
 /** A first draft of the form from the lead record and the text of its pages. Kriv edits all of it. */
 export function prefill(lead, pages, templates) {
@@ -148,25 +181,11 @@ export function prefill(lead, pages, templates) {
       }
     }
   }
-  // Services: headings and list items in the page body (menus, header and footer removed); names
-  // only, Kriv writes the one-liners from the page. A guess: delete whatever isn't a service.
-  const svc = pages.find((p) => !p.blocked && /service|repair|treatment/i.test(p.url)) ?? home;
-  if (svc?.html) {
-    const seen = new Set([town.toLowerCase(), String(lead.name ?? "").toLowerCase()]);
-    const body = svc.html.replace(/<(nav|header|footer|form)[\s\S]*?<\/\1>/gi, " ");
-    for (const m of body.matchAll(/<(h[2-4]|li)[^>]*>([\s\S]*?)<\/\1>/gi)) {
-      if (lists.services.length >= 6) break;
-      const line = strip(m[2]).replace(/\n/g, " ").replace(/^[•·*–-]\s*/, "").trim();
-      const w = line.split(" ").length;
-      if (w >= 1 && w <= 6 && line.length > 3 && !/[!?:|©@]|\d{3}/.test(line) && /[a-z]/i.test(line) && !NOT_SERVICE.test(line) && !seen.has(line.toLowerCase())) {
-        seen.add(line.toLowerCase());
-        lists.services.push({ name: line.replace(/\.$/, ""), blurb: "", s: svc.url });
-      }
-    }
-  }
+  // Keep the wording and source; Kriv confirms names and writes the service descriptions.
+  lists.services = serviceSuggestions(pages, lead.website).filter((s) => ![town, lead.name].some((v) => String(v ?? "").toLowerCase() === s.name.toLowerCase()));
   const metaDesc = home?.html?.match(/<meta[^>]+name="description"[^>]+content="([^"]+)"/i)?.[1];
   if (metaDesc) set("aboutBody", strip(metaDesc).slice(0, 700), home.url);
-  if (lists.services.length) set("sub", `${lists.services.slice(0, 3).map((s) => s.name).join(", ")} in ${town}.`.replace(/^./, (c) => c.toUpperCase()), svc.url);
+  // Do not turn unverified service suggestions into a separate claim in the hero.
 
   const template = (niche.templates[0] && templates.some((t) => t.id === niche.templates[0])) ? niche.templates[0] : templates[0]?.id;
   return { slug: suggestSlug(lead.name), template, f, lists, photos: [] };

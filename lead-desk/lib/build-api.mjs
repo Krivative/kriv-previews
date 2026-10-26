@@ -52,8 +52,8 @@ export const buildRoutes = [
     const l = lead(ctx.db, ctx.params.id);
     if (!l) return bad("no such lead", 404);
     l.sources = ctx.db.prepare("SELECT url FROM sources WHERE lead_id = ?").all(l.id).map((r) => r.url);
-    const pages = await readSources(ctx.db, l);
-    return { form: prefill(l, pages, listTemplates(ctx.repo)), pages: pages.map(({ url, status, text }) => ({ url, status, text })) };
+    const pages = await readSources(ctx.db, l, { refresh: ctx.body.refresh === true });
+    return { form: prefill(l, pages, listTemplates(ctx.repo)), pages: pages.map(({ url, status, text, fetched_at }) => ({ url, status, text, fetched_at })) };
   }],
   // Text of one fetched page, so Kriv can read the facts next to the form.
   ["GET", /^\/api\/page$/, ({ db, query }) => db.prepare("SELECT url, status, text, fetched_at FROM pages WHERE url = ?").get(query.url) ?? bad("not fetched", 404)],

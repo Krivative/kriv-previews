@@ -30,6 +30,14 @@ It opens http://localhost:4321 in the browser. Leave the window open while you w
 
 Stay at 20 emails a day for now (the Email screen counts them; docs/OUTREACH.md).
 
+## Source reads and service suggestions
+
+- The Build screen shows when the selected source was last read, in UTC. An initial read may reuse a successful copy from the same UTC day. Older or unknown dates need a fresh read before checking facts.
+- *Read their pages again* always requests fresh copies of the business's pages and listings. It preserves your form edits, including changes made while the read is running. A failed request lets you retry; a blocked source shows its failed attempt instead of old text presented as fresh.
+- Suggested service names come only from clearly labeled service sections or service/treatment pages on the business's own site. Unrelated homepage headings and directory listings are not used for service suggestions. Suggestions may miss services or include unsuitable text: verify each name, delete incorrect suggestions and add missing services manually.
+- Service descriptions and the required line under the hero headline are left for you to write from a source. Suggested services are not automatically turned into hero claims. Existing saved drafts are not rewritten by this change.
+- Reading a page does not verify its claims or approve a preview. The existing QA and Kriv's approval still apply. Finder qualification rules are unchanged.
+
 ## Optional AI help (off by default)
 
 With `ANTHROPIC_API_KEY=...` in `.env.local` (never committed), a switch appears on the Dashboard under *Data*. When on, Claude Haiku 5.5 can fill the preview form from the text of their pages and suggest email or LinkedIn wording. Each call shows its cost (about US$0.002 to fill a form, US$0.001 per wording suggestion); the total is on the Dashboard. A source URL it gives is kept only if it is one of the pages read, and everything it writes is checked by Kriv like any other draft.

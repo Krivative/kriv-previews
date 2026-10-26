@@ -63,6 +63,7 @@ function draw(view) {
             <span style="display:block;height:6px;border-radius:3px;background:${esc(t.accent ?? "#888")};margin-top:4px"></span></label>`).join("")}</div>
         </section>
         ${v.spec.map((s) => `<section class="panel" style="display:grid;gap:8px"><h2 style="margin:0">${esc(s.section)}</h2>
+          ${s.list === "services" ? '<p class="small muted">Suggested names need your review. Keep only services this business explicitly offers, and write each description from its source. Add any missing services yourself.</p>' : ""}
           ${(s.fields ?? []).map((f) => field(f, form.f[f.key])).join("")}
           ${s.list ? listRows(s, form.lists[s.list] ?? []) : ""}</section>`).join("")}
         <section class="panel" style="display:grid;gap:8px"><h2 style="margin:0">Photos</h2>
@@ -90,6 +91,7 @@ function draw(view) {
         <p class="small muted" style="margin:0">Read the facts here; copy the page's URL into the source box.</p>
         <select id="pageSel">${srcs.map((u) => `<option>${esc(u)}</option>`).join("")}</select>
         <div class="row"><button class="btn" id="copyUrl">Copy this URL</button>${l.website ? link(l.website, "open their site") : ""}</div>
+        <p id="pageReadAt" class="small muted" role="status" style="margin:0"></p>
         <pre id="pageText" style="max-height:60vh;overflow:auto;overflow-wrap:anywhere" class="small"></pre>
       </aside>
     </div>`;
@@ -137,10 +139,21 @@ function collect(view) {
 
 async function showPage(view, url) {
   const pre = $("#pageText", view);
-  const known = (state.pages ?? []).find((p) => p.url === url);
-  if (known) { pre.textContent = known.status === 200 ? known.text : `Could not read this page (${known.status}): blocked or gone. Open it in your browser.`; return; }
-  try { const p = await api(`page?url=${encodeURIComponent(url)}`); pre.textContent = p.status === 200 ? p.text : `Could not read this page (${p.status}).`; }
-  catch { pre.textContent = "Not read yet. Click \"Read their pages again\"."; }
+  const stamp = $("#pageReadAt", view);
+  pre.textContent = "Loading source…";
+  stamp.textContent = "";
+  try {
+    const p = (state.pages ?? []).find((p) => p.url === url) ?? await api(`page?url=${encodeURIComponent(url)}`);
+    if (!pre.isConnected || $("#pageSel", view).value !== url) return;
+    pre.textContent = p.status === 200 ? p.text : `Could not read this page (${p.status}): blocked or gone. Open it in your browser.`;
+    const at = new Date(p.fetched_at);
+    const valid = Number.isFinite(at.getTime());
+    stamp.textContent = `${p.status === 200 ? "Last read" : "Last attempted"}: ${valid ? at.toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC") : "unknown"}. ${p.status !== 200 ? "This page could not be verified." : valid && at.toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10) ? "Read today (UTC); check each fact against the text." : 'Not read today (UTC). Click "Read their pages again" before checking facts.'}`;
+  } catch {
+    if (!pre.isConnected || $("#pageSel", view).value !== url) return;
+    pre.textContent = "Not read yet. Click \"Read their pages again\".";
+    stamp.textContent = "Last read: unknown.";
+  }
 }
 
 function wire(view) {
@@ -212,12 +225,17 @@ function wire(view) {
     } catch (err) { toast(err.message); e.target.disabled = false; e.target.textContent = "AI: fill from their pages"; }
   };
   $("#reread", view).onclick = async (e) => {
-    e.target.disabled = true; e.target.textContent = "Reading…";
-    const p = await api(`build/${encodeURIComponent(id)}/prefill`, {});
-    state.pages = p.pages;
-    state.form = collect(view);
-    toast(`Read ${p.pages.length} pages. Your form is unchanged; pick a page on the right to read it.`);
-    draw(view);
+    const button = e.target;
+    button.disabled = true; button.textContent = "Reading…";
+    try {
+      const p = await api(`build/${encodeURIComponent(id)}/prefill`, { refresh: true });
+      state.pages = p.pages;
+      state.form = collect(view);
+      const read = p.pages.filter((page) => page.status === 200).length;
+      toast(`Read ${read} of ${p.pages.length} pages fresh. Your form is unchanged; check the sources on the right.`);
+      draw(view);
+    } catch (err) { toast(err.message); }
+    finally { button.disabled = false; button.textContent = "Read their pages again"; }
   };
   $("#save", view).onclick = async () => {
     state.form = collect(view);
