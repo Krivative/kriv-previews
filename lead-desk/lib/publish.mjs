@@ -7,11 +7,24 @@ import { execFile, exec } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { now, log } from "./db.mjs";
+import { now, log, isOptedOut } from "./db.mjs";
 import { startJob } from "./jobs.mjs";
+import { preparationReadiness } from "./preparation-state.mjs";
 
 export const WORKTREE = process.env.LEAD_DESK_PUBLISH_DIR || join(homedir(), "kriv-previews-publish");
 export const CHECKS = [["lint"], ["typecheck"], ["test"], ["build"], ["test:smoke"]];
+
+export function assertReviewedPublish(ctx, lead, p) {
+  if (p.status === "expired") return;
+  const ready = preparationReadiness(ctx, lead);
+  if (!ready.managed) return;
+  const currentLead = ctx.db.prepare("SELECT status, email FROM leads WHERE id = ?").get(lead.id);
+  if (currentLead?.status !== "approved" || isOptedOut(ctx.db, currentLead.email)) throw new Error("Approval or contact permission changed; publishing stopped.");
+  if (!ready.ready) throw new Error(ready.reason);
+  const current = JSON.parse(readFileSync(join(ctx.repo, "leads", `${lead.slug}.json`), "utf8"));
+  current.status = p.status;
+  if (JSON.stringify(current, null, 2) + "\n" !== p.after) throw new Error("The publishing plan no longer matches the reviewed preview.");
+}
 
 // git runs directly; corepack is a .cmd on Windows, so it goes through the shell as one command
 // line (its arguments are fixed words from this file, never input).
@@ -68,6 +81,7 @@ export function startPublish(ctx, lead, { status = "approved", dryRun = false } 
   const slug = lead.slug;
   return startJob("publish", `${dryRun ? "Dry run: " : ""}${status === "expired" ? "Take down" : "Publish"} ${lead.name}`, null, async (job, say) => {
     const p = await plan(ctx.repo, slug, status);
+    assertReviewedPublish(ctx, lead, p);
     if (!existsSync(WORKTREE)) {
       say(`creating the publishing copy of main at ${WORKTREE}...`);
       await git(["worktree", "add", "--detach", WORKTREE, "origin/main"], ctx.repo);
@@ -96,10 +110,12 @@ export function startPublish(ctx, lead, { status = "approved", dryRun = false } 
       say("dry run: all checks passed; nothing committed or pushed");
       return { dryRun: true, ...p };
     }
+    assertReviewedPublish(ctx, lead, p);
     await git(["add", `leads/${slug}.json`], WORKTREE);
     await git(["commit", "-m", p.message], WORKTREE);
     const sha = await git(["rev-parse", "--short", "HEAD"], WORKTREE);
     say(`committed ${sha}; pushing to main...`);
+    assertReviewedPublish(ctx, lead, p);
     await git(["push", "origin", "HEAD:main"], WORKTREE); // a plain push: fails rather than overwrite if main moved
     log(ctx.db, lead.id, status === "expired" ? "taken down" : "published", { sha, slug, by: "Kriv (confirm click)" });
     // The working copy follows, so the branch and main agree on this file.

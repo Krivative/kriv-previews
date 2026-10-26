@@ -9,6 +9,8 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 
 export const MODEL = "claude-haiku-5-5";
+// Kriv chose a no-paid-AI workflow on 2026-10-26. Keep legacy helpers dormant.
+export const PAID_AI_ALLOWED = false;
 // US$ per million tokens for prompts up to 100K tokens (Anthropic price list, checked 2026-10-26).
 export const PRICE = { input: 0.1, output: 0.5 };
 
@@ -16,10 +18,11 @@ export function aiKey(repo) {
   const f = join(repo, ".env.local");
   return existsSync(f) ? readFileSync(f, "utf8").match(/^ANTHROPIC_API_KEY=(.+)$/m)?.[1].trim() || null : null;
 }
-export const aiEnabled = (db) => db.prepare("SELECT value FROM settings WHERE key = 'ai_enabled'").get()?.value === "1";
+export const aiEnabled = (db) => PAID_AI_ALLOWED && db.prepare("SELECT value FROM settings WHERE key = 'ai_enabled'").get()?.value === "1";
 export const costOf = (usage) => ((usage?.input_tokens ?? 0) * PRICE.input + (usage?.output_tokens ?? 0) * PRICE.output) / 1e6;
 
 function client(repo, db) {
+  if (!PAID_AI_ALLOWED) throw new Error("Paid AI is disabled. Use the template-based preparation workflow.");
   const key = aiKey(repo);
   if (!key) throw new Error("No ANTHROPIC_API_KEY in .env.local: AI help is unavailable.");
   if (!aiEnabled(db)) throw new Error("AI help is switched off (Dashboard, Data).");

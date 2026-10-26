@@ -10,12 +10,14 @@ import { execFile } from "node:child_process";
 import { homedir } from "node:os";
 import { openDb } from "./lib/db.mjs";
 import { routes } from "./lib/api.mjs";
+import { startAutomation } from "./lib/automation.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.LEAD_DESK_PORT ?? 4321);
 const TOKEN = randomBytes(24).toString("hex");
 const db = openDb();
 const ctx = { db, repo: resolve(here, ".."), leadsDir: join(homedir(), "kriv-leads"), reportsDir: join(homedir(), "kriv-reports") };
+startAutomation(ctx);
 
 // Screenshots may be served from these folders only.
 const FILE_ROOTS = [ctx.leadsDir, ctx.reportsDir, join(ctx.repo, "shots")].map((p) => resolve(p) + sep);

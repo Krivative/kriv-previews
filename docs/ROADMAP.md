@@ -1,23 +1,26 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-26 · Last step finished: dependency verification, local code checkpoints and public recheck attempt
+Updated: 2026-10-26 · Last step finished: no-paid-AI Review inbox and background preset preparation
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
-Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. Codex verified the local code and checks, not production, private lead counts, outreach status, provider pricing or external accounts. The database adapter and scheduled pipeline remain unfinished. Private data under `C:\Users\user\kriv-leads\` requires Kriv's explicit permission before any agent access; never inspect or display `.env.local` secrets. This documentation step authorizes no lead approval, email sending, publish, push or deployment.
+Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
 
-- [ ] Kriv: start the Lead Desk (`corepack pnpm lead-desk`, docs/LEAD-DESK.md) and review its first draft, Chucks Ducts. Claude Code reported Ormond Beach FL, dryer vent and duct cleaning; its town came only from a Hotfrog listing that could not be read on 2026-10-26. Confirm the facts, complete QA and approve or decline personally; publishing and sending remain Kriv's actions
+- [ ] Kriv: restart the Lead Desk with `pnpm.cmd lead-desk`, reload and select Review inbox, then Start background preparation. Pilot one offer: inspect both screenshots and email, approve/decline or request a preset revision. Publish only through the separate confirmation, and send manually in Gmail once checked live. No 23 manual ticks on this path. Your existing Chucks Ducts edit is preserved; its next preparation will omit unsupported optional location details, or hold if identity/mailbox cannot be confirmed
+- [ ] Verify the first local background cycle with Kriv: inspect held reasons, photo availability and directory blocks; tune only after evidence. No paid AI key or budget is needed. Current source matching and template rotation are deliberately limited; custom revisions can be handled in a Codex session
 - [ ] Kriv: confirm outstanding outreach before sending. Claude Code reported 7 visual-review emails awaiting manual sending (including a Family Dental About-page spam observation that needs a current check). Plumbing/auto count is unresolved: the handoff reported 4, this roadmap previously reported 5. Private records were not inspected; drafts remain outside Git
 - [ ] Optional follow-up: if a real parking-page confirmation is needed, investigate schc.biz's HTTPS/TLS failure separately. The authorized public recheck could not load the page; no parking notice was verified and no lead verdict was saved. Private records and older checks remain untouched
 - [ ] Kriv or an explicitly authorized agent: continue the visual-review queue. Claude Code last reported 138 sites remaining, with 4 graded on 2026-10-26 (Chucks Ducts qualified, 3 not dated). A professional site needing only tweaks is not a lead; no fresh count was taken
-- [ ] Kriv: decide whether optional AI help is wanted before creating or adding a key. It remains off by default; the real API and current model availability/pricing are unverified. The earlier estimate was about US$0.003 per lead with Claude Haiku 5.5, not a verified current quote
+- [x] Kriv chose no paid AI: legacy AI routes/helpers are disabled even with an old enabled setting. Initial offers use niche templates, neutral reusable wording and source matching, with unsupported optional details omitted
 - [ ] Finder follow-up, needs separate authorization: Claude Code reported a Hotfrog verification page on this network on 2026-10-26 and working ChamberMaster directories. No fresh network check was made; skip blocks, never work around them
 - [ ] Research follow-up, needs separate authorization: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) were reported qualified, but listing details were cut off in the cloud log; fetch and verify public facts before any draft
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Founder Review inbox and background preset preparation (Kriv approved, Codex, 2026-10-26): paused by default; serial preparation/checking/collection while the Desk runs; up to 10 initial offers per UTC day and priority preset revisions. Fresh business-name/mailbox checks, optional-fact omission, credited photos, desktop/phone screenshots and technical checks produce a separate preparation report; no manual QA ticks fabricated. Draft/email/form backups precede replacement, concurrent edits hold the job, and content changes invalidate readiness. Approve/decline/revise are founder decisions; publishing needs another confirmation; Gmail sending/replies remain manual. Legacy paid AI blocked in code, finder/mailbox rules and preview templates unchanged. 218 tests and the complete validation suite pass; synthetic browser flow and real screenshot script fixtures pass without private data or external requests. No actual Desk/private pilot, approval, publish, push, deployment or email occurred
 
 - [x] Local verification and code checkpoints (Kriv approved): dependency installation passed with the frozen lockfile and existing shared pnpm store; packages already up to date, no package/lockfile changes. All five checks passed before each local code commit: 565cbde (Lead Desk source review) and 18be6f9 (GoDaddy parking detection). Documentation checkpoint records 192 tests and 8 smoke checks passing, with earlier PDFs preserved. No push or deployment (Codex, 2026-10-26)
 - [x] Public schc.biz recheck attempted (Kriv approved): sandbox denied network access, then the approved external retry failed its HTTPS/TLS handshake with ERR_SSL_UNRECOGNIZED_NAME_ALERT. No page content or parking notice verified; no private-data access or saved lead/check changes. The synthetic detection checks remain the verification for the code fix (Codex, 2026-10-26)
@@ -139,4 +142,5 @@ Earlier entries below are historical completion records, retained as reported; t
 
 - [x] 3 real leads end to end, each page and email approved by Kriv: 10 sent by hand on 2026-10-25 (Kriv)
 - [ ] Batches of 10 a day with Kriv's review; track reply rates
-- [ ] Daily scheduled run of the finder, builder and drafter
+- [x] Background finder/checker/preset-builder/drafter while the local Desk runs, with local opt-in and founder review (Codex, 2026-10-26)
+- [ ] Windows scheduling / unattended runs when the Desk is closed; separate scope after the local pilot

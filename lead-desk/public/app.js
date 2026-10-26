@@ -1,12 +1,12 @@
 // Hash router: #screen or #screen/<lead id>. Each screen module exports render(view, id).
 import { $, $$, setOnChange, toast } from "./ui.js";
 
-const SCREENS = ["dashboard", "find", "check", "review", "build", "approve", "email", "linkedin"];
+const SCREENS = ["inbox", "dashboard", "find", "check", "review", "build", "approve", "email", "linkedin"];
 const loaded = {};
 
 async function route() {
-  const [name = "dashboard", id] = location.hash.slice(1).split("/").map(decodeURIComponent);
-  const screen = SCREENS.includes(name) ? name : "dashboard";
+  const [name = "inbox", id] = (location.hash.slice(1) || "inbox").split("/").map(decodeURIComponent);
+  const screen = SCREENS.includes(name) ? name : "inbox";
   $$(".tabs a").forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === `#${screen}` ? "page" : "false"));
   const view = $("#view");
   if ($("#leadDialog").open) $("#leadDialog").close();

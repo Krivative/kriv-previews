@@ -48,6 +48,10 @@ CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEX
 CREATE TABLE IF NOT EXISTS setup_tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT UNIQUE NOT NULL, when_text TEXT, what TEXT, done INTEGER NOT NULL DEFAULT 0, links TEXT DEFAULT '[]');
 CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE IF NOT EXISTS pages (url TEXT PRIMARY KEY, status INTEGER, html TEXT, text TEXT, fetched_at TEXT NOT NULL); -- their pages, for the preview form
+CREATE TABLE IF NOT EXISTS preparations (
+  lead_id TEXT PRIMARY KEY, state TEXT NOT NULL DEFAULT 'queued', report TEXT, fingerprint TEXT,
+  revision TEXT, attempts INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL
+);
 `;
 
 // Columns added after the first release, for databases created before them.

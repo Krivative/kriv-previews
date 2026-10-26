@@ -1,12 +1,13 @@
 // Approve and Publish. Only Kriv's clicks in the desk call these (the page's token); Claude and
-// scripts never approve or publish. Approval needs every QA item ticked and an email draft
-// (every lead gets one); publishing needs a second, explicit confirm click.
+// scripts never approve or publish. Approval needs a current prepared offer or the advanced
+// manual QA checklist, plus an email draft; publishing needs a second, explicit confirm click.
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { now, parse, log, rowToLead, isOptedOut, tx } from "./db.mjs";
 import { openBlanks } from "./compose.mjs";
 import { qaState } from "./build-api.mjs";
 import { plan, startPublish, WORKTREE } from "./publish.mjs";
+import { preparationReadiness } from "./preparation-state.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const lead = (db, id) => rowToLead(db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
@@ -19,7 +20,10 @@ export function approveBlockers(ctx, l) {
   if (!d) return ["No preview saved."];
   const qa = qaState(ctx.repo, parse(d.qa, []));
   const open = qa.filter((q) => !q.pass);
-  if (open.length) out.push(`${open.length} QA item${open.length > 1 ? "s" : ""} not ticked yet.`);
+  const prepared = preparationReadiness(ctx, l);
+  if (prepared.managed) {
+    if (!prepared.ready) out.push(prepared.reason);
+  } else if (open.length) out.push(`${open.length} QA item${open.length > 1 ? "s" : ""} not ticked yet.`);
   const mail = ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(l.id);
   if (!mail?.subject || !mail?.body) out.push("No email draft yet (every lead gets one): write it on the Email screen.");
   else if (openBlanks(mail.subject, mail.body).length) out.push("The email draft still has [[blanks]].");
@@ -71,6 +75,8 @@ export const approveRoutes = [
     if (!l?.slug) return bad("no preview", 404);
     const status = l.status === "expired" ? "expired" : "approved";
     if (status === "approved" && l.status !== "approved") return bad("Only an approved page can be published.");
+    const prepared = preparationReadiness(ctx, l);
+    if (status === "approved" && prepared.managed && !prepared.ready) return bad(prepared.reason);
     return plan(ctx.repo, l.slug, status);
   }],
   // Kriv's confirm click. `confirm` must repeat the slug shown in the confirm panel.
@@ -80,6 +86,8 @@ export const approveRoutes = [
     if (ctx.body.confirm !== l.slug) return bad("Publishing needs the confirm click.");
     const status = l.status === "expired" ? "expired" : "approved";
     if (status === "approved" && l.status !== "approved") return bad("Only an approved page can be published.");
+    const prepared = preparationReadiness(ctx, l);
+    if (status === "approved" && prepared.managed && !prepared.ready) return bad(prepared.reason);
     try { return startPublish(ctx, l, { status, dryRun: !!ctx.body.dryRun }); } catch (e) { return bad(e.message); }
   }],
 ];

@@ -11,6 +11,7 @@ import { reviewRoutes } from "./review-api.mjs";
 import { buildRoutes } from "./build-api.mjs";
 import { approveRoutes, approveLead } from "./approve-api.mjs";
 import { aiRoutes } from "./ai-api.mjs";
+import { inboxRoutes } from "./inbox-api.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const leadOr404 = (db, id) => db.prepare("SELECT * FROM leads WHERE id = ?").get(id);
@@ -145,5 +146,6 @@ export const routes = [
   ...buildRoutes,
   ...approveRoutes,
   ...aiRoutes,
+  ...inboxRoutes,
   ["GET", /^\/api\/history$/, ({ db }) => db.prepare("SELECT h.at, h.lead_id, l.name, h.action, h.detail FROM history h LEFT JOIN leads l ON l.id = h.lead_id ORDER BY h.at DESC, h.id DESC LIMIT 100").all()],
 ];

@@ -1,6 +1,14 @@
 # Lead page QA
 
-Every lead page passes this list before Kriv sees it, and again before its status changes from `draft`. A failed item is fixed, never waived. Record the result per lead (date, who, pass/fail per item) where Kriv reviews it; the lead JSON itself carries no QA log.
+The advanced manual workflow uses the checklist below. A failed check is fixed, never waived. Record the result per lead (date, who, pass/fail per item) where Kriv reviews it; the lead JSON itself carries no QA log.
+
+## Review inbox path (Kriv approved, 2026-10-26)
+
+For initial offers, the Review inbox uses a separate preparation report instead of asking Kriv to complete 23 manual ticks. No manual ticks are fabricated. Existing niche templates, neutral invitation wording and source-matched business details replace bespoke AI-written copy. Unsupported optional details are omitted. Business identity and the contact mailbox must be present on current readable sources. The template defaults provide colour; existing credited photos or the configured Unsplash picker provide images. Metadata filters do not replace Kriv's visual judgment.
+
+The automated path validates the record and checks the served page's noindex, banner, inert links, expiry, credits, email exclusion and SEO, plus desktop/phone screenshots with no console errors, overflow or broken visible images. The full five project checks run again during publishing. Failed or stale preparation blocks approval; changing the page, email, source copies or screenshots invalidates the report. A still-unchanged approved snapshot can be published on a later day before expiry.
+
+Kriv looks at both finished screenshots and reads the email, then approves, declines or chooses a preset revision. That approval is the final appearance, image suitability and wording review. Neutral emails need not criticise the existing site. Draft revisions are backed up privately before replacement. Publishing requires a separate explicit confirmation; sending and monitoring replies remain manual in Gmail. The manual checklist remains available under More tools for custom work.
 
 How to look at a draft: drafts are only served by `next dev` (production returns 404 for them). Run `pnpm dev -p 3100`, open `http://localhost:3100/for/<slug>`, and take screenshots with `NODE_PATH=$(npm root -g) node scripts/shoot.mjs <slug>` (desktop 1440 px and phone 390 px into `shots/`).
 
@@ -40,7 +48,7 @@ How to look at a draft: drafts are only served by `next dev` (production returns
 ## 5. Outreach draft (outside Git)
 
 - [ ] One personal email per lead, saved as a text file outside Git, never sent and not yet a Gmail draft.
-- [ ] Honest subject; what we noticed about their current web presence stated as checkable facts (the site's flags, re-checked the same day; for a visual-review lead, one or two of its failed checklist items in specific, polite words); the preview link `https://kriv.agency/<slug>`; the footer from `emailFooter()` in `src/outreach/footer.ts`.
+- [ ] Honest subject; neutral concept invitation, or any observations about the existing site stated as checkable facts re-checked the same day; the preview link `https://kriv.agency/<slug>`; the footer from `emailFooter()` in `src/outreach/footer.ts`. Do not invent criticism to personalise an email.
 - [ ] No claims about their business beyond the sources, no pressure, no fake familiarity.
 
 ## 6. Approval

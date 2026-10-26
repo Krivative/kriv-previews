@@ -16,6 +16,13 @@ h1 { margin:0; font-size:1.6rem } h2 { margin:0 0 10px; font-size:1.15rem } h3 {
 .tabs a { text-decoration:none; color:var(--fg); padding:6px 10px; border-radius:8px; font-size:.9rem }
 .tabs a[aria-current="page"] { background:var(--accent); color:var(--surface) }
 .page { max-width:1200px; margin:0 auto; padding:20px 16px 64px; display:grid; gap:20px }
+.advanced-tools .tabs { padding-top:8px }
+.inbox-cards, .inbox-card, .inbox-settings { display:grid; gap:14px; min-width:0 }
+.inbox-card h2 { margin:0 }
+.inbox-settings { margin-top:12px }
+.inbox-email { white-space:pre-wrap; overflow-wrap:anywhere }
+.inbox-settings input:not([type=checkbox]) { width:100%; min-width:0 }
+@media (max-width:600px) { .inbox-card .shots { grid-template-columns:1fr } }
 .panel { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px }
 .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)) }
 .stat { display:grid; gap:2px } .stat b { font-size:1.6rem; font-variant-numeric:tabular-nums } .stat button { all:unset; cursor:pointer; display:grid; gap:2px }

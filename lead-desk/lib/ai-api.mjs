@@ -1,7 +1,7 @@
 // Routes for the optional AI help (lead-desk/lib/ai.mjs). Every call is logged with its cost.
 import { now, parse, log, rowToLead } from "./db.mjs";
 import { readSources } from "./builder.mjs";
-import { aiKey, aiEnabled, aiPrefill, aiSuggest, MODEL, PRICE } from "./ai.mjs";
+import { aiKey, aiEnabled, aiPrefill, aiSuggest, MODEL, PRICE, PAID_AI_ALLOWED } from "./ai.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const lead = (db, id) => rowToLead(db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
@@ -9,14 +9,17 @@ const spent = (db) => db.prepare("SELECT detail FROM history WHERE action = 'ai'
 const attempt = async (fn) => { try { return await fn(); } catch (e) { return bad(e.message); } };
 
 export const aiRoutes = [
-  ["GET", /^\/api\/ai$/, ({ db, repo }) => ({ available: !!aiKey(repo), enabled: aiEnabled(db), model: MODEL, price: PRICE, spent: spent(db) })],
+  ["GET", /^\/api\/ai$/, ({ db, repo }) => ({ available: PAID_AI_ALLOWED && !!aiKey(repo), enabled: aiEnabled(db), model: MODEL, price: PRICE, spent: spent(db), reason: "Paid AI is disabled; template preparation needs no AI key." })],
   ["POST", /^\/api\/ai$/, ({ db, repo, body }) => {
+    if (body.enabled && !PAID_AI_ALLOWED) return bad("Paid AI is disabled in template mode.");
+    if (!body.enabled) { db.prepare("INSERT INTO settings (key, value) VALUES ('ai_enabled', '0') ON CONFLICT(key) DO UPDATE SET value = '0'").run(); return { enabled: false }; }
     if (!aiKey(repo)) return bad("No ANTHROPIC_API_KEY in .env.local.");
     db.prepare("INSERT INTO settings (key, value) VALUES ('ai_enabled', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(body.enabled ? "1" : "0");
     log(db, null, "ai switch", { enabled: !!body.enabled, at: now() });
     return { enabled: !!body.enabled };
   }],
   ["POST", /^\/api\/build\/(?<id>[^/]+)\/ai-prefill$/, (ctx) => attempt(async () => {
+    if (!PAID_AI_ALLOWED) return bad("Paid AI is disabled. Use background preparation in the review inbox.");
     const l = lead(ctx.db, ctx.params.id);
     if (!l) return bad("no such lead", 404);
     l.sources = ctx.db.prepare("SELECT url FROM sources WHERE lead_id = ?").all(l.id).map((r) => r.url);
@@ -25,6 +28,7 @@ export const aiRoutes = [
     return r;
   })],
   ["POST", /^\/api\/ai\/suggest$/, (ctx) => attempt(async () => {
+    if (!PAID_AI_ALLOWED) return bad("Paid AI is disabled. Use the preset wording revisions.");
     const l = lead(ctx.db, ctx.body.leadId);
     if (!l) return bad("no such lead", 404);
     const facts = [l.website_status, ...(l.looks_dated ?? [])].filter(Boolean).join("; ");

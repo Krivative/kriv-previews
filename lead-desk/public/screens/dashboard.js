@@ -59,7 +59,7 @@ export async function render(view) {
   const ai = await aiState();
   $("#ai", view).innerHTML = ai.available
     ? `<label class="row" style="display:flex"><input type="checkbox" id="aiOn" ${ai.enabled ? "checked" : ""}> <b>AI help</b> (${esc(ai.model)}): prefill the preview form and suggest wording. About US$0.003 per lead; spent so far US$${ai.spent.toFixed(4)}.</label>`
-    : `<span class="small muted">AI help is off: no ANTHROPIC_API_KEY in .env.local (optional; see docs/LEAD-DESK.md).</span>`;
+    : `<span class="small muted">Paid AI is disabled. Use the Review inbox for template-based preparation and preset revisions.</span>`;
   if ($("#aiOn", view)) $("#aiOn", view).onchange = async (e) => { await api("ai", { enabled: e.target.checked }); toast(`AI help ${e.target.checked ? "on" : "off"}`); };
 
   const load = async () => {

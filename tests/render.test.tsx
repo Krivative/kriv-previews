@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 import { SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
 import { templateList } from "@/templates";
+import { presetForm } from "../lead-desk/lib/offer-presets.mjs";
+import { NICHE_INFO, toRecord } from "../lead-desk/lib/builder.mjs";
 
 const testLead = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "test-lead.json"), "utf8"));
 const minimal = {
@@ -30,6 +32,24 @@ function render(input: unknown, templateId?: string) {
 function anchorHrefs(html: string): string[] {
   return [...html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)].map((m) => m[1]);
 }
+
+describe("preset offers with optional facts omitted", () => {
+  for (const [niche, spec] of Object.entries(NICHE_INFO) as [string, { templates: string[] }][]) {
+    it.each(spec.templates)("renders %s with no inferred town or category", (id) => {
+      const lead = { id: "example", name: "Example Business", niche, town: "Unverified Town", state: "FL" };
+      const form = presetForm(lead, [{ url: "https://example.test/", status: 200, text: "Example Business", html: "<h1>Example Business</h1>" }], templateList);
+      const record = toRecord({ ...form, template: id });
+      record.business.category ??= "";
+      record.business.address.city ??= "";
+      record.seo.description = "Concept preview of Example Business, prepared by KRIV.";
+      const html = render(record);
+      expect(html).toContain(banner(lead.name));
+      expect(html).not.toMatch(/undefined|Unverified Town/);
+      expect(anchorHrefs(html).every((h) => h.startsWith("#"))).toBe(true);
+      expect(html).not.toMatch(/<form\b|<input\b/);
+    });
+  }
+});
 
 describe.each(templateList.map((t) => t.id))("template %s", (id) => {
   it.each([

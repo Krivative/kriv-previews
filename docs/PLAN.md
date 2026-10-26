@@ -10,6 +10,7 @@ This is the original build plan, retained for development history. Use `HANDOFF.
 - One preview app serves all leads, but new production JSON records still need a commit and deployment. The future database adapter is what would remove that requirement; the Lead Desk's local SQLite database does not yet serve production preview pages.
 - Claude Code's later records identify `Krivative/Site-Arsenal` as the template source, report Vercel Pro enabled on 2026-10-25, and supersede the original Google Places plan with public directories, web search and business websites. These are historical project reports, not fresh account or network checks.
 - The local Lead Desk replaces the earlier dashboard artifact. Kriv retains approval and publishing control and sends emails by hand. No private-data access, API activation or paid service is authorized by this note.
+- Kriv's 2026-10-26 direction for initial offers: automate preparation with niche templates, reusable neutral wording and source matching, using no paid AI. The Review inbox replaces manual QA ticks for that path with technical/source checks and Kriv's final visual/wording approval. Background work runs only after local opt-in while the Desk is running; subjective site grading and custom revisions remain separate. See docs/LEAD-DESK.md and docs/LEAD-QA.md.
 
 ## 1. Objective
 
