@@ -24,7 +24,13 @@ and `signature.module.css` are identical shared presentation files. The new
 Breeze, Linen and Align template definitions match exactly. `Photo.tsx` shares
 explicit hero loading priority. Existing source-only sample and province fields
 are retained. See `docs/INTERACTION-PILOTS.md`; local source checkpoint and patch
-are recorded in HANDOFF.md. Broader rollout awaits Kriv's pilot review.
+are recorded in HANDOFF.md. Kriv approved the pilots and their selective rollout.
+
+The subsequent 26-template rollout enhances the same shared section files without
+changing template definitions or either schema. Service disclosures retain each
+existing layout; step grids and strip/mosaic galleries reuse the native controls.
+Both copies include the phone strip fallback and centered-hero loading fixes.
+See `docs/INTERACTION-ROLLOUT.md` for coverage and local source patch delivery.
 
 After syncing: `pnpm test` renders every template with full/minimal data and every
 known page. Only known internal destinations and credited Unsplash links are

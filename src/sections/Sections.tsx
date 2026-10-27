@@ -7,7 +7,9 @@ import { Rich } from "./Rich";
 import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
 import s from "./sections.module.css";
-import { ServiceExplorer, EditorialGallery, VisitJourney } from "./SignatureSections";
+import { ServiceExplorer, EditorialGallery, VisitJourney, ServiceDetails } from "./SignatureSections";
+import { GalleryViewer } from "./GalleryViewer";
+import m from "./signature.module.css";
 
 type Props = { site: SiteData };
 
@@ -80,7 +82,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
         </div>
         <div className={s.heroStrip}>
           {strip.map((src, i) => (
-            <Photo key={i} src={src} label={`Photo ${i + 1}`} />
+            <Photo key={i} src={src} label={`Photo ${i + 1}`} priority={i === 0} />
           ))}
         </div>
       </section>
@@ -142,7 +144,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
   if (!sv || !sv.items.length) return null;
   const items = sv.items;
   const pages = sitePages(site).filter((p) => p.kind === "service");
-  const name = (it: typeof items[number]) => <Link href={pageHref(site, pages[items.indexOf(it)].path)} prefetch={false}>{it.name}<span className={s.serviceArrow} aria-hidden="true"> ?</span></Link>;
+  const name = (it: typeof items[number]) => <Link href={pageHref(site, pages[items.indexOf(it)].path)} prefetch={false}>{it.name}<span className={s.serviceArrow} aria-hidden="true"> ↗</span></Link>;
   const body =
     variant === "grid" ? (
       <div className={s.grid}>
@@ -150,6 +152,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           <div key={it.name} className={s.cell}>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </div>
         ))}
       </div>
@@ -159,6 +162,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           <div key={it.name}>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </div>
         ))}
       </div>
@@ -168,6 +172,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           <div key={it.name} className={s.tile}>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </div>
         ))}
       </div>
@@ -178,6 +183,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
             <span className={s.edNum}>{String(i + 1).padStart(2, "0")}</span>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </li>
         ))}
       </ol>
@@ -187,6 +193,7 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           <div key={it.name} className={s.menuItem}>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </div>
         ))}
       </div>
@@ -196,12 +203,13 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
           <div key={it.name} className={s.row}>
             <strong>{name(it)}</strong>
             <span>{it.blurb}</span>
+            <ServiceDetails item={it} />
           </div>
         ))}
       </div>
     );
   return (
-    <section id="services" className={`${s.section} ${variant === "rows" || variant === "grid" ? s.alt : ""}`}>
+    <section id="services" data-service-layout={variant} className={`${s.section} ${m.root} ${variant === "rows" || variant === "grid" ? s.alt : ""}`}>
       <div className={s.wrap}>
         <div className={s.sectionHead}>
           <h2 className={s.h2} data-label="Services">
@@ -276,7 +284,7 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
   if (!count) return null;
   const tiles = Array.from({ length: count }, (_, i) => ({ src: photos[i], label: g.labels[i] ?? `Photo ${i + 1}` }));
   return (
-    <section id="gallery" className={s.section}>
+    <section id="gallery" className={`${s.section} ${m.root}`}>
       <div className={s.wrap}>
         {g.title ? (
           <div className={s.sectionHead}>
@@ -285,11 +293,11 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
             </h2>
           </div>
         ) : null}
-        <div className={variant === "strip" ? s.strip : s.mosaic}>
+        {photos.length ? <GalleryViewer businessName={site.business.name} photos={tiles} layout={variant === "strip" ? "strip" : "mosaic"} /> : <div className={variant === "strip" ? s.strip : s.mosaic}>
           {tiles.map((t, i) => (
             <Photo key={i} src={t.src} label={t.label} />
           ))}
-        </div>
+        </div>}
       </div>
     </section>
   );
@@ -333,13 +341,13 @@ export function Custom({ site, variant }: Props & { variant: Extract<SectionRef,
           </h2>
             {c.body ? <p>{c.body}</p> : null}
           </div>
-          <div className={s.steps}>
-            {c.items.map((it) => (
-              <div key={it.name}>
-                <strong>{it.name}</strong>
-                {it.blurb ? <span>{it.blurb}</span> : null}
-              </div>
-            ))}
+          <div className={`${s.steps} ${m.stepGrid}`} data-interaction="process-steps">
+            {c.items.map((it, i) => it.blurb ? (
+              <details key={it.name} className={m.processStep} open={i === 0}>
+                <summary><strong>{it.name}</strong><span aria-hidden="true">＋</span></summary>
+                <p>{it.blurb}</p>
+              </details>
+            ) : <div key={it.name}><strong>{it.name}</strong></div>)}
           </div>
         </div>
       </section>

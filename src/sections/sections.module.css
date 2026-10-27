@@ -498,12 +498,13 @@
 
 .strip {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(240px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
   padding-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+  .strip { grid-template-columns: 1fr; }
 }
 
 .strip .photo {
@@ -1109,7 +1110,7 @@
   line-height: 1.1;
 }
 
-.edRow span:last-child {
+.edRow > span:not(.edNum) {
   color: var(--muted);
 }
 
@@ -1118,7 +1119,7 @@
     grid-template-columns: 44px minmax(0, 1fr);
   }
 
-  .edRow span:last-child {
+  .edRow > span:not(.edNum) {
     grid-column: 2;
   }
 }
@@ -1287,6 +1288,7 @@
 .serviceDirectory > a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 24px; border-top: 1px solid var(--line); text-decoration: none; }
 .serviceDirectory > a:hover { color: var(--accent); }
 .serviceArrow { font-size: .85em; color: var(--accent); white-space: nowrap; }
+.tile .serviceArrow { color: inherit; }
 .site strong > a { text-decoration: none; }
 .site strong > a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .detailList { padding-left: 20px; }

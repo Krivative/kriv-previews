@@ -1,0 +1,284 @@
+diff --git a/CATALOG.md b/CATALOG.md
+index 23154da..a664f1c 100644
+--- a/CATALOG.md
++++ b/CATALOG.md
+@@ -2,0 +3,5 @@
++Interaction rollout (2026-10-27): Kriv approved the Breeze/Linen/Align pilots.
++All 26 recipes retain their layouts and now support progressive service details,
++native step disclosures and image viewing where supplied content permits.
++The table preserves the original recipe/history; see `INTERACTION-ROLLOUT.md`.
++
+diff --git a/FINGERPRINTS.md b/FINGERPRINTS.md
+index 5b5517f..d5617b4 100644
+--- a/FINGERPRINTS.md
++++ b/FINGERPRINTS.md
+@@ -3 +3 @@
+-Interaction pilots (2026-10-27, awaiting Kriv review): Breeze gains a native service explorer, Linen an editorial gallery, and Align an expandable visit journal. Their existing grammar, navigation, hero, palette and closing identity remain. No new template is being introduced.
++Interaction rollout (2026-10-27): Kriv accepted the Breeze/Linen/Align pilots. All 26 existing recipes now gain content-backed service details, image viewing and/or native step expansion within their existing layouts. The six fingerprint axes below remain unchanged; see `INTERACTION-ROLLOUT.md` for the interaction coverage. No new template is introduced.
+diff --git a/INTERACTION-ROLLOUT.md b/INTERACTION-ROLLOUT.md
+new file mode 100644
+index 0000000..b10b1c6
+--- /dev/null
++++ b/INTERACTION-ROLLOUT.md
+@@ -0,0 +1,76 @@
++# Approved interaction rollout
++
++Source-library copy: verification harnesses, evidence paths and Lead Desk instructions below refer to the companion Krivative/kriv-previews checkout. In this repository, start the built sample gallery with `npm start -- -p 3101`; its own `scripts/verify-pages.mjs` and `scripts/verify-navigation.mjs` remain available.
++
++2026-10-27. Kriv accepted the hybrid workspace and the Breeze/Linen/Align pilots with "approved". This authorizes selective local rollout and QA, not publishing, a push, a merge, deployment or access to private lead data.
++
++## What changed
++
++The shared kit enhances the existing 26 template recipes rather than assigning every industry the same new layout. All template definitions, palettes, typography, hero/navigation/section order/closing composition and fingerprint axes remain unchanged. No sample or real business content is rewritten.
++
++Services with a supplied longer description or inclusions receive a native Explore details control inside their existing rows, cards, tiles, columns or menu. Concise descriptions and direct detail-page links remain visible; navigation and disclosure are separate controls. Several offerings can stay open for comparison. Empty/duplicate longer descriptions do not create empty interactions. No symptoms, diagnoses, prices, outcomes or services are inferred.
++
++Existing strip/mosaic galleries gain the approved image viewer while retaining their framing. Label-only slots stay visible without becoming false photographs or modal slides. Single-photo states remain finished; multiple actual photos support previous/next, arrows, wraparound and a live position label. Focus stays inside the native dialog and returns to the opener after Escape. Phone strip galleries stack vertically, including placeholder-only fallbacks, rather than requiring horizontal scrolling.
++
++Existing numbered step grids become native disclosures where their supplied items contain explanatory text. Name-only items remain plain text. The original grid/numerals/order remain, distinct from Align's journal. Body-only custom sections retain their content. Centered hero compositions now prioritize the first supplied photo, matching the other hero layouts.
++
++## Template coverage
++
++The following signature enhancements depend on supplied content. They are not promises about a particular business.
++
++| Template | Interaction within its existing identity |
++|---|---|
++| Clear / dental-clear | Teal numbered treatment ledger with inline details and direct treatment pages |
++| Bright / dental-bold | Navy/yellow treatment cards, numbered visit parts and image strip viewer |
++| Linen / aesthetic-calm | Approved warm editorial gallery plus treatment-row details |
++| Gloss / aesthetic-bold | Rose-lined treatment menu with detail reveals and image strip viewer |
++| Poster / cafe-poster | Chalkboard menu details and photo mosaic viewer |
++| Bean / cafe-calm | Serif menu-column details and photo strip viewer |
++| Table / restaurant-calm | Menu-card details and mosaic image exploration |
++| Ember / restaurant-bold | Ember-accented dish/service tiles and image strip viewer |
++| Mane / salon-calm | Sage service rows, numbered visit disclosures and mosaic viewer |
++| Studio / salon-bold | Hairline/lime service tiles and lookbook mosaic viewer |
++| Still / spa-calm | Misty treatment-column details and a vertical-on-phone image strip |
++| Onyx / spa-bold | Gold-ruled treatment-menu details and mosaic viewer |
++| Workshop / auto-calm | Condensed numbered service details, maintenance steps and workshop image viewer |
++| Torque / auto-bold | Red-numbered process disclosures before service cards and workshop images |
++| Form / gym-calm | Indigo class-card details and studio mosaic viewer |
++| Pulse / gym-bold | Programme-card details with the existing offer strip and image mosaic |
++| Ledger / office-calm | Navy practice-area rows with details; principal portrait and preparation note retained |
++| Counsel / office-bold | Forest/bone practice columns and numbered process disclosures |
++| Shore / resort-calm | Room-card details, early mosaic image viewer and existing booking-information steps |
++| Fiesta / resort-bold | Mango package-tile details and rounded mosaic viewer |
++| Breeze / hvac-calm | Approved numbered service explorer and equipment portrait |
++| Thermal / hvac-bold | Amber service-tile details and equipment mosaic viewer |
++| Align / chiro-calm | Approved source-backed first-visit journal and numbered treatment details |
++| Posture / chiro-bold | Electric-blue numbered treatment details and image strip viewer |
++| Tap / plumbing-calm | Aqua numbered service details with the existing contact strip |
++| Pressure / plumbing-bold | Safety-yellow service-tile details and image strip viewer |
++
++## Motion, accessibility and performance
++
++No dependency, Tailwind migration, scroll listener, continuous animation loop, visitor storage or tracking is added. Services and steps remain server-rendered native controls. The only interactive client boundary is the existing GalleryViewer, extended with layout and missing-image handling. No booking, contact, submission, checkout or diagnosis action is activated.
++
++The approved short control/reveal timings remain. Reduced motion removes detail choreography. Keyboard activation, focus outlines and minimum 44 px disclosure targets support mouse/touch/keyboard use. Existing CSS scroll enhancement remains progressive. Modal images use contain fitting; supplied credits remain in the footer. Local script-body counts are recorded by the browser harness, not claimed as real-phone performance or production Core Web Vitals.
++
++The local Next.js 16 server/client guides and React review were applied. Derived selected-image indices clamp when the photo list shrinks; missing image slots never enter navigation. No client data fetching or new effect subscription is needed.
++
++## Verification and delivery
++
++`scripts/verify-rollout.mjs` serves only fictional samples on its own local source server. Existing reviewed image copies fulfill photo requests; configured fonts are public. It also uses the Vite dependency already supplied by Vitest for an isolated synthetic multi-image fixture under ignored `shots/`, without modifying a sample or lead. The script closes its own servers and browser.
++
++- Preview baseline: the previous 268 tests and all five required checks passed before edits. The expanded suite now has 279 tests across 10 files; lint, typecheck, production build and all 16 smoke checks pass.
++- Source: lint and production webpack build pass using the documented local dependency-junction workaround. The known-page check covers 282 pages and four anonymous not-found views; navigation checks cover all 13 niches with 78 desktop/phone nested-page captures.
++- Browser matrix: 26 templates x desktop 1440/tablet 768/phone 390 x normal/reduced motion = 156 combinations. Native service disclosure, keyboard activation, readable copy width, 44 px touch targets, process steps, gallery focus/Escape/return-focus, inert actions, hero priority, image loading and overflow are checked. Another 26 JavaScript-disabled runs confirm native service exploration.
++- A separate multi-image fixture at 1440/390 verifies label-only slots, previous/next and arrow wraparound, shrinking the photo list while open, focus fallback after an opener disappears, empty/restore states and no invented image slots. The fixture caught the focus fallback issue; the implementation was corrected.
++- Visual review corrected duplicate short descriptions, accent-tile arrow contrast and a mobile numbered-row text-gutter regression. A zero-overflow test alone would not detect the latter; the browser harness now checks a readable minimum width for those descriptions. Final frames replace the earlier captures.
++- Initial sandbox runs could not load public fonts. Authorized reruns load them and assert that there are no resource/hydration/browser errors. Existing reviewed photo copies are reused, rather than fetching or inventing new photographs.
++- Local resource observations remain approximately 140 KB of encoded initial script bodies, including Next.js/React. This is fixture evidence, not a production Core Web Vitals score or a physical-phone benchmark. Services/steps add no client runtime. No new dependency, lockfile or template recipe changed.
++
++Full captures, seven desktop/phone review sheets and machine-readable results are in ignored `shots/interaction-rollout/`. All seven sheets and representative full-size service/process/gallery frames were visually inspected. `scripts/review-rollout.mjs` can regenerate the sheets without running a server or network check. Four representative screenshots are copied into `docs/reports/` for durable founder review. Prior pilot evidence remains preserved.
++
++Source synchronization retains the source's mode/province fields and preview-specific request-time lookup, lifecycle and 404 behavior. The source copy is checkpointed locally and exported as a patch; no remote release is implied. The older source streamed-404 limitation remains separate.
++
++On restarting the real Desk, refresh desktop/mobile captures with Run verification checks before reviewing a concept affected by shared presentation updates. Saved version-bound design/publication approvals detect changed presentation code; previous decisions/history remain. This work does not run the real Desk or rewrite its records. Existing edits to `leads/chucks-ducts.json` remain excluded.
++
++Local review: restart the gallery with `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `http://localhost:3101`. Kriv restarts the real Desk personally with `pnpm.cmd lead-desk`. Publication and outreach continue as separate user decisions.
+diff --git a/src/sections/GalleryViewer.tsx b/src/sections/GalleryViewer.tsx
+index 7a68d11..d859125 100644
+--- a/src/sections/GalleryViewer.tsx
++++ b/src/sections/GalleryViewer.tsx
+@@ -3,0 +4 @@ import { useId, useRef, useState } from "react";
++import { Photo } from "./Photo";
+@@ -6 +7 @@ import m from "./signature.module.css";
+-type GalleryPhoto = { src: string; label: string };
++type GalleryPhoto = { src?: string; label: string };
+@@ -9 +10 @@ type GalleryPhoto = { src: string; label: string };
+-export function GalleryViewer({ businessName, photos }: { businessName: string; photos: GalleryPhoto[] }) {
++export function GalleryViewer({ businessName, photos, layout = "editorial" }: { businessName: string; photos: GalleryPhoto[]; layout?: "editorial" | "mosaic" | "strip" }) {
+@@ -11,0 +13,2 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
++  const grid = useRef<HTMLDivElement>(null);
++  const opener = useRef<HTMLButtonElement>(null);
+@@ -13,4 +16,5 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-  const selected = Math.min(current, photos.length - 1);
+-  const active = photos[selected];
+-  if (!active) return null;
+-  const move = (direction: number) => setCurrent((index) => (Math.min(index, photos.length - 1) + direction + photos.length) % photos.length);
++  const slides = photos.filter((photo) => photo.src);
++  const selected = Math.min(current, slides.length - 1);
++  const active = slides[selected];
++  if (!photos.length) return null;
++  const move = (direction: number) => setCurrent((index) => (Math.min(index, slides.length - 1) + direction + slides.length) % slides.length);
+@@ -18,2 +22,2 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-    <div className={m.editorialGrid} data-count={photos.length}>{photos.map((photo, i) => <figure key={`${photo.src}-${i}`} className={m.editorialPhoto}>
+-      <button type="button" className={m.imageButton} aria-label={`Open image: ${photo.label}`} aria-haspopup="dialog" onClick={() => { setCurrent(i); dialog.current?.showModal(); }}>
++    <div ref={grid} role="group" tabIndex={-1} aria-label={`${businessName} gallery`} className={`${m.editorialGrid} ${layout === "editorial" ? "" : m[layout]}`} data-count={photos.length} data-gallery-layout={layout}>{photos.map((photo, i) => <figure key={`${photo.src}-${i}`} className={m.editorialPhoto}>
++      {photo.src ? <button type="button" className={m.imageButton} aria-label={`Open image: ${photo.label}`} aria-haspopup="dialog" onClick={(event) => { opener.current = event.currentTarget; setCurrent(slides.indexOf(photo)); dialog.current?.showModal(); }}>
+@@ -24 +28 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-      </button><figcaption><span>{String(i + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
++      </button> : <Photo label={photo.label} className={m.galleryPlaceholder} />}<figcaption><span>{String(i + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
+@@ -26 +30 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-    <dialog ref={dialog} className={m.galleryDialog} aria-labelledby={heading} onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }} onKeyDown={(event) => { if (photos.length > 1 && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1); } }}>
++    {active ? <dialog ref={dialog} className={m.galleryDialog} aria-labelledby={heading} onClose={() => { const target = opener.current?.isConnected ? opener.current : grid.current?.querySelector("button") ?? grid.current; target?.focus(); }} onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }} onKeyDown={(event) => { if (slides.length > 1 && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1); } }}>
+@@ -30 +34 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-        <div className={m.dialogFooter}><p aria-live="polite">{selected + 1} / {photos.length} · {active.label}</p>{photos.length > 1 ? <div><button type="button" onClick={() => move(-1)}>← Previous</button><button type="button" onClick={() => move(1)}>Next →</button></div> : null}</div><p className={m.photoNote}>Photography details and credits are in the concept footer.</p>
++        <div className={m.dialogFooter}><p aria-live="polite">{selected + 1} / {slides.length} · {active.label}</p>{slides.length > 1 ? <div><button type="button" onClick={() => move(-1)}>← Previous</button><button type="button" onClick={() => move(1)}>Next →</button></div> : null}</div><p className={m.photoNote}>Photography details and credits are in the concept footer.</p>
+@@ -32 +36 @@ export function GalleryViewer({ businessName, photos }: { businessName: string;
+-    </dialog>
++    </dialog> : null}
+diff --git a/src/sections/Sections.tsx b/src/sections/Sections.tsx
+index 9c0f319..7370cf0 100644
+--- a/src/sections/Sections.tsx
++++ b/src/sections/Sections.tsx
+@@ -10 +10,3 @@ import s from "./sections.module.css";
+-import { ServiceExplorer, EditorialGallery, VisitJourney } from "./SignatureSections";
++import { ServiceExplorer, EditorialGallery, VisitJourney, ServiceDetails } from "./SignatureSections";
++import { GalleryViewer } from "./GalleryViewer";
++import m from "./signature.module.css";
+@@ -83 +85 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
+-            <Photo key={i} src={src} label={`Photo ${i + 1}`} />
++            <Photo key={i} src={src} label={`Photo ${i + 1}`} priority={i === 0} />
+@@ -145 +147 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
+-  const name = (it: typeof items[number]) => <Link href={pageHref(site, pages[items.indexOf(it)].path)} prefetch={false}>{it.name}<span className={s.serviceArrow} aria-hidden="true"> ?</span></Link>;
++  const name = (it: typeof items[number]) => <Link href={pageHref(site, pages[items.indexOf(it)].path)} prefetch={false}>{it.name}<span className={s.serviceArrow} aria-hidden="true"> ↗</span></Link>;
+@@ -152,0 +155 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -161,0 +165 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -170,0 +175 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -180,0 +186 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -189,0 +196 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -198,0 +206 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
++            <ServiceDetails item={it} />
+@@ -204 +212 @@ export function Services({ site, variant }: Props & { variant: Extract<SectionRe
+-    <section id="services" className={`${s.section} ${variant === "rows" || variant === "grid" ? s.alt : ""}`}>
++    <section id="services" data-service-layout={variant} className={`${s.section} ${m.root} ${variant === "rows" || variant === "grid" ? s.alt : ""}`}>
+@@ -279 +287 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
+-    <section id="gallery" className={s.section}>
++    <section id="gallery" className={`${s.section} ${m.root}`}>
+@@ -288 +296 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
+-        <div className={variant === "strip" ? s.strip : s.mosaic}>
++        {photos.length ? <GalleryViewer businessName={site.business.name} photos={tiles} layout={variant === "strip" ? "strip" : "mosaic"} /> : <div className={variant === "strip" ? s.strip : s.mosaic}>
+@@ -292 +300 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
+-        </div>
++        </div>}
+@@ -336,7 +344,7 @@ export function Custom({ site, variant }: Props & { variant: Extract<SectionRef,
+-          <div className={s.steps}>
+-            {c.items.map((it) => (
+-              <div key={it.name}>
+-                <strong>{it.name}</strong>
+-                {it.blurb ? <span>{it.blurb}</span> : null}
+-              </div>
+-            ))}
++          <div className={`${s.steps} ${m.stepGrid}`} data-interaction="process-steps">
++            {c.items.map((it, i) => it.blurb ? (
++              <details key={it.name} className={m.processStep} open={i === 0}>
++                <summary><strong>{it.name}</strong><span aria-hidden="true">＋</span></summary>
++                <p>{it.blurb}</p>
++              </details>
++            ) : <div key={it.name}><strong>{it.name}</strong></div>)}
+diff --git a/src/sections/SignatureSections.tsx b/src/sections/SignatureSections.tsx
+index d2dba60..e594ed7 100644
+--- a/src/sections/SignatureSections.tsx
++++ b/src/sections/SignatureSections.tsx
+@@ -9,0 +10,15 @@ import m from "./signature.module.css";
++// Progressive detail belongs to the supplied offering, never an inferred diagnosis,
++// price, treatment result or availability promise. Native controls need no hydration.
++export function ServiceDetails({ item }: { item: NonNullable<SiteData["services"]>["items"][number] }) {
++  const supplied = item.detail?.trim();
++  const prefix = `${item.blurb.trim()}\n\n`;
++  // Some existing records repeat the short description as their first paragraph.
++  const detail = supplied?.startsWith(prefix) ? supplied.slice(prefix.length).trimStart() : supplied;
++  const includes = item.includes?.filter((line) => line.trim());
++  if ((!detail || detail === item.blurb.trim()) && !includes?.length) return null;
++  return <details className={m.offeringDetail} data-interaction="offering-detail">
++    <summary aria-label={`Explore details: ${item.name}`}>Explore details <span aria-hidden="true">＋</span></summary>
++    <div className={m.offeringCopy}>{detail && detail !== item.blurb.trim() ? <p>{detail}</p> : null}{includes?.length ? <ul>{includes.map((line) => <li key={line}>{line}</li>)}</ul> : null}</div>
++  </details>;
++}
++
+diff --git a/src/sections/sections.module.css b/src/sections/sections.module.css
+index 6e34a37..736c458 100644
+--- a/src/sections/sections.module.css
++++ b/src/sections/sections.module.css
+@@ -501,2 +501 @@
+-  grid-auto-flow: column;
+-  grid-auto-columns: minmax(240px, 1fr);
++  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+@@ -504,2 +502,0 @@
+-  overflow-x: auto;
+-  scroll-snap-type: x mandatory;
+@@ -508,0 +506,4 @@
++@media (max-width: 700px) {
++  .strip { grid-template-columns: 1fr; }
++}
++
+@@ -1112 +1113 @@
+-.edRow span:last-child {
++.edRow > span:not(.edNum) {
+@@ -1121 +1122 @@
+-  .edRow span:last-child {
++  .edRow > span:not(.edNum) {
+@@ -1289,0 +1291 @@
++.tile .serviceArrow { color: inherit; }
+diff --git a/src/sections/signature.module.css b/src/sections/signature.module.css
+index 50c9a9a..0e27d2b 100644
+--- a/src/sections/signature.module.css
++++ b/src/sections/signature.module.css
+@@ -14,0 +15,40 @@
++
++/* Preserve each original service, process and gallery composition. */
++.offeringDetail { margin-top:12px; font-family:var(--font-body); font-size:.9rem; color:inherit; min-width:0; }
++.offeringDetail summary { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:44px; padding:8px 2px; border-top:1px solid currentColor; list-style:none; cursor:pointer; font-size:.85rem; }
++.offeringDetail summary::-webkit-details-marker,.processStep summary::-webkit-details-marker { display:none; }
++.offeringDetail summary span { flex:none; font:400 1.3rem/1 var(--font-body); color:inherit; }
++.offeringDetail[open] summary span,.processStep[open] summary > span { transform:rotate(45deg); }
++.offeringCopy { padding:12px 0 5px; max-width:58ch; line-height:1.7; }
++.offeringCopy p { margin:0 0 14px; white-space:pre-line; color:inherit; }
++.offeringCopy ul { margin:0; padding-left:20px; }.offeringCopy li + li { margin-top:8px; }
++[data-service-layout="rows"] .offeringDetail { flex-basis:100%; margin-left:272px; }
++[data-service-layout="editorial"] .offeringDetail { grid-column:3; }
++.root[data-service-layout] :where(a,summary):focus-visible,.processStep summary:focus-visible { outline:3px solid currentColor; outline-offset:4px; }
++.stepGrid > .processStep { counter-increment:step; border-top:1px solid var(--line); padding-top:20px; min-width:0; }
++.processStep::before { content:counter(step,decimal-leading-zero); display:block; font:var(--display-weight) 3rem/1 var(--font-display); color:var(--accent); margin-bottom:18px; }
++.processStep summary { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:44px; cursor:pointer; list-style:none; }
++.processStep summary > span { font-size:1.3rem; color:var(--ink); }.processStep p { color:var(--muted); padding-top:12px; margin:0; }
++.mosaic,.strip { max-width:none; margin:0; align-items:stretch; gap:16px; }
++.mosaic { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); grid-auto-rows:250px; grid-auto-flow:dense; }
++.mosaic .editorialPhoto { display:flex; flex-direction:column; min-height:0; margin:0; }
++.mosaic .editorialPhoto:first-child { grid-row:span 2; }.mosaic .editorialPhoto:last-child:nth-child(odd):not(:first-child) { grid-column:1 / -1; }
++.mosaic .imageButton { flex:1; min-height:0; }.mosaic .imageButton img { height:100%; aspect-ratio:auto; }
++.mosaic .editorialPhoto figcaption { margin-top:0; padding:12px 0 0; }
++.strip { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
++.strip .editorialPhoto { margin:0; }.strip .imageButton img { aspect-ratio:4/5; }
++.strip[data-count="1"] .imageButton img { aspect-ratio:21/9; }
++.mosaic[data-count="1"],.strip[data-count="1"] { max-width:none; }
++.galleryPlaceholder { height:100%; min-height:180px; }
++@media(prefers-reduced-motion:no-preference) {
++  .offeringDetail[open] .offeringCopy,.processStep[open] p { animation:detailReveal 420ms cubic-bezier(.2,.7,.2,1); }
++  .offeringDetail summary span,.processStep summary > span { transition:transform 160ms ease; }
++}
++@media(max-width:760px) {
++  [data-service-layout="rows"] .offeringDetail { margin-left:0; }
++  [data-service-layout="editorial"] .offeringDetail { grid-column:2; }
++  .mosaic { grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:200px; }
++  .strip { grid-template-columns:1fr; }.strip .imageButton img,.strip[data-count="1"] .imageButton img { aspect-ratio:4/3; }
++  .mosaic .imageOpen { padding:10px; font-size:.7rem; gap:8px; right:8px; bottom:8px; }
++  .mosaic .editorialPhoto figcaption { font-size:.75rem; gap:10px; }
++}

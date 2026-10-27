@@ -7,6 +7,21 @@ import { GalleryViewer } from "./GalleryViewer";
 import s from "./sections.module.css";
 import m from "./signature.module.css";
 
+// Progressive detail belongs to the supplied offering, never an inferred diagnosis,
+// price, treatment result or availability promise. Native controls need no hydration.
+export function ServiceDetails({ item }: { item: NonNullable<SiteData["services"]>["items"][number] }) {
+  const supplied = item.detail?.trim();
+  const prefix = `${item.blurb.trim()}\n\n`;
+  // Some existing records repeat the short description as their first paragraph.
+  const detail = supplied?.startsWith(prefix) ? supplied.slice(prefix.length).trimStart() : supplied;
+  const includes = item.includes?.filter((line) => line.trim());
+  if ((!detail || detail === item.blurb.trim()) && !includes?.length) return null;
+  return <details className={m.offeringDetail} data-interaction="offering-detail">
+    <summary aria-label={`Explore details: ${item.name}`}>Explore details <span aria-hidden="true">＋</span></summary>
+    <div className={m.offeringCopy}>{detail && detail !== item.blurb.trim() ? <p>{detail}</p> : null}{includes?.length ? <ul>{includes.map((line) => <li key={line}>{line}</li>)}</ul> : null}</div>
+  </details>;
+}
+
 // Native disclosure controls keep these two signatures usable without JavaScript.
 export function ServiceExplorer({ site }: { site: SiteData }) {
   const services = site.services;

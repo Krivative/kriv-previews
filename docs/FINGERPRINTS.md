@@ -1,6 +1,6 @@
 # Fingerprints
 
-Interaction pilots (2026-10-27, awaiting Kriv review): Breeze gains a native service explorer, Linen an editorial gallery, and Align an expandable visit journal. Their existing grammar, navigation, hero, palette and closing identity remain. No new template is being introduced.
+Interaction rollout (2026-10-27): Kriv accepted the Breeze/Linen/Align pilots. All 26 existing recipes now gain content-backed service details, image viewing and/or native step expansion within their existing layouts. The six fingerprint axes below remain unchanged; see `INTERACTION-ROLLOUT.md` for the interaction coverage. No new template is introduced.
 
 Multi-page edition (2026-10-27): shared page navigation, orientation, planning,
 discovery and contact panels apply to every row. The intrinsic template recipes

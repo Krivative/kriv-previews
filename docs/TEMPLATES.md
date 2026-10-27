@@ -1,5 +1,10 @@
 # Catalog
 
+Interaction rollout (2026-10-27): Kriv approved the Breeze/Linen/Align pilots.
+All 26 recipes retain their layouts and now support progressive service details,
+native step disclosures and image viewing where supplied content permits.
+The table preserves the original recipe/history; see `INTERACTION-ROLLOUT.md`.
+
 Multi-page edition (2026-10-27): all 26 templates now include working internal
 navigation, content-backed About/offerings/detail/FAQ/gallery pages and Contact.
 The renderer adds planning, discovery and contact sections before the original
