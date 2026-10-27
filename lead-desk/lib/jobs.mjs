@@ -5,6 +5,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { host, isExcluded, fromHotfrog, fromChamber, plain } from "../../scripts/finder/rules.mjs";
 import { hotfrog, chamber } from "../../scripts/finder/sources.mjs";
+import { chamberWhere } from "./chambers.mjs";
 import { now, json, parse, log, isOptedOut, tx } from "./db.mjs";
 import { rerunRules } from "./pipeline.mjs";
 
@@ -120,7 +121,7 @@ export function startFind(ctx, { source, towns = [], niches = [], lists = [] }) 
     const newKeys = [];
     tx(ctx.db, () => {
       for (const r of raw) {
-        const c = source === "hotfrog" ? fromHotfrog(r) : fromChamber(r);
+        const c = source === "hotfrog" ? fromHotfrog(r) : fromChamber(r, chamberWhere(r.listingUrl, r.address));
         if (isExcluded(c.name ?? "", c.website ?? "")) { counts.chains++; continue; }
         const site = c.website ? host(c.website) : null;
         if ((c.emailsListing ?? []).some((e) => isOptedOut(ctx.db, e)) || (site && isOptedOut(ctx.db, `x@${site}`))) { counts.doNotContact++; continue; }

@@ -9,7 +9,9 @@ import { prepareLead } from "../lead-desk/lib/preparation.mjs";
 import { preparationReadiness } from "../lead-desk/lib/preparation-state.mjs";
 import { approveBlockers } from "../lead-desk/lib/approve-api.mjs";
 import { inboxRoutes } from "../lead-desk/lib/inbox-api.mjs";
-import { automationStatus, automationTick, nextPreparation } from "../lead-desk/lib/automation.mjs";
+import { automationStatus, automationTick, nextPreparation, nextFind } from "../lead-desk/lib/automation.mjs";
+import { CHAMBERS, chamberWhere } from "../lead-desk/lib/chambers.mjs";
+import { fromChamber } from "../scripts/finder/rules.mjs";
 import { assertReviewedPublish } from "../lead-desk/lib/publish.mjs";
 import { aiRoutes } from "../lead-desk/lib/ai-api.mjs";
 import { aiEnabled, aiSuggest } from "../lead-desk/lib/ai.mjs";
@@ -247,6 +249,7 @@ describe("automatic building (Kriv, 2026-10-28)", () => {
     const f = fixture();
     f.db.prepare("UPDATE leads SET bucket = 'toReview' WHERE id = ?").run(f.id);
     f.db.prepare("INSERT INTO settings VALUES ('automation_find_day', ?)").run(now().slice(0, 10));
+    f.db.prepare("INSERT INTO settings VALUES ('automation_chamber_runs', ?)").run(`${now().slice(0, 10)}:2`);
     automationTick(f.ctx);
     expect(f.db.prepare("SELECT COUNT(*) n FROM settings WHERE key LIKE 'shots_attempt:%'").get().n).toBe(0);
     expect(f.db.prepare("SELECT COUNT(*) n FROM preparations").get().n).toBe(0);
@@ -259,5 +262,32 @@ describe("automatic building (Kriv, 2026-10-28)", () => {
     const form = presetForm(fixture().lead(), [{ ...fixture().page, text: `${TEXT} We handle AC repair for homes across Marion County.` }], templates);
     expect(form.lists.services.map((s: { blurb: string }) => s.blurb)[0]).toBe("We handle AC repair for homes across Marion County.");
     expect(presetForm(fixture().lead(), [fixture().page], templates).lists.services.map((s: { blurb: string }) => s.blurb)[0]).toBe("Learn about ac repair.");
+  });
+});
+
+describe("chamber directories after Hotfrog (Kriv, 2026-10-28)", () => {
+  it("searches Hotfrog once a day, then two chambers in rotation, then stops for the day", () => {
+    const f = fixture();
+    expect(nextFind(f.ctx)).toMatchObject({ source: "hotfrog", towns: ["ocala-fl"] });
+    expect(nextFind(f.ctx)).toEqual({ source: "chamber", lists: [CHAMBERS[0].list], niches: expect.arrayContaining(["hvac", "dental"]) });
+    expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[1].list] });
+    expect(nextFind(f.ctx)).toBeNull();
+    // A new day resumes where the rotation stopped.
+    f.db.prepare("UPDATE settings SET value = '2000-01-01' WHERE key = 'automation_find_day'").run();
+    f.db.prepare("UPDATE settings SET value = '2000-01-01:2' WHERE key = 'automation_chamber_runs'").run();
+    expect(nextFind(f.ctx)?.source).toBe("hotfrog");
+    expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[2].list] });
+  });
+
+  it("lists only valid ChamberMaster directories in Texas, Florida and Utah", () => {
+    expect(new Set(CHAMBERS.map((c) => c.list)).size).toBe(CHAMBERS.length);
+    for (const c of CHAMBERS) { expect(c.list).toMatch(/^https:\/\/[^/]+\/list\/$/); expect(["TX", "FL", "UT"]).toContain(c.state); }
+  });
+
+  it("gives chamber members the member's own town and the directory's state", () => {
+    const member = { niche: "hvac", name: "Example Air", website: "https://example-air.test/x", address: "1 Main St, Port Charlotte 33948", phone: "", emails: [], listingUrl: "https://puntagordachamber.chambermaster.com/list/member/example-air-1" };
+    expect(fromChamber(member, chamberWhere(member.listingUrl, member.address))).toMatchObject({ state: "FL", town: "Port Charlotte", website: "https://example-air.test/" });
+    expect(chamberWhere(member.listingUrl, ",  ")).toEqual(["FL", "Punta Gorda"]);
+    expect(chamberWhere("https://unknown.example/list/member/x")).toBeUndefined();
   });
 });

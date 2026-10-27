@@ -61,6 +61,8 @@ Grades go in `<dataDir>/visual.json` (`{ host: { failed: [plain-English items] }
 
 Sources that worked: Hotfrog town pages (49 towns; listings skew to older businesses and often show an email), ChamberMaster directories (Metro SA, Boerne, Logan, Tyler, St. George, Ogden-Weber, Utah Valley), TACCA, medspanear.me, web search. Web search found almost only modern sites (0 weak among 150 town results). Extra checks added in the qualify step: the email's domain must have MX records (dead domains bounce), and a business whose email domain is another working, modern site is not a lead. Weak sites are usually dead domains, and the email on a dead domain is dead too, which is why the near-miss count is high.
 
+2026-10-28: automatic building in the Lead Desk now also works through 16 more ChamberMaster directories (Magnolia, Lubbock, Beaumont, Georgetown, Greenville, Portland and Angleton TX; Seminole County, Punta Gorda, Fort Walton Beach, North Port, Sebastian, Venice and Hollywood FL; Salt Lake and Sandy UT), two a day after Hotfrog. Each loaded from this network on 2026-10-28; a test collection of HVAC members from Portland TX and Fort Walton Beach found 18 businesses with no blocks. List: `lead-desk/lib/chambers.mjs`.
+
 ## Round 2 (2026-10-25, Kriv approved all three suggestions)
 
 - Hotfrog in 32 more towns (16 FL, 10 TX, 6 UT): 66 listings, 42 new websites graded. 1 new qualified lead: Fidelity Air & Refrigeration (HVAC, Spring Hill FL area; no website, business-name mailbox). Its address differs between Hotfrog and BuildZoom; confirm before building a page. Ma Mi Skin Care (Orlando) passed the script but sells skincare products, so it is not a med spa.

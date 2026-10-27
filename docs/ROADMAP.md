@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-28 · Last step finished: Kriv approved the 26-design arsenal; the Lead Desk now finds, checks and builds previews automatically, with a guide on every manual step
+Updated: 2026-10-28 · Last step finished: automatic building now searches 16 chamber-of-commerce directories (TX, FL, UT) after Hotfrog
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -12,7 +12,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Clarify public release scope: the current designs and Desk are available locally. No public hosting release, push or merge has been performed; the meaning of “live” remains unconfirmed
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
-- [ ] Check the first automatic cycles with Kriv: held reasons, photo availability and directory blocks (Hotfrog was blocking this network on 2026-10-26, so Find may return nothing until other towns or sources are set). Tune only after evidence. No paid AI key or budget is needed
+- [ ] Check the first automatic cycles with Kriv: held reasons, photo availability and directory blocks. Hotfrog was blocking this network on 2026-10-26; the 16 chamber directories loaded on 2026-10-28. If leads are still too few after a week, consider the Google Places API (needs Kriv's billing approval; pricing not yet checked). No paid AI key or budget is needed
 - [ ] Kriv: confirm outstanding outreach before sending. Claude Code reported 7 visual-review emails awaiting manual sending (including a Family Dental About-page spam observation that needs a current check). Plumbing/auto count is unresolved: the handoff reported 4, this roadmap previously reported 5. Private records were not inspected; drafts remain outside Git
 - [ ] Optional follow-up: if a real parking-page confirmation is needed, investigate schc.biz's HTTPS/TLS failure separately. The authorized public recheck could not load the page; no parking notice was verified and no lead verdict was saved. Private records and older checks remain untouched
 - [ ] Optional only: the visual-review queue (Claude Code last reported 138 sites). Kriv chose on 2026-10-28 to skip these in automatic building; grading one by hand on the Review screen makes it qualified and it is then built automatically. A professional site needing only tweaks is not a lead
@@ -22,6 +22,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Chamber directories in automatic building (Kriv approved, Claude Code, 2026-10-28): after the daily Hotfrog search, two ChamberMaster member directories a day from 16 in TX, FL and UT, in rotation. Each loaded from this network with categories for the six niches; a test collection found 18 HVAC businesses from two of them with no blocks. Members keep their own town; finder qualification rules unchanged. Tests cover the rotation, list validity and town/state. No approval, publication, email or LinkedIn action
 
 - [x] Automatic building and step guides (Kriv asked, Claude Code, 2026-10-28): automatic find, check and build is on whenever the Desk is open (Pause stays available; an older off setting no longer blocks it). Visual-review sites are skipped, as Kriv chose. Hand-built drafts and drafts changed outside the worker are never replaced, and daily refreshes keep the prepared design. Service lines use a plain sentence from the business's own page when one has no prices, ratings, awards, years or superlatives. Check, Review and Build have a How this step works guide; the inbox explains automatic building. Lint, typecheck, tests, build, smoke checks and the synthetic Desk journey pass. No approval, publication, email or LinkedIn action
 

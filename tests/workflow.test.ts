@@ -54,6 +54,7 @@ describe("founder workflow", () => {
     expect(nextPreparation(f.ctx)).toBeUndefined();
     // Do not fall through to finder work: stop the day's search and provide no other work.
     f.db.prepare("INSERT INTO settings VALUES ('automation_find_day', ?)").run(now().slice(0, 10));
+    f.db.prepare("INSERT INTO settings VALUES ('automation_chamber_runs', ?)").run(`${now().slice(0, 10)}:2`);
     automationTick(f.ctx);
     await expect(prepareLead(f.ctx, id)).rejects.toThrow(/separate, authorized/);
     expect(fetchSpy).not.toHaveBeenCalled();

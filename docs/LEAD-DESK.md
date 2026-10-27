@@ -53,7 +53,7 @@ Check Gmail for opt-outs first. Use **More tools > Dashboard** to add a do-not-c
 
 Kriv's only manual work is publication and outreach. Whenever the Desk is open, it works through this list by itself, one job at a time, with no paid AI:
 
-1. **Find**: once a day it searches the towns in *Automatic building settings* (bottom of the inbox; default Ocala FL) for the six niches. Blocked directories are reported and skipped.
+1. **Find**: once a day it searches Hotfrog in the towns in *Automatic building settings* (bottom of the inbox; default Ocala FL) for the six niches, then two ChamberMaster chamber-of-commerce member directories a day from the 16 in `lead-desk/lib/chambers.mjs` (7 TX, 7 FL, 2 UT, in rotation; each checked from this network on 2026-10-28). Chamber members keep their own town. Blocked directories are reported and skipped, never worked around. Businesses already found are not added twice.
 2. **Check**: it checks up to 20 new websites at a time with the existing weak-site and business-mailbox rules.
 3. **Build**: for every qualified lead (weak or no website, a business mailbox, independent) it reads the business's own pages, keeps only facts it can find there, picks one of the 26 designs and credited photos, describes each service with a plain sentence from their own site when a safe one exists (no prices, ratings, awards, years or superlatives), writes the email draft, takes desktop and phone screenshots and runs the technical checks. Up to 10 new previews a day.
 4. The finished preview appears in the inbox under **Ready for review**. From there it's your part: approve the design, review the email, publish, and send in Gmail.

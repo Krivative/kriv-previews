@@ -12,6 +12,13 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Chamber directories in automatic building (2026-10-28, Claude Code)
+
+- Kriv approved adding ChamberMaster directories after Hotfrog (Google Places offered as a later upgrade; it needs Kriv's billing approval and its pricing was not checked).
+- `lead-desk/lib/chambers.mjs`: 16 public ChamberMaster `/list/` directories (7 TX, 7 FL, 2 UT), each probed once from this network on 2026-10-28 (200, niche categories present). Dropped: South Tampa (404), Manatee (no categories), Orange (state unconfirmed). `chamberWhere` gives members the directory's state and their own town from the listing address; `jobs.mjs` passes it to the unchanged `fromChamber`. `scripts/finder/rules.mjs` was NOT edited.
+- `automation.mjs`: `nextFind` runs Hotfrog once a day, then `CHAMBERS_PER_DAY` (2) chambers in rotation (`automation_chamber_runs` = `day:count`, `automation_chamber_next` = index). Tests that stop the day's search must also set `automation_chamber_runs` to `<today>:2`, or automationTick starts a real curl crawl.
+- Real check: collecting HVAC members from Portland TX and Fort Walton Beach found 5 + 13 businesses, all with towns, 17 with websites, no blocks. Contact details were not printed or saved.
+
 ### Automatic building and step guides (2026-10-28, Claude Code)
 
 - Kriv approved the 26-design arsenal as it looks now, and asked for Build to be automated so Kriv's only job is publication and outreach, plus guides for Check, Review and Build. Kriv chose: skip visual-review sites; automatic building always on while the Desk is open.

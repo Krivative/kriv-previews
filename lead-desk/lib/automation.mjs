@@ -6,6 +6,7 @@ import { prepareLead } from "./preparation.mjs";
 import { preparationReadiness } from "./preparation-state.mjs";
 import { isExcluded } from "../../scripts/finder/rules.mjs";
 import { reviewPaused } from "./workflow-state.mjs";
+import { CHAMBERS, CHAMBERS_PER_DAY } from "./chambers.mjs";
 
 export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: ["hvac", "dental", "chiro", "medspa", "plumbing", "auto"], lists: [] };
 const setting = (db, key) => db.prepare("SELECT value FROM settings WHERE key = ?").get(key)?.value;
@@ -51,11 +52,28 @@ export function automationTick(ctx) {
   const ungraded = ctx.db.prepare("SELECT c.data FROM candidates c LEFT JOIN checks k ON k.host = c.key WHERE k.host IS NULL LIMIT 20").all()
     .map((r) => parse(r.data, {})).filter((c) => c.website && !isExcluded(c.name ?? "", c.website)).map((c) => c.website);
   if (ungraded.length) return startCheck(ctx, ungraded);
-  if (setting(ctx.db, "automation_find_day") !== now().slice(0, 10)) {
-    const search = parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH);
-    ctx.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_find_day', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(now().slice(0, 10));
-    return startFind(ctx, search);
+  const find = nextFind(ctx);
+  if (find) return startFind(ctx, find);
+}
+const put = (db, key, value) => db.prepare("INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(key, String(value));
+/**
+ * The next directory search, or null when today's are done: Hotfrog for the chosen towns once a
+ * day, then CHAMBERS_PER_DAY chamber directories in rotation. Records the run before it starts.
+ */
+export function nextFind(ctx) {
+  const today = now().slice(0, 10);
+  const search = parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH);
+  if (setting(ctx.db, "automation_find_day") !== today) {
+    put(ctx.db, "automation_find_day", today);
+    return search;
   }
+  const [day, runs] = String(setting(ctx.db, "automation_chamber_runs") ?? "").split(":");
+  const done = day === today ? Number(runs) || 0 : 0;
+  if (done >= CHAMBERS_PER_DAY || !CHAMBERS.length) return null;
+  const i = (Number(setting(ctx.db, "automation_chamber_next")) || 0) % CHAMBERS.length;
+  put(ctx.db, "automation_chamber_runs", `${today}:${done + 1}`);
+  put(ctx.db, "automation_chamber_next", i + 1);
+  return { source: "chamber", lists: [CHAMBERS[i].list], niches: search.niches };
 }
 export function startAutomation(ctx) {
   ctx.db.prepare("UPDATE preparations SET state = 'held', report = ?, fingerprint = NULL WHERE state = 'preparing'").run(json({ reason: "Preparation was interrupted. It will retry on the next daily cycle." }));
