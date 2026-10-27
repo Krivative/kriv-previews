@@ -17,9 +17,11 @@ function ensureWorkflow(db, id) {
 function mismatch(ctx, id) {
   return !Number.isInteger(ctx.body.expectedRevision) || ctx.body.expectedRevision !== (workflowOf(ctx.db, id)?.revision ?? 0);
 }
+// Some older records have no business name (only a website); show the site instead of crashing.
+const displayName = (l) => l.name || (l.website ? String(l.website).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : "Unnamed business");
 function summary(ctx, l) {
   const s = workflowState(ctx, l);
-  return { id: l.id, name: l.name, town: l.town, state: l.state, niche: l.niche, website: l.website,
+  return { id: l.id, name: displayName(l), town: l.town, state: l.state, niche: l.niche, website: l.website,
     status: l.status, slug: l.slug, updatedAt: l.updated_at, note: l.note, thumbnail: s.screenshots[0]?.file ?? null,
     ...Object.fromEntries(["stage", "label", "next", "action", "priority", "attention", "progress", "completedSteps", "totalSteps"].map((k) => [k, s[k]])),
     due: s.workflow?.followup_due ?? null };
@@ -104,7 +106,7 @@ export function decideReview(ctx) {
 export const workflowRoutes = [
   ["GET", /^\/api\/workflow$/, (ctx) => {
     const rows = ctx.db.prepare("SELECT * FROM leads ORDER BY updated_at DESC").all().map(rowToLead).map((l) => summary(ctx, l));
-    rows.sort((a, b) => a.priority - b.priority || a.updatedAt.localeCompare(b.updatedAt) || a.name.localeCompare(b.name));
+    rows.sort((a, b) => a.priority - b.priority || String(a.updatedAt ?? "").localeCompare(String(b.updatedAt ?? "")) || a.name.localeCompare(b.name));
     const saved = parse(ctx.db.prepare("SELECT value FROM settings WHERE key = 'review_resume'").get()?.value, null);
     const current = saved && rows.find((r) => r.id === saved.id && r.stage !== "completed");
     return { rows, automation: automationStatus(ctx), resume: current ? { ...current, step: saved.step } : rows.find((r) => r.attention) ?? rows.find((r) => r.stage !== "completed") ?? null };

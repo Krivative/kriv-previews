@@ -291,3 +291,15 @@ describe("chamber directories after Hotfrog (Kriv, 2026-10-28)", () => {
     expect(chamberWhere("https://unknown.example/list/member/x")).toBeUndefined();
   });
 });
+
+describe("inbox with incomplete older records", () => {
+  it("lists nameless leads updated at the same moment instead of crashing", async () => {
+    const f = fixture();
+    const { workflowRoutes } = await import("../lead-desk/lib/workflow-api.mjs");
+    const other = upsertLead(f.db, { name: "Second", town: "Ocala", state: "FL", niche: "hvac", website: "https://second.example/" }, { bucket: "near" });
+    f.db.prepare("UPDATE leads SET name = NULL, updated_at = '2026-10-28T00:00:00Z' WHERE id IN (?, ?)").run(f.id, other);
+    const route = workflowRoutes.find(([m, re]) => m === "GET" && (re as RegExp).test("/api/workflow"))![2] as (ctx: object) => { rows: { id: string; name: string }[] };
+    const rows = route({ ...f.ctx, query: {} }).rows;
+    expect(rows.map((r) => r.name).sort()).toEqual(["acme.example", "second.example"]);
+  });
+});
