@@ -35,10 +35,8 @@ export const inboxRoutes = [
         if (s.source !== "hotfrog" || !Array.isArray(s.towns) || !s.towns.length || s.towns.length > 3 || s.towns.some((t) => !/^[a-z-]+-(tx|fl|ut)$/.test(t))) return bad("Use one to three Texas, Florida or Utah towns, such as ocala-fl.");
         ctx.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_search', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(json({ ...DEFAULT_SEARCH, towns: s.towns }));
       }
-      if (ctx.body.enabled === true) {
-        ctx.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_enabled', '1') ON CONFLICT(key) DO UPDATE SET value = '1'").run();
-      } else if (ctx.body.enabled === false) {
-        ctx.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_enabled', '0') ON CONFLICT(key) DO UPDATE SET value = '0'").run();
+      if (typeof ctx.body.enabled === "boolean") {
+        ctx.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_paused', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(ctx.body.enabled ? "0" : "1");
       }
       log(ctx.db, null, "automation settings", { enabled: ctx.body.enabled ?? null, mode: "no paid AI" });
       return automationStatus(ctx);

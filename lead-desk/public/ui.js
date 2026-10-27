@@ -132,3 +132,6 @@ export function watchJob(el, onDone) {
 
 /** The optional AI help: { available, enabled, model, price, spent }. Buttons show only when enabled. */
 export const aiState = () => api("ai").catch(() => ({ available: false, enabled: false }));
+
+// A collapsible plain-language guide at the top of a manual step screen.
+export const guide = (title, items) => `<details class="panel guide"><summary><b>${esc(title)}</b></summary><ol style="margin:8px 0 0;padding-left:20px;display:grid;gap:6px">${items.map((i) => `<li>${i}</li>`).join("")}</ol></details>`;

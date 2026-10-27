@@ -1,6 +1,6 @@
 // Check sites: check-site.mjs in batches of 20 (one at a time), results in plain English with
 // the phone screenshot. Bot walls and geo-blocks show as "not checked", never as weak.
-import { api, esc, $, $$, toast, pill, bucketPill, link, fileUrl, openLead, watchJob, NICHES } from "../ui.js";
+import { api, esc, $, $$, toast, pill, bucketPill, link, fileUrl, openLead, watchJob, NICHES, guide } from "../ui.js";
 
 let since = null;
 export async function render(view) {
@@ -8,6 +8,13 @@ export async function render(view) {
   since ??= job.kind === "check" ? job.startedAt : null;
   view.innerHTML = `
     <h1>Check sites</h1>
+    ${guide("How this step works (you normally don't need it)", [
+      "<b>Automatic building already does this.</b> While the Desk is open it checks new websites by itself, so this screen is only for checking a site on purpose or watching progress.",
+      "<b>What a check does:</b> it opens the business's home page and one contact page the way a phone shows them, takes a phone screenshot and looks for technical problems. It also looks for a business email address.",
+      "<b>Verdicts:</b> <i>weak</i> means problems were found (listed in the Problems column). <i>modern</i> means none were found. <i>not checked</i> means the site blocked this network or timed out; it is never treated as weak.",
+      "<b>To check by hand:</b> filter by state or industry, tick up to 20 websites (or paste addresses, one per line) and click <i>Check selected</i>. A batch takes about 5 to 10 minutes; you can leave this screen meanwhile.",
+      "<b>What happens next:</b> a weak or missing website with a business email becomes <i>Qualified</i>, and a preview and email draft are then built for it automatically. A modern website goes to <i>Visual review</i>, which automatic building skips. Click any result row for details.",
+    ])}
     <p class="small muted">Each website is opened the way a phone shows it (home page and one contact page), 20 at a time, one batch after the other. A blocked or bot-walled site is listed as "not checked", never as weak.</p>
     <div id="job"></div>
     <section class="panel" style="display:grid;gap:10px">

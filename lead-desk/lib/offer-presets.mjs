@@ -8,6 +8,21 @@ export function sourceFor(value, pages, allowCompact = false) {
   const compact = v.replace(/ /g, "");
   return v && pages.find((p) => (` ${norm(p.text)} `).includes(` ${v} `) || (allowCompact && compact.length >= 5 && norm(p.text).replace(/ /g, "").includes(compact)));
 }
+// A short sentence from the business's own page that names the service. Claims KRIV must not
+// repeat (prices, ratings, awards, years, guarantees, superlatives) and contact details are skipped.
+const CLAIM = /(\$|%|\d{4}|#\s?1|\b(best|top|number one|leading|award|rated|reviews?|stars?|years?|since|guarantee[ds]?|warrant(y|ies)|cheap|cheapest|lowest|free|price[ds]?|cost|discount|coupon|special|certified|licensed|insured)\b)/i;
+export function sentenceFor(name, pages) {
+  const want = ` ${norm(name)} `;
+  for (const p of pages) {
+    for (const raw of String(p.text ?? "").split(/(?<=[.!?])\s+|\n+/)) {
+      const s = raw.replace(/\s+/g, " ").trim();
+      if (s.length < 25 || s.length > 180 || !/[.!]$/.test(s) || !/^[A-Z]/.test(s)) continue;
+      if (CLAIM.test(s) || /@|https?:|www\.|\d{3}[ .-]\d{4}|\b(call|text|email)\b/i.test(s)) continue;
+      if (` ${norm(s)} `.includes(want) && norm(s) !== norm(name)) return { text: s.replace(/!$/, "."), url: p.url };
+    }
+  }
+  return null;
+}
 export function presetForm(lead, pages, templates, { revision = "", attempt = 0 } = {}) {
   const form = prefill(lead, pages, templates);
   const nameSource = sourceFor(lead.name, pages, true);
@@ -45,7 +60,10 @@ export function presetForm(lead, pages, templates, { revision = "", attempt = 0 
   form.f.headline = { v: h.length <= 70 ? h : name.slice(0, 70), s: nameSource.url };
   form.f.sub = { v: (/Shorter/.test(revision) ? "A concept website prepared by KRIV." : `A concept website prepared by KRIV for ${name}.`).slice(0, 160), s: nameSource.url };
   const serviceWords = { hvac: /\b(ac|air|cooling|heating|heat|duct|vent|furnace|thermostat|refrigeration)\b/i, plumbing: /plumb|drain|water|pipe|sewer|leak|toilet|faucet|sink/i, auto: /brake|oil|tire|engine|transmission|battery|align|repair|maintenance|diagnostic/i, dental: /clean|exam|check|fill|crown|implant|dent|whiten|root canal|bridge/i, chiro: /chiro|adjust|massage|spinal|rehab|treatment|therapy/i, medspa: /facial|skin|peel|laser|treatment|botox|filler|microneed/i };
-  form.lists.services = form.lists.services.filter((s) => sourceFor(s.name, pages) && serviceWords[lead.niche]?.test(s.name)).map((s) => ({ name: s.name, blurb: `Learn about ${s.name.toLowerCase()}.`.slice(0, 180), s: sourceFor(s.name, pages).url }));
+  form.lists.services = form.lists.services.filter((s) => sourceFor(s.name, pages) && serviceWords[lead.niche]?.test(s.name)).map((s) => {
+    const line = sentenceFor(s.name, pages);
+    return { name: s.name, blurb: (line?.text ?? `Learn about ${s.name.toLowerCase()}.`).slice(0, 180), s: (line ?? sourceFor(s.name, pages)).url };
+  });
   form.lists.hours = form.lists.hours.filter((h) => sourceFor(h.days, pages) && sourceFor(h.time, pages));
   form.lists.custom = [];
   return form;

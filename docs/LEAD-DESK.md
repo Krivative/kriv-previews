@@ -49,15 +49,29 @@ Feedback, notes, email edits and follow-up reminders save after a short typing p
 
 Check Gmail for opt-outs first. Use **More tools > Dashboard** to add a do-not-contact address/domain before any outreach. Critical contact restrictions stay visible and block decisions, publication and outreach. The existing 20-email daily limit and footer remain in place (docs/OUTREACH.md). LinkedIn remains manual.
 
-## Optional background preparation
+## Automatic building (on by default since 2026-10-28)
 
-Preparation settings at the bottom of the inbox retain the existing opt-in template worker: up to 10 initial offers per UTC day while the local Desk runs, plus checking/collection with the existing qualification/mailbox rules. Default search remains Ocala FL and the six existing niches; settings accept one to three TX/FL/UT towns. Blocks are reported and skipped. No paid AI is enabled.
+Kriv's only manual work is publication and outreach. Whenever the Desk is open, it works through this list by itself, one job at a time, with no paid AI:
 
-Reviewed designs and revision requests are excluded from automatic preparation. Freeform feedback is never treated as an instruction to run the worker. Existing private backups precede any separately authorized preset replacement; concurrent edits hold jobs. Unsupported optional facts are omitted; missing identity/mailbox, unreadable sources, failed/stale checks and incomplete emails block progression.
+1. **Find**: once a day it searches the towns in *Automatic building settings* (bottom of the inbox; default Ocala FL) for the six niches. Blocked directories are reported and skipped.
+2. **Check**: it checks up to 20 new websites at a time with the existing weak-site and business-mailbox rules.
+3. **Build**: for every qualified lead (weak or no website, a business mailbox, independent) it reads the business's own pages, keeps only facts it can find there, picks one of the 26 designs and credited photos, describes each service with a plain sentence from their own site when a safe one exists (no prices, ratings, awards, years or superlatives), writes the email draft, takes desktop and phone screenshots and runs the technical checks. Up to 10 new previews a day.
+4. The finished preview appears in the inbox under **Ready for review**. From there it's your part: approve the design, review the email, publish, and send in Gmail.
 
-## Advanced manual routine (More tools)
+What it deliberately does not do:
 
-The original screens are retained for investigation and custom edits. They keep their manual QA checklist; the Review inbox uses a separate preparation report and does not tick those boxes on your behalf.
+- **Visual review sites are skipped.** A site that passes the technical check but might look dated needs a human judgment, which Kriv chose not to make routinely. These stay parked on the Review screen; grading one there by hand (2 or more failed items) makes it qualified, and it's then built automatically.
+- **Hand-built pages are never replaced.** A draft built on the Build screen, or changed outside the worker after its last automatic run, is left alone.
+- Reviewed designs and revision requests are excluded. Freeform feedback never starts a rebuild.
+- It never approves, publishes, sends email or touches LinkedIn. Missing identity or mailbox, unreadable sources and failed checks hold a lead (the reason shows in the inbox) and are retried the next day.
+
+*Pause automatic building* in the settings stops it until you turn it back on. It only runs while the Desk window is open.
+
+## Manual step screens (More tools)
+
+The screens below still work and each has a **How this step works** guide at the top. With automatic building on you normally don't need them: use Check to check a site on purpose, Review to see how businesses were sorted, and Build only to fix a page by hand.
+
+### Step by step
 
 1. **Dashboard**: read *Needs Kriv*. Add any opt-out replies ("unsubscribe", "stop") to the do-not-contact list first: the address and its domain are blocked for good and the lead is set to expired.
 2. **1 Find**: pick a state, towns and niches, click Find. Hotfrog town pages and ChamberMaster directories, one request every 4 to 9 seconds. Chains, specialists and the do-not-contact list are skipped; businesses already known are not added twice. A source that blocks this network is reported and skipped, never worked around (Hotfrog showed a verification page on 2026-10-26).

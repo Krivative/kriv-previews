@@ -1,6 +1,15 @@
 // Build preview: a form prefilled from their website and listing; every fact needs the URL it
 // came from. Saves leads/<slug>.json as "draft", then screenshots and the docs/LEAD-QA.md checklist.
-import { api, esc, $, $$, toast, pill, link, fileUrl, watchJob, NICHES, aiState } from "../ui.js";
+import { api, esc, $, $$, toast, pill, link, fileUrl, watchJob, NICHES, aiState, guide } from "../ui.js";
+
+const buildGuide = () => guide("How this step works (only for fixing a page by hand)", [
+  "<b>Previews are built automatically.</b> For every qualified lead the Desk reads the business's own pages, fills in only facts it can find there, picks a design and photos, writes the email draft, takes desktop and phone screenshots and runs the technical checks. Finished previews appear in your inbox under <i>Ready for review</i>.",
+  "<b>Use this screen only to change a page by hand,</b> for example to fix a fact or add a service. A page you save here is yours: automatic building will not replace it afterwards.",
+  "<b>Facts:</b> the form on the left is filled from their website and listing; the sources are on the right. Every fact needs the address of the page it comes from. Leave a field empty when no source says it, and that section stays hidden. Never add reviews, prices, awards, years in business or words like \"best\".",
+  "<b>Design and photos:</b> any of the 26 designs works for any industry. Use their own photos first; otherwise pick a credited stock photo (the credit is added automatically).",
+  "<b>Save draft</b> writes the page as a draft (nothing goes live). Then click <i>Screenshots and QA</i>, look at both screenshots and tick the rest of the QA list.",
+  "<b>Then go back to the inbox</b> to approve the design, review the email, publish and send.",
+]);
 
 let state = null; // { id, view, form, pages }
 
@@ -20,7 +29,7 @@ export async function render(view, id) {
 
 async function pickLead(view) {
   const r = await api("review?tab=qualified");
-  view.innerHTML = `<h1>Build preview</h1><p class="small muted">Qualified leads. Pick one to build or edit its preview.</p>
+  view.innerHTML = `<h1>Build preview</h1>${buildGuide()}<p class="small muted">Qualified leads. Pick one to build or edit its preview.</p>
     <ul class="tasks">${r.rows.map((x) => `<li><a href="#build/${esc(x.id)}">${esc(x.name)}</a> <span class="small muted">${esc([x.town, x.state].filter(Boolean).join(", "))} · ${esc(NICHES[x.niche] ?? x.niche ?? "")}</span> ${pill(x.status)}</li>`).join("")}</ul>`;
 }
 
@@ -51,6 +60,7 @@ function draw(view) {
   view.innerHTML = `
     <div class="row" style="justify-content:space-between"><div><span class="eyebrow">${esc(NICHES[l.niche] ?? l.niche ?? "")} · ${esc([l.town, l.state].filter(Boolean).join(", "))}</span><h1>${esc(l.name)}</h1></div>
       <span>${pill(l.status)}</span></div>
+    ${buildGuide()}
     <p class="small muted">Facts only from their own pages and listing. Every fact needs the URL of the page it's on; leave a field empty when no source says it (the section then stays hidden). No reviews, prices, awards, years in business or "best". Saving writes <span class="mono">leads/${esc(form.slug)}.json</span> as a <b>draft</b>: nothing goes live from here.</p>
     <datalist id="srcs">${srcs.map((u) => `<option value="${esc(u)}">`).join("")}</datalist>
     <div class="grid" style="grid-template-columns:minmax(0,2fr) minmax(260px,1fr);align-items:start">

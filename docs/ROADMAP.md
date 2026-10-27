@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-28 · Last step finished: complete 26-composition collection delivered locally (source commit 4e38fce, binary export, root commit and this PDF); Desk and gallery running locally
+Updated: 2026-10-28 · Last step finished: Kriv approved the 26-design arsenal; the Lead Desk now finds, checks and builds previews automatically, with a guide on every manual step
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,22 +8,24 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Kriv: test the updated Lead Desk at `http://localhost:4321` (reload after restart). The server uses the existing database; no real-data pilot was performed by Codex. Review a concept with Approve / Revise / Decline and follow the single next action
-- [ ] Kriv: review all 26 distinct compositions at `http://localhost:3101` (gallery restarted and verified 2026-10-28). Continuing the remaining 23 was authorized and their implementation/QA is complete. The original three same-content comparisons remain; all 26 stay in rotation across industries
+- [ ] Kriv: use the Lead Desk at `http://localhost:4321` (reload after restart). Automatic building is on: new previews and email drafts appear under Ready for review. Your part is approving the design, reviewing the email, publishing and sending in Gmail
 - [ ] Clarify public release scope: the current designs and Desk are available locally. No public hosting release, push or merge has been performed; the meaning of “live” remains unconfirmed
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
-- [ ] Optional: enable background preparation in inbox Preparation settings when ready. It remains an opt-in finder/template worker; it skips reviewed designs and revision requests. Existing Chucks Ducts edits are preserved. Technical/source checks can run separately without generating a replacement design
-- [ ] Verify the first local background cycle with Kriv: inspect held reasons, photo availability and directory blocks; tune only after evidence. No paid AI key or budget is needed. Current source matching and template rotation are deliberately limited; custom revisions can be handled in a Codex session
+- [ ] Check the first automatic cycles with Kriv: held reasons, photo availability and directory blocks (Hotfrog was blocking this network on 2026-10-26, so Find may return nothing until other towns or sources are set). Tune only after evidence. No paid AI key or budget is needed
 - [ ] Kriv: confirm outstanding outreach before sending. Claude Code reported 7 visual-review emails awaiting manual sending (including a Family Dental About-page spam observation that needs a current check). Plumbing/auto count is unresolved: the handoff reported 4, this roadmap previously reported 5. Private records were not inspected; drafts remain outside Git
 - [ ] Optional follow-up: if a real parking-page confirmation is needed, investigate schc.biz's HTTPS/TLS failure separately. The authorized public recheck could not load the page; no parking notice was verified and no lead verdict was saved. Private records and older checks remain untouched
-- [ ] Kriv or an explicitly authorized agent: continue the visual-review queue. Claude Code last reported 138 sites remaining, with 4 graded on 2026-10-26 (Chucks Ducts qualified, 3 not dated). A professional site needing only tweaks is not a lead; no fresh count was taken
+- [ ] Optional only: the visual-review queue (Claude Code last reported 138 sites). Kriv chose on 2026-10-28 to skip these in automatic building; grading one by hand on the Review screen makes it qualified and it is then built automatically. A professional site needing only tweaks is not a lead
 - [x] Kriv chose no paid AI: legacy AI routes/helpers are disabled even with an old enabled setting. Initial offers use niche templates, neutral reusable wording and source matching, with unsupported optional details omitted
 - [ ] Finder follow-up, needs separate authorization: Claude Code reported a Hotfrog verification page on this network on 2026-10-26 and working ChamberMaster directories. No fresh network check was made; skip blocks, never work around them
 - [ ] Research follow-up, needs separate authorization: A&L Mobile Mechanics (Seguin TX) and Michigan Auto Repair (Kissimmee FL) were reported qualified, but listing details were cut off in the cloud log; fetch and verify public facts before any draft
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Automatic building and step guides (Kriv asked, Claude Code, 2026-10-28): automatic find, check and build is on whenever the Desk is open (Pause stays available; an older off setting no longer blocks it). Visual-review sites are skipped, as Kriv chose. Hand-built drafts and drafts changed outside the worker are never replaced, and daily refreshes keep the prepared design. Service lines use a plain sentence from the business's own page when one has no prices, ratings, awards, years or superlatives. Check, Review and Build have a How this step works guide; the inbox explains automatic building. Lint, typecheck, tests, build, smoke checks and the synthetic Desk journey pass. No approval, publication, email or LinkedIn action
+
+- [x] Kriv approved the 26-design arsenal as it looks now (2026-10-28)
 
 - [x] Complete composition implementation and QA (Codex/Astra, 2026-10-28; uncommitted delivery handed to Claude): 23 new independent homepage structures plus the original three, all available across industries. Existing content/photos and explicit section overrides preserved; source gallery has 26 actual thumbnails. Four new presentation files invalidate stale visual approval without deleting history. All five checks pass (357 tests, 16 smoke), source lint/webpack build pass, 156 device/motion cases, 26 native fallbacks, 52 About journeys, 287 source pages and 78 nested captures pass. Synthetic Desk regression and three-width gallery checks pass. Fourteen visual sheets inspected; contrast, phone wrapping, service numerals and duplicate intros corrected. Delivery completed below
 

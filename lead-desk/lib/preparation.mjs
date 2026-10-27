@@ -51,6 +51,8 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
     if (!published.includes(l.email.toLowerCase())) throw new Error("The contact email could not be confirmed on current source pages.");
     const oldRecord = original ? JSON.parse(original) : null;
     const form = (deps.form ?? presetForm)(l, pages, (deps.templates ?? listTemplates)(ctx.repo), { revision, attempt: prior?.attempts ?? 0 });
+    // A daily refresh keeps the design already prepared; only a revision request changes it.
+    if (oldRecord?.template && !revision) form.template = oldRecord.template;
     form.slug = l.slug ?? form.slug;
     if (!l.slug && existsSync(join(ctx.repo, "leads", `${form.slug}.json`))) form.slug = `${form.slug.slice(0, 60)}-${randomUUID().slice(0, 8)}`;
     form.photos = oldRecord?.brand?.photos?.length ? oldRecord.brand.photos.map((url, i) => ({ url, credit: oldRecord.brand.photoCredits[i] })) : await (deps.photos ?? choosePhotos)(ctx, l);

@@ -1,6 +1,6 @@
 // Review: qualified leads (ready for a preview), sites waiting for the visual review, near misses
 // and not checked. The weak-website and business-mailbox rules are unchanged (scripts/finder/rules.mjs).
-import { api, esc, $, $$, toast, pill, link, fileUrl, openLead, watchJob, NICHES } from "../ui.js";
+import { api, esc, $, $$, toast, pill, link, fileUrl, openLead, watchJob, NICHES, guide } from "../ui.js";
 
 const TABS = { qualified: "Qualified", toReview: "Visual review", near: "Near misses", notChecked: "Not checked" };
 const ui = { tab: "qualified", state: "", niche: "" };
@@ -11,6 +11,13 @@ export async function render(view) {
   const save = () => { try { localStorage.setItem("deskReview", JSON.stringify(ui)); } catch {} };
   view.innerHTML = `
     <h1>Review</h1>
+    ${guide("How this step works (nothing here is required)", [
+      "<b>This screen sorts every checked business into four groups.</b> Use the tabs to switch between them; the number on each tab is how many it holds.",
+      "<b>Qualified:</b> weak or no website, a business email that receives mail, and independent. Previews and email drafts for these are built automatically and show up in your inbox, so there is nothing to do here.",
+      "<b>Visual review:</b> the website passed the technical check but might still look dated. Automatic building skips these. If you want one anyway, tick what fails on its screenshots and click <i>Save grade</i>: 2 or more ticks make it Qualified and it is then built automatically. <i>Not dated</i> means it already looks professional and is not a lead.",
+      "<b>Near misses:</b> weak or no website, but no usable business email (or a good site elsewhere). They can't be emailed, so they are not built.",
+      "<b>Not checked:</b> the site blocked this network or timed out. These are never treated as weak and are not built.",
+    ])}
     <div class="row">${Object.entries(TABS).map(([k, v]) => `<button class="chip" data-tab="${k}" aria-pressed="${ui.tab === k}">${v} <b>${d.counts[k] ?? 0}</b></button>`).join("")}
       <select id="state" aria-label="State"><option value="">Any state</option>${["TX", "FL", "UT"].map((s) => `<option ${ui.state === s ? "selected" : ""}>${s}</option>`).join("")}</select>
       <select id="niche" aria-label="Niche"><option value="">Any niche</option>${Object.entries(NICHES).map(([k, v]) => `<option value="${k}" ${ui.niche === k ? "selected" : ""}>${v}</option>`).join("")}</select></div>

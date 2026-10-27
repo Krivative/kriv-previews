@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { openDb, now } from "../lead-desk/lib/db.mjs";
 import { upsertLead } from "../lead-desk/lib/leads.mjs";
-import { presetForm, presetEmail, REVISIONS } from "../lead-desk/lib/offer-presets.mjs";
+import { presetForm, presetEmail, REVISIONS, sentenceFor } from "../lead-desk/lib/offer-presets.mjs";
 import { prepareLead } from "../lead-desk/lib/preparation.mjs";
 import { preparationReadiness } from "../lead-desk/lib/preparation-state.mjs";
 import { approveBlockers } from "../lead-desk/lib/approve-api.mjs";
@@ -143,6 +143,7 @@ describe("preset offers without paid AI", () => {
 
   it("has no source/model requests on startup while paused and blocks all legacy paid helpers", async () => {
     const f = fixture(); const fetchSpy = vi.spyOn(globalThis, "fetch");
+    f.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_paused', '1')").run();
     expect(automationStatus(f.ctx).running).toBe(false);
     automationTick(f.ctx);
     expect(f.db.prepare("SELECT COUNT(*) n FROM preparations").get().n).toBe(0);
@@ -195,6 +196,7 @@ describe("preset offers without paid AI", () => {
   it("validates search settings without starting work or enabling paid requests", async () => {
     const f = fixture(); const fetchSpy = vi.spyOn(globalThis, "fetch");
     const route = inboxRoutes.find(([m, re]) => m === "POST" && (re as RegExp).test("/api/inbox/settings"))![2] as (ctx: object) => { httpStatus?: number; enabled?: boolean };
+    expect(route({ ...f.ctx, body: { enabled: false } }).enabled).toBe(false);
     expect(route({ ...f.ctx, body: { enabled: true, search: { source: "hotfrog", towns: ["invalid"] } } }).httpStatus).toBe(400);
     expect(automationStatus(f.ctx).enabled).toBe(false);
     expect(route({ ...f.ctx, body: { enabled: true, search: { source: "hotfrog", towns: ["ocala-fl"] } } }).enabled).toBe(true);
@@ -204,5 +206,58 @@ describe("preset offers without paid AI", () => {
       expect((await handler({ ...f.ctx, params: { id: f.id }, body: { enabled: true } })).httpStatus).toBe(400);
     }
     expect(fetchSpy).not.toHaveBeenCalled();
+  });
+});
+
+describe("automatic building (Kriv, 2026-10-28)", () => {
+  it("is on by default, ignores an older opt-in 'off' value and can still be paused", () => {
+    const f = fixture();
+    expect(automationStatus(f.ctx).running).toBe(true);
+    f.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_enabled', '0')").run();
+    expect(automationStatus(f.ctx).running).toBe(true);
+    f.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_paused', '1')").run();
+    expect(automationStatus(f.ctx).running).toBe(false);
+  });
+
+  it("never replaces a hand-built draft or a draft edited after its last automatic run", async () => {
+    const f = fixture();
+    await prepareLead(f.ctx, f.id, f.deps);
+    f.db.prepare("UPDATE preparations SET updated_at = '2000-01-01T00:00:00Z' WHERE lead_id = ?").run(f.id);
+    f.db.prepare("UPDATE drafts SET updated_at = '2000-01-01T00:00:00Z' WHERE lead_id = ?").run(f.id);
+    expect(nextPreparation(f.ctx)?.id).toBe(f.id);
+    f.db.prepare("UPDATE drafts SET updated_at = ? WHERE lead_id = ?").run(now(), f.id);
+    expect(nextPreparation(f.ctx)).toBeUndefined();
+    f.db.prepare("DELETE FROM preparations").run();
+    expect(f.lead().status).toBe("draft");
+    expect(nextPreparation(f.ctx)).toBeUndefined();
+  });
+
+  it("keeps the prepared design on a daily refresh; only a revision changes it", async () => {
+    const f = fixture();
+    await prepareLead(f.ctx, f.id, f.deps);
+    const design = () => JSON.parse(readFileSync(join(f.ctx.repo, "leads", `${f.lead().slug}.json`), "utf8")).template;
+    const first = design();
+    for (let i = 0; i < 3; i++) { await prepareLead(f.ctx, f.id, f.deps); expect(design()).toBe(first); }
+    f.db.prepare("UPDATE preparations SET state = 'queued', revision = ? WHERE lead_id = ?").run(first === "hvac-calm" ? "Bolder look" : "Calmer look", f.id);
+    await prepareLead(f.ctx, f.id, f.deps);
+    expect(design()).not.toBe(first);
+  });
+
+  it("skips visual-review sites instead of collecting screenshots for a manual grade", () => {
+    const f = fixture();
+    f.db.prepare("UPDATE leads SET bucket = 'toReview' WHERE id = ?").run(f.id);
+    f.db.prepare("INSERT INTO settings VALUES ('automation_find_day', ?)").run(now().slice(0, 10));
+    automationTick(f.ctx);
+    expect(f.db.prepare("SELECT COUNT(*) n FROM settings WHERE key LIKE 'shots_attempt:%'").get().n).toBe(0);
+    expect(f.db.prepare("SELECT COUNT(*) n FROM preparations").get().n).toBe(0);
+  });
+
+  it("describes services with a plain sentence from their own page, never a claim", () => {
+    const page = { url: SITE, text: "Acme Air. We handle AC repair for homes across Marion County. Best AC repair since 1990! Our AC repair is $49 today." };
+    expect(sentenceFor("AC repair", [page])).toEqual({ text: "We handle AC repair for homes across Marion County.", url: SITE });
+    expect(sentenceFor("AC repair", [{ url: SITE, text: "Top rated AC repair in Ocala. AC repair." }])).toBeNull();
+    const form = presetForm(fixture().lead(), [{ ...fixture().page, text: `${TEXT} We handle AC repair for homes across Marion County.` }], templates);
+    expect(form.lists.services.map((s: { blurb: string }) => s.blurb)[0]).toBe("We handle AC repair for homes across Marion County.");
+    expect(presetForm(fixture().lead(), [fixture().page], templates).lists.services.map((s: { blurb: string }) => s.blurb)[0]).toBe("Learn about ac repair.");
   });
 });

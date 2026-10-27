@@ -12,6 +12,16 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Automatic building and step guides (2026-10-28, Claude Code)
+
+- Kriv approved the 26-design arsenal as it looks now, and asked for Build to be automated so Kriv's only job is publication and outreach, plus guides for Check, Review and Build. Kriv chose: skip visual-review sites; automatic building always on while the Desk is open.
+- `lead-desk/lib/automation.mjs`: on unless the new `automation_paused` setting is "1" (the older opt-in `automation_enabled` key is ignored, so an earlier "off" doesn't keep it paused). Visual-review screenshot collection removed: those sites are skipped and never graded automatically. `nextPreparation` never picks a draft without a preparation record (hand-built, e.g. Chucks Ducts) or a draft whose `drafts.updated_at` is later than its last preparation (Build-screen save or verification check). `inbox-api.mjs` writes the pause key.
+- `preparation.mjs`: a daily refresh keeps the prepared design; only a revision request changes it (before, each refresh rotated the design). `offer-presets.mjs`: `sentenceFor` gives each service a plain sentence from the business's own page, skipping prices, ratings, awards, years, guarantees, superlatives and contact details; otherwise the old "Learn about X." line.
+- UI: shared `guide()` in `public/ui.js`; "How this step works" panels on Check, Review and Build; inbox settings renamed "Automatic building" with plain wording. `docs/LEAD-DESK.md` has the new "Automatic building" section.
+- Verification: five new tests in `tests/preparation.test.ts` (default on/pause, hand-built and edited drafts protected, design kept on refresh, visual review skipped, sentence picker). All five required checks pass; synthetic `verify-workspace.mjs` passes with zero external requests (it never starts the worker; only `lead-desk/server.mjs` does).
+- Live effect: after the Desk restart the worker runs against Kriv's real database within a minute: daily Find (Hotfrog may still be blocked), checks, and preview/email drafts for qualified leads. It never approves, publishes, sends or touches LinkedIn. No private data was inspected by Claude.
+- Next: Kriv uses the inbox. Check the first cycles' held reasons and directory blocks with Kriv before tuning.
+
 ### Delivered: complete 26-composition collection (2026-10-28, Claude Code)
 
 - Agent: Claude Code, continuing the Codex handoff below on `claude/amazing-edison-juyem3`. All remaining delivery steps are done; the implementation was reviewed, not rebuilt.
