@@ -1,6 +1,6 @@
 /* Founder workspace. Shared tokens keep the retained tools in the same product family. */
 :root { --desk-bg:#f4f6f8; --desk-surface:#fff; --desk-ink:#1b2b39; --desk-muted:#647383; --desk-line:#e2e8ee; --desk-accent:#12645e; --desk-soft:#e9f3ef; --desk-radius:16px; --desk-shadow:0 5px 24px #1c344606; }
-body { background:var(--desk-bg); font-family:"Segoe UI",system-ui,sans-serif; }
+body { font-family:"Segoe UI",system-ui,sans-serif; }
 body[data-screen=inbox], body[data-screen=focus] { color:var(--desk-ink); color-scheme:light; --bg:var(--desk-bg); --surface:var(--desk-surface); --fg:var(--desk-ink); --muted:var(--desk-muted); --line:var(--desk-line); --accent:var(--desk-accent); --accent-soft:var(--desk-soft); }
 .top { min-height:76px; padding:12px 32px; gap:28px; background:var(--surface); border-color:var(--desk-line); }
 .desk-brand { display:flex; gap:11px; align-items:center; color:inherit; text-decoration:none; margin-right:auto; }

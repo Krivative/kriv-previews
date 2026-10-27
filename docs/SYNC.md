@@ -18,6 +18,14 @@ been pushed or deployed. See `docs/ARSENAL-REVAMP.md` for scope and verification
 | `src/app/[slug]/[...path]/page.tsx` | Adapt manually: previews use the request-time lead lookup, draft/expiry rules and real 404s; source uses the static sample registry and Cache Components. |
 | Site Arsenal's gallery, `src/sites/`, `index-sites.mjs`, `new-site.mjs`, `robots.ts` | Not copied (public listing, build-time data). |
 
+Interaction pilot update (2026-10-27): `SignatureSections.tsx`, `GalleryViewer.tsx`
+and `signature.module.css` are identical shared presentation files. The new
+`explorer`/`editorial`/`journey` section variants are mirrored in both schemas.
+Breeze, Linen and Align template definitions match exactly. `Photo.tsx` shares
+explicit hero loading priority. Existing source-only sample and province fields
+are retained. See `docs/INTERACTION-PILOTS.md`; local source checkpoint and patch
+are recorded in HANDOFF.md. Broader rollout awaits Kriv's pilot review.
+
 After syncing: `pnpm test` renders every template with full/minimal data and every
 known page. Only known internal destinations and credited Unsplash links are
 allowed; live business actions, forms and missing notices fail. Run the full

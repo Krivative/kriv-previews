@@ -42,10 +42,10 @@ export type LeadStatus = z.infer<typeof LeadStatus>;
 // override the whole list (to reorder, hide or swap variants) via `design.sections`.
 export const SectionRef = z.discriminatedUnion("type", [
   z.object({ type: z.literal("hero"), variant: z.enum(["split", "poster", "centered", "banner", "stacked", "cinematic"]) }),
-  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles", "editorial"]) }),
+  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles", "editorial", "explorer"]) }),
   z.object({ type: z.literal("about"), variant: z.enum(["quote", "split", "cards"]) }),
-  z.object({ type: z.literal("gallery"), variant: z.enum(["mosaic", "strip"]) }),
-  z.object({ type: z.literal("custom"), variant: z.enum(["strip", "note", "steps"]) }),
+  z.object({ type: z.literal("gallery"), variant: z.enum(["mosaic", "strip", "editorial"]) }),
+  z.object({ type: z.literal("custom"), variant: z.enum(["strip", "note", "steps", "journey"]) }),
   z.object({ type: z.literal("visit"), variant: z.enum(["split", "card"]) }),
   z.object({ type: z.literal("faq"), variant: z.enum(["list", "columns"]) }),
   z.object({ type: z.literal("close"), variant: z.enum(["band", "card", "statement", "giant"]) }),

@@ -52,6 +52,7 @@ try {
         if (failDraft && /\/draft$/.test(url.pathname)) return route.fulfill({ status: 503, contentType: "application/json", body: json({ error: "Synthetic save failure. Your text is still here." }) });
         let result;
         if (url.pathname === "/api/job") result = {};
+        else if (url.pathname === "/api/ai" && req.method() === "GET") result = { enabled: false };
         else if (/\/publish\/plan$/.test(url.pathname)) result = { slug: f.row(ready).slug, url: `https://kriv.agency/${f.row(ready).slug}`, status: "approved" };
         else if (/\/publish$/.test(url.pathname)) {
           assert.equal(body.confirm, f.row(ready).slug); publishCount++;
@@ -149,8 +150,13 @@ try {
     layouts.push(`${label}: inbox + focus passed`);
   }
   await page.keyboard.press("Tab"); assert(await page.evaluate(() => document.activeElement !== document.body));
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("https://synthetic-desk.test/#dashboard"); await page.locator('body[data-screen="dashboard"]').waitFor();
+  assert(await page.evaluate(() => Number(getComputedStyle(document.body).backgroundColor.match(/\d+/)[0]) < 60), "Retained tools must keep their working dark theme");
+  await page.goto("https://synthetic-desk.test/#inbox"); await page.locator('body[data-screen="inbox"]').waitFor();
+  assert(await page.evaluate(() => Number(getComputedStyle(document.body).backgroundColor.match(/\d+/)[0]) > 220), "Workspace keeps its chosen light surface");
   assert.deepEqual(errors, []);
-  const result = { browserErrors: errors.length, actualNetworkRequests: 0, simulatedPublications: publishCount, privateDataAccess: false, checks: ["Search and queues", "Visual approval before QA", "Desktop/mobile switching", "Failed-save navigation protection", "Feedback persistence across reload", "Freeform revision without generation", "Concept decline and saved version", "Separate email review and publication approval", "Explicit publish confirmation and cancel", "Verification-only retry", "Manual sent status and follow-up", ...layouts, "Keyboard navigation"], screenshots: out, externalRequestsBlocked: external.length, syntheticApiRequests: requests.length };
+  const result = { browserErrors: errors.length, actualNetworkRequests: 0, simulatedPublications: publishCount, privateDataAccess: false, checks: ["Search and queues", "Visual approval before QA", "Desktop/mobile switching", "Failed-save navigation protection", "Feedback persistence across reload", "Freeform revision without generation", "Concept decline and saved version", "Separate email review and publication approval", "Explicit publish confirmation and cancel", "Verification-only retry", "Manual sent status and follow-up", ...layouts, "Keyboard navigation", "Retained tools under dark system preference"], screenshots: out, externalRequestsBlocked: external.length, syntheticApiRequests: requests.length };
   writeFileSync(join(out, "result.json"), json(result));
   console.log(JSON.stringify(result, null, 2));
 } catch (e) {

@@ -30,7 +30,7 @@ export const hvacCalm = defineTemplate({
   sections: [
     { type: "hero", variant: "cinematic" },
     { type: "custom", variant: "strip" },
-    { type: "services", variant: "editorial" },
+    { type: "services", variant: "explorer" },
     { type: "about", variant: "cards" },
     { type: "visit", variant: "split" },
     { type: "faq", variant: "columns" },
@@ -42,6 +42,6 @@ export const hvacCalm = defineTemplate({
     hero: "cinematic: full-screen photo under a cool scrim, Lexend headline with an italic serif accent, scroll cue",
     sequence: "cinematic → service-area strip → numbered editorial services → tilted photo cards → visit split → FAQ columns → giant blue close",
     close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "full-screen photo hero, then the blue service-area strip, then services as numbered hairline rows",
+    signature: "full-screen photo hero, blue service-area strip, then a numbered native service explorer beside an illustrative equipment portrait",
   },
 });

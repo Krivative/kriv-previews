@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-27 · Last step finished: hybrid Lead Desk inbox and focused review workspace
+Updated: 2026-10-27 · Last step finished: original interaction foundation and three website pilots, ready for Kriv review
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,7 +8,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Continue the approved website interaction foundation and three pilots: Breeze service discovery, Linen editorial treatment gallery and Align first-visit journey. Original implementations and CSS first; no new dependency or broader rollout without the agreed checks and pilot review. Preserve the Site Arsenal synchronization rules
+- [ ] Kriv: review the three working interaction pilots in the local Site Arsenal gallery. Start with `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `/sample-hvac-calm#services`, `/sample-aesthetic-calm#gallery` and `/sample-chiro-calm#custom` on localhost:3101. Breeze has service discovery, Linen an editorial image viewer, Align a native visit journey. Broader rollout waits for this pilot approval; no deployment is implied
 - [ ] Kriv: stop/restart the existing Lead Desk with `pnpm.cmd lead-desk`, then reload the workspace. Review one concept with the new Approve / Revise / Decline flow; visual approval leads to remaining checks, email review and separate publication readiness. Revisions save feedback only. No real-data pilot was performed by Codex
 - [ ] Kriv: review the revamped local Site Arsenal gallery and its About, Contact and offering-detail pages across the niches. Local review: `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `http://localhost:3101`. Local source changes and an exportable patch accompany the preview app checkpoint. Pushes, merges and deployments still require separate explicit approval
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
@@ -24,6 +24,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Original website interaction foundation and three pilot upgrades (Kriv approved implementation, Codex, 2026-10-27; visual acceptance pending): native service discovery for Breeze, editorial modal gallery for Linen and a source-backed visit journal for Align. CSS Modules, reduced-motion/touch/keyboard fallbacks and small client boundary; no added dependency or copied restricted component. Shared hero images prioritized; credited photos and real lead data unchanged. Preview lint/typecheck, 268 tests, build and 16 smoke checks pass. Source lint/webpack build, 282 known pages, four anonymous not-found views and 78 nested-page captures across 13 niches pass. Eighteen pilot/device/motion combinations and JavaScript-disabled fallbacks pass. Original fingerprints, noindex, concept notice and inert business actions retained. Source copies and patch saved locally; no private data, approval/publication, push or deployment
 
 - [x] Hybrid Lead Desk inbox and focused review (Kriv approved, Codex, 2026-10-27): compact queues/search/filter/sort, resume, preview device switching and three clear design decisions; visual approval separate from publication, freeform revisions without generation, concept/prospect declines, immutable review archives, persistent notes/email/follow-ups, failed-save recovery and concurrency guards. Verification-only checks and live retry; existing contact, publication, manual outreach and preview safeguards preserved. No framework/dependency migration. Lint/typecheck, 262 tests, build and 16 smoke checks pass; isolated synthetic browser journeys at desktop/tablet/phone pass with zero errors or real network requests. No private data, real approvals/publications, emails, push or deployment
 

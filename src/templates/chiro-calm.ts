@@ -29,7 +29,7 @@ export const chiroCalm = defineTemplate({
   },
   sections: [
     { type: "hero", variant: "cinematic" },
-    { type: "custom", variant: "steps" },
+    { type: "custom", variant: "journey" },
     { type: "services", variant: "editorial" },
     { type: "about", variant: "cards" },
     { type: "visit", variant: "card" },
@@ -42,6 +42,6 @@ export const chiroCalm = defineTemplate({
     hero: "cinematic: full-screen calm photo, Newsreader headline with an ochre italic accent",
     sequence: "cinematic → first-visit steps → numbered treatment rows → tilted cards → visit card → FAQ list → ochre band",
     close: "ochre band",
-    signature: "a three-step 'your first visit' straight under the full-screen hero, treatments as numbered italic rows",
+    signature: "an expandable first-visit journal straight under the full-screen hero, sourced journey parts and numbered treatment rows",
   },
 });

@@ -31,7 +31,7 @@ export const aestheticCalm = defineTemplate({
     { type: "hero", variant: "cinematic" },
     { type: "services", variant: "editorial" },
     { type: "about", variant: "cards" },
-    { type: "gallery", variant: "mosaic" },
+    { type: "gallery", variant: "editorial" },
     { type: "custom", variant: "note" },
     { type: "visit", variant: "split" },
     { type: "close", variant: "giant" },
@@ -42,6 +42,6 @@ export const aestheticCalm = defineTemplate({
     hero: "cinematic: full-screen warm interior photo, Cormorant headline ending in an italic clay accent",
     sequence: "cinematic → numbered treatment rows → tilted cards → mosaic → note → visit split → giant clay close",
     close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "Cormorant headlines that turn italic mid-sentence, over a warm full-screen photo",
+    signature: "Cormorant headlines that turn italic mid-sentence, warm full-screen photo, then an editorial image study with a native modal gallery",
   },
 });

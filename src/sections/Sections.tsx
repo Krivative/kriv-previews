@@ -7,6 +7,7 @@ import { Rich } from "./Rich";
 import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
 import s from "./sections.module.css";
+import { ServiceExplorer, EditorialGallery, VisitJourney } from "./SignatureSections";
 
 type Props = { site: SiteData };
 
@@ -36,7 +37,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
     // Full-screen photo with a tinted scrim, copy anchored low on the left, scroll cue.
     return (
       <section id="top" className={s.heroCine}>
-        <Photo src={photo} label="Main photo" className={s.heroCineMedia} />
+        <Photo priority src={photo} label="Main photo" className={s.heroCineMedia} />
         <div className={s.heroCineScrim} />
         <div className={`${s.wrap} ${s.heroCineCopy}`}>
           {h.eyebrow ? <p className={s.eyebrow}>{h.eyebrow}</p> : null}
@@ -61,7 +62,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
           <p className={s.lead}>{h.sub}</p>
           <Ctas site={site} />
         </div>
-        <Photo src={photo} label="Main photo" />
+        <Photo priority src={photo} label="Main photo" />
       </section>
     );
   }
@@ -92,7 +93,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
         <h1 className={s.h1}>
           <Rich text={h.headline} />
         </h1>
-        <Photo src={photo} label="Main photo" />
+        <Photo priority src={photo} label="Main photo" />
         <div className={s.heroStackedRow}>
           <p className={s.lead}>{h.sub}</p>
           <Ctas site={site} />
@@ -103,7 +104,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
   if (variant === "banner") {
     return (
       <section id="top" className={s.heroBanner}>
-        <Photo src={photo} label="Full-width photo" />
+        <Photo priority src={photo} label="Full-width photo" />
         <div className={s.heroBannerScrim} />
         <div className={s.wrap} style={{ width: "100%" }}>
           <div className={s.heroBannerCopy}>
@@ -128,7 +129,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
         <p className={s.lead}>{h.sub}</p>
         <Ctas site={site} />
       </div>
-      <Photo src={photo} label="Main photo" />
+      <Photo priority src={photo} label="Main photo" />
     </section>
   );
 }
@@ -136,6 +137,7 @@ export function Hero({ site, variant }: Props & { variant: Extract<SectionRef, {
 /* ---------------- Services ---------------- */
 
 export function Services({ site, variant }: Props & { variant: Extract<SectionRef, { type: "services" }>["variant"] }) {
+  if (variant === "explorer") return <ServiceExplorer site={site} />;
   const sv = site.services;
   if (!sv || !sv.items.length) return null;
   const items = sv.items;
@@ -266,6 +268,7 @@ export function About({ site, variant }: Props & { variant: Extract<SectionRef, 
 /* ---------------- Gallery ---------------- */
 
 export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef, { type: "gallery" }>["variant"] }) {
+  if (variant === "editorial" && site.brand.photos.length) return <EditorialGallery site={site} />;
   const g = site.gallery;
   if (!g) return null;
   const photos = site.brand.photos.length > 1 ? site.brand.photos.slice(1) : site.brand.photos;
@@ -295,6 +298,7 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
 /* ---------------- Custom (the one lead-specific section) ---------------- */
 
 export function Custom({ site, variant }: Props & { variant: Extract<SectionRef, { type: "custom" }>["variant"] }) {
+  if (variant === "journey") return <VisitJourney site={site} />;
   const c = site.custom;
   if (!c) return null;
   if (variant === "strip") {
