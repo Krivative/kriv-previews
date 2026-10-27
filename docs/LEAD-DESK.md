@@ -1,6 +1,6 @@
 # KRIV Lead Desk
 
-A local app on Kriv's Windows PC that prepares initial website offers using existing niche templates and reusable wording, with no paid AI. Kriv reviews the finished preview and email, approves or declines, or requests a preset revision. Publishing and sending remain Kriv's explicit actions. Subjective weak-site grading and custom changes can still need a Codex session.
+A local, private workspace for reviewing website concepts and moving each business through checks, publication and manual outreach. The hybrid inbox and focused review keep one next action visible. Existing template preparation uses no paid AI.
 
 ## Start it
 
@@ -16,22 +16,27 @@ It opens http://localhost:4321 in the browser. Leave the window open while you w
 - It listens on this PC only (127.0.0.1) and every change needs a token from the page, so other websites can't drive it. After a restart, reload the page.
 - First time on a new PC: `corepack pnpm install`, Playwright installed globally (`npm i -g playwright` and `npx playwright install chromium`), then `node lead-desk/lib/import.mjs` once to load the old lead files.
 
-## Daily routine: Review inbox
+## Daily routine: Inbox and focused review
 
-After this update, stop the old Desk with Ctrl+C, run `pnpm.cmd lead-desk` again, reload the browser, and select **Review inbox** if an old tab still opens Build.
+After updating, stop/restart the Desk, reload the browser and open Workspace. The first screen is the hybrid inbox: Needs my attention, Ready for review, Revisions, Remaining checks, Ready for publishing, Outreach, Follow-ups and Completed/declined. Search/filter/sort the compact list, or click Continue where I left off.
 
-1. Click **Start background preparation** once. It is paused by default; the choice is saved locally. Leave the terminal running and the PC awake. The worker checks for work once a minute; **Prepare next item** starts that check immediately. Pause stops new work; Cancel stops the current job where supported.
-2. Wait for **Ready for review**. The worker prepares qualified leads first, using a niche template, neutral wording, freshly readable sources, credited photos, desktop/phone screenshots and technical checks. It aims for up to 10 initial offers per UTC day; this is a ceiling, not a promise of 10 qualifying leads. Preset revisions have priority. The inbox refreshes as work progresses.
-3. Look at both screenshots and read the email. Click **Approve preview**, **Decline**, or **Request revision**. Revisions are preset choices: a different look/wording, calmer, bolder, shorter or more direct. There are no 23 manual boxes on this path. Your approval is the final review of appearance, wording and image suitability.
-4. After approval, click **Publish approved preview**, then its separate confirmation. This uses the existing publishing workflow and production checks; it does not happen automatically. Once the page is checked live, use **Email and replies** to open the draft in Gmail, review it and send it yourself. Then click **I sent it**; record replies with **They replied** and negotiate in Gmail. Inbox reading and sending are not automated.
+1. Open one business. Inspect the desktop and mobile captures; open the full screenshot or interactive concept when needed. The latter uses the existing local preview app on port 3100.
+2. **Approve** records visual approval for this exact version only. The confirmation names the next incomplete step: verify business information, finish checks, review the email, or review publication readiness. Design approval never publishes.
+3. **Revise** asks what should change, with an optional section. Feedback saves and the concept becomes Awaiting revision. Its record/captures and decision history are preserved privately. Nothing is generated or queued. Open revision editor only when separately ready to work on changes, or Review next lead.
+4. **Decline** accepts an optional reason and distinguishes this concept from the business as a prospect. Both block the current concept's publication/outreach; History retains the decision and a Reconsider action. Revising/declining an unpublished approved concept revokes publication readiness and preserves its original approved version.
+5. **Run verification checks** refreshes sources and desktop/mobile captures without replacing the design. Unchanged source-matched offers use the preparation report; custom or changed facts still need the existing human fact review. Automatic checks cannot be ticked manually. Changed records/captures/template presentation require a new visual review.
+6. Read the email in the Email tab and click **I've reviewed this email**. Complete the draft first if needed. Review publication readiness, **Approve for publication**, then **Publish preview...** and its explicit confirmation. The existing publishing copy and full checks remain in use. Wait for live verification; a verification-only retry does not republish.
+7. Once published and verified, review the outgoing email and **Open Gmail compose**. Read and send it yourself in Gmail, then **I sent this email**. Record replies and a next follow-up date/note manually. Follow-up tracking does not send messages.
 
-The system confirms the business name and contact mailbox on current source pages. Unsupported optional fields (for example a town, phone or service) are omitted; missing identity, unreadable sources, invalid records or failed technical checks hold the offer. Source matching does not understand every claim or judge a design: inspect the finished preview before approving. Revisions back up the previous draft, saved form and email under the private `kriv-leads/revisions/` directory before replacing them. Concurrent edits are preserved and hold the job. Existing dates/expiry are retained.
+Feedback, notes, email edits and follow-up reminders save after a short typing pause and before internal navigation. Saving/Saved/Failed feedback is visible. A failed save keeps your screen and text; stale windows cannot silently replace a newer version. Saved work and Continue survive restarts. Manual QA, history and old approvals remain intact.
 
-When no qualified draft remains, the worker can collect screenshots for the existing visual-review queue, check ungraded sites in batches of 20, and try the configured Hotfrog search once per UTC day. Default search: Ocala FL across the six existing niches; Search settings accepts up to three TX/FL/UT town identifiers. Directory blocks are skipped and reported. A modern site's subjective weak-site grade is never invented, so that queue can still require a Codex-assisted review. Finder/mailbox rules are unchanged.
+Check Gmail for opt-outs first. Use **More tools > Dashboard** to add a do-not-contact address/domain before any outreach. Critical contact restrictions stay visible and block decisions, publication and outreach. The existing 20-email daily limit and footer remain in place (docs/OUTREACH.md). LinkedIn remains manual.
 
-If an offer is held, its reason appears under **In preparation**. It normally retries on the next UTC day; a preset revision can explicitly queue a new attempt. No photo key is needed when an existing draft has suitable credited photos; otherwise the existing Unsplash picker must be configured locally. Search metadata filters are conservative hints, not visual proof. Preview and email edits invalidate preparation and require checks again before approval or publishing.
+## Optional background preparation
 
-Check Gmail for opt-outs first. Use **More tools > Dashboard** to record them on the do-not-contact list before any further outreach. The existing 20-email daily limit and footer remain in place (docs/OUTREACH.md).
+Preparation settings at the bottom of the inbox retain the existing opt-in template worker: up to 10 initial offers per UTC day while the local Desk runs, plus checking/collection with the existing qualification/mailbox rules. Default search remains Ocala FL and the six existing niches; settings accept one to three TX/FL/UT towns. Blocks are reported and skipped. No paid AI is enabled.
+
+Reviewed designs and revision requests are excluded from automatic preparation. Freeform feedback is never treated as an instruction to run the worker. Existing private backups precede any separately authorized preset replacement; concurrent edits hold jobs. Unsupported optional facts are omitted; missing identity/mailbox, unreadable sources, failed/stale checks and incomplete emails block progression.
 
 ## Advanced manual routine (More tools)
 

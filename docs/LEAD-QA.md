@@ -2,13 +2,13 @@
 
 The advanced manual workflow uses the checklist below. A failed check is fixed, never waived. Record the result per lead (date, who, pass/fail per item) where Kriv reviews it; the lead JSON itself carries no QA log.
 
-## Review inbox path (Kriv approved, 2026-10-26)
+## Hybrid inbox and focused review (Kriv approved, 2026-10-27)
 
-For initial offers, the Review inbox uses a separate preparation report instead of asking Kriv to complete 23 manual ticks. No manual ticks are fabricated. Existing niche templates, neutral invitation wording and source-matched business details replace bespoke AI-written copy. Unsupported optional details are omitted. Business identity and the contact mailbox must be present on current readable sources. The template defaults provide colour; existing credited photos or the configured Unsplash picker provide images. Metadata filters do not replace Kriv's visual judgment.
+Visual approval records Kriv's design decision independently of QA and publication. It binds the record, captures and presentation code; changing them requires another visual review. Freeform revision feedback only saves a request and preserves the original version. Concept/prospect declines block the current preview. No generation follows a feedback submission.
 
-The automated path validates the record and checks the served page's noindex, banner, inert links, expiry, credits, email exclusion and SEO, plus desktop/phone screenshots with no console errors, overflow or broken visible images. The full five project checks run again during publishing. Failed or stale preparation blocks approval; changing the page, email, source copies or screenshots invalidates the report. A still-unchanged approved snapshot can be published on a later day before expiry.
+Initial source-matched offers retain their separate preparation report rather than fabricating manual ticks. Existing niche templates and neutral wording omit unsupported optional details. Identity and the business mailbox must appear on readable current sources; founder review still judges appearance, wording and photo suitability. Desktop/mobile screenshots, technical guardrails and fresh source checks remain required. Run verification checks refreshes evidence without rewriting the design. Changed/unverified facts require the manual checklist below; automatic items must be populated by actual checks, not ticked by hand.
 
-Kriv looks at both finished screenshots and reads the email, then approves, declines or chooses a preset revision. That approval is the final appearance, image suitability and wording review. Neutral emails need not criticise the existing site. Draft revisions are backed up privately before replacement. Publishing requires a separate explicit confirmation; sending and monitoring replies remain manual in Gmail. The manual checklist remains available under More tools for custom work.
+After checks, Kriv reviews the exact email draft, approves publication separately and confirms publishing. Readiness binds the record, email, source copies, captures and QA; edits invalidate the relevant approval. An unchanged approved snapshot can publish later before expiry. Publication and live-verification retry are separate; retry never starts another deployment. Gmail sending, replies, opt-outs and follow-ups remain manual. No agent calls real approval/publish endpoints or accesses private records during testing.
 
 How to look at a draft: drafts are only served by `next dev` (production returns 404 for them). Run `pnpm dev -p 3100`, open `http://localhost:3100/for/<slug>`, and take screenshots with `NODE_PATH=$(npm root -g) node scripts/shoot.mjs <slug>` (desktop 1440 px and phone 390 px into `shots/`).
 
@@ -17,7 +17,7 @@ How to look at a draft: drafts are only served by `next dev` (production returns
 - [ ] `pnpm test` passes: the record validates against `src/lib/site-schema.ts`, every template renders it with the banner and no live links.
 - [ ] Banner at the top reads exactly "Concept preview prepared by KRIV for <Business Name>. Not affiliated with or endorsed by <Business Name>." (`conceptNotice`), and the same notice is in the footer.
 - [ ] `X-Robots-Tag: noindex, nofollow` header and `<meta name="robots" content="noindex, nofollow">` on the page.
-- [ ] Links: every `href` is an in-page `#anchor`, except the Unsplash credit links in the footer (photographer profile and unsplash.com, each with `utm_source=kriv_previews&utm_medium=referral`). No `tel:`, `mailto:`, map, social or booking links; no forms.
+- [ ] Links: every `href` is an in-page `#anchor` or a known internal page belonging to this concept, except the Unsplash credit links in the footer (photographer profile and unsplash.com, each with `utm_source=kriv_previews&utm_medium=referral`). No `tel:`, `mailto:`, map, social or booking links; no forms.
 - [ ] `status` is `draft`; `expiresAt` is `createdAt` + 30 days.
 - [ ] No email address in the lead JSON (the email lives only in the outreach draft outside Git).
 

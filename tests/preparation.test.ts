@@ -74,7 +74,7 @@ describe("preset offers without paid AI", () => {
     const f = fixture();
     await prepareLead(f.ctx, f.id, f.deps);
     expect(preparationReadiness(f.ctx, f.lead()).ready).toBe(true);
-    expect(approveBlockers(f.ctx, f.lead())).toEqual([]);
+    expect(approveBlockers(f.ctx, f.lead())).toEqual(["Review and approve the current design first."]);
     expect(f.lead().status).toBe("draft");
     const d = f.db.prepare("SELECT qa FROM drafts WHERE lead_id = ?").get(f.id);
     expect(JSON.parse(d.qa)).toEqual([]);
@@ -153,13 +153,13 @@ describe("preset offers without paid AI", () => {
     expect(existsSync(join(f.ctx.repo, ".env.local"))).toBe(false);
   });
 
-  it("accepts only preset revisions and queues them without approval", async () => {
+  it("requires old inbox tabs to reload rather than silently queueing a revision", async () => {
     const f = fixture(); await prepareLead(f.ctx, f.id, f.deps);
     const route = inboxRoutes.find(([m, re]) => m === "POST" && (re as RegExp).test(`/api/inbox/${f.id}/revision`))![2] as (ctx: object) => { ok?: boolean; httpStatus?: number; paused?: boolean };
     const call = (request: string) => route({ ...f.ctx, params: { id: f.id }, body: { request } });
     expect(call("Invent five testimonials").httpStatus).toBe(400);
-    expect(call(REVISIONS[0])).toMatchObject({ ok: true, paused: true });
-    expect(preparationReadiness(f.ctx, f.lead()).ready).toBe(false);
+    expect(call(REVISIONS[0])).toMatchObject({ httpStatus: 400 });
+    expect(preparationReadiness(f.ctx, f.lead()).ready).toBe(true);
     expect(f.lead().status).toBe("draft");
   });
 

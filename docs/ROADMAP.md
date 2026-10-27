@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-27 · Last step finished: whole-arsenal multi-page revamp across 26 templates and 13 niches
+Updated: 2026-10-27 · Last step finished: hybrid Lead Desk inbox and focused review workspace
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,10 +8,12 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
+- [ ] Continue the approved website interaction foundation and three pilots: Breeze service discovery, Linen editorial treatment gallery and Align first-visit journey. Original implementations and CSS first; no new dependency or broader rollout without the agreed checks and pilot review. Preserve the Site Arsenal synchronization rules
+- [ ] Kriv: stop/restart the existing Lead Desk with `pnpm.cmd lead-desk`, then reload the workspace. Review one concept with the new Approve / Revise / Decline flow; visual approval leads to remaining checks, email review and separate publication readiness. Revisions save feedback only. No real-data pilot was performed by Codex
 - [ ] Kriv: review the revamped local Site Arsenal gallery and its About, Contact and offering-detail pages across the niches. Local review: `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `http://localhost:3101`. Local source changes and an exportable patch accompany the preview app checkpoint. Pushes, merges and deployments still require separate explicit approval
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
-- [ ] Kriv: restart the Lead Desk with `pnpm.cmd lead-desk`, reload and select Review inbox, then Start background preparation. Pilot one offer: inspect both screenshots and email, approve/decline or request a preset revision. Publish only through the separate confirmation, and send manually in Gmail once checked live. No 23 manual ticks on this path. Your existing Chucks Ducts edit is preserved; its next preparation will omit unsupported optional location details, or hold if identity/mailbox cannot be confirmed
+- [ ] Optional: enable background preparation in inbox Preparation settings when ready. It remains an opt-in finder/template worker; it skips reviewed designs and revision requests. Existing Chucks Ducts edits are preserved. Technical/source checks can run separately without generating a replacement design
 - [ ] Verify the first local background cycle with Kriv: inspect held reasons, photo availability and directory blocks; tune only after evidence. No paid AI key or budget is needed. Current source matching and template rotation are deliberately limited; custom revisions can be handled in a Codex session
 - [ ] Kriv: confirm outstanding outreach before sending. Claude Code reported 7 visual-review emails awaiting manual sending (including a Family Dental About-page spam observation that needs a current check). Plumbing/auto count is unresolved: the handoff reported 4, this roadmap previously reported 5. Private records were not inspected; drafts remain outside Git
 - [ ] Optional follow-up: if a real parking-page confirmation is needed, investigate schc.biz's HTTPS/TLS failure separately. The authorized public recheck could not load the page; no parking notice was verified and no lead verdict was saved. Private records and older checks remain untouched
@@ -22,6 +24,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Hybrid Lead Desk inbox and focused review (Kriv approved, Codex, 2026-10-27): compact queues/search/filter/sort, resume, preview device switching and three clear design decisions; visual approval separate from publication, freeform revisions without generation, concept/prospect declines, immutable review archives, persistent notes/email/follow-ups, failed-save recovery and concurrency guards. Verification-only checks and live retry; existing contact, publication, manual outreach and preview safeguards preserved. No framework/dependency migration. Lint/typecheck, 262 tests, build and 16 smoke checks pass; isolated synthetic browser journeys at desktop/tablet/phone pass with zero errors or real network requests. No private data, real approvals/publications, emails, push or deployment
 
 - [x] Whole-arsenal multi-page revamp (Kriv requested, Codex, 2026-10-27): studied all six references and applied their page-depth/navigation patterns to all 26 templates across 13 niches. Working internal Home, About, offering/index/detail, Contact and optional FAQ/Gallery pages; niche-appropriate labels and preparation questions; richer fictional samples and credited stock imagery; responsive menus, breadcrumbs, page discovery and contact panels. Existing real lead data, private information, dependencies, lockfile, noindex, exact concept notice and inert business actions preserved. Preview validation: 247 tests and 16 smoke checks, plus lint/typecheck/build. Source verification: 282 sample pages, 52 homepage screenshots and 78 nested-page screenshots/click-throughs across all 13 niches; visual review prompted contrast and single-photo fixes. Source built with webpack because its local dependency junction lies outside its Git root. Source streamed-404 limitation documented; no push, deployment, approval, publishing or email sending
 

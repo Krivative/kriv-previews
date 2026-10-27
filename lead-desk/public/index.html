@@ -7,12 +7,13 @@
 <meta name="robots" content="noindex, nofollow">
 <title>KRIV Lead Desk</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="workspace.css">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><span class="eyebrow">KRIV · local, private</span><b>Lead Desk</b></div>
+  <a class="desk-brand" href="#inbox" aria-label="KRIV Lead Desk inbox"><span class="brand-mark" aria-hidden="true">K</span><span><b>Lead Desk</b><small>KRIV · local workspace</small></span></a>
   <nav class="tabs" aria-label="Screens">
-    <a href="#inbox">Review inbox</a>
+    <a href="#inbox">Workspace</a>
     <a href="#email">Email</a>
     <a href="https://mail.google.com/mail/" target="_blank" rel="noopener noreferrer">Replies in Gmail</a>
   </nav>
@@ -23,12 +24,13 @@
     <a href="#check">2 Check</a>
     <a href="#review">3 Review</a>
     <a href="#build">4 Build</a>
-    <a href="#approve">5 Approve</a>
+    <a href="#approve">5 Publication</a>
     <a href="#linkedin">7 LinkedIn</a>
   </nav>
   </details>
 </header>
-<main id="view" class="page" aria-live="polite"></main>
+<a class="desk-skip" href="#view">Skip to workspace</a>
+<main id="view" class="page" tabindex="-1"></main>
 <dialog id="leadDialog" aria-labelledby="leadDialogTitle"><div id="leadBody"></div></dialog>
 <div id="toast" role="status" hidden></div>
 <script type="module" src="app.js"></script>

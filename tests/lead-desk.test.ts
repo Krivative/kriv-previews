@@ -11,6 +11,7 @@ import { aiEnabled } from "../lead-desk/lib/ai.mjs";
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { reviewFixture } from "./fixtures/workflow.mjs";
 
 const fresh = () => openDb(":memory:");
 type Route = [string, RegExp, (ctx: Record<string, unknown>) => unknown];
@@ -54,24 +55,26 @@ describe("lead desk: records", () => {
 
 describe("lead desk: Kriv's clicks", () => {
   it("approves only a draft with every QA item ticked and an email draft, and never sets live or sent by hand", async () => {
-    const db = fresh();
-    const repo = tempRepo("gamma-chiro");
-    const id = upsertLead(db, { name: "Gamma Chiro", state: "UT", website: "https://gamma.example", email: "info@gamma.example" });
-    const approve = () => call(db, "POST", `/api/leads/${id}/status`, { status: "approved" }, { repo }) as { httpStatus?: number; body?: { error: string }; status?: string };
-    expect(approve().httpStatus).toBe(400); // not a draft
-    db.prepare("UPDATE leads SET status = 'draft', slug = 'gamma-chiro' WHERE id = ?").run(id);
-    db.prepare("INSERT INTO drafts (slug, lead_id, created_at, updated_at) VALUES ('gamma-chiro', ?, 'x', 'x')").run(id);
+    const f = reviewFixture(); const { db, repo } = f;
+    const id = f.add("Gamma Chiro");
+    const approve = () => f.call("POST", `/api/leads/${id}/status`, { status: "approved" }) as { httpStatus?: number; body?: { error: string }; status?: string };
+    db.prepare("DELETE FROM emails WHERE lead_id = ?").run(id);
+    expect(approve().httpStatus).toBe(400);
     expect(needsKriv(db).some((n: { kind: string }) => n.kind === "approve")).toBe(true);
-    expect(approve().body?.error).toMatch(/QA items not ticked.*No email draft/);
+    expect(approve().body?.error).toMatch(/QA items not ticked.*No complete email draft/);
     const qa = qaChecklist(repo).map((q: { item: string }) => ({ item: q.item, pass: true }));
     db.prepare("UPDATE drafts SET qa = ? WHERE slug = 'gamma-chiro'").run(JSON.stringify(qa));
     db.prepare("INSERT INTO emails (lead_id, to_addr, subject, body, updated_at) VALUES (?, 'info@gamma.example', 'A concept', 'Hi [[owner_first_name]]', 'x')").run(id);
     expect(approve().body?.error).toMatch(/blanks/);
     db.prepare("UPDATE emails SET body = 'Hi there' WHERE lead_id = ?").run(id);
-    expect(approve().status).toBe("approved");
+    expect(approve().body?.error).toMatch(/current design/);
+    expect(f.decide(id, "approved").ok).toBe(true);
+    expect(f.emailReview(id).ok).toBe(true);
+    expect(f.approvePublication(id).status).toBe("approved");
     expect(JSON.parse(readFileSync(join(repo, "leads", "gamma-chiro.json"), "utf8")).status).toBe("approved");
     expect((call(db, "POST", `/api/leads/${id}/status`, { status: "live" }) as { httpStatus: number }).httpStatus).toBe(400);
     expect(db.prepare("SELECT action FROM history WHERE lead_id = ?").all(id).map((h: { action: string }) => h.action)).toContain("status");
+    db.close();
   });
 
   it("publishes only on the confirm click that repeats the address", () => {

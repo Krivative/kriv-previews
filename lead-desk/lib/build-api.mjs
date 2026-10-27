@@ -9,6 +9,7 @@ import { SPEC, NICHE_INFO, listTemplates, readSources, prefill, formProblems, to
 import { ensureDev, autoChecks, shoot, qaChecklist } from "./preview.mjs";
 import { startJob, npmRoot } from "./jobs.mjs";
 import * as unsplash from "./unsplash.mjs";
+import { workflowOf, contactBlocked } from "./workflow-state.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const lead = (db, id) => rowToLead(db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
@@ -18,7 +19,7 @@ const draftOf = (db, l) => (l?.slug ? db.prepare("SELECT * FROM drafts WHERE slu
 export function qaState(repo, saved = []) {
   return qaChecklist(repo).map((q) => {
     const s = saved.find((x) => x.item === q.item);
-    return { ...q, pass: s?.pass ?? false, auto: s?.auto ?? false, why: s?.why ?? null };
+    return { ...q, pass: s?.pass ?? false, auto: q.auto || s?.auto || false, why: s?.why ?? null };
   });
 }
 
@@ -33,7 +34,7 @@ function view(ctx, l) {
     spec: SPEC,
     templates: [...templates.filter((t) => rec.includes(t.id)), ...templates.filter((t) => !rec.includes(t.id))].map((t) => ({ ...t, recommended: rec.includes(t.id) })),
     form: parse(d?.form, null),
-    editable: !pageStatus || pageStatus === "draft",
+    editable: (!pageStatus || pageStatus === "draft") && workflowOf(ctx.db, l.id)?.decision !== "declined" && !["declined", "expired"].includes(l.status),
     pageStatus,
     qa: qaState(ctx.repo, parse(d?.qa, [])),
     screenshots: parse(d?.screenshots, []),
@@ -61,6 +62,7 @@ export const buildRoutes = [
     const l = lead(ctx.db, ctx.params.id);
     if (!l) return bad("no such lead", 404);
     if (["declined", "expired"].includes(l.status)) return bad(`This lead is ${l.status}.`);
+    if (workflowOf(ctx.db, l.id)?.decision === "declined" || contactBlocked(ctx.db, l, ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(l.id))) return bad("This concept is declined or may not be contacted.");
     const form = ctx.body.form ?? {};
     const sameSlug = l.slug && l.slug === form.slug;
     const problems = formProblems(form, { repo: ctx.repo, existingSlugOk: sameSlug });
@@ -85,6 +87,7 @@ export const buildRoutes = [
   ["POST", /^\/api\/build\/(?<id>[^/]+)\/preview$/, (ctx) => {
     const l = lead(ctx.db, ctx.params.id);
     if (!l?.slug) return bad("Save the preview first.");
+    if (["declined", "expired"].includes(l.status) || workflowOf(ctx.db, l.id)?.decision === "declined") return bad("This concept is declined or expired.");
     try {
       return startJob("preview", `Preview of ${l.name}`, null, async (job, say) => {
         const rec = JSON.parse(readFileSync(join(ctx.repo, "leads", `${l.slug}.json`), "utf8"));

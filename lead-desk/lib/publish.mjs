@@ -7,20 +7,22 @@ import { execFile, exec } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { now, log, isOptedOut } from "./db.mjs";
+import { now, log, isOptedOut, parse } from "./db.mjs";
 import { startJob } from "./jobs.mjs";
 import { preparationReadiness } from "./preparation-state.mjs";
+import { reviewBlockers, workflowOf, publicationVersion, contactBlocked, pendingPublication } from "./workflow-state.mjs";
 
 export const WORKTREE = process.env.LEAD_DESK_PUBLISH_DIR || join(homedir(), "kriv-previews-publish");
 export const CHECKS = [["lint"], ["typecheck"], ["test"], ["build"], ["test:smoke"]];
 
 export function assertReviewedPublish(ctx, lead, p) {
   if (p.status === "expired") return;
-  const ready = preparationReadiness(ctx, lead);
-  if (!ready.managed) return;
   const currentLead = ctx.db.prepare("SELECT status, email FROM leads WHERE id = ?").get(lead.id);
-  if (currentLead?.status !== "approved" || isOptedOut(ctx.db, currentLead.email)) throw new Error("Approval or contact permission changed; publishing stopped.");
-  if (!ready.ready) throw new Error(ready.reason);
+  if (currentLead?.status !== "approved" || isOptedOut(ctx.db, currentLead.email) || contactBlocked(ctx.db, currentLead, ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(lead.id))) throw new Error("Approval or contact permission changed; publishing stopped.");
+  const w = workflowOf(ctx.db, lead.id);
+  if (reviewBlockers(ctx, lead).length || (w && w.publication_version !== publicationVersion(ctx, lead))) throw new Error("The reviewed design, email or publication approval changed; publishing stopped.");
+  const ready = preparationReadiness(ctx, { ...lead, ...currentLead });
+  if (ready.managed && !ready.ready) throw new Error(ready.reason);
   const current = JSON.parse(readFileSync(join(ctx.repo, "leads", `${lead.slug}.json`), "utf8"));
   current.status = p.status;
   if (JSON.stringify(current, null, 2) + "\n" !== p.after) throw new Error("The publishing plan no longer matches the reviewed preview.");
@@ -57,10 +59,10 @@ export async function plan(repo, slug, status) {
   };
 }
 
-async function liveCheck(slug, name, wantLive, say) {
+async function liveCheck(slug, name, wantLive, say, attempts = 40) {
   const banner = `Concept preview prepared by KRIV for ${name.replace(/&/g, "&amp;").replace(/'/g, "&#x27;")}`;
-  for (let i = 0; i < 40; i++) {
-    await new Promise((r) => setTimeout(r, 15000));
+  for (let i = 0; i < attempts; i++) {
+    if (i || attempts > 1) await new Promise((r) => setTimeout(r, 15000));
     try {
       const res = await fetch(`https://kriv.agency/${slug}?v=${Date.now()}`, { cache: "no-store" });
       const html = await res.text();
@@ -78,8 +80,10 @@ async function liveCheck(slug, name, wantLive, say) {
  * status: "approved" to publish, "expired" to take a page down after an opt-out.
  */
 export function startPublish(ctx, lead, { status = "approved", dryRun = false } = {}) {
+  if (status === "approved" && pendingPublication(ctx.db, lead.id)) throw new Error("Check the pending publication instead of publishing again.");
   const slug = lead.slug;
   return startJob("publish", `${dryRun ? "Dry run: " : ""}${status === "expired" ? "Take down" : "Publish"} ${lead.name}`, null, async (job, say) => {
+    job.leadId = lead.id;
     const p = await plan(ctx.repo, slug, status);
     assertReviewedPublish(ctx, lead, p);
     if (!existsSync(WORKTREE)) {
@@ -117,7 +121,7 @@ export function startPublish(ctx, lead, { status = "approved", dryRun = false } 
     say(`committed ${sha}; pushing to main...`);
     assertReviewedPublish(ctx, lead, p);
     await git(["push", "origin", "HEAD:main"], WORKTREE); // a plain push: fails rather than overwrite if main moved
-    log(ctx.db, lead.id, status === "expired" ? "taken down" : "published", { sha, slug, by: "Kriv (confirm click)" });
+    log(ctx.db, lead.id, status === "expired" ? "taken down" : "published", { sha, slug, version: status === "expired" ? null : publicationVersion(ctx, lead), by: "Kriv (confirm click)" });
     // The working copy follows, so the branch and main agree on this file.
     writeFileSync(join(ctx.repo, "leads", `${slug}.json`), p.after);
     say("pushed. Waiting for Vercel to deploy (usually 1 to 3 minutes)...");
@@ -127,4 +131,22 @@ export function startPublish(ctx, lead, { status = "approved", dryRun = false } 
     if (!ok) job.error = `Pushed ${sha}, but kriv.agency/${slug} didn't show the expected page within 10 minutes. Check the Vercel deployment.`;
     return { sha, url: p.url, verified: ok };
   });
+}
+
+/** Verification retry only: no Git, no commit, no push and no deployment. */
+export async function verifyPublished(ctx, lead, check = liveCheck, say = () => {}) {
+  const published = ctx.db.prepare("SELECT detail FROM history WHERE lead_id = ? AND action = 'published' ORDER BY id DESC LIMIT 1").get(lead.id);
+  const detail = parse(published?.detail, {});
+  const record = JSON.parse(readFileSync(join(ctx.repo, "leads", `${lead.slug}.json`), "utf8"));
+  const p = { status: "approved", after: JSON.stringify({ ...record, status: "approved" }, null, 2) + "\n" };
+  assertReviewedPublish(ctx, lead, p);
+  if (detail.version && detail.version !== publicationVersion(ctx, lead)) throw new Error("The local preview changed after publication. Review it before continuing.");
+  if (!await check(lead.slug, record.business.name, true, say, 1)) throw new Error("The published page is not verified yet. Nothing was republished; check the deployment and retry.");
+  assertReviewedPublish(ctx, lead, p);
+  ctx.db.prepare("UPDATE leads SET status = 'live', updated_at = ? WHERE id = ? AND status = 'approved'").run(now(), lead.id);
+  log(ctx.db, lead.id, "live (checked)", `https://kriv.agency/${lead.slug}`);
+  return { verified: true };
+}
+export function startLiveVerification(ctx, lead) {
+  return startJob("verify-live", `Checking publication for ${lead.name}`, null, (job, say) => verifyPublished(ctx, lead, liveCheck, say));
 }

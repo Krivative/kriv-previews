@@ -8,10 +8,11 @@ import { readSources, listTemplates, formProblems, toRecord, schemaProblems, fac
 import { ensureDev, shoot, autoChecks } from "./preview.mjs";
 import { npmRoot } from "./jobs.mjs";
 import { emailsIn } from "../../scripts/site-flags.mjs";
-import { preparationFingerprint, recordFile } from "./preparation-state.mjs";
+import { preparationFingerprint, recordFile, recordFingerprint } from "./preparation-state.mjs";
 import { openBlanks, fullBody } from "./compose.mjs";
 import { presetForm, presetEmail } from "./offer-presets.mjs";
 import * as unsplash from "./unsplash.mjs";
+import { reviewPaused } from "./workflow-state.mjs";
 
 async function choosePhotos(ctx, lead) {
   const queries = { hvac: "air conditioner outdoor unit tools", plumbing: "plumbing pipes tools", auto: "car engine tools", dental: "empty dental chair room", chiro: "empty treatment room", medspa: "skincare tray products" };
@@ -24,6 +25,7 @@ async function choosePhotos(ctx, lead) {
 export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
   const l = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
   if (!l || !["found", "draft"].includes(l.status) || l.bucket !== "qualified") throw new Error("Only a qualified, unapproved lead can be prepared.");
+  if (reviewPaused(ctx.db, id)) throw new Error("This preview has a saved review decision. Changes require a separate, authorized editing step.");
   if (!l.email || isOptedOut(ctx.db, l.email)) throw new Error("No contactable business mailbox.");
   const originalFile = l.slug ? recordFile(ctx, l) : null;
   const original = originalFile && existsSync(originalFile) ? readFileSync(originalFile, "utf8") : null;
@@ -36,7 +38,7 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
   const checkCurrent = () => {
     if (cancelled()) throw new Error("Preparation cancelled.");
     const current = ctx.db.prepare("SELECT status, email, slug FROM leads WHERE id = ?").get(id);
-    if (!current || !["found", "draft"].includes(current.status) || current.slug !== initialSlug || current.email !== l.email || isOptedOut(ctx.db, current.email)) throw new Error("Lead decision changed during preparation.");
+    if (!current || reviewPaused(ctx.db, id) || !["found", "draft"].includes(current.status) || current.slug !== initialSlug || current.email !== l.email || isOptedOut(ctx.db, current.email)) throw new Error("Lead decision changed during preparation.");
     if (originalFile && readFileSync(originalFile, "utf8") !== original) throw new Error("Draft was edited during preparation; those edits were preserved.");
     if (json(ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(id)) !== mailVersion) throw new Error("Email was edited during preparation; those edits were preserved.");
   };
@@ -94,7 +96,7 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
     if (cancelled() || readFileSync(recordFile(ctx, l), "utf8") !== written || json(ctx.db.prepare("SELECT to_addr, subject, body FROM emails WHERE lead_id = ?").get(id)) !== mailWritten) throw new Error("Content changed during checks; preparation must run again.");
     const current = ctx.db.prepare("SELECT status FROM leads WHERE id = ?").get(id);
     if (current?.status !== "draft" || isOptedOut(ctx.db, l.email)) throw new Error("Lead decision changed during preparation.");
-    const report = { sourceUrls: pages.map((p) => p.url), screenshots, passed: true,
+    const report = { sourceUrls: pages.map((p) => p.url), screenshots, passed: true, recordFingerprint: recordFingerprint(rec),
       summary: `${rec.template}: a reusable concept offer with source-matched business details${form.f.city?.v ? "" : "; unverified location omitted"}. Technical checks passed. Your approval is the final design and wording review.`,
       checkedAt: now(), checks: Object.keys(auto), reviewer: "Source matching + technical checks; founder reviews final appearance" };
     const fingerprint = preparationFingerprint(ctx, l, report);

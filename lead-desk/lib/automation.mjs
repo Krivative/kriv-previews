@@ -4,6 +4,7 @@ import { jobStatus, startJob, startCheck, startFind, startShots } from "./jobs.m
 import { prepareLead } from "./preparation.mjs";
 import { preparationReadiness } from "./preparation-state.mjs";
 import { isExcluded } from "../../scripts/finder/rules.mjs";
+import { reviewPaused } from "./workflow-state.mjs";
 
 export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: ["hvac", "dental", "chiro", "medspa", "plumbing", "auto"], lists: [] };
 const setting = (db, key) => db.prepare("SELECT value FROM settings WHERE key = ?").get(key)?.value;
@@ -15,6 +16,7 @@ function due(p) { return !p || p.state === "queued" || (p.state !== "preparing" 
 export function nextPreparation(ctx) {
   const rows = ctx.db.prepare("SELECT * FROM leads WHERE bucket = 'qualified' AND status IN ('found', 'draft') ORDER BY status = 'draft' DESC, updated_at").all().map(rowToLead);
   return rows.find((l) => {
+    if (reviewPaused(ctx.db, l.id)) return false;
     if (!l.email || isOptedOut(ctx.db, l.email) || ctx.db.prepare("SELECT status FROM emails WHERE lead_id = ?").get(l.id)?.status === "sent") return false;
     const p = ctx.db.prepare("SELECT * FROM preparations WHERE lead_id = ?").get(l.id);
     return due(p) || (p?.state === "ready" && !preparationReadiness(ctx, l).ready);
@@ -32,7 +34,7 @@ export function automationTick(ctx) {
   const queuedRevision = ctx.db.prepare("SELECT lead_id FROM preparations WHERE state = 'queued' AND revision IS NOT NULL LIMIT 1").get();
   if (queuedRevision) {
     const lead = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(queuedRevision.lead_id));
-    if (lead && ["found", "draft"].includes(lead.status) && lead.bucket === "qualified") return startPreparation(ctx, lead);
+    if (lead && !reviewPaused(ctx.db, lead.id) && ["found", "draft"].includes(lead.status) && lead.bucket === "qualified") return startPreparation(ctx, lead);
   }
   if (preparedToday >= 10) return;
   const lead = nextPreparation(ctx);

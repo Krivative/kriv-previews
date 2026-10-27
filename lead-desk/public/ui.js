@@ -1,11 +1,14 @@
 // Shared helpers for every screen: API calls, escaping, toast, the lead detail dialog.
 const TOKEN = document.querySelector('meta[name="desk-token"]').content;
+let navigationSignal;
+export const setNavigationSignal = (signal) => { navigationSignal = signal; };
 
 export async function api(path, body, method = body === undefined ? "GET" : "POST") {
   const res = await fetch(`/api/${path}`, {
     method,
     headers: method === "GET" ? {} : { "Content-Type": "application/json", "X-Desk-Token": TOKEN },
     body: method === "GET" ? undefined : JSON.stringify(body ?? {}),
+    signal: navigationSignal,
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
@@ -58,9 +61,8 @@ export async function openLead(id) {
     </div>
     <div class="dlg-body">
       <div class="row">
-        ${l.status === "draft" ? `<button class="btn ok" data-status="approved">Approve this page</button>` : ""}
-        ${l.status !== "declined" ? `<button class="btn bad" data-status="declined">Decline</button>` : `<button class="btn" data-status="found">Undo decline</button>`}
-        ${l.status === "approved" ? `<a class="btn" href="#approve">Publish…</a>` : ""}
+        ${["draft", "approved"].includes(l.status) ? `<a class="btn primary" href="#focus/${esc(l.id)}/design">Review preview</a>` : `<a class="btn" href="#focus/${esc(l.id)}/history">Review history</a>`}
+        ${l.status === "approved" ? `<a class="btn" href="#focus/${esc(l.id)}/publish">Publication readiness</a>` : ""}
         ${["found", "draft"].includes(l.status) && l.bucket === "qualified" ? `<a class="btn" href="#build/${esc(l.id)}">Build preview</a>` : ""}
         ${l.email ? `<a class="btn" href="#email/${esc(l.id)}">Email</a>` : ""}
         <a class="btn" href="#linkedin/${esc(l.id)}">LinkedIn</a>

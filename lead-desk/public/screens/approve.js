@@ -8,20 +8,19 @@ export async function render(view) {
   const head = (c) => `<div class="row" style="justify-content:space-between"><div><span class="eyebrow">${esc(NICHES[c.niche] ?? c.niche ?? "")} · ${esc([c.town, c.state].filter(Boolean).join(", "))} · ${esc(c.template ?? "")}</span>
     <h2 style="margin:0"><a href="#" data-open="${esc(c.id)}">${esc(c.name)}</a></h2><span class="small mono">kriv.agency/${esc(c.slug)}</span></div>${pill(c.status)}</div>`;
   view.innerHTML = `
-    <h1>Approve and publish</h1>
-    <p class="small muted">Approving needs every QA item ticked and an email draft. Publishing then commits only <span class="mono">leads/&lt;slug&gt;.json</span> to main from a clean copy (${esc(d.worktree)}), runs lint, typecheck, tests, build and smoke checks, pushes, and waits until kriv.agency shows the page. Nothing happens without your click.</p>
+    <h1>Publication tools</h1>
+    <p class="small muted">Use focused review to approve the design, finish its checks and review its email. Publication approval and the final publish confirmation remain separate. This advanced screen retains page-removal controls and publishing details.</p>
     <div id="job"></div>
     <section style="display:grid;gap:12px"><h2>Waiting for your approval (${d.drafts.length})</h2>
       ${d.drafts.map((c) => `<article class="panel" style="display:grid;gap:8px">${head(c)}${shots(c)}
         <div class="small">QA ${c.qaDone}/${c.qaTotal} · email ${c.email ? `${esc(c.email.status)}: "${esc(c.email.subject)}"` : "not written"}</div>
         <details><summary class="small">Facts and sources (${c.facts.length})</summary><table><tbody>${c.facts.map((f) => `<tr><td>${esc(f.label)}</td><td>${esc(f.value)}</td><td>${link(f.source)}</td></tr>`).join("")}</tbody></table></details>
         ${c.blockers.length ? `<ul class="small" style="color:var(--warn)">${c.blockers.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : ""}
-        <div class="row"><button class="btn ok" data-approve="${esc(c.id)}" ${c.blockers.length ? "disabled" : ""}>Approve this page</button>
-          <button class="btn bad" data-decline="${esc(c.id)}">Decline</button><a class="btn" href="#build/${esc(c.id)}">Edit</a><a class="btn" href="#email/${esc(c.id)}">Email draft</a></div></article>`).join("") || '<p class="muted">Nothing waiting.</p>'}
+        <div class="row"><a class="btn primary" href="#focus/${esc(c.id)}/publish">Review readiness</a><a class="btn" href="#build/${esc(c.id)}">Edit</a><a class="btn" href="#focus/${esc(c.id)}/email">Email draft</a></div></article>`).join("") || '<p class="muted">Nothing waiting.</p>'}
     </section>
     <section style="display:grid;gap:12px"><h2>Approved, not live yet (${d.approved.length})</h2>
       ${d.approved.map((c) => `<article class="panel" style="display:grid;gap:8px" data-card="${esc(c.id)}">${head(c)}
-        <div class="row"><button class="btn primary" data-plan="${esc(c.id)}">Publish…</button></div><div data-confirm></div></article>`).join("") || '<p class="muted">Nothing to publish.</p>'}
+        <div class="row"><a class="btn primary" href="#focus/${esc(c.id)}/publish">Review publication</a></div><div data-confirm></div></article>`).join("") || '<p class="muted">Nothing to publish.</p>'}
     </section>
     ${d.takedowns.length ? `<section style="display:grid;gap:12px"><h2>Opted out: take the page down (${d.takedowns.length})</h2>
       ${d.takedowns.map((c) => `<article class="panel" style="display:grid;gap:8px" data-card="${esc(c.id)}">${head(c)}<div class="row"><button class="btn bad" data-plan="${esc(c.id)}">Take down…</button></div><div data-confirm></div></article>`).join("")}</section>` : ""}`;

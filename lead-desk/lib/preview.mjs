@@ -4,10 +4,13 @@
 import { spawn, execFile } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { sitePages, pageHref } from "../../src/lib/site-pages.ts";
+import { SiteData } from "../../src/lib/site-schema.ts";
 
 export const DEV_PORT = 3100;
 const DEV = `http://localhost:${DEV_PORT}/for`;
 let devServer = null;
+export const AUTO_QA_PREFIXES = ["`pnpm test` passes", "Banner at the top", "`X-Robots-Tag", "Links:", "`status` is `draft`", "No email address in the lead JSON", "Footer credit present", "Each photo's Unsplash page", "Desktop 1440 px and phone 390 px", "Page title and description"];
 
 async function devUp() {
   try { const r = await fetch(`${DEV}/test-lead`); return r.status === 200; } catch { return false; }
@@ -37,7 +40,7 @@ export function qaChecklist(repo) {
     const h = line.match(/^## (\d)\. (.*)$/);
     if (h) section = Number(h[1]) <= 5 ? `${h[1]}. ${h[2]}` : "";
     const m = line.match(/^- \[ \] (.*)$/);
-    if (m && section) out.push({ section, item: m[1] });
+    if (m && section) out.push({ section, item: m[1], auto: AUTO_QA_PREFIXES.some((p) => m[1].startsWith(p)) });
   }
   return out;
 }
@@ -46,21 +49,23 @@ const notice = (name) => `Concept preview prepared by KRIV for ${name}. Not affi
 const addDays = (iso, n) => new Date(Date.parse(`${iso}T00:00:00Z`) + n * 864e5).toISOString().slice(0, 10);
 
 /** Automatic checks against the served draft. Returns { [item text]: { pass, why } }. */
-export async function autoChecks(rec, { schemaOk, shootOk }) {
+export async function autoChecks(rec, { schemaOk, shootOk, allowApproved = false }) {
   const res = await fetch(`${DEV}/${rec.slug}`);
   const html = await res.text();
   const body = html.split("</head>")[1] ?? "";
   const name = rec.business.name.replace(/&/g, "&amp;").replace(/'/g, "&#x27;");
   const hrefs = [...body.matchAll(/href="([^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, "&"));
-  const badLinks = hrefs.filter((h) => !h.startsWith("#") && !(/^https:\/\/unsplash\.com\//.test(h) && h.includes("utm_source=kriv_previews") && h.includes("utm_medium=referral")));
+  const validated = SiteData.safeParse(rec);
+  const internal = new Set(validated.success ? sitePages(validated.data).map((p) => `/for${pageHref(validated.data, p.path)}`) : []);
+  const badLinks = hrefs.filter((h) => !h.startsWith("#") && !internal.has(h.split("#")[0]) && !(/^https:\/\/unsplash\.com\//.test(h) && h.includes("utm_source=kriv_previews") && h.includes("utm_medium=referral")));
   const stock = (rec.brand?.photoCredits ?? []).filter((c) => c.provider === "Unsplash");
   const r = (pass, why) => ({ pass, why });
   return {
     "`pnpm test` passes": r(schemaOk && res.status === 200, schemaOk ? `schema valid, page answers ${res.status} (pnpm test runs again before publishing)` : "schema problems"),
     "Banner at the top": r(body.split(notice(name)).length - 1 >= 2, "banner text found at the top and in the footer"),
     "`X-Robots-Tag": r(res.headers.get("x-robots-tag") === "noindex, nofollow" && /<meta name="robots" content="noindex, nofollow"/.test(html), `header: ${res.headers.get("x-robots-tag")}`),
-    "Links:": r(!badLinks.length && !/<form/i.test(body), badLinks.length ? `live links: ${badLinks.slice(0, 3).join(", ")}` : "only #anchors and Unsplash credit links"),
-    "`status` is `draft`": r(rec.status === "draft" && rec.expiresAt === addDays(rec.createdAt, 30), `${rec.status}, ${rec.createdAt} to ${rec.expiresAt}`),
+    "Links:": r(!badLinks.length && !/<form/i.test(body), badLinks.length ? `live links: ${badLinks.slice(0, 3).join(", ")}` : "only known concept pages, #anchors and Unsplash credit links"),
+    "`status` is `draft`": r((rec.status === "draft" || (allowApproved && rec.status === "approved")) && rec.expiresAt === addDays(rec.createdAt, 30), `${rec.status}, ${rec.createdAt} to ${rec.expiresAt}`),
     "No email address in the lead JSON": r(!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i.test(JSON.stringify(rec)), "no address in the record"),
     "Footer credit present": r(!stock.length || body.includes("Stock photos for illustration, not of"), stock.length ? "credit line found" : "no stock photos"),
     "Each photo's Unsplash page": r((rec.brand?.photoCredits ?? []).length === (rec.brand?.photos ?? []).length && (rec.brand?.photoCredits ?? []).every((c) => rec.sources.includes(c.photoPage ?? c.source)), "credits match photos, pages in sources"),

@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { now, log, rowToLead, isOptedOut, tx } from "./db.mjs";
 import { laterStatus } from "./leads.mjs";
 import { loadTemplates, valuesFor, fill, openBlanks, fullBody, gmailComposeUrl, DAILY_EMAIL_LIMIT, LINKEDIN_NOTE_MAX } from "./compose.mjs";
+import { workflowOf, reviewHold, mailVersion, contactBlocked } from "./workflow-state.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const lead = (db, id) => rowToLead(db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
@@ -14,6 +15,10 @@ const sentToday = (db) => db.prepare("SELECT COUNT(*) n FROM emails WHERE status
 export function emailBlockers(db, l, mail) {
   const out = [];
   if (mail?.status === "sent") return [`Already sent${mail.sent_at ? ` on ${mail.sent_at.slice(0, 10)}` : ""}: it's a one-time email, so Gmail won't open for it again.`];
+  if (reviewHold(db, l.id)) out.push("This concept is declined or awaiting revision.");
+  const w = workflowOf(db, l.id);
+  if (w && w.email_version !== mailVersion(mail)) out.push("Review the current outgoing email first.");
+  if (isOptedOut(db, l.email)) out.push("The business is on the do-not-contact list.");
   if (!mail) out.push("No draft yet: start from a template and save it.");
   else if (!mail.to_addr) out.push("No email address.");
   else if (isOptedOut(db, mail.to_addr)) out.push("This address or its domain is on the do-not-contact list.");
@@ -32,6 +37,7 @@ function emailView(db, l, leadsDir) {
   return {
     lead: { id: l.id, name: l.name, status: l.status, email: l.email, email_found_at: l.email_found_at, slug: l.slug, website: l.website, website_status: l.website_status, flags: l.flags, looks_dated: l.looks_dated, town: l.town },
     mail,
+    version: mailVersion(mail),
     preview: mail ? fullBody(mail.body) : null,
     templates: loadTemplates().email.map(({ id, label }) => ({ id, label })),
     blockers,
@@ -81,6 +87,7 @@ export const outreachRoutes = [
     const l = lead(db, params.id);
     if (!l) return bad("no such lead", 404);
     if (body.to && isOptedOut(db, body.to)) return bad("That address is on the do-not-contact list.");
+    if (body.expectedVersion !== undefined && body.expectedVersion !== mailVersion(db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(l.id))) return bad("The email changed in another window. Reload before replacing it.", 409);
     try { saveEmail(db, l, body, leadsDir); } catch (e) { return bad(e.message); }
     return emailView(db, l, leadsDir);
   }],
@@ -89,7 +96,9 @@ export const outreachRoutes = [
     const l = lead(db, params.id);
     const mail = l && db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(l.id);
     if (!mail) return bad("no email draft", 404);
+    if (mail.status === "sent") return emailView(db, l, leadsDir);
     if (!["live", "sent", "replied"].includes(l.status)) return bad("The page is not live; an email can't have been sent with a working link.");
+    if (reviewHold(db, l.id) || contactBlocked(db, l, mail)) return bad("Outreach is blocked for this lead.");
     tx(db, () => {
       db.prepare("UPDATE emails SET status = 'sent', sent_at = ?, updated_at = ? WHERE lead_id = ?").run(now(), now(), l.id);
       db.prepare("UPDATE leads SET status = ?, updated_at = ? WHERE id = ?").run(laterStatus(l.status, "sent"), now(), l.id);
@@ -100,6 +109,8 @@ export const outreachRoutes = [
   ["POST", /^\/api\/leads\/(?<id>[^/]+)\/replied$/, ({ db, params }) => {
     const l = lead(db, params.id);
     if (!l) return bad("no such lead", 404);
+    if (!["sent", "replied"].includes(l.status)) return bad("Record a reply only after outreach has been marked sent.");
+    if (l.status === "replied") return { ok: true };
     db.prepare("UPDATE leads SET status = ?, updated_at = ? WHERE id = ?").run(laterStatus(l.status, "replied"), now(), l.id);
     log(db, l.id, "replied (marked by Kriv)");
     return { ok: true };

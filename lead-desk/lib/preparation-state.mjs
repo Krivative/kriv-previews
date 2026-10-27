@@ -10,6 +10,9 @@ export function recordFile(ctx, lead) {
   if (!SLUG_PATTERN.test(lead.slug ?? "")) throw new Error("No valid draft address.");
   return join(ctx.repo, "leads", `${lead.slug}.json`);
 }
+export function recordFingerprint(rec) {
+  return createHash("sha256").update(JSON.stringify({ ...rec, status: "draft" })).digest("hex");
+}
 export function preparationFingerprint(ctx, lead, report) {
   const rec = JSON.parse(readFileSync(recordFile(ctx, lead), "utf8"));
   rec.status = "draft"; // Kriv's approval changes status, not the content that was reviewed.

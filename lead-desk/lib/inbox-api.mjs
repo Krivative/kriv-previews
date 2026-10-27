@@ -1,10 +1,11 @@
-import { now, json, parse, rowToLead, log } from "./db.mjs";
+import { json, parse, rowToLead, log } from "./db.mjs";
 import { preparationReadiness } from "./preparation-state.mjs";
 import { automationStatus, automationTick, DEFAULT_SEARCH } from "./automation.mjs";
 import { approveBlockers } from "./approve-api.mjs";
 import { fullBody } from "./compose.mjs";
 import { REVISIONS } from "./offer-presets.mjs";
 import { jobStatus } from "./jobs.mjs";
+import { decideReview } from "./workflow-api.mjs";
 
 const bad = (error, httpStatus = 400) => ({ httpStatus, body: { error } });
 export const inboxRoutes = [
@@ -48,13 +49,7 @@ export const inboxRoutes = [
     try { automationTick(ctx); return { ok: true }; } catch (e) { return bad(e.message); }
   }],
   ["POST", /^\/api\/inbox\/(?<id>[^/]+)\/revision$/, (ctx) => {
-    const l = ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(ctx.params.id);
-    const request = String(ctx.body.request ?? "").trim();
-    if (!l || !["found", "draft"].includes(l.status) || l.bucket !== "qualified") return bad("Revisions are available for qualified, unapproved previews only.");
-    if (!REVISIONS.includes(request)) return bad("Choose a preset design or wording revision.");
-    if (ctx.db.prepare("SELECT state FROM preparations WHERE lead_id = ?").get(l.id)?.state === "preparing") return bad("This preview is being prepared. Please wait before requesting another revision.", 409);
-    ctx.db.prepare("INSERT INTO preparations (lead_id, state, revision, updated_at) VALUES (?, 'queued', ?, ?) ON CONFLICT(lead_id) DO UPDATE SET state = 'queued', revision = excluded.revision, fingerprint = NULL, updated_at = excluded.updated_at").run(l.id, request, now());
-    log(ctx.db, l.id, "revision requested", { request });
-    return { ok: true, paused: !automationStatus(ctx).running };
+    // Kept as a safe compatibility alias. Old tabs must reload to supply version tokens.
+    return decideReview({ ...ctx, body: { ...ctx.body, decision: "revision", feedback: ctx.body.feedback ?? ctx.body.request } });
   }],
 ];

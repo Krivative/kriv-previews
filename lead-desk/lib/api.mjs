@@ -12,6 +12,9 @@ import { buildRoutes } from "./build-api.mjs";
 import { approveRoutes, approveLead } from "./approve-api.mjs";
 import { aiRoutes } from "./ai-api.mjs";
 import { inboxRoutes } from "./inbox-api.mjs";
+import { workflowRoutes } from "./workflow-api.mjs";
+import { reviewCheckRoutes } from "./review-checks.mjs";
+import { reviewHold, workflowOf } from "./workflow-state.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const leadOr404 = (db, id) => db.prepare("SELECT * FROM leads WHERE id = ?").get(id);
@@ -22,8 +25,8 @@ export const NICHES = { dental: "Dental", hvac: "HVAC", chiro: "Chiropractic", m
 export function needsKriv(db) {
   const out = [];
   const q = (sql, ...a) => db.prepare(sql).all(...a);
-  for (const l of q("SELECT id, name FROM leads WHERE status = 'draft' ORDER BY updated_at DESC")) out.push({ kind: "approve", id: l.id, title: `Approve or decline the preview for ${l.name}`, screen: "approve" });
-  for (const l of q("SELECT id, name FROM leads WHERE status = 'approved' ORDER BY updated_at DESC")) out.push({ kind: "publish", id: l.id, title: `Publish ${l.name} (approved, not live yet)`, screen: "approve" });
+  for (const l of q("SELECT id, name FROM leads WHERE status = 'draft' ORDER BY updated_at DESC").filter((l) => !reviewHold(db, l.id))) out.push({ kind: "approve", id: l.id, title: `Review the preview and next step for ${l.name}`, screen: "focus" });
+  for (const l of q("SELECT id, name FROM leads WHERE status = 'approved' ORDER BY updated_at DESC").filter((l) => !reviewHold(db, l.id))) out.push({ kind: "publish", id: l.id, title: `Review publication for ${l.name}`, screen: "focus" });
   for (const l of q("SELECT l.id, l.name FROM leads l LEFT JOIN emails e ON e.lead_id = l.id WHERE l.status = 'live' AND COALESCE(e.status, 'draft') != 'sent' ORDER BY l.updated_at DESC")) out.push({ kind: "email", id: l.id, title: `Send the email to ${l.name} (page is live)`, screen: "email" });
   for (const l of q("SELECT l.id, l.name FROM leads l JOIN linkedin k ON k.lead_id = l.id WHERE k.status = 'to send' AND l.status IN ('live', 'sent', 'replied')")) out.push({ kind: "linkedin", id: l.id, title: `LinkedIn note to ${l.name}`, screen: "linkedin" });
   for (const l of q("SELECT id, name FROM leads WHERE status = 'expired' AND slug IS NOT NULL AND id IN (SELECT lead_id FROM history WHERE action = 'opt-out')")) out.push({ kind: "takedown", id: l.id, title: `Take down ${l.name}'s page (opted out)`, screen: "approve" });
@@ -89,6 +92,7 @@ function postStatus(ctx) {
   const l = leadOr404(db, params.id);
   if (!l) return bad("no such lead", 404);
   if (!STATUSES.includes(body.status)) return bad("unknown status");
+  if (l.slug && ["found", "declined"].includes(body.status) && (["draft", "approved"].includes(l.status) || workflowOf(db, l.id))) return bad("Use focused review to decline or reconsider a concept and preserve its reviewed version.");
   if (["live", "sent", "replied", "draft", "expired"].includes(body.status)) return bad(`${body.status} is set by Publish, Build, Email or an opt-out, not by hand`);
   if (body.status === "approved") {
     const r = approveLead(ctx, l.id);
@@ -98,11 +102,15 @@ function postStatus(ctx) {
 }
 
 function postNote({ db, params, body }) {
-  if (!leadOr404(db, params.id)) return bad("no such lead", 404);
+  const l = leadOr404(db, params.id);
+  if (!l) return bad("no such lead", 404);
   const note = String(body.note ?? "").trim() || null;
+  if (note && note.length > 6000) return bad("Keep notes under 6,000 characters.");
+  if (body.expectedNote !== undefined && String(l.note ?? "") !== body.expectedNote) return bad("Notes changed in another window. Your text is still here; reload before replacing the saved note.", 409);
+  if (l.note === note) return { ok: true, note };
   db.prepare("UPDATE leads SET note = ?, updated_at = ? WHERE id = ?").run(note, now(), params.id);
   log(db, params.id, "note", note);
-  return { ok: true };
+  return { ok: true, note };
 }
 
 /**
@@ -147,5 +155,7 @@ export const routes = [
   ...approveRoutes,
   ...aiRoutes,
   ...inboxRoutes,
+  ...workflowRoutes,
+  ...reviewCheckRoutes,
   ["GET", /^\/api\/history$/, ({ db }) => db.prepare("SELECT h.at, h.lead_id, l.name, h.action, h.detail FROM history h LEFT JOIN leads l ON l.id = h.lead_id ORDER BY h.at DESC, h.id DESC LIMIT 100").all()],
 ];

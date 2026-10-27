@@ -52,6 +52,29 @@ CREATE TABLE IF NOT EXISTS preparations (
   lead_id TEXT PRIMARY KEY, state TEXT NOT NULL DEFAULT 'queued', report TEXT, fingerprint TEXT,
   revision TEXT, attempts INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS lead_workflow (
+  lead_id TEXT PRIMARY KEY,
+  revision INTEGER NOT NULL DEFAULT 0,
+  decision TEXT NOT NULL DEFAULT 'pending',
+  preview_version TEXT,
+  decision_at TEXT,
+  feedback TEXT NOT NULL DEFAULT '', section TEXT NOT NULL DEFAULT '',
+  decline_reason TEXT NOT NULL DEFAULT '', decline_scope TEXT NOT NULL DEFAULT 'concept',
+  email_version TEXT, publication_version TEXT,
+  followup_due TEXT, followup_note TEXT NOT NULL DEFAULT '', followup_done INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS review_decisions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, request_id TEXT UNIQUE NOT NULL,
+  lead_id TEXT NOT NULL, decision TEXT NOT NULL, preview_version TEXT,
+  feedback TEXT, section TEXT, reason TEXT, scope TEXT,
+  snapshot TEXT NOT NULL, at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS review_drafts (
+  lead_id TEXT PRIMARY KEY, revision INTEGER NOT NULL DEFAULT 0,
+  feedback TEXT NOT NULL DEFAULT '', section TEXT NOT NULL DEFAULT '',
+  updated_at TEXT NOT NULL
+);
 `;
 
 // Columns added after the first release, for databases created before them.
@@ -71,6 +94,7 @@ export const parse = (s, d = null) => { try { return s == null ? d : JSON.parse(
 export const digits = (p) => (p ? String(p).replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "") || null : null);
 export const slugify = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80) || "lead";
 
+/** @param {unknown} detail */
 export function log(db, leadId, action, detail = null) {
   db.prepare("INSERT INTO history (at, lead_id, action, detail) VALUES (?, ?, ?, ?)").run(now(), leadId, action, detail == null ? null : typeof detail === "string" ? detail : json(detail));
 }
