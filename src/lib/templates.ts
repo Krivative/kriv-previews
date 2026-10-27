@@ -1,13 +1,13 @@
 import type { SectionRef } from "./site-schema";
 
 // A template = a look (tokens + fonts) + a default section list + its fingerprint.
-// Sections themselves are shared (src/sections); a template never ships page code.
+// Shared presentation owns the compositions; template records select a design.
 export type TemplateDef = {
   id: string;
   name: string;
   look: "calm" | "bold";
   /** Independently art-directed page composition; legacy section recipes remain valid. */
-  composition?: "canvas" | "index" | "stage";
+  composition?: "canvas" | "index" | "stage" | "atrium" | "signal" | "nocturne" | "press" | "roastery" | "tablecloth" | "furnace" | "botanical" | "runway" | "tide" | "vault" | "blueprint" | "orbit" | "velocity" | "chambers" | "horizon" | "archipelago" | "air" | "terminal" | "journal" | "axis" | "ripple" | "dispatch";
   industries: string[];
   fonts: {
     display: string; // CSS font-family value

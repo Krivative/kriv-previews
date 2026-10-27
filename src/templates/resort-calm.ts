@@ -5,6 +5,7 @@ export const resortCalm = defineTemplate({
   id: "resort-calm",
   name: "Shore",
   look: "calm",
+  composition: "horizon",
   industries: ["beach resort", "boutique hotel", "private pool villa", "bed and breakfast", "dive resort"],
   fonts: {
     display: "Prata, Georgia, serif",
@@ -36,11 +37,11 @@ export const resortCalm = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "beach resort, warm sand, ocean blue, Prata serif, rounded cards and pill buttons",
-    nav: "serif wordmark, ocean-blue pill CTA",
-    hero: "full-bleed photo banner with serif copy at the bottom, on a light page",
-    sequence: "banner → room grid → mosaic → quote → booking steps → visit split → FAQ → band",
-    close: "ocean-blue band",
-    signature: "the gallery mosaic comes right after the rooms, before any words about the place; three-step 'how to book'",
+    grammar: "landscape-led composition with a light caption card rising into its lower edge",
+    nav: "spare open horizontal masthead with small serif identity",
+    hero: "wide image followed by an overlapping light headline card and a side location label",
+    sequence: "landscape and caption, gallery, story spread, horizon offerings, notes, questions, folio",
+    close: "open contact folio with ample horizontal space",
+    signature: "long horizon-like offering rows beneath a photographic caption-card opening",
   },
 });

@@ -5,6 +5,7 @@ export const dentalBold = defineTemplate({
   id: "dental-bold",
   name: "Bright",
   look: "bold",
+  composition: "signal",
   industries: ["dental clinic", "cosmetic dentist", "implant centre", "orthodontist"],
   fonts: {
     display: "Syne, system-ui, sans-serif",
@@ -38,11 +39,11 @@ export const dentalBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "dark product-style landing, cards on a navy field",
-    nav: "wordmark left, square yellow CTA",
-    hero: "cinematic: full-screen photo, Syne headline with a sunny italic serif accent",
-    sequence: "cinematic → service grid → steps → photo strip → tilted cards → visit card → FAQ columns → giant yellow close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "faded giant words on deep navy and a giant sunny-yellow close",
+    grammar: "solid yellow message block beside a full-height portrait, geometric Syne display",
+    nav: "plain identity and compact right-hand links without a divider",
+    hero: "large text inside a solid colour block balanced by an edge-to-edge portrait and location tab",
+    sequence: "message block, supplied notes, numbered matrix, gallery, manifesto, questions, billboard",
+    close: "full-width accent billboard with factual contact columns",
+    signature: "a large numbered offering matrix with independently expandable blocks",
   },
 });

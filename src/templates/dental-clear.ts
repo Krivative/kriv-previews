@@ -5,6 +5,7 @@ export const dentalClear = defineTemplate({
   id: "dental-clear",
   name: "Clear",
   look: "calm",
+  composition: "atrium",
   industries: ["dental clinic", "family dentist", "orthodontist", "pediatric dentist"],
   fonts: {
     display: "Fraunces, Georgia, serif",
@@ -38,11 +39,11 @@ export const dentalClear = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "chaptered editorial, alternating white and tinted bands",
-    nav: "wordmark left, text links + pill CTA right",
-    hero: "cinematic: full-screen bright clinic photo, Fraunces headline with a teal italic accent",
-    sequence: "cinematic → numbered service rows → tilted cards → note → visit split → FAQ list → teal band",
-    close: "full-width accent band, centred headline, inverted button",
-    signature: "ledger-like numbered service rows with fixed name column right after a full-screen hero",
+    grammar: "open civic threshold, centered Fraunces type, arched low photo and quiet leaves",
+    nav: "centered identity above a separate horizontal navigation row",
+    hero: "centered headline above a low arch image, a vertical location note and separate introduction",
+    sequence: "threshold, paired offering leaves, two-page story, supplied notes, gallery, questions, contact folio",
+    close: "spacious two-column contact folio",
+    signature: "two calm offering leaves unfold independently beneath a low photographic threshold",
   },
 });

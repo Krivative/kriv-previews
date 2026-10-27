@@ -22,7 +22,7 @@ export function pendingPublication(db, id) {
 
 // Include presentation code: a shared-template edit also changes what was visually accepted.
 function kitVersion(repo, template) {
-  const files = ["src/sections/Sections.tsx", "src/sections/Chrome.tsx", "src/sections/Pages.tsx", "src/sections/SiteRenderer.tsx", "src/sections/Photo.tsx", "src/sections/Rich.tsx", "src/sections/ctas.ts", "src/sections/inert.ts", "src/sections/sections.module.css", "src/sections/SignatureSections.tsx", "src/sections/GalleryViewer.tsx", "src/sections/signature.module.css", "src/sections/ComposedSite.tsx", "src/sections/compositions.module.css", "src/lib/site-pages.ts", "src/app/globals.css"];
+  const files = ["src/sections/Sections.tsx", "src/sections/Chrome.tsx", "src/sections/Pages.tsx", "src/sections/SiteRenderer.tsx", "src/sections/Photo.tsx", "src/sections/Rich.tsx", "src/sections/ctas.ts", "src/sections/inert.ts", "src/sections/sections.module.css", "src/sections/SignatureSections.tsx", "src/sections/GalleryViewer.tsx", "src/sections/signature.module.css", "src/sections/ComposedSite.tsx", "src/sections/compositions.module.css", "src/sections/CollectionSite.tsx", "src/sections/CollectionParts.tsx", "src/sections/CollectionHomes.tsx", "src/sections/collection.module.css", "src/lib/site-pages.ts", "src/app/globals.css"];
   if (/^[a-z-]+$/.test(template ?? "")) files.push(`src/templates/${template}.ts`);
   const stamp = files.map((f) => { const p = join(repo, f); return existsSync(p) ? [f, statSync(p).mtimeMs, statSync(p).size] : [f, null]; });
   const key = JSON.stringify([repo, template, stamp]);

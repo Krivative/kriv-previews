@@ -5,6 +5,7 @@ export const cafeCalm = defineTemplate({
   id: "cafe-calm",
   name: "Bean",
   look: "calm",
+  composition: "roastery",
   industries: ["café", "coffee shop", "bakery", "dessert shop", "tea house"],
   fonts: {
     display: "Lora, Georgia, serif",
@@ -35,11 +36,11 @@ export const cafeCalm = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "soft rounded storefront page, latte palette",
-    nav: "serif wordmark, pill CTA in coffee brown",
-    hero: "split with photo right (rounded, arch corner)",
-    sequence: "split → columns → quote → photo strip → note → visit card → band",
-    close: "brown band",
-    signature: "menu set as serif columns, no rules, reading like a handwritten board",
+    grammar: "warm paper letter with an oval photograph, generous Lora type and a simple asterisk",
+    nav: "rounded capsule containing identity and small navigation",
+    hero: "large oval photograph on the left beside a personal-sized introductory letter",
+    sequence: "oval introduction, reading-width story, folded offerings, notes, gallery, questions, stamp",
+    close: "outlined warm contact stamp",
+    signature: "folded menu leaves with source-backed offering details, an oval image and a small typographic mark",
   },
 });

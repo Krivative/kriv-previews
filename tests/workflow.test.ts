@@ -86,6 +86,15 @@ describe("founder workflow", () => {
     expect(f.view(id).state.designApproved).toBe(false);
   });
 
+  it.each(["CollectionSite.tsx", "CollectionParts.tsx", "CollectionHomes.tsx", "collection.module.css"])("requires a fresh visual review after %s changes", (file) => {
+    const f = fixture(); const id = f.add();
+    f.decide(id, "approved");
+    expect(f.view(id).state.designApproved).toBe(true);
+    writeFileSync(join(f.repo, "src/sections", file), "synthetic changed collection presentation");
+    expect(f.view(id).state.designApproved).toBe(false);
+    expect(f.db.prepare("SELECT COUNT(*) n FROM review_decisions WHERE lead_id = ?").get(id).n).toBe(1);
+  });
+
   it("rejects stale tabs, empty feedback and repeated decisions without duplicate history", () => {
     const f = fixture(); const id = f.add();
     expect(f.decide(id, "revision", { feedback: " " })).toMatchObject({ httpStatus: 400 });

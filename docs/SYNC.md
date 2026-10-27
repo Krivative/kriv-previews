@@ -56,3 +56,18 @@ gallery thumbnails live in `public/template-previews/`; no public lead listing
 is added to this app. The source navigation verifier supports native menus and
 loads nested-page images before screenshots. See `docs/DISTINCT-COMPOSITIONS.md`
 for checks and the source checkpoint/export.
+
+## Complete composition collection (2026-10-28)
+
+Kriv authorized continuing the remaining designs. All 26 now have independent
+default compositions; the first three remain intact. `CollectionHomes.tsx`,
+`CollectionSite.tsx`, `CollectionParts.tsx` and `collection.module.css` implement
+the remaining 23. Mirror these alongside `SiteRenderer.tsx`, the template registry
+and definitions. Adapt only `business.address.region` to `province` in
+`CollectionParts.tsx`. Do not copy preview lifecycle or source sample fields.
+All 26 source-only gallery cards now use actual fictional-page screenshots under
+`public/template-previews/`; the gallery app page/CSS remain source-only.
+The current catalog and fingerprint tables describe actual compositions, with
+saved section overrides retaining their older recipe. No sample content or
+photo source changes accompany this batch. `COMPLETE-COLLECTION.md` records
+verification and the source checkpoint/export; no external release is implied.

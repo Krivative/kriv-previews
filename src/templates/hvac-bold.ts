@@ -5,6 +5,7 @@ export const hvacBold = defineTemplate({
   id: "hvac-bold",
   name: "Thermal",
   look: "bold",
+  composition: "terminal",
   industries: ["HVAC company", "emergency heating and cooling", "commercial HVAC", "ductwork and ventilation", "refrigeration"],
   fonts: {
     display: "Sora, system-ui, sans-serif",
@@ -38,11 +39,11 @@ export const hvacBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "night-shift contractor, deep navy, amber heat accent, heavy tight Sora, 8px radii with pill buttons",
-    nav: "heavy sans wordmark, amber pill CTA",
-    hero: "cinematic: full-screen photo, heavy Sora headline with an amber italic serif accent, scroll cue",
-    sequence: "cinematic → amber emergency strip → service tiles → tilted cards → mosaic → visit split → FAQ list → giant amber close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "faded giant words behind every heading on navy, amber tiles, and a giant amber close",
+    grammar: "dark utility directory with a broad Sora headline and framed image-console split",
+    nav: "uppercase utility identity and small links above a fine amber rule",
+    hero: "wide headline over a framed photo and a directory containing sourced offering links",
+    sequence: "directory opening, offering console, supplied notes, questions, story aside, gallery, ruled close",
+    close: "factual contact spread beneath a strong amber rule",
+    signature: "a real offering directory opens an amber-outlined detail console without simulated live statuses",
   },
 });

@@ -1,6 +1,6 @@
 # Catalog
 
-Current direction (2026-10-28): all 26 designs remain in rotation across industries. The historical best-for column describes original sample positioning, not a restriction. Three default compositions are rebuilt; explicit saved section overrides preserve their existing recipe. See `DISTINCT-COMPOSITIONS.md`.
+Current direction (2026-10-28): all 26 designs now have distinct default homepage compositions and remain in rotation across industries. Business classification supplies page labels independently of design. Explicit saved section overrides retain their tailored recipe. All rebuilt layouts await Kriv's visual acceptance; earlier approvals describe earlier versions. See `COMPLETE-COLLECTION.md`.
 
 Interaction rollout (2026-10-27): Kriv approved the Breeze/Linen/Align pilots.
 All 26 recipes retain their layouts and now support progressive service details,
@@ -15,32 +15,32 @@ records each template's original section recipe. See `ARSENAL-REVAMP.md`.
 
 | id | name | look | best for | sections (default) | status |
 |---|---|---|---|---|---|
-| dental-clear | Clear | calm | dental clinic, family dentist, orthodontist, pediatric dentist | cinematic hero · editorial services · cards about · note custom · split visit · list faq · band close | batch 7 cinematic, for review |
-| dental-bold | Bright | bold | dental clinic, cosmetic dentist, implant centre | cinematic hero · grid services · steps custom · strip gallery · cards about · card visit · columns faq · giant close | batch 7 cinematic, for review |
-| aesthetic-calm | Linen | calm | all industries; content classification stays with the business | continuous scene · floating paper navigation · offset essay · paper offering explorer · quiet questions · contact folio | distinct composition rebuilt, for Kriv review |
-| aesthetic-bold | Gloss | bold | aesthetic clinic, lash and brow, nails | cinematic hero · menu services · strip custom · cards about · strip gallery · card visit · list faq · giant close | batch 7 cinematic, for review |
-| cafe-poster | Poster | bold | café, coffee shop, bakery, milk tea | poster hero · menu · quote · mosaic · visit card · statement | batch 1, approved |
-| cafe-calm | Bean | calm | café, coffee shop, bakery, dessert, tea house | split hero · service columns · quote · photo strip · note · visit card · band | batch 2, approved |
-| restaurant-calm | Table | calm | restaurant, bistro, Filipino, seafood, family | stacked hero · menu · about split · mosaic · note · visit split · close card | batch 2, approved |
-| restaurant-bold | Ember | bold | grill, barbecue, steakhouse, bar and restaurant, samgyupsal | banner hero · tiles · accent strip · photo strip · visit card · FAQ columns · statement | batch 2, approved |
-| salon-calm | Mane | calm | hair salon, beauty salon, nail salon, brow and lash | centred hero · service rows · steps · mosaic · visit split · FAQ list · close card | batch 2, approved |
-| salon-bold | Studio | bold | hair studio, barbershop, colour bar, nail art | poster hero · tiles · mosaic · accent strip · visit card · band | batch 2, approved |
-| spa-calm | Still | calm | spa, massage, wellness centre, reflexology, hilot | split hero · service columns · photo strip · note · visit split · FAQ list · close card | batch 3, approved |
-| spa-bold | Onyx | bold | luxury spa, hotel spa, grooming lounge, massage and sauna | centred hero · menu · accent strip · mosaic · visit card · FAQ columns · band | batch 3, approved |
-| auto-calm | Workshop | calm | auto repair, car service, tyre and battery, car wash, motorcycle shop | cinematic hero · editorial services · steps custom · strip gallery · card visit · list faq · band close | batch 7 cinematic, for review |
-| auto-bold | Torque | bold | all industries; content classification stays with the business | graphic masthead · framed image stage · contents ticket · source notes · expandable offering index · asymmetric story · contact spread | distinct composition rebuilt, for Kriv review |
-| gym-calm | Form | calm | pilates, yoga, boutique gym, personal training, barre | centred hero · class grid · quote · mosaic · note · visit card · FAQ list · statement | batch 3, approved |
-| gym-bold | Pulse | bold | gym, crossfit, boxing and muay thai, HIIT, sports performance | banner hero · programme grid · accent strip · mosaic · visit split · FAQ list · statement | batch 4, for review |
-| office-calm | Ledger | calm | all industries; content classification stays with the business | persistent navigation rail · editorial headline · narrow image · indexed offering ledger · essay · contact ledger | distinct composition rebuilt, for Kriv review |
-| office-bold | Counsel | bold | law firm, financial advisory, architecture, engineering, corporate services | stacked hero · service columns · steps · quote · visit card · FAQ columns · close card | batch 4, for review |
-| resort-calm | Shore | calm | beach resort, boutique hotel, pool villa, B&B, dive resort | banner hero · room grid · mosaic · quote · steps · visit split · FAQ list · band | batch 4, for review |
-| resort-bold | Fiesta | bold | events venue, wedding venue, resort with halls, party place, mountain resort | stacked hero · package tiles · mosaic · accent strip · visit split · FAQ columns · band | batch 4, for review |
-| hvac-calm | Breeze | calm | HVAC contractor, heating and air, furnace repair, heat pumps, indoor air | cinematic hero · strip custom · service explorer · cards about · split visit · columns faq · giant close | interaction pilot, for review |
-| hvac-bold | Thermal | bold | HVAC company, 24/7 heating and cooling, commercial HVAC, ductwork, refrigeration | cinematic hero · strip custom · tiles services · cards about · mosaic gallery · split visit · list faq · giant close | batch 7 cinematic, for review |
-| chiro-calm | Align | calm | chiropractor, family chiropractic, sports chiropractic, physical therapy | cinematic hero · journey custom · editorial services · cards about · card visit · list faq · band close | interaction pilot, for review |
-| chiro-bold | Posture | bold | sports chiropractic, spine and posture clinic, sports rehab, mobility studio | poster hero · editorial services · note custom · strip gallery · cards about · card visit · columns faq · giant close | batch 7 cinematic, for review |
-| plumbing-calm | Tap | calm | plumber, drain cleaning, water heaters, leak repair, repiping | cinematic hero · editorial services · strip custom · cards about · card visit · columns faq · band close | batch 7 cinematic, for review |
-| plumbing-bold | Pressure | bold | plumbing company, emergency plumber, sewer and drain, commercial plumbing, gas lines | poster hero · strip custom · tiles services · strip gallery · cards about · card visit · list faq · giant close | batch 7 cinematic, for review |
+| dental-clear | Clear / atrium | calm | all industries; business content stays attached | threshold, paired offering leaves, two-page story, supplied notes, gallery, questions, contact folio | rebuilt composition, for Kriv review |
+| dental-bold | Bright / signal | bold | all industries; business content stays attached | message block, supplied notes, numbered matrix, gallery, manifesto, questions, billboard | rebuilt composition, for Kriv review |
+| aesthetic-calm | Linen / canvas | calm | all industries; business content stays attached | scene introduction → offset paper essay → paper offering explorer → quiet details and questions → contact folio | rebuilt composition, for Kriv review |
+| aesthetic-bold | Gloss / nocturne | bold | all industries; business content stays attached | portrait interruption, letter, curtain offerings, gallery, notes, questions, closing letter | rebuilt composition, for Kriv review |
+| cafe-poster | Poster / press | bold | all industries; business content stays attached | front page, classifieds, supplied notices, story spread, questions, gallery, contact stamp | rebuilt composition, for Kriv review |
+| cafe-calm | Bean / roastery | calm | all industries; business content stays attached | oval introduction, reading-width story, folded offerings, notes, gallery, questions, stamp | rebuilt composition, for Kriv review |
+| restaurant-calm | Table / tablecloth | calm | all industries; business content stays attached | book opening, dotted menu cards, letter, gallery, notes, questions, closing letter | rebuilt composition, for Kriv review |
+| restaurant-bold | Ember / furnace | bold | all industries; business content stays attached | panoramic opening, supplied notes, horizontal offering bands, story aside, questions, gallery, ruled close | rebuilt composition, for Kriv review |
+| salon-calm | Mane / botanical | calm | all industries; business content stays attached | frontispiece, offset specimen offerings, notes, centered story, gallery, questions, folio | rebuilt composition, for Kriv review |
+| salon-bold | Studio / runway | bold | all industries; business content stays attached | fashion opening, gallery, offering lookbook, manifesto, supplied notes, questions, billboard | rebuilt composition, for Kriv review |
+| spa-calm | Still / tide | calm | all industries; business content stays attached | circular pool, centered essay, supplied notes, soft offering pools, questions, gallery, folio | rebuilt composition, for Kriv review |
+| spa-bold | Onyx / vault | bold | all industries; business content stays attached | doorway, arched offering vaults, letter, supplied notes, gallery, questions, stamp | rebuilt composition, for Kriv review |
+| auto-calm | Workshop / blueprint | calm | all industries; business content stays attached | drawing plate, specification grid, notes, story spread, questions, gallery, ruled close | rebuilt composition, for Kriv review |
+| auto-bold | Torque / stage | bold | all industries; business content stays attached | graphic masthead and framed stage → compact source notes → large expandable offering index → asymmetric introduction → ruled contact spread | rebuilt composition, for Kriv review |
+| gym-calm | Form / orbit | calm | all industries; business content stays attached | diagonal orbit, supplied notes, story aside, ringed offerings, gallery, questions, stamp | rebuilt composition, for Kriv review |
+| gym-bold | Pulse / velocity | bold | all industries; business content stays attached | angled opening, stepped offering rungs, manifesto, supplied notes, questions, gallery, billboard | rebuilt composition, for Kriv review |
+| office-calm | Ledger / index | calm | all industries; business content stays attached | editorial opening → indexed offering ledger → two-column essay → source notes and questions → full-width contact ledger | rebuilt composition, for Kriv review |
+| office-bold | Counsel / chambers | bold | all industries; business content stays attached | formal document, supplied company letter, offering casefiles, notes, questions, gallery, closing letter | rebuilt composition, for Kriv review |
+| resort-calm | Shore / horizon | calm | all industries; business content stays attached | landscape and caption, gallery, story spread, horizon offerings, notes, questions, folio | rebuilt composition, for Kriv review |
+| resort-bold | Fiesta / archipelago | bold | all industries; business content stays attached | island grid, asymmetric offerings, gallery, supplied notes, story aside, questions, stamp | rebuilt composition, for Kriv review |
+| hvac-calm | Breeze / air | calm | all industries; business content stays attached | wayfinding opening, supplied notes, offering paths, questions, story spread, gallery, folio | rebuilt composition, for Kriv review |
+| hvac-bold | Thermal / terminal | bold | all industries; business content stays attached | directory opening, offering console, supplied notes, questions, story aside, gallery, ruled close | rebuilt composition, for Kriv review |
+| chiro-calm | Align / journal | calm | all industries; business content stays attached | frontispiece, expandable supplied notes, offering chapters, centered essay, questions, gallery, closing letter | rebuilt composition, for Kriv review |
+| chiro-bold | Posture / axis | bold | all industries; business content stays attached | portrait axis, manifesto, connected offering rows, gallery, supplied notes, questions, ruled close | rebuilt composition, for Kriv review |
+| plumbing-calm | Tap / ripple | calm | all industries; business content stays attached | oval scene, nested offering ripples, questions, notes, centered essay, gallery, folio | rebuilt composition, for Kriv review |
+| plumbing-bold | Pressure / dispatch | bold | all industries; business content stays attached | ticket opening, supplied notes, perforated offerings, story spread, gallery, questions, billboard | rebuilt composition, for Kriv review |
 
 Batch 7 (2026-10-25): the 12 pilot templates rebuilt on the cinematic kit (full-screen hero, italic accent words via *stars* in headings, numbered labels, scroll motion, ghost words, editorial services, tilted photo cards, giant close), after Kriv's reference sites ivorypremier.com and chaayrs-creates.vercel.app. Ideas only, no code copied.
 

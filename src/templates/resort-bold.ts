@@ -5,6 +5,7 @@ export const resortBold = defineTemplate({
   id: "resort-bold",
   name: "Fiesta",
   look: "bold",
+  composition: "archipelago",
   industries: ["events venue", "garden wedding venue", "resort with function halls", "party place", "mountain resort"],
   fonts: {
     display: "'Abril Fatface', Georgia, serif",
@@ -35,11 +36,11 @@ export const resortBold = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "deep jungle green with mango, fat display serif, 20px radii, pill buttons",
-    nav: "fat serif wordmark, mango pill CTA",
-    hero: "stacked on dark green: fat serif headline, wide rounded photo, then sub + buttons",
-    sequence: "stacked → package tiles → mosaic → mango strip → visit split → FAQ columns → band",
-    close: "mango band with green buttons",
-    signature: "rounded package tiles with every third filled mango, straight into a rounded mosaic",
+    grammar: "unequal rounded islands, fat display serif and a circular mango aside",
+    nav: "open horizontal identity with generous side spacing",
+    hero: "unequal grid of headline island, circular location aside, rounded photo and introductory copy",
+    sequence: "island grid, asymmetric offerings, gallery, supplied notes, story aside, questions, stamp",
+    close: "rounded-language contact stamp",
+    signature: "asymmetric offering islands expand while retaining a vertical mobile reading order",
   },
 });

@@ -5,6 +5,7 @@ export const restaurantBold = defineTemplate({
   id: "restaurant-bold",
   name: "Ember",
   look: "bold",
+  composition: "furnace",
   industries: ["grill", "barbecue", "steakhouse", "bar and restaurant", "samgyupsal"],
   fonts: {
     display: "Oswald, Impact, sans-serif",
@@ -35,11 +36,11 @@ export const restaurantBold = defineTemplate({
     { type: "close", variant: "statement" },
   ],
   fingerprint: {
-    grammar: "dark poster-grid, zero radius, uppercase everything",
-    nav: "uppercase wordmark, square orange CTA",
-    hero: "full-bleed photo banner with copy at the bottom edge",
-    sequence: "banner → tiles → strip → photo strip → visit card → FAQ columns → statement",
-    close: "giant uppercase statement, left-aligned",
-    signature: "service tiles with every third tile filled ember orange, no borders",
+    grammar: "wide panoramic strip over heavy condensed type and alternating charcoal bands",
+    nav: "uppercase tracked identity and links above a strong accent rule",
+    hero: "low landscape photograph with a factual caption block, then headline and introduction side by side",
+    sequence: "panoramic opening, supplied notes, horizontal offering bands, story aside, questions, gallery, ruled close",
+    close: "contact spread under a heavy accent rule",
+    signature: "full-width offering bands expand below a panoramic image and low typographic headline",
   },
 });

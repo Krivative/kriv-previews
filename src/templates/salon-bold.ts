@@ -5,6 +5,7 @@ export const salonBold = defineTemplate({
   id: "salon-bold",
   name: "Studio",
   look: "bold",
+  composition: "runway",
   industries: ["hair studio", "barbershop", "colour bar", "nail art studio"],
   fonts: {
     display: "Unbounded, system-ui, sans-serif",
@@ -34,11 +35,11 @@ export const salonBold = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "white fashion lookbook, black hairlines, one lime accent",
-    nav: "black-bordered square CTA, black hairline rules",
-    hero: "business name as a poster headline over a wide photo",
-    sequence: "poster → tiles → mosaic → strip → visit card → band",
-    close: "lime band with black buttons",
-    signature: "every rule and border is a 1px black hairline; lime appears only on tiles and the band",
+    grammar: "fashion contact sheet, heavy Unbounded typography, lime and exact black rules",
+    nav: "small uppercase identity within a pair of strong horizontal rules",
+    hero: "huge headline above a thin image strip flanked by actions and an editorial caption",
+    sequence: "fashion opening, gallery, offering lookbook, manifesto, supplied notes, questions, billboard",
+    close: "large lime contact billboard",
+    signature: "numbered lookbook rows turn into lime detail panels beneath a three-part contact sheet",
   },
 });

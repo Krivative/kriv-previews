@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-28 · Last step finished: three distinct compositions, cross-industry rotation and local Desk restart
+Updated: 2026-10-28 · Last step finished: complete 26-composition collection delivered locally (source commit 4e38fce, binary export, root commit and this PDF); Desk and gallery running locally
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -9,7 +9,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 ## Next up
 
 - [ ] Kriv: test the updated Lead Desk at `http://localhost:4321` (reload after restart). The server uses the existing database; no real-data pilot was performed by Codex. Review a concept with Approve / Revise / Decline and follow the single next action
-- [ ] Kriv: compare Linen/Canvas, Ledger/Index and Torque/Stage at `http://localhost:3101`. All three use the same fictional Hilom Wellness content and one credited image. Approve the quality level before gradually rebuilding the remaining 23 designs; all 26 stay in rotation across industries
+- [ ] Kriv: review all 26 distinct compositions at `http://localhost:3101` (gallery restarted and verified 2026-10-28). Continuing the remaining 23 was authorized and their implementation/QA is complete. The original three same-content comparisons remain; all 26 stay in rotation across industries
 - [ ] Clarify public release scope: the current designs and Desk are available locally. No public hosting release, push or merge has been performed; the meaning of “live” remains unconfirmed
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
@@ -24,6 +24,10 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Complete composition implementation and QA (Codex/Astra, 2026-10-28; uncommitted delivery handed to Claude): 23 new independent homepage structures plus the original three, all available across industries. Existing content/photos and explicit section overrides preserved; source gallery has 26 actual thumbnails. Four new presentation files invalidate stale visual approval without deleting history. All five checks pass (357 tests, 16 smoke), source lint/webpack build pass, 156 device/motion cases, 26 native fallbacks, 52 About journeys, 287 source pages and 78 nested captures pass. Synthetic Desk regression and three-width gallery checks pass. Fourteen visual sheets inspected; contrast, phone wrapping, service numerals and duplicate intros corrected. Delivery completed below
+
+- [x] Complete collection local delivery (Claude Code, 2026-10-28): the interrupted restart had completed (Desk and gallery listeners started 03:15); Desk static assets served and matched disk, private data and logs left unopened. Gallery verifier passed on port 3101 at three widths with 26 thumbnails; composition markers confirmed for tablecloth, nocturne and dispatch. All five checks pass (357 tests, 16 smoke); source lint/webpack build pass; gallery restarted on the fresh build and re-verified. Source commit 4e38fce on the approved branch, binary zero-context export docs/reports/site-arsenal-2026-10-28-complete-collection.patch passes a reverse-apply check. Roadmap PDF rendered and inspected. chucks-ducts edit excluded; no push, merge, deployment, approval, publication, email or LinkedIn action
 
 - [x] Distinct compositions and cross-industry rotation (Codex, 2026-10-28): Kriv chose one restrained plus two contrasting directions and three fictional samples. Rebuilt Linen/Canvas, Ledger/Index and Torque/Stage with different navigation, hero, rhythm and close; all 26 remain in rotation. Optional contentNiche keeps business wording separate from design; old records/explicit overrides remain. Existing Desk restarted at Kriv's request; private contents/logs unopened. Five preview checks pass (301 tests, 16 smoke); source lint/webpack build, 18 composition cases with touch/keyboard/motion, 156 all-template cases, 26 native fallbacks, 287 source pages and 78 nested captures pass. Synthetic workspace regression passes. Source checkpoint/export, fictional screenshots and roadmap PDF saved locally; no dependency migration, finder-rule change, real approval/publication, email, push or deployment
 

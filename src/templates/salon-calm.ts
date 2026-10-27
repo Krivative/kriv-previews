@@ -5,6 +5,7 @@ export const salonCalm = defineTemplate({
   id: "salon-calm",
   name: "Mane",
   look: "calm",
+  composition: "botanical",
   industries: ["hair salon", "beauty salon", "nail salon", "brow and lash studio"],
   fonts: {
     display: "Marcellus, Georgia, serif",
@@ -35,11 +36,11 @@ export const salonCalm = defineTemplate({
     { type: "close", variant: "card" },
   ],
   fingerprint: {
-    grammar: "botanical spa editorial, soft radii, sage on warm white",
-    nav: "spaced serif wordmark, sage rounded CTA",
-    hero: "centred serif headline with three portrait tiles",
-    sequence: "centred → rows → steps → mosaic → visit split → FAQ → card",
-    close: "bordered card",
-    signature: "a three-step 'how a visit goes' with sage numerals before the gallery",
+    grammar: "arched botanical frontispiece, right-hand navigation rail, sage and open Marcellus type",
+    nav: "persistent right navigation rail with a compact mobile masthead",
+    hero: "arched portrait to the left of an airy serif introduction, inside a right-rail page",
+    sequence: "frontispiece, offset specimen offerings, notes, centered story, gallery, questions, folio",
+    close: "quiet contact folio beside factual information",
+    signature: "alternating specimen sheets unfold under a right-navigation frontispiece",
   },
 });

@@ -5,6 +5,7 @@ export const cafePoster = defineTemplate({
   id: "cafe-poster",
   name: "Poster",
   look: "bold",
+  composition: "press",
   industries: ["café", "coffee shop", "bakery", "milk tea shop"],
   fonts: {
     display: "Anton, Impact, sans-serif",
@@ -34,11 +35,11 @@ export const cafePoster = defineTemplate({
     { type: "close", variant: "statement" },
   ],
   fingerprint: {
-    grammar: "typographic poster, one colour field",
-    nav: "links left, cream CTA right, no wordmark (the hero is the wordmark)",
-    hero: "business name as a viewport-wide uppercase poster headline over a wide photo",
-    sequence: "poster → menu → quote → mosaic → visit card → statement",
-    close: "huge uppercase statement, orange buttons",
-    signature: "the name itself is the hero; menu items ruled with 2px lines like a chalkboard",
+    grammar: "typographic newspaper front page, giant Anton headline and ruled editorial columns",
+    nav: "small uppercase identity and links between two horizontal rules",
+    hero: "full-width headline above introduction, photograph and live content index in three columns",
+    sequence: "front page, classifieds, supplied notices, story spread, questions, gallery, contact stamp",
+    close: "double-bordered contact stamp",
+    signature: "three-column classified-style offering disclosures reached from a real content index",
   },
 });

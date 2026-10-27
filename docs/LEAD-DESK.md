@@ -19,12 +19,15 @@ It opens http://localhost:4321 in the browser. Leave the window open while you w
 ## Designs across industries (2026-10-28)
 
 The Build design picker exposes all 26 designs, describes their signatures and
-marks the three structurally rebuilt compositions. Preparation rotates through
+marks all 26 structurally rebuilt compositions. Preparation rotates through
 the complete pool, with calmer/bolder alternatives when requested. Choosing a
 design changes presentation; verified services and the lead’s content
 classification stay attached. New saves include `contentNiche`; existing records
 remain unchanged until explicitly saved. No finder rules change. See
-`DISTINCT-COMPOSITIONS.md` for the three same-content fictional samples.
+`COMPLETE-COLLECTION.md` for the full collection and `DISTINCT-COMPOSITIONS.md`
+for the original three same-content fictional samples. Presentation changes
+invalidate stale visual approvals while preserving decisions and history;
+refresh verification captures before reviewing an affected concept again.
 
 The updated local server was restarted at Kriv’s request on 2026-10-28 using the
 existing database. Reload the browser after restart. Availability was checked
