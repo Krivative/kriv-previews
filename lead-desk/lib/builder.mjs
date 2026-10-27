@@ -3,7 +3,7 @@
 // with the app's own schema (src/lib/site-schema.ts). Rules: docs/LEAD-QA.md.
 import { readFileSync, readdirSync, existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { SiteData, SLUG_PATTERN, RESERVED_SLUGS } from "../../src/lib/site-schema.ts";
+import { SiteData, ContentNiche, SLUG_PATTERN, RESERVED_SLUGS } from "../../src/lib/site-schema.ts";
 import { get } from "../../scripts/finder/sources.mjs";
 import { host } from "../../scripts/finder/rules.mjs";
 import { now, parse, slugify } from "./db.mjs";
@@ -17,6 +17,7 @@ export const NICHE_INFO = {
   auto: { category: "Auto repair", noun: "car repairs", templates: ["auto-calm", "auto-bold"] },
 };
 const STATE_NAMES = { TX: "Texas", FL: "Florida", UT: "Utah" };
+export const contentNicheFor = (niche) => niche === "medspa" ? "aesthetic" : ContentNiche.options.includes(niche) ? niche : "general";
 
 // The form. `src: true` fields state facts, so a non-empty value needs the URL it came from.
 // Headings marked src: false are KRIV's own neutral words and state no fact.
@@ -51,7 +52,7 @@ export function listTemplates(repo) {
   return readdirSync(dir).filter((f) => f.endsWith(".ts") && f !== "index.ts").map((f) => {
     const s = readFileSync(join(dir, f), "utf8");
     const m = (re) => s.match(re)?.[1] ?? null;
-    return { id: m(/id:\s*"([^"]+)"/), name: m(/name:\s*"([^"]+)"/), look: m(/look:\s*"([^"]+)"/), accent: m(/accent:\s*"(#[0-9A-Fa-f]{3,8})"/), industries: (m(/industries:\s*\[([^\]]*)\]/) ?? "").match(/"[^"]+"/g)?.map((x) => x.slice(1, -1)) ?? [] };
+    return { id: m(/id:\s*"([^"]+)"/), name: m(/name:\s*"([^"]+)"/), look: m(/look:\s*"([^"]+)"/), composition: m(/composition:\s*"([^"]+)"/), signature: m(/signature:\s*"([^"]+)"/), accent: m(/accent:\s*"(#[0-9A-Fa-f]{3,8})"/), industries: (m(/industries:\s*\[([^\]]*)\]/) ?? "").match(/"[^"]+"/g)?.map((x) => x.slice(1, -1)) ?? [] };
   }).filter((t) => t.id);
 }
 
@@ -187,8 +188,10 @@ export function prefill(lead, pages, templates) {
   if (metaDesc) set("aboutBody", strip(metaDesc).slice(0, 700), home.url);
   // Do not turn unverified service suggestions into a separate claim in the hero.
 
-  const template = (niche.templates[0] && templates.some((t) => t.id === niche.templates[0])) ? niche.templates[0] : templates[0]?.id;
-  return { slug: suggestSlug(lead.name), template, f, lists, photos: [] };
+  const designs = templates.filter((t) => t.id).sort((a, b) => a.id.localeCompare(b.id));
+  const seed = Array.from(lead.id ?? lead.name ?? "").reduce((sum, c) => sum + c.charCodeAt(0), 0);
+  const template = designs.length ? designs[seed % designs.length].id : undefined;
+  return { slug: suggestSlug(lead.name), template, contentNiche: contentNicheFor(lead.niche), f, lists, photos: [] };
 }
 
 /** "Hilliard's Air Conditioning & Heating Inc." -> "hilliards-air". Kriv can change it. */
@@ -238,7 +241,7 @@ export function toRecord(form, { createdAt = new Date().toISOString().slice(0, 1
   const photos = form.photos ?? [];
   const name = v("name");
   const rec = {
-    slug: form.slug, template: form.template, lang: "en-US", createdAt, expiresAt: addDays(createdAt, 30), status,
+    slug: form.slug, template: form.template, contentNiche: form.contentNiche, lang: "en-US", createdAt, expiresAt: addDays(createdAt, 30), status,
     business: {
       name, category: v("category"), phoneDisplay: v("phone"), phoneE164: e164(v("phone")),
       address: { line1: v("line1"), city: v("city"), region: v("region"), postalCode: v("postalCode"), country: "US" },

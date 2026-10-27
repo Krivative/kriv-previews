@@ -1274,10 +1274,10 @@
 .pageHero { padding-block: 24px clamp(48px, 7vw, 88px); }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 8px 12px; font-size: .8rem; color: var(--muted); margin-bottom: clamp(36px, 5vw, 72px); }
 .breadcrumb a { text-decoration: none; }
-.pageHeroGrid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 6vw, 84px); align-items: center; }
+.pageHeroGrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 84px); align-items: center; }
 .pageHeroGrid .h1 { font-size: clamp(2.5rem, 5.6vw, 5rem); }
 .pageLead { max-width: 52ch; font-size: 1.1rem; color: var(--muted); margin-block: 28px 0; white-space: pre-line; }
-.pageHeroPhoto { min-height: clamp(240px, 30vw, 380px); aspect-ratio: 4/3; }
+.pageHeroPhoto { min-height: clamp(240px, 30vw, 380px); min-width: 0; width: 100%; aspect-ratio: 4/3; }
 .serviceBody { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 7vw, 100px); }
 .serviceBody article > p:not(.eyebrow) { max-width: 65ch; color: var(--muted); margin-block: 24px; }
 .serviceAside { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
@@ -1332,4 +1332,10 @@
   .site[data-look="bold"] .pageHeroPhoto { aspect-ratio: 4/3; }
   .brand { font-size: 1.12rem; }
   .hoursLine { flex-direction: column; gap: 0; margin-bottom: 8px; }
+}
+
+/* Composed-page containers can be narrower than the browser viewport. */
+@container (max-width: 1050px) {
+  .pageHeroGrid, .serviceBody, .planningGrid, .contactGrid, .aboutChapters, .directory { grid-template-columns:minmax(0,1fr); }
+  .pageHeroPhoto { min-height:220px; max-height:360px; }
 }

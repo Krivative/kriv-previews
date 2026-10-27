@@ -6,6 +6,8 @@ export type TemplateDef = {
   id: string;
   name: string;
   look: "calm" | "bold";
+  /** Independently art-directed page composition; legacy section recipes remain valid. */
+  composition?: "canvas" | "index" | "stage";
   industries: string[];
   fonts: {
     display: string; // CSS font-family value

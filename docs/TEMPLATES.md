@@ -1,5 +1,7 @@
 # Catalog
 
+Current direction (2026-10-28): all 26 designs remain in rotation across industries. The historical best-for column describes original sample positioning, not a restriction. Three default compositions are rebuilt; explicit saved section overrides preserve their existing recipe. See `DISTINCT-COMPOSITIONS.md`.
+
 Interaction rollout (2026-10-27): Kriv approved the Breeze/Linen/Align pilots.
 All 26 recipes retain their layouts and now support progressive service details,
 native step disclosures and image viewing where supplied content permits.
@@ -15,7 +17,7 @@ records each template's original section recipe. See `ARSENAL-REVAMP.md`.
 |---|---|---|---|---|---|
 | dental-clear | Clear | calm | dental clinic, family dentist, orthodontist, pediatric dentist | cinematic hero · editorial services · cards about · note custom · split visit · list faq · band close | batch 7 cinematic, for review |
 | dental-bold | Bright | bold | dental clinic, cosmetic dentist, implant centre | cinematic hero · grid services · steps custom · strip gallery · cards about · card visit · columns faq · giant close | batch 7 cinematic, for review |
-| aesthetic-calm | Linen | calm | medical aesthetics, skin clinic, spa, wellness | cinematic hero · editorial services · cards about · editorial gallery · note custom · split visit · giant close | interaction pilot, for review |
+| aesthetic-calm | Linen | calm | all industries; content classification stays with the business | continuous scene · floating paper navigation · offset essay · paper offering explorer · quiet questions · contact folio | distinct composition rebuilt, for Kriv review |
 | aesthetic-bold | Gloss | bold | aesthetic clinic, lash and brow, nails | cinematic hero · menu services · strip custom · cards about · strip gallery · card visit · list faq · giant close | batch 7 cinematic, for review |
 | cafe-poster | Poster | bold | café, coffee shop, bakery, milk tea | poster hero · menu · quote · mosaic · visit card · statement | batch 1, approved |
 | cafe-calm | Bean | calm | café, coffee shop, bakery, dessert, tea house | split hero · service columns · quote · photo strip · note · visit card · band | batch 2, approved |
@@ -26,10 +28,10 @@ records each template's original section recipe. See `ARSENAL-REVAMP.md`.
 | spa-calm | Still | calm | spa, massage, wellness centre, reflexology, hilot | split hero · service columns · photo strip · note · visit split · FAQ list · close card | batch 3, approved |
 | spa-bold | Onyx | bold | luxury spa, hotel spa, grooming lounge, massage and sauna | centred hero · menu · accent strip · mosaic · visit card · FAQ columns · band | batch 3, approved |
 | auto-calm | Workshop | calm | auto repair, car service, tyre and battery, car wash, motorcycle shop | cinematic hero · editorial services · steps custom · strip gallery · card visit · list faq · band close | batch 7 cinematic, for review |
-| auto-bold | Torque | bold | performance garage, detailing, tyre centre, customs, audio and tint | cinematic hero · steps custom · grid services · strip gallery · cards about · card visit · columns faq · giant close | batch 7 cinematic, for review |
+| auto-bold | Torque | bold | all industries; content classification stays with the business | graphic masthead · framed image stage · contents ticket · source notes · expandable offering index · asymmetric story · contact spread | distinct composition rebuilt, for Kriv review |
 | gym-calm | Form | calm | pilates, yoga, boutique gym, personal training, barre | centred hero · class grid · quote · mosaic · note · visit card · FAQ list · statement | batch 3, approved |
 | gym-bold | Pulse | bold | gym, crossfit, boxing and muay thai, HIIT, sports performance | banner hero · programme grid · accent strip · mosaic · visit split · FAQ list · statement | batch 4, for review |
-| office-calm | Ledger | calm | law office, accounting, insurance, notary, real estate broker, consultancy | split hero · service rows · about split · note · visit split · FAQ list · close card | batch 4, for review |
+| office-calm | Ledger | calm | all industries; content classification stays with the business | persistent navigation rail · editorial headline · narrow image · indexed offering ledger · essay · contact ledger | distinct composition rebuilt, for Kriv review |
 | office-bold | Counsel | bold | law firm, financial advisory, architecture, engineering, corporate services | stacked hero · service columns · steps · quote · visit card · FAQ columns · close card | batch 4, for review |
 | resort-calm | Shore | calm | beach resort, boutique hotel, pool villa, B&B, dive resort | banner hero · room grid · mosaic · quote · steps · visit split · FAQ list · band | batch 4, for review |
 | resort-bold | Fiesta | bold | events venue, wedding venue, resort with halls, party place, mountain resort | stacked hero · package tiles · mosaic · accent strip · visit split · FAQ columns · band | batch 4, for review |

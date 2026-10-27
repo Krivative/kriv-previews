@@ -40,3 +40,19 @@ required validation suite and the source's page/navigation/screenshot checks.
 `docs/TEMPLATES.md` and `docs/FINGERPRINTS.md` are copies of Site Arsenal's
 `CATALOG.md` and `FINGERPRINTS.md` (fingerprint method adapted from Nate Herk's
 scroll-craft, MIT).
+
+## Distinct compositions (2026-10-28)
+
+Kriv approved cross-industry rotation while all 26 designs are rebuilt gradually.
+`TemplateDef.composition` selects original Canvas/Index/Stage layouts for Linen,
+Ledger and Torque. `ComposedSite.tsx` (region/province adapted),
+`compositions.module.css`, `Photo.tsx`, renderer, page guides and the three
+template definitions are mirrored. Both schemas add optional `contentNiche`;
+source mode/province and preview lifecycle metadata remain separate. Old records
+keep prefix fallback; explicit `design.sections` retains its existing layout.
+No real record migration. Three source-only samples intentionally share fictional
+spa content and one credited photo to demonstrate layout differences. Source
+gallery thumbnails live in `public/template-previews/`; no public lead listing
+is added to this app. The source navigation verifier supports native menus and
+loads nested-page images before screenshots. See `docs/DISTINCT-COMPOSITIONS.md`
+for checks and the source checkpoint/export.

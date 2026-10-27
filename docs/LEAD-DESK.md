@@ -16,6 +16,20 @@ It opens http://localhost:4321 in the browser. Leave the window open while you w
 - It listens on this PC only (127.0.0.1) and every change needs a token from the page, so other websites can't drive it. After a restart, reload the page.
 - First time on a new PC: `corepack pnpm install`, Playwright installed globally (`npm i -g playwright` and `npx playwright install chromium`), then `node lead-desk/lib/import.mjs` once to load the old lead files.
 
+## Designs across industries (2026-10-28)
+
+The Build design picker exposes all 26 designs, describes their signatures and
+marks the three structurally rebuilt compositions. Preparation rotates through
+the complete pool, with calmer/bolder alternatives when requested. Choosing a
+design changes presentation; verified services and the lead’s content
+classification stay attached. New saves include `contentNiche`; existing records
+remain unchanged until explicitly saved. No finder rules change. See
+`DISTINCT-COMPOSITIONS.md` for the three same-content fictional samples.
+
+The updated local server was restarted at Kriv’s request on 2026-10-28 using the
+existing database. Reload the browser after restart. Availability was checked
+through static assets only; no private lead content or logs were opened.
+
 ## Daily routine: Inbox and focused review
 
 After updating, stop/restart the Desk, reload the browser and open Workspace. The first screen is the hybrid inbox: Needs my attention, Ready for review, Revisions, Remaining checks, Ready for publishing, Outreach, Follow-ups and Completed/declined. Search/filter/sort the compact list, or click Continue where I left off.

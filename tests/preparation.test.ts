@@ -18,7 +18,7 @@ import { toRecord } from "../lead-desk/lib/builder.mjs";
 // Synthetic businesses only. No real databases, credentials, websites or paid API requests.
 const SITE = "https://acme.example/";
 const TEXT = "Acme Air. Heating and air conditioning. AC repair in Ocala FL. (352) 555-0100. Contact info@acme.example.";
-const templates = [{ id: "hvac-calm" }, { id: "hvac-bold" }];
+const templates = [{ id: "hvac-calm", look: "calm" }, { id: "hvac-bold", look: "bold" }];
 const photo = { url: "https://images.unsplash.com/example", credit: { provider: "Unsplash", photographer: "Example Photographer", profileUrl: "https://unsplash.com/@example", photoPage: "https://unsplash.com/photos/example" } };
 function fixture() {
   const repo = mkdtempSync(join(tmpdir(), "offer-preparation-"));

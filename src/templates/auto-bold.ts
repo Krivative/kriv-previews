@@ -5,6 +5,7 @@ export const autoBold = defineTemplate({
   id: "auto-bold",
   name: "Torque",
   look: "bold",
+  composition: "stage",
   industries: ["performance garage", "detailing studio", "tyre centre", "motorcycle customs", "car audio and tint"],
   fonts: {
     display: "'Bebas Neue', Impact, sans-serif",
@@ -38,11 +39,11 @@ export const autoBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "graphite garage, signal red, tall Bebas uppercase, zero radius",
-    nav: "tall uppercase wordmark, square red CTA",
-    hero: "cinematic: full-screen engine photo, tall Bebas headline with a red italic serif accent",
-    sequence: "cinematic → red-numeral steps → service grid → photo strip → tilted cards → visit card → FAQ columns → giant red close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "the how-it-works steps come BEFORE the services, faded giant words, a giant red close",
+    grammar: "graphic publication masthead, graphite framed stage, offset contents ticket and tall display typography",
+    nav: "small tracked identity and a native contents drawer on desktop and mobile",
+    hero: "large typographic masthead above a framed image stage with an offset contents ticket",
+    sequence: "graphic masthead and framed stage → compact source notes → large expandable offering index → asymmetric introduction → ruled contact spread",
+    close: "contact spread beneath a thin signal-red rule with factual information alongside the headline",
+    signature: "a framed photographic stage and offset contents ticket, followed by a large typographic offering index",
   },
 });

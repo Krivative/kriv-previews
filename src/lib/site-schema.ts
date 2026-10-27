@@ -52,6 +52,7 @@ export const SectionRef = z.discriminatedUnion("type", [
 ]);
 export type SectionRef = z.infer<typeof SectionRef>;
 export type SectionType = SectionRef["type"];
+export const ContentNiche = z.enum(["general", "dental", "aesthetic", "chiro", "hvac", "plumbing", "auto", "cafe", "restaurant", "salon", "spa", "gym", "office", "resort"]);
 
 export const SiteData = z.object({
   slug: z
@@ -60,6 +61,9 @@ export const SiteData = z.object({
     .regex(SLUG_PATTERN)
     .refine((v) => !RESERVED_SLUGS.has(v), { message: "slug is a kriv.agency page name" }),
   template: z.string(),
+  // Content classification is independent of the visual template. Old records
+  // retain the legacy template-prefix fallback until they are edited/rebuilt.
+  contentNiche: ContentNiche.optional(),
   // BCP 47 language tag for the page content, e.g. "en-US", "en-AU".
   lang: z.string().default("en"),
   business: z.object({

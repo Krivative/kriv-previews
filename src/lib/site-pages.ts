@@ -18,7 +18,7 @@ export const nicheGuides = {
 };
 
 export function guideFor(site: SiteData) {
-  const niche = site.template.split("-")[0] as keyof typeof nicheGuides;
+  const niche = (site.contentNiche ?? site.template.split("-")[0]) as keyof typeof nicheGuides;
   return nicheGuides[niche] ?? { label: "Services", heading: "Plan your next step.", prepare: "Browse the information and make a note of your questions.", questions: ["Which option is right for me?", "What should I know before deciding?", "How can I confirm the details?"] };
 }
 

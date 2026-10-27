@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { now, json, parse, log, rowToLead, tx } from "./db.mjs";
 import { laterStatus } from "./leads.mjs";
-import { SPEC, NICHE_INFO, listTemplates, readSources, prefill, formProblems, toRecord, schemaProblems, factsOf, writeLeadFile } from "./builder.mjs";
+import { SPEC, contentNicheFor, listTemplates, readSources, prefill, formProblems, toRecord, schemaProblems, factsOf, writeLeadFile } from "./builder.mjs";
 import { ensureDev, autoChecks, shoot, qaChecklist } from "./preview.mjs";
 import { startJob, npmRoot } from "./jobs.mjs";
 import * as unsplash from "./unsplash.mjs";
@@ -26,13 +26,12 @@ export function qaState(repo, saved = []) {
 function view(ctx, l) {
   const d = draftOf(ctx.db, l);
   const templates = listTemplates(ctx.repo);
-  const rec = NICHE_INFO[l.niche]?.templates ?? [];
   const file = l.slug ? join(ctx.repo, "leads", `${l.slug}.json`) : null;
   const pageStatus = file && existsSync(file) ? parse(readFileSync(file, "utf8"), {}).status : null;
   return {
     lead: { id: l.id, name: l.name, niche: l.niche, town: l.town, state: l.state, website: l.website, website_status: l.website_status, status: l.status, slug: l.slug, email: l.email, looks_dated: l.looks_dated },
     spec: SPEC,
-    templates: [...templates.filter((t) => rec.includes(t.id)), ...templates.filter((t) => !rec.includes(t.id))].map((t) => ({ ...t, recommended: rec.includes(t.id) })),
+    templates: templates.sort((a, b) => Number(!!b.composition) - Number(!!a.composition) || a.name.localeCompare(b.name)),
     form: parse(d?.form, null),
     editable: (!pageStatus || pageStatus === "draft") && workflowOf(ctx.db, l.id)?.decision !== "declined" && !["declined", "expired"].includes(l.status),
     pageStatus,
@@ -63,7 +62,7 @@ export const buildRoutes = [
     if (!l) return bad("no such lead", 404);
     if (["declined", "expired"].includes(l.status)) return bad(`This lead is ${l.status}.`);
     if (workflowOf(ctx.db, l.id)?.decision === "declined" || contactBlocked(ctx.db, l, ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(l.id))) return bad("This concept is declined or may not be contacted.");
-    const form = ctx.body.form ?? {};
+    const form = { ...(ctx.body.form ?? {}), contentNiche: contentNicheFor(l.niche) };
     const sameSlug = l.slug && l.slug === form.slug;
     const problems = formProblems(form, { repo: ctx.repo, existingSlugOk: sameSlug });
     const rec = toRecord(form);

@@ -55,11 +55,13 @@ function draw(view) {
     <datalist id="srcs">${srcs.map((u) => `<option value="${esc(u)}">`).join("")}</datalist>
     <div class="grid" style="grid-template-columns:minmax(0,2fr) minmax(260px,1fr);align-items:start">
       <div style="display:grid;gap:14px" id="form">
-        <section class="panel" style="display:grid;gap:8px"><h2 style="margin:0">Address and template</h2>
+        <section class="panel" style="display:grid;gap:8px"><h2 style="margin:0">Page address and design</h2>
           <label>Page address: kriv.agency/<input id="slug" value="${esc(form.slug)}" style="width:240px"></label>
-          <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">${v.templates.map((t) => `<label class="panel" style="padding:8px;cursor:pointer;${t.recommended ? "" : "opacity:.75"}">
+          <p class="small muted">Every design is available for every industry. Your business details and verified services stay attached to this lead.</p>
+          <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">${v.templates.map((t) => `<label class="panel" style="padding:12px;cursor:pointer">
             <span class="row" style="display:flex"><input type="radio" name="tpl" value="${esc(t.id)}" ${form.template === t.id ? "checked" : ""}> <b>${esc(t.name)}</b></span>
-            <span class="small muted">${esc(t.id)} · ${esc(t.look)}${t.recommended ? " · for this niche" : ""}</span>
+            <span class="small muted">${t.composition ? "Rebuilt composition · " : ""}${esc(t.look)}</span>
+            ${t.signature ? `<span class="small" style="display:block;margin-top:8px">${esc(t.signature)}</span>` : ""}
             <span style="display:block;height:6px;border-radius:3px;background:${esc(t.accent ?? "#888")};margin-top:4px"></span></label>`).join("")}</div>
         </section>
         ${v.spec.map((s) => `<section class="panel" style="display:grid;gap:8px"><h2 style="margin:0">${esc(s.section)}</h2>

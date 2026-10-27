@@ -6,6 +6,7 @@ import { About, Close, Custom, Faq, Gallery, Hero, Services } from "./Sections";
 import s from "./sections.module.css";
 import { Orientation, PageContent, PageDirectory, Planning, ContactDetails } from "./Pages";
 import type { SitePage } from "@/lib/site-pages";
+import { ComposedSite } from "./ComposedSite";
 
 // Turns template tokens (+ the site's design overrides) into CSS variables and
 // renders the section list in order. Sections without data are skipped.
@@ -46,6 +47,7 @@ export function SiteRenderer({ site, template, page }: { site: SiteData; templat
       data-look={template.look}
     >
       {googleCss ? <link rel="stylesheet" href={googleCss} precedence="fonts" /> : null}
+      {template.composition && !site.design.sections ? <ComposedSite site={site} template={template} page={page} /> : <>
       <Ribbon site={site} />
       <a className={s.skipLink} href="#main-content">Skip to content</a>
       <Header site={site} currentPath={page?.path} />
@@ -76,6 +78,7 @@ export function SiteRenderer({ site, template, page }: { site: SiteData; templat
       </>}
       </main>
       <Footer site={site} />
+      </>}
     </div>
   );
 }

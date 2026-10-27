@@ -1,5 +1,5 @@
 // No AI calls: approved niche templates plus neutral, reusable concept-offer wording.
-import { NICHE_INFO, prefill } from "./builder.mjs";
+import { prefill } from "./builder.mjs";
 
 export const REVISIONS = ["Different look and wording", "Calmer look", "Bolder look", "Shorter wording", "More direct wording"];
 const norm = (s) => String(s ?? "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
@@ -12,10 +12,14 @@ export function presetForm(lead, pages, templates, { revision = "", attempt = 0 
   const form = prefill(lead, pages, templates);
   const nameSource = sourceFor(lead.name, pages, true);
   if (!nameSource) throw new Error("The business name cannot be confirmed on a readable source. Held for investigation.");
-  const n = (Array.from(lead.id ?? lead.name).reduce((sum, c) => sum + c.charCodeAt(0), 0) + attempt) % 4;
-  const choices = (NICHE_INFO[lead.niche]?.templates ?? []).filter((id) => templates.some((t) => t.id === id));
-  if (!choices.length) throw new Error("No registered template matches this niche.");
-  form.template = /Calmer/.test(revision) ? choices[0] : /Bolder/.test(revision) ? choices[1] ?? choices[0] : choices[n % choices.length];
+  const seed = Array.from(lead.id ?? lead.name).reduce((sum, c) => sum + c.charCodeAt(0), 0) + attempt;
+  const n = seed % 4;
+  const all = templates.filter((t) => t.id).sort((a, b) => a.id.localeCompare(b.id));
+  const requestedLook = /Calmer/.test(revision) ? "calm" : /Bolder/.test(revision) ? "bold" : null;
+  const matching = requestedLook ? all.filter((t) => t.look === requestedLook) : all;
+  const choices = matching.length ? matching : all;
+  if (!choices.length) throw new Error("No registered website designs are available.");
+  form.template = choices[seed % choices.length].id;
   const optional = ["city", "region", "postalCode", "line1", "aboutBody", "accent", "logo"];
   for (const key of optional) {
     const f = form.f[key];

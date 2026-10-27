@@ -12,6 +12,19 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+- Date: 2026-10-28
+- Agent: OpenAI Codex, approved branch `claude/amazing-edison-juyem3`; preview baseline `51840d6`, source baseline `f4770a0`.
+- Authorization: Kriv requested the Desk for immediate testing, a structural website rebuild, one restrained plus two contrasting directions and three fictional samples. Keep all 26 in rotation across industries while rebuilding gradually. This supersedes the earlier niche-pair design strategy. No public release scope was confirmed.
+- Delivery: existing hybrid Desk retained and restarted with its existing SQLite database at Kriv's request. Only static assets checked; no private lead contents/logs opened or importer/reset used. Gallery started at `http://localhost:3101`. Desk: `http://localhost:4321`; reload after restart. Saved automation opt-in behavior is unchanged.
+- Website samples: Linen/Canvas (`sample-aesthetic-calm`), Ledger/Index (`sample-office-calm`), Torque/Stage (`sample-auto-bold`). All intentionally use the same fictional Hilom Wellness content and one licensed/credited architectural photograph. Three distinct compositions; remaining 23 retain their existing recipes. Explicit saved section overrides retain their tailored renderer.
+- Desk/content: all 26 designs in the picker and deterministic full-pool preparation rotation. Optional contentNiche separates page labels from design ID; newly saved forms derive it from the lead. Existing records use prefix fallback and are not bulk migrated. Finder/service/source rules remain unchanged. New presentation files participate in visual-version hashing.
+- Verification: all five preview checks pass; 301 tests/12 files and 16 smoke checks. Source lint/webpack build pass. New 18 device/motion cases include phone touch, keyboard, native no-JS and nested navigation. All-template 156 cases/26 no-JS fallbacks/two multi-image fixtures, 287 known source pages and 78 nested captures pass. All 13 content guides across 26 templates tested separately. Synthetic Desk journeys pass without actual network/private data. See `docs/DISTINCT-COMPOSITIONS.md` for limits, references and source sync.
+- Preservation: existing `leads/chucks-ducts.json` edit remains untouched/excluded. No new dependency, paid library, real decision, publication, email sending, LinkedIn automation, finder-rule change, push, merge or deployment.
+- Saved source: `688cdbb` on the approved local branch, base `f4770a0`; binary patch `docs/reports/site-arsenal-2026-10-28-distinct-compositions.patch` (review and `git apply --unidiff-zero` against that base). Fictional desktop/phone review screenshots are in `docs/reports/compositions-2026-10-28-*.png`. Roadmap snapshot: `docs/reports/roadmap-2026-10-28-distinct-compositions.pdf`; all 10 pages rendered and visually inspected.
+- Next: Kriv reviews the local Desk and three compositions. Approve their quality level before the next rebuild batch. Public release requires clarifying the outstanding “live” scope question. Do not treat local testing approval as production release approval.
+
+## Previous checkpoint: 26-template interaction rollout (preserved)
+
 - Date: 2026-10-27
 - Agent: OpenAI Codex, on `claude/amazing-edison-juyem3` in `C:\Users\user\kriv-previews`.
 - Authorization: Kriv accepted the hybrid workspace and three interaction pilots with "approved". Selective rollout and QA are authorized; external release and private-data access remain separate.

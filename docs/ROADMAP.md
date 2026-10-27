@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-27 · Last step finished: approved interaction rollout across all 26 templates and local QA
+Updated: 2026-10-28 · Last step finished: three distinct compositions, cross-industry rotation and local Desk restart
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,9 +8,9 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Optional release review: the 26-template interaction rollout is saved locally with a source patch, representative screenshots and validation report. Gallery command: `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then `http://localhost:3101`. Refresh affected Desk captures before visual review. Push, merge, publication and deployment require separate explicit approval
-- [ ] Kriv: stop/restart the existing Lead Desk with `pnpm.cmd lead-desk`, then reload the workspace. Review one concept with the new Approve / Revise / Decline flow; visual approval leads to remaining checks, email review and separate publication readiness. Revisions save feedback only. No real-data pilot was performed by Codex
-- [ ] Kriv: review the revamped local Site Arsenal gallery and its About, Contact and offering-detail pages across the niches. Local review: `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`, then open `http://localhost:3101`. Local source changes and an exportable patch accompany the preview app checkpoint. Pushes, merges and deployments still require separate explicit approval
+- [ ] Kriv: test the updated Lead Desk at `http://localhost:4321` (reload after restart). The server uses the existing database; no real-data pilot was performed by Codex. Review a concept with Approve / Revise / Decline and follow the single next action
+- [ ] Kriv: compare Linen/Canvas, Ledger/Index and Torque/Stage at `http://localhost:3101`. All three use the same fictional Hilom Wellness content and one credited image. Approve the quality level before gradually rebuilding the remaining 23 designs; all 26 stay in rotation across industries
+- [ ] Clarify public release scope: the current designs and Desk are available locally. No public hosting release, push or merge has been performed; the meaning of “live” remains unconfirmed
 - [ ] Optional separate source-library task: address the pre-existing Cache Components streamed-404 behavior. Unknown source-gallery URLs can show the anonymous not-found view with HTTP 200; the preview app continues to require actual 404s for unknown/draft URLs
 
 - [ ] Optional: enable background preparation in inbox Preparation settings when ready. It remains an opt-in finder/template worker; it skips reviewed designs and revision requests. Existing Chucks Ducts edits are preserved. Technical/source checks can run separately without generating a replacement design
@@ -24,6 +24,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Distinct compositions and cross-industry rotation (Codex, 2026-10-28): Kriv chose one restrained plus two contrasting directions and three fictional samples. Rebuilt Linen/Canvas, Ledger/Index and Torque/Stage with different navigation, hero, rhythm and close; all 26 remain in rotation. Optional contentNiche keeps business wording separate from design; old records/explicit overrides remain. Existing Desk restarted at Kriv's request; private contents/logs unopened. Five preview checks pass (301 tests, 16 smoke); source lint/webpack build, 18 composition cases with touch/keyboard/motion, 156 all-template cases, 26 native fallbacks, 287 source pages and 78 nested captures pass. Synthetic workspace regression passes. Source checkpoint/export, fictional screenshots and roadmap PDF saved locally; no dependency migration, finder-rule change, real approval/publication, email, push or deployment
 
 - [x] Approved interaction rollout and local QA across all 26 templates (Codex, 2026-10-27): native service details within existing layouts, expandable supplied step grids and strip/mosaic image viewers; phone strips stack vertically. Original template definitions, fingerprints, content and credits remain. Missing content stays omitted/labelled; no invented facts or new runtime dependency. Gallery focus survives photo-list changes. Preview lint/typecheck, 279 tests, build and 16 smoke checks pass; source lint/webpack build and page/navigation checks pass (282 pages, 13 niches, 78 nested captures). Browser checks pass 156 template/device/motion combinations, 26 JavaScript-disabled fallbacks and multi-image fixtures. Visual review corrected mobile numbered-row text width and duplicate descriptions. Source checkpoint/patch, review images and this PDF saved locally; no private data, lead approval/publication, push or deployment
 
