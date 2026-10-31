@@ -25,6 +25,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Done
 
+- [x] KRIV Sales connector for the Claude desktop app (Kriv chose it, Claude Code, 2026-11-01): local MCP server with five Sales tools (list, detail, discover, start research, save draft), no approve/publish/send tools, emails never returned; installed into the Store app's config. Stdio test passes; in-app check pending Kriv's restart of the Claude app
+
 - [x] Sales Discovery (Kriv chose it, Claude Code, 2026-11-01): Discover panel lists finder businesses with site-check findings and no Sales research (qualified, near miss, visual review; niche and state filters); Start research and Use site-check findings add them as unconfirmed, dated, sourced website-issue observations. Held, contacted, undated and not-checked businesses excluded; checks over 30 days old never count. No network, finder-rule, bucket or status change. 4 new unit tests, browser check extended with fictional finder data (3 widths) and passed. No private data, sends, push or deployment
 
 - [x] Sales live UI check and code review (Claude Code, 2026-11-01): new scripts/verify-sales-live.mjs drives the fictional demo in a real browser through one real Claude draft, edit, save and reload; passed twice (about 8 s each), no browser errors or outside requests, Claude version archived. Code review of Sales handlers, runtime and screen found no defects. Fictional screenshot in docs/reports. No private data, sends, push or deployment

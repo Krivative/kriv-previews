@@ -28,6 +28,13 @@ Kriv chose Discovery as the next stage, using the Desk's existing free finder (H
 - Checks older than 30 days are marked in the list. Their observations can be added but never count, even when confirmed, until the website check is run again.
 - Discovery makes no network requests, starts no finder run and changes no finder rule, bucket or status. The automatic finder keeps running as before while the Desk is open.
 
+## Claude app connector (2026-11-01)
+
+Kriv chose the app connector as the next Sales stage. `lead-desk/mcp/sales-mcp.mjs` is a local MCP server (stdio, no SDK or new dependency) that the Claude desktop app starts on demand. It opens the Desk database and offers five tools: list businesses, get one business, the Discover list, start research (unconfirmed findings) and save a draft (same validation as the screen: confirmed, fresh evidence only; plain text; under 150 words). There is no tool to approve, publish, send, use LinkedIn or change opt-outs, and business emails and imported contact claims are never returned. Saved drafts appear in the Desk for review.
+
+- Installed on 2026-11-01 with `node scripts/install-sales-connector.mjs` into the Microsoft Store Claude app's config (`%LOCALAPPDATA%PackagesClaude_*LocalCacheRoamingClaudeclaude_desktop_config.json`). Restart the Claude app, then ask it, for example, "Show my KRIV Sales discover list". Remove the `kriv-sales` entry to uninstall.
+- Verified: `tests/sales-mcp.test.ts` drives the server over real stdio on a temporary database; a manual initialize/tools-list against the real database answered correctly (no records printed). Not yet verified inside the Claude app itself (Kriv was away from the desktop).
+
 ## Claude status and limitations
 
 Double-click `Check KRIV Claude.vbs` to run one fictional live draft from your desktop. It uses the same isolated runtime and draft validation as Sales, saves a sanitized result to `shots/sales-provider-check.json`, and shows a completion message. It does not open the Desk database, send email or enable drafting in your real workspace. The check uses one subscription request. A successful report has `mode: "live-fictional"` and `liveVerified: true`; an installation-only report does not verify inference. The continuation prompt is in `docs/CONTINUE-KRIV.md`.
@@ -53,4 +60,4 @@ Harvey provenance and license: `vendor/harvey/UPSTREAM.md` and `vendor/harvey/LI
 - Code review (2026-11-01): all page insertions escape values, source URLs are restricted to public http(s), opt-out matching covers addresses, domains and subdomains, revision checks guard every write and the daily cap counts failures. No defects found.
 - Preview and production data adapters are unchanged. No push or deployment occurred.
 
-Next: founder use of the local combined workflow, including Discover (Open KRIV Sales Demo.vbs first, then Open KRIV.vbs). Reply handling and app connectors remain separate later stages that need Kriv's decision. Reply assistance and app connectors remain separate later stages.
+Next: founder use of the local combined workflow, including Discover (Open KRIV Sales Demo.vbs first, then Open KRIV.vbs). Reply handling remains a separate later stage that needs Kriv's decision. Reply assistance remains a separate later stage.

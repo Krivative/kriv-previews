@@ -12,6 +12,11 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Kriv's decisions and roadmap run (2026-11-01, Claude Code)
+
+- Kriv (away from the desktop) asked to continue the roadmap with decisions already made, then answered the open questions: **push, merge and deploy** the branch; database adapter **code only, no Upstash account**; next Sales stage **app connector**; authorized **research of A&L Mobile Mechanics and Michigan Auto Repair**, a **fresh Hotfrog/chamber check**, **reading Desk results** (not emails) for a report, and **unattended Windows scheduling** (never approves, publishes or sends).
+- Done so far: US-ready content (`src/lib/us-format.ts`, commit e8bd4dd), private review links (docs/REVIEW-LINKS.md, e8bd4dd), database adapter code (docs/DATABASE-ADAPTER.md, 87c10d0; not connected). App connector: lead-desk/mcp/sales-mcp.mjs, installed into the Store Claude app config (see docs/KRIV-SALES.md); in-app check pending. Remaining in order: research, directory check, Desk report, scheduling, then push/merge/deploy with smoke checks against production.
+
 ### Continuity and live-provider handoff (2026-10-31, Codex)
 
 - Verification: installation-only runner passed without inference; lint and all 384 tests passed. PowerShell scripts parsed without errors. Live inference and interactive desktop dialogs remain unverified. Roadmap artifact: docs/reports/roadmap-2026-10-31-continuity.pdf.
