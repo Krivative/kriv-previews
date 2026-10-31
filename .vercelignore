@@ -1,2 +1,3 @@
 # Local tools that never deploy
 lead-desk/
+tests/
