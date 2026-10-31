@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-01 - Last step finished: live fictional Claude draft verified and Sales integration committed locally
+Updated: 2026-11-01 - Last step finished: live Claude draft verified through the Sales demo UI and code review
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -24,6 +24,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Sales live UI check and code review (Claude Code, 2026-11-01): new scripts/verify-sales-live.mjs drives the fictional demo in a real browser through one real Claude draft, edit, save and reload; passed twice (about 8 s each), no browser errors or outside requests, Claude version archived. Code review of Sales handlers, runtime and screen found no defects. Fictional screenshot in docs/reports. No private data, sends, push or deployment
 
 - [x] Live fictional Claude draft verified (Claude Code, 2026-11-01): live-fictional, liveVerified=true, 76-word validated draft in 9.5 s through the unchanged isolated runtime. All five checks pass (384 tests, 16 smoke). Sales integration saved as a local commit with explicit staging; chucks-ducts edit and four untracked leads excluded. No push, deployment, email or private data access
 

@@ -39,6 +39,8 @@ Harvey provenance and license: `vendor/harvey/UPSTREAM.md` and `vendor/harvey/LI
 - Lint, typecheck, 384 unit/integration tests, production build and 16 smoke checks passed.
 - Browser checks passed through real HTTP routes and temporary SQLite: saved edits/reload, injected model success/failure, stale evidence, CSV imports, desktop/tablet/phone layouts and CSRF. No emails or external requests occurred. Model output was injected; this is not a live-Claude success claim.
 - Both launcher configurations passed `-CheckOnly`. The normal Desk was not started or opened during verification, so private records and settings were not inspected. The demo handshake was checked separately.
+- Live UI check (2026-11-01): `NODE_PATH=$(npm root -g) node scripts/verify-sales-live.mjs` drives the fictional demo in a real browser, enables Claude, requests one draft through the real isolated runtime, then edits, saves and reloads. Passed twice (8.0 s and 7.5 s; 92 and 71 words): edit persisted, Claude version archived, one completed run, zero browser errors and zero browser requests outside the demo. Uses one subscription request per run. Screenshot: `docs/reports/sales-2026-11-01-live-draft.png` (fictional data).
+- Code review (2026-11-01): all page insertions escape values, source URLs are restricted to public http(s), opt-out matching covers addresses, domains and subdomains, revision checks guard every write and the daily cap counts failures. No defects found.
 - Preview and production data adapters are unchanged. No push or deployment occurred.
 
 Next: founder use of the local combined workflow (Open KRIV Sales Demo.vbs first, then Open KRIV.vbs). Discovery providers, reply assistance and app connectors remain separate later stages.
