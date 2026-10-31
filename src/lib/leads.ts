@@ -1,5 +1,5 @@
 import { RESERVED_SLUGS, SiteData, SLUG_PATTERN } from "./site-schema";
-import { jsonLeadStore, type LeadStore } from "./lead-store";
+import { defaultLeadStore, type LeadStore } from "./lead-store";
 import { templates } from "@/templates";
 import type { TemplateDef } from "./templates";
 
@@ -15,7 +15,7 @@ export type GetLeadOptions = {
   allowDrafts?: boolean;
 };
 
-const defaultStore = jsonLeadStore();
+const defaultStore = defaultLeadStore();
 
 export function todayUtc(): string {
   return new Date().toISOString().slice(0, 10);
