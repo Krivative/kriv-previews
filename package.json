@@ -12,7 +12,8 @@
     "test": "vitest run",
     "test:smoke": "node scripts/smoke.mjs",
     "shoot": "node scripts/shoot.mjs",
-    "lead-desk": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning lead-desk/server.mjs"
+    "lead-desk": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning lead-desk/server.mjs",
+    "sales:demo": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning scripts/sales-demo.mjs"
   },
   "dependencies": {
     "next": "16.4.2",

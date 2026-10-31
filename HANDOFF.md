@@ -12,6 +12,24 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Continuity and live-provider handoff (2026-10-31, Codex)
+
+- Verification: installation-only runner passed without inference; lint and all 384 tests passed. PowerShell scripts parsed without errors. Live inference and interactive desktop dialogs remain unverified. Roadmap artifact: docs/reports/roadmap-2026-10-31-continuity.pdf.
+- User requested continued work, updated handoffs, usage monitoring and a continuation prompt near limits. The available usage query returned no active goal or remaining-token report; account quota is not exposed. Do not invent usage percentages. Update checkpoints at stage boundaries and provide docs/CONTINUE-KRIV.md when handing off.
+- Added Check KRIV Claude.vbs, scripts/check-sales-claude.ps1 and scripts/verify-sales-provider.mjs: one fictional request through the existing isolated runtime plus draft validation, with sanitized result at shots/sales-provider-check.json. No database access, automation, sending or automatic enablement. The live desktop check must be explicitly launched by the user; do not use it to bypass the agent sandbox's network restriction.
+- Next: read that synthetic report when the user has run the check. Only live-fictional/liveVerified=true proves live inference. Git writes remain blocked as recorded below. Current continuation prompt: docs/CONTINUE-KRIV.md.
+
+### KRIV Sales with Harvey components (2026-10-31, Codex)
+
+- Delivery status: changes remain uncommitted because Git could not create .git/index.lock (permission denied). Explicit staging failed before adding files. The fictional demo launcher started successfully and port 4324 returned the expected kriv-sales-demo-v1 handshake. No normal Desk restart was performed.
+- Roadmap PDF: docs/reports/roadmap-2026-10-31-sales.pdf. All 11 raster page images embedded by the generator were visually inspected; an independent PDF renderer was unavailable. Reusable source-image export added to the generator through ROADMAP_REVIEW_DIR.
+- Implemented in the existing Lead Desk: shared business records, deduplicated CSV/manual import, reviewed observations, Discovery/Website/Build offers, template and optional Claude drafts, revision protection, archived draft versions and suppression checks. See docs/KRIV-SALES.md and vendor/harvey/UPSTREAM.md for scope and provenance.
+- Local launchers: Open KRIV.vbs and Open KRIV Sales Demo.vbs. Normal startup retains existing automation settings; an older server must be closed by the user before reopening. The normal Desk/private database was not opened during verification. Launcher dry runs passed.
+- Verification: lint, typecheck, 384 tests, production build, 16 smoke checks, synthetic browser/HTTP/SQLite flow at three widths all pass. Model output is injected in browser tests. Actual Claude installation flags and subscription login passed; a fictional live generation timed out. api.anthropic.com and claude.ai probes returned EACCES in this sandbox. Live inference is not verified; complete that check from the desktop fictional demo.
+- No private leads, secrets or real outreach were inspected. Unrelated leads/chucks-ducts.json and four untracked lead files remain outside staging. No external messages, push, merge, publication or deployment.
+- Next: fictional live drafting check, then founder use of the local combined workflow. Discovery, reply handling, ChatGPT/Claude app connectors and hosted execution are later stages.
+
+
 ### Chamber directories in automatic building (2026-10-28, Claude Code)
 
 - Kriv approved adding ChamberMaster directories after Hotfrog (Google Places offered as a later upgrade; it needs Kriv's billing approval and its pricing was not checked).

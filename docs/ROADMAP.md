@@ -1,12 +1,14 @@
 # KRIV Previews roadmap
 
-Updated: 2026-10-28 · Last step finished: automatic building now searches 16 chamber-of-commerce directories (TX, FL, UT) after Hotfrog
+Updated: 2026-11-01 - Last step finished: live fictional Claude draft verified and Sales integration committed locally
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
+
+- [ ] Open the fictional Sales demo using Open KRIV Sales Demo.vbs; then use Open KRIV.vbs for the existing Desk after closing any older server. Settings are preserved; the existing worker can resume on normal Desk startup
 
 - [ ] Kriv: use the Lead Desk at `http://localhost:4321` (reload after restart). Automatic building is on: new previews and email drafts appear under Ready for review. Your part is approving the design, reviewing the email, publishing and sending in Gmail
 - [ ] Clarify public release scope: the current designs and Desk are available locally. No public hosting release, push or merge has been performed; the meaning of “live” remains unconfirmed
@@ -22,6 +24,12 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [ ] Kriv: monitor replies and opt-outs to the 10 emails reported sent. Any agent assistance requires separate authorization for the relevant private information; inbox monitoring is not active
 
 ## Done
+
+- [x] Live fictional Claude draft verified (Claude Code, 2026-11-01): live-fictional, liveVerified=true, 76-word validated draft in 9.5 s through the unchanged isolated runtime. All five checks pass (384 tests, 16 smoke). Sales integration saved as a local commit with explicit staging; chucks-ducts edit and four untracked leads excluded. No push, deployment, email or private data access
+
+- [x] Continuity checkpoint and fictional live-provider check launcher: installation-only check, lint and 384 tests pass. Live inference remains unverified. User can run Check KRIV Claude.vbs; sanitized result is stored locally. docs/CONTINUE-KRIV.md records next steps and unavailable usage telemetry
+
+- [x] Local KRIV + Harvey Sales integration (2026-10-31): shared businesses, deduplicated Harvey CSV import, reviewed evidence and offer selection, separate editable drafts, optional isolated Claude runtime, draft history and revision checks, suppression checks, launcher and fictional demo. Lint/typecheck, 384 tests, build, 16 smoke checks and synthetic HTTP/browser/SQLite checks pass. Claude installation and login verified; live drafting remains unverified because agent network probes returned EACCES. No private lead data inspected, no sends or deployments. See docs/KRIV-SALES.md
 
 - [x] Chamber directories in automatic building (Kriv approved, Claude Code, 2026-10-28): after the daily Hotfrog search, two ChamberMaster member directories a day from 16 in TX, FL and UT, in rotation. Each loaded from this network with categories for the six niches; a test collection found 18 HVAC businesses from two of them with no blocks. Members keep their own town; finder qualification rules unchanged. Tests cover the rotation, list validity and town/state. No approval, publication, email or LinkedIn action
 

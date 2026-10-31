@@ -75,6 +75,24 @@ CREATE TABLE IF NOT EXISTS review_drafts (
   feedback TEXT NOT NULL DEFAULT '', section TEXT NOT NULL DEFAULT '',
   updated_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS sales_workspaces (
+  lead_id TEXT PRIMARY KEY REFERENCES leads(id),
+  revision INTEGER NOT NULL DEFAULT 0,
+  offer TEXT NOT NULL DEFAULT 'discovery',
+  evidence TEXT NOT NULL DEFAULT '[]',
+  contacts TEXT NOT NULL DEFAULT '[]',
+  draft TEXT,
+  updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sales_runs (
+  id TEXT PRIMARY KEY, lead_id TEXT NOT NULL REFERENCES leads(id),
+  provider TEXT NOT NULL, status TEXT NOT NULL, started_at TEXT NOT NULL,
+  finished_at TEXT, input_revision INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sales_draft_versions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, lead_id TEXT NOT NULL REFERENCES leads(id),
+  draft TEXT NOT NULL, archived_at TEXT NOT NULL
+);
 `;
 
 // Columns added after the first release, for databases created before them.

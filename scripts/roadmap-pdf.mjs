@@ -2,7 +2,7 @@
 // Renders the roadmap checklist to a PDF with ticked and empty boxes and a
 // progress count. Needs Playwright installed globally (not a project dependency):
 //   NODE_PATH=$(npm root -g) node scripts/roadmap-pdf.mjs
-import { readFileSync, mkdirSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { createRequire } from "node:module";
 
@@ -103,8 +103,11 @@ await page.evaluate(() => {
 // Chromium text runs; a sheet image preserves the checked boxes and every word.
 const sheets = await page.locator(".printPage").all();
 const sheetImages = [];
+const reviewDir = process.env.ROADMAP_REVIEW_DIR;
+if (reviewDir) mkdirSync(reviewDir, { recursive: true });
 for (const sheet of sheets) {
   const png = await sheet.screenshot();
+  if (reviewDir) writeFileSync(`${reviewDir}/page-${sheetImages.length + 1}.png`, png);
   sheetImages.push(`<div class="sheet"><img src="data:image/png;base64,${png.toString("base64")}" /></div>`);
 }
 await page.setContent(`<html><head><style>body{margin:0}.sheet{width:178mm;break-after:page}.sheet:last-child{break-after:auto}img{display:block;width:178mm;height:auto}</style></head><body>${sheetImages.join("")}</body></html>`, { waitUntil: "load" });

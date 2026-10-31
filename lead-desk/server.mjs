@@ -40,6 +40,8 @@ const server = createServer(async (req, res) => {
     // DNS-rebinding guard: only answer requests addressed to this machine.
     if (!/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(req.headers.host ?? "")) return send(res, 421, { error: "wrong host" });
     const url = new URL(req.url, `http://${req.headers.host}`);
+    // Static launcher handshake: confirms this process loaded the Sales routes.
+    if (req.method === "GET" && url.pathname === "/sales-ready") return send(res, 200, "kriv-sales-v1", "text/plain");
 
     if (url.pathname.startsWith("/api/")) {
       if (req.method !== "GET" && req.headers["x-desk-token"] !== TOKEN) return send(res, 403, { error: "missing or wrong token; reload the page" });

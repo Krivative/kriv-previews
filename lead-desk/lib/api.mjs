@@ -15,6 +15,7 @@ import { inboxRoutes } from "./inbox-api.mjs";
 import { workflowRoutes } from "./workflow-api.mjs";
 import { reviewCheckRoutes } from "./review-checks.mjs";
 import { reviewHold, workflowOf } from "./workflow-state.mjs";
+import { salesRoutes } from "./sales.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const leadOr404 = (db, id) => db.prepare("SELECT * FROM leads WHERE id = ?").get(id);
@@ -136,6 +137,7 @@ export function addOptOut(db, { value, reason = null, leadId = null }) {
 }
 
 export const routes = [
+  ...salesRoutes,
   ["GET", /^\/api\/summary$/, summary],
   ["GET", /^\/api\/leads$/, listLeads],
   ["GET", /^\/api\/leads\/(?<id>[^/]+)$/, getLead],
