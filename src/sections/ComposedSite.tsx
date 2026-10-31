@@ -9,6 +9,7 @@ import { Rich } from "./Rich";
 import { ServiceDetails } from "./SignatureSections";
 import { inert } from "./inert";
 import s from "./sections.module.css";
+import { addressText, phoneText } from "@/lib/us-format";
 import c from "./compositions.module.css";
 
 type Props = { site: SiteData };
@@ -34,10 +35,10 @@ function Explore({ site }: Props) {
 
 function Facts({ site }: Props) {
   const b = site.business;
-  const address = [b.address.line1, b.address.city, b.address.region, b.address.postalCode].filter(Boolean).join(", ");
+  const address = addressText(b.address);
   return <div className={c.facts}>
     {address ? <div><p className={c.label}>Location</p><p>{address}</p></div> : null}
-    {b.phoneDisplay || b.email ? <div><p className={c.label}>Get in touch</p>{b.phoneDisplay ? <p><a {...inert}>{b.phoneDisplay}</a></p> : null}{b.email ? <p><a {...inert}>{b.email}</a></p> : null}</div> : null}
+    {phoneText(b) || b.email ? <div><p className={c.label}>Get in touch</p>{phoneText(b) ? <p><a {...inert}>{phoneText(b)}</a></p> : null}{b.email ? <p><a {...inert}>{b.email}</a></p> : null}</div> : null}
     {b.hours.length ? <div><p className={c.label}>Published hours</p><dl>{b.hours.map((h) => <div key={h.days}><dt>{h.days}</dt><dd>{h.time}</dd></div>)}</dl></div> : null}
     <p className={c.previewNote}>Concept preview. Calls, booking and outbound business actions are disabled. No information is collected.</p>
   </div>;

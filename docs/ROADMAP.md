@@ -163,10 +163,10 @@ Earlier entries below are historical completion records, retained as reported; t
 
 ## Setup (Claude builds, Kriv approves)
 
-- [ ] US-ready content: US spelling, phone and address formats
+- [x] US-ready content (Claude Code, 2026-11-01): all 25 tracked lead records already use US phone formats, two-letter states and ZIPs; previews now print US addresses as "City, ST ZIP" and format US numbers when no display wording is given; "enquire" wording replaced. Other countries unchanged. Tests added
 
 - [ ] Database adapter for lead records (new leads need no deploy). Lead records now live in the desk's local database; pages still go live through a commit of leads/<slug>.json
-- [ ] Private review link so Kriv can see draft previews before they go live
+- [x] Private review link (Claude Code, 2026-11-01): signed, per-lead links valid up to 14 days open a draft and its inner pages; off unless PREVIEW_REVIEW_SECRET is set on the server. Unit tests and 5 new smoke checks pass. See docs/REVIEW-LINKS.md
 
 ## Pipeline (Phase 4)
 

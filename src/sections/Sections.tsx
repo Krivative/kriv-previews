@@ -9,6 +9,7 @@ import { inert } from "./inert";
 import s from "./sections.module.css";
 import { ServiceExplorer, EditorialGallery, VisitJourney, ServiceDetails } from "./SignatureSections";
 import { GalleryViewer } from "./GalleryViewer";
+import { cityLine, phoneText } from "@/lib/us-format";
 import m from "./signature.module.css";
 
 type Props = { site: SiteData };
@@ -391,7 +392,7 @@ function Hours({ site }: Props) {
 
 function AddressBlock({ site }: Props) {
   const a = site.business.address;
-  const lines = [a.line1, [a.city, a.region].filter(Boolean).join(", ")].filter(Boolean).join("\n");
+  const lines = [a.line1, cityLine(a)].filter(Boolean).join("\n");
   return <p className={s.address}>{lines}</p>;
 }
 
@@ -411,7 +412,7 @@ export function Visit({ site, variant }: Props & { variant: Extract<SectionRef, 
           <div className={s.visitCardBox}>
             {b.hours.length ? <strong>Opening hours</strong> : <strong>Get in touch</strong>}
             <Hours site={site} />
-            {b.phoneDisplay ? <a {...inert}>{b.phoneDisplay}</a> : null}
+            {phoneText(b) ? <a {...inert}>{phoneText(b)}</a> : null}
             {b.messenger ? <a {...inert}>Message us on Facebook</a> : null}
           </div>
         </div>
@@ -427,7 +428,7 @@ export function Visit({ site, variant }: Props & { variant: Extract<SectionRef, 
           </h2>
           <AddressBlock site={site} />
           <Hours site={site} />
-          {b.phoneDisplay ? <a {...inert}>{b.phoneDisplay}</a> : null}
+          {phoneText(b) ? <a {...inert}>{phoneText(b)}</a> : null}
           {b.mapsUrl ? <a {...inert}>Open in Google Maps</a> : null}
         </div>
         <Photo label="Map" />

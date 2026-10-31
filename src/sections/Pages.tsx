@@ -5,6 +5,7 @@ import { Custom, Faq, Gallery, Services } from "./Sections";
 import { Photo } from "./Photo";
 import { Rich } from "./Rich";
 import { inert } from "./inert";
+import { addressText, phoneText } from "@/lib/us-format";
 import s from "./sections.module.css";
 
 type Props = { site: SiteData };
@@ -38,15 +39,15 @@ export function PageDirectory({ site }: Props) {
 
 export function ContactDetails({ site }: Props) {
   const b = site.business;
-  const address = [b.address.line1, b.address.city, b.address.region, b.address.postalCode].filter(Boolean).join(", ");
+  const address = addressText(b.address);
   return <section id="visit" className={`${s.section} ${s.pageAlt}`}><div className={`${s.wrap} ${s.contactGrid}`}>
     <div><p className={s.eyebrow}>Get in touch</p><h2 className={s.h2}>Let’s start with the details.</h2><p>{guideFor(site).prepare}</p><p className={s.previewNote}>Concept preview only. Calls, messages and booking actions are disabled. No information is collected.</p></div>
     <div className={s.contactPanel}><dl>
-      {b.phoneDisplay ? <div><dt>Phone</dt><dd><a {...inert}>{b.phoneDisplay}</a></dd></div> : null}
+      {phoneText(b) ? <div><dt>Phone</dt><dd><a {...inert}>{phoneText(b)}</a></dd></div> : null}
       {b.email ? <div><dt>Email</dt><dd><a {...inert}>{b.email}</a></dd></div> : null}
       {address ? <div><dt>Location</dt><dd>{address}</dd></div> : null}
       {b.hours.length ? <div><dt>Opening hours</dt><dd>{b.hours.map((h) => <span className={s.hoursLine} key={`${h.days}-${h.time}`}><span>{h.days}</span><span>{h.time}</span></span>)}</dd></div> : null}
-    </dl>{!b.phoneDisplay && !b.email ? <p>Contact information has not been supplied for this concept.</p> : null}</div>
+    </dl>{!phoneText(b) && !b.email ? <p>Contact information has not been supplied for this concept.</p> : null}</div>
   </div></section>;
 }
 

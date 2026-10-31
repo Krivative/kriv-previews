@@ -5,6 +5,7 @@ import { Photo } from "./Photo";
 import { Rich } from "./Rich";
 import { GalleryViewer } from "./GalleryViewer";
 import { inert } from "./inert";
+import { addressText, phoneText } from "@/lib/us-format";
 import c from "./collection.module.css";
 
 export type ContentProps = { site: SiteData };
@@ -127,14 +128,14 @@ export function Questions({ site }: ContentProps) {
 
 export function Contact({ site, treatment = "folio" }: ContentProps & { treatment?: "folio" | "stamp" | "letterClose" | "billboard" | "ribbonClose" }) {
   const business = site.business;
-  const address = [business.address.line1, business.address.city, business.address.region, business.address.postalCode].filter(Boolean).join(", ");
+  const address = addressText(business.address);
   return <section id="visit" className={`${c.contact} ${c[treatment]}`}>
     <div className={c.contactTitle}><p className={c.eyebrow}>Continue the conversation</p><h2><Rich text={site.close?.headline ?? "Start with a conversation."} /></h2>
       {site.close?.sub ? <p>{site.close.sub}</p> : null}<Link href={pageHref(site, "contact")} prefetch={false}>All contact information <span aria-hidden="true">↗</span></Link>
     </div>
     <div className={c.contactFacts}>
       {address ? <div><h3>Find them</h3><p>{address}</p></div> : null}
-      {business.phoneDisplay || business.email ? <div><h3>Get in touch</h3>{business.phoneDisplay ? <p><a {...inert}>{business.phoneDisplay}</a></p> : null}{business.email ? <p><a {...inert}>{business.email}</a></p> : null}</div> : null}
+      {phoneText(business) || business.email ? <div><h3>Get in touch</h3>{phoneText(business) ? <p><a {...inert}>{phoneText(business)}</a></p> : null}{business.email ? <p><a {...inert}>{business.email}</a></p> : null}</div> : null}
       {business.hours.length ? <div><h3>Published hours</h3><dl>{business.hours.map((hour, index) => <div key={index}><dt>{hour.days}</dt><dd>{hour.time}</dd></div>)}</dl></div> : null}
       <p className={c.previewNote}>Concept preview. Calls, booking and outbound business actions are disabled. No information is collected.</p>
     </div>

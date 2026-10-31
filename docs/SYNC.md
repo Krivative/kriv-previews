@@ -41,6 +41,11 @@ required validation suite and the source's page/navigation/screenshot checks.
 `CATALOG.md` and `FINGERPRINTS.md` (fingerprint method adapted from Nate Herk's
 scroll-craft, MIT).
 
+## Preview-only adaptations (2026-11-01)
+
+- US-ready display: `src/lib/us-format.ts` formats US addresses as "City, ST ZIP" and US numbers as (512) 555-0100 when no `phoneDisplay` is given; other countries keep the shared comma order. Chrome, Sections, Pages, ComposedSite and CollectionParts call it here; the Site Arsenal source keeps its own joins. Two site-page questions say "call ahead"/"ask about" instead of "enquire". Do not copy these lines back over the source.
+- Private review links (`src/proxy.ts`, `review-*.ts`, both `[slug]` pages) are preview-only; see docs/REVIEW-LINKS.md.
+
 ## Distinct compositions (2026-10-28)
 
 Kriv approved cross-industry rotation while all 26 designs are rebuilt gradually.

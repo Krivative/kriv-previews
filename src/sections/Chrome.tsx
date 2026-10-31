@@ -3,6 +3,7 @@ import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
 import Link from "next/link";
 import { pageHref, sitePages } from "@/lib/site-pages";
+import { addressText, phoneText } from "@/lib/us-format";
 import s from "./sections.module.css";
 
 // Guardrail 2: every preview carries this banner. Do not remove or reword it.
@@ -49,7 +50,7 @@ export function Header({ site, currentPath = "" }: { site: SiteData; currentPath
 
 export function Footer({ site }: { site: SiteData }) {
   const a = site.business.address;
-  const place = [a.line1, a.city, a.region].filter(Boolean).join(", ");
+  const place = addressText(a);
   const socials = Object.entries(site.business.socials);
   return (
     <div className={s.wrap}>
@@ -60,7 +61,7 @@ export function Footer({ site }: { site: SiteData }) {
           {site.business.name} · {place}
         </span>
         <span>
-          {site.business.phoneDisplay ? <a {...inert}>{site.business.phoneDisplay}</a> : null}
+          {phoneText(site.business) ? <a {...inert}>{phoneText(site.business)}</a> : null}
           {socials.map(([name]) => (
             <span key={name}>
               {" · "}
