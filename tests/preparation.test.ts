@@ -9,7 +9,7 @@ import { prepareLead } from "../lead-desk/lib/preparation.mjs";
 import { preparationReadiness } from "../lead-desk/lib/preparation-state.mjs";
 import { approveBlockers } from "../lead-desk/lib/approve-api.mjs";
 import { inboxRoutes } from "../lead-desk/lib/inbox-api.mjs";
-import { automationStatus, automationTick, nextPreparation, nextFind } from "../lead-desk/lib/automation.mjs";
+import { automationStatus, automationTick, nextPreparation, nextFind, uncheckedWebsites } from "../lead-desk/lib/automation.mjs";
 import { CHAMBERS, chamberWhere } from "../lead-desk/lib/chambers.mjs";
 import { fromChamber } from "../scripts/finder/rules.mjs";
 import { assertReviewedPublish } from "../lead-desk/lib/publish.mjs";
@@ -301,5 +301,19 @@ describe("inbox with incomplete older records", () => {
     const route = workflowRoutes.find(([m, re]) => m === "GET" && (re as RegExp).test("/api/workflow"))![2] as (ctx: object) => { rows: { id: string; name: string }[] };
     const rows = route({ ...f.ctx, query: {} }).rows;
     expect(rows.map((r) => r.name).sort()).toEqual(["acme.example", "second.example"]);
+  });
+});
+
+describe("automatic checking picks websites past website-less listings", () => {
+  it("is not starved by older listings without a website or by excluded chains", () => {
+    const db = openDb(":memory:");
+    const put = db.prepare("INSERT INTO candidates (key, data, found_at) VALUES (?, ?, ?)");
+    for (let i = 0; i < 30; i++) put.run(`https://www.hotfrog.com/company/x${i}`, JSON.stringify({ name: `Listing ${i}` }), "2026-10-26T00:00:00.000Z");
+    put.run("kids.example", JSON.stringify({ name: "Kids Dental", website: "https://kidsdentalplace.example" }), "2026-10-30T00:00:00.000Z");
+    put.run("new-air.example", JSON.stringify({ name: "New Air", website: "https://new-air.example" }), "2026-10-31T00:00:00.000Z");
+    put.run("checked.example", JSON.stringify({ name: "Checked", website: "https://checked.example" }), "2026-10-31T00:00:00.000Z");
+    db.prepare("INSERT INTO checks (host, data, checked_at) VALUES ('checked.example', '{}', ?)").run(now());
+    expect(uncheckedWebsites(db)).toEqual(["https://new-air.example"]);
+    db.close();
   });
 });

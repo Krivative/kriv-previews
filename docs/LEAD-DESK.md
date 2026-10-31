@@ -106,3 +106,20 @@ Kriv chose no paid AI on 2026-10-26. The legacy AI switch, prefill and suggestio
 ## For Claude and other agents
 
 Code: `lead-desk/` (server, `lib/`, `public/`), lead rules shared with the CLI scripts in `scripts/finder/rules.mjs` and `sources.mjs`. Tests include `tests/lead-desk.test.ts`, `tests/build-sources.test.ts` and `tests/preparation.test.ts`. The `preparations` table is additive; existing manual QA/history are retained. Never call live approve or publish endpoints yourself: approving and publishing are Kriv's clicks. Agent tests use only synthetic businesses, in-memory databases and temporary directories, never Kriv's private lead directory.
+
+## Unattended runs (2026-11-01)
+
+Kriv authorized automatic building while the Desk is closed. The Windows task "KRIV Lead Desk unattended run"
+(every 3 hours from 09:00, only while Kriv is signed in) starts `scripts/kriv-worker.vbs`, which runs
+`node lead-desk/worker.mjs` hidden and appends to `kriv-leads\unattended.log`.
+
+- Same steps as the open Desk's worker: find, check, prepare previews and email drafts. Never approves,
+  publishes, sends email or touches LinkedIn.
+- Steps aside when automatic building is paused, when the Desk is open on port 4321 (its own worker runs),
+  or when another unattended run holds `kriv-leads\unattended.lock`. Stops when idle or after 50 minutes.
+- `node lead-desk/worker.mjs --check-only` reports whether a run would start, without running anything.
+- Remove: `schtasks /Delete /TN "KRIV Lead Desk unattended run" /F`.
+
+Checker queue fix (same day): website checks now pick unchecked candidates that have a website, newest first,
+after excluding chains. Before, the first 20 unchecked rows were website-less listings, so no check ran
+after 2026-10-28.

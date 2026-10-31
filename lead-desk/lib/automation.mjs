@@ -36,6 +36,17 @@ export function startPreparation(ctx, lead) {
     job.done = 1; return r;
   });
 }
+/**
+ * Up to `limit` candidate websites that have never been checked, newest finds first.
+ * Filters BEFORE limiting: website-less listings and excluded chains never get a check,
+ * so taking the first rows and filtering afterwards starved every newer find (found
+ * 2026-11-01: no checks ran from 10-28 while 160 chamber finds waited).
+ */
+export function uncheckedWebsites(db, limit = 20) {
+  return db.prepare("SELECT c.data FROM candidates c LEFT JOIN checks k ON k.host = c.key WHERE k.host IS NULL AND json_extract(c.data, '$.website') IS NOT NULL ORDER BY c.found_at DESC").all()
+    .map((r) => parse(r.data, {})).filter((c) => c.website && !isExcluded(c.name ?? "", c.website)).slice(0, limit).map((c) => c.website);
+}
+
 export function automationTick(ctx) {
   if (!automationStatus(ctx).running || jobStatus()?.status === "running") return;
   const preparedToday = ctx.db.prepare("SELECT COUNT(*) n FROM preparations WHERE state = 'ready' AND updated_at >= ?").get(now().slice(0, 10)).n;
@@ -49,8 +60,7 @@ export function automationTick(ctx) {
   if (lead) return startPreparation(ctx, lead);
   // Technically modern sites ("Visual review") are skipped: Kriv chose not to grade them by hand
   // (2026-10-28), and a visual grade is never invented. They stay parked on the Review screen.
-  const ungraded = ctx.db.prepare("SELECT c.data FROM candidates c LEFT JOIN checks k ON k.host = c.key WHERE k.host IS NULL LIMIT 20").all()
-    .map((r) => parse(r.data, {})).filter((c) => c.website && !isExcluded(c.name ?? "", c.website)).map((c) => c.website);
+  const ungraded = uncheckedWebsites(ctx.db);
   if (ungraded.length) return startCheck(ctx, ungraded);
   const find = nextFind(ctx);
   if (find) return startFind(ctx, find);
