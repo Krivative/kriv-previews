@@ -7,6 +7,7 @@ import { randomBytes } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { openDb, now } from "../lead-desk/lib/db.mjs";
 import { salesRoutes, importProspects, saveResearch, salesDetail } from "../lead-desk/lib/sales.mjs";
+import { upsertLead, addSource } from "../lead-desk/lib/leads.mjs";
 
 export async function startSalesDemo({ port = 4324, salesGenerate, salesProbe, database } = {}) {
   const folder = mkdtempSync(join(tmpdir(), "kriv-sales-demo-"));
@@ -18,6 +19,18 @@ export async function startSalesDemo({ port = 4324, salesGenerate, salesProbe, d
     const id = importProspects(db, { businesses: [{ name, website: `https://${host}` }] }).ids[0];
     const detail = salesDetail(db, id);
     if (!detail.evidence.length) saveResearch(db, id, { expectedRevision: detail.revision, offer, evidence: [{ id: "sample-evidence", type, claim, url: `https://${host}`, observedAt: now(), confirmed: true }] });
+  }
+  // Fictional finder results for Discover: checked businesses with no Sales research yet.
+  const daysAgo = days => new Date(Date.now() - days * 86400000).toISOString();
+  const found = [
+    [{ name: "Birch Lane Heating", state: "TX", town: "Fictionville", niche: "hvac", website: "https://birch-lane.example", email: "office@birch-lane.example", flags: ["no-mobile-viewport", "no-https"], looksDated: ["Stock clip-art header"], checkedAt: daysAgo(2) }, "qualified"],
+    [{ name: "Maple Street Plumbing", state: "FL", town: "Sampletown", niche: "plumbing", website: "https://maple-street.example", flags: ["sideways-scroll-on-phone"], checkedAt: daysAgo(5) }, "near"],
+    [{ name: "Willow Dental Studio", state: "UT", town: "Demo City", niche: "dental", flags: ["no-website"], checkedAt: daysAgo(3), listing: "https://directory.example/listing/willow-dental" }, "qualified"],
+    [{ name: "Spruce Auto Care", state: "TX", town: "Fictionville", niche: "auto", website: "https://spruce-auto.example", email: "service@spruce-auto.example", flags: ["placeholder-or-empty"], checkedAt: daysAgo(45) }, "qualified"],
+  ];
+  for (const [rec, bucket] of found) {
+    const id = upsertLead(db, { ...rec, via: "fictional finder" }, { bucket });
+    addSource(db, id, "listing", rec.listing ?? rec.website);
   }
   const requests = [];
   const server = createServer(async (req, res) => {

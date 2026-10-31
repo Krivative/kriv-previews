@@ -10,7 +10,7 @@ Paste this into the next coding session:
 >
 > The integration is saved as a local commit on the branch (see HANDOFF.md); not pushed. Never blanket-stage: leads/chucks-ducts.json is an unrelated modification; beck-brian.json, j-tech-mechanical.json, precision-mechanical.json and sunset-automotive.json are unrelated untracked leads. Leave them unread and unstaged.
 >
-> Do not open C:\Users\user\kriv-leads, secrets, the normal Desk UI/API or start its worker during verification. Use temporary fictional databases and the Sales demo. Preserve automation settings and existing preview safeguards. No real approval, publication, email, LinkedIn, remote push or deployment is authorized. Discovery, reply handling and app connectors remain later stages; do not treat a fictional drafting pass as approval to activate them.
+> Do not open C:\Users\user\kriv-leads, secrets, the normal Desk UI/API or start its worker during verification. Use temporary fictional databases and the Sales demo. Preserve automation settings and existing preview safeguards. No real approval, publication, email, LinkedIn, remote push or deployment is authorized. Discovery from the existing finder is implemented (2026-11-01, Kriv's choice). Reply handling and app connectors remain later stages; do not start them without Kriv's explicit choice.
 
 ## Usage checkpoint
 

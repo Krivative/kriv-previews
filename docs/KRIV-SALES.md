@@ -18,6 +18,16 @@ Implemented 2026-10-31 in kriv-previews. This adds a Sales workspace to the exis
 4. Start with a template, or enable Claude in Drafting settings and request a draft. Edit and save it. The draft is separate from the existing outreach email; use Copy saved draft and the existing email workspace for the manual handoff.
 5. Continue through KRIV's existing preview, review, approval and publication steps. This screen never approves, publishes or sends email. Build here selects an offer about enquiry handling; it does not generate a working CRM or backend.
 
+## Discover from the finder (2026-11-01)
+
+Kriv chose Discovery as the next stage, using the Desk's existing free finder (Hotfrog plus 16 chamber directories) rather than a new provider.
+
+- The Sales side panel has **Discover from the finder**: businesses the finder already found and checked, with no Sales research yet. Groups: qualified by the finder (default), near misses with no business email yet, and sites waiting for visual review. Filter by niche and state; up to 50 shown, newest checks first. The panel remembers whether it is open and its filters while the Desk tab stays open.
+- Hidden: declined, expired, sent or replied businesses, anything on the do-not-contact list, businesses with no dated check or no public source URL, and checks that only say "not checked".
+- **Start research** turns the site-check flags and visual-review notes into observations of type "Website issue", using the Desk's existing plain-English wording, the check date and the website (or the directory listing when there is no website). All arrive **unconfirmed**: tick "I checked this observation against its source" after looking yourself. **Use site-check findings** on a business adds any findings not already present.
+- Checks older than 30 days are marked in the list. Their observations can be added but never count, even when confirmed, until the website check is run again.
+- Discovery makes no network requests, starts no finder run and changes no finder rule, bucket or status. The automatic finder keeps running as before while the Desk is open.
+
 ## Claude status and limitations
 
 Double-click `Check KRIV Claude.vbs` to run one fictional live draft from your desktop. It uses the same isolated runtime and draft validation as Sales, saves a sanitized result to `shots/sales-provider-check.json`, and shows a completion message. It does not open the Desk database, send email or enable drafting in your real workspace. The check uses one subscription request. A successful report has `mode: "live-fictional"` and `liveVerified: true`; an installation-only report does not verify inference. The continuation prompt is in `docs/CONTINUE-KRIV.md`.
@@ -43,4 +53,4 @@ Harvey provenance and license: `vendor/harvey/UPSTREAM.md` and `vendor/harvey/LI
 - Code review (2026-11-01): all page insertions escape values, source URLs are restricted to public http(s), opt-out matching covers addresses, domains and subdomains, revision checks guard every write and the daily cap counts failures. No defects found.
 - Preview and production data adapters are unchanged. No push or deployment occurred.
 
-Next: founder use of the local combined workflow (Open KRIV Sales Demo.vbs first, then Open KRIV.vbs). Discovery providers, reply assistance and app connectors remain separate later stages.
+Next: founder use of the local combined workflow, including Discover (Open KRIV Sales Demo.vbs first, then Open KRIV.vbs). Reply handling and app connectors remain separate later stages that need Kriv's decision. Reply assistance and app connectors remain separate later stages.

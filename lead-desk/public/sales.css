@@ -16,7 +16,7 @@ body[data-screen=sales] .page { max-width:1500px; padding:32px; }
 .sales-card h3 { font-size:17px; margin:0; }
 .sales-detail .btn, .sales-title .btn, .sales-list .btn { min-height:44px; padding:10px 16px; }
 .sales-card label { display:grid; gap:7px; font-size:14px; margin:10px 0; }
-.sales-card input, .sales-card textarea, .sales-card select, .sales-list input { width:100%; min-width:0; padding:11px; font:inherit; background:#fff; color:#1b2b39; border:1px solid #b6c3ce; border-radius:7px; }
+.sales-card input, .sales-card textarea, .sales-card select, .sales-list input, .sales-list select { width:100%; min-width:0; padding:11px; font:inherit; background:#fff; color:#1b2b39; border:1px solid #b6c3ce; border-radius:7px; }
 .sales-card textarea { resize:vertical; min-height:100px; }
 .sales-card .sales-check { display:flex; align-items:center; gap:10px; min-height:44px; }
 .sales-check input { width:20px; height:20px; }
@@ -31,3 +31,10 @@ body[data-screen=sales] .page { max-width:1500px; padding:32px; }
 .sales-detail a, .sales-card pre { overflow-wrap:anywhere; white-space:pre-wrap; }
 .sales-draft-body { min-height:220px !important; }
 @media (max-width:850px) { body[data-screen=sales] .page { padding:18px; } .sales-layout { grid-template-columns:1fr; } .sales-list nav { max-height:220px; } .sales-pair { grid-template-columns:1fr; gap:0; } .sales-card { padding:18px; } .sales-title h1 { font-size:29px; } }
+.sales-filters { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.sales-filters label { display:grid; gap:4px; min-width:0; }
+.sales-filters label:first-child { grid-column:1 / -1; }
+.sales-discover-list { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:10px; max-height:640px; overflow:auto; }
+.sales-discover-item { display:grid; gap:4px; padding:10px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.sales-discover-item ul { margin:2px 0; padding-left:18px; }
+.sales-discover-item .btn { justify-self:start; }

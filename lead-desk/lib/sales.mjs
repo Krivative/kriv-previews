@@ -4,6 +4,8 @@ import { z } from "zod";
 import { now, json, parse, tx, log } from "./db.mjs";
 import { findLead, upsertLead, addSource } from "./leads.mjs";
 import { generateWithHarvey, probeClaude } from "./harvey-runtime.mjs";
+import { PROBLEM_SENTENCES } from "./compose.mjs";
+import { plain, host } from "../../scripts/finder/rules.mjs";
 
 export const OFFERS = { discovery: "Discovery conversation", website: "Website concept", build: "KRIV Build demonstration" };
 export const EVIDENCE_TYPES = { observation: "General observation", website_issue: "Website issue", booking_gap: "Booking observation", followup_gap: "Confirmed follow-up problem" };
@@ -97,6 +99,63 @@ export function addSavedResearch(db, id, revision) {
   }
   if (evidence.length === parse(w.evidence, []).length) fail(`No new saved source text is available for ${l.name}. Add a sourced observation below.`);
   return saveResearch(db, id, { expectedRevision: revision, offer: w.offer, evidence });
+}
+
+// Discovery: businesses the existing finder already found and checked. No network,
+// no new provider. Check results become UNCONFIRMED observations for founder review.
+export const DISCOVERY_BUCKETS = { qualified: "Qualified by the finder", near: "Near miss (no business email yet)", toReview: "Waiting for visual review" };
+const NO_INITIAL = ["sent", "replied", "declined", "expired"];
+function checkedAt(db, l) {
+  let at = Date.parse(l.checked_at ?? "");
+  if (Number.isNaN(at) && l.website) {
+    try { at = Date.parse(db.prepare("SELECT checked_at FROM checks WHERE host = ?").get(host(l.website))?.checked_at ?? ""); } catch { /* no usable host */ }
+  }
+  return Number.isNaN(at) || at > Date.now() + 60000 ? null : new Date(at).toISOString();
+}
+export function checkFindings(db, l) {
+  const at = checkedAt(db, l);
+  const sources = db.prepare("SELECT url FROM sources WHERE lead_id = ? ORDER BY rowid").all(l.id).map(r => r.url);
+  const url = [l.website, ...sources].find(u => u && publicUrl.safeParse(u).success);
+  if (!at || !url) return { at, url, findings: [] };
+  const findings = [];
+  for (const flag of parse(l.flags, [])) {
+    if (flag === "not-checked") continue;
+    const claim = flag === "no-website" ? "No business website was found in the directory listing."
+      : flag === "unreachable" ? "The website did not load when KRIV's site check ran (dead domain, error page or certificate problem). Confirm it from your own connection."
+      : PROBLEM_SENTENCES[flag] ?? `The automatic site check found: ${plain(flag)}.`;
+    findings.push({ key: `flag:${flag}`, claim });
+  }
+  for (const item of parse(l.looks_dated, [])) if (String(item).trim()) findings.push({ key: `visual:${item}`, claim: `Visual review noted: ${String(item).trim()}.` });
+  return { at, url, findings: findings.map(f => ({ id: `check-${createHash("sha256").update(f.key).digest("hex").slice(0, 16)}`, type: "website_issue", claim: f.claim.slice(0, 1200), url, observedAt: at, confirmed: false })) };
+}
+
+export function discoverList(db, query = {}) {
+  const bucket = Object.hasOwn(DISCOVERY_BUCKETS, query.bucket) ? query.bucket : "qualified";
+  const rows = db.prepare(`SELECT l.* FROM leads l LEFT JOIN sales_workspaces s ON s.lead_id = l.id
+    WHERE l.bucket = ? AND l.status NOT IN (${NO_INITIAL.map(() => "?").join(",")}) AND (s.lead_id IS NULL OR s.evidence = '[]')
+    ORDER BY COALESCE(l.checked_at, l.updated_at) DESC LIMIT 500`).all(bucket, ...NO_INITIAL);
+  const usable = rows.filter(l => !contactHold(db, l)).map(l => ({ l, check: checkFindings(db, l) })).filter(x => x.check.findings.length);
+  const niches = [...new Set(usable.map(x => x.l.niche).filter(Boolean))].sort(), states = [...new Set(usable.map(x => x.l.state).filter(Boolean))].sort();
+  const items = usable.filter(x => (!query.niche || x.l.niche === query.niche) && (!query.state || x.l.state === query.state)).slice(0, 50).map(({ l, check }) => ({
+    id: l.id, name: l.name, town: l.town, state: l.state, niche: l.niche, website: l.website, hasEmail: !!l.email, checkedAt: check.at,
+    stale: Date.now() - Date.parse(check.at) > 30 * 86400000, findings: check.findings.map(f => f.claim) }));
+  return { bucket, buckets: DISCOVERY_BUCKETS, niches, states, total: usable.length, items };
+}
+
+// Synchronous end to end, so no other request can interleave between the checks and the save.
+export function discoverResearch(db, id, expectedRevision) {
+  const l = lead(db, id), w = workspace(db, id), hold = contactHold(db, l);
+  if (hold) fail(hold, 409);
+  if (NO_INITIAL.includes(l.status)) fail("Initial outreach is already recorded or this business is closed. Continue in the existing workflow.", 409);
+  const evidence = parse(w.evidence, []);
+  // From the Discover list the client has no revision; only an empty workspace may be started there.
+  if (expectedRevision == null) { if (evidence.length) fail("This business already has research. Open it to add the site-check findings.", 409); }
+  else checkRevision(w, expectedRevision);
+  const added = checkFindings(db, l).findings.filter(f => !evidence.some(e => e.id === f.id)).slice(0, Math.max(0, 30 - evidence.length));
+  if (!added.length) fail(`No new site-check findings are available for ${l.name}. Run the website check again or add an observation.`);
+  saveResearch(db, id, { expectedRevision: w.revision, offer: w.offer, evidence: [...evidence, ...added] });
+  log(db, id, "sales-discovered", { findings: added.length, bucket: l.bucket });
+  return salesDetail(db, id);
 }
 
 // RFC-4180 subset, including quoted multiline cells. No executable formulas are evaluated.
@@ -235,6 +294,8 @@ export const salesRoutes = [
   })],
   ["POST", /^\/api\/sales\/check-provider$/, wrap(async ctx => ctx.salesProbe ? ctx.salesProbe() : probeClaude())],
   ["POST", /^\/api\/sales\/import$/, wrap(({ db, body }) => importProspects(db, body))],
+  ["GET", /^\/api\/sales\/discover$/, wrap(({ db, query }) => discoverList(db, query))],
+  ["POST", /^\/api\/sales\/(?<id>[^/]+)\/discover$/, wrap(({ db, params, body }) => discoverResearch(db, params.id, body.expectedRevision ?? null))],
   ["GET", /^\/api\/sales\/(?<id>[^/]+)$/, wrap(({ db, params }) => salesDetail(db, params.id))],
   ["POST", /^\/api\/sales\/(?<id>[^/]+)\/research$/, wrap(({ db, params, body }) => saveResearch(db, params.id, body))],
   ["POST", /^\/api\/sales\/(?<id>[^/]+)\/saved-research$/, wrap(({ db, params, body }) => addSavedResearch(db, params.id, body.expectedRevision))],

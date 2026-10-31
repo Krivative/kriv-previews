@@ -52,6 +52,27 @@ try {
   await page.getByRole("heading", { name: "Example Imports" }).waitFor();
   assert.equal(await page.locator("[data-field=confirmed]").isChecked(), false);
   assert.equal(demo.db.prepare("SELECT email FROM leads WHERE name='Example Imports'").get().email, null);
+  // Discovery: fictional finder results become unconfirmed, sourced observations.
+  await page.getByText("Discover from the finder", { exact: true }).click();
+  const list = page.locator("#discover-list");
+  await list.getByText("Birch Lane Heating").waitFor();
+  await list.locator("li", { hasText: "Spruce Auto Care" }).getByText(/Checked over 30 days ago/).waitFor();
+  await page.locator("#discover-state").selectOption("UT");
+  await page.waitForFunction(() => document.querySelectorAll("#discover-list > li").length === 1);
+  assert.match(await list.textContent(), /Willow Dental Studio/);
+  await page.locator("#discover-state").selectOption("");
+  await list.getByText("Birch Lane Heating").waitFor();
+  await page.screenshot({ path: join(output, "discover.png"), fullPage: true });
+  await list.locator("li", { hasText: "Birch Lane Heating" }).getByRole("button", { name: "Start research" }).click();
+  await page.getByRole("heading", { name: "Birch Lane Heating" }).waitFor();
+  assert.equal(await page.locator("[data-evidence]").count(), 3);
+  assert.equal(await page.locator("[data-field=confirmed]:checked").count(), 0);
+  assert.match(await page.locator(".sales-callout").last().textContent(), /Discovery conversation/);
+  await page.getByRole("button", { name: "Use site-check findings", exact: true }).click();
+  await page.getByRole("alert").filter({ hasText: "No new site-check findings" }).waitFor();
+  await page.locator("#discover-bucket").selectOption("near");
+  await list.locator("li", { hasText: "Maple Street Plumbing" }).getByText(/no business email yet/).waitFor();
+  assert.equal(demo.db.prepare("SELECT bucket FROM leads WHERE name='Birch Lane Heating'").get().bucket, "qualified");
   // Responsive rendering and keyboard-visible focus.
   for (const [label, width, height] of [["desktop", 1440, 1000], ["tablet", 820, 1180], ["phone", 390, 844]]) {
     await page.setViewportSize({ width, height });
@@ -64,7 +85,7 @@ try {
   const unauthed = await fetch(`${demo.url}/api/sales/settings`, { method: "POST", headers: { "Content-Type": "application/json" }, body: '{"enabled":true}' }); assert.equal(unauthed.status, 403);
   assert.equal(demo.db.prepare("SELECT count(*) n FROM emails").get().n, 0);
   assert(demo.requests.every(r => r.path.startsWith("/api/sales"))); assert.deepEqual(external, []); assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ result: "passed", requests: demo.requests.length, cases: ["persistent draft", "assisted route", "failure recovery", "evidence invalidation", "CSV import", "three viewports", "CSRF", "no email or external requests"], screenshots: output }));
+  console.log(JSON.stringify({ result: "passed", requests: demo.requests.length, cases: ["persistent draft", "assisted route", "failure recovery", "evidence invalidation", "CSV import", "discovery list, filters and unconfirmed findings", "three viewports", "CSRF", "no email or external requests"], screenshots: output }));
 } catch (error) {
   console.error(JSON.stringify({ errors, requests: demo.requests, alert: await page?.locator("#sales-error").textContent().catch(() => "unavailable") }));
   if (page) await page.screenshot({ path: join(output, "failure.png"), fullPage: true });
