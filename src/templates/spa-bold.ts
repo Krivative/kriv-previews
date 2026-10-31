@@ -5,6 +5,7 @@ export const spaBold = defineTemplate({
   id: "spa-bold",
   name: "Onyx",
   look: "bold",
+  composition: "vault",
   industries: ["luxury spa", "hotel spa", "men's grooming lounge", "massage and sauna", "wellness club"],
   fonts: {
     display: "Italiana, 'Times New Roman', serif",
@@ -35,11 +36,11 @@ export const spaBold = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "night-spa luxury, plum-black, gold hairlines, thin spaced uppercase serif",
-    nav: "wide-tracked uppercase wordmark, square gold CTA",
-    hero: "centred thin uppercase headline over three dark photo tiles",
-    sequence: "centred → menu → gold strip → mosaic → visit card → FAQ columns → band",
-    close: "gold band with dark buttons",
-    signature: "wide-tracked uppercase Italiana at every heading; a two-column treatment menu ruled in gold",
+    grammar: "dark ceremonial doorway, gold hairlines and spaced Italiana capitals",
+    nav: "centered uppercase identity above a fine uppercase link row",
+    hero: "arched central doorway with marginal roman marker and location, title underneath",
+    sequence: "doorway, arched offering vaults, letter, supplied notes, gallery, questions, stamp",
+    close: "gold double-outline contact stamp",
+    signature: "arched offering vaults open individually beneath a central photographic doorway",
   },
 });

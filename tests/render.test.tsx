@@ -4,7 +4,10 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
+import { pageHref, sitePages } from "@/lib/site-pages";
 import { templateList } from "@/templates";
+import { presetForm } from "../lead-desk/lib/offer-presets.mjs";
+import { NICHE_INFO, toRecord } from "../lead-desk/lib/builder.mjs";
 
 const testLead = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "test-lead.json"), "utf8"));
 const minimal = {
@@ -31,6 +34,29 @@ function anchorHrefs(html: string): string[] {
   return [...html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)].map((m) => m[1]);
 }
 
+function isInternal(href: string, input: unknown) {
+  const site = SiteData.parse(input);
+  return href.startsWith("#") || sitePages(site).some((p) => href === pageHref(site, p.path));
+}
+
+describe("preset offers with optional facts omitted", () => {
+  for (const [niche, spec] of Object.entries(NICHE_INFO) as [string, { templates: string[] }][]) {
+    it.each(spec.templates)("renders %s with no inferred town or category", (id) => {
+      const lead = { id: "example", name: "Example Business", niche, town: "Unverified Town", state: "FL" };
+      const form = presetForm(lead, [{ url: "https://example.test/", status: 200, text: "Example Business", html: "<h1>Example Business</h1>" }], templateList);
+      const record = toRecord({ ...form, template: id });
+      record.business.category ??= "";
+      record.business.address.city ??= "";
+      record.seo.description = "Concept preview of Example Business, prepared by KRIV.";
+      const html = render(record);
+      expect(html).toContain(banner(lead.name));
+      expect(html).not.toMatch(/undefined|Unverified Town/);
+      expect(anchorHrefs(html).every((h) => isInternal(h, record))).toBe(true);
+      expect(html).not.toMatch(/<form\b|<input\b/);
+    });
+  }
+});
+
 describe.each(templateList.map((t) => t.id))("template %s", (id) => {
   it.each([
     ["full", testLead],
@@ -39,7 +65,7 @@ describe.each(templateList.map((t) => t.id))("template %s", (id) => {
     const html = render(data, id);
     const name = (data as { business: { name: string } }).business.name;
     expect(html).toContain(banner(name));
-    for (const href of anchorHrefs(html)) expect(href.startsWith("#")).toBe(true);
+    for (const href of anchorHrefs(html)) expect(isInternal(href, { ...data, template: id })).toBe(true);
     expect(html).not.toMatch(/<form\b|<input\b|<textarea\b/);
   });
 });
@@ -66,7 +92,7 @@ describe("stock photo credits", () => {
   it.each(templateList.map((t) => t.id))("credits each photographer and Unsplash, and links nowhere else (%s)", (id) => {
     const html = render(withPhotos, id);
     expect(html).toContain("Stock photos for illustration, not of Minimal Co:");
-    const outbound = anchorHrefs(html).filter((h) => !h.startsWith("#"));
+    const outbound = anchorHrefs(html).filter((h) => !isInternal(h, { ...withPhotos, template: id }));
     expect(outbound).toEqual([
       "https://unsplash.com/@ana?utm_source=kriv_previews&amp;utm_medium=referral",
       "https://unsplash.com/@ben?utm_source=kriv_previews&amp;utm_medium=referral",
@@ -98,7 +124,7 @@ describe("cinematic kit", () => {
     }, "hvac-bold");
     expect(html).toContain("Photos and logo from Minimal Co&#x27;s own website");
     expect(html).toContain('src="https://example.com/logo.png"');
-    for (const href of anchorHrefs(html)) expect(href.startsWith("#")).toBe(true);
+    for (const href of anchorHrefs(html)) expect(isInternal(href, minimal)).toBe(true);
   });
 
   it("turns on numbered labels, motion and ghost words from the template style", () => {

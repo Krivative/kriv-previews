@@ -61,6 +61,8 @@ Grades go in `<dataDir>/visual.json` (`{ host: { failed: [plain-English items] }
 
 Sources that worked: Hotfrog town pages (49 towns; listings skew to older businesses and often show an email), ChamberMaster directories (Metro SA, Boerne, Logan, Tyler, St. George, Ogden-Weber, Utah Valley), TACCA, medspanear.me, web search. Web search found almost only modern sites (0 weak among 150 town results). Extra checks added in the qualify step: the email's domain must have MX records (dead domains bounce), and a business whose email domain is another working, modern site is not a lead. Weak sites are usually dead domains, and the email on a dead domain is dead too, which is why the near-miss count is high.
 
+2026-10-28: automatic building in the Lead Desk now also works through 16 more ChamberMaster directories (Magnolia, Lubbock, Beaumont, Georgetown, Greenville, Portland and Angleton TX; Seminole County, Punta Gorda, Fort Walton Beach, North Port, Sebastian, Venice and Hollywood FL; Salt Lake and Sandy UT), two a day after Hotfrog. Each loaded from this network on 2026-10-28; a test collection of HVAC members from Portland TX and Fort Walton Beach found 18 businesses with no blocks. List: `lead-desk/lib/chambers.mjs`.
+
 ## Round 2 (2026-10-25, Kriv approved all three suggestions)
 
 - Hotfrog in 32 more towns (16 FL, 10 TX, 6 UT): 66 listings, 42 new websites graded. 1 new qualified lead: Fidelity Air & Refrigeration (HVAC, Spring Hill FL area; no website, business-name mailbox). Its address differs between Hotfrog and BuildZoom; confirm before building a page. Ma Mi Skin Care (Orlando) passed the script but sells skincare products, so it is not a med spa.
@@ -82,6 +84,8 @@ Sources that worked: Hotfrog town pages (49 towns; listings skew to older busine
 
 ## Scripts
 
+The Lead Desk (docs/LEAD-DESK.md) runs these same steps from buttons. The rules (chains, specialists, business mailbox, MX records, visual review) live in `scripts/finder/rules.mjs` and the directory collectors in `scripts/finder/sources.mjs`, shared by the desk and the scripts below.
+
 All output holds business emails, so the data folder lives outside Git (`/finder-data/` is ignored as a safety net).
 
 1. `node scripts/finder/hotfrog.mjs <data>/hotfrog-<run>.json waco-tx,ocala-fl,...` collects Hotfrog listings for the four niches.
@@ -92,6 +96,8 @@ All output holds business emails, so the data folder lives outside Git (`/finder
 
 ## Checker caveats
 
+- **Visible GoDaddy parking notices (Kriv approved, 2026-10-26).** The checker now recognizes a standalone "This Web page/domain is parked FREE, courtesy of GoDaddy.com" notice in the visible homepage text even when the title is just a domain name. It records only `parkingNotice: true/false` and uses the existing `placeholder-or-empty` flag; it does not save the full page text. Ordinary GoDaddy footers and article mentions are not parking evidence, and contact-page text is not used for this flag. Blocked checks remain "not checked"; mailbox and MX requirements are unchanged. Older saved checks do not gain this evidence automatically. This was verified with synthetic pages, not a fresh check of schc.biz or private lead records; any real recheck needs separate authorization.
+- **Authorized public recheck, 2026-10-26:** schc.biz returned a sandbox network denial on the first attempt and an `ERR_SSL_UNRECOGNIZED_NAME_ALERT` on the approved retry outside the sandbox. No page content was read and no parking notice was verified; the result was kept in memory and not applied to any lead. This does not establish that the business has a parked website. No private records were accessed. Further diagnosis is a separate task.
 - **Bot walls and geo-blocks are not weak sites.** Many US small-business sites answer a non-US or headless visitor with a Cloudflare challenge (403 "Just a moment..."), an empty 202, or "418 Country Blocked". `flagsFor` now marks these, and timeouts and mid-check redirects, as `not-checked` with `weak: false`. Re-check them from a US network before drawing any conclusion.
 - **Script-rendered sites** (React, Wix) fill the page after the load event; the checker waits for the network to settle before reading it.
 - **Sideways scroll can flicker** (pop-ups, animations). Re-run a site before quoting `sideways-scroll-on-phone` to its owner.

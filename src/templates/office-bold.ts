@@ -5,6 +5,7 @@ export const officeBold = defineTemplate({
   id: "office-bold",
   name: "Counsel",
   look: "bold",
+  composition: "chambers",
   industries: ["law firm", "financial advisory", "architecture studio", "engineering consultancy", "corporate services"],
   fonts: {
     display: "'Playfair Display', Georgia, serif",
@@ -35,11 +36,11 @@ export const officeBold = defineTemplate({
     { type: "close", variant: "card" },
   ],
   fingerprint: {
-    grammar: "deep forest green, bone type and buttons, bold Playfair headings, zero radius",
-    nav: "bold serif wordmark, bone square CTA",
-    hero: "stacked on dark: bold serif headline, wide photo, then sub + buttons",
-    sequence: "stacked → practice columns → steps → quote → visit card → FAQ columns → card",
-    close: "bordered card on dark, bone button",
-    signature: "bone-coloured buttons and numerals as the only accent on forest green; a three-step 'how we work'",
+    grammar: "formal dark document, narrow left navigation and framed illustration beneath a centered title",
+    nav: "narrow persistent left navigation with identity above vertically spaced links",
+    hero: "centered title above a framed image and introductory letter in two columns",
+    sequence: "formal document, supplied company letter, offering casefiles, notes, questions, gallery, closing letter",
+    close: "formal closing letter with three factual columns",
+    signature: "folder-shaped native offering disclosures inside a narrow-rail document",
   },
 });

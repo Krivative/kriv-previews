@@ -1,0 +1,296 @@
+/* Content primitives: scoped to this collection, ordinary scrolling, no JS layout. */
+.root { position:relative; background:var(--bg); color:var(--ink); isolation:isolate; }
+.root * { min-width:0; }
+.root h1,.root h2,.root h3 { font-family:var(--font-display); font-weight:var(--display-weight); }
+.root h1 { font-size:clamp(3rem,6.3vw,6.6rem); line-height:1.05; letter-spacing:-.045em; text-wrap:balance; margin:22px 0 32px; }
+.root h2 { font-size:clamp(2.2rem,4.1vw,4.4rem); line-height:1.12; letter-spacing:-.03em; text-wrap:balance; margin:12px 0 24px; }
+.root h3 { line-height:1.2; margin:0; }
+.root p { margin:0; }
+.root a { text-underline-offset:5px; }
+.root :where(a,summary,button):focus-visible { outline:3px solid currentColor; outline-offset:5px; }
+.root summary { cursor:pointer; list-style:none; }
+.root summary::-webkit-details-marker { display:none; }
+.shell { max-width:1600px; margin:auto; }
+.main { min-width:0; }
+.navigation { display:flex; align-items:center; justify-content:space-between; gap:28px; margin:0 5vw; padding:28px 0; border-bottom:1px solid var(--line); position:relative; z-index:20; }
+.identity { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-display); font-size:1.35rem; line-height:1.15; max-width:24ch; }
+.identity img { width:auto; max-width:64px; max-height:44px; object-fit:contain; }
+.desktopNav { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:4px 22px; font-size:.78rem; }
+.desktopNav a { padding-block:10px; text-decoration:none; }
+.desktopNav a[aria-current="page"] { text-decoration:underline; }
+.navLocation { display:none; font-size:.7rem; }
+.menu { display:none; position:relative; }
+.menu summary { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:10px 15px; min-height:44px; border:1px solid currentColor; font-size:.8rem; }
+.menu nav { position:absolute; right:0; top:calc(100% + 12px); width:min(280px,calc(100vw - 48px)); display:grid; gap:4px; background:var(--bg); color:var(--ink); border:1px solid var(--line); box-shadow:0 18px 45px #0002; padding:15px; }
+.menu nav a { padding:10px 12px; min-height:44px; text-decoration:none; }
+.eyebrow { font-size:.66rem; font-weight:500; line-height:1.6; text-transform:uppercase; letter-spacing:.17em; }
+.location { font-size:.7rem; letter-spacing:.04em; }
+.hero { margin:0 5vw; padding-block:65px 90px; }
+.introduction { max-width:44ch; font-size:.95rem; line-height:1.9; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.actions a { display:inline-flex; align-items:center; justify-content:space-between; gap:20px; min-height:48px; padding:12px 16px; border:1px solid var(--ink); font-size:.75rem; line-height:1.5; text-decoration:none; }
+.actions a:first-child { background:var(--ink); color:var(--bg); }
+.scene { display:flex; flex-direction:column; margin:0; position:relative; min-height:220px; }
+.scene .scenePhoto { flex:1; min-height:200px; border:0; border-radius:0; width:100%; }
+.scene figcaption { padding-top:12px; font-size:.64rem; line-height:1.6; color:var(--muted); }
+.emptyScene { flex:1; min-height:220px; background:repeating-linear-gradient(135deg,transparent,transparent 39px,var(--line) 40px,transparent 41px),var(--surface); border:1px solid var(--line); }
+.offeringIndex { padding:24px; border:1px solid var(--line); align-self:end; }
+.offeringIndex > p { margin-bottom:18px; }
+.offeringIndex a { display:grid; grid-template-columns:20px 1fr 16px; gap:12px; align-items:center; border-top:1px solid var(--line); padding:15px 0; min-height:52px; text-decoration:none; font-size:.8rem; }
+.offeringIndex a > span:first-child { font-size:.65rem; color:var(--muted); }
+.offerings,.story,.notes,.questions,.gallery,.contact { margin-inline:5vw; padding-block:75px; border-top:1px solid var(--line); }
+.sectionTitle { max-width:650px; margin-bottom:42px; }
+.sectionTitle > p:last-child:not(.eyebrow) { max-width:56ch; color:var(--muted); font-size:.95rem; line-height:1.9; }
+.offeringList { display:grid; }
+.offering { border-top:1px solid var(--line); scroll-margin-top:24px; }
+.offering:last-child { border-bottom:1px solid var(--line); }
+.offering summary { display:grid; grid-template-columns:30px minmax(0,1fr) 25px; align-items:center; gap:22px; padding:25px 0; min-height:80px; }
+.offering h3 { font-size:clamp(1.6rem,2.5vw,2.7rem); }
+.number { font:500 .7rem/1 var(--font-body); color:var(--muted); white-space:nowrap; }
+.toggle { font:400 1.5rem/1 var(--font-body); justify-self:end; }
+.offering[open] > summary .toggle { transform:rotate(45deg); }
+.offering:target > summary { outline:2px solid var(--accent); outline-offset:5px; }
+.offeringBody { max-width:70ch; padding:0 40px 30px 52px; font-size:.92rem; line-height:1.9; }
+.offeringBody > p + p { margin-top:18px; }
+.offeringBody ul { padding-left:20px; margin:18px 0; }
+.offeringBody a { display:inline-block; padding-block:12px; margin-top:12px; }
+.story { display:grid; grid-template-columns:1fr 1fr; gap:75px; align-items:start; }
+.storyTitle { max-width:520px; }
+.storyCopy { font-size:.95rem; line-height:1.95; max-width:70ch; }
+.storyCopy > a { display:inline-block; margin-top:24px; padding-block:12px; }
+.storyCopy details { border-bottom:1px solid var(--line); margin-top:16px; }
+.storyCopy summary { display:flex; align-items:center; justify-content:space-between; gap:25px; min-height:52px; padding:12px 0; }
+.storyCopy details > p { padding:8px 0 22px; }
+.essay { display:block; max-width:720px; margin-inline:auto; padding-inline:24px; text-align:center; }
+.essay .storyTitle { max-width:none; }.essay .storyCopy { text-align:left; margin:auto; }
+.spread .storyTitle { position:sticky; top:30px; }.spread .storyCopy { border-left:1px solid var(--line); padding-left:45px; }
+.letter { display:block; margin:60px 12vw; border:1px solid var(--line); padding:70px 8vw; }
+.letter .storyTitle { max-width:850px; }.letter .storyCopy { max-width:none; }.letter .storyCopy > p::first-letter { float:left; font:4rem/.9 var(--font-display); margin:8px 10px 0 0; }
+.aside { grid-template-columns:.6fr 1.4fr; }.aside .storyTitle h2 { font-size:2.5rem; }.aside .storyCopy > p { font:clamp(1.6rem,2.4vw,2.5rem)/1.5 var(--font-display); }
+.manifesto { grid-template-columns:1.4fr .6fr; align-items:center; }.manifesto h2 { font-size:clamp(3rem,5vw,6rem); }.manifesto .storyCopy { border-top:3px solid var(--accent); padding-top:28px; }
+.notes { display:grid; grid-template-columns:.8fr 1.2fr; gap:25px 65px; padding-block:40px; }
+.notes h2 { font:500 .8rem/1.8 var(--font-body); letter-spacing:.13em; text-transform:uppercase; margin:0; }
+.notes > p { grid-column:2; font-size:.9rem; line-height:1.9; }
+.noteList { grid-column:2; }.noteList details { border-top:1px solid var(--line); }
+.noteList summary { display:flex; align-items:center; gap:18px; min-height:54px; padding:14px 0; font-size:.9rem; }.noteList summary > span:first-child { font-size:.65rem; color:var(--muted); }.noteList summary > span:last-child { margin-left:auto; }
+.noteList details > p { padding:4px 20px 22px 35px; font-size:.9rem; line-height:1.8; }
+.questions { display:grid; grid-template-columns:.75fr 1.25fr; gap:70px; }.questions details { border-bottom:1px solid var(--line); }.questions summary { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 0; min-height:64px; }.questions details p { padding:4px 20px 24px 0; color:var(--muted); line-height:1.9; }
+.gallery h2 { margin-bottom:40px; }
+.contact { display:grid; grid-template-columns:1.2fr 1fr; gap:65px; padding-block:85px; }
+.contactTitle h2 { font-size:clamp(3rem,5.3vw,6rem); max-width:15ch; }.contactTitle > p { max-width:45ch; }.contactTitle > a { display:inline-block; padding:14px 0; margin-top:18px; }
+.contactFacts { display:grid; grid-template-columns:1fr 1fr; gap:30px; font-size:.9rem; align-content:start; }.contactFacts h3 { font:500 .65rem/1.6 var(--font-body); text-transform:uppercase; letter-spacing:.13em; margin-bottom:13px; }.contactFacts dl { margin:0; }.contactFacts dl > div { margin-bottom:10px; }.contactFacts dd { margin:0; }.previewNote { grid-column:1 / -1; font-size:.72rem; color:var(--muted); max-width:60ch; }
+.stamp { margin:60px 7vw; padding:65px 5vw; border:1px solid var(--ink); outline:1px solid var(--line); outline-offset:10px; }
+.letterClose { display:block; max-width:850px; margin-inline:auto; padding:70px 35px; }.letterClose .contactFacts { margin-top:45px; border-top:1px solid var(--line); padding-top:30px; grid-template-columns:repeat(3,1fr); }
+.billboard { display:block; background:var(--accent); color:var(--accent-ink); padding:60px 5vw; margin:30px 0 0; }.billboard .contactTitle h2 { max-width:22ch; font-size:clamp(3.5rem,7vw,8rem); }.billboard .contactFacts { margin-top:45px; grid-template-columns:repeat(3,1fr); }.billboard .previewNote { color:inherit; }
+.ribbonClose { border-top:5px solid var(--accent); }.ribbonClose .contactFacts { border-left:1px solid var(--line); padding-left:35px; }
+.detailSurface { margin:40px 5vw 70px; container-type:inline-size; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+.footer { border-top:1px solid var(--line); }
+.root :is(.signalMessage,.dispatchTicket,.billboard) :is(h1,h2) em { color:inherit; }
+
+/* 01 Clear / ATRIUM — spacious threshold, low image and two calm service leaves. */
+.atrium .navigation { display:grid; grid-template-columns:1fr auto 1fr; }.atrium .identity { grid-column:2; text-align:center; }.atrium .desktopNav { grid-column:1 / -1; justify-content:center; border-top:1px solid var(--line); padding-top:12px; }
+.atriumHero { padding-top:55px; }.atriumHeading { max-width:1000px; margin:auto; text-align:center; }.atriumHeading h1 { font-size:clamp(3.5rem,6.6vw,7rem); max-width:18ch; margin:20px auto 45px; }
+.atriumThreshold { display:grid; grid-template-columns:.2fr 1.2fr .6fr; gap:35px; align-items:end; }.atriumThreshold > .location { writing-mode:vertical-rl; transform:rotate(180deg); justify-self:start; }.atriumThreshold .scene { height:360px; }.atriumThreshold .scenePhoto { border-radius:140px 140px 0 0; }.atriumThreshold .introduction { padding-bottom:30px; }
+.panels .offeringList { grid-template-columns:1fr 1fr; gap:25px; }.panels .offering { border:1px solid var(--line); border-radius:4px 70px 4px 4px; padding:20px 30px; }.panels .offering summary { grid-template-columns:25px 1fr 20px; }.panels .offeringBody { padding:0 0 25px 47px; }
+
+/* 02 Bright / SIGNAL — a solid message block and full-height photographic counterweight. */
+.signal .navigation { border-bottom:0; }.signal .identity { font-family:var(--font-body); font-weight:700; }.signalHero { display:grid; grid-template-columns:1.1fr .9fr; padding:0; margin:0 3vw 70px; }
+.signalMessage { background:var(--accent); color:var(--accent-ink); padding:65px 5vw; }.signalMessage h1 { font-size:clamp(3.2rem,5.7vw,6rem); }.signalMessage .actions a { border-color:currentColor; }.signalMessage .actions a:first-child { background:var(--accent-ink); color:var(--accent); }
+.signalVisual { position:relative; display:flex; }.signalVisual .scene { width:100%; min-height:640px; }.signalLabel { position:absolute; bottom:0; left:0; right:0; display:flex; align-items:center; gap:30px; padding:25px 30px; background:var(--bg); }.signalLabel > span { font-size:3rem; line-height:1; color:var(--accent); }
+.matrix .offeringList { grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line); border:1px solid var(--line); }.matrix .offering { background:var(--bg); border:0; padding:30px; }.matrix .offering summary { grid-template-columns:1fr 25px; align-items:start; }.matrix .number { grid-column:1 / -1; font-size:3.2rem; color:var(--accent); }.matrix .offeringBody { padding:0 0 20px; }
+
+/* 03 Gloss / NOCTURNE — a narrow portrait interrupted by oversized fashion typography. */
+.nocturne .navigation { margin-inline:4vw; border-bottom:0; }.nocturne .desktopNav { display:none; }.nocturne .menu { display:block; }.nocturne .identity { letter-spacing:.12em; text-transform:uppercase; font-size:1rem; }
+.nocturneHero { display:grid; grid-template-columns:60px 1fr 42%; grid-template-rows:auto auto; gap:45px; padding:35px 0 100px; position:relative; }
+.nocturneSpine { grid-column:1; grid-row:1 / 3; display:flex; justify-content:space-between; flex-direction:column; padding-block:35px; border-right:1px solid var(--line); }.nocturneSpine .eyebrow { writing-mode:vertical-rl; }.nocturneSpine .location { writing-mode:vertical-rl; transform:rotate(180deg); }
+.nocturneTitle { grid-column:2 / 4; grid-row:1; align-self:center; z-index:2; pointer-events:none; }.nocturneTitle h1 { font-size:clamp(4rem,8.4vw,9rem); max-width:13ch; text-shadow:0 2px 22px #0009; }
+.nocturneHero > .scene { grid-column:3; grid-row:1 / 3; height:680px; }.nocturneHero > .scene::after { content:""; position:absolute; inset:0 0 25px; background:linear-gradient(90deg,#141214aa,transparent 80%); pointer-events:none; }.nocturneHero > .introduction { grid-column:2; grid-row:2; align-self:end; z-index:2; }
+.curtains .offeringList { grid-template-columns:1fr 1fr; gap:60px; }.curtains .offering { border-top:1px solid var(--accent); border-bottom:0; padding-top:30px; }.curtains .offering summary { grid-template-columns:20px 1fr 20px; min-height:150px; }.curtains h3 { font-size:clamp(2.5rem,3.6vw,4rem); }.curtains .offeringBody { padding-left:42px; }
+
+/* 04 Poster / PRESS — a typographic front page with three editorial columns. */
+.press .navigation { border-block:1px solid var(--ink); margin-top:20px; padding:14px 0; }.press .identity { font:500 .85rem var(--font-body); text-transform:uppercase; }.pressHero { padding-top:30px; }
+.pressDateline { display:flex; justify-content:space-between; gap:25px; }.pressHero > h1 { font-size:clamp(4rem,9vw,10rem); text-transform:uppercase; letter-spacing:-.02em; max-width:22ch; border-bottom:5px solid var(--accent); padding-bottom:35px; }
+.pressColumns { display:grid; grid-template-columns:.65fr 1.25fr .7fr; gap:35px; }.pressColumns > .introduction { border-right:1px solid var(--line); padding-right:25px; }.pressColumns .scene { min-height:330px; }.pressColumns > .offeringIndex { border:0; padding:0; align-self:start; }
+.classifieds .offeringList { grid-template-columns:repeat(3,1fr); border-block:2px solid var(--ink); }.classifieds .offering { padding:20px 25px; border:0; border-right:1px solid var(--line); }.classifieds .offering summary { grid-template-columns:1fr 20px; }.classifieds .number { grid-column:1 / -1; }.classifieds h3 { text-transform:uppercase; font-size:2rem; }.classifieds .offeringBody { padding:0 0 20px; }
+
+/* 05 Bean / ROASTERY — an oval image and a quiet letter on a warm paper field. */
+.roastery .navigation { border:1px solid var(--line); border-radius:80px; margin:25px 5vw; padding:15px 28px; }.roasteryHero { display:grid; grid-template-columns:1.05fr .95fr; gap:8vw; align-items:center; padding-top:35px; }
+.roasteryPortrait .scene { height:560px; }.roasteryPortrait .scenePhoto,.roasteryPortrait .emptyScene { border-radius:50% 50% 45% 45%; }.roasteryPortrait > .location { text-align:center; margin-top:22px; }.roasteryLetter { position:relative; }.roasteryLetter h1 { font-size:clamp(3rem,5vw,5.5rem); }.roasteryMark { display:block; font-size:4rem; line-height:1; margin-top:35px; color:var(--accent); }
+.folds .offeringList { grid-template-columns:repeat(3,1fr); border:1px solid var(--line); box-shadow:0 15px 30px #3526160a; }.folds .offering { padding:30px; border:0; border-right:1px solid var(--line); background:linear-gradient(90deg,#00000005,transparent 15%),var(--bg); }.folds .offering summary { grid-template-columns:1fr 20px; align-items:start; }.folds .number { grid-column:1 / -1; }.folds .offeringBody { padding:0 0 20px; }
+
+/* 06 Table / TABLECLOTH — two facing book leaves, title plate and photograph. */
+.tablecloth .navigation { flex-direction:column; gap:14px; padding-block:32px 18px; }.tablecloth .identity { font-size:1.8rem; max-width:none; }.tablecloth .desktopNav { justify-content:center; }
+.tableclothHero { display:grid; grid-template-columns:1fr 1fr; padding:35px 0 80px; }.tableclothCover { border:1px solid var(--line); padding:65px 4vw; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; }.tableclothCover h1 { font-size:clamp(3rem,4.8vw,5rem); }.tableclothCover .actions { justify-content:center; margin-top:35px; }
+.tableclothLeaf { border:1px solid var(--line); border-left:0; padding:30px; }.tableclothLeaf .scene { height:420px; }.tableclothLeaf > p { padding:25px 10px 5px; font-size:.9rem; max-width:46ch; margin:auto; text-align:center; }
+.menuCards { margin-inline:10vw; }.menuCards .sectionTitle { text-align:center; margin:0 auto 45px; }.menuCards .offeringList { grid-template-columns:1fr 1fr; gap:0 60px; }.menuCards .offering { border-top:1px dotted var(--muted); border-bottom:0; }.menuCards .offering summary { grid-template-columns:1fr 25px; }.menuCards .number { display:none; }.menuCards .offeringBody { padding-left:0; }
+
+/* 07 Ember / FURNACE — panoramic opening, low headline and horizontal offering bands. */
+.furnace .navigation { border-bottom:3px solid var(--accent); }.furnace .identity { text-transform:uppercase; letter-spacing:.12em; }.furnaceHero { padding-top:35px; }.furnaceView { position:relative; }.furnaceView .scene { height:310px; }.furnaceTag { position:absolute; left:25px; bottom:25px; padding:20px 25px; background:var(--bg); border-left:5px solid var(--accent); }.furnaceTag .location { margin-top:8px; }
+.furnaceHeadline { display:grid; grid-template-columns:1.5fr .5fr; gap:60px; align-items:end; margin-top:30px; }.furnaceHeadline h1 { font-size:clamp(4rem,7.6vw,8rem); text-transform:uppercase; margin:0; }.furnaceHeadline .introduction { padding-bottom:10px; }
+.bands .offeringList { gap:12px; }.bands .offering { border:1px solid var(--line); padding:0 35px; }.bands .offering:nth-child(2n) { background:var(--surface); }.bands .offering summary { min-height:110px; }.bands h3 { text-transform:uppercase; font-size:clamp(2rem,4vw,4.5rem); }.bands .offering[open] { border-left:5px solid var(--accent); }
+
+/* 08 Mane / BOTANICAL — right-side navigation and an arched portrait frontispiece. */
+.botanical .shell { display:grid; grid-template-columns:minmax(0,1fr) 190px; padding-right:30px; gap:30px; }.botanical .navigation { grid-column:2; grid-row:1; margin:40px 0; padding:15px 0 25px 25px; border-left:1px solid var(--line); border-bottom:0; flex-direction:column; align-items:start; justify-content:start; position:sticky; top:25px; height:calc(100svh - 110px); gap:50px; }.botanical .desktopNav { flex-direction:column; gap:8px; }.botanical .navLocation { display:block; margin-top:auto; }.botanical .main { grid-column:1; grid-row:1; }
+.botanicalHero { display:grid; grid-template-columns:1fr 1fr; gap:35px; align-items:center; }.botanicalPortrait .scene { height:550px; }.botanicalPortrait .scenePhoto,.botanicalPortrait .emptyScene { border-radius:48% 48% 0 0; }.botanicalWords h1 { font-size:clamp(3rem,4.5vw,5rem); }.botanicalHero > .location { grid-column:1 / -1; text-align:center; }
+.specimens .offeringList { counter-reset:specimen; gap:35px; }.specimens .offering { width:85%; border:1px solid var(--line); padding:15px 30px; border-radius:0 55px 0 0; }.specimens .offering:nth-child(even) { margin-left:auto; }.specimens .number { color:var(--accent); }.specimens .offeringBody { padding-right:0; }
+
+/* 09 Studio / RUNWAY — a huge fashion headline above a thin three-part contact sheet. */
+.runway .navigation { border-block:1px solid var(--ink); margin-top:25px; }.runway .identity { font:600 .85rem var(--font-body); text-transform:uppercase; }.runwayHero { padding-top:30px; }.runwayMasthead { display:flex; justify-content:space-between; gap:30px; }.runwayHero > h1 { font-size:clamp(3.5rem,7.6vw,8.2rem); letter-spacing:-.07em; line-height:1.08; margin-bottom:45px; }
+.runwayStrip { display:grid; grid-template-columns:.5fr 1fr .5fr; gap:30px; border-block:1px solid var(--ink); padding-block:25px; align-items:end; }.runwayStrip .scene { height:280px; }.runwaySide > span { font-size:5rem; line-height:1; }.runwayCaption { font-size:.9rem; align-self:start; padding-top:12px; }.runwaySide .actions { flex-direction:column; align-items:start; }
+.lookbook .offering { border-top:2px solid var(--ink); }.lookbook .offering summary { grid-template-columns:90px 1fr 30px; min-height:130px; }.lookbook .number { font:400 3rem var(--font-display); color:var(--ink); }.lookbook h3 { font-size:clamp(1.8rem,3vw,3rem); }.lookbook .offering[open] { background:var(--accent); color:var(--accent-ink); padding-inline:25px; }.lookbook .offeringBody { padding-left:112px; }
+
+/* 10 Still / TIDE — a circular photographic pool and low, open typography. */
+.tide .navigation { border:0; max-width:1100px; margin-inline:auto; padding-inline:30px; }.tide .identity { font-size:1.6rem; }.tideHero { display:grid; grid-template-columns:1fr 1fr; gap:30px 70px; position:relative; padding-top:30px; }.tideOpening { align-self:start; padding-top:35px; }.tideOpening .location { margin-top:20px; }.tidePool { grid-column:2; grid-row:1 / 3; padding:25px; border:1px solid var(--line); border-radius:50%; }.tidePool .scene { aspect-ratio:1; min-height:0; }.tidePool .scenePhoto,.tidePool .emptyScene { border-radius:50%; }.tideTitle { grid-column:1; grid-row:2; align-self:end; }.tideTitle h1 { font-size:clamp(3.7rem,6.7vw,7rem); margin:0; }.tideHero > .introduction { grid-column:2; margin-left:40px; }
+.pools .sectionTitle { margin-inline:auto; text-align:center; }.pools .offeringList { max-width:900px; margin:auto; gap:18px; }.pools .offering { border:0; background:var(--surface); padding:12px 40px; border-radius:35px; }.pools .offering summary { grid-template-columns:25px 1fr 20px; }.pools .offeringBody { padding-left:47px; }
+
+/* 11 Onyx / VAULT — a central doorway, gold hairlines and spacious uppercase type. */
+.vault .navigation { flex-direction:column; gap:15px; border-bottom:1px solid var(--accent); }.vault .identity { letter-spacing:.2em; font-size:1.3rem; text-transform:uppercase; }.vault .desktopNav { justify-content:center; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; }
+.vaultHero { text-align:center; padding-top:35px; }.vaultPortal { display:grid; grid-template-columns:1fr minmax(220px,420px) 1fr; align-items:end; gap:30px; margin:30px auto; max-width:900px; }.vaultPortal .scene { height:330px; }.vaultPortal .scenePhoto,.vaultPortal .emptyScene { border-radius:200px 200px 0 0; }.vaultPortal > span { font:5rem var(--font-display); color:var(--accent); }.vaultPortal .location { padding-bottom:15px; }.vaultHero > h1 { text-transform:uppercase; letter-spacing:.035em; font-size:clamp(3.5rem,6vw,6.5rem); max-width:20ch; margin:35px auto; }.vaultHero > .introduction { margin:auto; }.vaultHero .actions { justify-content:center; }
+.vaults .offeringList { grid-template-columns:repeat(3,1fr); gap:25px; }.vaults .offering { border:1px solid var(--accent); border-radius:130px 130px 0 0; padding:45px 25px 20px; }.vaults .offering summary { display:flex; flex-direction:column; text-align:center; min-height:180px; justify-content:center; }.vaults h3 { font-size:2.2rem; text-transform:uppercase; letter-spacing:.03em; }.vaults .offeringBody { padding:15px 0 10px; }
+
+/* 12 Workshop / BLUEPRINT — a ruled drawing plate and connected specification grid. */
+.blueprint { background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:80px 80px; }.blueprint .navigation { background:var(--bg); padding-inline:20px; border:1px solid var(--ink); margin-top:25px; }.blueprint .identity { text-transform:uppercase; letter-spacing:.08em; }
+.blueprintHero { display:grid; grid-template-columns:1fr 1fr; gap:5vw; align-items:center; }.blueprintTitle { background:var(--bg); padding:25px 0; }.blueprintTitle h1 { font-size:clamp(3.3rem,5.5vw,6rem); }.blueprintDrawing { border:1px solid var(--ink); background:var(--bg); padding:15px; }.blueprintDrawing .scene { height:380px; }.blueprintRuler { height:20px; border-bottom:1px solid var(--ink); background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 20px); margin-bottom:15px; }.blueprintKey { display:flex; justify-content:space-between; gap:20px; border-top:1px solid var(--line); padding-top:15px; margin-top:15px; font-size:.7rem; }
+.blueprint :is(.offerings,.story,.notes,.questions,.gallery,.contact) { background:var(--bg); padding-inline:25px; border:1px solid var(--line); margin-block:30px; }.schematic .offeringList { grid-template-columns:1fr 1fr; border:1px solid var(--ink); }.schematic .offering { border:0; border-bottom:1px solid var(--line); border-right:1px solid var(--line); padding:18px 25px; }.schematic .offeringBody { padding:0 0 20px 52px; }.schematic .number { border:1px solid var(--ink); padding:6px; color:var(--ink); }
+
+/* 13 Form / ORBIT — diagonal balance between type, a circular image and a spare cross. */
+.orbit .navigation { margin:25px auto; max-width:1150px; padding:16px 30px; border:1px solid var(--line); border-radius:70px; }.orbitHero { display:grid; grid-template-columns:1.2fr .8fr; gap:35px 60px; align-items:center; }.orbitWords { grid-column:1; grid-row:1; z-index:1; }.orbitWords h1 { font-size:clamp(4rem,7vw,7.5rem); }.orbitDisc { grid-column:2; grid-row:1 / 3; position:relative; border:1px solid var(--accent); padding:22px; border-radius:50%; }.orbitDisc .scene { aspect-ratio:1; min-height:0; }.orbitDisc .scenePhoto,.orbitDisc .emptyScene { border-radius:50%; }.orbitDisc > span { position:absolute; right:0; top:-25px; background:var(--bg); padding:10px; font-size:3rem; color:var(--accent); }.orbitHero > .introduction { grid-column:1; grid-row:2; }.orbitHero > .location { grid-column:2; text-align:right; }
+.orbits .offeringList { grid-template-columns:1fr 1fr; gap:30px; }.orbits .offering { border:1px solid var(--line); border-radius:50px; padding:25px; }.orbits .number { display:grid; place-items:center; width:35px; height:35px; border:1px solid var(--accent); border-radius:50%; color:var(--accent); }.orbits .offeringBody { padding-right:0; }
+
+/* 14 Pulse / VELOCITY — an angled image, dense headline and horizontal route strip. */
+.velocity .navigation { margin-inline:3vw; border-bottom:3px solid var(--ink); }.velocity .identity { font:700 .9rem var(--font-body); text-transform:uppercase; }.velocityHero { display:grid; grid-template-columns:1.1fr .9fr; gap:30px; padding:50px 0 60px; margin-inline:3vw; }.velocityWords { padding:20px 2vw; }.velocityWords h1 { font-size:clamp(3.1rem,5.4vw,6rem); text-transform:uppercase; letter-spacing:-.06em; }.velocityCut { clip-path:polygon(12% 0,100% 0,100% 100%,0 100%); }.velocityCut .scene { height:100%; min-height:570px; }.velocityTrack { grid-column:1 / -1; background:var(--accent); color:var(--accent-ink); display:flex; gap:30px; align-items:center; padding:20px 30px; }.velocityTrack > .location { flex:0 1 140px; }.velocityTrack .offeringIndex { flex:1; border:0; display:flex; gap:25px; align-items:center; padding:0; }.velocityTrack .offeringIndex > p { display:none; }.velocityTrack .offeringIndex a { flex:1; border:0; border-left:1px solid currentColor; padding:5px 15px; min-height:50px; }.velocityTrack .offeringIndex a > span:first-child { color:inherit; }
+.rungs .offeringList { grid-template-columns:repeat(3,1fr); gap:20px; align-items:start; }.rungs .offering { border-top:8px solid var(--accent); border-bottom:0; background:var(--surface); padding:25px; }.rungs .offering:nth-child(3n + 2) { margin-top:45px; }.rungs .offering:nth-child(3n) { margin-top:90px; }.rungs .offering summary { display:flex; flex-wrap:wrap; align-items:start; }.rungs .number { flex-basis:100%; font:3.5rem var(--font-display); color:var(--ink); }.rungs h3 { flex:1; font-size:1.6rem; text-transform:uppercase; }.rungs .offeringBody { padding:0; }
+
+/* 15 Counsel / CHAMBERS — narrow left navigation and a formal illustrated document. */
+.chambers .shell { display:grid; grid-template-columns:170px minmax(0,1fr); gap:40px; padding-left:30px; }.chambers .navigation { margin:35px 0; padding:20px 25px 20px 0; border-right:1px solid var(--line); border-bottom:0; display:flex; flex-direction:column; align-items:start; justify-content:start; position:sticky; top:25px; height:calc(100svh - 100px); gap:40px; }.chambers .identity { font-size:1.3rem; }.chambers .desktopNav { flex-direction:column; gap:8px; }.chambers .navLocation { display:block; margin-top:auto; }
+.chambersHero { display:grid; grid-template-columns:1.2fr .8fr; gap:40px; padding-top:55px; }.chambersHeading { grid-column:1 / -1; text-align:center; }.chambersHeading h1 { font-size:clamp(3rem,4.7vw,5rem); margin:20px auto; max-width:22ch; }.chambersPlate { padding:15px; border:1px solid var(--line); }.chambersPlate .scene { height:330px; }.chambersPlate .location { margin-top:15px; }.chambersHero > .introduction { align-self:center; }
+.casefiles .offeringList { gap:25px; }.casefiles .offering { border:1px solid var(--line); padding:0 25px; position:relative; }.casefiles .offering::before { content:""; display:block; width:75px; height:12px; border:1px solid var(--line); border-bottom:0; margin-top:-13px; margin-left:-26px; background:var(--surface); }.casefiles .offering summary { min-height:95px; }.casefiles h3 { font-size:1.9rem; }
+
+/* 16 Shore / HORIZON — a landscape with a white caption card rising into its lower edge. */
+.horizon .navigation { border:0; padding:30px 0; }.horizon .identity { font-size:1.2rem; }.horizonHero { padding-top:0; position:relative; }.horizonView .scene { height:440px; }.horizonView .scenePhoto { border-radius:4px; }.horizonCard { position:relative; margin:-100px 0 0 4vw; width:70%; padding:45px 5vw 0; background:var(--bg); }.horizonCard h1 { font-size:clamp(3rem,5.3vw,5.8rem); }.horizonCard .introduction { max-width:65ch; }.horizonHero > .location { position:absolute; right:0; top:470px; writing-mode:vertical-rl; }
+.horizons .offering { border-top:1px solid var(--line); }.horizons .offering summary { grid-template-columns:12% 1fr 30px; min-height:120px; }.horizons .number { font-size:1rem; }.horizons .offeringBody { margin-left:12%; padding-left:22px; }.horizons .sectionTitle { max-width:750px; }
+
+/* 17 Fiesta / ARCHIPELAGO — unequal rounded islands, a circular aside and broad photography. */
+.archipelago .navigation { border-bottom:0; }.archipelago .identity { font-size:1.5rem; }.archipelagoHero { display:grid; grid-template-columns:1.2fr .8fr; grid-template-rows:auto auto; gap:25px; padding-top:25px; }.archipelagoTitle { background:var(--surface); padding:45px; border-radius:75px 10px 10px 10px; }.archipelagoTitle h1 { font-size:clamp(3.2rem,5.1vw,5.8rem); }.archipelagoIsland { border-radius:50%; background:var(--accent); color:var(--accent-ink); aspect-ratio:1; max-width:320px; justify-self:center; align-self:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:30px; text-align:center; gap:20px; }.archipelagoIsland > span { font-size:5rem; line-height:1; }.archipelagoHero > .scene { grid-column:1; height:300px; }.archipelagoHero > .scene .scenePhoto { border-radius:10px 10px 75px 10px; }.archipelagoHero > .introduction { align-self:center; padding:25px; }
+.islands .offeringList { grid-template-columns:1.2fr .8fr; gap:22px; align-items:start; }.islands .offering { border:0; background:var(--surface); border-radius:40px 8px 40px 8px; padding:30px; }.islands .offering:first-child { grid-column:1 / -1; }.islands .offering:nth-child(3n) { border-radius:8px 65px 8px 65px; }.islands .offeringBody { padding-right:0; }
+
+/* 18 Breeze / AIR — three useful columns, a soft image window and service wayfinding. */
+.air .navigation { border-bottom:0; }.air .identity { font:500 1.05rem var(--font-body); }.airHero { display:grid; grid-template-columns:1fr .95fr .6fr; gap:35px; align-items:center; padding-top:45px; }.airWords h1 { font-size:clamp(3rem,4.3vw,4.8rem); }.airWindow .scene { height:470px; }.airWindow .scenePhoto { border-radius:120px 120px 15px 15px; }.airWindow .location { margin-top:18px; text-align:center; }.airHero > .offeringIndex { border:0; border-left:1px solid var(--line); padding:10px 0 10px 22px; align-self:center; }.air .actions { flex-direction:column; align-items:start; }
+.paths { display:grid; grid-template-columns:.8fr 1.2fr; gap:60px; }.paths .sectionTitle { position:sticky; top:30px; align-self:start; }.paths .offeringList { gap:15px; }.paths .offering { border:1px solid var(--line); border-radius:15px; padding:5px 25px; background:var(--surface); }.paths .offeringBody { padding:0 0 25px 52px; }.paths h3 { font-size:1.65rem; }
+
+/* 19 Thermal / TERMINAL — a broad headline and a framed image plus working content directory. */
+.terminal .navigation { border-bottom:1px solid var(--accent); margin-top:10px; }.terminal .identity { font:600 .9rem var(--font-body); letter-spacing:.07em; text-transform:uppercase; }.terminalHero { padding-top:45px; }.terminalHeading { display:grid; grid-template-columns:1fr auto; align-items:end; }.terminalHeading > .eyebrow { grid-column:1 / -1; }.terminalHeading h1 { font-size:clamp(3rem,5vw,5.5rem); max-width:20ch; }.terminalHeading > .location { margin-bottom:35px; }.terminalScreen { border:1px solid var(--line); display:grid; grid-template-columns:1.2fr .8fr; }.terminalScreen > .scene { padding:16px; height:420px; }.terminalDirectory { padding:30px; border-left:1px solid var(--line); }.terminalDirectory .offeringIndex { padding:0; border:0; margin-top:30px; }.terminalDirectory .introduction { font-size:.85rem; }
+.console .offeringList { grid-template-columns:1fr 1fr; gap:15px; }.console .offering { border:1px solid var(--line); padding:10px 25px; background:var(--surface); }.console .offering summary { grid-template-columns:25px 1fr 22px; }.console .number { color:var(--accent); }.console h3 { font:500 1.5rem/1.4 var(--font-display); }.console .offering[open] { border-color:var(--accent); }.console .offeringBody { padding:0 0 25px 47px; }
+
+/* 20 Align / JOURNAL — a frontispiece, reading-width headline and marginal notes. */
+.journal .navigation { flex-direction:column; border-block:1px solid var(--line); margin-top:20px; padding-block:22px; gap:15px; }.journal .identity { font-size:1.75rem; }.journal .desktopNav { justify-content:center; }
+.journalHero { display:grid; grid-template-columns:150px minmax(0,1fr) 150px; gap:30px; }.journalMargin { display:flex; flex-direction:column; gap:25px; border-right:1px solid var(--line); padding:25px 25px 0 0; }.journalPage { max-width:780px; margin:auto; text-align:center; }.journalPage .scene { width:170px; height:170px; min-height:0; margin:0 auto 30px; }.journalPage .scenePhoto,.journalPage .emptyScene { min-height:0; border-radius:50%; }.journalPage h1 { font-size:clamp(3.7rem,5.8vw,6rem); }.journalPage .introduction { margin:auto; }.journalPage .actions { justify-content:center; }
+.chapters .offeringList { max-width:900px; margin:auto; }.chapters .offering summary { grid-template-columns:100px 1fr 25px; padding-block:35px; }.chapters .number { font:italic 3.5rem/1 var(--font-display); color:var(--accent); }.chapters h3 { font-size:2.5rem; }.chapters .offeringBody { margin-left:100px; padding-left:22px; }.journal .notes { margin-inline:12vw; }
+
+/* 21 Posture / AXIS — a narrow portrait against an electric-blue typographic axis. */
+.axis .navigation { border-bottom:2px solid var(--ink); }.axis .identity { font:700 .95rem var(--font-body); }.axisHero { display:grid; grid-template-columns:.65fr 1.35fr; gap:5vw; padding-top:50px; position:relative; }.axisImage { padding-top:60px; }.axisImage .scene { height:460px; }.axisImage .location { margin-top:15px; }.axisWords { border-left:4px solid var(--accent); padding-left:4vw; }.axisWords h1 { font-size:clamp(3.5rem,6.4vw,7rem); letter-spacing:-.07em; }.axisMark { position:absolute; bottom:30px; right:0; font-size:5rem; color:var(--accent); line-height:1; }
+.axisRows .offering { position:relative; margin-left:25px; border-top:2px solid var(--accent); }.axisRows .offering::before { content:""; width:12px; height:12px; background:var(--accent); border-radius:50%; position:absolute; top:-7px; left:-25px; }.axisRows .offering summary { grid-template-columns:45px 1fr 30px; min-height:120px; }.axisRows h3 { font-size:clamp(2rem,3.5vw,3.7rem); letter-spacing:-.04em; }.axisRows .offeringBody { padding-left:67px; }
+
+/* 22 Tap / RIPPLE — a wide oval scene and a low two-column introduction. */
+.ripple .navigation { border:1px solid var(--line); border-radius:15px; padding:18px 25px; margin-top:20px; background:var(--bg); }.rippleHero { padding-top:40px; }.rippleSurface { display:grid; grid-template-columns:.4fr 1.4fr .2fr; gap:35px; align-items:center; }.rippleSurface .scene { height:320px; }.rippleSurface .scenePhoto,.rippleSurface .emptyScene { border-radius:50%; }.rippleSurface .location { writing-mode:vertical-rl; justify-self:center; }.rippleWords { display:grid; grid-template-columns:1.1fr .9fr; gap:7vw; align-items:end; margin-top:45px; }.rippleWords h1 { margin:0; font-size:clamp(3.5rem,5.7vw,6rem); }.rippleWords .introduction { padding-bottom:5px; }
+.ripples .offeringList { max-width:1000px; margin:auto; gap:15px; }.ripples .offering { border:1px solid var(--line); border-radius:70px; padding:8px 35px; }.ripples .offering:nth-child(3n + 2) { margin-inline:30px; }.ripples .offering:nth-child(3n) { margin-inline:60px; }.ripples .offering summary { grid-template-columns:30px 1fr 25px; }.ripples .offeringBody { padding-bottom:25px; }
+
+/* 23 Pressure / DISPATCH — an oversized perforated ticket beside its image and index. */
+.dispatch .navigation { border-bottom:1px dashed var(--line); }.dispatch .identity { font:700 .9rem var(--font-body); text-transform:uppercase; }.dispatchHero { display:grid; grid-template-columns:1.1fr .9fr; gap:35px; padding-top:35px; }.dispatchTicket { background:var(--accent); color:var(--accent-ink); padding:45px; border-right:5px dotted var(--bg); }.dispatchTicket h1 { font-size:clamp(3.2rem,5.8vw,6.2rem); text-transform:uppercase; letter-spacing:-.04em; }.dispatchTicket .actions a { border-color:currentColor; }.dispatchTicket .actions a:first-child { background:var(--accent-ink); color:var(--accent); }.dispatchTicket > .location { border-top:1px dashed currentColor; margin-top:45px; padding-top:22px; }.dispatchEvidence .scene { height:300px; }.dispatchEvidence > p { padding:25px 0; font-size:.9rem; max-width:50ch; }.dispatchEvidence .offeringIndex { padding:20px; border-style:dashed; }
+.tickets .offeringList { gap:20px; }.tickets .offering { border:1px dashed var(--line); padding:12px 30px; }.tickets .offering summary { grid-template-columns:65px 1fr 25px; }.tickets .number { align-self:stretch; display:grid; place-items:center; border-right:1px dashed var(--line); color:var(--accent); }.tickets h3 { font-size:clamp(1.8rem,3vw,3.3rem); text-transform:uppercase; }.tickets .offeringBody { padding-left:87px; }.tickets .offering[open] { border-color:var(--accent); }
+
+/* Motion is optional and belongs to the control; every page reads without it. */
+@media (prefers-reduced-motion:no-preference) {
+  .toggle { transition:transform 160ms ease; }
+  .actions a { transition:transform 160ms ease; }
+  .offering[open] > .offeringBody { animation:unfold 280ms ease-out; }
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .actions a:hover { transform:translateY(-2px); }
+  .offering summary:hover h3 { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:7px; }
+}
+@keyframes unfold { from { opacity:.55; transform:translateY(4px); } to { opacity:1; transform:none; } }
+
+/* Tablet: preserve each silhouette, simplify navigation and avoid squeezed columns. */
+@media(max-width:1100px) {
+  .desktopNav { display:none; }.menu { display:block; }.navigation { gap:20px; }
+  .atrium .navigation { display:flex; }.atrium .desktopNav { display:none; }
+  .tablecloth .navigation,.vault .navigation,.journal .navigation { flex-direction:row; }.vault .desktopNav,.journal .desktopNav,.tablecloth .desktopNav { display:none; }
+  .botanical .shell,.chambers .shell { display:block; padding:0; }.botanical .navigation,.chambers .navigation { height:auto; position:relative; top:auto; margin:0 5vw; padding:25px 0; flex-direction:row; align-items:center; justify-content:space-between; border:0; border-bottom:1px solid var(--line); }.botanical .navLocation,.chambers .navLocation { display:none; }
+  .atriumThreshold { grid-template-columns:1fr 1fr; }.atriumThreshold > .location { display:none; }
+  .airHero { grid-template-columns:1fr 1fr; }.airHero > .offeringIndex { grid-column:1 / -1; border-left:0; border-top:1px solid var(--line); display:flex; gap:25px; }.airHero > .offeringIndex > p { display:none; }.airHero > .offeringIndex a { flex:1; border:0; }
+  .pressColumns { grid-template-columns:.7fr 1.3fr; }.pressColumns > .offeringIndex { grid-column:1 / -1; display:flex; gap:30px; }.pressColumns > .offeringIndex > p { display:none; }.pressColumns > .offeringIndex a { flex:1; }
+  .runwayStrip { grid-template-columns:.7fr 1.3fr; }.runwayCaption { grid-column:1 / -1; max-width:65ch; }
+  .journalHero { grid-template-columns:100px minmax(0,1fr); gap:25px; }.journalMargin { padding-right:15px; }
+  .nocturneHero { grid-template-columns:35px 1fr 42%; gap:25px; }.nocturneHero > .scene { height:620px; }
+  .story,.questions,.contact { gap:35px; }.notes { gap:25px 35px; }.furnaceHeadline { grid-template-columns:1.2fr .8fr; gap:35px; }
+  .paths { grid-template-columns:1fr; gap:0; }.paths .sectionTitle { position:static; }
+  .vaults .offeringList,.rungs .offeringList,.classifieds .offeringList,.folds .offeringList { grid-template-columns:repeat(2,1fr); }.rungs .offering:nth-child(n) { margin-top:0; }
+  .terminalDirectory { padding:22px; }.terminalHeading h1 { max-width:18ch; }
+  .velocityTrack .offeringIndex { flex-wrap:wrap; }.velocityTrack .offeringIndex a { min-width:160px; }
+  .tidePool { padding:15px; }.tideHero { gap:30px; }
+  .archipelagoTitle { padding:35px; }.archipelagoIsland { max-width:250px; }
+}
+
+/* Phone: independent stacks, readable copy, no clipped text or forced side-scrolling. */
+@media(max-width:720px) {
+  .root h1 { font-size:clamp(2.9rem,10.8vw,4.6rem); }.root h2 { font-size:clamp(2.1rem,8vw,3rem); }.root h3 { overflow-wrap:anywhere; }
+  .navigation { margin-inline:22px; padding-block:22px; }.identity { font-size:1.15rem; max-width:20ch; }.identity img { max-width:45px; }.menu summary { padding-inline:12px; gap:15px; }
+  .hero { margin-inline:22px; padding:35px 0 55px; }.introduction { font-size:.9rem; }.actions { margin-top:22px; gap:10px; }.actions a { font-size:.73rem; padding:12px 14px; }
+  .offerings,.story,.notes,.questions,.gallery,.contact { margin-inline:22px; padding-block:45px; }.sectionTitle { margin-bottom:30px; }
+  .story,.questions,.contact,.notes { display:block; }.storyTitle { margin-bottom:25px; }.storyCopy { font-size:.9rem; }.spread .storyTitle { position:static; }.spread .storyCopy { padding-left:0; border-left:0; }.essay { padding-inline:0; }.letter { padding:35px 25px; margin-block:35px; }.aside .storyCopy > p { font-size:1.6rem; }.manifesto .storyCopy { padding-top:22px; }
+  .notes > p,.noteList { margin-top:20px; }.questions > div:first-child { margin-bottom:20px; }.questions summary { font-size:.9rem; }.questions details p { font-size:.9rem; }
+  .contactFacts { margin-top:35px; gap:25px; font-size:.85rem; }.contactTitle h2 { font-size:3rem; }.stamp { padding:35px 25px; margin:35px 28px; outline-offset:6px; }.letterClose { padding-inline:10px; }.letterClose .contactFacts,.billboard .contactFacts { grid-template-columns:1fr 1fr; }.billboard { margin-inline:0; padding-inline:25px; }.billboard .contactTitle h2 { font-size:3.4rem; }.ribbonClose .contactFacts { padding-left:0; border-left:0; }
+  .offering summary { gap:14px; padding:22px 0; grid-template-columns:22px 1fr 20px; }.offering h3 { font-size:1.6rem; }.offeringBody { padding:0 0 25px 36px; font-size:.88rem; }.offeringBody a { overflow-wrap:anywhere; }.offeringIndex { padding:20px; }.scene .scenePhoto { min-height:0; }.emptyScene { min-height:180px; }
+  .detailSurface { margin:25px 16px 50px; }
+  .root .signalMessage h1 { font-size:clamp(2.1rem,9.2vw,3.2rem); }
+  .root .schematic .offering summary { grid-template-columns:30px 1fr 20px; }
+  .root .lookbook .offering summary { grid-template-columns:45px 1fr 22px; }
+  .root .chapters .offering summary { grid-template-columns:55px 1fr 20px; }
+
+  .atrium .navigation { margin-inline:22px; }.atriumHeading h1 { font-size:3.3rem; margin-bottom:30px; }.atriumThreshold { grid-template-columns:1fr; gap:25px; }.atriumThreshold .scene { height:260px; }.atriumThreshold .scenePhoto { border-radius:110px 110px 0 0; }.atriumThreshold .introduction { padding:0; }.panels .offeringList { grid-template-columns:1fr; gap:18px; }.panels .offering { padding:10px 22px; border-radius:4px 45px 4px 4px; }.panels .offeringBody { padding-left:36px; }
+
+  .signalHero { display:block; margin:0 16px 35px; padding:0; }.signalMessage { padding:35px 25px; }.signalMessage h1 { font-size:3.2rem; }.signalVisual .scene { min-height:330px; }.signalLabel { padding:18px 25px; }.signalLabel > span { font-size:2.2rem; }.matrix .offeringList { grid-template-columns:1fr; }.matrix .offering { padding:18px 25px; }.matrix .number { font-size:2.5rem; }.matrix .offeringBody { padding-left:0; }
+
+  .nocturneHero { display:grid; grid-template-columns:1fr 32%; gap:25px 15px; }.nocturneSpine { grid-column:1 / -1; grid-row:1; flex-direction:row; padding:0; border:0; }.nocturneSpine .eyebrow,.nocturneSpine .location { writing-mode:horizontal-tb; transform:none; }.nocturneTitle { grid-column:1 / -1; grid-row:2; }.nocturneTitle h1 { font-size:3.8rem; max-width:12ch; margin:15px 0; }.nocturneHero > .scene { grid-column:2; grid-row:2 / 4; height:420px; }.nocturneHero > .introduction { grid-column:1; grid-row:3; font-size:.85rem; }.nocturneHero .actions { flex-direction:column; align-items:start; }.nocturneHero .scene figcaption { font-size:.57rem; }.curtains .offeringList { grid-template-columns:1fr; gap:20px; }.curtains .offering { padding-top:10px; }.curtains .offering summary { min-height:110px; }.curtains h3 { font-size:2.4rem; }.curtains .offeringBody { padding-left:34px; }
+
+  .press .navigation { margin-top:15px; }.pressDateline { align-items:start; }.pressHero > h1 { font-size:3.9rem; padding-bottom:25px; margin-top:25px; }.pressColumns { display:flex; flex-direction:column; gap:25px; }.pressColumns > .introduction { border:0; padding:0; }.pressColumns .scene { min-height:250px; }.pressColumns > .offeringIndex { display:block; }.classifieds .offeringList { grid-template-columns:1fr; }.classifieds .offering { padding:15px 10px; border-right:0; border-bottom:1px solid var(--line); }.classifieds h3 { font-size:2.1rem; }
+
+  .roastery .navigation { margin:16px; padding:14px 18px; border-radius:24px; }.roasteryHero { display:flex; flex-direction:column; gap:30px; }.roasteryPortrait { width:80%; align-self:start; }.roasteryPortrait .scene { height:310px; }.roasteryLetter h1 { font-size:3.2rem; }.roasteryMark { position:absolute; top:-70px; right:0; font-size:3rem; }.folds .offeringList { grid-template-columns:1fr; }.folds .offering { padding:20px 25px; border-right:0; border-bottom:1px solid var(--line); }
+
+  .tablecloth .navigation { gap:20px; }.tablecloth .identity { font-size:1.3rem; }.tableclothHero { display:block; padding-top:25px; }.tableclothCover { padding:40px 25px; }.tableclothCover h1 { font-size:3.1rem; }.tableclothLeaf { border-left:1px solid var(--line); border-top:0; padding:20px; }.tableclothLeaf .scene { height:270px; }.tableclothLeaf > p { padding:22px 0 5px; }.menuCards .offeringList { grid-template-columns:1fr; }.menuCards .offeringBody { padding-left:0; }
+
+  .furnaceView .scene { height:250px; }.furnaceTag { position:relative; left:auto; bottom:auto; padding:18px 20px; border:1px solid var(--line); border-left:4px solid var(--accent); }.furnaceHeadline { display:block; margin-top:30px; }.furnaceHeadline h1 { font-size:3.8rem; margin-bottom:25px; }.bands .offering { padding-inline:20px; }.bands .offering summary { min-height:100px; }.bands h3 { font-size:2.4rem; }.bands .offeringBody { padding-left:36px; }
+
+  .botanical .navigation { margin-inline:22px; }.botanicalHero { grid-template-columns:1fr; gap:30px; }.botanicalPortrait { max-width:85%; }.botanicalPortrait .scene { height:350px; }.botanicalWords h1 { font-size:3.1rem; }.botanicalHero > .location { text-align:left; }.specimens .offering { width:100%; padding:10px 22px; }.specimens .offeringBody { padding-left:36px; }
+
+  .runway .navigation { margin-top:16px; }.runwayHero > h1 { font-size:2.9rem; letter-spacing:-.07em; margin-bottom:30px; }.runwayStrip { display:grid; grid-template-columns:1fr; gap:25px; }.runwayStrip .scene { grid-row:1; height:260px; }.runwaySide { display:flex; align-items:center; gap:25px; }.runwaySide > span { font-size:3.5rem; }.runwaySide .actions { flex:1; margin:0; }.runwayCaption { grid-column:1; padding:0; }.lookbook .offering summary { grid-template-columns:35px 1fr 22px; min-height:95px; gap:12px; }.lookbook .number { font-size:1.6rem; }.lookbook h3 { font-size:1.45rem; }.lookbook .offering[open] { padding-inline:15px; }.lookbook .offeringBody { padding-left:0; }
+
+  .tide .navigation { padding-inline:22px; }.tideHero { display:flex; flex-direction:column; gap:25px; }.tideOpening { padding:0; display:flex; justify-content:space-between; gap:20px; }.tideOpening .location { margin:0; }.tidePool { align-self:end; width:85%; padding:12px; }.tideTitle h1 { font-size:3.7rem; }.tideHero > .introduction { margin:0; }.pools .offering { padding:5px 20px; border-radius:25px; }.pools .offeringBody { padding-left:0; }
+
+  .vault .navigation { margin-inline:22px; }.vault .identity { font-size:1.05rem; letter-spacing:.1em; }.vaultPortal { grid-template-columns:25px 1fr 25px; gap:15px; }.vaultPortal .scene { height:280px; }.vaultPortal > span { font-size:2.2rem; }.vaultPortal .location { writing-mode:vertical-rl; }.vaultHero > h1 { font-size:3.2rem; letter-spacing:.025em; }.vaults .offeringList { grid-template-columns:1fr; gap:25px; }.vaults .offering { padding:35px 28px 15px; border-radius:90px 90px 0 0; }.vaults .offering summary { min-height:130px; }.vaults h3 { font-size:2.4rem; }
+
+  .blueprint .navigation { margin:18px; padding:15px; }.blueprintHero { grid-template-columns:1fr; gap:25px; }.blueprintTitle { padding:0; }.blueprintTitle h1 { font-size:3.5rem; }.blueprintDrawing .scene { height:280px; }.blueprint :is(.offerings,.story,.notes,.questions,.gallery,.contact) { margin-inline:18px; padding-inline:20px; }.schematic .offeringList { grid-template-columns:1fr; }.schematic .offering { padding:10px 15px; }.schematic .offeringBody { padding-left:0; }.schematic h3 { font-size:1.6rem; }
+
+  .orbit .navigation { margin:16px; padding:15px 20px; border-radius:26px; }.orbitHero { display:flex; flex-direction:column; gap:25px; }.orbitWords h1 { font-size:3.8rem; margin-bottom:10px; }.orbitDisc { width:85%; align-self:end; padding:15px; }.orbitDisc > span { top:-18px; font-size:2.5rem; }.orbitHero > .location { align-self:end; }.orbits .offeringList { grid-template-columns:1fr; gap:18px; }.orbits .offering { padding:15px 22px; border-radius:28px; }.orbits .offering summary { grid-template-columns:35px 1fr 20px; }.orbits .offeringBody { padding-left:0; }
+
+  .velocity .navigation { margin-inline:20px; }.velocityHero { display:flex; flex-direction:column; margin-inline:20px; gap:25px; }.velocityWords { padding:0; }.velocityWords h1 { font-size:3rem; }.velocityCut .scene { min-height:300px; }.velocityTrack { display:block; padding:25px 20px; }.velocityTrack .offeringIndex { display:block; margin-top:15px; }.velocityTrack .offeringIndex a { padding:15px 0; border-left:0; border-top:1px solid currentColor; }.rungs .offeringList { grid-template-columns:1fr; gap:20px; }.rungs .offering { padding:15px 25px; }.rungs .offering summary { gap:18px; }.rungs .number { font-size:2.7rem; }.rungs h3 { font-size:1.7rem; }
+
+  .chambers .navigation { margin-inline:22px; }.chambersHero { grid-template-columns:1fr; gap:25px; }.chambersHeading h1 { font-size:3rem; }.chambersPlate .scene { height:280px; }.chambersHero > .introduction { margin-top:0; }.casefiles .offering { padding:0 20px; }.casefiles .offering::before { margin-left:-21px; }.casefiles h3 { font-size:1.7rem; }.casefiles .offeringBody { padding-left:36px; }
+
+  .horizon .navigation { padding-block:22px; }.horizonHero { padding-top:0; }.horizonView .scene { height:320px; }.horizonCard { width:calc(100% - 20px); margin:-45px 0 0 20px; padding:30px 0 0 22px; }.horizonCard h1 { font-size:3rem; }.horizonHero > .location { position:static; writing-mode:horizontal-tb; margin:30px 0 0 42px; }.horizons .offering summary { grid-template-columns:25px 1fr 20px; min-height:95px; }.horizons .offeringBody { margin:0; padding-left:39px; }
+
+  .archipelagoHero { grid-template-columns:1fr 90px; gap:20px 12px; }.archipelagoTitle { grid-column:1 / -1; padding:35px 25px; border-radius:50px 8px 8px 8px; }.archipelagoTitle h1 { font-size:3.2rem; margin-bottom:0; }.archipelagoIsland { grid-column:2; grid-row:2; padding:15px; width:90px; align-self:start; gap:5px; }.archipelagoIsland > span { font-size:2rem; }.archipelagoIsland .location { font-size:.6rem; }.archipelagoHero > .scene { grid-column:1; grid-row:2; height:260px; }.archipelagoHero > .introduction { grid-column:1 / -1; padding:0; }.islands .offeringList { grid-template-columns:1fr; gap:18px; }.islands .offering { padding:15px 22px; }.islands .offeringBody { padding-left:0; }
+
+  .airHero { display:flex; flex-direction:column; gap:30px; align-items:stretch; }.airWords h1 { font-size:3.1rem; }.airWindow { max-width:90%; margin:auto; width:100%; }.airWindow .scene { height:330px; }.airHero > .offeringIndex { display:block; padding:20px 0 0; }.air .actions { flex-direction:row; }.paths { display:block; }.paths .offering { padding-inline:20px; }.paths .offeringBody { padding-left:0; }
+
+  .terminal .navigation { margin-top:0; }.terminalHeading { display:block; }.terminalHeading h1 { font-size:3rem; }.terminalHeading > .location { margin:0 0 25px; }.terminalScreen { grid-template-columns:1fr; }.terminalScreen > .scene { height:270px; }.terminalDirectory { border-left:0; border-top:1px solid var(--line); padding:25px 20px; }.console .offeringList { grid-template-columns:1fr; }.console .offering { padding:5px 20px; }.console .offeringBody { padding-left:0; }
+
+  .journal .navigation { margin-top:15px; }.journal .identity { font-size:1.3rem; }.journalHero { display:block; }.journalMargin { flex-direction:row; justify-content:space-between; border:0; padding:0; margin-bottom:30px; }.journalPage .scene { width:140px; height:140px; }.journalPage h1 { font-size:3.6rem; }.journal .notes { margin-inline:22px; }.chapters .offering summary { grid-template-columns:45px 1fr 20px; padding-block:25px; }.chapters .number { font-size:2.5rem; }.chapters h3 { font-size:1.9rem; }.chapters .offeringBody { margin:0; padding-left:59px; }
+
+  .axisHero { display:flex; flex-direction:column; gap:30px; }.axisImage { padding:0; max-width:75%; }.axisImage .scene { height:280px; }.axisWords { padding-left:22px; }.axisWords h1 { font-size:3.5rem; }.axisMark { display:none; }.axisRows .offering { margin-left:15px; }.axisRows .offering::before { left:-15px; width:8px; height:8px; top:-5px; }.axisRows .offering summary { grid-template-columns:25px 1fr 20px; min-height:100px; }.axisRows h3 { font-size:2rem; }.axisRows .offeringBody { padding-left:0; }
+
+  .ripple .navigation { margin-top:16px; padding:15px 18px; }.rippleSurface { grid-template-columns:1fr 25px; gap:20px 15px; }.rippleSurface > .eyebrow { grid-column:1 / -1; }.rippleSurface .scene { height:230px; }.rippleSurface .location { grid-column:2; }.rippleWords { display:block; margin-top:30px; }.rippleWords h1 { font-size:3.3rem; margin-bottom:25px; }.ripples .offering:nth-child(n) { margin-inline:0; border-radius:30px; padding:5px 20px; }.ripples .offeringBody { padding-left:0; }
+
+  .dispatchHero { grid-template-columns:1fr; gap:25px; }.dispatchTicket { padding:35px 25px; border-right:0; border-bottom:5px dotted var(--bg); }.dispatchTicket h1 { font-size:3.2rem; }.dispatchTicket > .location { margin-top:30px; }.dispatchEvidence .scene { height:270px; }.tickets .offering { padding:8px 20px; }.tickets .offering summary { grid-template-columns:35px 1fr 20px; }.tickets .number { padding-right:10px; }.tickets h3 { font-size:1.9rem; }.tickets .offeringBody { padding-left:0; }
+}

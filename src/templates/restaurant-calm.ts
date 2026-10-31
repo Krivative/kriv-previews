@@ -5,6 +5,7 @@ export const restaurantCalm = defineTemplate({
   id: "restaurant-calm",
   name: "Table",
   look: "calm",
+  composition: "tablecloth",
   industries: ["restaurant", "bistro", "Filipino restaurant", "seafood restaurant", "family restaurant"],
   fonts: {
     display: "'Libre Caslon Text', Georgia, serif",
@@ -36,11 +37,11 @@ export const restaurantCalm = defineTemplate({
     { type: "close", variant: "card" },
   ],
   fingerprint: {
-    grammar: "menu-card editorial on cream, serif throughout",
-    nav: "serif wordmark, olive rectangular CTA",
-    hero: "stacked: headline, then a wide 16:7 photo, then sub and buttons",
-    sequence: "stacked hero → menu → about split → mosaic → note → visit split → card",
-    close: "bordered card",
-    signature: "the headline sits above the photo like a menu title above a dish",
+    grammar: "facing book leaves with an outlined title page and photographic opposite page",
+    nav: "centered serif identity over a small row of links",
+    hero: "title and actions centered on one book leaf, photo and subtext on its facing leaf",
+    sequence: "book opening, dotted menu cards, letter, gallery, notes, questions, closing letter",
+    close: "reading-width closing letter",
+    signature: "two facing book leaves open into a restrained two-column offering menu without invented prices",
   },
 });

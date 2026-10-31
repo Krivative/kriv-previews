@@ -5,6 +5,7 @@ export const plumbingCalm = defineTemplate({
   id: "plumbing-calm",
   name: "Tap",
   look: "calm",
+  composition: "ripple",
   industries: ["plumber", "drain cleaning", "water heater repair", "leak repair", "repiping"],
   fonts: {
     display: "Outfit, system-ui, sans-serif",
@@ -37,11 +38,11 @@ export const plumbingCalm = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "clean-water trade page, white and pale aqua, teal accent, rounded sans (Outfit), 14px radii",
-    nav: "rounded sans wordmark, teal rounded CTA",
-    hero: "cinematic: full-screen photo under a teal-tinted scrim, Outfit headline with an italic serif accent",
-    sequence: "cinematic → numbered service rows → teal contact strip → tilted cards → visit card → FAQ columns → teal band",
-    close: "full-width teal band",
-    signature: "numbered hairline service rows straight under the full-screen hero, teal phone strip after them",
+    grammar: "broad oval scene above a low two-column introduction in teal and pale aqua",
+    nav: "soft rectangular navigation island with quiet rounded identity",
+    hero: "horizontal oval photograph flanked by category and vertical location, headline below beside introductory copy",
+    sequence: "oval scene, nested offering ripples, questions, notes, centered essay, gallery, folio",
+    close: "pale factual contact folio",
+    signature: "nested rounded offering rows open independently and become full-width on phones",
   },
 });

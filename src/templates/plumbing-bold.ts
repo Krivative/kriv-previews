@@ -5,6 +5,7 @@ export const plumbingBold = defineTemplate({
   id: "plumbing-bold",
   name: "Pressure",
   look: "bold",
+  composition: "dispatch",
   industries: ["plumbing company", "emergency plumber", "sewer and drain", "commercial plumbing", "gas line repair"],
   fonts: {
     display: "Archivo, system-ui, sans-serif",
@@ -38,11 +39,11 @@ export const plumbingBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "work-truck plumber, graphite, safety-yellow accent, uppercase heavy Archivo, square corners",
-    nav: "uppercase heavy wordmark, yellow square CTA",
-    hero: "poster: huge uppercase Archivo headline with a yellow italic serif accent word, then a wide square photo",
-    sequence: "poster → yellow contact strip → service tiles → photo strip → tilted cards → visit card → FAQ list → giant yellow close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "uppercase heavy type broken by one italic serif word, faded giant words, square corners, giant yellow close",
+    grammar: "oversized yellow ticket, graphite image evidence column and perforated rules",
+    nav: "bold utility identity above a dashed horizontal rule",
+    hero: "large headline on a perforated colour ticket beside a framed photo and concise content index",
+    sequence: "ticket opening, supplied notes, perforated offerings, story spread, gallery, questions, billboard",
+    close: "strong yellow contact billboard",
+    signature: "perforated offering tickets open beneath a large message ticket and factual image index",
   },
 });

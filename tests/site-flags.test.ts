@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { emailsIn, flagsFor, isBusinessMailbox, isRoleEmail } from "../scripts/site-flags.mjs";
+import { emailsIn, flagsFor, hasParkingNotice, isBusinessMailbox, isRoleEmail } from "../scripts/site-flags.mjs";
+import { classify } from "../scripts/finder/rules.mjs";
 
 const now = new Date("2026-10-24T00:00:00Z");
 const good = { status: 200, https: true, viewportMeta: true, overflowPx: 0, copyrightYear: 2026, loadMs: 2000, title: "Acme Dental", textLength: 3000 };
@@ -50,6 +51,54 @@ describe("website flags", () => {
 
   it("does not flag a copyright from two years ago", () => {
     expect(flagsFor({ ...good, copyrightYear: 2024 }, now).flags).toEqual([]);
+  });
+});
+
+describe("visible parking notices", () => {
+  it("still requires a published business mailbox with mail records before qualifying a parked-site lead", async () => {
+    const website = "https://acme.example/";
+    const result = { ...good, ...flagsFor({ ...good, parkingNotice: true }, now), finalUrl: website, emails: [] };
+    const checks = new Map([["acme.example", result]]);
+    const candidate = { name: "Acme Air", niche: "hvac", state: "FL", town: "Ocala", website, emailsListing: [], listingUrl: "https://directory.example/acme" };
+    expect((await classify(candidate, { checks, hasMx: async () => true })).bucket).toBe("near");
+    const personal = { ...candidate, emailsListing: ["jane.smith@gmail.com"] };
+    expect((await classify(personal, { checks, hasMx: async () => true })).bucket).toBe("near");
+    const business = { ...candidate, emailsListing: ["info@acme.example"] };
+    expect((await classify(business, { checks, hasMx: async () => false })).bucket).toBe("near");
+    expect((await classify(business, { checks, hasMx: async () => true })).bucket).toBe("qualified");
+  });
+
+  it.each([
+    "This Web page is parked FREE, courtesy of GoDaddy.com.",
+    "This domain is parked free, courtesy of GoDaddy.",
+    "Domain information\nThis domain name is parked FREE.\ncourtesy of GoDaddy.com\nOther information",
+    "  This webpage is parked free, courtesy of GoDaddy.com.  ",
+  ])("recognizes an explicit provider notice with an otherwise ordinary title: %s", (text) => {
+    const parkingNotice = hasParkingNotice(text);
+    expect(parkingNotice).toBe(true);
+    expect(flagsFor({ ...good, title: "acme.example", parkingNotice }, now)).toEqual({ flags: ["placeholder-or-empty"], weak: true });
+  });
+
+  it.each([
+    "Website powered by GoDaddy.",
+    "Our guide explains why this domain is parked free, courtesy of GoDaddy.com.",
+    'Article: "This Web page is parked FREE, courtesy of GoDaddy.com."',
+    "This Web page is parked FREE, courtesy of GoDaddy.com. Read our guide to learn more.",
+    "This domain is parked free, courtesy of Another Provider.",
+    "GoDaddy hosting for an independent business.",
+    "",
+  ])("does not treat an ordinary footer or discussion as a parking notice: %s", (text) => {
+    const parkingNotice = hasParkingNotice(text);
+    expect(parkingNotice).toBe(false);
+    expect(flagsFor({ ...good, parkingNotice }, now)).toEqual({ flags: [], weak: false });
+  });
+
+  it.each([
+    { status: 403, title: "Access denied" },
+    { status: 200, title: "Checking your browser..." },
+    { error: "page.goto: Timeout 30000ms exceeded." },
+  ])("keeps a blocked or inconclusive page not checked even with parking evidence: %j", (patch) => {
+    expect(flagsFor({ ...good, ...patch, parkingNotice: true }, now)).toEqual({ flags: ["not-checked"], weak: false });
   });
 });
 

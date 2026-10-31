@@ -5,6 +5,7 @@ export const chiroCalm = defineTemplate({
   id: "chiro-calm",
   name: "Align",
   look: "calm",
+  composition: "journal",
   industries: ["chiropractor", "chiropractic clinic", "family chiropractic", "sports chiropractic", "physical therapy"],
   fonts: {
     display: "Newsreader, Georgia, serif",
@@ -29,7 +30,7 @@ export const chiroCalm = defineTemplate({
   },
   sections: [
     { type: "hero", variant: "cinematic" },
-    { type: "custom", variant: "steps" },
+    { type: "custom", variant: "journey" },
     { type: "services", variant: "editorial" },
     { type: "about", variant: "cards" },
     { type: "visit", variant: "card" },
@@ -37,11 +38,11 @@ export const chiroCalm = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "warm clinic journal, cream with charcoal and ochre, Newsreader serif, 16px radii, pill buttons",
-    nav: "serif wordmark, ochre pill CTA",
-    hero: "cinematic: full-screen calm photo, Newsreader headline with an ochre italic accent",
-    sequence: "cinematic → first-visit steps → numbered treatment rows → tilted cards → visit card → FAQ list → ochre band",
-    close: "ochre band",
-    signature: "a three-step 'your first visit' straight under the full-screen hero, treatments as numbered italic rows",
+    grammar: "reading journal with marginal notes, circular frontispiece and Newsreader headline",
+    nav: "serif journal identity and links stacked between fine rules",
+    hero: "small circular frontispiece above a reading-width centered headline beside marginal category notes",
+    sequence: "frontispiece, expandable supplied notes, offering chapters, centered essay, questions, gallery, closing letter",
+    close: "reading-width closing letter",
+    signature: "chapter-numbered offerings and expandable supplied notes in a quiet journal rhythm",
   },
 });

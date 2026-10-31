@@ -5,6 +5,7 @@ export const officeCalm = defineTemplate({
   id: "office-calm",
   name: "Ledger",
   look: "calm",
+  composition: "index",
   industries: ["law office", "accounting firm", "insurance agency", "notary", "real estate broker", "consultancy"],
   fonts: {
     display: "'EB Garamond', Georgia, serif",
@@ -35,11 +36,11 @@ export const officeCalm = defineTemplate({
     { type: "close", variant: "card" },
   ],
   fingerprint: {
-    grammar: "quiet professional office, cream-white, deep navy, Garamond headings, 2px radii, nothing decorative",
-    nav: "Garamond wordmark, navy rectangular CTA",
-    hero: "split, portrait photo right, nearly square corners",
-    sequence: "split → practice-area rows → principal's about split → note → visit split → FAQ → card",
-    close: "bordered card with navy button",
-    signature: "an about split with the principal's portrait directly after the practice-area rows, then a 'what to bring' note",
+    grammar: "asymmetric editorial index, vertical rail, expansive Garamond typography and narrow image caption",
+    nav: "persistent left index and business identity; compact horizontal mobile masthead",
+    hero: "oversized editorial headline above a narrow offset image and introductory text",
+    sequence: "editorial opening → indexed offering ledger → two-column essay → source notes and questions → full-width contact ledger",
+    close: "large closing typography above three-column contact facts separated by a hairline",
+    signature: "a persistent navigation rail and an editorial document rhythm that stays vertical on touch screens",
   },
 });

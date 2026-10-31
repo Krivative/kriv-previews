@@ -5,6 +5,7 @@ export const chiroBold = defineTemplate({
   id: "chiro-bold",
   name: "Posture",
   look: "bold",
+  composition: "axis",
   industries: ["chiropractic and sports care", "spine and posture clinic", "sports rehab", "mobility studio"],
   fonts: {
     display: "'Schibsted Grotesk', system-ui, sans-serif",
@@ -38,11 +39,11 @@ export const chiroBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "kinetic clinic, bone white, black type and hairlines, electric blue, one extra-bold grotesk, zero radius",
-    nav: "extra-bold wordmark, square blue CTA",
-    hero: "poster: huge grotesk headline with an electric-blue italic serif accent over a wide photo",
-    sequence: "poster → numbered treatment rows → note → photo strip → tilted cards → visit card → FAQ columns → giant blue close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "faded giant words behind headings on warm grey, numbered treatment rows, giant electric-blue close",
+    grammar: "asymmetric portrait and heavy grotesk type aligned to an electric-blue vertical rule",
+    nav: "bold identity and links above a double-weight baseline",
+    hero: "narrow portrait to the left of a wide headline aligned against a coloured vertical axis",
+    sequence: "portrait axis, manifesto, connected offering rows, gallery, supplied notes, questions, ruled close",
+    close: "contact spread aligned to an accent baseline",
+    signature: "connected offering tracks reveal detail beneath an asymmetric typographic axis",
   },
 });

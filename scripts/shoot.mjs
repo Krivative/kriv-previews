@@ -33,12 +33,24 @@ for (const slug of slugs) {
     page.on("pageerror", (e) => errors.push(String(e)));
     await page.goto(`${base}/${slug}`, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(async () => {
+      await Promise.all([...document.images].map((img) => {
+        img.loading = "eager";
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+          setTimeout(resolve, 8000);
+        });
+      }));
+    });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     const file = `shots/${slug}-${label}.png`;
     await page.screenshot({ path: file, fullPage: true });
-    const ok = errors.length === 0 && overflow <= 0;
+    const brokenImages = await page.evaluate(() => [...document.images].filter((img) => img.getBoundingClientRect().width > 0 && (!img.complete || img.naturalWidth === 0)).length);
+    const ok = errors.length === 0 && overflow <= 0 && brokenImages === 0;
     if (!ok) failed = true;
-    console.log(`${ok ? "ok  " : "FAIL"} ${file}  overflow=${overflow}px errors=${errors.length}`);
+    console.log(`${ok ? "ok  " : "FAIL"} ${file}  overflow=${overflow}px errors=${errors.length} broken-images=${brokenImages}`);
     errors.forEach((e) => console.log("     " + e));
     await page.close();
   }

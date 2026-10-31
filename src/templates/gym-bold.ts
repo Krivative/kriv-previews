@@ -5,6 +5,7 @@ export const gymBold = defineTemplate({
   id: "gym-bold",
   name: "Pulse",
   look: "bold",
+  composition: "velocity",
   industries: ["gym", "crossfit box", "boxing and muay thai gym", "HIIT studio", "sports performance"],
   fonts: {
     display: "'Archivo Black', Impact, sans-serif",
@@ -35,11 +36,11 @@ export const gymBold = defineTemplate({
     { type: "close", variant: "statement" },
   ],
   fingerprint: {
-    grammar: "white training floor, heavy black uppercase grotesk, red-orange, pill buttons on square cards",
-    nav: "heavy uppercase wordmark, red-orange pill CTA",
-    hero: "full-bleed photo banner, heavy uppercase copy at the bottom edge",
-    sequence: "banner → programme grid → red strip → mosaic → visit split → FAQ → statement",
-    close: "giant uppercase statement, red-orange pill",
-    signature: "a red-orange full-width strip for the trial offer right under the programme grid",
+    grammar: "dense athletic typography, angled photo crop and a strong route strip",
+    nav: "bold utility identity above a thick black rule",
+    hero: "heavy title beside an angled photo, joined below by a full-width offering route strip",
+    sequence: "angled opening, stepped offering rungs, manifesto, supplied notes, questions, gallery, billboard",
+    close: "oversized accent contact billboard",
+    signature: "staggered offering rungs reached directly from a factual route strip",
   },
 });

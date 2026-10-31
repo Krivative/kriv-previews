@@ -5,6 +5,7 @@ export const gymCalm = defineTemplate({
   id: "gym-calm",
   name: "Form",
   look: "calm",
+  composition: "orbit",
   industries: ["pilates studio", "yoga studio", "boutique gym", "personal training", "dance and barre"],
   fonts: {
     display: "'Instrument Serif', Georgia, serif",
@@ -36,11 +37,11 @@ export const gymCalm = defineTemplate({
     { type: "close", variant: "statement" },
   ],
   fingerprint: {
-    grammar: "boutique studio, warm off-white, dusty indigo, large tight serif with pill buttons",
-    nav: "serif wordmark, indigo pill CTA",
-    hero: "centred large serif headline, three photo tiles below",
-    sequence: "centred → class grid → quote → mosaic → note → visit card → FAQ → statement",
-    close: "large serif statement, indigo pill",
-    signature: "pill buttons on an otherwise square 4px layout; classes shown as a grid of cards",
+    grammar: "diagonal serif composition with a circular image orbit and a spare indigo cross",
+    nav: "long rounded capsule with restrained serif identity",
+    hero: "oversized type at upper left and round photograph to the right, introduction below and location in the margin",
+    sequence: "diagonal orbit, supplied notes, story aside, ringed offerings, gallery, questions, stamp",
+    close: "outlined contact stamp with indigo detail",
+    signature: "ring-numbered offering disclosures complement the diagonal circular hero",
   },
 });

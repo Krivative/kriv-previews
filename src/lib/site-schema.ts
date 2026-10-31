@@ -42,16 +42,17 @@ export type LeadStatus = z.infer<typeof LeadStatus>;
 // override the whole list (to reorder, hide or swap variants) via `design.sections`.
 export const SectionRef = z.discriminatedUnion("type", [
   z.object({ type: z.literal("hero"), variant: z.enum(["split", "poster", "centered", "banner", "stacked", "cinematic"]) }),
-  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles", "editorial"]) }),
+  z.object({ type: z.literal("services"), variant: z.enum(["rows", "grid", "columns", "menu", "tiles", "editorial", "explorer"]) }),
   z.object({ type: z.literal("about"), variant: z.enum(["quote", "split", "cards"]) }),
-  z.object({ type: z.literal("gallery"), variant: z.enum(["mosaic", "strip"]) }),
-  z.object({ type: z.literal("custom"), variant: z.enum(["strip", "note", "steps"]) }),
+  z.object({ type: z.literal("gallery"), variant: z.enum(["mosaic", "strip", "editorial"]) }),
+  z.object({ type: z.literal("custom"), variant: z.enum(["strip", "note", "steps", "journey"]) }),
   z.object({ type: z.literal("visit"), variant: z.enum(["split", "card"]) }),
   z.object({ type: z.literal("faq"), variant: z.enum(["list", "columns"]) }),
   z.object({ type: z.literal("close"), variant: z.enum(["band", "card", "statement", "giant"]) }),
 ]);
 export type SectionRef = z.infer<typeof SectionRef>;
 export type SectionType = SectionRef["type"];
+export const ContentNiche = z.enum(["general", "dental", "aesthetic", "chiro", "hvac", "plumbing", "auto", "cafe", "restaurant", "salon", "spa", "gym", "office", "resort"]);
 
 export const SiteData = z.object({
   slug: z
@@ -60,6 +61,9 @@ export const SiteData = z.object({
     .regex(SLUG_PATTERN)
     .refine((v) => !RESERVED_SLUGS.has(v), { message: "slug is a kriv.agency page name" }),
   template: z.string(),
+  // Content classification is independent of the visual template. Old records
+  // retain the legacy template-prefix fallback until they are edited/rebuilt.
+  contentNiche: ContentNiche.optional(),
   // BCP 47 language tag for the page content, e.g. "en-US", "en-AU".
   lang: z.string().default("en"),
   business: z.object({
@@ -114,10 +118,17 @@ export const SiteData = z.object({
     .object({
       title: z.string().default("What we do"),
       intro: z.string().max(200).optional(),
-      items: z.array(z.object({ name: z.string(), blurb: z.string().max(180) })).max(8),
+      items: z.array(z.object({
+        name: z.string(), blurb: z.string().max(180),
+        detail: z.string().max(1400).optional(),
+        includes: z.array(z.string().max(180)).max(6).optional(),
+      })).max(8),
     })
     .optional(),
-  about: z.object({ title: z.string().optional(), body: z.string().max(700) }).optional(),
+  about: z.object({
+    title: z.string().optional(), body: z.string().max(700),
+    sections: z.array(z.object({ title: z.string().max(100), body: z.string().max(900) })).max(4).optional(),
+  }).optional(),
   // The one section that is written for this lead only.
   custom: z
     .object({

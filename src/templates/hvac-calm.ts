@@ -5,6 +5,7 @@ export const hvacCalm = defineTemplate({
   id: "hvac-calm",
   name: "Breeze",
   look: "calm",
+  composition: "air",
   industries: ["HVAC contractor", "heating and air conditioning", "furnace repair", "heat pump installer", "indoor air quality"],
   fonts: {
     display: "Lexend, system-ui, sans-serif",
@@ -30,18 +31,18 @@ export const hvacCalm = defineTemplate({
   sections: [
     { type: "hero", variant: "cinematic" },
     { type: "custom", variant: "strip" },
-    { type: "services", variant: "editorial" },
+    { type: "services", variant: "explorer" },
     { type: "about", variant: "cards" },
     { type: "visit", variant: "split" },
     { type: "faq", variant: "columns" },
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "airy home-services page, white and ice blue, cool blue accent, rounded geometric sans (Lexend), 12px radii",
-    nav: "geometric sans wordmark, blue soft-square CTA",
-    hero: "cinematic: full-screen photo under a cool scrim, Lexend headline with an italic serif accent, scroll cue",
-    sequence: "cinematic → service-area strip → numbered editorial services → tilted photo cards → visit split → FAQ columns → giant blue close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "full-screen photo hero, then the blue service-area strip, then services as numbered hairline rows",
+    grammar: "airy three-column wayfinding with a soft photo window and rounded geometric Lexend type",
+    nav: "quiet horizontal masthead with a restrained sans-serif identity",
+    hero: "introduction, arched photograph and real offering index stand in three separate columns",
+    sequence: "wayfinding opening, supplied notes, offering paths, questions, story spread, gallery, folio",
+    close: "clear two-column contact folio",
+    signature: "sticky offering orientation beside soft detail paths, reached from the hero content index",
   },
 });

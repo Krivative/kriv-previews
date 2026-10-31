@@ -5,6 +5,7 @@ export const spaCalm = defineTemplate({
   id: "spa-calm",
   name: "Still",
   look: "calm",
+  composition: "tide",
   industries: ["spa", "massage", "wellness centre", "reflexology", "sauna and hilot"],
   fonts: {
     display: "'Cormorant Garamond', Georgia, serif",
@@ -35,11 +36,11 @@ export const spaCalm = defineTemplate({
     { type: "close", variant: "card" },
   ],
   fingerprint: {
-    grammar: "misty wellness editorial, 24px radii, slate-teal on pale blue-grey",
-    nav: "light serif wordmark, slate-teal pill CTA",
-    hero: "split, photo right with every corner fully rounded",
-    sequence: "split → columns → photo strip → note → visit split → FAQ → card",
-    close: "bordered card",
-    signature: "treatment columns in light serif with no rules, straight into a wide photo strip",
+    grammar: "pale spatial composition with a circular photographic pool and low serif title",
+    nav: "open centered masthead with generous whitespace and compact links",
+    hero: "category floats at upper left, circular image at upper right, headline low left and introduction below the image",
+    sequence: "circular pool, centered essay, supplied notes, soft offering pools, questions, gallery, folio",
+    close: "open pale contact folio",
+    signature: "soft rounded offering pools reveal detail while the hero stays open and image-led",
   },
 });

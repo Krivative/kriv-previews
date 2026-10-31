@@ -38,6 +38,12 @@ And in `app/robots.ts`, add `disallow: "/for/"` next to `allow: "/"`.
 
 ## Verified locally (2026-10-24)
 
+Multi-page update (2026-10-27): internal links use `/for/<slug>/about`,
+`/for/<slug>/contact`, `/for/<slug>/services` and `/for/<slug>/services/<item>`.
+The existing `/for/:path*` beforeFiles rule already forwards them. Root-level
+`/<slug>/about` URLs are not added to the single-segment fallback. The public
+homepage/outreach address remains `https://kriv.agency/<slug>`.
+
 A stand-in main site with this exact config, in front of `kriv-previews` built locally:
 `/` and `/about` served by the main site; `/test-lead` and `/Test-Lead` show the preview
 with its styles loaded through `/for/_next/...`; `/test-expired` shows the expired notice;

@@ -5,6 +5,7 @@ export const autoCalm = defineTemplate({
   id: "auto-calm",
   name: "Workshop",
   look: "calm",
+  composition: "blueprint",
   industries: ["auto repair", "car service centre", "tyre and battery shop", "car wash and detailing", "motorcycle shop"],
   fonts: {
     display: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif",
@@ -37,11 +38,11 @@ export const autoCalm = defineTemplate({
     { type: "close", variant: "band" },
   ],
   fingerprint: {
-    grammar: "clean workshop, white with steel blue, semi-condensed headings, 6px radii",
-    nav: "condensed wordmark, steel-blue square-ish CTA",
-    hero: "cinematic: full-screen workshop photo, condensed Barlow headline with an italic serif accent",
-    sequence: "cinematic → numbered service rows → how-it-works steps → photo strip → visit card → FAQ list → steel-blue band",
-    close: "steel-blue band",
-    signature: "condensed type with an italic serif accent over a full-screen workshop photo, numbered service rows",
+    grammar: "technical drawing plate on a light grid with condensed Barlow type and visible ruled framing",
+    nav: "boxed utility masthead with uppercase identity",
+    hero: "headline beside a measured photographic plate with a ruled edge and factual key",
+    sequence: "drawing plate, specification grid, notes, story spread, questions, gallery, ruled close",
+    close: "factual contact block on the drawing grid",
+    signature: "a connected offering specification grid and framed drawing plate with no fabricated metrics",
   },
 });

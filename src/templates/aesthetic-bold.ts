@@ -5,6 +5,7 @@ export const aestheticBold = defineTemplate({
   id: "aesthetic-bold",
   name: "Gloss",
   look: "bold",
+  composition: "nocturne",
   industries: ["medical aesthetics", "aesthetic clinic", "lash and brow studio", "nail studio"],
   fonts: {
     display: "'Bodoni Moda', Didot, Georgia, serif",
@@ -39,11 +40,11 @@ export const aestheticBold = defineTemplate({
     { type: "close", variant: "giant" },
   ],
   fingerprint: {
-    grammar: "after-dark editorial, near-black with rose, high-contrast Bodoni with italic accents, DM Sans body",
-    nav: "wordmark + pill CTA on dark",
-    hero: "cinematic: full-screen moody photo, Bodoni headline with a rose italic accent",
-    sequence: "cinematic → treatment menu → rose strip → tilted cards → photo strip → visit card → FAQ list → giant rose close",
-    close: "giant accent band with oversized display type, sub and buttons on one row",
-    signature: "Didone display with faded giant words behind headings and a giant rose close",
+    grammar: "dark fashion editorial with a narrow image, vertical spine and overlapping Bodoni headline",
+    nav: "tracked uppercase identity with a native contents drawer at every width",
+    hero: "oversized serif type crosses the edge of a narrow portrait, with a marginal category spine",
+    sequence: "portrait interruption, letter, curtain offerings, gallery, notes, questions, closing letter",
+    close: "centered closing letter with a ruled factual footer",
+    signature: "two tall offering curtains open beneath the fashion portrait without a repeated photo strip",
   },
 });
