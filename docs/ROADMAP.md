@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-01 - Last step finished: roadmap run with Kriv's decisions (US formats, review links, database adapter code, app connector, research, directory check, Desk report and checker fix, unattended scheduling)
+Updated: 2026-11-01 - Last step finished: Sales connector install path fixed for the Store app (Claude-Data folder) and /api/job returns plain job fields
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -25,7 +25,9 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Done
 
-- [x] KRIV Sales connector for the Claude desktop app (Kriv chose it, Claude Code, 2026-11-01): local MCP server with five Sales tools (list, detail, discover, start research, save draft), no approve/publish/send tools, emails never returned; installed into the Store app's config. Stdio test passes; in-app check pending Kriv's restart of the Claude app
+- [x] Desk cleanup (Claude Code, 2026-11-01): GET /api/job (and the inbox and workflow views that share it) returns plain job fields; the running check's child process is no longer serialized. Regression test added. Takes effect at the next Desk restart
+- [x] Sales connector install fix (Claude Code, 2026-11-01): the first install wrote to the older Store folder (Packages\Claude_*\LocalCache\Roaming\Claude), which the 4.4212 app ignores; it reads %LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc. Installer now picks that folder first (tests added). Read-only stdio check against the real database: list 50 (cap), Discover 13, no emails returned. Writing the live app config was blocked for the agent: Kriv runs `node scripts/install-sales-connector.mjs`, then quits and reopens the Claude app
+- [x] KRIV Sales connector for the Claude desktop app (Kriv chose it, Claude Code, 2026-11-01): local MCP server with five Sales tools (list, detail, discover, start research, save draft), no approve/publish/send tools, emails never returned. Stdio test passes; in-app check pending (see the install fix above)
 
 - [x] Sales Discovery (Kriv chose it, Claude Code, 2026-11-01): Discover panel lists finder businesses with site-check findings and no Sales research (qualified, near miss, visual review; niche and state filters); Start research and Use site-check findings add them as unconfirmed, dated, sourced website-issue observations. Held, contacted, undated and not-checked businesses excluded; checks over 30 days old never count. No network, finder-rule, bucket or status change. 4 new unit tests, browser check extended with fictional finder data (3 widths) and passed. No private data, sends, push or deployment
 

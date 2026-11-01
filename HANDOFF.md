@@ -12,6 +12,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Sales connector check and Desk cleanup (2026-11-01 afternoon, Claude Code)
+
+- State at start: branch at a8c76a4 (pushed); main 7bb2dfa deployed and Ready (as reported by Kriv, not rechecked). Kriv restarted the Desk at 11:29 (PID 14720, confirmed by its command line); website checks are running again.
+- **Connector was never loaded by the Claude app.** This Store build (4.4212) keeps its data in `%LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc` (lockfile, config.json and its own `claude_desktop_config.json`, which had no `mcpServers`). The first install wrote to `Packages\Claude_*\LocalCache\Roaming\Claude`, which this build ignores. Also, the running app process dated from 10-30, before the install, and no sales-mcp process existed. `scripts/install-sales-connector.mjs` now picks Claude-Data first (exported `configPath`, two tests in `tests/sales-mcp.test.ts`). Running it against the live app config was **blocked by the permission classifier**, so Kriv runs `node scripts/install-sales-connector.mjs`, then quits the Claude app from the tray and reopens it. Then check in the app: "Show my KRIV Sales discover list".
+- Read-only stdio check against the real Desk database: initialize, five tools, list businesses 50 (cap), Discover 13, no `@` in either result. Only counts and field names were printed. No drafts or research were saved. Claude Code sessions never load the desktop connector.
+- `/api/job` cleanup: `jobStatus()` in lead-desk/lib/jobs.mjs omits the child process (shared by /api/job, the inbox and workflow state); regression test in tests/lead-desk.test.ts. The running Desk keeps the old code until its next restart (Kriv's call; no rush).
+- Still open for Kriv: PREVIEW_REVIEW_SECRET on Vercel (optional, ask first); the reply-handling stage needs Kriv's decision. No push, merge or deploy this stage.
+
 ### Kriv's decisions and roadmap run (2026-11-01, Claude Code)
 
 - Kriv (away from the desktop) asked to continue the roadmap with decisions already made, then answered the open questions: **push, merge and deploy** the branch; database adapter **code only, no Upstash account**; next Sales stage **app connector**; authorized **research of A&L Mobile Mechanics and Michigan Auto Repair**, a **fresh Hotfrog/chamber check**, **reading Desk results** (not emails) for a report, and **unattended Windows scheduling** (never approves, publishes or sends).
