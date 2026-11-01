@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-01 - Last step finished: wider search (22 business types, 35 chamber directories in 10 states, 6 a day), 30 previews a day, sending ramp 20 then 30 a day; KRIV Sales connector live in the Claude app
+Updated: 2026-11-02 - Last step finished: every Kriv.Agency service is a Sales offer (SEO, ads, social media marketing and management, booking & CRM, maintenance, executive assistants, outsourcing); the checker records social links and search descriptions so modern-site businesses get a fitting pitch
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -25,6 +25,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Done
 
+- [x] Every Kriv.Agency service as a Sales offer (Kriv listed them, Claude Code, 2026-11-02): lead-desk/lib/services.mjs with 10 offers (website first; SEO, ads, social media marketing, social media management, booking & CRM setup, maintenance, executive assistant, outsourcing, discovery), each with its own starter question and evidence rule. New evidence types: social media and search visibility. The checker records linked social networks and the meta description; Start research adds unconfirmed findings for missing social links, missing description, placeholder titles and (appointment businesses) no booking link. Discover's modern-site group (257 businesses with emails) is relabeled for non-website offers; older checks are re-checked automatically after each day's finding. Claude drafting is told the selected service. 21 new tests; 508 tests, build and 21 smoke checks pass; live checker run on example.com records the new fields
 - [x] Wider search for ~30 emails a day (Kriv asked, Claude Code, 2026-11-01): one list of business types in lead-desk/public/niches.js used by the finder, Desk screens, builder, email wording and photos. 22 types: the original six plus pool, salon & barber, roofing, electrical, landscaping, pest control, cleaning, painting, other home services, therapy & eye care, gym & fitness, vet & pets, restaurant, café & bakery, law firm, accounting & tax (each mapped to existing designs). A saved copy of the old six-type search now means every type. More national chains excluded. 19 new ChamberMaster directories (GA, NC, SC, TN, AL, OK, MO), each loaded once with categories for 7+ types; 6 directories a day (was 2); previews prepared per day 30 (was 10); the Outreach screen's daily limit is 20 until 2026-11-08, then 30. Any US state is accepted. Windows task now also runs on battery and catches up after the laptop was off. Live read of one new directory: 6 members read, types filed correctly, nothing saved. 487 tests, build, 21 smoke checks pass
 - [x] KRIV Sales connector live (Kriv, 2026-11-01): Kriv ran the installer and restarted the app from the tray; a regular Chat lists the Discover businesses (sales-mcp processes running). Ask by tool name: "Use the KRIV Sales tool to show my discover list"
 - [x] Private review links skipped (Kriv, 2026-11-01): PREVIEW_REVIEW_SECRET stays unset

@@ -7,7 +7,7 @@
 import { createRequire } from "node:module";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { flagsFor, hasParkingNotice, emailsIn, isRoleEmail, BOOKING_HOSTS } from "./site-flags.mjs";
+import { flagsFor, hasParkingNotice, emailsIn, isRoleEmail, BOOKING_HOSTS, SOCIAL_HOSTS } from "./site-flags.mjs";
 
 // Playwright is not a project dependency; resolve it from the project or NODE_PATH.
 const require = createRequire(import.meta.url);
@@ -54,6 +54,7 @@ for (const raw of urls) {
         overflowPx: (window.scrollTo(5000, window.scrollY), Math.round(window.scrollX)),
         copyrightYear: years.length ? Math.max(...years) : null,
         generator: document.querySelector('meta[name="generator"]')?.getAttribute("content") ?? null,
+        metaDescription: !!document.querySelector('meta[name="description"]')?.getAttribute("content")?.trim(),
         links: [...document.querySelectorAll("a[href]")].map((a) => ({ href: a.href, text: (a.textContent ?? "").trim().toLowerCase() })),
         text: text.slice(0, 200000),
         textLength: text.length,
@@ -98,6 +99,10 @@ for (const raw of urls) {
       roleEmails: emails.filter(isRoleEmail),
       otherEmailCount: emails.filter((e) => !isRoleEmail(e)).length,
       bookingLinks: [...new Set(links.map((l) => hostOf(l.href)).filter((h) => h && BOOKING_HOSTS.some((b) => h.endsWith(b))))],
+      // Social profiles linked from the home or contact page (hosts only), and whether the home
+      // page has a search description: evidence for the social media and SEO offers.
+      socialLinks: [...new Set(links.map((l) => hostOf(l.href)).filter((h) => h && SOCIAL_HOSTS.some((s) => h === s || h.endsWith(`.${s}`))))],
+      metaDescription: facts.metaDescription,
     });
   } catch (e) {
     r.error = String(e.message ?? e).split("\n")[0];

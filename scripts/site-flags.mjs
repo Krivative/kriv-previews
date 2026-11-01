@@ -9,6 +9,9 @@ export const BOOKING_HOSTS = [
   "patientpop.com", "solutionreach.com", "weave.com", "yourdentalbooking.com",
 ];
 
+// Social networks a business links to from its site (Sales evidence for social media offers).
+export const SOCIAL_HOSTS = ["facebook.com", "fb.com", "instagram.com", "tiktok.com", "youtube.com", "youtu.be", "linkedin.com", "x.com", "twitter.com", "pinterest.com", "threads.net"];
+
 // Mailbox names that belong to the business, not to a person.
 const ROLE_NAMES = /^(info|office|contact|hello|hi|frontdesk|front\.desk|frontoffice|reception|appointments?|appts?|schedul(e|ing)|admin|team|service|services|customerservice|dispatch|support|sales|billing|smile|smiles|care|clinic|dental|dentist|chiro|spa|hvac|ac|ask|mail|inquir(y|ies)|booking|bookings|newpatients?|patients?)([._-].*)?$/i;
 
