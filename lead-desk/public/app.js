@@ -1,7 +1,7 @@
 // Hash router: #screen or #screen/<lead id>. Each screen module exports render(view, id).
 import { $, $$, setOnChange, toast, esc, setNavigationSignal } from "./ui.js";
 
-const SCREENS = ["inbox", "sales", "focus", "dashboard", "find", "check", "review", "build", "approve", "email", "linkedin"];
+const SCREENS = ["inbox", "sales", "focus", "dashboard", "find", "check", "review", "build", "approve", "email", "replies", "linkedin"];
 const loaded = {};
 let active = null;
 let activeHash = location.hash;

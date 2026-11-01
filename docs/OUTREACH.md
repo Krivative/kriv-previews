@@ -19,6 +19,10 @@ This is our reading of the FTC's CAN-SPAM guidance, not legal advice.
 
 ## Opt-out handling
 
+Since 2026-11-02 the Desk does steps 2 and 5 automatically once Gmail is connected
+(docs/REPLIES.md): unsubscribes and bounces are added to the do-not-contact list within
+30 minutes and the thread is labeled. Kriv still checks the Replies screen.
+
 1. Check replies to `hello@kriv.agency` at least every few days.
 2. A reply that asks to stop (unsubscribe, remove me, not interested, stop, no thanks):
    - add the Gmail label **KRIV Outreach/Opt-out** to the thread,
