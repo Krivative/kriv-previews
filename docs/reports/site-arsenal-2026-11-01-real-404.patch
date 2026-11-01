@@ -1,0 +1,88 @@
+From 161925ae96f3b6454796e4c55845005515b0ce2d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 1 Nov 2026 12:52:38 +0800
+Subject: [PATCH] Return real 404s for unknown gallery URLs
+
+With Cache Components and Partial Prefetching, unlisted slugs stream a
+fallback shell first, so notFound() in the page could only render the
+not-found view with HTTP 200. src/proxy.ts knows every sample page and
+gallery thumbnail and answers anything else with the same anonymous
+view, a 404 and noindex, before rendering starts. verify-pages.mjs now
+requires the 404 and checks two more unknown URLs.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012EiTpCHwdpszi5Jtx4sjiE
+---
+ scripts/verify-pages.mjs | 10 +++++-----
+ src/proxy.ts             | 42 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 47 insertions(+), 5 deletions(-)
+ create mode 100644 src/proxy.ts
+
+diff --git a/scripts/verify-pages.mjs b/scripts/verify-pages.mjs
+index 8d13da5..063febb 100644
+--- a/scripts/verify-pages.mjs
++++ b/scripts/verify-pages.mjs
+@@ -25 +25,2 @@ for (const file of readdirSync("src/sites").filter((f) => /^sample-.*\.json$/.te
+-for (const route of ["/not-a-sample/contact", "/sample-hvac-calm/not-a-page", "/sample-cafe-calm/services/not-an-item", "/__proto__/about"]) {
++const unknown = ["/not-a-sample/contact", "/not-a-sample", "/sample-hvac-calm/not-a-page", "/sample-cafe-calm/services/not-an-item", "/__proto__/about", "/template-previews/not-a-file.jpg"];
++for (const route of unknown) {
+@@ -28,3 +29,2 @@ for (const route of ["/not-a-sample/contact", "/sample-hvac-calm/not-a-page", "/
+-  // The existing Cache Components source gallery can stream its not-found view
+-  // with 200. Previews have stricter status tests in their own smoke suite.
+-  if (![200, 404].includes(res.status) || !body.includes("No site here") || body.includes("Concept preview prepared by KRIV")) throw new Error(`${route}: did not render the anonymous not-found view`);
++  // src/proxy.ts answers unknown URLs with a real 404 before rendering starts.
++  if (res.status !== 404 || res.headers.get("x-robots-tag") !== "noindex, nofollow" || !body.includes("No site here") || body.includes("Concept preview prepared by KRIV")) throw new Error(`${route}: did not render the anonymous not-found view`);
+@@ -32 +32 @@ for (const route of ["/not-a-sample/contact", "/sample-hvac-calm/not-a-page", "/
+-console.log(`PASS: ${total} sample pages; 4 anonymous not-found views; noindex, banner and inert actions. Source gallery retains its existing streamed-404 status limitation.`);
++console.log(`PASS: ${total} sample pages; ${unknown.length} anonymous not-found views with HTTP 404; noindex, banner and inert actions.`);
+diff --git a/src/proxy.ts b/src/proxy.ts
+new file mode 100644
+index 0000000..8f42f7b
+--- /dev/null
++++ b/src/proxy.ts
+@@ -0,0 +1,42 @@
++import { readdirSync } from "node:fs";
++import { join } from "node:path";
++import { NextResponse, type NextRequest } from "next/server";
++import { sites } from "@/sites/index";
++import { SiteData } from "@/lib/site-schema";
++import { sitePages } from "@/lib/site-pages";
++
++// Real 404s for unknown URLs. With Cache Components and Partial Prefetching, an unlisted
++// slug renders a streamed fallback first, so notFound() in the page can no longer change
++// the 200 status. Every sample page is known at build time, so anything else is rejected
++// here, before rendering starts, with the same anonymous view as app/not-found.tsx.
++const known = new Set<string>(["/"]);
++for (const [slug, raw] of Object.entries(sites)) {
++  const site = SiteData.parse(raw);
++  for (const page of sitePages(site)) known.add(page.path ? `/${slug}/${page.path}` : `/${slug}`);
++}
++// Gallery thumbnails in public/ (Proxy runs on Node, before public files are served).
++try {
++  for (const file of readdirSync(join(process.cwd(), "public", "template-previews"))) known.add(`/template-previews/${file}`);
++} catch {
++  // No thumbnails folder: nothing to allow.
++}
++
++const notFoundPage = `<!DOCTYPE html><html lang="en-PH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Site Arsenal</title></head><body><main style="padding:96px 24px;text-align:center;font-family:system-ui"><h1>No site here</h1><p><a href="/">Back to the gallery</a></p></main></body></html>`;
++
++export function proxy(request: NextRequest) {
++  const { pathname } = request.nextUrl;
++  let path: string;
++  try {
++    path = decodeURIComponent(pathname);
++  } catch {
++    path = pathname;
++  }
++  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
++  if (known.has(path)) return NextResponse.next();
++  return new NextResponse(notFoundPage, {
++    status: 404,
++    headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex, nofollow" },
++  });
++}
++
++export const config = { matcher: ["/((?!_next/).*)"] };
+-- 
+2.56.0.windows.3
+

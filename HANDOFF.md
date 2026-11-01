@@ -12,6 +12,12 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Optional items while Kriv is away (2026-11-01 afternoon, Claude Code)
+
+- Kriv is away from the desktop: the connector install and Claude app restart wait for Kriv. Check showed the app's main process still dates from 10-30 (an earlier "restart" only closed the window; quit from the tray) and the real config still has no connectors.
+- schc.biz: GoDaddy parking lander confirmed by screenshot (via http:// and https://www.; the bare https:// still fails TLS). `hasParkingNotice` in scripts/site-flags.mjs now also accepts "<domain> is parked free, courtesy of GoDaddy.com." (still whole line, GoDaddy only); tests added. The Desk's saved check was not touched; check-site.mjs runs as a fresh process per batch, so the Desk's next checks use it without a restart.
+- Source gallery 404s: source commit 161925a adds src/proxy.ts (known sample pages and thumbnails pass; anything else gets the anonymous view with 404 and noindex before rendering) and tightens scripts/verify-pages.mjs to require 404. Verified on a separate temporary build at port 3344: 287 pages, 6 unknown URLs, 14 navigation journeys, lint and typecheck. Patch: docs/reports/site-arsenal-2026-11-01-real-404.patch (against 4e38fce). The gallery on 3101 (PID 26504) still runs the old build; rebuilding in place while it serves would break it, so later stop it, run `node node_modules/next/dist/bin/next build --webpack` inside shots/site-arsenal-source, then `npm.cmd --prefix shots/site-arsenal-source start -- -p 3101`.
+
 ### Sales connector check and Desk cleanup (2026-11-01 afternoon, Claude Code)
 
 - State at start: branch at a8c76a4 (pushed); main 7bb2dfa deployed and Ready (as reported by Kriv, not rechecked). Kriv restarted the Desk at 11:29 (PID 14720, confirmed by its command line); website checks are running again.

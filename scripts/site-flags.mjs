@@ -75,8 +75,9 @@ const PARKED = /(domain (is )?for sale|\.[a-z]{2,}\s+is for sale|buy this domain
 // Only a standalone provider notice in the visible home-page text counts here. A GoDaddy
 // footer or an article mentioning parked domains is not evidence that the site is parked.
 // Approved by Kriv, 2026-10-26. Persist the boolean, never the full page text.
+// GoDaddy's current lander starts with the domain itself ("example.com is parked free, ...").
 export function hasParkingNotice(text = "") {
-  return /^\s*this\s+(?:web\s*page|domain(?:\s+name)?)\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
+  return /^\s*(?:this\s+(?:web\s*page|domain(?:\s+name)?)|(?:[a-z0-9-]+\.)+[a-z]{2,})\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
 }
 
 // Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working
