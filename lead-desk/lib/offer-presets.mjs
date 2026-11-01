@@ -1,5 +1,6 @@
 // No AI calls: approved niche templates plus neutral, reusable concept-offer wording.
 import { prefill } from "./builder.mjs";
+import { NICHE } from "../public/niches.js";
 
 export const REVISIONS = ["Different look and wording", "Calmer look", "Bolder look", "Shorter wording", "More direct wording"];
 const norm = (s) => String(s ?? "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
@@ -59,8 +60,7 @@ export function presetForm(lead, pages, templates, { revision = "", attempt = 0 
   const h = /Shorter/.test(revision) ? headlines[0] : headlines[n];
   form.f.headline = { v: h.length <= 70 ? h : name.slice(0, 70), s: nameSource.url };
   form.f.sub = { v: (/Shorter/.test(revision) ? "A concept website prepared by KRIV." : `A concept website prepared by KRIV for ${name}.`).slice(0, 160), s: nameSource.url };
-  const serviceWords = { hvac: /\b(ac|air|cooling|heating|heat|duct|vent|furnace|thermostat|refrigeration)\b/i, plumbing: /plumb|drain|water|pipe|sewer|leak|toilet|faucet|sink/i, auto: /brake|oil|tire|engine|transmission|battery|align|repair|maintenance|diagnostic/i, dental: /clean|exam|check|fill|crown|implant|dent|whiten|root canal|bridge/i, chiro: /chiro|adjust|massage|spinal|rehab|treatment|therapy/i, medspa: /facial|skin|peel|laser|treatment|botox|filler|microneed/i };
-  form.lists.services = form.lists.services.filter((s) => sourceFor(s.name, pages) && serviceWords[lead.niche]?.test(s.name)).map((s) => {
+  form.lists.services = form.lists.services.filter((s) => sourceFor(s.name, pages) && NICHE[lead.niche]?.services?.test(s.name)).map((s) => {
     const line = sentenceFor(s.name, pages);
     return { name: s.name, blurb: (line?.text ?? `Learn about ${s.name.toLowerCase()}.`).slice(0, 180), s: (line ?? sourceFor(s.name, pages)).url };
   });

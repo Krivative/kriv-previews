@@ -12,11 +12,11 @@ import { preparationFingerprint, recordFile, recordFingerprint } from "./prepara
 import { openBlanks, fullBody } from "./compose.mjs";
 import { presetForm, presetEmail } from "./offer-presets.mjs";
 import * as unsplash from "./unsplash.mjs";
+import { NICHE } from "../public/niches.js";
 import { reviewPaused } from "./workflow-state.mjs";
 
 async function choosePhotos(ctx, lead) {
-  const queries = { hvac: "air conditioner outdoor unit tools", plumbing: "plumbing pipes tools", auto: "car engine tools", dental: "empty dental chair room", chiro: "empty treatment room", medspa: "skincare tray products" };
-  const found = await unsplash.search(ctx.repo, queries[lead.niche] ?? "tools workspace");
+  const found = await unsplash.search(ctx.repo, NICHE[lead.niche]?.photo ?? "tools workspace");
   const photos = [];
   for (const p of found.results.filter((p) => !p.warn).slice(0, 2)) photos.push(await unsplash.use(ctx.repo, p.id));
   if (!photos.length) throw new Error("No suitable credited photos found. Held for investigation.");

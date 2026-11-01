@@ -7,17 +7,12 @@ import { SiteData, ContentNiche, SLUG_PATTERN, RESERVED_SLUGS } from "../../src/
 import { get } from "../../scripts/finder/sources.mjs";
 import { host } from "../../scripts/finder/rules.mjs";
 import { now, parse, slugify } from "./db.mjs";
+import { NICHE, NICHE_LIST } from "../public/niches.js";
 
-export const NICHE_INFO = {
-  hvac: { category: "Heating and air conditioning", noun: "heating and cooling", templates: ["hvac-calm", "hvac-bold"] },
-  dental: { category: "Dental clinic", noun: "a dentist", templates: ["dental-clear", "dental-bold"] },
-  chiro: { category: "Chiropractic clinic", noun: "a chiropractor", templates: ["chiro-calm", "chiro-bold"] },
-  medspa: { category: "Med spa", noun: "skin and aesthetic care", templates: ["aesthetic-calm", "aesthetic-bold"] },
-  plumbing: { category: "Plumbing", noun: "a plumber", templates: ["plumbing-calm", "plumbing-bold"] },
-  auto: { category: "Auto repair", noun: "car repairs", templates: ["auto-calm", "auto-bold"] },
-};
-const STATE_NAMES = { TX: "Texas", FL: "Florida", UT: "Utah" };
-export const contentNicheFor = (niche) => niche === "medspa" ? "aesthetic" : ContentNiche.options.includes(niche) ? niche : "general";
+// Category wording and first-choice designs for each business type (lead-desk/public/niches.js).
+export const NICHE_INFO = Object.fromEntries(NICHE_LIST.map((n) => [n.id, { category: n.category, noun: n.noun, templates: n.templates }]));
+const STATE_NAMES = { AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware", DC: "District of Columbia", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming" };
+export const contentNicheFor = (niche) => { const c = NICHE[niche]?.content ?? niche; return ContentNiche.options.includes(c) ? c : "general"; };
 
 // The form. `src: true` fields state facts, so a non-empty value needs the URL it came from.
 // Headings marked src: false are KRIV's own neutral words and state no fact.
@@ -113,7 +108,7 @@ export function parseAddress(a) {
   const st = String(a ?? "").match(/\b(TX|FL|UT|[A-Z]{2})\b(?=[,\s]*\d{5}|\s*$)/)?.[1];
   if (zip) out.postalCode = zip;
   if (st) out.region = st;
-  if (parts.length >= 3) { out.line1 = parts[0]; out.city = parts[1].replace(/\s+(TX|FL|UT)\b.*$/, ""); }
+  if (parts.length >= 3) { out.line1 = parts[0]; out.city = parts[1].replace(/\s+[A-Z]{2}\b.*$/, ""); }
   return out;
 }
 const NOT_SERVICE = /^(home|about|contact|menu|call|book|schedule|services|our services|get a|request|learn more|read more|privacy|terms|pay your bill|select page|testimonials?|reviews?|blog|faq|gallery|careers|financing|specials|coupons|veteran|family owned|why choose|what our|follow us|quick links|hours|location)/i;

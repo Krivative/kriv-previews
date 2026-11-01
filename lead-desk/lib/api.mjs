@@ -20,7 +20,8 @@ import { salesRoutes } from "./sales.mjs";
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const leadOr404 = (db, id) => db.prepare("SELECT * FROM leads WHERE id = ?").get(id);
 
-export const NICHES = { dental: "Dental", hvac: "HVAC", chiro: "Chiropractic", medspa: "Med spa", plumbing: "Plumbing", auto: "Auto repair" };
+export { NICHES } from "../public/niches.js";
+import { NICHES } from "../public/niches.js";
 
 /** What Kriv has to do next, newest work first. */
 export function needsKriv(db) {

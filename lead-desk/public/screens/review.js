@@ -19,7 +19,7 @@ export async function render(view) {
       "<b>Not checked:</b> the site blocked this network or timed out. These are never treated as weak and are not built.",
     ])}
     <div class="row">${Object.entries(TABS).map(([k, v]) => `<button class="chip" data-tab="${k}" aria-pressed="${ui.tab === k}">${v} <b>${d.counts[k] ?? 0}</b></button>`).join("")}
-      <select id="state" aria-label="State"><option value="">Any state</option>${["TX", "FL", "UT"].map((s) => `<option ${ui.state === s ? "selected" : ""}>${s}</option>`).join("")}</select>
+      <select id="state" aria-label="State"><option value="">Any state</option>${["TX", "FL", "UT", "GA", "NC", "SC", "TN", "AL", "OK", "MO"].map((s) => `<option ${ui.state === s ? "selected" : ""}>${s}</option>`).join("")}</select>
       <select id="niche" aria-label="Niche"><option value="">Any niche</option>${Object.entries(NICHES).map(([k, v]) => `<option value="${k}" ${ui.niche === k ? "selected" : ""}>${v}</option>`).join("")}</select></div>
     <p class="small muted">${{
       qualified: "Weak or no website, a business mailbox that receives mail, and independent. Build a preview for each one you want to contact.",

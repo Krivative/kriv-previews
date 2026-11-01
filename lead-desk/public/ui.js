@@ -20,7 +20,8 @@ export const link = (u, t) => (u ? `<a href="${esc(u)}" target="_blank" rel="noo
 export const fileUrl = (p) => `/file?path=${encodeURIComponent(p)}`;
 export const $ = (s, el = document) => el.querySelector(s);
 export const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-export const NICHES = { dental: "Dental", hvac: "HVAC", chiro: "Chiropractic", medspa: "Med spa", plumbing: "Plumbing", auto: "Auto repair" };
+export { NICHES } from "./niches.js";
+import { NICHES } from "./niches.js";
 export const BUCKETS = { qualified: "qualified", toReview: "to visual review", near: "near miss", notChecked: "not checked", none: "not a lead", manual: "added by hand" };
 export const pill = (s, cls = `st-${s}`) => (s ? `<span class="pill ${esc(cls)}">${esc(s)}</span>` : "");
 export const bucketPill = (b) => (b ? `<span class="pill b-${esc(b)}">${esc(BUCKETS[b] ?? b)}</span>` : "");

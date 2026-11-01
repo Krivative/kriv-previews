@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-01 - Last step finished: source gallery returns real 404s; schc.biz confirmed parked and the checker now recognizes GoDaddy's current parking notice
+Updated: 2026-11-01 - Last step finished: wider search (22 business types, 35 chamber directories in 10 states, 6 a day), 30 previews a day, sending ramp 20 then 30 a day; KRIV Sales connector live in the Claude app
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -25,6 +25,9 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Done
 
+- [x] Wider search for ~30 emails a day (Kriv asked, Claude Code, 2026-11-01): one list of business types in lead-desk/public/niches.js used by the finder, Desk screens, builder, email wording and photos. 22 types: the original six plus pool, salon & barber, roofing, electrical, landscaping, pest control, cleaning, painting, other home services, therapy & eye care, gym & fitness, vet & pets, restaurant, café & bakery, law firm, accounting & tax (each mapped to existing designs). A saved copy of the old six-type search now means every type. More national chains excluded. 19 new ChamberMaster directories (GA, NC, SC, TN, AL, OK, MO), each loaded once with categories for 7+ types; 6 directories a day (was 2); previews prepared per day 30 (was 10); the Outreach screen's daily limit is 20 until 2026-11-08, then 30. Any US state is accepted. Windows task now also runs on battery and catches up after the laptop was off. Live read of one new directory: 6 members read, types filed correctly, nothing saved. 487 tests, build, 21 smoke checks pass
+- [x] KRIV Sales connector live (Kriv, 2026-11-01): Kriv ran the installer and restarted the app from the tray; a regular Chat lists the Discover businesses (sales-mcp processes running). Ask by tool name: "Use the KRIV Sales tool to show my discover list"
+- [x] Private review links skipped (Kriv, 2026-11-01): PREVIEW_REVIEW_SECRET stays unset
 - [x] Desk cleanup (Claude Code, 2026-11-01): GET /api/job (and the inbox and workflow views that share it) returns plain job fields; the running check's child process is no longer serialized. Regression test added. Takes effect at the next Desk restart
 - [x] Sales connector install fix (Claude Code, 2026-11-01): the first install wrote to the older Store folder (Packages\Claude_*\LocalCache\Roaming\Claude), which the 4.4212 app ignores; it reads %LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc. Installer now picks that folder first (tests added). Read-only stdio check against the real database: list 50 (cap), Discover 13, no emails returned. Writing the live app config was blocked for the agent: Kriv runs `node scripts/install-sales-connector.mjs`, then quits and reopens the Claude app
 - [x] KRIV Sales connector for the Claude desktop app (Kriv chose it, Claude Code, 2026-11-01): local MCP server with five Sales tools (list, detail, discover, start research, save draft), no approve/publish/send tools, emails never returned. Stdio test passes; in-app check pending (see the install fix above)

@@ -12,6 +12,15 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### KRIV Sales connector live (2026-11-01 evening, Claude Code)
+
+- Kriv ran `node scripts/install-sales-connector.mjs` (from bash, use forward slashes: `/c/Users/user/...`; backslashes get eaten), quit Claude from the tray and reopened it. The real config (`%LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc\claude_desktop_config.json`) now lists `kriv-sales`; sales-mcp node processes started 22:20. Kriv confirmed a regular Chat shows the Discover list. Tip: name the tool ("Use the KRIV Sales tool to show my discover list"), otherwise Claude searches artifacts and Drive instead.
+- Kriv skipped PREVIEW_REVIEW_SECRET (private review links): removed from needs-kriv. Status board republished (1793542970-5a78).
+- Still waiting on Kriv: reply-handling scope, push of d663bc9 and 45209ad, OK to rebuild/restart the gallery on 3101.
+- Scope (Kriv): focus only on Kriv.Agency marketing, outreach and sales. Kriv has a separate private venture with partners: not part of this work. Goal: ~30 emails a day; the laptop runs ~72 h at a time and is off while Kriv sleeps.
+- Stage 1 done (Kriv approved changes 1-3): Windows task runs on battery and catches up after missed times; 22 business types in `lead-desk/public/niches.js`; 19 new chamber directories (35 total, 10 states), 6 a day; 30 previews a day; Outreach limit 20/day until 2026-11-08, then 30. kriv.agency has SPF, DKIM and DMARC (p=none). The running Desk (if open) picks the code up at its next restart; unattended runs pick it up at their next start. Aggregate Desk numbers at the time: about 40-60 finds a day but only 39 qualified in total (23 sent, 9 email drafts ready); 257 parked as modern sites, 163 near misses.
+- Stage 2 next: Kriv.Agency services as Sales offers (SEO, ads, social media marketing: long-form videos, commercials, 3-5 shorts/week, 3-10 image/carousel posts/week, scope per client; social media management; booking and CRM setup; maintenance; executive assistants; outsourcing), so businesses with modern sites get a fitting pitch. Websites stay the lead offer.
+
 ### Optional items while Kriv is away (2026-11-01 afternoon, Claude Code)
 
 - Kriv is away from the desktop: the connector install and Claude app restart wait for Kriv. Check showed the app's main process still dates from 10-30 (an earlier "restart" only closed the window; quit from the tray) and the real config still has no connectors.

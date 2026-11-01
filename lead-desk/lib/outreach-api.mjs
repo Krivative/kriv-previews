@@ -4,7 +4,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { now, log, rowToLead, isOptedOut, tx } from "./db.mjs";
 import { laterStatus } from "./leads.mjs";
-import { loadTemplates, valuesFor, fill, openBlanks, fullBody, gmailComposeUrl, DAILY_EMAIL_LIMIT, LINKEDIN_NOTE_MAX } from "./compose.mjs";
+import { loadTemplates, valuesFor, fill, openBlanks, fullBody, gmailComposeUrl, dailyEmailLimit, LINKEDIN_NOTE_MAX } from "./compose.mjs";
 import { workflowOf, reviewHold, mailVersion, contactBlocked } from "./workflow-state.mjs";
 
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
@@ -27,7 +27,7 @@ export function emailBlockers(db, l, mail) {
   const blanks = openBlanks(mail?.subject, mail?.body);
   if (blanks.length) out.push(`Fill in the blanks first: ${blanks.join(", ")}.`);
   if (!mail?.subject?.trim()) out.push("No subject.");
-  if (mail?.status !== "sent" && sentToday(db) >= DAILY_EMAIL_LIMIT) out.push(`Already ${DAILY_EMAIL_LIMIT} emails marked sent today (docs/OUTREACH.md limit).`);
+  if (mail?.status !== "sent" && sentToday(db) >= dailyEmailLimit()) out.push(`Already ${dailyEmailLimit()} emails marked sent today (docs/OUTREACH.md limit).`);
   return out;
 }
 
@@ -42,7 +42,7 @@ function emailView(db, l, leadsDir) {
     templates: loadTemplates().email.map(({ id, label }) => ({ id, label })),
     blockers,
     gmailUrl: !blockers.length ? gmailComposeUrl({ to: mail.to_addr, subject: mail.subject, body: mail.body }) : null,
-    sentToday: sentToday(db), dailyLimit: DAILY_EMAIL_LIMIT,
+    sentToday: sentToday(db), dailyLimit: dailyEmailLimit(),
     file: join(leadsDir, "emails", `${l.slug ?? l.id}.txt`),
   };
 }
@@ -64,7 +64,7 @@ const LI_STATUSES = ["to send", "sent", "accepted", "replied", "skipped"];
 
 export const outreachRoutes = [
   ["GET", /^\/api\/email$/, ({ db }) => ({
-    sentToday: sentToday(db), dailyLimit: DAILY_EMAIL_LIMIT,
+    sentToday: sentToday(db), dailyLimit: dailyEmailLimit(),
     rows: db.prepare(`SELECT l.id, l.name, l.town, l.state, l.status, l.email, e.status AS email_status, e.subject, e.sent_at
       FROM leads l LEFT JOIN emails e ON e.lead_id = l.id
       WHERE e.lead_id IS NOT NULL OR (l.status IN ('draft', 'approved', 'live') AND l.email IS NOT NULL)

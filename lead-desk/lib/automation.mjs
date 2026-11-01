@@ -7,13 +7,22 @@ import { preparationReadiness } from "./preparation-state.mjs";
 import { isExcluded } from "../../scripts/finder/rules.mjs";
 import { reviewPaused } from "./workflow-state.mjs";
 import { CHAMBERS, CHAMBERS_PER_DAY } from "./chambers.mjs";
+import { NICHE_IDS, LEGACY_NICHES } from "../public/niches.js";
 
-export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: ["hvac", "dental", "chiro", "medspa", "plumbing", "auto"], lists: [] };
+export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: NICHE_IDS, lists: [] };
+// Previews prepared per day (was 10; Kriv asked for ~30 emails a day, 2026-11-01).
+export const DAILY_PREPARATIONS = 30;
 const setting = (db, key) => db.prepare("SELECT value FROM settings WHERE key = ?").get(key)?.value;
 // On by default. A separate key so an older opt-in "off" value does not keep it paused.
+/** The saved search. A saved copy of the original six types (the old default) means every type. */
+export function savedSearch(db) {
+  const s = parse(setting(db, "automation_search"), DEFAULT_SEARCH);
+  const legacy = Array.isArray(s.niches) && s.niches.length === LEGACY_NICHES.length && LEGACY_NICHES.every((n) => s.niches.includes(n));
+  return legacy ? { ...s, niches: NICHE_IDS } : s;
+}
 export function automationStatus(ctx) {
   const enabled = setting(ctx.db, "automation_paused") !== "1";
-  return { enabled, running: enabled, mode: "templates", reason: enabled ? "Finding, checking and building previews automatically. No paid AI." : "Automatic building is paused. No paid AI is used.", search: parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH) };
+  return { enabled, running: enabled, mode: "templates", reason: enabled ? "Finding, checking and building previews automatically. No paid AI." : "Automatic building is paused. No paid AI is used.", search: savedSearch(ctx.db) };
 }
 function due(p) { return !p || p.state === "queued" || (p.state !== "preparing" && p.updated_at.slice(0, 10) !== now().slice(0, 10)); }
 export function nextPreparation(ctx) {
@@ -55,7 +64,7 @@ export function automationTick(ctx) {
     const lead = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(queuedRevision.lead_id));
     if (lead && !reviewPaused(ctx.db, lead.id) && ["found", "draft"].includes(lead.status) && lead.bucket === "qualified") return startPreparation(ctx, lead);
   }
-  if (preparedToday >= 10) return;
+  if (preparedToday >= DAILY_PREPARATIONS) return;
   const lead = nextPreparation(ctx);
   if (lead) return startPreparation(ctx, lead);
   // Technically modern sites ("Visual review") are skipped: Kriv chose not to grade them by hand
@@ -72,7 +81,7 @@ const put = (db, key, value) => db.prepare("INSERT INTO settings (key, value) VA
  */
 export function nextFind(ctx) {
   const today = now().slice(0, 10);
-  const search = parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH);
+  const search = savedSearch(ctx.db);
   if (setting(ctx.db, "automation_find_day") !== today) {
     put(ctx.db, "automation_find_day", today);
     return search;

@@ -9,8 +9,9 @@ import { prepareLead } from "../lead-desk/lib/preparation.mjs";
 import { preparationReadiness } from "../lead-desk/lib/preparation-state.mjs";
 import { approveBlockers } from "../lead-desk/lib/approve-api.mjs";
 import { inboxRoutes } from "../lead-desk/lib/inbox-api.mjs";
-import { automationStatus, automationTick, nextPreparation, nextFind, uncheckedWebsites } from "../lead-desk/lib/automation.mjs";
-import { CHAMBERS, chamberWhere } from "../lead-desk/lib/chambers.mjs";
+import { automationStatus, automationTick, nextPreparation, nextFind, uncheckedWebsites, savedSearch } from "../lead-desk/lib/automation.mjs";
+import { CHAMBERS, CHAMBERS_PER_DAY, chamberWhere } from "../lead-desk/lib/chambers.mjs";
+import { NICHE_IDS } from "../lead-desk/public/niches.js";
 import { fromChamber } from "../scripts/finder/rules.mjs";
 import { assertReviewedPublish } from "../lead-desk/lib/publish.mjs";
 import { aiRoutes } from "../lead-desk/lib/ai-api.mjs";
@@ -266,22 +267,32 @@ describe("automatic building (Kriv, 2026-10-28)", () => {
 });
 
 describe("chamber directories after Hotfrog (Kriv, 2026-10-28)", () => {
-  it("searches Hotfrog once a day, then two chambers in rotation, then stops for the day", () => {
+  it("searches Hotfrog once a day, then CHAMBERS_PER_DAY chambers in rotation, then stops for the day", () => {
     const f = fixture();
+    expect(CHAMBERS_PER_DAY).toBe(6);
     expect(nextFind(f.ctx)).toMatchObject({ source: "hotfrog", towns: ["ocala-fl"] });
-    expect(nextFind(f.ctx)).toEqual({ source: "chamber", lists: [CHAMBERS[0].list], niches: expect.arrayContaining(["hvac", "dental"]) });
-    expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[1].list] });
+    expect(nextFind(f.ctx)).toEqual({ source: "chamber", lists: [CHAMBERS[0].list], niches: expect.arrayContaining(["hvac", "dental", "roofing", "restaurant"]) });
+    for (let i = 1; i < CHAMBERS_PER_DAY; i++) expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[i % CHAMBERS.length].list] });
     expect(nextFind(f.ctx)).toBeNull();
     // A new day resumes where the rotation stopped.
     f.db.prepare("UPDATE settings SET value = '2000-01-01' WHERE key = 'automation_find_day'").run();
-    f.db.prepare("UPDATE settings SET value = '2000-01-01:2' WHERE key = 'automation_chamber_runs'").run();
+    f.db.prepare(`UPDATE settings SET value = '2000-01-01:${CHAMBERS_PER_DAY}' WHERE key = 'automation_chamber_runs'`).run();
     expect(nextFind(f.ctx)?.source).toBe("hotfrog");
-    expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[2].list] });
+    expect(nextFind(f.ctx)).toMatchObject({ lists: [CHAMBERS[CHAMBERS_PER_DAY % CHAMBERS.length].list] });
   });
 
-  it("lists only valid ChamberMaster directories in Texas, Florida and Utah", () => {
+  it("treats a saved copy of the original six business types as every type, and keeps a real choice", () => {
+    const f = fixture();
+    const save = (niches: string[]) => f.db.prepare("INSERT INTO settings (key, value) VALUES ('automation_search', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(JSON.stringify({ source: "hotfrog", towns: ["ocala-fl"], niches, lists: [] }));
+    save(["hvac", "dental", "chiro", "medspa", "plumbing", "auto"]);
+    expect(savedSearch(f.db).niches).toEqual(NICHE_IDS);
+    save(["hvac", "plumbing"]);
+    expect(savedSearch(f.db).niches).toEqual(["hvac", "plumbing"]);
+  });
+
+  it("lists only valid ChamberMaster directories with a US state", () => {
     expect(new Set(CHAMBERS.map((c) => c.list)).size).toBe(CHAMBERS.length);
-    for (const c of CHAMBERS) { expect(c.list).toMatch(/^https:\/\/[^/]+\/list\/$/); expect(["TX", "FL", "UT"]).toContain(c.state); }
+    for (const c of CHAMBERS) { expect(c.list).toMatch(/^https:\/\/[^/]+\/list\/$/); expect(c.state).toMatch(/^[A-Z]{2}$/); expect(c.town).toBeTruthy(); }
   });
 
   it("gives chamber members the member's own town and the directory's state", () => {

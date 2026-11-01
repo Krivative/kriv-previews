@@ -5,7 +5,7 @@ import { isBusinessMailbox, FREE_MAIL } from "../site-flags.mjs";
 export const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, "").toLowerCase(); } catch { return null; } };
 export const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"');
 
-export const CHAIN = /(aspen dental|castle dental|monarch dental|western dental|bright now|kool smiles|comfort dental|brident|coast dental|smile brands|heartland|great expressions|the joint|one hour heating|aire serv|service experts|rescue rooter|mr\.? cool|abc home|ideal image|laseraway|massage envy|hand ?& ?stone|sono bello|woodhouse|restore hyper|drip ?bar|procare injury|topaz dentistry|ace dental|daikin|airtron|td industries|roto-?rooter|mr\.? rooter|benjamin franklin|ars ?\/|meineke|midas|jiffy lube|firestone|pep boys|goodyear|monro|precision tune|christian brothers|aamco|mr\.? transmission|valvoline|take 5|big o tires|brakes plus|ntb|caliber|maaco|tire kingdom|les schwab|discount tire|o'?reilly|autozone|advance auto parts)/i;
+export const CHAIN = /(aspen dental|castle dental|monarch dental|western dental|bright now|kool smiles|comfort dental|brident|coast dental|smile brands|heartland|great expressions|the joint|one hour heating|aire serv|service experts|rescue rooter|mr\.? cool|abc home|ideal image|laseraway|massage envy|hand ?& ?stone|sono bello|woodhouse|restore hyper|drip ?bar|procare injury|topaz dentistry|ace dental|daikin|airtron|td industries|roto-?rooter|mr\.? rooter|benjamin franklin|ars ?\/|meineke|midas|jiffy lube|firestone|pep boys|goodyear|monro|precision tune|christian brothers|aamco|mr\.? transmission|valvoline|take 5|big o tires|brakes plus|ntb|caliber|maaco|tire kingdom|les schwab|discount tire|o'?reilly|autozone|advance auto parts|servpro|servicemaster|terminix|orkin|aptive|truly nolo|molly maid|merry maids|the maids|maid pro|chem-?dry|stanley steemer|mr.? electric|mister sparky|mr.? handyman|trugreen|weed man|lawn doctor|planet fitness|anytime fitness|la fitness|orangetheory|f45|snap fitness|crunch fitness|gold'?s gym|9round|great clips|supercuts|sport clips|fantastic sams|cost cutters|european wax|drybar|banfield|vca|petsmart|petco|h ?& ?r block|jackson hewitt|liberty tax|mcdonald|subway|starbucks|dunkin|chick-fil-a|domino'?s|pizza hut|burger king|wendy'?s|taco bell|sonic drive|dairy queen|popeyes|kfc|panera|chipotle|applebee|olive garden|denny'?s|ihop|waffle house|cracker barrel|outback steak|texas roadhouse|five guys|jersey mike|firehouse subs|jimmy john|papa john|little caesars|two men and a truck|pop-a-lock|pearle vision|visionworks|lenscrafters|miracle-ear|beltone|ati physical|select physical therapy)/i;
 export const SPECIALIST = /(orthodont|pediatric|children|kids|oral (and maxillofacial )?surg|maxillofacial|periodont|endodont|braces)/i;
 export const NOT_NICHE = /(staffing|supply|supplies|imaging|army|distribution|welding|plumbing supply|insurance|realty|bank)/i;
 
@@ -29,8 +29,8 @@ const CH = { "metrosa.com": ["TX", "San Antonio"], "boerne.org": ["TX", "Boerne"
 /** A Hotfrog listing (scripts/finder/hotfrog.mjs output) as a candidate. */
 export function fromHotfrog(h) {
   const [, town] = h.address.split(", ");
-  const STATE = /^(TX|FL|UT)$/;
-  const state = [h.region, h.area?.slice(-2), h.address.match(/,\s*(TX|FL|UT)\b/)?.[1]].map((s) => (s ?? "").toUpperCase()).find((s) => STATE.test(s)) ?? "TX";
+  const STATE = /^(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])$/;
+  const state = [h.region, h.area?.slice(-2), h.address.match(/,\s*([A-Z]{2})\b/)?.[1]].map((s) => (s ?? "").toUpperCase()).find((s) => STATE.test(s)) ?? "TX";
   return {
     state, town: h.town ?? town, niche: h.niche, name: h.name,
     address: h.address, phone: h.phone, website: h.websites[0] ? `${new URL(h.websites[0]).origin}/` : null,

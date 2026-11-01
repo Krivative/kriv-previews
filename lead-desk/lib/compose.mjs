@@ -5,14 +5,18 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { host } from "../../scripts/finder/rules.mjs";
 import { emailFooter, SENDER } from "../../src/outreach/footer.ts";
+import { NICHE_LIST } from "../public/niches.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const loadTemplates = () => JSON.parse(readFileSync(join(here, "..", "templates.json"), "utf8"));
 
 export const LINKEDIN_NOTE_MAX = 200; // LinkedIn's limit for a connection-request note
-export const DAILY_EMAIL_LIMIT = 20;  // docs/OUTREACH.md: 20 a day for the first 2 weeks
+// Sending ramp for kriv.agency (Kriv asked for ~30 a day, 2026-11-01): 20 a day for the first
+// two weeks of sending (docs/OUTREACH.md), then 30. Raise only while bounces stay near zero.
+export const EMAIL_RAMP = [["2026-11-09", 30]];
+export const dailyEmailLimit = (day = new Date().toISOString().slice(0, 10)) => EMAIL_RAMP.reduce((n, [from, limit]) => (day >= from ? limit : n), 20);
 
-const NICHE_WORDS = { dental: "dentists", hvac: "heating and air companies", chiro: "chiropractors", medspa: "med spas", plumbing: "plumbers", auto: "auto repair shops" };
+const NICHE_WORDS = Object.fromEntries(NICHE_LIST.map((n) => [n.id, n.plural]));
 
 // A plain-English sentence per checker flag, written so the owner can check it themselves.
 export const PROBLEM_SENTENCES = {
