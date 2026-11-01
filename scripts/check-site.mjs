@@ -7,7 +7,7 @@
 import { createRequire } from "node:module";
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { flagsFor, hasParkingNotice, emailsIn, isRoleEmail, BOOKING_HOSTS, SOCIAL_HOSTS } from "./site-flags.mjs";
+import { flagsFor, hasParkingNotice, hasNoSolicitationNotice, emailsIn, isRoleEmail, BOOKING_HOSTS, SOCIAL_HOSTS } from "./site-flags.mjs";
 
 // Playwright is not a project dependency; resolve it from the project or NODE_PATH.
 const require = createRequire(import.meta.url);
@@ -103,6 +103,8 @@ for (const raw of urls) {
       // page has a search description: evidence for the social media and SEO offers.
       socialLinks: [...new Set(links.map((l) => hostOf(l.href)).filter((h) => h && SOCIAL_HOSTS.some((s) => h === s || h.endsWith(`.${s}`))))],
       metaDescription: facts.metaDescription,
+      // Home and contact pages: "no unsolicited email" and similar notices (CASL; boolean only).
+      noSolicitation: hasNoSolicitationNotice(text),
     });
   } catch (e) {
     r.error = String(e.message ?? e).split("\n")[0];

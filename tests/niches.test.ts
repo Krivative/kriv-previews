@@ -44,7 +44,7 @@ describe("business types (Kriv, 2026-11-01)", () => {
     expect(contentNicheFor("roofing")).toBe("general");
   });
 
-  it.each(["Servpro of Ocala", "Terminix", "Planet Fitness", "Great Clips", "Starbucks", "H&R Block", "Two Men and a Truck"])("skips the chain %s", (name) => {
+  it.each(["Servpro of Ocala", "Terminix", "Planet Fitness", "Great Clips", "Starbucks", "H&R Block", "Two Men and a Truck", "ChamberMaster Template"])("skips the chain or placeholder %s", (name) => {
     expect(isExcluded(name)).toBe(true);
   });
 

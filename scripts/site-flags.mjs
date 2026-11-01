@@ -83,6 +83,15 @@ export function hasParkingNotice(text = "") {
   return /^\s*(?:this\s+(?:web\s*page|domain(?:\s+name)?)|(?:[a-z0-9-]+\.)+[a-z]{2,})\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
 }
 
+// A notice that the business does not want unsolicited (commercial) email. Under Canada's CASL a
+// published address only implies consent when no such notice accompanies it; KRIV honours it
+// everywhere (2026-11-02). Persist the boolean, never the page text.
+export function hasNoSolicitationNotice(text = "") {
+  return /\b(no|not accept(ing)?|do not (send|accept|want)|does not (accept|consent to)|will not accept|refuses?)\b[^.\n]{0,40}\b(unsolicited|solicitations?|commercial electronic messages|marketing (e-?mails?|messages))\b/i.test(text)
+    || /\bunsolicited\b[^.\n]{0,40}\b(e-?mails?|messages|commercial|solicitations?|offers?)\b[^.\n]{0,40}\b(not (accepted|welcome|permitted)|prohibited|will be (deleted|ignored))\b/i.test(text)
+    || /\bno solicit(ing|ation|ors)\b/i.test(text);
+}
+
 // Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working
 // site, so these say nothing about the site and must never qualify a lead.
 const BLOCKED_STATUS = [202, 401, 403, 418, 429];

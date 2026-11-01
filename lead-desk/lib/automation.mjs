@@ -103,11 +103,14 @@ export function nextFind(ctx) {
     return search;
   }
   const [day, runs] = String(setting(ctx.db, "automation_chamber_runs") ?? "").split(":");
+  // "_v2": the list was reordered on 2026-11-02 (wealthier suburbs and Canada first), so the
+  // rotation starts again at the top instead of resuming at the old position.
+  const NEXT = "automation_chamber_next_v2";
   const done = day === today ? Number(runs) || 0 : 0;
   if (done >= CHAMBERS_PER_DAY || !CHAMBERS.length) return null;
-  const i = (Number(setting(ctx.db, "automation_chamber_next")) || 0) % CHAMBERS.length;
+  const i = (Number(setting(ctx.db, NEXT)) || 0) % CHAMBERS.length;
   put(ctx.db, "automation_chamber_runs", `${today}:${done + 1}`);
-  put(ctx.db, "automation_chamber_next", i + 1);
+  put(ctx.db, NEXT, i + 1);
   return { source: "chamber", lists: [CHAMBERS[i].list], niches: search.niches };
 }
 export function startAutomation(ctx) {

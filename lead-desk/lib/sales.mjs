@@ -5,7 +5,7 @@ import { now, json, parse, tx, log } from "./db.mjs";
 import { findLead, upsertLead, addSource } from "./leads.mjs";
 import { generateWithHarvey, probeClaude } from "./harvey-runtime.mjs";
 import { PROBLEM_SENTENCES } from "./compose.mjs";
-import { plain, host } from "../../scripts/finder/rules.mjs";
+import { plain, host, isExcluded } from "../../scripts/finder/rules.mjs";
 
 import { SERVICE, OFFERS, alsoLine, serviceFindings } from "./services.mjs";
 export { OFFERS };
@@ -41,6 +41,11 @@ export function contactHold(db, l) {
   if (["declined", "expired"].includes(l.status)) return "This business is declined or expired. Reconsider it in the existing review workflow first.";
   const decision = db.prepare("SELECT decision, decline_scope FROM lead_workflow WHERE lead_id=?").get(l.id);
   if (decision?.decision === "declined" && decision.decline_scope === "prospect") return "This prospect was declined in the review workspace.";
+  if (l.website) {
+    let check = null;
+    try { check = parse(db.prepare("SELECT data FROM checks WHERE host = ?").get(host(l.website))?.data); } catch { /* no usable host */ }
+    if (check?.noSolicitation) return "This business's website asks not to receive unsolicited email. Do not contact it.";
+  }
   const values = [l.email, l.website].filter(Boolean);
   for (const c of parse(workspace(db, l.id).contacts, [])) values.push(c.email);
   const blocks = db.prepare("SELECT value FROM opt_outs").all().map(r => r.value.toLowerCase());
@@ -149,7 +154,7 @@ export function discoverList(db, query = {}) {
   const rows = db.prepare(`SELECT l.* FROM leads l LEFT JOIN sales_workspaces s ON s.lead_id = l.id
     WHERE l.bucket = ? AND l.status NOT IN (${NO_INITIAL.map(() => "?").join(",")}) AND (s.lead_id IS NULL OR s.evidence = '[]')
     ORDER BY COALESCE(l.checked_at, l.updated_at) DESC LIMIT 500`).all(bucket, ...NO_INITIAL);
-  const usable = rows.filter(l => !contactHold(db, l)).map(l => ({ l, check: checkFindings(db, l) })).filter(x => x.check.findings.length);
+  const usable = rows.filter(l => !isExcluded(l.name ?? "", l.website ?? "") && !contactHold(db, l)).map(l => ({ l, check: checkFindings(db, l) })).filter(x => x.check.findings.length);
   const niches = [...new Set(usable.map(x => x.l.niche).filter(Boolean))].sort(), states = [...new Set(usable.map(x => x.l.state).filter(Boolean))].sort();
   const items = usable.filter(x => (!query.niche || x.l.niche === query.niche) && (!query.state || x.l.state === query.state)).slice(0, 50).map(({ l, check }) => ({
     id: l.id, name: l.name, town: l.town, state: l.state, niche: l.niche, website: l.website, hasEmail: !!l.email, checkedAt: check.at,
