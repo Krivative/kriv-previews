@@ -22,7 +22,7 @@ const displayName = (l) => l.name || (l.website ? String(l.website).replace(/^ht
 function summary(ctx, l) {
   const s = workflowState(ctx, l);
   return { id: l.id, name: displayName(l), town: l.town, state: l.state, niche: l.niche, website: l.website,
-    status: l.status, slug: l.slug, updatedAt: l.updated_at, note: l.note, thumbnail: s.screenshots[0]?.file ?? null,
+    status: l.status, slug: l.slug, updatedAt: l.updated_at, createdAt: l.created_at, note: l.note, thumbnail: s.screenshots[0]?.file ?? null,
     ...Object.fromEntries(["stage", "label", "next", "action", "priority", "attention", "progress", "completedSteps", "totalSteps"].map((k) => [k, s[k]])),
     due: s.workflow?.followup_due ?? null };
 }

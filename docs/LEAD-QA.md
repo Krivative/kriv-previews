@@ -10,6 +10,10 @@ Initial source-matched offers retain their separate preparation report rather th
 
 After checks, Kriv reviews the exact email draft, approves publication separately and confirms publishing. Readiness binds the record, email, source copies, captures and QA; edits invalidate the relevant approval. An unchanged approved snapshot can publish later before expiry. Publication and live-verification retry are separate; retry never starts another deployment. Gmail sending, replies, opt-outs and follow-ups remain manual. No agent calls real approval/publish endpoints or accesses private records during testing.
 
+## The Desk checks for Kriv (Kriv, 2026-11-03)
+
+Kriv asked for the "Remaining checks" step to stop being hand work. After Kriv approves a design, the Desk runs the checks by itself (`lead-desk/lib/auto-facts.mjs`, started from the background loop), and again each day until publication, because checks only count on the day they ran. It reads the business's pages again, including every page the preview cites, and checks: name, phone, town and street appear on them; no reviews, ratings, prices, awards, "best", guarantees, years or "since" unless the business's pages give them; no placeholders; own-photo pages in sources; stock photos hotlinked from Unsplash and not blocklisted; the email has the preview link, the footer, no blanks and no pressure wording. "Stock photos only" and "Looked at both screenshots" are what Kriv judges when approving the design, so they pass only for an approved design and say so. A lead only needs Kriv when a check fails: it shows "a check needs you" with what was not found. Kriv's tick on such an item is kept and starts the checks again.
+
 How to look at a draft: drafts are only served by `next dev` (production returns 404 for them). Run `pnpm dev -p 3100`, open `http://localhost:3100/for/<slug>`, and take screenshots with `NODE_PATH=$(npm root -g) node scripts/shoot.mjs <slug>` (desktop 1440 px and phone 390 px into `shots/`).
 
 ## 1. Guardrails (automatic, must all pass)

@@ -2,7 +2,7 @@
 // @ts-nocheck -- drives the JavaScript connector over real stdio with a temporary database.
 import { describe, it, expect } from "vitest";
 import { spawn } from "node:child_process";
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdtempSync, rmSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { openDb, now } from "../lead-desk/lib/db.mjs";
@@ -55,4 +55,34 @@ describe("KRIV Sales connector for the Claude app", () => {
       rmSync(dir, { recursive: true, force: true });
     }
   }, 30000);
+});
+
+describe("Sales connector installer finds the Claude app's config", () => {
+  const layout = (dirs, files = []) => {
+    const base = mkdtempSync(join(tmpdir(), "kriv-cfg-"));
+    for (const d of dirs) mkdirSync(join(base, d), { recursive: true });
+    for (const f of files) writeFileSync(join(base, f), "");
+    return { base, env: { LOCALAPPDATA: join(base, "local"), APPDATA: join(base, "roaming") } };
+  };
+
+  it("prefers the Store app's Claude-Data folder over the virtualized Roaming folder", async () => {
+    const { configPath } = await import("../scripts/install-sales-connector.mjs");
+    const { base, env } = layout(
+      ["local/Packages/Claude_pzs8sxrjxfjjc/LocalCache/Roaming/Claude", "local/Claude-Data/claude_pzs8sxrjxfjjc"],
+      ["local/Claude-Data/claude_pzs8sxrjxfjjc/lockfile"],
+    );
+    try {
+      expect(configPath(env)).toBe(join(env.LOCALAPPDATA, "Claude-Data", "claude_pzs8sxrjxfjjc", "claude_desktop_config.json"));
+    } finally { rmSync(base, { recursive: true, force: true }); }
+  });
+
+  it("falls back to the older Store folder, then the classic one", async () => {
+    const { configPath } = await import("../scripts/install-sales-connector.mjs");
+    const old = layout(["local/Packages/Claude_abc/LocalCache/Roaming/Claude"], ["local/Packages/Claude_abc/LocalCache/Roaming/Claude/lockfile"]);
+    const classic = layout([]);
+    try {
+      expect(configPath(old.env)).toBe(join(old.env.LOCALAPPDATA, "Packages", "Claude_abc", "LocalCache", "Roaming", "Claude", "claude_desktop_config.json"));
+      expect(configPath(classic.env)).toBe(join(classic.env.APPDATA, "Claude", "claude_desktop_config.json"));
+    } finally { rmSync(old.base, { recursive: true, force: true }); rmSync(classic.base, { recursive: true, force: true }); }
+  });
 });

@@ -7,17 +7,17 @@ import { SiteData, ContentNiche, SLUG_PATTERN, RESERVED_SLUGS } from "../../src/
 import { get } from "../../scripts/finder/sources.mjs";
 import { host } from "../../scripts/finder/rules.mjs";
 import { now, parse, slugify } from "./db.mjs";
+import { NICHE, NICHE_LIST } from "../public/niches.js";
 
-export const NICHE_INFO = {
-  hvac: { category: "Heating and air conditioning", noun: "heating and cooling", templates: ["hvac-calm", "hvac-bold"] },
-  dental: { category: "Dental clinic", noun: "a dentist", templates: ["dental-clear", "dental-bold"] },
-  chiro: { category: "Chiropractic clinic", noun: "a chiropractor", templates: ["chiro-calm", "chiro-bold"] },
-  medspa: { category: "Med spa", noun: "skin and aesthetic care", templates: ["aesthetic-calm", "aesthetic-bold"] },
-  plumbing: { category: "Plumbing", noun: "a plumber", templates: ["plumbing-calm", "plumbing-bold"] },
-  auto: { category: "Auto repair", noun: "car repairs", templates: ["auto-calm", "auto-bold"] },
-};
-const STATE_NAMES = { TX: "Texas", FL: "Florida", UT: "Utah" };
-export const contentNicheFor = (niche) => niche === "medspa" ? "aesthetic" : ContentNiche.options.includes(niche) ? niche : "general";
+// Category wording and first-choice designs for each business type (lead-desk/public/niches.js).
+export const NICHE_INFO = Object.fromEntries(NICHE_LIST.map((n) => [n.id, { category: n.category, noun: n.noun, templates: n.templates }]));
+const STATE_NAMES = { AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware", DC: "District of Columbia", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+  // Canadian provinces and territories (Kriv targets Canada too, 2026-11-02).
+  AB: "Alberta", BC: "British Columbia", MB: "Manitoba", NB: "New Brunswick", NL: "Newfoundland and Labrador", NS: "Nova Scotia", NT: "Northwest Territories", NU: "Nunavut", ON: "Ontario", PE: "Prince Edward Island", QC: "Quebec", SK: "Saskatchewan", YT: "Yukon" };
+export const PROVINCES = new Set(["AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT"]);
+/** ISO country for a two-letter state or province code ("CA" stays California). */
+export const countryFor = (region) => (PROVINCES.has(String(region ?? "").toUpperCase()) ? "CA" : "US");
+export const contentNicheFor = (niche) => { const c = NICHE[niche]?.content ?? niche; return ContentNiche.options.includes(c) ? c : "general"; };
 
 // The form. `src: true` fields state facts, so a non-empty value needs the URL it came from.
 // Headings marked src: false are KRIV's own neutral words and state no fact.
@@ -109,11 +109,12 @@ export function parseAddress(a) {
   // "412 Dixie Highway, Auburndale, FL, 33823-2809" or "412 Dixie Hwy, Auburndale, FL 33823"
   const parts = String(a ?? "").split(",").map((s) => s.trim()).filter(Boolean);
   const out = {};
-  const zip = String(a ?? "").match(/\b(\d{5})(?:-\d{4})?\b\s*$/)?.[1];
-  const st = String(a ?? "").match(/\b(TX|FL|UT|[A-Z]{2})\b(?=[,\s]*\d{5}|\s*$)/)?.[1];
+  // US ZIP or Canadian postal code ("L7R 1A1").
+  const zip = String(a ?? "").match(/\b(\d{5})(?:-\d{4})?\b\s*$/)?.[1] ?? String(a ?? "").match(/\b([A-Z]\d[A-Z])\s?(\d[A-Z]\d)\s*$/i)?.slice(1, 3).join(" ").toUpperCase();
+  const st = String(a ?? "").match(/\b([A-Z]{2})\b(?=[,\s]*(?:\d{5}|[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d)|\s*$)/)?.[1];
   if (zip) out.postalCode = zip;
   if (st) out.region = st;
-  if (parts.length >= 3) { out.line1 = parts[0]; out.city = parts[1].replace(/\s+(TX|FL|UT)\b.*$/, ""); }
+  if (parts.length >= 3) { out.line1 = parts[0]; out.city = parts[1].replace(/\s+[A-Z]{2}\b.*$/, ""); }
   return out;
 }
 const NOT_SERVICE = /^(home|about|contact|menu|call|book|schedule|services|our services|get a|request|learn more|read more|privacy|terms|pay your bill|select page|testimonials?|reviews?|blog|faq|gallery|careers|financing|specials|coupons|veteran|family owned|why choose|what our|follow us|quick links|hours|location)/i;
@@ -191,7 +192,7 @@ export function prefill(lead, pages, templates) {
   const designs = templates.filter((t) => t.id).sort((a, b) => a.id.localeCompare(b.id));
   const seed = Array.from(lead.id ?? lead.name ?? "").reduce((sum, c) => sum + c.charCodeAt(0), 0);
   const template = designs.length ? designs[seed % designs.length].id : undefined;
-  return { slug: suggestSlug(lead.name), template, contentNiche: contentNicheFor(lead.niche), f, lists, photos: [] };
+  return { slug: suggestSlug(lead.name), template, contentNiche: contentNicheFor(lead.niche), country: countryFor(lead.state), f, lists, photos: [] };
 }
 
 /** "Hilliard's Air Conditioning & Heating Inc." -> "hilliards-air". Kriv can change it. */
@@ -240,11 +241,12 @@ export function toRecord(form, { createdAt = new Date().toISOString().slice(0, 1
   const custom = items("custom", ["name", "blurb"]);
   const photos = form.photos ?? [];
   const name = v("name");
+  const country = form.country ?? countryFor(v("region"));
   const rec = {
-    slug: form.slug, template: form.template, contentNiche: form.contentNiche, lang: "en-US", createdAt, expiresAt: addDays(createdAt, 30), status,
+    slug: form.slug, template: form.template, contentNiche: form.contentNiche, lang: country === "CA" ? "en-CA" : "en-US", createdAt, expiresAt: addDays(createdAt, 30), status,
     business: {
       name, category: v("category"), phoneDisplay: v("phone"), phoneE164: e164(v("phone")),
-      address: { line1: v("line1"), city: v("city"), region: v("region"), postalCode: v("postalCode"), country: "US" },
+      address: { line1: v("line1"), city: v("city"), region: v("region"), postalCode: v("postalCode"), country },
       hours: items("hours", ["days", "time"]).map((h) => ({ days: h.days ?? "", time: h.time ?? "" })),
     },
     design: v("accent") ? { accent: v("accent") } : {},

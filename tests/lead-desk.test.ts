@@ -8,6 +8,7 @@ import { emailFooter } from "@/outreach/footer";
 import { qaChecklist } from "../lead-desk/lib/preview.mjs";
 import { toRecord, formProblems, schemaProblems, parseAddress, suggestSlug } from "../lead-desk/lib/builder.mjs";
 import { aiEnabled } from "../lead-desk/lib/ai.mjs";
+import { startJob, jobStatus } from "../lead-desk/lib/jobs.mjs";
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -189,5 +190,25 @@ describe("lead desk: build preview", () => {
   it("keeps AI help off until it is switched on", () => {
     const db = fresh();
     expect(aiEnabled(db)).toBe(false);
+  });
+});
+
+describe("job status", () => {
+  it("returns plain job fields without the running child process", async () => {
+    let finish: () => void = () => {};
+    const child: Record<string, unknown> = { pid: 1, kill: () => {} };
+    child.self = child; // like a real ChildProcess, not serializable
+    const started = startJob("check", "Check 1 site", 1, async (job: Record<string, unknown>) => {
+      job.child = child;
+      await new Promise<void>((r) => { finish = r; });
+      return { checked: 1 };
+    });
+    expect(started.status).toBe("running");
+    const status = jobStatus();
+    expect(status).not.toHaveProperty("child");
+    expect(JSON.parse(JSON.stringify(status))).toMatchObject({ kind: "check", label: "Check 1 site", total: 1, status: "running" });
+    finish();
+    await new Promise((r) => setTimeout(r, 0));
+    expect(jobStatus()).toMatchObject({ status: "done", result: { checked: 1 } });
   });
 });

@@ -29,7 +29,8 @@ describe("original interaction signatures", () => {
     expect(repeated.match(/Short description\./g)).toHaveLength(1); expect(repeated).toContain("Supplied additional information.");
   });
   it.each(["mosaic", "strip"] as const)("preserves %s gallery labels and only gives actual photos a viewer", (variant) => {
-    const html = renderToStaticMarkup(<Gallery site={{ ...site, brand: { photos: ["https://images.unsplash.com/one"], photoCredits: [] }, gallery: { labels: ["Real photo", "Label only"] } }} variant={variant} />);
+    const html = renderToStaticMarkup(<Gallery site={{ ...site, brand: { photos: ["https://images.unsplash.com/hero", "https://images.unsplash.com/one"], photoCredits: [] }, gallery: { labels: ["Real photo", "Label only"] } }} variant={variant} />);
+    expect(html).not.toContain("images.unsplash.com/hero"); // the hero photo is never repeated in the gallery
     expect(html).toContain(`data-gallery-layout="${variant}"`);
     expect(html).toContain("Label only");
     expect(html.match(/aria-haspopup="dialog"/g)).toHaveLength(1);
@@ -71,9 +72,11 @@ describe("original interaction signatures", () => {
     expect(html).toContain("First credited image"); expect(html).toContain("Second credited image");
     expect(html).not.toMatch(/<form\b|<input\b|<textarea\b/);
   });
-  it("supports a single photo and hides a gallery with no supplied photos", () => {
-    const html = renderToStaticMarkup(<EditorialGallery site={{ ...site, brand: { photos: [site.brand.photos[0]], photoCredits: [] } }} />);
-    expect(html).toContain('data-count="1"'); expect(html).not.toContain("Next →");
+  it("never repeats the hero photo and hides a gallery with no other photos", () => {
+    // Kriv, 2026-11-03: a lone hero photo is not repeated as a one-image gallery.
+    expect(renderToStaticMarkup(<EditorialGallery site={{ ...site, brand: { photos: [site.brand.photos[0]], photoCredits: [] } }} />)).toBe("");
+    const two = renderToStaticMarkup(<EditorialGallery site={{ ...site, brand: { photos: site.brand.photos.slice(0, 2), photoCredits: [] } }} />);
+    expect(two).toContain('data-count="1"'); expect(two).not.toContain("images.unsplash.com/hero"); expect(two).not.toContain("Next →");
     expect(renderToStaticMarkup(<EditorialGallery site={{ ...site, brand: { photos: [], photoCredits: [] } }} />)).toBe("");
   });
   it("prioritizes only an explicitly marked hero image", () => {

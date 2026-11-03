@@ -44,6 +44,15 @@ for (const slug of slugs) {
         });
       }));
     });
+    // Kriv, 2026-11-03: review shots showed blank photo frames lower on the page. Decode every
+    // image and scroll the page once so the full-page capture paints them all.
+    await page.evaluate(async () => {
+      for (const img of document.images) img.decoding = "sync";
+      await Promise.all([...document.images].map((img) => (img.decode ? img.decode().catch(() => {}) : Promise.resolve())));
+      for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); }
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(400);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     const file = `shots/${slug}-${label}.png`;
     await page.screenshot({ path: file, fullPage: true });

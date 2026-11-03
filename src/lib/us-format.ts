@@ -3,9 +3,9 @@
 type Address = { line1?: string; city: string; region?: string; postalCode?: string; country: string };
 type Phone = { phoneDisplay?: string; phoneE164?: string };
 
-/** "Austin, TX 78701" in the US; "City, Region, Postcode" elsewhere. */
+/** "Austin, TX 78701" in the US and "Burlington, ON L7R 1A1" in Canada; "City, Region, Postcode" elsewhere. */
 export function cityLine(a: Address): string {
-  if (a.country === "US") return [a.city, [a.region, a.postalCode].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+  if (a.country === "US" || a.country === "CA") return [a.city, [a.region, a.postalCode].filter(Boolean).join(" ")].filter(Boolean).join(", ");
   return [a.city, a.region, a.postalCode].filter(Boolean).join(", ");
 }
 

@@ -100,7 +100,7 @@ export function workflowState(ctx, l) {
   const newer = !!snapshot && !!w?.preview_version && snapshot.version !== w.preview_version;
   const job = jobStatus();
   const publishing = job?.status === "running" && job.kind === "publish" && job.leadId === l.id;
-  let stage, label, next, action, priority = 6, attention = false;
+  let stage, label, next, action, priority = 6, attention = false, needsYou = false;
   if (blocked) {
     stage = "completed"; label = "Do not contact"; next = l.status === "expired" && l.slug && !ctx.db.prepare("SELECT 1 FROM history WHERE lead_id = ? AND action = 'taken down'").get(l.id) ? "Review page removal" : "No outreach permitted"; action = next === "Review page removal" ? "takedown" : "history"; priority = 0; attention = action === "takedown";
   } else if (["declined", "expired"].includes(l.status) || w?.decision === "declined") {
@@ -122,7 +122,12 @@ export function workflowState(ctx, l) {
   } else if (!approved) {
     stage = "review"; label = newer && w?.decision === "revision" ? "Revised preview ready" : w?.decision === "approved" ? "Design changed — review again" : "Ready for review"; next = "Review the preview"; action = "design"; priority = 1; attention = true;
   } else if (!checks.ready) {
-    stage = "qa"; label = "Design approved · checks remaining"; next = "Verify remaining business information"; action = "checks"; priority = 2; attention = true;
+    // The Desk checks approved designs by itself (Kriv, 2026-11-03); only a failed check needs Kriv.
+    const last = ctx.db.prepare("SELECT action, at FROM history WHERE lead_id = ? AND action IN ('review checks need you', 'review checks complete', 'check ticked by Kriv', 'design approved') ORDER BY id DESC LIMIT 1").get(l.id);
+    needsYou = last?.action === "review checks need you" && last.at >= new Date().toISOString().slice(0, 10);
+    stage = "qa"; action = "checks"; priority = needsYou ? 2 : 4; attention = needsYou;
+    label = needsYou ? "Design approved · a check needs you" : "Design approved · Desk is checking";
+    next = needsYou ? "See what the Desk could not confirm" : "Nothing to do. Checks run by themselves";
   } else if (!emailReady || (w && !emailReviewed)) {
     stage = "qa"; label = "Design and checks complete"; next = emailReady ? "Review the email draft" : "Complete the email draft"; action = "email"; priority = 2; attention = true;
   } else {
@@ -135,6 +140,6 @@ export function workflowState(ctx, l) {
     canDecide: !!snapshot?.viewable && ["draft", "approved"].includes(l.status) && !blocked && !publishing && !pendingPublication(ctx.db, l.id) && w?.decision !== "declined",
     emailVersion: mailVersion(mail), emailReviewed, emailReady, contactBlocked: blocked,
     publicationCurrent: !w || (!!w.publication_version && w.publication_version === publicationVersion(ctx, l)), publicationVersion: publicationVersion(ctx, l),
-    checksReady: checks.ready, checksManaged: checks.prepared.managed, checksReason: checks.reason,
+    checksReady: checks.ready, checksNeedYou: needsYou, checksManaged: checks.prepared.managed, checksReason: checks.reason,
     newer, workflow: w, screenshots: snapshot?.screenshots ?? [], record: snapshot?.record ?? null, qa: checks.qa, email: mail };
 }

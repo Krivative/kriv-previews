@@ -1,7 +1,6 @@
 // HTTP handlers: [method, path regex, handler]. Handlers get { db, repo, leadsDir, reportsDir,
 // params, query, body } and return a JSON-able value or { httpStatus, body } for an error.
-import { FREE_MAIL } from "../../scripts/site-flags.mjs";
-import { now, parse, log, rowToLead, isOptedOut, tx } from "./db.mjs";
+import { now, parse, log, rowToLead, isOptedOut } from "./db.mjs";
 import { setStatus, STATUSES } from "./leads.mjs";
 import { importAll } from "./import.mjs";
 import { rerunRules } from "./pipeline.mjs";
@@ -20,7 +19,8 @@ import { salesRoutes } from "./sales.mjs";
 const bad = (msg, status = 400) => ({ httpStatus: status, body: { error: msg } });
 const leadOr404 = (db, id) => db.prepare("SELECT * FROM leads WHERE id = ?").get(id);
 
-export const NICHES = { dental: "Dental", hvac: "HVAC", chiro: "Chiropractic", medspa: "Med spa", plumbing: "Plumbing", auto: "Auto repair" };
+export { NICHES } from "../public/niches.js";
+import { NICHES } from "../public/niches.js";
 
 /** What Kriv has to do next, newest work first. */
 export function needsKriv(db) {
@@ -114,30 +114,14 @@ function postNote({ db, params, body }) {
   return { ok: true, note };
 }
 
-/**
- * Do-not-contact (docs/OUTREACH.md): the address and its domain, unless the domain is a free-mail
- * provider (blocking gmail.com would block every Gmail business). Matching leads become expired.
- * @param {import("node:sqlite").DatabaseSync} db
- * @param {{ value: string, reason?: string | null, leadId?: string | null }} opt
- */
-export function addOptOut(db, { value, reason = null, leadId = null }) {
-  const v = String(value ?? "").trim().toLowerCase().replace(/^mailto:/, "");
-  if (!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$|^[a-z0-9.-]+\.[a-z]{2,}$/.test(v)) throw new Error("enter an email address or a domain");
-  const values = v.includes("@") ? [v, ...(FREE_MAIL.test(v.split("@")[1]) ? [] : [v.split("@")[1]])] : [v];
-  return tx(db, () => {
-    for (const x of values) db.prepare("INSERT OR IGNORE INTO opt_outs (value, kind, reason, at) VALUES (?, ?, ?, ?)").run(x, x.includes("@") ? "email" : "domain", reason, now());
-    const hit = db.prepare("SELECT id, email FROM leads WHERE email IS NOT NULL").all().filter((l) => isOptedOut(db, l.email)).map((l) => l.id);
-    const ids = [...new Set([...hit, ...(leadId ? [leadId] : [])])];
-    for (const id of ids) {
-      db.prepare("UPDATE leads SET status = 'expired', updated_at = ? WHERE id = ?").run(now(), id);
-      log(db, id, "opt-out", { values, reason });
-    }
-    return { added: values, expired: ids };
-  });
-}
+// Do-not-contact list: lib/optouts.mjs (shared with reply handling).
+export { addOptOut } from "./optouts.mjs";
+import { addOptOut } from "./optouts.mjs";
+import { replyRoutes } from "./replies.mjs";
 
 export const routes = [
   ...salesRoutes,
+  ...replyRoutes,
   ["GET", /^\/api\/summary$/, summary],
   ["GET", /^\/api\/leads$/, listLeads],
   ["GET", /^\/api\/leads\/(?<id>[^/]+)$/, getLead],

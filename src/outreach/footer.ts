@@ -23,7 +23,7 @@ export function emailFooter(): string {
     `${SENDER.name}, ${SENDER.business} (${SENDER.website})`,
     SENDER.postalAddress,
     "",
-    `This is a one-time business offer from ${SENDER.business}, a web studio in the Philippines.`,
+    `This is a one-time business offer from ${SENDER.business}, a web and marketing studio in the Philippines.`,
     `Not interested? Reply "unsubscribe" and I won't email you again.`,
   ].join("\n");
 }

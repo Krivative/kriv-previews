@@ -7,13 +7,24 @@ import { preparationReadiness } from "./preparation-state.mjs";
 import { isExcluded } from "../../scripts/finder/rules.mjs";
 import { reviewPaused } from "./workflow-state.mjs";
 import { CHAMBERS, CHAMBERS_PER_DAY } from "./chambers.mjs";
+import { NICHE_IDS, LEGACY_NICHES } from "../public/niches.js";
+import { replySyncDue, startReplySync } from "./replies.mjs";
+import { nextAutoCheck, startAutoCheck } from "./review-checks.mjs";
 
-export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: ["hvac", "dental", "chiro", "medspa", "plumbing", "auto"], lists: [] };
+export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: NICHE_IDS, lists: [] };
+// Previews prepared per day (was 10; Kriv asked for ~30 emails a day, 2026-11-01).
+export const DAILY_PREPARATIONS = 30;
 const setting = (db, key) => db.prepare("SELECT value FROM settings WHERE key = ?").get(key)?.value;
 // On by default. A separate key so an older opt-in "off" value does not keep it paused.
+/** The saved search. A saved copy of the original six types (the old default) means every type. */
+export function savedSearch(db) {
+  const s = parse(setting(db, "automation_search"), DEFAULT_SEARCH);
+  const legacy = Array.isArray(s.niches) && s.niches.length === LEGACY_NICHES.length && LEGACY_NICHES.every((n) => s.niches.includes(n));
+  return legacy ? { ...s, niches: NICHE_IDS } : s;
+}
 export function automationStatus(ctx) {
   const enabled = setting(ctx.db, "automation_paused") !== "1";
-  return { enabled, running: enabled, mode: "templates", reason: enabled ? "Finding, checking and building previews automatically. No paid AI." : "Automatic building is paused. No paid AI is used.", search: parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH) };
+  return { enabled, running: enabled, mode: "templates", reason: enabled ? "Finding, checking and building previews automatically. No paid AI." : "Automatic building is paused. No paid AI is used.", search: savedSearch(ctx.db) };
 }
 function due(p) { return !p || p.state === "queued" || (p.state !== "preparing" && p.updated_at.slice(0, 10) !== now().slice(0, 10)); }
 export function nextPreparation(ctx) {
@@ -48,14 +59,21 @@ export function uncheckedWebsites(db, limit = 20) {
 }
 
 export function automationTick(ctx) {
-  if (!automationStatus(ctx).running || jobStatus()?.status === "running") return;
-  const preparedToday = ctx.db.prepare("SELECT COUNT(*) n FROM preparations WHERE state = 'ready' AND updated_at >= ?").get(now().slice(0, 10)).n;
+  if (jobStatus()?.status === "running") return;
+  // Checks for designs Kriv approved run even while finding is paused: they only read and verify.
+  const running = automationStatus(ctx).running;
+  // Replies first (unsubscribes must be honoured quickly), every 30 minutes once Gmail is connected.
+  if (running && replySyncDue(ctx)) return startReplySync(ctx);
+  const toCheck = nextAutoCheck(ctx);
+  if (toCheck) return startAutoCheck(ctx, toCheck);
+  if (!running) return;
+  const preparedToday = ctx.db.prepare("SELECT COUNT(*) n FROM preparations WHERE state = 'ready' AND updated_at >= ? AND lead_id NOT IN (SELECT lead_id FROM lead_workflow WHERE decision = 'approved')").get(now().slice(0, 10)).n;
   const queuedRevision = ctx.db.prepare("SELECT lead_id FROM preparations WHERE state = 'queued' AND revision IS NOT NULL LIMIT 1").get();
   if (queuedRevision) {
     const lead = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(queuedRevision.lead_id));
     if (lead && !reviewPaused(ctx.db, lead.id) && ["found", "draft"].includes(lead.status) && lead.bucket === "qualified") return startPreparation(ctx, lead);
   }
-  if (preparedToday >= 10) return;
+  if (preparedToday >= DAILY_PREPARATIONS) return;
   const lead = nextPreparation(ctx);
   if (lead) return startPreparation(ctx, lead);
   // Technically modern sites ("Visual review") are skipped: Kriv chose not to grade them by hand
@@ -64,6 +82,22 @@ export function automationTick(ctx) {
   if (ungraded.length) return startCheck(ctx, ungraded);
   const find = nextFind(ctx);
   if (find) return startFind(ctx, find);
+  // Then re-check businesses checked before social links and search descriptions were recorded,
+  // so the Sales Discover list can offer social media, SEO and booking services (2026-11-01).
+  const refresh = sitesForSalesRefresh(ctx.db);
+  if (refresh.length) return startCheck(ctx, refresh);
+}
+
+/**
+ * Up to `limit` websites of open businesses whose saved check predates the social-link and
+ * search-description facts: modern sites first (they need a non-website offer), then the rest.
+ */
+export function sitesForSalesRefresh(db, limit = 20) {
+  return db.prepare(`SELECT l.website FROM leads l JOIN checks k ON k.host = l.key
+    WHERE l.website IS NOT NULL AND l.bucket IN ('toReview', 'qualified', 'near') AND l.status NOT IN ('sent', 'replied', 'declined', 'expired')
+      AND json_extract(k.data, '$.socialLinks') IS NULL AND json_extract(k.data, '$.error') IS NULL
+    ORDER BY l.bucket = 'toReview' DESC, l.updated_at DESC`).all()
+    .map((r) => r.website).filter((w) => !isExcluded("", w)).slice(0, limit);
 }
 const put = (db, key, value) => db.prepare("INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(key, String(value));
 /**
@@ -72,17 +106,20 @@ const put = (db, key, value) => db.prepare("INSERT INTO settings (key, value) VA
  */
 export function nextFind(ctx) {
   const today = now().slice(0, 10);
-  const search = parse(setting(ctx.db, "automation_search"), DEFAULT_SEARCH);
+  const search = savedSearch(ctx.db);
   if (setting(ctx.db, "automation_find_day") !== today) {
     put(ctx.db, "automation_find_day", today);
     return search;
   }
   const [day, runs] = String(setting(ctx.db, "automation_chamber_runs") ?? "").split(":");
+  // "_v2": the list was reordered on 2026-11-02 (wealthier suburbs and Canada first), so the
+  // rotation starts again at the top instead of resuming at the old position.
+  const NEXT = "automation_chamber_next_v2";
   const done = day === today ? Number(runs) || 0 : 0;
   if (done >= CHAMBERS_PER_DAY || !CHAMBERS.length) return null;
-  const i = (Number(setting(ctx.db, "automation_chamber_next")) || 0) % CHAMBERS.length;
+  const i = (Number(setting(ctx.db, NEXT)) || 0) % CHAMBERS.length;
   put(ctx.db, "automation_chamber_runs", `${today}:${done + 1}`);
-  put(ctx.db, "automation_chamber_next", i + 1);
+  put(ctx.db, NEXT, i + 1);
   return { source: "chamber", lists: [CHAMBERS[i].list], niches: search.niches };
 }
 export function startAutomation(ctx) {

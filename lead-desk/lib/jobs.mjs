@@ -13,7 +13,14 @@ export const BATCH = 20;
 let current = null;
 const stamp = () => new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
 
-export const jobStatus = () => current && { ...current, log: current.log.slice(-60) };
+// Plain fields only: the running check's child process stays private (it is not data
+// and serializing it sent Node internals to the browser on every poll).
+export const jobStatus = () => {
+  if (!current) return current;
+  const fields = { ...current, log: current.log.slice(-60) };
+  delete fields.child;
+  return fields;
+};
 export function cancelJob() {
   if (current?.status === "running") { current.cancelled = true; current.child?.kill(); }
   return jobStatus();

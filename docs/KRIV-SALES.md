@@ -28,12 +28,31 @@ Kriv chose Discovery as the next stage, using the Desk's existing free finder (H
 - Checks older than 30 days are marked in the list. Their observations can be added but never count, even when confirmed, until the website check is run again.
 - Discovery makes no network requests, starts no finder run and changes no finder rule, bucket or status. The automatic finder keeps running as before while the Desk is open.
 
+## Every Kriv.Agency service (2026-11-02)
+
+Kriv asked to offer everything Kriv.Agency does, with websites as the lead offer. Services live in `lead-desk/lib/services.mjs` (label, what it is for the Claude prompt, the starter draft's question, and the evidence it needs):
+
+| Offer | Needs a reviewed |
+| --- | --- |
+| Website | website issue |
+| SEO (local search) | search visibility observation |
+| Social media marketing (long-form videos, commercials, 3–5 shorts and 3–10 image/carousel posts a week; scope agreed per client) | social media observation |
+| Social media management (comments, replies, engagement) | social media observation |
+| Booking & CRM setup (KRIV Build demonstration; id `build`) | booking or follow-up observation |
+| Ads, Website maintenance, Executive assistant, Outsourcing, Discovery conversation | any observation |
+
+- The website check now also records which social networks the home and contact pages link to (hosts only) and whether the home page has a meta description. From those, Start research adds **unconfirmed** observations: no linked social profile, no meta description, a placeholder page title ("Home", empty), and, for appointment businesses (dental, chiropractic, med spa, salon, fitness, pets, clinics), no link to a known online booking service. Checks from before 2026-11-02 give none of these rather than a guess; automatic building re-checks open businesses with older checks (modern sites first, 20 at a time) after each day's finding is done.
+- "Waiting for visual review" is now **Modern website (offer SEO, social media, ads or booking)** in Discover: those businesses already have a working site, so they get a non-website pitch.
+- The suggestion order is website, booking & CRM, social media, SEO, otherwise a discovery conversation; the panel also lists other offers the reviewed evidence supports. Starter drafts use the offer's own question and one line naming a few other services. Claude drafting is told what the selected service is and to lead with it. No prices, packages or outcomes are ever written into a draft.
+
 ## Claude app connector (2026-11-01)
 
 Kriv chose the app connector as the next Sales stage. `lead-desk/mcp/sales-mcp.mjs` is a local MCP server (stdio, no SDK or new dependency) that the Claude desktop app starts on demand. It opens the Desk database and offers five tools: list businesses, get one business, the Discover list, start research (unconfirmed findings) and save a draft (same validation as the screen: confirmed, fresh evidence only; plain text; under 150 words). There is no tool to approve, publish, send, use LinkedIn or change opt-outs, and business emails and imported contact claims are never returned. Saved drafts appear in the Desk for review.
 
-- Installed on 2026-11-01 with `node scripts/install-sales-connector.mjs` into the Microsoft Store Claude app's config (`%LOCALAPPDATA%PackagesClaude_*LocalCacheRoamingClaudeclaude_desktop_config.json`). Restart the Claude app, then ask it, for example, "Show my KRIV Sales discover list". Remove the `kriv-sales` entry to uninstall.
-- Verified: `tests/sales-mcp.test.ts` drives the server over real stdio on a temporary database; a manual initialize/tools-list against the real database answered correctly (no records printed). Not yet verified inside the Claude app itself (Kriv was away from the desktop).
+- Install: `node scripts/install-sales-connector.mjs` (add `--print` to see the target file without writing). It merges a `kriv-sales` entry into the desktop app's config, backing up the old file first. Restart the Claude app (quit it from the tray, not only the window), then ask it, for example, "Show my KRIV Sales discover list". Remove the `kriv-sales` entry to uninstall.
+- Config location: current Microsoft Store builds (4.4212, checked 2026-11-01) read `%LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc\claude_desktop_config.json`. The first install on 2026-11-01 wrote to the older Store location `%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\`, which this build ignores, so the app never loaded it. The installer now checks Claude-Data first, then the older Store folder, then `%APPDATA%\Claude`; the stale copy in the old folder is harmless.
+- Claude Code sessions do not load this connector (it is for the desktop app's chat). From Claude Code, run the server over stdio instead.
+- Verified: `tests/sales-mcp.test.ts` drives the server over real stdio on a temporary database and covers the installer's folder choice. On 2026-11-01 a stdio run against the real Desk database answered initialize, tools/list (five tools), list businesses (50, its cap) and Discover (13), with no email addresses in either result (only counts and field names were printed). Not yet verified inside the Claude app: writing the app's live config was blocked for the agent, so Kriv runs the installer.
 
 ## Claude status and limitations
 

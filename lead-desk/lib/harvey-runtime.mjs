@@ -5,6 +5,7 @@ import { existsSync, statSync, readFileSync, mkdtempSync, rmSync } from "node:fs
 import { join, delimiter, dirname, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
+import { SERVICE } from "./services.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 export const REQUIRED_FLAGS = ["--safe-mode", "--setting-sources", "--no-session-persistence", "--disable-slash-commands", "--strict-mcp-config", "--tools", "--output-format"];
@@ -92,8 +93,8 @@ export function draftPrompt({ name, offer, evidence }) {
   const skills = ["email_frameworks", "signal_playbook", "lead_qualification"]
     .map(key => readFileSync(join(ROOT, "vendor/harvey/skills", `${key}.md`), "utf8")).join("\n\n");
   return `${skills}\n\nKRIV TASK — these task constraints take precedence over the general playbooks:
-Write ONE unsent initial email, not a campaign. KRIV offers advisory-led business systems and growth work.
-Selected offer: ${offer}. Website means discussing a website concept; build means demonstrating enquiry handling and follow-up; discovery means asking about their priorities.
+Write ONE unsent initial email, not a campaign. Kriv.Agency offers websites, SEO, ads, social media marketing and management, booking and CRM setup, website maintenance, executive assistants and outsourcing.
+Selected offer: ${SERVICE[offer]?.label ?? offer}: ${SERVICE[offer]?.pitch ?? "an open conversation about their priorities"}. Lead with this offer only; you may mention in one short sentence that other services exist.
 Only use the confirmed observations supplied below. Do not claim missing software, lost revenue, poor performance, completed previews, prices, outcomes, timelines or client results.
 No links, email addresses, phone numbers, merge variables, HTML or markdown. Address the team without inventing a person's name. Do not include a signature or compliance footer; the existing outreach flow owns those.
 Under 100 words. One modest question. Do not treat a clue as proof of an operational problem.

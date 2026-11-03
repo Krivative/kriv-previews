@@ -22,7 +22,7 @@ describe("designs independent of business content", () => {
     expect(contentNicheFor("unclassified")).toBe("general");
     expect(ContentNiche.safeParse("invented").success).toBe(false);
   });
-  it("cycles all 26 designs deterministically without changing verified HVAC offerings", () => {
+  it("rotates through designs that fit HVAC, deterministically, without changing verified offerings", () => {
     const lead = { id: "synthetic-hvac", name: "Fictional Company", niche: "hvac", website: "https://example.test/" };
     const pages = [{ url: lead.website, status: 200, text: "Fictional Company. Heating and air conditioning. AC repair. Pancakes.", html: "<h2>Our services</h2><h3>AC repair</h3><h3>Pancakes</h3>" }];
     const picks = new Set<string>();
@@ -35,6 +35,8 @@ describe("designs independent of business content", () => {
       expect(record.contentNiche).toBe("hvac");
       expect(guideFor(record)).toEqual(nicheGuides.hvac);
     }
-    expect(picks.size).toBe(26);
+    // Kriv, 2026-11-03: only designs that suit the business; never a restaurant or spa look for HVAC.
+    expect(picks.size).toBeGreaterThan(1);
+    for (const id of picks) expect(["hvac-calm", "hvac-bold", "plumbing-calm", "plumbing-bold", "auto-calm"]).toContain(id);
   });
 });

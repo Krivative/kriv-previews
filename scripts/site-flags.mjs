@@ -9,6 +9,9 @@ export const BOOKING_HOSTS = [
   "patientpop.com", "solutionreach.com", "weave.com", "yourdentalbooking.com",
 ];
 
+// Social networks a business links to from its site (Sales evidence for social media offers).
+export const SOCIAL_HOSTS = ["facebook.com", "fb.com", "instagram.com", "tiktok.com", "youtube.com", "youtu.be", "linkedin.com", "x.com", "twitter.com", "pinterest.com", "threads.net"];
+
 // Mailbox names that belong to the business, not to a person.
 const ROLE_NAMES = /^(info|office|contact|hello|hi|frontdesk|front\.desk|frontoffice|reception|appointments?|appts?|schedul(e|ing)|admin|team|service|services|customerservice|dispatch|support|sales|billing|smile|smiles|care|clinic|dental|dentist|chiro|spa|hvac|ac|ask|mail|inquir(y|ies)|booking|bookings|newpatients?|patients?)([._-].*)?$/i;
 
@@ -75,8 +78,18 @@ const PARKED = /(domain (is )?for sale|\.[a-z]{2,}\s+is for sale|buy this domain
 // Only a standalone provider notice in the visible home-page text counts here. A GoDaddy
 // footer or an article mentioning parked domains is not evidence that the site is parked.
 // Approved by Kriv, 2026-10-26. Persist the boolean, never the full page text.
+// GoDaddy's current lander starts with the domain itself ("example.com is parked free, ...").
 export function hasParkingNotice(text = "") {
-  return /^\s*this\s+(?:web\s*page|domain(?:\s+name)?)\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
+  return /^\s*(?:this\s+(?:web\s*page|domain(?:\s+name)?)|(?:[a-z0-9-]+\.)+[a-z]{2,})\s+is\s+parked\s+free[,.]?\s+courtesy\s+of\s+godaddy(?:\.com)?[.!]?\s*$/im.test(text);
+}
+
+// A notice that the business does not want unsolicited (commercial) email. Under Canada's CASL a
+// published address only implies consent when no such notice accompanies it; KRIV honours it
+// everywhere (2026-11-02). Persist the boolean, never the page text.
+export function hasNoSolicitationNotice(text = "") {
+  return /\b(no|not accept(ing)?|do not (send|accept|want)|does not (accept|consent to)|will not accept|refuses?)\b[^.\n]{0,40}\b(unsolicited|solicitations?|commercial electronic messages|marketing (e-?mails?|messages))\b/i.test(text)
+    || /\bunsolicited\b[^.\n]{0,40}\b(e-?mails?|messages|commercial|solicitations?|offers?)\b[^.\n]{0,40}\b(not (accepted|welcome|permitted)|prohibited|will be (deleted|ignored))\b/i.test(text)
+    || /\bno solicit(ing|ation|ors)\b/i.test(text);
 }
 
 // Bot walls, geo-blocks and checker hiccups. A visitor in the US may well see a working

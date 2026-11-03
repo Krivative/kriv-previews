@@ -45,3 +45,26 @@ Unsplash API guidelines (help.unsplash.com, checked 2026-10-25) and how the app 
 | No "Unsplash" in the app name or icon; don't replicate Unsplash | Neither applies to previews. |
 
 Before applying for production access (higher rate limit), Unsplash wants screenshots showing the attribution; take them from an approved lead page.
+
+## Variety, designs and content (Kriv, 2026-11-03)
+
+Kriv's review round found every lead in an industry sharing the same two photos, the hero photo
+repeated in the gallery, designs from unrelated industries and near-empty pages.
+
+- **Photos** (`lead-desk/lib/photos.mjs`): the business's own photos first
+  (`kriv-leads/own-photos/<slug>.json`, picked by a person: only photos that clearly show that
+  business, never its licensed stock), then up to 6 Unsplash photos taken in turn from several
+  searches about what the business does. A photo used by any other lead file is never used again.
+  Searches are cached in `kriv-leads/photo-cache/` for two weeks; each used photo gets one
+  download-tracking request (no extra lookup).
+- **Layouts** (`src/sections/photo-slots.ts`): the hero takes the first photo, the story section
+  gets its own photo when there are 4+, the gallery shows only the rest and only when 2+ remain.
+  The three composed designs (canvas, index, stage) now have a gallery too.
+- **Designs** (`lead-desk/lib/fit.mjs`): a shortlist per business kind (with sub-kinds such as
+  auto glass, brewery, construction, RV, condo cleaning, barber, nails, vet, gymnastics), the
+  industry's own two designs first, rotating to the least used.
+- **Rebuilds** (`scripts/rebuild-previews.mjs`): Kriv-authorized rebuilds from
+  `kriv-leads/content/<slug>.json` (source-backed content, every value with its page URL). The
+  result goes back to Kriv's review. The Unsplash demo key allows 50 requests an hour; the script
+  stops at the limit and continues on the next run.
+- Review screenshots now decode and scroll the page before capture (lower photos were blank).

@@ -21,6 +21,8 @@ startAutomation(ctx);
 
 // Screenshots may be served from these folders only.
 const FILE_ROOTS = [ctx.leadsDir, ctx.reportsDir, join(ctx.repo, "shots")].map((p) => resolve(p) + sep);
+// Google sign-in for reply handling lives here (lib/gmail.mjs): never served, whatever the type.
+const SECRETS = resolve(ctx.leadsDir, "secrets") + sep;
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".json": "application/json" };
 const HEADERS = { "X-Content-Type-Options": "nosniff", "Referrer-Policy": "no-referrer", "Cache-Control": "no-store" };
 
@@ -57,7 +59,7 @@ const server = createServer(async (req, res) => {
 
     if (url.pathname === "/file") {
       const p = resolve(url.searchParams.get("path") ?? "");
-      if (!FILE_ROOTS.some((r) => p.startsWith(r)) || !existsSync(p) || !statSync(p).isFile() || !TYPES[extname(p).toLowerCase()]) return send(res, 404, "not found", "text/plain");
+      if (!FILE_ROOTS.some((r) => p.startsWith(r)) || (p + sep).toLowerCase().startsWith(SECRETS.toLowerCase()) || !existsSync(p) || !statSync(p).isFile() || !TYPES[extname(p).toLowerCase()]) return send(res, 404, "not found", "text/plain");
       res.writeHead(200, { ...HEADERS, "Content-Type": TYPES[extname(p).toLowerCase()] });
       return createReadStream(p).pipe(res);
     }

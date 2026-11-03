@@ -4,6 +4,7 @@ import { guideFor, pageHref, sitePages } from "@/lib/site-pages";
 import { Photo } from "./Photo";
 import { Rich } from "./Rich";
 import { GalleryViewer } from "./GalleryViewer";
+import { photoSlots } from "./photo-slots";
 import { inert } from "./inert";
 import { addressText, phoneText } from "@/lib/us-format";
 import c from "./collection.module.css";
@@ -91,8 +92,9 @@ export function Offerings({ site, treatment }: ContentProps & { treatment: Offer
 
 export function Story({ site, treatment = "essay" }: ContentProps & { treatment?: "essay" | "spread" | "letter" | "aside" | "manifesto" }) {
   if (!site.about) return null;
+  const storyPhoto = photoSlots(site).story;
   return <section id="about" className={`${c.story} ${c[treatment]}`}>
-    <div className={c.storyTitle}><p className={c.eyebrow}>A closer introduction</p><h2><Rich text={site.about.title ?? `About ${site.business.name}`} /></h2></div>
+    <div className={c.storyTitle}><p className={c.eyebrow}>A closer introduction</p><h2><Rich text={site.about.title ?? `About ${site.business.name}`} /></h2>{storyPhoto ? <Photo src={storyPhoto.src} label={storyPhoto.label} sizes="(max-width:720px) 94vw, 40vw" className={c.storyPhoto} /> : null}</div>
     <div className={c.storyCopy}><p>{site.about.body}</p>
       {site.about.sections?.map((chapter, index) => <details key={index}><summary>{chapter.title}<span aria-hidden="true">＋</span></summary><p>{chapter.body}</p></details>)}
       <Link href={pageHref(site, "about")} prefetch={false}>More about {site.business.name} <span aria-hidden="true">↗</span></Link>
@@ -111,9 +113,9 @@ export function Notes({ site }: ContentProps) {
 }
 
 export function CollectionGallery({ site }: ContentProps) {
-  const photos = site.brand.photos.map((src, index) => ({ src, label: site.gallery?.labels[index] ?? "Illustrative photography" }));
-  // One strong scene is enough. Do not manufacture a gallery by repeating it.
-  if (new Set(photos.map((photo) => photo.src)).size < 2) return null;
+  // One strong scene is enough. Never repeat the hero or story photo here (Kriv, 2026-11-03).
+  const photos = photoSlots(site).gallery;
+  if (photos.length < 2) return null;
   return <section id="gallery" className={c.gallery}><p className={c.eyebrow}>In pictures</p><h2><Rich text={site.gallery?.title ?? "A closer look."} /></h2>
     <GalleryViewer businessName={site.business.name} photos={photos} layout="editorial" />
   </section>;

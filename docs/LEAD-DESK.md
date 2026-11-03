@@ -119,6 +119,11 @@ Kriv authorized automatic building while the Desk is closed. The Windows task "K
   or when another unattended run holds `kriv-leads\unattended.lock`. Stops when idle or after 50 minutes.
 - `node lead-desk/worker.mjs --check-only` reports whether a run would start, without running anything.
 - Remove: `schtasks /Delete /TN "KRIV Lead Desk unattended run" /F`.
+- Runs on battery too and starts as soon as possible after a missed time (the laptop is often off overnight).
+
+## Business types and daily volume (2026-11-01)
+
+Kriv asked for about 30 emails a day. Business types live in `lead-desk/public/niches.js` (22 types, each with Desk label, email wording, category, designs, directory pattern and photo search); add a type there and every screen, the finder and the builder pick it up. A saved search holding exactly the original six types counts as all types. Automatic building reads 6 chamber directories a day from `lib/chambers.mjs`. Since 2026-11-02 the list starts with 25 directories in wealthier suburbs (14 US: Plano, Chandler, Palm Beach Gardens, Dublin OH, Cedar Park, Gilbert, Castle Rock, Loudoun, The Woodlands, Winter Park, Wake Forest, Brentwood, Scottsdale, Boerne, plus Burlington WA (its ChamberMaster directory turned out to be Washington, not Ontario; fixed 2026-11-03); 10 Canada: Richmond Hill, Milton, Aurora, Langley, North Vancouver, Surrey, Victoria, Edmonton, St. Albert, Airdrie), then the earlier ones (47 searched); 13 small-town directories are retired but kept in `RETIRED_CHAMBERS` so old finds keep their location. Canadian businesses get province codes, Canadian postal codes, country CA and en-CA previews. Sites that ask for no unsolicited email are never contacted (docs/OUTREACH.md). The rotation key is `automation_chamber_next_v2` so the reordered list starts at the top and prepares up to 30 previews a day. The Outreach screen warns after 20 emails marked sent per day until 2026-11-08, then 30 (`EMAIL_RAMP` in `lib/compose.mjs`); raise it only while bounces stay near zero and nothing lands in spam.
 
 Checker queue fix (same day): website checks now pick unchecked candidates that have a website, newest first,
 after excluding chains. Before, the first 20 unchecked rows were website-less listings, so no check ran

@@ -3,6 +3,7 @@
 // between requests, no retries, and a block or captcha is never worked around.
 // Output holds business emails: keep it outside Git (docs/LEAD-FINDER.md).
 import { execFile } from "node:child_process";
+import { NICHE_LIST, nicheOf } from "../../lead-desk/public/niches.js";
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -19,10 +20,7 @@ export function get(url) {
 }
 const text = (s) => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ").trim();
 
-export const HOTFROG_CATS = {
-  dental: ["dentists", "dentist"], chiro: ["chiropractors", "chiropractor"], hvac: ["heating-air-conditioning", "hvac", "air-conditioning"], medspa: ["medical-spa", "medical-spas", "skin-care"],
-  plumbing: ["plumbers", "plumbing"], auto: ["auto-repair", "car-repair", "mechanics"],
-};
+export const HOTFROG_CATS = Object.fromEntries(NICHE_LIST.map((n) => [n.id, n.hotfrog]));
 
 /**
  * Hotfrog listings: search pages per town and niche, then each company page.
@@ -68,15 +66,6 @@ export async function hotfrog(towns, { niches = Object.keys(HOTFROG_CATS), log =
   return out;
 }
 
-const CHAMBER_NICHE = [
-  ["dental", /dent(al|ist)/i],
-  ["chiro", /chiropract/i],
-  ["hvac", /(air[- ]condition|heating|hvac|mechanical)/i],
-  ["medspa", /(med(ical)?[- ]spa|aesthetic|skin|cosmetic surg|laser|botox|day spa|spas?\b)/i],
-  ["plumbing", /plumb/i],
-  ["auto", /(auto(motive)? (repair|service)|car repair|mechanic|transmission|brake)/i],
-];
-const nicheOf = (s) => CHAMBER_NICHE.find(([, re]) => re.test(s))?.[0];
 
 /**
  * ChamberMaster/GrowthZone member directories (".../list/" URLs): finds niche categories (also

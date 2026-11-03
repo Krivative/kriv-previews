@@ -3,6 +3,7 @@ import Link from "next/link";
 import { pageHref, sitePages } from "@/lib/site-pages";
 import type { SiteData, SectionRef } from "@/lib/site-schema";
 import { Photo } from "./Photo";
+import { photoSlots } from "./photo-slots";
 import { Rich } from "./Rich";
 import { defaultCtas } from "./ctas";
 import { inert } from "./inert";
@@ -280,7 +281,7 @@ export function Gallery({ site, variant }: Props & { variant: Extract<SectionRef
   if (variant === "editorial" && site.brand.photos.length) return <EditorialGallery site={site} />;
   const g = site.gallery;
   if (!g) return null;
-  const photos = site.brand.photos.length > 1 ? site.brand.photos.slice(1) : site.brand.photos;
+  const photos = photoSlots(site).afterHero;
   const count = Math.max(g.labels.length, photos.length);
   if (!count) return null;
   const tiles = Array.from({ length: count }, (_, i) => ({ src: photos[i], label: g.labels[i] ?? `Photo ${i + 1}` }));

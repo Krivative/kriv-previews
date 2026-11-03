@@ -25,7 +25,7 @@ export const TOOLS = [
   { name: "sales_get_business", description: "One business's Sales record: evidence (with confirmed flags), offer, suggested offer, saved draft, holds and recent activity. Use its revision when saving a draft.",
     inputSchema: obj({ id: str("Business id from sales_list_businesses or sales_discover") }, ["id"]),
     run: ({ id }) => strip(salesDetail(db, id)) },
-  { name: "sales_discover", description: "Businesses the Desk's finder already found and checked, with site-check findings and no Sales research yet.",
+  { name: "sales_discover", description: "Businesses the Desk's finder already found and checked, with site-check findings and no Sales research yet. qualified = weak website (offer a website); toReview = modern website (offer SEO, social media marketing or management, ads, booking and CRM setup); near = no confirmed business email yet.",
     inputSchema: obj({ bucket: { type: "string", enum: ["qualified", "near", "toReview"] }, niche: str("Optional niche, e.g. hvac"), state: str("Optional two-letter state") }),
     run: (args) => discoverList(db, args) },
   { name: "sales_start_research", description: "Add a business's site-check findings as UNCONFIRMED observations. Kriv confirms each one in the Desk before it counts.",

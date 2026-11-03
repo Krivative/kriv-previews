@@ -73,6 +73,8 @@ describe("visible parking notices", () => {
     "This domain is parked free, courtesy of GoDaddy.",
     "Domain information\nThis domain name is parked FREE.\ncourtesy of GoDaddy.com\nOther information",
     "  This webpage is parked free, courtesy of GoDaddy.com.  ",
+    "Get This Domain\nacme-air.example is parked free, courtesy of GoDaddy.com.\nGet This Domain",
+    "www.acme.example\nis parked free, courtesy of GoDaddy.com.",
   ])("recognizes an explicit provider notice with an otherwise ordinary title: %s", (text) => {
     const parkingNotice = hasParkingNotice(text);
     expect(parkingNotice).toBe(true);
@@ -85,6 +87,8 @@ describe("visible parking notices", () => {
     'Article: "This Web page is parked FREE, courtesy of GoDaddy.com."',
     "This Web page is parked FREE, courtesy of GoDaddy.com. Read our guide to learn more.",
     "This domain is parked free, courtesy of Another Provider.",
+    "acme.example is parked free, courtesy of Another Provider.",
+    "Why acme.example is parked free, courtesy of GoDaddy.com.",
     "GoDaddy hosting for an independent business.",
     "",
   ])("does not treat an ordinary footer or discussion as a parking notice: %s", (text) => {

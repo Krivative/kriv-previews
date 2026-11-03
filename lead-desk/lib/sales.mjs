@@ -5,10 +5,11 @@ import { now, json, parse, tx, log } from "./db.mjs";
 import { findLead, upsertLead, addSource } from "./leads.mjs";
 import { generateWithHarvey, probeClaude } from "./harvey-runtime.mjs";
 import { PROBLEM_SENTENCES } from "./compose.mjs";
-import { plain, host } from "../../scripts/finder/rules.mjs";
+import { plain, host, isExcluded } from "../../scripts/finder/rules.mjs";
 
-export const OFFERS = { discovery: "Discovery conversation", website: "Website concept", build: "KRIV Build demonstration" };
-export const EVIDENCE_TYPES = { observation: "General observation", website_issue: "Website issue", booking_gap: "Booking observation", followup_gap: "Confirmed follow-up problem" };
+import { SERVICE, OFFERS, alsoLine, serviceFindings } from "./services.mjs";
+export { OFFERS };
+export const EVIDENCE_TYPES = { observation: "General observation", website_issue: "Website issue", booking_gap: "Booking observation", followup_gap: "Confirmed follow-up problem", social_gap: "Social media observation", search_gap: "Search visibility observation" };
 const text = (max) => z.string().trim().max(max);
 const publicUrl = text(2000).refine(value => {
   try {
@@ -40,6 +41,11 @@ export function contactHold(db, l) {
   if (["declined", "expired"].includes(l.status)) return "This business is declined or expired. Reconsider it in the existing review workflow first.";
   const decision = db.prepare("SELECT decision, decline_scope FROM lead_workflow WHERE lead_id=?").get(l.id);
   if (decision?.decision === "declined" && decision.decline_scope === "prospect") return "This prospect was declined in the review workspace.";
+  if (l.website) {
+    let check = null;
+    try { check = parse(db.prepare("SELECT data FROM checks WHERE host = ?").get(host(l.website))?.data); } catch { /* no usable host */ }
+    if (check?.noSolicitation) return "This business's website asks not to receive unsolicited email. Do not contact it.";
+  }
   const values = [l.email, l.website].filter(Boolean);
   for (const c of parse(workspace(db, l.id).contacts, [])) values.push(c.email);
   const blocks = db.prepare("SELECT value FROM opt_outs").all().map(r => r.value.toLowerCase());
@@ -56,11 +62,19 @@ export function contactHold(db, l) {
 export function freshEvidence(evidence) {
   return evidence.filter(e => e.confirmed && Date.now() - Date.parse(e.observedAt) <= 30 * 86400000 && Date.parse(e.observedAt) <= Date.now());
 }
+// Websites lead (Kriv, 2026-11-01); then booking, social media and search, in that order.
+const WHY = {
+  website: "A reviewed website issue supports discussing a concept. The existing website qualification checks still apply.",
+  build: "Explore the reviewed booking or follow-up observation with booking and CRM setup (KRIV Build demonstration). Confirm the need in conversation.",
+  smm: "A reviewed social media observation supports offering social content (videos, shorts, image posts). Social media management fits too.",
+  seo: "A reviewed search observation supports a conversation about local SEO.",
+  discovery: "There is not enough reviewed evidence for a specific offer. Start by understanding their priorities.",
+};
 export function recommendOffer(evidence) {
   const types = new Set(freshEvidence(evidence).map(e => e.type));
-  if (types.has("followup_gap") || types.has("booking_gap")) return { offer: "build", why: "Explore the reviewed booking or follow-up observation with a KRIV Build demonstration. Confirm the need in conversation." };
-  if (types.has("website_issue")) return { offer: "website", why: "A reviewed website issue supports discussing a concept. The existing website qualification checks still apply." };
-  return { offer: "discovery", why: "There is not enough reviewed evidence for a specific offer. Start by understanding their priorities." };
+  const fits = ["website", "build", "smm", "social", "seo"].filter(id => SERVICE[id].needs.some(t => types.has(t)));
+  const offer = fits.find(id => WHY[id]) ?? "discovery";
+  return { offer, why: WHY[offer], also: fits.filter(id => id !== offer).map(id => SERVICE[id].label) };
 }
 
 export function salesDetail(db, id) {
@@ -103,7 +117,7 @@ export function addSavedResearch(db, id, revision) {
 
 // Discovery: businesses the existing finder already found and checked. No network,
 // no new provider. Check results become UNCONFIRMED observations for founder review.
-export const DISCOVERY_BUCKETS = { qualified: "Qualified by the finder", near: "Near miss (no business email yet)", toReview: "Waiting for visual review" };
+export const DISCOVERY_BUCKETS = { qualified: "Qualified by the finder", near: "Near miss (no business email yet)", toReview: "Modern website (offer SEO, social media, ads or booking)" };
 const NO_INITIAL = ["sent", "replied", "declined", "expired"];
 function checkedAt(db, l) {
   let at = Date.parse(l.checked_at ?? "");
@@ -118,6 +132,12 @@ export function checkFindings(db, l) {
   const url = [l.website, ...sources].find(u => u && publicUrl.safeParse(u).success);
   if (!at || !url) return { at, url, findings: [] };
   const findings = [];
+  // Services beyond websites: social links, search description, booking links (services.mjs).
+  if (l.website) {
+    let check = null;
+    try { check = parse(db.prepare("SELECT data FROM checks WHERE host = ?").get(host(l.website))?.data); } catch { /* no usable host */ }
+    findings.push(...serviceFindings(check, l.niche));
+  }
   for (const flag of parse(l.flags, [])) {
     if (flag === "not-checked") continue;
     const claim = flag === "no-website" ? "No business website was found in the directory listing."
@@ -126,7 +146,7 @@ export function checkFindings(db, l) {
     findings.push({ key: `flag:${flag}`, claim });
   }
   for (const item of parse(l.looks_dated, [])) if (String(item).trim()) findings.push({ key: `visual:${item}`, claim: `Visual review noted: ${String(item).trim()}.` });
-  return { at, url, findings: findings.map(f => ({ id: `check-${createHash("sha256").update(f.key).digest("hex").slice(0, 16)}`, type: "website_issue", claim: f.claim.slice(0, 1200), url, observedAt: at, confirmed: false })) };
+  return { at, url, findings: findings.map(f => ({ id: `check-${createHash("sha256").update(f.key).digest("hex").slice(0, 16)}`, type: f.type ?? "website_issue", claim: f.claim.slice(0, 1200), url, observedAt: at, confirmed: false })) };
 }
 
 export function discoverList(db, query = {}) {
@@ -134,7 +154,7 @@ export function discoverList(db, query = {}) {
   const rows = db.prepare(`SELECT l.* FROM leads l LEFT JOIN sales_workspaces s ON s.lead_id = l.id
     WHERE l.bucket = ? AND l.status NOT IN (${NO_INITIAL.map(() => "?").join(",")}) AND (s.lead_id IS NULL OR s.evidence = '[]')
     ORDER BY COALESCE(l.checked_at, l.updated_at) DESC LIMIT 500`).all(bucket, ...NO_INITIAL);
-  const usable = rows.filter(l => !contactHold(db, l)).map(l => ({ l, check: checkFindings(db, l) })).filter(x => x.check.findings.length);
+  const usable = rows.filter(l => !isExcluded(l.name ?? "", l.website ?? "") && !contactHold(db, l)).map(l => ({ l, check: checkFindings(db, l) })).filter(x => x.check.findings.length);
   const niches = [...new Set(usable.map(x => x.l.niche).filter(Boolean))].sort(), states = [...new Set(usable.map(x => x.l.state).filter(Boolean))].sort();
   const items = usable.filter(x => (!query.niche || x.l.niche === query.niche) && (!query.state || x.l.state === query.state)).slice(0, 50).map(({ l, check }) => ({
     id: l.id, name: l.name, town: l.town, state: l.state, niche: l.niche, website: l.website, hasEmail: !!l.email, checkedAt: check.at,
@@ -222,8 +242,8 @@ function draftInputs(db, id) {
   if (["sent", "replied"].includes(l.status)) fail("Initial outreach is already recorded. Continue in the existing email and follow-up workspace.", 409);
   const evidence = freshEvidence(parse(w.evidence, []));
   if (!evidence.length) fail("Review at least one sourced observation from the last 30 days before drafting.");
-  if (w.offer === "website" && !evidence.some(e => e.type === "website_issue")) fail("The website offer needs a reviewed website issue.");
-  if (w.offer === "build" && !evidence.some(e => ["booking_gap", "followup_gap"].includes(e.type))) fail("The Build offer needs a reviewed booking or follow-up observation.");
+  const needs = SERVICE[w.offer]?.needs;
+  if (needs && !evidence.some(e => needs.includes(e.type))) fail(`The ${SERVICE[w.offer].label} offer needs a reviewed ${needs.map(t => EVIDENCE_TYPES[t].toLowerCase()).join(" or ")}.`);
   return { l, w, evidence };
 }
 
@@ -248,9 +268,9 @@ export function saveSalesDraft(db, id, body) {
 export function starterDraft(db, id, revision) {
   const { l, w, evidence } = draftInputs(db, id); checkRevision(w, revision);
   const e = evidence[0];
-  const question = w.offer === "website" ? "Would a conversation about a website concept be useful?" : w.offer === "build" ? "Would a short demonstration of how enquiries and follow-ups could be organised be useful?" : "Would you be open to a brief conversation about what you want to improve?";
+  const service = SERVICE[w.offer] ?? SERVICE.discovery;
   // A neutral starting point, explicitly labelled as a template, never passed off as AI.
-  const draft = { subject: `A question for ${l.name}`.slice(0, 160), body: `Hello ${l.name} team,\n\nI was looking at your business and wanted to ask about your priorities. ${question}\n\nKriv`, evidenceIds: [e.id], provider: "template", researchKey: researchKey(w), createdAt: now() };
+  const draft = { subject: `A question for ${l.name}`.slice(0, 160), body: `Hello ${l.name} team,\n\nI was looking at your business and wanted to ask about your priorities. ${service.question}\n\n${alsoLine(service.id)}`, evidenceIds: [(evidence.find(x => service.needs?.includes(x.type)) ?? e).id], provider: "template", researchKey: researchKey(w), createdAt: now() };
   tx(db, () => { storeWorkspace(db, id, { ...w, revision: w.revision + 1, draft: json(draft) }); log(db, id, "sales-draft-created", { provider: "template" }); });
   return salesDetail(db, id);
 }

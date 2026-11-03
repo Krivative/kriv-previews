@@ -93,6 +93,12 @@ CREATE TABLE IF NOT EXISTS sales_draft_versions (
   id INTEGER PRIMARY KEY AUTOINCREMENT, lead_id TEXT NOT NULL REFERENCES leads(id),
   draft TEXT NOT NULL, archived_at TEXT NOT NULL
 );
+-- Reply handling (lib/replies.mjs, 2026-11-02): Gmail messages from businesses KRIV emailed.
+CREATE TABLE IF NOT EXISTS replies (
+  message_id TEXT PRIMARY KEY, lead_id TEXT, thread_id TEXT, from_addr TEXT, subject TEXT,
+  received_at TEXT NOT NULL, category TEXT NOT NULL, text TEXT, draft_id TEXT, handled TEXT, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS followups (lead_id TEXT PRIMARY KEY, thread_id TEXT, draft_id TEXT, drafted_at TEXT NOT NULL);
 `;
 
 // Columns added after the first release, for databases created before them.

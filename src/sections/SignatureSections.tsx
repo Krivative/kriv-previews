@@ -4,6 +4,7 @@ import { pageHref, sitePages } from "@/lib/site-pages";
 import { Photo } from "./Photo";
 import { Rich } from "./Rich";
 import { GalleryViewer } from "./GalleryViewer";
+import { photoSlots } from "./photo-slots";
 import s from "./sections.module.css";
 import m from "./signature.module.css";
 
@@ -53,7 +54,8 @@ export function VisitJourney({ site }: { site: SiteData }) {
 
 export function EditorialGallery({ site }: { site: SiteData }) {
   if (!site.gallery || !site.brand.photos.length) return null;
-  const photos = site.brand.photos.length > 1 ? site.brand.photos.slice(1) : site.brand.photos;
+  const photos = photoSlots(site).afterHero;
+  if (!photos.length) return null;
   return <section id="gallery" className={`${s.section} ${m.root} ${m.editorial}`} data-signature="editorial-gallery"><div className={s.wrap}>
     <div className={m.editorialHeading}><p className={s.eyebrow}>The finer details</p><h2 className={s.h2}><Rich text={site.gallery.title ?? "A closer look"} /></h2><p>Pause on the details. Open an image to explore.</p></div>
     <GalleryViewer businessName={site.business.name} photos={photos.map((src, i) => ({ src, label: site.gallery!.labels[i] ?? `Image ${String(i + 1).padStart(2, "0")}` }))} />
