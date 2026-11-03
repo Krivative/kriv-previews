@@ -34,7 +34,8 @@ export async function search(repo, query, page = 1) {
     results: data.results.map((p) => {
       const desc = [p.description, p.alt_description].filter(Boolean).join(" / ");
       return {
-        id: p.id, desc, thumb: p.urls.small, by: p.user.name,
+        id: p.id, desc, thumb: p.urls.small, by: p.user.name, raw: p.urls.raw, download: p.links.download_location,
+        credit: { provider: "Unsplash", photographer: p.user.name, profileUrl: p.user.links.html, photoPage: p.links.html },
         warn: [WARN.test(desc) ? `mentions "${desc.match(WARN)[0]}"` : "", BUSINESS.test(p.user.name) ? `uploaded by a business account ("${p.user.name}")` : ""].filter(Boolean).join("; "),
       };
     }),
@@ -49,4 +50,10 @@ export async function use(repo, id) {
     id, url: `${p.urls.raw}&w=1600&q=80&fm=jpg&fit=max`, thumb: p.urls.small,
     credit: { provider: "Unsplash", photographer: p.user.name, profileUrl: p.user.links.html, photoPage: p.links.html },
   };
+}
+
+/** Unsplash's required download tracking for a search result being used: one request, no extra lookup. */
+export async function track(repo, result) {
+  await call(repo, result.download.replace("https://api.unsplash.com", ""));
+  return { id: result.id, url: `${result.raw}&w=1600&q=80&fm=jpg&fit=max`, thumb: result.thumb, credit: result.credit };
 }

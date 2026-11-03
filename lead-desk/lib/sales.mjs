@@ -270,7 +270,7 @@ export function starterDraft(db, id, revision) {
   const e = evidence[0];
   const service = SERVICE[w.offer] ?? SERVICE.discovery;
   // A neutral starting point, explicitly labelled as a template, never passed off as AI.
-  const draft = { subject: `A question for ${l.name}`.slice(0, 160), body: `Hello ${l.name} team,\n\nI was looking at your business and wanted to ask about your priorities. ${service.question}\n\n${alsoLine(service.id)}\n\nKriv`, evidenceIds: [(evidence.find(x => service.needs?.includes(x.type)) ?? e).id], provider: "template", researchKey: researchKey(w), createdAt: now() };
+  const draft = { subject: `A question for ${l.name}`.slice(0, 160), body: `Hello ${l.name} team,\n\nI was looking at your business and wanted to ask about your priorities. ${service.question}\n\n${alsoLine(service.id)}`, evidenceIds: [(evidence.find(x => service.needs?.includes(x.type)) ?? e).id], provider: "template", researchKey: researchKey(w), createdAt: now() };
   tx(db, () => { storeWorkspace(db, id, { ...w, revision: w.revision + 1, draft: json(draft) }); log(db, id, "sales-draft-created", { provider: "template" }); });
   return salesDetail(db, id);
 }

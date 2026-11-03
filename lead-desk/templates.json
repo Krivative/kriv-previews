@@ -5,25 +5,25 @@
       "id": "no-website",
       "label": "No website",
       "subject": "{{business}}: a website idea",
-      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} around {{town}} and found your listing, but I couldn't find a website for you.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} around {{town}} and found your listing, but I couldn't find a website for you.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all."
     },
     {
       "id": "dead-site",
       "label": "Website doesn't load",
       "subject": "{{business}}: your website address doesn't load",
-      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} in {{town}} and found your listing, which points to {{website}}. {{what_happens}}, so anyone who tries it finds nothing.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking up {{niche_plural}} in {{town}} and found your listing, which points to {{website}}. {{what_happens}}, so anyone who tries it finds nothing.\n\nIn case it helps, I put together a concept of a simple site using only what's on your public listing: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all."
     },
     {
       "id": "phone-problems",
       "label": "Site problems on phones",
       "subject": "{{business}} website on phones: a quick concept",
-      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking at {{niche_plural}} in {{town}} and noticed a couple of things on {{website}} that are easy to check on your own phone:\n\n- {{problem_1}}\n- {{problem_2}}\n\nSo I put together a concept of a phone-first site using only what's already on your site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I was looking at {{niche_plural}} in {{town}} and noticed a couple of things on {{website}} that are easy to check on your own phone:\n\n- {{problem_1}}\n- {{problem_2}}\n\nSo I put together a concept of a phone-first site using only what's already on your site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all."
     },
     {
       "id": "dated-look",
       "label": "Works, but looks dated",
       "subject": "{{business}}: a fresher look for your website",
-      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I came across your website while looking at {{niche_plural}} in {{town}}. Everything works, but the look ({{looks_dated}}) feels older than your business deserves.\n\nIn case it helps, I put together a concept of a cleaner, more modern version using only what's on your own site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all.\n\nKriv"
+      "body": "Hi {{team}} team,\n\nI'm Kriv, a web designer. I came across your website while looking at {{niche_plural}} in {{town}}. Everything works, but the look ({{looks_dated}}) feels older than your business deserves.\n\nIn case it helps, I put together a concept of a cleaner, more modern version using only what's on your own site: {{facts_used}}. It's an unlisted concept page (hidden from search engines), not a real site of yours, and its buttons are disabled:\n\n{{preview_url}}\n\nIf it's useful, I'm happy to talk through it. If not, no problem at all."
     }
   ],
   "linkedinNote": [

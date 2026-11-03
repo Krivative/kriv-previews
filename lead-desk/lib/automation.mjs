@@ -9,6 +9,7 @@ import { reviewPaused } from "./workflow-state.mjs";
 import { CHAMBERS, CHAMBERS_PER_DAY } from "./chambers.mjs";
 import { NICHE_IDS, LEGACY_NICHES } from "../public/niches.js";
 import { replySyncDue, startReplySync } from "./replies.mjs";
+import { nextAutoCheck, startAutoCheck } from "./review-checks.mjs";
 
 export const DEFAULT_SEARCH = { source: "hotfrog", towns: ["ocala-fl"], niches: NICHE_IDS, lists: [] };
 // Previews prepared per day (was 10; Kriv asked for ~30 emails a day, 2026-11-01).
@@ -58,10 +59,15 @@ export function uncheckedWebsites(db, limit = 20) {
 }
 
 export function automationTick(ctx) {
-  if (!automationStatus(ctx).running || jobStatus()?.status === "running") return;
+  if (jobStatus()?.status === "running") return;
+  // Checks for designs Kriv approved run even while finding is paused: they only read and verify.
+  const running = automationStatus(ctx).running;
   // Replies first (unsubscribes must be honoured quickly), every 30 minutes once Gmail is connected.
-  if (replySyncDue(ctx)) return startReplySync(ctx);
-  const preparedToday = ctx.db.prepare("SELECT COUNT(*) n FROM preparations WHERE state = 'ready' AND updated_at >= ?").get(now().slice(0, 10)).n;
+  if (running && replySyncDue(ctx)) return startReplySync(ctx);
+  const toCheck = nextAutoCheck(ctx);
+  if (toCheck) return startAutoCheck(ctx, toCheck);
+  if (!running) return;
+  const preparedToday = ctx.db.prepare("SELECT COUNT(*) n FROM preparations WHERE state = 'ready' AND updated_at >= ? AND lead_id NOT IN (SELECT lead_id FROM lead_workflow WHERE decision = 'approved')").get(now().slice(0, 10)).n;
   const queuedRevision = ctx.db.prepare("SELECT lead_id FROM preparations WHERE state = 'queued' AND revision IS NOT NULL LIMIT 1").get();
   if (queuedRevision) {
     const lead = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(queuedRevision.lead_id));

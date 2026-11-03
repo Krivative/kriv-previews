@@ -5,7 +5,8 @@ export const CHAMBERS = [
   // Wealthier suburbs in the US and Canada first (Kriv targets $3,000 websites and $10-15k full
   // service, 2026-11-02). Each loaded once from this network with categories for 9+ business types.
   { list: "https://members.planochamber.org/list/", state: "TX", town: "Plano" },
-  { list: "https://burlingtonchamber.chambermaster.com/list/", state: "ON", town: "Burlington" },
+  // This ChamberMaster directory is Burlington, Washington (Skagit County), not Ontario (found 2026-11-03).
+  { list: "https://burlingtonchamber.chambermaster.com/list/", state: "WA", town: "Burlington" },
   { list: "https://business.chandlerchamber.com/list/", state: "AZ", town: "Chandler" },
   { list: "https://business.langleychamber.com/list/", state: "BC", town: "Langley" },
   { list: "https://members.npbchamber.com/list/", state: "FL", town: "Palm Beach Gardens" },

@@ -11,21 +11,32 @@ import { emailsIn } from "../../scripts/site-flags.mjs";
 import { preparationFingerprint, recordFile, recordFingerprint } from "./preparation-state.mjs";
 import { openBlanks, fullBody } from "./compose.mjs";
 import { presetForm, presetEmail } from "./offer-presets.mjs";
-import * as unsplash from "./unsplash.mjs";
-import { NICHE } from "../public/niches.js";
 import { reviewPaused } from "./workflow-state.mjs";
+import { choosePhotos } from "./photos.mjs";
+import { kindOf } from "./fit.mjs";
 
-async function choosePhotos(ctx, lead) {
-  const found = await unsplash.search(ctx.repo, NICHE[lead.niche]?.photo ?? "tools workspace");
-  const photos = [];
-  for (const p of found.results.filter((p) => !p.warn).slice(0, 2)) photos.push(await unsplash.use(ctx.repo, p.id));
-  if (!photos.length) throw new Error("No suitable credited photos found. Held for investigation.");
-  return photos;
+// How often each design is in use, so new previews spread across the fitting ones.
+const designUsage = (db) => Object.fromEntries(db.prepare("SELECT d.template, COUNT(*) n FROM drafts d JOIN leads l ON l.id = d.lead_id WHERE l.status IN ('draft', 'approved', 'sent', 'replied') GROUP BY d.template").all().map((r) => [r.template, r.n]));
+
+// deps.rebuild = { note, queries?, design?, niche? }: an authorized rebuild Kriv asked for
+// (2026-11-03) after reviewing. It may replace a reviewed preview's design and photos; the
+// new version goes back to Kriv's review. Never approves, publishes or sends.
+// Source-backed content written for a rebuild: { f: { key: { v, s } }, services: [{ name, blurb, s }], custom: [...] }.
+// Every value carries the page it came from; formProblems still checks that.
+export function applyContent(form, content) {
+  for (const [k, x] of Object.entries(content.f ?? {})) form.f[k] = x?.v ? { v: x.v, s: x.s } : undefined;
+  for (const k of Object.keys(form.f)) if (form.f[k] === undefined) delete form.f[k];
+  if (content.services) form.lists.services = content.services.map((x) => ({ name: x.name, blurb: x.blurb ?? "", s: x.s }));
+  if (content.custom) form.lists.custom = content.custom.map((x) => ({ name: x.name, blurb: x.blurb ?? "", s: x.s }));
+  return form;
 }
+
 export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
+  const rebuild = deps.rebuild ?? null;
+  const paused = () => !rebuild && reviewPaused(ctx.db, id);
   const l = rowToLead(ctx.db.prepare("SELECT * FROM leads WHERE id = ?").get(id));
   if (!l || !["found", "draft"].includes(l.status) || l.bucket !== "qualified") throw new Error("Only a qualified, unapproved lead can be prepared.");
-  if (reviewPaused(ctx.db, id)) throw new Error("This preview has a saved review decision. Changes require a separate, authorized editing step.");
+  if (paused()) throw new Error("This preview has a saved review decision. Changes require a separate, authorized editing step.");
   if (!l.email || isOptedOut(ctx.db, l.email)) throw new Error("No contactable business mailbox.");
   const originalFile = l.slug ? recordFile(ctx, l) : null;
   const original = originalFile && existsSync(originalFile) ? readFileSync(originalFile, "utf8") : null;
@@ -33,12 +44,12 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
   const previousMail = ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(id);
   const mailVersion = json(previousMail);
   const prior = ctx.db.prepare("SELECT * FROM preparations WHERE lead_id = ?").get(id);
-  const revision = prior?.revision ?? "";
+  const revision = rebuild?.note ?? prior?.revision ?? "";
   if (previousMail?.status === "sent") throw new Error("Sent outreach cannot be regenerated.");
   const checkCurrent = () => {
     if (cancelled()) throw new Error("Preparation cancelled.");
     const current = ctx.db.prepare("SELECT status, email, slug FROM leads WHERE id = ?").get(id);
-    if (!current || reviewPaused(ctx.db, id) || !["found", "draft"].includes(current.status) || current.slug !== initialSlug || current.email !== l.email || isOptedOut(ctx.db, current.email)) throw new Error("Lead decision changed during preparation.");
+    if (!current || paused() || !["found", "draft"].includes(current.status) || current.slug !== initialSlug || current.email !== l.email || isOptedOut(ctx.db, current.email)) throw new Error("Lead decision changed during preparation.");
     if (originalFile && readFileSync(originalFile, "utf8") !== original) throw new Error("Draft was edited during preparation; those edits were preserved.");
     if (json(ctx.db.prepare("SELECT * FROM emails WHERE lead_id = ?").get(id)) !== mailVersion) throw new Error("Email was edited during preparation; those edits were preserved.");
   };
@@ -50,12 +61,17 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
     const published = pages.flatMap((p) => emailsIn(p.text, [...String(p.html ?? "").matchAll(/href=["'](mailto:[^"']+)["']/gi)].map((m) => ({ href: m[1] }))));
     if (!published.includes(l.email.toLowerCase())) throw new Error("The contact email could not be confirmed on current source pages.");
     const oldRecord = original ? JSON.parse(original) : null;
-    const form = (deps.form ?? presetForm)(l, pages, (deps.templates ?? listTemplates)(ctx.repo), { revision, attempt: prior?.attempts ?? 0 });
+    if (rebuild?.niche) l.niche = rebuild.niche;
+    const form = (deps.form ?? presetForm)(l, pages, (deps.templates ?? listTemplates)(ctx.repo), { revision, attempt: prior?.attempts ?? 0, usage: designUsage(ctx.db), avoid: rebuild ? oldRecord?.template : null });
     // A daily refresh keeps the design already prepared; only a revision request changes it.
     if (oldRecord?.template && !revision) form.template = oldRecord.template;
+    if (rebuild?.design) form.template = rebuild.design;
+    if (rebuild?.content) applyContent(form, rebuild.content);
     form.slug = l.slug ?? form.slug;
     if (!l.slug && existsSync(join(ctx.repo, "leads", `${form.slug}.json`))) form.slug = `${form.slug.slice(0, 60)}-${randomUUID().slice(0, 8)}`;
-    form.photos = oldRecord?.brand?.photos?.length ? oldRecord.brand.photos.map((url, i) => ({ url, credit: oldRecord.brand.photoCredits[i] })) : await (deps.photos ?? choosePhotos)(ctx, l);
+    const keepPhotos = !rebuild && oldRecord?.brand?.photos?.length;
+    const queries = rebuild?.queries ?? kindOf(l, pages.map((p) => p.text).join(" ")).queries;
+    form.photos = keepPhotos ? oldRecord.brand.photos.map((url, i) => ({ url, credit: oldRecord.brand.photoCredits[i] })) : await (deps.photos ?? choosePhotos)(ctx, { slug: form.slug, queries });
     // An initial offer may omit an unverified town/category instead of inventing it. The
     // advanced editor keeps its existing manual requirements; this path explicitly hides them.
     const problems = formProblems(form, { repo: ctx.repo, existingSlugOk: !!original }).filter((p) => !["Town: required", "Category: required"].includes(p));
@@ -66,7 +82,7 @@ export async function prepareLead(ctx, id, deps = {}, cancelled = () => false) {
     if (!form.f.city?.v) rec.seo.description = `Concept preview of a website for ${rec.business.name}, prepared by KRIV.`.slice(0, 160);
     if (schemaProblems(rec).length) throw new Error(`Draft is invalid: ${schemaProblems(rec).join(" ")}`);
     if (!rec.brand.photos.length) throw new Error("Preview has no suitable photos yet.");
-    const mail = previousMail && !revision ? previousMail : (deps.email ?? presetEmail)(l, rec, { revision, attempt: prior?.attempts ?? 0 });
+    const mail = previousMail && (!revision || rebuild) ? previousMail : (deps.email ?? presetEmail)(l, rec, { revision, attempt: prior?.attempts ?? 0 });
     if (!mail.subject?.trim() || !mail.body?.trim() || openBlanks(mail.subject, mail.body).length || mail.to_addr !== l.email || !mail.body.includes(`https://kriv.agency/${rec.slug}`)) throw new Error("Email is incomplete or does not match the preview.");
     checkCurrent();
     const emailsDir = join(ctx.leadsDir, "emails"); mkdirSync(emailsDir, { recursive: true });

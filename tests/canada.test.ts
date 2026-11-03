@@ -40,10 +40,11 @@ describe("Canada (Kriv, 2026-11-02)", () => {
 
   it("puts the wealthier-suburb and Canadian directories first and keeps retired ones for old finds", () => {
     expect(CHAMBERS[0].town).toBe("Plano");
-    expect(CHAMBERS.slice(0, 25).filter((c) => PROVINCES.has(c.state))).toHaveLength(11);
+    expect(CHAMBERS.slice(0, 25).filter((c) => PROVINCES.has(c.state))).toHaveLength(10); // Burlington turned out to be Washington (2026-11-03)
     for (const c of RETIRED_CHAMBERS) expect(CHAMBERS.map((x) => x.list)).not.toContain(c.list);
     expect(chamberWhere("https://polkgeorgia.chambermaster.com/list/member/example-1", "")).toEqual(["GA", "Cedartown"]);
-    expect(chamberWhere("https://burlingtonchamber.chambermaster.com/list/member/example-2", "100 Example Rd, Oakville, ON L6J 1A1")).toEqual(["ON", "Oakville"]);
+    expect(chamberWhere("https://burlingtonchamber.chambermaster.com/list/member/example-2", "")).toEqual(["WA", "Burlington"]);
+    expect(chamberWhere("https://burlingtonchamber.chambermaster.com/list/member/example-2", "15066 Example Rd, Burlington 98233")).toEqual(["WA", "Burlington"]);
     expect(chamberWhere("https://business.langleychamber.com/list/member/example-3", "5 Sample St, Langley BC V3A 4B5")).toEqual(["BC", "Langley"]);
   });
 

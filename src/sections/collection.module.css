@@ -294,3 +294,6 @@
 
   .dispatchHero { grid-template-columns:1fr; gap:25px; }.dispatchTicket { padding:35px 25px; border-right:0; border-bottom:5px dotted var(--bg); }.dispatchTicket h1 { font-size:3.2rem; }.dispatchTicket > .location { margin-top:30px; }.dispatchEvidence .scene { height:270px; }.tickets .offering { padding:8px 20px; }.tickets .offering summary { grid-template-columns:35px 1fr 20px; }.tickets .number { padding-right:10px; }.tickets h3 { font-size:1.9rem; }.tickets .offeringBody { padding-left:0; }
 }
+
+.storyPhoto { margin-top:36px; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; }
+.storyPhoto img { width:100%; height:100%; object-fit:cover; }

@@ -1,6 +1,7 @@
 // No AI calls: approved niche templates plus neutral, reusable concept-offer wording.
 import { prefill } from "./builder.mjs";
 import { NICHE } from "../public/niches.js";
+import { kindOf, chooseDesign } from "./fit.mjs";
 
 export const REVISIONS = ["Different look and wording", "Calmer look", "Bolder look", "Shorter wording", "More direct wording"];
 const norm = (s) => String(s ?? "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
@@ -24,7 +25,7 @@ export function sentenceFor(name, pages) {
   }
   return null;
 }
-export function presetForm(lead, pages, templates, { revision = "", attempt = 0 } = {}) {
+export function presetForm(lead, pages, templates, { revision = "", attempt = 0, usage = {}, avoid = null } = {}) {
   const form = prefill(lead, pages, templates);
   const nameSource = sourceFor(lead.name, pages, true);
   if (!nameSource) throw new Error("The business name cannot be confirmed on a readable source. Held for investigation.");
@@ -35,7 +36,11 @@ export function presetForm(lead, pages, templates, { revision = "", attempt = 0 
   const matching = requestedLook ? all.filter((t) => t.look === requestedLook) : all;
   const choices = matching.length ? matching : all;
   if (!choices.length) throw new Error("No registered website designs are available.");
-  form.template = choices[seed % choices.length].id;
+  // A design that fits the business, used least so far (Kriv, 2026-11-03); the old
+  // all-designs rotation only when no fitting design is registered.
+  const kind = kindOf(lead, pages.map((p) => p.text).join(" "));
+  form.template = chooseDesign(kind, all, { usage, seed, look: requestedLook, avoid }) ?? choices[seed % choices.length].id;
+  form.kind = kind.id;
   const optional = ["city", "region", "postalCode", "line1", "aboutBody", "accent", "logo"];
   for (const key of optional) {
     const f = form.f[key];
@@ -71,5 +76,5 @@ export function presetForm(lead, pages, templates, { revision = "", attempt = 0 
 export function presetEmail(lead, rec, { revision = "", attempt = 0 } = {}) {
   const intro = /direct/i.test(revision) ? "I prepared a website concept for your business." : "I put together a website concept for your team to take a look at.";
   const close = /shorter/i.test(revision) ? "Interested in discussing it?" : attempt % 2 ? "If this direction interests you, reply and we can discuss what you would want from a website." : "Would you be open to a quick conversation about it?";
-  return { subject: `A website concept for ${lead.name}`, to_addr: lead.email, body: `Hi ${lead.name} team,\n\n${intro}\n\nhttps://kriv.agency/${rec.slug}\n\n${close}\n\nKriv` };
+  return { subject: `A website concept for ${lead.name}`, to_addr: lead.email, body: `Hi ${lead.name} team,\n\n${intro}\n\nhttps://kriv.agency/${rec.slug}\n\n${close}` };
 }

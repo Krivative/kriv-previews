@@ -185,9 +185,10 @@ describe("founder workflow", () => {
     const original = readFileSync(join(f.repo, "leads", `${f.row(id).slug}.json`), "utf8");
     const files = f.snapshot(id)!.screenshots.map((s: { file: string }) => s.file);
     const deps = { readSources: async () => f.db.prepare("SELECT url, status, text, html, fetched_at FROM pages").all(), ensureDev: async () => {}, shoot: async () => ({ ok: true, files }), autoChecks: async () => Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`unmapped fixture check ${i}`, { pass: true }])) };
-    await expect(verifyReview(f.ctx, id, deps)).rejects.toThrow(/Verify the remaining business facts/);
+    await expect(verifyReview(f.ctx, id, deps)).rejects.toThrow(/Needs your look: Not found on the business's current pages/);
     expect(readFileSync(join(f.repo, "leads", `${f.row(id).slug}.json`), "utf8")).toBe(original);
-    const qa = f.view(id).state.qa.map((q: { item: string }) => ({ ...q, pass: true }));
+    // As the tick button saves them: a tick by Kriv carries no "checked by the Desk" marker.
+    const qa = f.view(id).state.qa.map((q: { item: string }) => ({ ...q, pass: true, by: undefined }));
     f.db.prepare("UPDATE drafts SET qa = ? WHERE lead_id = ?").run(json(qa), id);
     await expect(verifyReview(f.ctx, id, deps)).resolves.toEqual({ ok: true });
     expect(f.workflow(id).decision).toBe("revision");

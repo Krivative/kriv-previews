@@ -12,6 +12,11 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Gmail reply setup postponed (2026-11-04, Claude Code)
+
+- Kriv chose to skip the one-time Gmail setup (docs/REPLIES.md) for now. `kriv-leads\secrets\` does not exist yet, so the Desk's reply check stays inactive (it only runs once gmail-client.json and gmail-token.json exist). Do not ask about it again until Kriv brings it up.
+- Note for the next agent: the 2026-11-03 session left uncommitted work that this handoff does not describe (new lead-desk/lib/auto-facts.mjs, fit.mjs, photos.mjs, public/lead-sort.js, scripts/rebuild-previews.mjs, three new tests, ~29 modified files, 35 new leads/*.json). It is unreviewed and untested; review and run the five checks before committing. The Desk running on 4321 started 11-03 14:55, before the last edits to auto-facts.mjs, so it needs a restart to load them.
+
 ### KRIV Sales connector live (2026-11-01 evening, Claude Code)
 
 - Kriv ran `node scripts/install-sales-connector.mjs` (from bash, use forward slashes: `/c/Users/user/...`; backslashes get eaten), quit Claude from the tray and reopened it. The real config (`%LOCALAPPDATA%\Claude-Data\claude_pzs8sxrjxfjjc\claude_desktop_config.json`) now lists `kriv-sales`; sales-mcp node processes started 22:20. Kriv confirmed a regular Chat shows the Discover list. Tip: name the tool ("Use the KRIV Sales tool to show my discover list"), otherwise Claude searches artifacts and Drive instead.

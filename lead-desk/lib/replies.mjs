@@ -41,14 +41,14 @@ const bookingLine = (link) => (link ? `You can pick a time for a short call here
 /** The suggested answer for a reply, or null when none is needed (unsubscribe, bounce, auto-reply). */
 export function answerFor(category, { name, bookingLink = "" }) {
   const hi = `Hi ${teamName(name)} team,`;
-  if (category === "interested") return `${hi}\n\nThanks for getting back to me, glad it caught your interest.\n\n${bookingLine(bookingLink)}\n\nTo make the call useful, what matters most to you right now: more enquiries, a better website, or more time back in your week?\n\nKriv`;
-  if (category === "question" || category === "other") return `${hi}\n\nThanks for your reply. I would rather give you a proper answer than a generic one, so a short call is the easiest way.\n\n${bookingLine(bookingLink)}\n\nIf you prefer email, tell me a little more about what you need and I will answer here.\n\nKriv`;
-  if (category === "not_now") return `${hi}\n\nThanks for letting me know, I appreciate the reply. I will leave it there for now. If anything changes, just reply to this email.\n\nKriv`;
+  if (category === "interested") return `${hi}\n\nThanks for getting back to me, glad it caught your interest.\n\n${bookingLine(bookingLink)}\n\nTo make the call useful, what matters most to you right now: more enquiries, a better website, or more time back in your week?`;
+  if (category === "question" || category === "other") return `${hi}\n\nThanks for your reply. I would rather give you a proper answer than a generic one, so a short call is the easiest way.\n\n${bookingLine(bookingLink)}\n\nIf you prefer email, tell me a little more about what you need and I will answer here.`;
+  if (category === "not_now") return `${hi}\n\nThanks for letting me know, I appreciate the reply. I will leave it there for now. If anything changes, just reply to this email.`;
   return null;
 }
 /** The single follow-up for a business that has not replied. */
 export function followUpFor({ name, bookingLink = "" }) {
-  return `Hi ${teamName(name)} team,\n\nJust following up on my note from a few days ago. Happy to send more details or set up a short call, whichever is easier for you.\n\n${bookingLine(bookingLink)}\n\nKriv\n\n${emailFooter()}`;
+  return `Hi ${teamName(name)} team,\n\nJust following up on my note from a few days ago. Happy to send more details or set up a short call, whichever is easier for you.\n\n${bookingLine(bookingLink)}\n\n${emailFooter()}`;
 }
 
 const setting = (db, key) => db.prepare("SELECT value FROM settings WHERE key = ?").get(key)?.value ?? "";

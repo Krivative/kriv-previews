@@ -11,6 +11,8 @@ import { inert } from "./inert";
 import s from "./sections.module.css";
 import { addressText, phoneText } from "@/lib/us-format";
 import c from "./compositions.module.css";
+import { GalleryViewer } from "./GalleryViewer";
+import { photoSlots } from "./photo-slots";
 
 type Props = { site: SiteData };
 const number = (n: number) => String(n + 1).padStart(2, "0");
@@ -64,12 +66,18 @@ function OfferingCopy({ site, index }: Props & { index: number }) {
   return <div className={c.offeringCopy}><p>{item.detail ?? item.blurb}</p>{item.includes?.length ? <ul>{item.includes.map((line) => <li key={line}>{line}</li>)}</ul> : null}{page ? <Link href={pageHref(site, page.path)} prefetch={false}>Explore {item.name.toLowerCase()} <span aria-hidden="true">↗</span></Link> : null}</div>;
 }
 
+function MoreImages({ site }: Props) {
+  const photos = photoSlots(site).gallery;
+  if (photos.length < 2) return null;
+  return <section id="gallery" className={c.moreImages}><p className={c.label}>In pictures</p><h2><Rich text={site.gallery?.title ?? "A closer look."} /></h2><GalleryViewer businessName={site.business.name} photos={photos} layout="editorial" /></section>;
+}
+
 function CanvasHome({ site }: Props) {
   return <>
     <section id="top" className={c.canvasHero}><div className={c.heroCopy}><p className={c.label}>{site.hero.eyebrow ?? site.business.category}</p><h1><Rich text={site.hero.headline} /></h1><p className={c.intro}>{site.hero.sub}</p><Explore site={site} /></div>{site.brand.photos[0] ? <p className={c.sceneCaption}>{site.gallery?.labels[0] ?? "An illustrative image study"}</p> : null}<div className={c.canvasFoot}>{site.business.address.city ? <span>{site.business.address.city}</span> : null}{site.business.category ? <span>{site.business.category}</span> : null}</div></section>
     {site.about ? <section id="about" className={c.canvasEssay}><p className={c.label}>A closer introduction</p><h2><Rich text={site.about.title ?? `About ${site.business.name}`} /></h2><p>{site.about.body}</p><Link href={pageHref(site, "about")} prefetch={false}>Read the story <span aria-hidden="true">↗</span></Link></section> : null}
     {site.services?.items.length ? <section id="services" className={c.canvasOfferings}><div className={c.sectionHeading}><p className={c.label}>Explore at your own pace</p><h2><Rich text={site.services.title} /></h2>{site.services.intro ? <p>{site.services.intro}</p> : null}</div><div>{site.services.items.map((item, i) => <details key={item.name} name={`${site.slug}-canvas-options`} open={i === 0}><summary><span className={c.itemNumber}>{number(i)}</span><h3>{item.name}</h3><span className={c.plus} aria-hidden="true">＋</span></summary><OfferingCopy site={site} index={i} /></details>)}</div></section> : null}
-    <div className={c.canvasLower}><CustomNote site={site} /><Questions site={site} /><Contact site={site} /></div>
+    <MoreImages site={site} /><div className={c.canvasLower}><CustomNote site={site} /><Questions site={site} /><Contact site={site} /></div>
   </>;
 }
 
@@ -79,7 +87,7 @@ function IndexHome({ site }: Props) {
     <section id="top" className={c.indexHero}><p className={c.label}>{site.hero.eyebrow ?? site.business.category}</p><h1><Rich text={site.hero.headline} /></h1><div className={c.indexOpening}><div><p className={c.intro}>{site.hero.sub}</p><Explore site={site} /></div>{site.brand.photos[0] ? <figure><Photo priority sizes="(max-width:720px) 60vw, 25vw" src={site.brand.photos[0]} label={site.gallery?.labels[0] ?? "Illustrative photography"} /><figcaption>01 / {site.business.name}</figcaption></figure> : null}</div></section>
     {site.services?.items.length ? <section id="services" className={c.indexOfferings}><div className={c.indexSectionTitle}><span className={c.label}>01 / Explore</span><h2><Rich text={site.services.title} /></h2></div>{site.services.intro ? <p>{site.services.intro}</p> : null}<ol>{site.services.items.map((item, i) => <li key={item.name}><span className={c.itemNumber}>{number(i)}</span><h3><Link href={pageHref(site, services[i].path)} prefetch={false}>{item.name} <span aria-hidden="true">↗</span></Link></h3><div><p>{item.blurb}</p><ServiceDetails item={item} /></div></li>)}</ol></section> : null}
     {site.about ? <section id="about" className={c.indexEssay}><p className={c.label}>02 / Introduction</p><h2><Rich text={site.about.title ?? `About ${site.business.name}`} /></h2><div><p>{site.about.body}</p>{site.about.sections?.map((chapter) => <article key={chapter.title}><h3>{chapter.title}</h3><p>{chapter.body}</p></article>)}<Link href={pageHref(site, "about")} prefetch={false}>More about {site.business.name} <span aria-hidden="true">↗</span></Link></div></section> : null}
-    <CustomNote site={site} /><Questions site={site} /><Contact site={site} />
+    <MoreImages site={site} /><CustomNote site={site} /><Questions site={site} /><Contact site={site} />
   </>;
 }
 
@@ -91,7 +99,7 @@ function StageHome({ site }: Props) {
     <CustomNote site={site} />
     {site.services?.items.length ? <section id="services" className={c.stageOfferings}><div className={c.indexSectionTitle}><span className={c.label}>02 / The options</span><h2><Rich text={site.services.title} /></h2></div>{site.services.intro ? <p>{site.services.intro}</p> : null}{site.services.items.map((item, i) => <details key={item.name}><summary><span className={c.itemNumber}>{number(i)}</span><h3>{item.name}</h3><span className={c.plus} aria-hidden="true">＋</span></summary><OfferingCopy site={site} index={i} /></details>)}</section> : null}
     {site.about ? <section id="about" className={c.stageStory}><p className={c.label}>03 / An introduction</p><h2><Rich text={site.about.title ?? `About ${site.business.name}`} /></h2><div><p>{site.about.body}</p><Link href={pageHref(site, "about")} prefetch={false}>Read more <span aria-hidden="true">↗</span></Link></div></section> : null}
-    <Questions site={site} /><Contact site={site} />
+    <MoreImages site={site} /><Questions site={site} /><Contact site={site} />
   </>;
 }
 

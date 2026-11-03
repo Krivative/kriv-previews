@@ -19,7 +19,7 @@ const draftOf = (db, l) => (l?.slug ? db.prepare("SELECT * FROM drafts WHERE slu
 export function qaState(repo, saved = []) {
   return qaChecklist(repo).map((q) => {
     const s = saved.find((x) => x.item === q.item);
-    return { ...q, pass: s?.pass ?? false, auto: q.auto || s?.auto || false, why: s?.why ?? null };
+    return { ...q, pass: s?.pass ?? false, auto: q.auto || s?.auto || false, why: s?.why ?? null, by: s?.by };
   });
 }
 
@@ -120,7 +120,8 @@ export const buildRoutes = [
     if (!item) return bad("unknown QA item");
     if (item.auto) return bad("That item is checked automatically; run the preview check again.");
     item.pass = !!ctx.body.pass;
-    ctx.db.prepare("UPDATE drafts SET qa = ? WHERE slug = ?").run(json(qa.map(({ item: i, pass, auto, why }) => ({ item: i, pass, auto, why }))), d.slug);
+    ctx.db.prepare("UPDATE drafts SET qa = ? WHERE slug = ?").run(json(qa.map(({ item: i, pass, auto, why, by }) => (i === item.item ? { item: i, pass, auto, why: pass ? "Ticked by you." : why } : { item: i, pass, auto, why, by }))), d.slug);
+    if (item.pass) log(ctx.db, l.id, "check ticked by Kriv", { item: item.item });
     return { ok: true };
   }],
 
