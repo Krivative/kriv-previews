@@ -15,7 +15,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 ### Gmail reply setup postponed (2026-11-04, Claude Code)
 
 - Kriv chose to skip the one-time Gmail setup (docs/REPLIES.md) for now. `kriv-leads\secrets\` does not exist yet, so the Desk's reply check stays inactive (it only runs once gmail-client.json and gmail-token.json exist). Do not ask about it again until Kriv brings it up.
-- Note for the next agent: the 2026-11-03 session left uncommitted work that this handoff does not describe (new lead-desk/lib/auto-facts.mjs, fit.mjs, photos.mjs, public/lead-sort.js, scripts/rebuild-previews.mjs, three new tests, ~29 modified files, 35 new leads/*.json). It is unreviewed and untested; review and run the five checks before committing. The Desk running on 4321 started 11-03 14:55, before the last edits to auto-facts.mjs, so it needs a restart to load them.
+- Released (Kriv said go ahead, 2026-11-04): the 2026-11-03 work was reviewed, all five checks passed (579 tests locally; 545 in a clean tree, the gap is leads.test.ts running once per untracked draft lead), committed as bb47ccc and pushed. Merged into main as 461bdbf in a temporary worktree (removed afterwards; leads/ identical to main; it needed its own `pnpm install --offline`, a node_modules junction breaks Turbopack). Vercel status success; production smoke 16/16 on kriv-previews.vercel.app/for; kriv.agency/chucks-ducts 200. The Desk (PID 26580, started 2026-11-04 01:08) already runs this code. 34 untracked draft leads and the chucks-ducts.json edit stay local and uncommitted. The Vercel MCP returns 403 for listing deployments; use `gh api repos/Krivative/kriv-previews/commits/<sha>/statuses`.
 
 ### KRIV Sales connector live (2026-11-01 evening, Claude Code)
 

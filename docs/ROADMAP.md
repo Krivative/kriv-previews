@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-02 - Last step finished: reply handling built (Gmail read + drafts, one follow-up, booking link, daily summary); waiting for Kriv's one-time Gmail setup
+Updated: 2026-11-04 - Last step finished: 2026-11-03 work (fitting designs, photo slots, automatic fact checks, local-time sorting) committed as bb47ccc and released: main 461bdbf deployed, production smoke 16/16. Gmail reply setup postponed by Kriv
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,6 +8,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
+- [x] Release 2026-11-04 (Kriv said go ahead): reviewed and committed the 2026-11-03 work (bb47ccc: designs chosen to fit each business, no repeated photos, the Desk checks approved designs by itself, inbox sorting with each business local time, Burlington is WA, no typed "Kriv" sign-off). Merged into main as 461bdbf in a temporary worktree (leads/ identical to main), five checks passed there, Vercel deployment completed, production smoke 16/16 and live leads on kriv.agency 200. Untracked draft leads stay local (the Desk publishes each one)
+- [ ] Gmail reply setup: postponed by Kriv (2026-11-04); steps in docs/REPLIES.md
 - [ ] Open the fictional Sales demo using Open KRIV Sales Demo.vbs; then use Open KRIV.vbs for the existing Desk after closing any older server. Settings are preserved; the existing worker can resume on normal Desk startup
 
 - [ ] Kriv: use the Lead Desk at `http://localhost:4321` (reload after restart). Automatic building is on: new previews and email drafts appear under Ready for review. Your part is approving the design, reviewing the email, publishing and sending in Gmail
