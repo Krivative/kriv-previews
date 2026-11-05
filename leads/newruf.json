@@ -1,0 +1,118 @@
+{
+  "slug": "newruf",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "Newruf",
+    "category": "Roofing contractor",
+    "phoneDisplay": "(512) 642-6005",
+    "phoneE164": "+15126426005",
+    "address": {
+      "city": "Round Rock",
+      "region": "TX",
+      "postalCode": "78665",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Austin & Central Texas",
+    "headline": "Roofs for homes, churches and *businesses.*",
+    "sub": "Residential and commercial roofing, storm damage repair and inspections across Central Texas."
+  },
+  "services": {
+    "title": "Roofing services",
+    "items": [
+      {
+        "name": "Residential roof replacement",
+        "blurb": "Full roof replacement for homes."
+      },
+      {
+        "name": "Roof repair and maintenance",
+        "blurb": "Residential roof repair and maintenance."
+      },
+      {
+        "name": "Storm damage and emergency roofing",
+        "blurb": "Emergency roofing and storm damage roof repair."
+      },
+      {
+        "name": "Roof inspections",
+        "blurb": "HITEK and aerial roof inspections."
+      },
+      {
+        "name": "Metal roofing",
+        "blurb": "Metal roof installation."
+      },
+      {
+        "name": "GAF shingles and solar shingles",
+        "blurb": "GAF shingle installation and Timberline solar shingles."
+      },
+      {
+        "name": "Commercial roofing",
+        "blurb": "Commercial roof replacement, repair, maintenance and storm repair, including churches and retail."
+      },
+      {
+        "name": "Insurance claims",
+        "blurb": "Help with insurance claims and deductibles."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Newruf | Concept preview",
+    "description": "Concept preview of a website for Newruf in Round Rock, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://newruf.com/wp-content/uploads/2023/04/newruf-church-768x1024.jpg",
+      "https://newruf.com/wp-content/uploads/2025/02/central-florida-roofing-hero.webp",
+      "https://newruf.com/wp-content/uploads/2023/01/locations-hero.webp",
+      "https://images.unsplash.com/photo-1640476750068-72c645e653cd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29tbWVyY2lhbCUyMGZsYXQlMjByb29mfGVufDF8MHx8fDE3OTM2OTY1Nzl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1761959166803-ed952543eeae?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c3Rvcm0lMjBkYW1hZ2VkJTIwcm9vZnxlbnwxfDB8fHwxNzkzNjk2NTgwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1590365876016-da05ac533e83?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bmV3JTIwcm9vZiUyMGhvdXNlfGVufDF8MHx8fDE3OTM2OTY1ODB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.newruf.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.newruf.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.newruf.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Simon Hurry",
+        "profileUrl": "https://unsplash.com/@bullterriere",
+        "photoPage": "https://unsplash.com/photos/an-aerial-view-of-a-building-with-a-roof-covered-in-snow-nmIpX-OGCG0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Roger Starnes Sr",
+        "profileUrl": "https://unsplash.com/@rstar50",
+        "photoPage": "https://unsplash.com/photos/dilapidated-house-with-a-damaged-roof-L0cSRDaIp9g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yucel M",
+        "profileUrl": "https://unsplash.com/@ymoran",
+        "photoPage": "https://unsplash.com/photos/a-roof-with-a-triangle-shaped-window-on-top-of-it-TnhkSNZPXd8"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.newruf.com/",
+    "https://newruf.com/contact-us/",
+    "https://unsplash.com/photos/an-aerial-view-of-a-building-with-a-roof-covered-in-snow-nmIpX-OGCG0",
+    "https://unsplash.com/photos/dilapidated-house-with-a-damaged-roof-L0cSRDaIp9g",
+    "https://unsplash.com/photos/a-roof-with-a-triangle-shaped-window-on-top-of-it-TnhkSNZPXd8"
+  ]
+}
