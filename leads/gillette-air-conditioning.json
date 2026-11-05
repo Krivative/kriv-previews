@@ -1,0 +1,115 @@
+{
+  "slug": "gillette-air-conditioning",
+  "template": "hvac-bold",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Gillette Air Conditioning Company",
+    "category": "Mechanical contractor",
+    "address": {
+      "city": "San Antonio",
+      "region": "TX",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "San Antonio, Texas",
+    "headline": "Mechanical systems, designed, built and *maintained.*",
+    "sub": "Design-build mechanical contracting, sheet metal fabrication, controls and service for commercial, industrial, institutional and residential buildings."
+  },
+  "services": {
+    "title": "Divisions",
+    "items": [
+      {
+        "name": "Construction",
+        "blurb": "Design-build new construction, renovation and retrofit."
+      },
+      {
+        "name": "Controls",
+        "blurb": "KMC building controls that scale to any size of building."
+      },
+      {
+        "name": "Fabrication",
+        "blurb": "Sheet metal for tenant improvements, large ventilation systems and more."
+      },
+      {
+        "name": "Service",
+        "blurb": "Routine service, maintenance and replacement plans."
+      },
+      {
+        "name": "Commercial, industrial and residential",
+        "blurb": "Service for commercial, industrial and residential customers."
+      },
+      {
+        "name": "Government and tenant improvement",
+        "blurb": "Government projects and tenant improvements."
+      }
+    ]
+  },
+  "about": {
+    "title": "Started with one truck",
+    "body": "Gillette Air Conditioning began in 1959 with one truck, on principles of honesty, integrity and a can-do attitude. For 60 years owners and builders have chosen Gillette to design, install and maintain their mechanical systems, from new construction to renovation and retrofit."
+  },
+  "seo": {
+    "title": "Gillette Air Conditioning Company | Concept preview",
+    "description": "Concept preview of a website for Gillette Air Conditioning Company in San Antonio, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://gillette-ac.com/wp-content/uploads/2018/03/18582240_1416991295049618_2285906017748840255_n.jpg",
+      "http://gillette-ac.com/wp-content/uploads/2018/02/81-DSC_3837.jpg",
+      "https://images.unsplash.com/photo-1615309662243-70f6df917b59?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29tbWVyY2lhbCUyMGh2YWMlMjBkdWN0d29yayUyMGluc3RhbGxhdGlvbnxlbnwxfDB8fHwxNzkzNjg5NTgyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1469289759076-d1484757abc3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8c2hlZXQlMjBtZXRhbCUyMGZhYnJpY2F0aW9uJTIwc2hvcHxlbnwxfDB8fHwxNzkzNjg5NTgzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1753272691001-4d68806ac590?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YnVpbGRpbmclMjBhdXRvbWF0aW9uJTIwY29udHJvbCUyMHBhbmVsfGVufDF8MHx8fDE3OTM2ODk1ODN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1785344737419-5aeaa4139143?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWVjaGFuaWNhbCUyMHJvb20lMjBwaXBlc3xlbnwxfDB8fHwxNzkzNjg5NTg0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://gillette-ac.com/services/construction/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://gillette-ac.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Compagnons",
+        "profileUrl": "https://unsplash.com/@sigmund",
+        "photoPage": "https://unsplash.com/photos/black-and-gray-metal-pipe-yZmHFF-g-W0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "xyzcharlize",
+        "profileUrl": "https://unsplash.com/@charlize",
+        "photoPage": "https://unsplash.com/photos/aerial-photo-of-gray-metal-parts-7b49gfsgQZY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aleksandr Lyaptsev",
+        "profileUrl": "https://unsplash.com/@lyaptseviridi",
+        "photoPage": "https://unsplash.com/photos/electrical-panel-with-wires-and-components-q0Jo_J5YxHY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "John Crix",
+        "profileUrl": "https://unsplash.com/@jccrix",
+        "photoPage": "https://unsplash.com/photos/industrial-pipes-and-machinery-in-a-dark-confined-space-letkPVWDX3Y"
+      }
+    ]
+  },
+  "sources": [
+    "http://gillette-ac.com/",
+    "http://gillette-ac.com/contact/",
+    "http://gillette-ac.com/services/construction/",
+    "https://unsplash.com/photos/black-and-gray-metal-pipe-yZmHFF-g-W0",
+    "https://unsplash.com/photos/aerial-photo-of-gray-metal-parts-7b49gfsgQZY",
+    "https://unsplash.com/photos/electrical-panel-with-wires-and-components-q0Jo_J5YxHY",
+    "https://unsplash.com/photos/industrial-pipes-and-machinery-in-a-dark-confined-space-letkPVWDX3Y"
+  ]
+}
