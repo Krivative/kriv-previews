@@ -1,0 +1,141 @@
+{
+  "slug": "golden-zone-cleaning",
+  "template": "spa-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "Golden Zone Cleaning Corp",
+    "category": "Residential and commercial cleaning",
+    "phoneDisplay": "(780) 913-5472",
+    "phoneE164": "+17809135472",
+    "address": {
+      "city": "Edmonton",
+      "postalCode": "T5N 1H2",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon",
+        "time": "8am - 5pm"
+      },
+      {
+        "days": "Tue",
+        "time": "8am - 5pm"
+      },
+      {
+        "days": "Wed",
+        "time": "8am - 5pm"
+      },
+      {
+        "days": "Thu",
+        "time": "8am - 5pm"
+      },
+      {
+        "days": "Fri",
+        "time": "8am - 5pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Edmonton, Alberta",
+    "headline": "Cleaning for condo buildings and *offices.*",
+    "sub": "Consistent cleaning for condominium complexes from 20 to 170 units, property managers and offices."
+  },
+  "services": {
+    "title": "How we help your building",
+    "items": [
+      {
+        "name": "Condo complexes",
+        "blurb": "Cleaning for condominium complexes from 20 to 170 units."
+      },
+      {
+        "name": "Offices",
+        "blurb": "Evenings or weekends, from once a week to five days a week."
+      },
+      {
+        "name": "Emergency relief",
+        "blurb": "Fill-in cleaning for a day, a week or a month when your building cleaner can't come in."
+      },
+      {
+        "name": "Holiday fill-in",
+        "blurb": "Cover for your building's cleaning staff while they are on holiday."
+      },
+      {
+        "name": "On-site management",
+        "blurb": "Help with trades, elevator pads, move-ins and move-outs, deliveries and parkade cleaning."
+      },
+      {
+        "name": "Special projects",
+        "blurb": "Pressure washing, mechanical rooms, stair nosing, and stripping and refinishing floors."
+      }
+    ]
+  },
+  "about": {
+    "title": "Long-term staff, long-term clients",
+    "body": "Golden Zone Cleaning partners with property management companies, condominium corporations and businesses. It has over 20 day and night staff, some with the company for up to 12 years, and clients who have been with it from the start. Quotes are based on task load, so every quote starts with a site walk-through."
+  },
+  "seo": {
+    "title": "Golden Zone Cleaning Corp | Concept preview",
+    "description": "Concept preview of a website for Golden Zone Cleaning Corp in Edmonton, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.squarespace-cdn.com/content/v1/571d77b0c2ea511fcc0d55b5/1464574157653-DAA8L2FY51L8KXSHZHON/IMG_0496.JPG?format=2500w",
+      "https://images.unsplash.com/photo-1635151925996-cf34cc3805d4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YXBhcnRtZW50JTIwYnVpbGRpbmclMjBoYWxsd2F5fGVufDF8MHx8fDE3OTM2ODk2MjJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2xlYW4lMjBicmlnaHQlMjBhcGFydG1lbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNjg5NjIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1784622526684-e27f1e0329bf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Zmxvb3IlMjBjbGVhbmluZyUyMG1hY2hpbmV8ZW58MXwwfHx8MTc5MzY4OTYyM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1627905646269-7f034dcc5738?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8b2ZmaWNlJTIwY2xlYW5pbmd8ZW58MXwwfHx8MTc5MzY4OTYyNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1597047084897-51e81819a499?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cmVzaWRlbnRpYWwlMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8MHx8fDE3OTM2ODk2MjR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://goldenzonecleaning.ca/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Scarbor Siu",
+        "profileUrl": "https://unsplash.com/@kameeru322813",
+        "photoPage": "https://unsplash.com/photos/a-long-hallway-with-doors-leading-to-another-room-nbk-hwLDCOA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Med Badr  Chemmaoui",
+        "profileUrl": "https://unsplash.com/@medbadrc",
+        "photoPage": "https://unsplash.com/photos/home-office-living-room-workspace-xtDpXi_a-YQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "giyofloor floor machine",
+        "profileUrl": "https://unsplash.com/@giyofloor",
+        "photoPage": "https://unsplash.com/photos/a-teal-ride-on-floor-sweeper-machine-with-brushes-XGB3bMolrd8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Towfiqu barbhuiya",
+        "profileUrl": "https://unsplash.com/@towfiqu999999",
+        "photoPage": "https://unsplash.com/photos/hands-cleaning-desk-with-spray-bottle--9gPKrsbGmc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Leohoho",
+        "profileUrl": "https://unsplash.com/@leohoho",
+        "photoPage": "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-QL7KdXdcfWA"
+      }
+    ]
+  },
+  "sources": [
+    "http://goldenzonecleaning.ca/",
+    "https://edmontonchamber.chambermaster.com/list/member/golden-zone-cleaning-corp-16898",
+    "http://goldenzonecleaning.ca/services-1",
+    "https://unsplash.com/photos/a-long-hallway-with-doors-leading-to-another-room-nbk-hwLDCOA",
+    "https://unsplash.com/photos/home-office-living-room-workspace-xtDpXi_a-YQ",
+    "https://unsplash.com/photos/a-teal-ride-on-floor-sweeper-machine-with-brushes-XGB3bMolrd8",
+    "https://unsplash.com/photos/hands-cleaning-desk-with-spray-bottle--9gPKrsbGmc",
+    "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-QL7KdXdcfWA"
+  ]
+}
