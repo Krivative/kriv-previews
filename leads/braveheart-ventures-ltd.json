@@ -1,0 +1,117 @@
+{
+  "slug": "braveheart-ventures-ltd",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "Braveheart Ventures Ltd",
+    "category": "Construction management",
+    "phoneDisplay": "(604) 230-4410",
+    "phoneE164": "+16042304410",
+    "address": {
+      "city": "North Vancouver",
+      "region": "BC",
+      "postalCode": "V7L 0G1",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon-Fri",
+        "time": "9am – 5pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Metro Vancouver",
+    "headline": "Built on experience. *Driven by excellence.*",
+    "sub": "A boutique construction company for commercial interiors, tenant improvements, light industrial and renovations across the Lower Mainland."
+  },
+  "services": {
+    "title": "What Braveheart delivers",
+    "items": [
+      {
+        "name": "Construction management",
+        "blurb": "Disciplined project management from concept to completion."
+      },
+      {
+        "name": "Design + build",
+        "blurb": "Design and construction under one contract."
+      },
+      {
+        "name": "General contracting",
+        "blurb": "General contracting across Metro Vancouver and the Lower Mainland."
+      },
+      {
+        "name": "Tenant improvements",
+        "blurb": "Commercial interiors and workplace environments."
+      },
+      {
+        "name": "Light industrial construction",
+        "blurb": "Light industrial projects."
+      },
+      {
+        "name": "Interior renovations",
+        "blurb": "Interior renovation services."
+      }
+    ]
+  },
+  "about": {
+    "title": "One point of accountability",
+    "body": "Braveheart Ventures is known for spotless, safe job sites and attention to detail, with a single point of accountability from planning and permitting through construction and completion. It works with open-book project management and transparent communication. Principal Drew Lewis and general manager George Lewis lead the team."
+  },
+  "seo": {
+    "title": "Braveheart Ventures Ltd | Concept preview",
+    "description": "Concept preview of a website for Braveheart Ventures Ltd in North Vancouver, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://www.braveheartventures.ca/wp-content/uploads/2026/03/UNADJUSTEDNONRAW_thumb_393a.jpg",
+      "http://www.braveheartventures.ca/wp-content/uploads/2026/03/GY-2.jpg",
+      "http://www.braveheartventures.ca/wp-content/uploads/2026/03/UNADJUSTEDNONRAW_thumb_393d.jpg",
+      "http://www.braveheartventures.ca/wp-content/uploads/2026/03/UNADJUSTEDNONRAW_thumb_393e.jpg",
+      "https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29tbWVyY2lhbCUyMG9mZmljZSUyMGludGVyaW9yJTIwZml0JTIwb3V0fGVufDF8MHx8fDE3OTM2ODU1ODZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1774953037913-af0cf688491a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bW9kZXJuJTIwd29ya3BsYWNlJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5MzY4NTU4Nnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.braveheartventures.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.braveheartventures.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.braveheartventures.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.braveheartventures.ca/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "S O C I A L . C U T",
+        "profileUrl": "https://unsplash.com/@socialcut",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-9-piece-office-table-and-chairs-1RT4txDDAbM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aalo Lens",
+        "profileUrl": "https://unsplash.com/@aalolens",
+        "photoPage": "https://unsplash.com/photos/modern-office-lounge-area-with-contemporary-furniture-QVVHV24DA_o"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.nvchamber.ca/list/member/braveheart-ventures-ltd-10486",
+    "http://www.braveheartventures.ca/about/",
+    "http://www.braveheartventures.ca/",
+    "https://unsplash.com/photos/brown-wooden-9-piece-office-table-and-chairs-1RT4txDDAbM",
+    "https://unsplash.com/photos/modern-office-lounge-area-with-contemporary-furniture-QVVHV24DA_o"
+  ]
+}
