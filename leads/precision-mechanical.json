@@ -1,0 +1,117 @@
+{
+  "slug": "precision-mechanical",
+  "template": "plumbing-calm",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-10-28",
+  "expiresAt": "2026-11-27",
+  "status": "approved",
+  "business": {
+    "name": "Precision Mechanical",
+    "category": "Heating, cooling and plumbing",
+    "phoneDisplay": "(325) 676-5511",
+    "phoneE164": "+13256765511",
+    "address": {
+      "city": "Abilene",
+      "region": "TX",
+      "postalCode": "79602",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "The Big Country since 1993",
+    "headline": "Heating, cooling and *plumbing.*",
+    "sub": "Veteran and locally owned, serving homes, offices and businesses across the Big Country, on call 24/7."
+  },
+  "services": {
+    "title": "Residential and commercial",
+    "items": [
+      {
+        "name": "Heating",
+        "blurb": "Heating installation and repair."
+      },
+      {
+        "name": "Cooling",
+        "blurb": "Cooling repairs and installation."
+      },
+      {
+        "name": "Plumbing",
+        "blurb": "Plumbing solutions for homes and businesses."
+      },
+      {
+        "name": "On call 24/7",
+        "blurb": "Service any time, with office hours Monday to Friday."
+      }
+    ]
+  },
+  "about": {
+    "title": "Veteran and locally owned",
+    "body": "Precision Mechanical is proud to be veteran and locally owned. Its team values integrity, discipline and quality, and serves the whole Big Country as well as nearby cities such as San Angelo and Lubbock."
+  },
+  "seo": {
+    "title": "Precision Mechanical | Concept preview",
+    "description": "Concept preview of a website for Precision Mechanical in Abilene, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1780198052211-19aa414413a3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aHZhYyUyMHRlY2huaWNpYW4lMjByb29mdG9wJTIwdW5pdHxlbnwxfDB8fHwxNzkzNjk2NjQyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1700124113583-81aa99ea2aa2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZnVybmFjZSUyMGhlYXRpbmclMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY5NjY0M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1575299737366-39c143459bc5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8d2F0ZXIlMjBoZWF0ZXIlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY5NjY0NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1615239059551-bdb842ef4f73?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8d2VzdCUyMHRleGFzJTIwc21hbGwlMjB0b3dufGVufDF8MHx8fDE3OTM2OTY2NDV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777793918984-e40e628d7cf5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aHZhYyUyMHRlY2huaWNpYW4lMjByb29mdG9wJTIwdW5pdHxlbnwxfDB8fHwxNzkzNjk2NjQyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1661745797378-7b204b476303?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fHBsdW1iZXIlMjBmaXhpbmclMjBwaXBlfGVufDF8MHx8fDE3OTM2OTY2NDN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Valyri Bosserman",
+        "profileUrl": "https://unsplash.com/@wintercouplet",
+        "photoPage": "https://unsplash.com/photos/metallic-vent-on-a-corrugated-roof-with-a-reflective-building-_CJjZIXmo-0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "alpha innotec",
+        "profileUrl": "https://unsplash.com/@alpha_innotec",
+        "photoPage": "https://unsplash.com/photos/a-air-conditioner-sitting-on-the-side-of-a-building--nbWCvUiFJA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michal Balog",
+        "profileUrl": "https://unsplash.com/@mikbutcher",
+        "photoPage": "https://unsplash.com/photos/water-heater-on-wall-above-sink-ii5IRyypPhs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aaron Owens",
+        "profileUrl": "https://unsplash.com/@pastoraaronowens",
+        "photoPage": "https://unsplash.com/photos/brown-concrete-building-under-gray-sky-jucU9KmQNPw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergej *****",
+        "profileUrl": "https://unsplash.com/@skstrannik",
+        "photoPage": "https://unsplash.com/photos/two-ventilation-units-on-a-building-roof-4YGvQCztjiM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "herdika danarko",
+        "profileUrl": "https://unsplash.com/@herdika",
+        "photoPage": "https://unsplash.com/photos/mechanics-hands-repairing-a-carburetor-with-a-screwdriver-8YXbd4CNSbE"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.pmech.org/",
+    "https://pmech.org/about-us/",
+    "https://lubbockchambertx.chambermaster.com/list/member/precision-mechanical-39662",
+    "https://pmech.org/services/",
+    "https://unsplash.com/photos/metallic-vent-on-a-corrugated-roof-with-a-reflective-building-_CJjZIXmo-0",
+    "https://unsplash.com/photos/a-air-conditioner-sitting-on-the-side-of-a-building--nbWCvUiFJA",
+    "https://unsplash.com/photos/water-heater-on-wall-above-sink-ii5IRyypPhs",
+    "https://unsplash.com/photos/brown-concrete-building-under-gray-sky-jucU9KmQNPw",
+    "https://unsplash.com/photos/two-ventilation-units-on-a-building-roof-4YGvQCztjiM",
+    "https://unsplash.com/photos/mechanics-hands-repairing-a-carburetor-with-a-screwdriver-8YXbd4CNSbE"
+  ]
+}
