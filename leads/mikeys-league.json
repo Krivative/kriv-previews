@@ -1,0 +1,124 @@
+{
+  "slug": "mikeys-league",
+  "template": "gym-bold",
+  "contentNiche": "gym",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Mikey's League, Inc.",
+    "category": "Inclusive youth sports",
+    "phoneDisplay": "(480) 695-0782",
+    "phoneE164": "+14806950782",
+    "address": {
+      "city": "Chandler",
+      "region": "AZ",
+      "postalCode": "85286",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday through Thursday",
+        "time": "8:00 AM to 5:00 PM Friday by appointment only"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Chandler, Arizona",
+    "headline": "Every kid deserves a *team.*",
+    "sub": "Inclusive sports where athletes with physical or intellectual disabilities compete alongside peer partners."
+  },
+  "services": {
+    "title": "Seasons and programs",
+    "items": [
+      {
+        "name": "Baseball",
+        "blurb": "February to March."
+      },
+      {
+        "name": "Flag football",
+        "blurb": "April to May."
+      },
+      {
+        "name": "Basketball",
+        "blurb": "June to July."
+      },
+      {
+        "name": "Hockey",
+        "blurb": "August to September, with street hockey and ice hockey."
+      },
+      {
+        "name": "Strength and conditioning",
+        "blurb": "Workouts for every ability level."
+      },
+      {
+        "name": "Volunteer and donate",
+        "blurb": "Ways to help the league."
+      }
+    ]
+  },
+  "about": {
+    "title": "A genuine team sport experience",
+    "body": "Mikey's League brings the community together through inclusive sports. Children and young adults with physical or intellectual disabilities play alongside peer partners, with structured practices, intentional coaching and teams built so everyone's talents can shine. Programs run in Chandler, Tolleson and Tucson."
+  },
+  "seo": {
+    "title": "Mikey's League, Inc. | Concept preview",
+    "description": "Concept preview of a website for Mikey's League, Inc. in Chandler, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://mikeysleague.org/wp-content/uploads/sb-instagram-feed-images/464509510_18074993884573890_3226696199438003649_nfull.jpg",
+      "http://mikeysleague.org/wp-content/uploads/sb-instagram-feed-images/462013215_18073051216573890_3148384109952958891_nfull.jpg",
+      "https://images.unsplash.com/photo-1510698454686-1e2552e058e0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8a2lkcyUyMGZsYWclMjBmb290YmFsbHxlbnwxfDB8fHwxNzkzNjk0NTEyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1616353352910-15d970ac020b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8eW91dGglMjBiYXNrZXRiYWxsJTIwdGVhbXxlbnwxfDB8fHwxNzkzNjk0NTEzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1655555044588-912861846347?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8c3RyZWV0JTIwaG9ja2V5JTIwa2lkc3xlbnwxfDB8fHwxNzkzNjk0NTEzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1529768167801-9173d94c2a42?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8eW91dGglMjBiYXNlYmFsbCUyMGdhbWV8ZW58MXwwfHx8MTc5MzY5NDUxNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://mikeysleague.org/about/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://mikeysleague.org/about/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ben Hershey",
+        "profileUrl": "https://unsplash.com/@benhershey",
+        "photoPage": "https://unsplash.com/photos/two-teams-playing-football-XlmiBKcmAdI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Matthias Cooper",
+        "profileUrl": "https://unsplash.com/@matthiascooper",
+        "photoPage": "https://unsplash.com/photos/basketball-players-playing-on-basketball-court-8TYh5icTQVc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Astrid Schaffner",
+        "profileUrl": "https://unsplash.com/@familyschaffner",
+        "photoPage": "https://unsplash.com/photos/a-pair-of-shoes-on-a-carpet-bi_amI3F4co"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Chris Chow",
+        "profileUrl": "https://unsplash.com/@chris_chow",
+        "photoPage": "https://unsplash.com/photos/baseball-player-swinging-bat-BhwRQr08PcM"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.chandlerchamber.com/list/member/mikey-s-league-inc-33328",
+    "http://www.mikeysleague.org/",
+    "http://mikeysleague.org/contact/",
+    "http://mikeysleague.org/about/",
+    "https://unsplash.com/photos/two-teams-playing-football-XlmiBKcmAdI",
+    "https://unsplash.com/photos/basketball-players-playing-on-basketball-court-8TYh5icTQVc",
+    "https://unsplash.com/photos/a-pair-of-shoes-on-a-carpet-bi_amI3F4co",
+    "https://unsplash.com/photos/baseball-player-swinging-bat-BhwRQr08PcM"
+  ]
+}
