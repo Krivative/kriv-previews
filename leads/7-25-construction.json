@@ -1,0 +1,90 @@
+{
+  "slug": "7-25-construction",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "7:25 Construction LLC",
+    "phoneDisplay": "(832) 345-5077",
+    "phoneE164": "+18323455077",
+    "address": {
+      "city": "Montgomery",
+      "region": "TX",
+      "postalCode": "77316",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *7:25 Construction LLC.*",
+    "sub": "A concept website prepared by KRIV for 7:25 Construction LLC."
+  },
+  "seo": {
+    "title": "7:25 Construction LLC | Concept preview",
+    "description": "Concept preview of a website for 7:25 Construction LLC in Montgomery, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1581093806997-124204d9fa9d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1744296133544-bbc0906cbc89?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1684226404494-7698033be0c9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1693639435051-d58ac86db299?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1659020394262-e49e0a5366bb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1720278516199-55256b5040ef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "ThisisEngineering",
+        "profileUrl": "https://unsplash.com/@thisisengineering",
+        "photoPage": "https://unsplash.com/photos/black-and-red-click-pen-on-white-printer-paper-M_NvKwSOkug"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ben Koorengevel",
+        "profileUrl": "https://unsplash.com/@benkoorengevel",
+        "photoPage": "https://unsplash.com/photos/construction-of-a-large-building-is-in-progress-7Nury9JUjFE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tom Caillarec",
+        "profileUrl": "https://unsplash.com/@tomca_tv",
+        "photoPage": "https://unsplash.com/photos/a-group-of-cranes-sitting-next-to-each-other-on-top-of-a-field-ewgTGbP5eHM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-house-under-construction-with-a-lot-of-scaffolding-W375t_HvjCc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Filipp Romanovski",
+        "profileUrl": "https://unsplash.com/@filipp_roman_photography",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-white-tube-with-a-red-label-cT1JowkAT38"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Iqro Rinaldi",
+        "profileUrl": "https://unsplash.com/@iqro_rinaldi",
+        "photoPage": "https://unsplash.com/photos/a-large-building-under-construction-with-a-sky-background-Iij0qprxnpY"
+      }
+    ]
+  },
+  "sources": [
+    "https://greatermagnoliaparkwaychamber.chambermaster.com/list/member/7-25-construction-llc-6723",
+    "http://www.725construction.com/contact",
+    "http://www.725construction.com/",
+    "https://unsplash.com/photos/black-and-red-click-pen-on-white-printer-paper-M_NvKwSOkug",
+    "https://unsplash.com/photos/construction-of-a-large-building-is-in-progress-7Nury9JUjFE",
+    "https://unsplash.com/photos/a-group-of-cranes-sitting-next-to-each-other-on-top-of-a-field-ewgTGbP5eHM",
+    "https://unsplash.com/photos/a-house-under-construction-with-a-lot-of-scaffolding-W375t_HvjCc",
+    "https://unsplash.com/photos/a-close-up-of-a-white-tube-with-a-red-label-cT1JowkAT38",
+    "https://unsplash.com/photos/a-large-building-under-construction-with-a-sky-background-Iij0qprxnpY"
+  ]
+}
