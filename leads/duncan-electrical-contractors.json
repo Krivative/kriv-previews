@@ -1,0 +1,133 @@
+{
+  "slug": "duncan-electrical-contractors",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Duncan Electrical Contractors, Inc.",
+    "category": "Electrical contractor",
+    "phoneDisplay": "(903) 455-3636",
+    "phoneE164": "+19034553636",
+    "address": {
+      "city": "Greenville",
+      "region": "TX",
+      "postalCode": "75401",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Friday",
+        "time": "8:00AM to 5:00PM"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Greenville, Texas",
+    "headline": "Electrical work for homes and *businesses.*",
+    "sub": "New wiring, electrical repair, lightning protection and surge suppression, plus heat and air installation and repair."
+  },
+  "services": {
+    "title": "What Duncan Electrical does",
+    "items": [
+      {
+        "name": "New residential and commercial wiring",
+        "blurb": "Wiring for new homes and new commercial buildings."
+      },
+      {
+        "name": "Electrical repair",
+        "blurb": "Residential, commercial and apartment electrical repair."
+      },
+      {
+        "name": "Restaurant electrical construction",
+        "blurb": "Electrical construction for restaurants, and kitchen equipment repair."
+      },
+      {
+        "name": "Lightning protection",
+        "blurb": "Lightning protection installation."
+      },
+      {
+        "name": "Surge suppression",
+        "blurb": "Surge suppression equipment for homes and businesses."
+      },
+      {
+        "name": "Underground wiring and power poles",
+        "blurb": "Underground wiring services and power poles."
+      },
+      {
+        "name": "LED lighting products",
+        "blurb": "An LED lighting products distributor."
+      },
+      {
+        "name": "Heat and air",
+        "blurb": "Heat and air installation, duct systems, and AC and heat repair."
+      }
+    ]
+  },
+  "about": {
+    "title": "A family business in Greenville",
+    "body": "Sam Duncan began the company in 1955 with his wife Margaret. Their son Sammy has worked in the business since 1977, his wife Sandra since 1990, and their three sons are trained electricians. Each client gets one-on-one attention through the whole job, and clients are invited to give input during the design process."
+  },
+  "seo": {
+    "title": "Duncan Electrical Contractors, Inc. | Concept preview",
+    "description": "Concept preview of a website for Duncan Electrical Contractors, Inc. in Greenville, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://www.duncanselectric.com/Duncan_Electric_002.jpg",
+      "http://www.duncanselectric.com/Duncan_Electric_004.jpg",
+      "https://images.unsplash.com/photo-1758101755915-462eddc23f57?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZWxlY3RyaWNpYW4lMjB3aXJpbmclMjBwYW5lbHxlbnwxfDB8fHwxNzkzNjg4OTc4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1584259097630-4d5cb684a0ec?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bGVkJTIwbGlnaHRpbmclMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY4ODk3OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cG93ZXIlMjBwb2xlJTIwbGluZXN8ZW58MXwwfHx8MTc5MzY4ODk4MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1662559480765-b8a8119cf110?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZWxlY3RyaWNhbCUyMGNhYmxlcyUyMGNsb3NldXB8ZW58MXwwfHx8MTc5MzY4ODk4MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.duncanselectric.com/about.html"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.duncanselectric.com/about.html"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Toolmash Expo",
+        "profileUrl": "https://unsplash.com/@toolmash",
+        "photoPage": "https://unsplash.com/photos/electrician-testing-electrical-panel-with-multimeter-PkHf7BUWbtk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Meritt Thomas",
+        "profileUrl": "https://unsplash.com/@merittthomas",
+        "photoPage": "https://unsplash.com/photos/white-ceiling-with-white-light-bapKjLClteo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Matthew Henry",
+        "profileUrl": "https://unsplash.com/@matthewhenry",
+        "photoPage": "https://unsplash.com/photos/photo-of-truss-towers-yETqkLnhsUI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Carlos Felipe Ramírez Mesa",
+        "profileUrl": "https://unsplash.com/@cafera13",
+        "photoPage": "https://unsplash.com/photos/a-wall-with-different-items-on-it-yhruOdN5WTw"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.duncanselectric.com/",
+    "http://www.duncanselectric.com/contact.html",
+    "http://www.duncanselectric.com/services.html",
+    "https://greenvillechambertx.chambermaster.com/list/member/duncan-electrical-contractors-inc-79",
+    "http://www.duncanselectric.com/about.html",
+    "https://unsplash.com/photos/electrician-testing-electrical-panel-with-multimeter-PkHf7BUWbtk",
+    "https://unsplash.com/photos/white-ceiling-with-white-light-bapKjLClteo",
+    "https://unsplash.com/photos/photo-of-truss-towers-yETqkLnhsUI",
+    "https://unsplash.com/photos/a-wall-with-different-items-on-it-yhruOdN5WTw"
+  ]
+}
