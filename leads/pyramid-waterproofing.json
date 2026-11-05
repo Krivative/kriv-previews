@@ -1,0 +1,110 @@
+{
+  "slug": "pyramid-waterproofing",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Pyramid Waterproofing Inc.",
+    "category": "Roofing",
+    "phoneDisplay": "(713) 699-4777",
+    "phoneE164": "+17136994777",
+    "address": {
+      "city": "Houston",
+      "region": "TX",
+      "postalCode": "77022",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Pyramid Waterproofing Inc..*",
+    "sub": "A concept website prepared by KRIV for Pyramid Waterproofing Inc.."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "New Roofs",
+        "blurb": "Learn about new roofs."
+      },
+      {
+        "name": "Waterproofing",
+        "blurb": "Discover the story behind our name and learn why Houston businesses trust us for their roofing and waterproofing needs."
+      },
+      {
+        "name": "Roof Improvements",
+        "blurb": "Learn about roof improvements."
+      },
+      {
+        "name": "Roofing",
+        "blurb": "Discover the story behind our name and learn why Houston businesses trust us for their roofing and waterproofing needs."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Pyramid Waterproofing Inc. | Concept preview",
+    "description": "Concept preview of a website for Pyramid Waterproofing Inc. in Houston, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1518736346281-76873166a64a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cm9vZiUyMHRpbGVzJTIwY2xvc2V1cHxlbnwxfDB8fHwxNzkzNzY1MzE5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1763665814538-8ba04597286c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fHJvb2ZlciUyMGluc3RhbGxpbmclMjBzaGluZ2xlc3xlbnwxfDB8fHwxNzkzNjg1NTEwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1587061633437-187ac80e8e7a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bWV0YWwlMjByb29mfGVufDF8MHx8fDE3OTM2OTY1Nzh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1614418583513-8e96d9160333?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cm9vZiUyMHRpbGVzJTIwY2xvc2V1cHxlbnwxfDB8fHwxNzkzNzY1MzE5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1780445392484-5fb7d5610708?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fHJvb2ZlciUyMGluc3RhbGxpbmclMjBzaGluZ2xlc3xlbnwxfDB8fHwxNzkzNjg1NTEwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1605450099279-533bd3ce379a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bWV0YWwlMjByb29mfGVufDF8MHx8fDE3OTM2OTY1Nzh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Jasmund",
+        "profileUrl": "https://unsplash.com/@jasmund",
+        "photoPage": "https://unsplash.com/photos/dark-grey-roof-tiles-pattern-m_vEaZizd2s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergej *****",
+        "profileUrl": "https://unsplash.com/@skstrannik",
+        "photoPage": "https://unsplash.com/photos/workers-installing-roof-tiles-on-a-new-building-OnwxQNEbPco"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Robin Kutesa",
+        "profileUrl": "https://unsplash.com/@kutesir",
+        "photoPage": "https://unsplash.com/photos/red-and-black-building-under-blue-sky-wmhhsI7GUQ8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Peter Muscutt",
+        "profileUrl": "https://unsplash.com/@peterm4988372",
+        "photoPage": "https://unsplash.com/photos/brown-roof-tiles-in-close-up-photography-Jii1bSg3Q_I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergio Martins",
+        "profileUrl": "https://unsplash.com/@smartins20",
+        "photoPage": "https://unsplash.com/photos/hands-using-a-tool-to-fasten-metal-roofing-E07VvBCSSNE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "ROCCO STOPPOLONI",
+        "profileUrl": "https://unsplash.com/@sstoppo",
+        "photoPage": "https://unsplash.com/photos/brown-roof-tiles-in-close-up-photography-oPPoyFHG11Q"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.pyramidwaterproofing.com/",
+    "https://business.woodlandschamber.org/list/member/pyramid-waterproofing-inc-houston-71031",
+    "https://unsplash.com/photos/dark-grey-roof-tiles-pattern-m_vEaZizd2s",
+    "https://unsplash.com/photos/workers-installing-roof-tiles-on-a-new-building-OnwxQNEbPco",
+    "https://unsplash.com/photos/red-and-black-building-under-blue-sky-wmhhsI7GUQ8",
+    "https://unsplash.com/photos/brown-roof-tiles-in-close-up-photography-Jii1bSg3Q_I",
+    "https://unsplash.com/photos/hands-using-a-tool-to-fasten-metal-roofing-E07VvBCSSNE",
+    "https://unsplash.com/photos/brown-roof-tiles-in-close-up-photography-oPPoyFHG11Q"
+  ]
+}
