@@ -1,0 +1,115 @@
+{
+  "slug": "nigels-floors-more",
+  "template": "plumbing-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Nigel's Floors & More, LLC",
+    "phoneDisplay": "(713) 904-4334",
+    "phoneE164": "+17139044334",
+    "address": {
+      "city": "The Woodlands",
+      "region": "TX",
+      "postalCode": "77380",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Nigel's Floors & More, LLC.*",
+    "sub": "A concept website prepared by KRIV for Nigel's Floors & More, LLC."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Flooring Consultation & Design Guidance",
+        "blurb": "Learn about flooring consultation & design guidance."
+      },
+      {
+        "name": "Removal of Existing Flooring",
+        "blurb": "Learn about removal of existing flooring."
+      },
+      {
+        "name": "Floor Repairs, Refinishing & Maintenance",
+        "blurb": "Learn about floor repairs, refinishing & maintenance."
+      },
+      {
+        "name": "Professional Flooring Installation",
+        "blurb": "Learn about professional flooring installation."
+      },
+      {
+        "name": "Subfloor Repair & Preparation",
+        "blurb": "Learn about subfloor repair & preparation."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Nigel's Floors & More, LLC | Concept preview",
+    "description": "Concept preview of a website for Nigel's Floors & More, LLC in The Woodlands, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1618832515490-e181c4794a45?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634141737347-4069b3c19ee9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dG9vbHMlMjB3b3JrYmVuY2h8ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1741105820127-97dd1aaafe87?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bmV3JTIwZmxvb3IlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaG9tZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTM2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/flagged/photo-1573168710465-7f7da9a23a15?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631396326628-3105f48b6f2b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dG9vbHMlMjB3b3JrYmVuY2h8ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "immo RENOVATION",
+        "profileUrl": "https://unsplash.com/@immorenovation",
+        "photoPage": "https://unsplash.com/photos/kitchen-renovation-with-white-cabinets-UqNEbyRQ660"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Elmer Cañas",
+        "profileUrl": "https://unsplash.com/@elmercanasjr",
+        "photoPage": "https://unsplash.com/photos/a-room-filled-with-lots-of-different-types-of-items-1UimDTf69ho"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Jordan",
+        "profileUrl": "https://unsplash.com/@brett_jordan",
+        "photoPage": "https://unsplash.com/photos/a-large-empty-room-with-some-appliances-UDYc2sqVqPs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-living-room-set-9M66C_w_ToM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Im3rd Media",
+        "profileUrl": "https://unsplash.com/@im3rdmedia",
+        "photoPage": "https://unsplash.com/photos/turned-on-pendant-lamps-above-kitchen-island-FJZtZldA-uE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bailey Alexander",
+        "profileUrl": "https://unsplash.com/@baileyal3xander",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-lots-of-different-items-8zhoteMsiHc"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.nigels-floors.com/",
+    "https://business.woodlandschamber.org/list/member/nigel-s-floors-more-llc-the-woodlands-71691",
+    "http://nigels-floors.com/services/",
+    "https://unsplash.com/photos/kitchen-renovation-with-white-cabinets-UqNEbyRQ660",
+    "https://unsplash.com/photos/a-room-filled-with-lots-of-different-types-of-items-1UimDTf69ho",
+    "https://unsplash.com/photos/a-large-empty-room-with-some-appliances-UDYc2sqVqPs",
+    "https://unsplash.com/photos/white-and-brown-living-room-set-9M66C_w_ToM",
+    "https://unsplash.com/photos/turned-on-pendant-lamps-above-kitchen-island-FJZtZldA-uE",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-lots-of-different-items-8zhoteMsiHc"
+  ]
+}
