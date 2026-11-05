@@ -1,0 +1,136 @@
+{
+  "slug": "trico-companies",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "TRICO Companies, LLC",
+    "category": "Commercial general contractor",
+    "phoneDisplay": "(360) 757-2373",
+    "phoneE164": "+13607572373",
+    "address": {
+      "city": "Burlington",
+      "region": "WA",
+      "postalCode": "98233",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Friday",
+        "time": "8:00 am - 5:00 pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Burlington, Washington",
+    "headline": "Building beyond *the building.*",
+    "sub": "Single-source design-build construction, from feasibility to repairs and maintenance, across Skagit and Snohomish counties."
+  },
+  "services": {
+    "title": "Expertise",
+    "items": [
+      {
+        "name": "Design-build construction",
+        "blurb": "Single-source project delivery from concept through construction."
+      },
+      {
+        "name": "Feasibility and pre-construction",
+        "blurb": "Support during preconstruction, with design-build or design-assist alongside your architect."
+      },
+      {
+        "name": "Tenant improvements and renovations",
+        "blurb": "Renovations and tenant improvements."
+      },
+      {
+        "name": "Repairs and maintenance",
+        "blurb": "Repair and maintenance work for existing facilities."
+      },
+      {
+        "name": "BIM, VDC and drone services",
+        "blurb": "Building information modeling, virtual design and drone services."
+      }
+    ]
+  },
+  "about": {
+    "title": "Structured from integrity, built on trust",
+    "body": "Founded in 1979, TRICO delivers projects from concept through construction as a single source. Its teams of skilled craft professionals, field leaders and problem solvers have built food processing plants, a fire station, aviation hangars, cleanroom labs and a year-round pickleball pavilion. It works from offices in Burlington and Everett."
+  },
+  "custom": {
+    "title": "Who TRICO builds for",
+    "items": [
+      {
+        "name": "Food processing and cold storage",
+        "blurb": "Food processing, value-added agriculture and cold storage."
+      },
+      {
+        "name": "Advanced manufacturing and industrial",
+        "blurb": "Manufacturing and industrial facilities."
+      },
+      {
+        "name": "Commercial, medical and office",
+        "blurb": "Commercial, medical and professional office buildings."
+      },
+      {
+        "name": "Civic, community and recreation",
+        "blurb": "Civic, community and recreational projects."
+      }
+    ]
+  },
+  "seo": {
+    "title": "TRICO Companies, LLC | Concept preview",
+    "description": "Concept preview of a website for TRICO Companies, LLC in Burlington, WA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://tricocompanies.com/wp-content/uploads/2024/10/IMG_9015-collage-USE-scaled.jpg",
+      "https://www.tricocompanies.com/wp-content/uploads/2026/08/Brand-Story-Element-5.png",
+      "https://www.tricocompanies.com/wp-content/uploads/2025/12/IMG_0298-2-scaled.jpg",
+      "https://tricocompanies.com/wp-content/uploads/2024/10/TRICO-VDC-Modeling-Rendering-scaled.jpg",
+      "https://images.unsplash.com/photo-1609867271967-a82f85c48531?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Zm9vZCUyMHByb2Nlc3NpbmclMjBwbGFudCUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzA0MjEzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1768158988512-ad31657fe5b8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29uc3RydWN0aW9uJTIwY3JldyUyMGhhcmQlMjBoYXRzfGVufDF8MHx8fDE3OTM3MDQyMTR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://tricocompanies.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://tricocompanies.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "https://www.tricocompanies.com/about/"
+      },
+      {
+        "provider": "Business",
+        "source": "https://www.tricocompanies.com/bim-vdc-and-drone-services/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jan Huber",
+        "profileUrl": "https://unsplash.com/@jan_huber",
+        "photoPage": "https://unsplash.com/photos/a-construction-site-with-a-crane-in-the-background-kO8f82u73Es"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Richard Heinen",
+        "profileUrl": "https://unsplash.com/@richard_he",
+        "photoPage": "https://unsplash.com/photos/a-yellow-hard-hat-rests-on-a-wooden-pallet-cigfVTfU39I"
+      }
+    ]
+  },
+  "sources": [
+    "http://tricocompanies.com/",
+    "http://tricocompanies.com/contact-us",
+    "https://burlingtonchamber.chambermaster.com/list/member/trico-companies-llc-344",
+    "https://www.tricocompanies.com/about/",
+    "https://www.tricocompanies.com/bim-vdc-and-drone-services/",
+    "https://unsplash.com/photos/a-construction-site-with-a-crane-in-the-background-kO8f82u73Es",
+    "https://unsplash.com/photos/a-yellow-hard-hat-rests-on-a-wooden-pallet-cigfVTfU39I"
+  ]
+}
