@@ -1,0 +1,89 @@
+{
+  "slug": "pedulla-electric-ltd",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Pedulla Electric Ltd.",
+    "phoneDisplay": "(905) 854-5306",
+    "phoneE164": "+19058545306",
+    "address": {
+      "city": "Moffat",
+      "region": "ON",
+      "postalCode": "L0P 1J0",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Pedulla Electric Ltd..*",
+    "sub": "A concept website prepared by KRIV for Pedulla Electric Ltd.."
+  },
+  "seo": {
+    "title": "Pedulla Electric Ltd. | Concept preview",
+    "description": "Concept preview of a website for Pedulla Electric Ltd. in Moffat, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1602876153306-9a59170d9d8d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bGVkJTIwbGlnaHRpbmclMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY4ODk3OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZXYlMjBjaGFyZ2VyfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1553873002-785d775854c9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8ZWxlY3RyaWNpYW4lMjB3aXJpbmd8ZW58MXwwfHx8MTc5Mzc1MzU1MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1576446470246-499c738d1c8e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8ZWxlY3RyaWNhbCUyMHBhbmVsfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1659612534697-3edc1892db46?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bGVkJTIwbGlnaHRpbmclMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY4ODk3OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1704475336842-0ab3798abf0e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8ZXYlMjBjaGFyZ2VyfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Daniel Herron",
+        "profileUrl": "https://unsplash.com/@herrond",
+        "photoPage": "https://unsplash.com/photos/black-and-brown-pendant-lamp-nPdrPYeShk4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "CHUTTERSNAP",
+        "profileUrl": "https://unsplash.com/@chuttersnap",
+        "photoPage": "https://unsplash.com/photos/electric-vehicle-charger-plugged-into-car-xfaYAsMV1p8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hobi industri",
+        "profileUrl": "https://unsplash.com/@hobiindustri",
+        "photoPage": "https://unsplash.com/photos/black-and-yellow-clamp-meter-NLBJ2I0lNr4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mark Kats",
+        "profileUrl": "https://unsplash.com/@bulava92",
+        "photoPage": "https://unsplash.com/photos/white-circuit-breakers-oj1zW_PNI4k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "engin akyurt",
+        "profileUrl": "https://unsplash.com/@enginakyurt",
+        "photoPage": "https://unsplash.com/photos/a-group-of-lights-8Oa1HatKvms"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Zaptec",
+        "profileUrl": "https://unsplash.com/@zaptec",
+        "photoPage": "https://unsplash.com/photos/electric-vehicle-charging-with-cable-2jRNVr0ac7s"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.miltonchamber.ca/list/member/pedulla-electric-ltd-123",
+    "http://www.pedullaelectric.com/",
+    "https://unsplash.com/photos/black-and-brown-pendant-lamp-nPdrPYeShk4",
+    "https://unsplash.com/photos/electric-vehicle-charger-plugged-into-car-xfaYAsMV1p8",
+    "https://unsplash.com/photos/black-and-yellow-clamp-meter-NLBJ2I0lNr4",
+    "https://unsplash.com/photos/white-circuit-breakers-oj1zW_PNI4k",
+    "https://unsplash.com/photos/a-group-of-lights-8Oa1HatKvms",
+    "https://unsplash.com/photos/electric-vehicle-charging-with-cable-2jRNVr0ac7s"
+  ]
+}
