@@ -1,0 +1,119 @@
+{
+  "slug": "clean-eatz",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "Clean Eatz",
+    "category": "Healthy cafe and meal plans",
+    "phoneDisplay": "(614) 553-7012",
+    "phoneE164": "+16145537012",
+    "address": {
+      "city": "Dublin",
+      "region": "OH",
+      "postalCode": "43016",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Dublin, Ohio",
+    "headline": "Heat. Eat. *Repeat.*",
+    "sub": "Weekly meal plans, grab-and-go, dine-in and catering. Order Tuesday to Sunday and pick up fresh meals on Sunday or Monday."
+  },
+  "services": {
+    "title": "Ways to eat clean",
+    "items": [
+      {
+        "name": "Weekly meal plan",
+        "blurb": "A new menu every week, picked up fresh on Sunday or Monday."
+      },
+      {
+        "name": "Custom meal plan",
+        "blurb": "Meal plans built around you."
+      },
+      {
+        "name": "Grab 'n' go",
+        "blurb": "Healthy meals ready to take with you."
+      },
+      {
+        "name": "Dine-in cafe",
+        "blurb": "The cafe menu, served in house."
+      },
+      {
+        "name": "Catering",
+        "blurb": "Clean, balanced food for groups."
+      }
+    ]
+  },
+  "about": {
+    "title": "More than healthy food",
+    "body": "Clean Eatz takes the prep out of meal planning. It is heart-driven to change lives through clean, balanced food, education and motivational support, with nutrition and fitness options for every type of lifestyle."
+  },
+  "seo": {
+    "title": "Clean Eatz | Concept preview",
+    "description": "Concept preview of a website for Clean Eatz in Dublin, OH, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1543352632-5a4b24e4d2a6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGVhbHRoeSUyMG1lYWwlMjBwcmVwJTIwY29udGFpbmVyc3xlbnwxfDB8fHwxNzkzNjg1NjA4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634812328723-902bb47365a4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Z3JpbGxlZCUyMGNoaWNrZW4lMjBib3dsJTIwaGVhbHRoeXxlbnwxfDB8fHwxNzkzNjg1NjA4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1607532941433-304659e8198a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZnJlc2glMjBzYWxhZCUyMGJvd2x8ZW58MXwwfHx8MTc5MzY4NTYwOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1675647699232-76b8f533b006?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWVhbCUyMHByZXAlMjBraXRjaGVufGVufDF8MHx8fDE3OTM2ODU2MDl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1632660346941-023cc64e1252?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGVhbHRoeSUyMHdyYXAlMjBsdW5jaHxlbnwxfDB8fHwxNzkzNjg1NjEwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1654923064926-be7e64267a31?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c21vb3RoaWUlMjBib3dsfGVufDF8MHx8fDE3OTM2ODU2MTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Ella Olsson",
+        "profileUrl": "https://unsplash.com/@ellaolsson",
+        "photoPage": "https://unsplash.com/photos/meal-prep-containers-with-healthy-food-lMcRyBx4G50"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Karina B.",
+        "profileUrl": "https://unsplash.com/@karina_brovchenko",
+        "photoPage": "https://unsplash.com/photos/a-red-bowl-filled-with-meat-and-vegetables-T8EZ42yL8VM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tania Melnyczuk",
+        "profileUrl": "https://unsplash.com/@alphabetania",
+        "photoPage": "https://unsplash.com/photos/vegetable-salad-on-white-ceramic-plate-xeTv9N2FjXA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Richard R",
+        "profileUrl": "https://unsplash.com/@sepro",
+        "photoPage": "https://unsplash.com/photos/a-bunch-of-trays-filled-with-different-types-of-food-mjuRSU6RvgU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Advocator SY",
+        "profileUrl": "https://unsplash.com/@advocator_sy",
+        "photoPage": "https://unsplash.com/photos/a-black-plate-topped-with-a-burrito-and-a-salad-MdkUEKFfkTM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eiliv Aceron",
+        "profileUrl": "https://unsplash.com/@shootdelicious",
+        "photoPage": "https://unsplash.com/photos/a-bowl-of-cereal-with-milk-and-fruit-NI8MeJiAN3I"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.cleaneatz.com/",
+    "https://business.dublinchamber.org/list/member/clean-eatz-21279",
+    "https://unsplash.com/photos/meal-prep-containers-with-healthy-food-lMcRyBx4G50",
+    "https://unsplash.com/photos/a-red-bowl-filled-with-meat-and-vegetables-T8EZ42yL8VM",
+    "https://unsplash.com/photos/vegetable-salad-on-white-ceramic-plate-xeTv9N2FjXA",
+    "https://unsplash.com/photos/a-bunch-of-trays-filled-with-different-types-of-food-mjuRSU6RvgU",
+    "https://unsplash.com/photos/a-black-plate-topped-with-a-burrito-and-a-salad-MdkUEKFfkTM",
+    "https://unsplash.com/photos/a-bowl-of-cereal-with-milk-and-fruit-NI8MeJiAN3I"
+  ]
+}
