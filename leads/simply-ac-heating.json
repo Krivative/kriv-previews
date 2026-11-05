@@ -1,0 +1,103 @@
+{
+  "slug": "simply-ac-heating",
+  "template": "plumbing-calm",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Simply AC and Heating",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(806) 549-7705",
+    "phoneE164": "+18065497705",
+    "address": {
+      "city": "Lubbock",
+      "region": "TX",
+      "postalCode": "79424",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Lubbock, Texas",
+    "headline": "Simply serviced, *simply priced.*",
+    "sub": "Repair, maintenance and installation for all makes and models of heating and air conditioning equipment."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Repair",
+        "blurb": "From faulty thermostats to refrigerant leaks, diagnosed and fixed quickly."
+      },
+      {
+        "name": "Maintenance",
+        "blurb": "Tune-ups, filter replacements and system inspections."
+      },
+      {
+        "name": "Installation",
+        "blurb": "Properly installed systems from most brands."
+      }
+    ]
+  },
+  "about": {
+    "title": "Your comfort, our commitment",
+    "body": "Simply AC and Heating knows the stress a broken system creates, and helps guide customers through repair or replace decisions. It commits to treating every home or business with care and respect while the work is done."
+  },
+  "seo": {
+    "title": "Simply AC and Heating | Concept preview",
+    "description": "Concept preview of a website for Simply AC and Heating in Lubbock, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://simplyacandheating.co/wp-content/uploads/2025/04/amn-installation-14-scaled.jpg",
+      "https://simplyacandheating.co/wp-content/uploads/2025/04/amn-installation-11-scaled.jpg",
+      "https://simplyacandheating.co/wp-content/uploads/2025/04/20190615_170005-1024x768.jpg",
+      "https://images.unsplash.com/photo-1635604866833-70844856de75?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aHZhYyUyMHVuaXQlMjBiYWNreWFyZHxlbnwxfDB8fHwxNzkzNzAwNDUxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1632226846632-11ca139d5c1a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZnVybmFjZSUyMGZpbHRlciUyMHJlcGxhY2VtZW50fGVufDF8MHx8fDE3OTM3MDA0NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1617713964860-a6ffc37721a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cmVmcmlnZXJhbnQlMjBnYXVnZXMlMjBodmFjfGVufDF8MHx8fDE3OTM3MDA0NTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.simplyacandheating.co/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.simplyacandheating.co/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.simplyacandheating.co/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Vadim Babenko",
+        "profileUrl": "https://unsplash.com/@vakerbv",
+        "photoPage": "https://unsplash.com/photos/a-building-with-a-bunch-of-pipes-on-the-side-of-it-IUuVB1nLsQU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "MChe Lee",
+        "profileUrl": "https://unsplash.com/@mclee",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-guitar-kziE2X9jYB0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Artur Solarz",
+        "profileUrl": "https://unsplash.com/@cptlajmenko",
+        "photoPage": "https://unsplash.com/photos/black-and-white-analog-clock-at-10-00-hihmzc-TToc"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.simplyacandheating.co/",
+    "https://lubbockchambertx.chambermaster.com/list/member/simply-ac-and-heating-lubbock-31748",
+    "https://simplyacandheating.co/contact/",
+    "https://unsplash.com/photos/a-building-with-a-bunch-of-pipes-on-the-side-of-it-IUuVB1nLsQU",
+    "https://unsplash.com/photos/a-close-up-of-a-guitar-kziE2X9jYB0",
+    "https://unsplash.com/photos/black-and-white-analog-clock-at-10-00-hihmzc-TToc"
+  ]
+}
