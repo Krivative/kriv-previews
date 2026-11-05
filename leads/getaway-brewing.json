@@ -1,0 +1,111 @@
+{
+  "slug": "getaway-brewing",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "Getaway Brewing Co.",
+    "category": "Brewery and taproom",
+    "phoneDisplay": "(614) 389-0137",
+    "phoneE164": "+16143890137",
+    "address": {
+      "city": "Dublin",
+      "region": "OH",
+      "postalCode": "43017",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Historic Dublin, Ohio",
+    "headline": "A vacation in a *pint glass.*",
+    "sub": "A destination-inspired brewery on the Scioto River with vacation-themed beers, tiki cocktails and wine."
+  },
+  "services": {
+    "title": "At the taproom",
+    "items": [
+      {
+        "name": "Beer brewed in-house",
+        "blurb": "Vacation-themed beers and old-world styles brewed on site."
+      },
+      {
+        "name": "Tiki cocktails",
+        "blurb": "Shareable tiki cocktails, some served with an open flame."
+      },
+      {
+        "name": "Pizza and charcuterie",
+        "blurb": "A pizza box menu and charcuterie."
+      },
+      {
+        "name": "Event rental",
+        "blurb": "The taproom is available for events."
+      },
+      {
+        "name": "Airbnb stay",
+        "blurb": "An Airbnb for a real getaway."
+      }
+    ]
+  },
+  "about": {
+    "title": "No need to pack your bags",
+    "body": "From the founders of Seventh Son Brewing and Antiques on High, Getaway Brewing serves old-world styles of beer brewed in-house and shareable tiki cocktails, some served with an open flame. Find it at 108 N High St in the heart of Historic Dublin, with free parking at the Rock Cress Garage."
+  },
+  "seo": {
+    "title": "Getaway Brewing Co. | Concept preview",
+    "description": "Concept preview of a website for Getaway Brewing Co. in Dublin, OH, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.squarespace-cdn.com/content/v1/60aa6749a6f31b7cb76bd81c/9840baa4-ad60-4769-a279-421c716bc1a3/Screen+Shot+2022-02-04+at+4.40.58+PM.jpg?format=750w",
+      "https://images.squarespace-cdn.com/content/v1/60aa6749a6f31b7cb76bd81c/3bca46e5-0fcb-4e39-a3d9-ec30319a5040/DSCF0484.jpeg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/60aa6749a6f31b7cb76bd81c/cc4e5db0-1412-4599-945d-9befdf67e123/Getaway_Interior+2.jpg?format=1500w",
+      "https://images.unsplash.com/photo-1778535078194-dc4844f00bf7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y3JhZnQlMjBiZWVyJTIwdGFwc3xlbnwxfDB8fHwxNzkzNjg5MDcwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1526487995276-56ce643ba8a9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dGlraSUyMGNvY2t0YWlsfGVufDF8MHx8fDE3OTM2ODkwNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1687771454203-97d0b08bbeb2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmVlciUyMGZsaWdodHxlbnwxfDB8fHwxNzkzNjg5MDcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.getawaybrewing.com/info"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.getawaybrewing.com/info"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.getawaybrewing.com/info-1"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andrea Galvan",
+        "profileUrl": "https://unsplash.com/@andreagalvan",
+        "photoPage": "https://unsplash.com/photos/beer-taps-on-a-tiled-wall-with-red-lighting-GAalyFm-wgE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "gianluca riccio",
+        "profileUrl": "https://unsplash.com/@jean_hedgehog",
+        "photoPage": "https://unsplash.com/photos/selective-focus-photo-of-lemon-drink-ZK-4SnogcBE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bohdan Stocek",
+        "profileUrl": "https://unsplash.com/@bohdans",
+        "photoPage": "https://unsplash.com/photos/a-row-of-beer-glasses-sitting-on-top-of-a-wooden-tray-vt0O0Av96R4"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.getawaybrewing.com/info",
+    "http://www.getawaybrewing.com/info-1",
+    "http://www.getawaybrewing.com/",
+    "https://unsplash.com/photos/beer-taps-on-a-tiled-wall-with-red-lighting-GAalyFm-wgE",
+    "https://unsplash.com/photos/selective-focus-photo-of-lemon-drink-ZK-4SnogcBE",
+    "https://unsplash.com/photos/a-row-of-beer-glasses-sitting-on-top-of-a-wooden-tray-vt0O0Av96R4"
+  ]
+}
