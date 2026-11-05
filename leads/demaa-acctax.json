@@ -1,0 +1,119 @@
+{
+  "slug": "demaa-acctax",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "DeMaa Acctax",
+    "phoneDisplay": "(905) 464-2554",
+    "phoneE164": "+19054642554",
+    "address": {
+      "city": "Milton",
+      "region": "ON",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon – Fri",
+        "time": "9:00am – 05:00pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *DeMaa Acctax.*",
+    "sub": "A concept website prepared by KRIV for DeMaa Acctax."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Accounting",
+        "blurb": "We offer a full range of accounting services for your business."
+      },
+      {
+        "name": "Taxation",
+        "blurb": "DeMaa's Accounting and Taxation Services are designed to help you make informed financial decisions."
+      },
+      {
+        "name": "Consultancy",
+        "blurb": "Learn about consultancy."
+      },
+      {
+        "name": "Accounting Services",
+        "blurb": "We offer a full range of accounting services for your business."
+      },
+      {
+        "name": "Tax Filling",
+        "blurb": "Learn about tax filling."
+      }
+    ]
+  },
+  "seo": {
+    "title": "DeMaa Acctax | Concept preview",
+    "description": "Concept preview of a website for DeMaa Acctax in Milton, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1625225233840-695456021cde?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1625225230517-7426c1be750c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZG9jdW1lbnRzJTIwZGVza3xlbnwxfDB8fHwxNzkzNzUzNDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1707157284454-553ef0a4ed0d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1589884629000-60c572c6ba7a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8ZG9jdW1lbnRzJTIwZGVza3xlbnwxfDB8fHwxNzkzNzUzNDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1657978837950-03646a7c7b9e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bW9kZXJuJTIwb2ZmaWNlfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8bWVldGluZyUyMHJvb218ZW58MXwwfHx8MTc5MzY5NDE3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Mediamodifier",
+        "profileUrl": "https://unsplash.com/@mediamodifier",
+        "photoPage": "https://unsplash.com/photos/black-calculator-beside-black-pen-on-white-printer-paper-I3HPUolh5hA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mediamodifier",
+        "profileUrl": "https://unsplash.com/@mediamodifier",
+        "photoPage": "https://unsplash.com/photos/green-cactus-plant-on-white-table-nCk22aqZjlM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/office-desk-with-smartphone-and-financial-charts-heiYgqp0Tsk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jonathan Kemper",
+        "profileUrl": "https://unsplash.com/@jupp",
+        "photoPage": "https://unsplash.com/photos/macbook-pro-on-brown-wooden-table-zSCHyhiRSeQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maciej Drążkiewicz",
+        "profileUrl": "https://unsplash.com/@drazkiewicz_architekt",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-table-and-chairs-XORfEIs_LTk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Benjamin Child",
+        "profileUrl": "https://unsplash.com/@bchild311",
+        "photoPage": "https://unsplash.com/photos/oval-brown-wooden-conference-table-and-chairs-inside-conference-room-GWe0dlVD9e0"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.demaatax.com/",
+    "https://business.miltonchamber.ca/list/member/demaa-acctax-3858",
+    "https://www.demaatax.com/about-us/",
+    "https://unsplash.com/photos/black-calculator-beside-black-pen-on-white-printer-paper-I3HPUolh5hA",
+    "https://unsplash.com/photos/green-cactus-plant-on-white-table-nCk22aqZjlM",
+    "https://unsplash.com/photos/office-desk-with-smartphone-and-financial-charts-heiYgqp0Tsk",
+    "https://unsplash.com/photos/macbook-pro-on-brown-wooden-table-zSCHyhiRSeQ",
+    "https://unsplash.com/photos/a-room-with-a-table-and-chairs-XORfEIs_LTk",
+    "https://unsplash.com/photos/oval-brown-wooden-conference-table-and-chairs-inside-conference-room-GWe0dlVD9e0"
+  ]
+}
