@@ -1,0 +1,122 @@
+{
+  "slug": "treks-4-pets",
+  "template": "spa-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "Treks 4 Pets",
+    "category": "Dog walking",
+    "phoneDisplay": "(778) 989-0991",
+    "phoneE164": "+17789890991",
+    "address": {
+      "city": "North Vancouver",
+      "region": "BC",
+      "postalCode": "V7J 3S9",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon-Fri",
+        "time": "9am – 5pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "North Vancouver",
+    "headline": "Dog walkers your pup will *love.*",
+    "sub": "Pet First Aid certified dog walkers in North Vancouver, trained in handling and behaviour before they walk solo."
+  },
+  "services": {
+    "title": "Why Treks 4 Pets",
+    "items": [
+      {
+        "name": "Dog walking",
+        "blurb": "Group and solo walks around North Vancouver."
+      },
+      {
+        "name": "Trained walkers",
+        "blurb": "Pet First Aid certified, with a week of intensive dog handling and behaviour training."
+      },
+      {
+        "name": "Living wage employer",
+        "blurb": "Qualified with Living Wage for Families BC in March 2024."
+      },
+      {
+        "name": "Client portal",
+        "blurb": "Sign your pet up and manage walks online."
+      }
+    ]
+  },
+  "about": {
+    "title": "From a farm in Smithers to the North Shore",
+    "body": "Treks 4 Pets was founded by Andrew and Chantelle Dawson, and in 2017 Danielle O'Neill bought the company. She grew up on a farm near Smithers surrounded by animals, moved to North Vancouver to play basketball and study at Capilano University, and found her passion in dog walking."
+  },
+  "seo": {
+    "title": "Treks 4 Pets | Concept preview",
+    "description": "Concept preview of a website for Treks 4 Pets in North Vancouver, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1556866261-8763a7662333?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZG9nJTIwd2Fsa2VyJTIwZ3JvdXAlMjBvZiUyMGRvZ3N8ZW58MXwwfHx8MTc5MzcwNDE4OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1763569586525-251849dce054?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8ZG9ncyUyMGhpa2luZyUyMGZvcmVzdCUyMHRyYWlsfGVufDF8MHx8fDE3OTM3MDQxODl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1558528021-a4925a5488c7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFwcHklMjBkb2clMjBtb3VudGFpbnxlbnwxfDB8fHwxNzkzNzA0MTkwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1662142073580-103b6df30f59?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZG9nJTIwb24lMjBsZWFzaCUyMHBhcmt8ZW58MXwwfHx8MTc5MzcwNDE5MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1703733565148-0a33aa10184e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZG9ncyUyMGluJTIwY2FyJTIwYmFjayUyMHNlYXR8ZW58MXwwfHx8MTc5MzcwNDE5MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1518056914555-de1d7f0b3967?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Z29sZGVuJTIwcmV0cmlldmVyJTIwb3V0ZG9vcnN8ZW58MXwwfHx8MTc5MzcwNDE5MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Bruce Warrington",
+        "profileUrl": "https://unsplash.com/@brucebmax",
+        "photoPage": "https://unsplash.com/photos/shallow-focus-photo-of-dogs-on-tree-log-WSAOGHKEqFc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sydney Moore",
+        "profileUrl": "https://unsplash.com/@sydmoore6",
+        "photoPage": "https://unsplash.com/photos/a-happy-dog-sits-on-a-forest-path-3FcGUKIcuhI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sara Kurfeß",
+        "profileUrl": "https://unsplash.com/@stereophototyp",
+        "photoPage": "https://unsplash.com/photos/short-coated-tan-dog-3uqfNTk_R1c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bella",
+        "profileUrl": "https://unsplash.com/@theria",
+        "photoPage": "https://unsplash.com/photos/a-fence-with-a-red-and-white-object-on-it-i_iCSOIpDao"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Judy Beth Morris",
+        "profileUrl": "https://unsplash.com/@judy_beth_morris_idaho",
+        "photoPage": "https://unsplash.com/photos/two-dogs-sitting-in-a-car-looking-out-the-window-86jnmXQKXVI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kevin Noble",
+        "profileUrl": "https://unsplash.com/@nobleshots",
+        "photoPage": "https://unsplash.com/photos/short-coated-brown-dog-on-gray-cliff-gA3Qd2tquMc"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.treks4pets.ca/",
+    "https://business.nvchamber.ca/list/member/treks-4-pets-9394",
+    "https://www.treks4pets.ca/copy-of-services",
+    "https://www.treks4pets.ca/contact-2",
+    "https://unsplash.com/photos/shallow-focus-photo-of-dogs-on-tree-log-WSAOGHKEqFc",
+    "https://unsplash.com/photos/a-happy-dog-sits-on-a-forest-path-3FcGUKIcuhI",
+    "https://unsplash.com/photos/short-coated-tan-dog-3uqfNTk_R1c",
+    "https://unsplash.com/photos/a-fence-with-a-red-and-white-object-on-it-i_iCSOIpDao",
+    "https://unsplash.com/photos/two-dogs-sitting-in-a-car-looking-out-the-window-86jnmXQKXVI",
+    "https://unsplash.com/photos/short-coated-brown-dog-on-gray-cliff-gA3Qd2tquMc"
+  ]
+}
