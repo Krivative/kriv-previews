@@ -1,0 +1,116 @@
+{
+  "slug": "pme",
+  "template": "hvac-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "PME INC.",
+    "category": "Industrial construction",
+    "phoneDisplay": "(780) 992-2280",
+    "phoneE164": "+17809922280",
+    "address": {
+      "city": "Fort Saskatchewan",
+      "region": "AB",
+      "postalCode": "T8L 0G8",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Fort Saskatchewan, Alberta",
+    "headline": "A safe company is a *productive company.*",
+    "sub": "Earthwork, underground piping, concrete, mechanical and electrical, paving and drafting from offices across Western Canada and Ontario."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Earthwork",
+        "blurb": "Earthwork for industrial sites."
+      },
+      {
+        "name": "Underground piping",
+        "blurb": "Underground piping installation."
+      },
+      {
+        "name": "Concrete structures and foundations",
+        "blurb": "Concrete structures and foundations."
+      },
+      {
+        "name": "Mechanical and electrical",
+        "blurb": "Mechanical and electrical construction."
+      },
+      {
+        "name": "Aerial imagery and drafting",
+        "blurb": "Aerial imagery and advanced construction drafting."
+      },
+      {
+        "name": "Paving",
+        "blurb": "Paving services."
+      },
+      {
+        "name": "Carbon conscious construction",
+        "blurb": "Construction with a lower carbon footprint."
+      }
+    ]
+  },
+  "about": {
+    "title": "Safety is a culture",
+    "body": "PME's whole team aims to go home every day having caused zero harm to people or the environment. Its Health, Safety and Environment program covers its own staff, clients and subcontractors, including a Responsive Modified Work Program. PME works from Fort Saskatchewan, Calgary, Kamloops, Saskatoon, Regina and Sault Ste. Marie."
+  },
+  "seo": {
+    "title": "PME INC. | Concept preview",
+    "description": "Concept preview of a website for PME INC. in Fort Saskatchewan, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://www.pmeinc.ca/static/diversity-67e27188907049bafd2b648d5b20f5d3.jpg",
+      "http://www.pmeinc.ca/static/cultureatpme-ea4b0da8139268dd9bda26efbd0de96f.jpg",
+      "http://www.pmeinc.ca/static/pic5-69accd27c4c4b49da4219b26a455e940.png",
+      "http://www.pmeinc.ca/static/pic4-cc018e24b02bdab74ac38fcda4b05fbb.jpeg",
+      "https://images.unsplash.com/photo-1575281923032-f40d94ef6160?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZXhjYXZhdG9yJTIwZWFydGh3b3JrJTIwc2l0ZXxlbnwxfDB8fHwxNzkzNjk2NjE3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1565364507085-325347bae748?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dW5kZXJncm91bmQlMjBwaXBlJTIwaW5zdGFsbGF0aW9uJTIwdHJlbmNofGVufDF8MHx8fDE3OTM2OTY2MTh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.pmeinc.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.pmeinc.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.pmeinc.ca/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.pmeinc.ca/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/excavator-dumping-soil-into-dump-truck-eKY6_9W_iqY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "roman pentin",
+        "profileUrl": "https://unsplash.com/@romanenko29061983",
+        "photoPage": "https://unsplash.com/photos/excavator-beside-large-pipes-T5QT2bmiD4E"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.pmeinc.ca/",
+    "https://edmontonchamber.chambermaster.com/list/member/pme-inc-32033",
+    "http://www.pmeinc.ca/contact-us",
+    "https://unsplash.com/photos/excavator-dumping-soil-into-dump-truck-eKY6_9W_iqY",
+    "https://unsplash.com/photos/excavator-beside-large-pipes-T5QT2bmiD4E"
+  ]
+}
