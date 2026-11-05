@@ -1,0 +1,89 @@
+{
+  "slug": "tj-s",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "TJ’s Education & Safety Training Corp.",
+    "phoneDisplay": "(604) 580-2475",
+    "phoneE164": "+16045802475",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3S 8Z3",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *TJ’s Education & Safety Training Corp..*",
+    "sub": "A concept website prepared by KRIV for TJ’s Education & Safety Training Corp.."
+  },
+  "seo": {
+    "title": "TJ’s Education & Safety Training Corp. | Concept preview",
+    "description": "Concept preview of a website for TJ’s Education & Safety Training Corp. in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8bW9kZXJuJTIwb2ZmaWNlfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1602595688238-9fffe12d5af3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1694753736023-ddad6cfc8263?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1758611972678-bc3b29b4718f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1646153114001-495dfb56506d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8bW9kZXJuJTIwb2ZmaWNlfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Toa Heftiba",
+        "profileUrl": "https://unsplash.com/@heftiba",
+        "photoPage": "https://unsplash.com/photos/black-floor-lamp-on-living-room-sofa-FV3GConVSss"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andy Vult",
+        "profileUrl": "https://unsplash.com/@andyvult",
+        "photoPage": "https://unsplash.com/photos/fern-in-glass-staircase-lobby-zwZpdhoTbU0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nicholas Francisco Amor",
+        "profileUrl": "https://unsplash.com/@paaaaaaaa_co",
+        "photoPage": "https://unsplash.com/photos/a-white-table-topped-with-a-lamp-and-a-phone-vGjjJyhY2S0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Vitaly Gariev",
+        "profileUrl": "https://unsplash.com/@silverkblack",
+        "photoPage": "https://unsplash.com/photos/two-colleagues-reviewing-documents-at-an-office-desk-zQXdDfmkevA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "PHC Software",
+        "profileUrl": "https://unsplash.com/@phcsoftware",
+        "photoPage": "https://unsplash.com/photos/an-office-with-a-bike-parked-in-the-middle-of-the-room-7G6J0eXlmX0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Danielle Cerullo",
+        "profileUrl": "https://unsplash.com/@dncerullo",
+        "photoPage": "https://unsplash.com/photos/white-and-gray-office-rolling-chairs-bIZJRVBLfOM"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.businessinsurrey.com/list/member/tj-s-education-safety-training-corp-surrey-7532",
+    "http://www.taxfreepeople.com/contact.html",
+    "https://unsplash.com/photos/black-floor-lamp-on-living-room-sofa-FV3GConVSss",
+    "https://unsplash.com/photos/fern-in-glass-staircase-lobby-zwZpdhoTbU0",
+    "https://unsplash.com/photos/a-white-table-topped-with-a-lamp-and-a-phone-vGjjJyhY2S0",
+    "https://unsplash.com/photos/two-colleagues-reviewing-documents-at-an-office-desk-zQXdDfmkevA",
+    "https://unsplash.com/photos/an-office-with-a-bike-parked-in-the-middle-of-the-room-7G6J0eXlmX0",
+    "https://unsplash.com/photos/white-and-gray-office-rolling-chairs-bIZJRVBLfOM"
+  ]
+}
