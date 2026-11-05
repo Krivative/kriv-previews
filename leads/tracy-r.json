@@ -1,0 +1,88 @@
+{
+  "slug": "tracy-r",
+  "template": "dental-bold",
+  "contentNiche": "dental",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Tracy R. Henson McBee, DDS, PA",
+    "phoneDisplay": "(806) 792-2171",
+    "phoneE164": "+18067922171",
+    "address": {
+      "city": "Lubbock",
+      "region": "TX",
+      "postalCode": "79424",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Tracy R. Henson McBee, DDS, PA.*",
+    "sub": "A concept website prepared by KRIV for Tracy R. Henson McBee, DDS, PA."
+  },
+  "seo": {
+    "title": "Tracy R. Henson McBee, DDS, PA | Concept preview",
+    "description": "Concept preview of a website for Tracy R. Henson McBee, DDS, PA in Lubbock, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZGVudGFsJTIwY2hhaXJ8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1642844744022-d76a9af3711a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZGVudGFsJTIwdG9vbHN8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777446523856-e7acffa844a7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8dG9vdGhicnVzaCUyMGJhdGhyb29tfGVufDF8MHx8fDE3OTM3NTI2NTZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1704455306251-b4634215d98f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8ZGVudGFsJTIwY2hhaXJ8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1619988252418-a1e6ee10b122?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZGVudGFsJTIwdG9vbHN8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1642756048103-53e10cb54009?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8dG9vdGhicnVzaCUyMGJhdGhyb29tfGVufDF8MHx8fDE3OTM3NTI2NTZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Atikah Akhtar",
+        "profileUrl": "https://unsplash.com/@atikahakhtar",
+        "photoPage": "https://unsplash.com/photos/dental-chair-in-clinical-office-XJptUS8nbhs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ozkan Guner",
+        "profileUrl": "https://unsplash.com/@dentistozkanguner",
+        "photoPage": "https://unsplash.com/photos/a-row-of-dental-instruments-hanging-from-a-wall-8YUH8Jne5S0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Harold Hisona",
+        "profileUrl": "https://unsplash.com/@harold_angus",
+        "photoPage": "https://unsplash.com/photos/bamboo-toothbrushes-in-a-glass-jar-with-eucalyptus-leaves-VCC5Vc0X2F8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kari Bjorn Photography",
+        "profileUrl": "https://unsplash.com/@karibjorn",
+        "photoPage": "https://unsplash.com/photos/a-dental-room-with-a-desk-and-chairs-Fdku_oMrDvk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Quilia",
+        "profileUrl": "https://unsplash.com/@heyquilia",
+        "photoPage": "https://unsplash.com/photos/stainless-steel-fork-and-bread-knife-on-white-ceramic-plate-y8fWicGsv4g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Willo Team",
+        "profileUrl": "https://unsplash.com/@willo32",
+        "photoPage": "https://unsplash.com/photos/a-bathroom-with-pink-tiles-and-a-white-sink-PIAOmhCS0Jk"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.mcbdds.com/",
+    "https://unsplash.com/photos/dental-chair-in-clinical-office-XJptUS8nbhs",
+    "https://unsplash.com/photos/a-row-of-dental-instruments-hanging-from-a-wall-8YUH8Jne5S0",
+    "https://unsplash.com/photos/bamboo-toothbrushes-in-a-glass-jar-with-eucalyptus-leaves-VCC5Vc0X2F8",
+    "https://unsplash.com/photos/a-dental-room-with-a-desk-and-chairs-Fdku_oMrDvk",
+    "https://unsplash.com/photos/stainless-steel-fork-and-bread-knife-on-white-ceramic-plate-y8fWicGsv4g",
+    "https://unsplash.com/photos/a-bathroom-with-pink-tiles-and-a-white-sink-PIAOmhCS0Jk"
+  ]
+}
