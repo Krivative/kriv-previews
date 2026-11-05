@@ -1,0 +1,123 @@
+{
+  "slug": "national-rv",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "National RV Siding Ltd.",
+    "category": "RV siding manufacturer",
+    "phoneDisplay": "(780) 448-0851",
+    "phoneE164": "+17804480851",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "postalCode": "T5L 3B3",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Monday to Thursday, Friday",
+        "time": "8:00am to 3:00 pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Edmonton, Alberta",
+    "headline": "Aluminum and steel siding for *RVs.*",
+    "sub": "Custom-made aluminum and steel siding, compartment doors, roofing and trim for modern and vintage RVs and trailers."
+  },
+  "services": {
+    "title": "What we make",
+    "items": [
+      {
+        "name": "Aluminum siding",
+        "blurb": "23 colors and 18 profiles, made to recreate modern or vintage RV siding."
+      },
+      {
+        "name": "Steel siding and cladding",
+        "blurb": "15 colors, cut and bent to your measurements or CAD plans."
+      },
+      {
+        "name": "Compartment and radius doors",
+        "blurb": "Handmade compartment doors built to your exact measurements."
+      },
+      {
+        "name": "E.P.D.M. rubber and aluminum roofing",
+        "blurb": "Rubber and aluminum roofing with terminations, putty tape and ridge cap."
+      },
+      {
+        "name": "Siding panels and fascia",
+        "blurb": "Mesa siding panels, flat stock and matching fascia."
+      },
+      {
+        "name": "Trim, corners and mouldings",
+        "blurb": "Starters, corners, drip cap, hurricane strips and custom aluminum mouldings."
+      }
+    ]
+  },
+  "about": {
+    "title": "Made to your exact specifications",
+    "body": "National RV Siding can custom produce or recreate the aluminum siding found on most modern or vintage RVs, with a 12 foot manual brake and a 10 foot radial brake for unconventional pieces. Its steel facility runs an Auto Brake 2000 CNC sheet metal bending machine and a custom ACECO cut-to-length line, and can recreate material to your CAD plans."
+  },
+  "seo": {
+    "title": "National RV Siding Ltd. | Concept preview",
+    "description": "Concept preview of a website for National RV Siding Ltd. in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://rvsiding.com/wp-content/uploads/2025/05/P1020228Smaller-scaled.jpg",
+      "https://rvsiding.com/wp-content/uploads/2016/10/RVS-banner-copy.png",
+      "https://images.unsplash.com/photo-1635787501769-10b8e23b3ded?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cnYlMjB0cmFpbGVyfGVufDF8MHx8fDE3OTM2OTQ1NjV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1500274869470-1cf3be073d1c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dmludGFnZSUyMGNhbXBlciUyMHRyYWlsZXJ8ZW58MXwwfHx8MTc5MzY5NDU2NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1501166222995-ff31c7e93cef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YWx1bWludW0lMjBzaGVldCUyMG1ldGFsfGVufDF8MHx8fDE3OTM2OTQ1NjZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1598299803213-d894fb2ab97d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8c2hlZXQlMjBtZXRhbCUyMGJlbmRpbmclMjBtYWNoaW5lfGVufDF8MHx8fDE3OTM2OTQ1NjZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.rvsiding.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.rvsiding.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Devon MacKay",
+        "profileUrl": "https://unsplash.com/@devon_mac",
+        "photoPage": "https://unsplash.com/photos/a-small-camper-sits-in-a-field-at-night--lrJpsE6haY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Isaac Moore",
+        "profileUrl": "https://unsplash.com/@ballistic",
+        "photoPage": "https://unsplash.com/photos/white-and-gray-propane-gas-tanks-on-rv-trailer-ya0VBWtWnOc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Etienne Martin",
+        "profileUrl": "https://unsplash.com/@etiennemartin",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-metal-diamond-plate-v6uiP2MD6vs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sam Moghadam",
+        "profileUrl": "https://unsplash.com/@sammoghadam",
+        "photoPage": "https://unsplash.com/photos/black-and-gray-metal-machine-2KCo1Ads6ew"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.rvsiding.com/",
+    "https://edmontonchamber.chambermaster.com/list/member/national-rv-siding-ltd-27806",
+    "https://rvsiding.com/contact-us/",
+    "https://unsplash.com/photos/a-small-camper-sits-in-a-field-at-night--lrJpsE6haY",
+    "https://unsplash.com/photos/white-and-gray-propane-gas-tanks-on-rv-trailer-ya0VBWtWnOc",
+    "https://unsplash.com/photos/a-close-up-of-a-metal-diamond-plate-v6uiP2MD6vs",
+    "https://unsplash.com/photos/black-and-gray-metal-machine-2KCo1Ads6ew"
+  ]
+}
