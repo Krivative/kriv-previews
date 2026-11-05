@@ -1,0 +1,94 @@
+{
+  "slug": "ling-louies-restaurants",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Ling & Louie's Restaurants",
+    "category": "Restaurant",
+    "phoneDisplay": "(602) 321-0147",
+    "phoneE164": "+16023210147",
+    "address": {
+      "city": "Scottsdale",
+      "region": "AZ",
+      "postalCode": "85260",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Friday",
+        "time": "9am - 5pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Ling & Louie's Restaurants.*",
+    "sub": "A concept website prepared by KRIV for Ling & Louie's Restaurants."
+  },
+  "seo": {
+    "title": "Ling & Louie's Restaurants | Concept preview",
+    "description": "Concept preview of a website for Ling & Louie's Restaurants in Scottsdale, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1519233991914-26a44330ccd7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1667388969250-1c7220bf3f37?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1575672401987-c8f1debabfd7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8Y2hlZiUyMGNvb2tpbmd8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1669472546359-418a98630699?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1542197745-c70e10f66af8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Patrick Browne",
+        "profileUrl": "https://unsplash.com/@kiltimagh01",
+        "photoPage": "https://unsplash.com/photos/round-gray-plate-with-cooked-food-jMwvJ5aj5eA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Glenov Brankovic",
+        "profileUrl": "https://unsplash.com/@glenovbrankovic",
+        "photoPage": "https://unsplash.com/photos/a-room-with-tables-and-chairs-e4B5AvA7Jqo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jason Jarrach",
+        "profileUrl": "https://unsplash.com/@jasonjarr",
+        "photoPage": "https://unsplash.com/photos/sliced-yellow-lemon-fruits-LJ5IhBA4gbs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cihat Hıdır",
+        "profileUrl": "https://unsplash.com/@cihathidir",
+        "photoPage": "https://unsplash.com/photos/a-plate-of-food-MbFkgRWLCx0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sandra Seitamaa",
+        "profileUrl": "https://unsplash.com/@seitamaaphotography",
+        "photoPage": "https://unsplash.com/photos/clear-drinking-glass-on-table-OFJGlG3sKik"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Wesual Click",
+        "profileUrl": "https://unsplash.com/@wesual",
+        "photoPage": "https://unsplash.com/photos/cooked-food-and-vegetables-on-white-plate-NOiOdWc2Jpk"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.lingandlouiesrestaurants.com/",
+    "https://business.scottsdalechamber.com/list/member/ling-louie-s-restaurants-38907",
+    "https://unsplash.com/photos/round-gray-plate-with-cooked-food-jMwvJ5aj5eA",
+    "https://unsplash.com/photos/a-room-with-tables-and-chairs-e4B5AvA7Jqo",
+    "https://unsplash.com/photos/sliced-yellow-lemon-fruits-LJ5IhBA4gbs",
+    "https://unsplash.com/photos/a-plate-of-food-MbFkgRWLCx0",
+    "https://unsplash.com/photos/clear-drinking-glass-on-table-OFJGlG3sKik",
+    "https://unsplash.com/photos/cooked-food-and-vegetables-on-white-plate-NOiOdWc2Jpk"
+  ]
+}
