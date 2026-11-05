@@ -1,0 +1,127 @@
+{
+  "slug": "pro-energy-electric",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Pro-Energy Electric, LLC",
+    "category": "Electrical contractor",
+    "phoneDisplay": "(602) 738-5766",
+    "phoneE164": "+16027385766",
+    "address": {
+      "city": "Chandler",
+      "region": "AZ",
+      "postalCode": "85225",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday through Thursday",
+        "time": "8:00 AM to 5:00 PM Friday by appointment only"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Metro Phoenix",
+    "headline": "Full-service electrical, *Valley-wide.*",
+    "sub": "Residential, commercial and light-industrial electrical work across Greater Phoenix, with a thorough assessment before every estimate."
+  },
+  "services": {
+    "title": "Electrical services",
+    "items": [
+      {
+        "name": "Panel upgrades and replacement",
+        "blurb": "Main electrical panel upgrades and circuit breaker replacement."
+      },
+      {
+        "name": "Troubleshooting and repair",
+        "blurb": "Electrical troubleshooting, repairs and code violation fixes."
+      },
+      {
+        "name": "Lighting",
+        "blurb": "LED retrofits, indoor and outdoor lighting, under-cabinet and remote lighting control."
+      },
+      {
+        "name": "GFI installation",
+        "blurb": "Ground-fault interrupter installation."
+      },
+      {
+        "name": "New construction and remodels",
+        "blurb": "Wiring for new construction and home remodels."
+      },
+      {
+        "name": "Commercial and light industrial",
+        "blurb": "Design, installation and maintenance of electrical systems for businesses."
+      }
+    ]
+  },
+  "about": {
+    "title": "Nearly twenty years in Metro Phoenix",
+    "body": "Pro-Energy Electric has served homes and businesses in Metro Phoenix for nearly twenty years. From replacing an outlet to designing, installing and maintaining whole electrical systems, it works across residential, commercial and light-industrial projects."
+  },
+  "seo": {
+    "title": "Pro-Energy Electric, LLC | Concept preview",
+    "description": "Concept preview of a website for Pro-Energy Electric, LLC in Chandler, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://storage.googleapis.com/wzukusers/user-34745759/images/5ca530fa12ecd25dqIqw/IMG_1081_d800.jpg",
+      "https://images.unsplash.com/photo-1680210849773-f97a41c6b7ed?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bGVkJTIwbGlnaHRpbmclMjBraXRjaGVuJTIwdW5kZXIlMjBjYWJpbmV0fGVufDF8MHx8fDE3OTM3MDAzODB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1640365554715-cfbb20efcf91?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8b3V0ZG9vciUyMGxpZ2h0aW5nJTIwaG9tZSUyMGV2ZW5pbmd8ZW58MXwwfHx8MTc5MzcwMDM4MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1641159930908-e9eb9ccdc002?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29tbWVyY2lhbCUyMGxpZ2h0aW5nJTIwaW5zdGFsbGF0aW9ufGVufDF8MHx8fDE3OTM3MDAzODF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1754620906703-496ec2451744?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGVsZWN0cmljaWFuJTIwd29ya2luZyUyMHBhbmVsfGVufDF8MHx8fDE3OTM3MDAzNzl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1609266117579-5bb972860d27?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bGVkJTIwbGlnaHRpbmclMjBraXRjaGVuJTIwdW5kZXIlMjBjYWJpbmV0fGVufDF8MHx8fDE3OTM3MDAzODB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.proenergyelectric.com/about-us"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Juliana Morales Ramírez",
+        "profileUrl": "https://unsplash.com/@julianamoralesr_",
+        "photoPage": "https://unsplash.com/photos/a-kitchen-area-with-a-sink-cabinets-and-a-window-ZeKBpWZi3K0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "John Oswald",
+        "profileUrl": "https://unsplash.com/@johnoswald",
+        "photoPage": "https://unsplash.com/photos/a-light-that-is-on-a-pole-in-the-grass-OlaR7baToPs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andrea De Santis",
+        "profileUrl": "https://unsplash.com/@santesson89",
+        "photoPage": "https://unsplash.com/photos/an-empty-room-with-white-walls-and-a-black-door-q8fe785r5nU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Florida Solar Fix",
+        "profileUrl": "https://unsplash.com/@floridasolarfix",
+        "photoPage": "https://unsplash.com/photos/worker-installs-electrical-components-on-a-roof-CHTCoA75aPI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alberto Bigoni",
+        "profileUrl": "https://unsplash.com/@albertobigoni",
+        "photoPage": "https://unsplash.com/photos/white-wooden-kitchen-cabinet-with-stainless-steel-sink-bYsaOFe27T8"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.proenergyelectric.com/",
+    "http://www.proenergyelectric.com/about-us",
+    "http://www.proenergyelectric.com/services",
+    "https://business.chandlerchamber.com/list/member/pro-energy-electric-llc-25542",
+    "https://unsplash.com/photos/a-kitchen-area-with-a-sink-cabinets-and-a-window-ZeKBpWZi3K0",
+    "https://unsplash.com/photos/a-light-that-is-on-a-pole-in-the-grass-OlaR7baToPs",
+    "https://unsplash.com/photos/an-empty-room-with-white-walls-and-a-black-door-q8fe785r5nU",
+    "https://unsplash.com/photos/worker-installs-electrical-components-on-a-roof-CHTCoA75aPI",
+    "https://unsplash.com/photos/white-wooden-kitchen-cabinet-with-stainless-steel-sink-bYsaOFe27T8"
+  ]
+}
