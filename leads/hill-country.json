@@ -1,0 +1,90 @@
+{
+  "slug": "hill-country",
+  "template": "aesthetic-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Hill Country MHDD Centers",
+    "phoneDisplay": "(830) 792-3300",
+    "phoneE164": "+18307923300",
+    "address": {
+      "line1": "819 Water St",
+      "city": "Suite 300",
+      "region": "TX",
+      "postalCode": "78028",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Hill Country MHDD Centers.*",
+    "sub": "A concept website prepared by KRIV for Hill Country MHDD Centers."
+  },
+  "seo": {
+    "title": "Hill Country MHDD Centers | Concept preview",
+    "description": "Concept preview of a website for Hill Country MHDD Centers in Suite 300, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1606374173750-a2fe6f17be1c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8dHJlYXRtZW50JTIwcm9vbXxlbnwxfDB8fHwxNzkzODUxMDIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1515900387962-fd8dba567ed0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8dHJlYXRtZW50JTIwcm9vbXxlbnwxfDB8fHwxNzkzODUxMDIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1608979827489-2b855e79debe?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Y2xpbmljJTIwcmVjZXB0aW9ufGVufDF8MHx8fDE3OTM4NTEwMjR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1577412647305-991150c7d163?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bWVkaWNhbCUyMG9mZmljZXxlbnwxfDB8fHwxNzkzODUxMDI1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778151270757-f3793f65e2de?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8dHJlYXRtZW50JTIwcm9vbXxlbnwxfDB8fHwxNzkzODUxMDIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1648775507324-b48dd3791fa5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8Y2xpbmljJTIwcmVjZXB0aW9ufGVufDF8MHx8fDE3OTM4NTEwMjR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Bofu Shaw",
+        "profileUrl": "https://unsplash.com/@hikeshaw",
+        "photoPage": "https://unsplash.com/photos/black-flat-screen-tv-mounted-on-white-wall-4f_swMs-iSI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mark Rabe",
+        "profileUrl": "https://unsplash.com/@itsrahbee",
+        "photoPage": "https://unsplash.com/photos/eye-test-chart-on-wall-in-room-Vx-ohb5g118"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dr.Kanapon Phumratprapin",
+        "profileUrl": "https://unsplash.com/@dr_kanapon",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-wooden-room-xOvJBvcame8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adolfo Félix",
+        "profileUrl": "https://unsplash.com/@adolfofelix",
+        "photoPage": "https://unsplash.com/photos/office-workspace-with-white-desks-PG8NyM_Mcts"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Irshad Pathan",
+        "profileUrl": "https://unsplash.com/@alrighthospital",
+        "photoPage": "https://unsplash.com/photos/hospital-room-with-three-beds-and-medical-equipment-cTH0dAHdqtQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "rawkkim",
+        "profileUrl": "https://unsplash.com/@rawkkim",
+        "photoPage": "https://unsplash.com/photos/a-white-room-with-a-tree-in-the-center-X8Y3CJA0aNs"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.hillcountry.org/",
+    "https://hillcountry.org/all-locations/",
+    "https://unsplash.com/photos/black-flat-screen-tv-mounted-on-white-wall-4f_swMs-iSI",
+    "https://unsplash.com/photos/eye-test-chart-on-wall-in-room-Vx-ohb5g118",
+    "https://unsplash.com/photos/white-and-brown-wooden-room-xOvJBvcame8",
+    "https://unsplash.com/photos/office-workspace-with-white-desks-PG8NyM_Mcts",
+    "https://unsplash.com/photos/hospital-room-with-three-beds-and-medical-equipment-cTH0dAHdqtQ",
+    "https://unsplash.com/photos/a-white-room-with-a-tree-in-the-center-X8Y3CJA0aNs"
+  ]
+}
