@@ -1,0 +1,123 @@
+{
+  "slug": "distinctive-smiles-dublin",
+  "template": "dental-bold",
+  "contentNiche": "dental",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Distinctive Smiles of Dublin",
+    "phoneDisplay": "(614) 792-1800",
+    "phoneE164": "+16147921800",
+    "address": {
+      "city": "Dublin",
+      "region": "OH",
+      "postalCode": "43017",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "time": "9:00 am - 5:00 pm"
+      },
+      {
+        "days": "Tuesday",
+        "time": "8:00 am - 4:00 pm"
+      },
+      {
+        "days": "Wednesday",
+        "time": "7:30 am - 3:00 pm"
+      },
+      {
+        "days": "Thursday",
+        "time": "7:00 am - 3:00 pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Distinctive Smiles of Dublin.*",
+    "sub": "A concept website prepared by KRIV for Distinctive Smiles of Dublin."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Dentistry for the Entire Family",
+        "blurb": "Learn about dentistry for the entire family."
+      },
+      {
+        "name": "I Need a Checkup & Cleaning",
+        "blurb": "Learn about i need a checkup & cleaning."
+      },
+      {
+        "name": "Dental Checkups & Cleanings",
+        "blurb": "Learn about dental checkups & cleanings."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Distinctive Smiles of Dublin | Concept preview",
+    "description": "Concept preview of a website for Distinctive Smiles of Dublin in Dublin, OH, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8ZGVudGFsJTIwY2hhaXJ8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643660527217-b5e025ac642e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8ZGVudGFsJTIwdG9vbHN8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643624050871-fcb133e45037?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8dG9vdGhicnVzaCUyMGJhdGhyb29tfGVufDF8MHx8fDE3OTM3NTI2NTZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1629909615184-74f495363b67?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bW9kZXJuJTIwZGVudGFsJTIwY2xpbmljfGVufDF8MHx8fDE3OTM3NTI2NTV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1704455306925-1401c3012117?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8ZGVudGFsJTIwY2hhaXJ8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643660527090-bea721ad71f8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8ZGVudGFsJTIwdG9vbHN8ZW58MXwwfHx8MTc5Mzc1MjY1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Sam Moghadam",
+        "profileUrl": "https://unsplash.com/@sammoghadam",
+        "photoPage": "https://unsplash.com/photos/red-and-white-leather-padded-chair-I-kDEBUMAaQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ozkan Guner",
+        "profileUrl": "https://unsplash.com/@dentistozkanguner",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-bunch-of-metal-nails-LO4HKJVyQjM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Willo Team",
+        "profileUrl": "https://unsplash.com/@willo32",
+        "photoPage": "https://unsplash.com/photos/a-bathroom-sink-with-soap-dispenser-soap-dispenser-RVoI_DTLxdc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Benyamin Bohlouli",
+        "profileUrl": "https://unsplash.com/@benyamin_bohlouli",
+        "photoPage": "https://unsplash.com/photos/white-and-blue-hospital-bed-LQ698TTvGpA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kari Bjorn Photography",
+        "profileUrl": "https://unsplash.com/@karibjorn",
+        "photoPage": "https://unsplash.com/photos/a-hospital-room-with-medical-equipment-in-it-yJsMOVwazRU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ozkan Guner",
+        "profileUrl": "https://unsplash.com/@dentistozkanguner",
+        "photoPage": "https://unsplash.com/photos/a-pair-of-dental-instruments-sitting-on-top-of-a-bed-R8MoN4FV5q0"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.distinctive-smiles.com/",
+    "http://www.distinctive-smiles.com/our-services.html",
+    "https://unsplash.com/photos/red-and-white-leather-padded-chair-I-kDEBUMAaQ",
+    "https://unsplash.com/photos/a-close-up-of-a-bunch-of-metal-nails-LO4HKJVyQjM",
+    "https://unsplash.com/photos/a-bathroom-sink-with-soap-dispenser-soap-dispenser-RVoI_DTLxdc",
+    "https://unsplash.com/photos/white-and-blue-hospital-bed-LQ698TTvGpA",
+    "https://unsplash.com/photos/a-hospital-room-with-medical-equipment-in-it-yJsMOVwazRU",
+    "https://unsplash.com/photos/a-pair-of-dental-instruments-sitting-on-top-of-a-bed-R8MoN4FV5q0"
+  ]
+}
