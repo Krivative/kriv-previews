@@ -1,0 +1,87 @@
+{
+  "slug": "holistic-accountant",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "The Holistic Accountant",
+    "phoneDisplay": "(720) 331-3111",
+    "phoneE164": "+17203313111",
+    "address": {
+      "city": "Aurora",
+      "postalCode": "80015",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *The Holistic Accountant.*",
+    "sub": "A concept website prepared by KRIV for The Holistic Accountant."
+  },
+  "seo": {
+    "title": "The Holistic Accountant | Concept preview",
+    "description": "Concept preview of a website for The Holistic Accountant in Aurora, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1762427355235-dd22e5cb010c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1657978837602-79ae42209130?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1503423571797-2d2bb372094a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM3NjgyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762319069227-443a1a1095b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1719829205233-e42b0bffc029?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc2ODI1M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1705909770198-7e83c24e1616?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-binders-notebook-and-glasses--6LEDthF1AI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maciej Drążkiewicz",
+        "profileUrl": "https://unsplash.com/@drazkiewicz_architekt",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-bar-and-stools-2DLKYXaMuxE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Pawel Chu",
+        "profileUrl": "https://unsplash.com/@pawell",
+        "photoPage": "https://unsplash.com/photos/long-table-with-eiffel-chair-inside-room-ULh0i2txBCY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-pens-and-glasses-HvmVloT9MxA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-tablet-computer-sitting-on-top-of-a-wooden-table-next-to-a-cup-of-coffee-Y0b4So4BBpE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "mahmoud azmy",
+        "profileUrl": "https://unsplash.com/@mahmoud_azmy",
+        "photoPage": "https://unsplash.com/photos/a-desk-with-a-chair-and-a-laptop-on-it-ysoj_iZxfd0"
+      }
+    ]
+  },
+  "sources": [
+    "https://aurorachamber.chambermaster.com/list/member/the-holistic-accountant-17618",
+    "https://unsplash.com/photos/desk-with-calculator-binders-notebook-and-glasses--6LEDthF1AI",
+    "https://unsplash.com/photos/a-room-with-a-bar-and-stools-2DLKYXaMuxE",
+    "https://unsplash.com/photos/long-table-with-eiffel-chair-inside-room-ULh0i2txBCY",
+    "https://unsplash.com/photos/desk-with-calculator-pens-and-glasses-HvmVloT9MxA",
+    "https://unsplash.com/photos/a-tablet-computer-sitting-on-top-of-a-wooden-table-next-to-a-cup-of-coffee-Y0b4So4BBpE",
+    "https://unsplash.com/photos/a-desk-with-a-chair-and-a-laptop-on-it-ysoj_iZxfd0"
+  ]
+}
