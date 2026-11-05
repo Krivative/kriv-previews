@@ -1,0 +1,98 @@
+{
+  "slug": "5-star",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "5 Star Catering Ltd.",
+    "phoneDisplay": "(604) 574-0411",
+    "phoneE164": "+16045740411",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3S 4N5",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *5 Star Catering Ltd..*",
+    "sub": "A concept website prepared by KRIV for 5 Star Catering Ltd.."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Corporate Catering",
+        "blurb": "Learn about corporate catering."
+      }
+    ]
+  },
+  "seo": {
+    "title": "5 Star Catering Ltd. | Concept preview",
+    "description": "Concept preview of a website for 5 Star Catering Ltd. in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1519077336050-4ca5cac9d64f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y2hlZiUyMGNvb2tpbmd8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1574966739987-65e38db0f7ce?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jay Wennington",
+        "profileUrl": "https://unsplash.com/@jaywennington",
+        "photoPage": "https://unsplash.com/photos/dish-on-white-ceramic-plate-N_Y88TWmGwA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Siniz Kim",
+        "profileUrl": "https://unsplash.com/@siniz",
+        "photoPage": "https://unsplash.com/photos/filled-round-white-plate-on-black-surface-aWWl29-VX7Y"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jason Leung",
+        "profileUrl": "https://unsplash.com/@ninjason",
+        "photoPage": "https://unsplash.com/photos/photo-of-pub-set-in-room-during-daytime-poI7DelFiVA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Pylyp Sukhenko",
+        "profileUrl": "https://unsplash.com/@novokayn",
+        "photoPage": "https://unsplash.com/photos/chef-chopping-vegetables-in-restaurant-kitchen-y-XZf_TNRms"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brooke Lark",
+        "profileUrl": "https://unsplash.com/@brookelark",
+        "photoPage": "https://unsplash.com/photos/a-platter-of-crackers-strawberries-and-fruit-M4E7X3z80PQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ronan",
+        "profileUrl": "https://unsplash.com/@ronank",
+        "photoPage": "https://unsplash.com/photos/clear-wine-glasses-on-top-of-dining-table-PCE0T5i4pDI"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.businessinsurrey.com/list/member/5-star-catering-ltd-2",
+    "http://www.5starcatering.com/",
+    "https://unsplash.com/photos/dish-on-white-ceramic-plate-N_Y88TWmGwA",
+    "https://unsplash.com/photos/filled-round-white-plate-on-black-surface-aWWl29-VX7Y",
+    "https://unsplash.com/photos/photo-of-pub-set-in-room-during-daytime-poI7DelFiVA",
+    "https://unsplash.com/photos/chef-chopping-vegetables-in-restaurant-kitchen-y-XZf_TNRms",
+    "https://unsplash.com/photos/a-platter-of-crackers-strawberries-and-fruit-M4E7X3z80PQ",
+    "https://unsplash.com/photos/clear-wine-glasses-on-top-of-dining-table-PCE0T5i4pDI"
+  ]
+}
