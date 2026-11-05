@@ -1,0 +1,111 @@
+{
+  "slug": "hair-by-sheryl",
+  "template": "salon-calm",
+  "contentNiche": "salon",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Hair by Sheryl",
+    "category": "Hair designer and color specialist",
+    "phoneDisplay": "(480) 721-7302",
+    "phoneE164": "+14807217302",
+    "address": {
+      "city": "Chandler",
+      "region": "AZ",
+      "postalCode": "85248",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday through Thursday",
+        "time": "8:00 AM to 5:00 PM Friday by appointment only"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Ocotillo, Chandler",
+    "headline": "Hair design and *color.*",
+    "sub": "Sheryl Hoffer, hair designer and color specialist at Leidan Mitchell Salon/Spa in downtown Ocotillo."
+  },
+  "services": {
+    "title": "With Sheryl",
+    "items": [
+      {
+        "name": "Hair design",
+        "blurb": "Cuts and styling designed for each guest."
+      },
+      {
+        "name": "Color",
+        "blurb": "Color from a color specialist."
+      }
+    ]
+  },
+  "about": {
+    "title": "A customized experience",
+    "body": "Sheryl is committed to creating a customized experience for each and every guest that allows beauty inside and out. Find her at the southwest corner of Dobson and Queen Creek in downtown Ocotillo."
+  },
+  "seo": {
+    "title": "Hair by Sheryl | Concept preview",
+    "description": "Concept preview of a website for Hair by Sheryl in Chandler, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1613574620835-152a5e2de32d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8aGFpciUyMGNvbG9yJTIwYm93bCUyMGJydXNofGVufDF8MHx8fDE3OTM2OTAxNzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFpciUyMHN0eWxpc3QlMjBzdHlsaW5nfGVufDF8MHx8fDE3OTM2OTAxNzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c2Fsb24lMjBjaGFpciUyMG1pcnJvcnxlbnwxfDB8fHwxNzkzNjkwMTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1629397685944-7073f5589754?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmxvbmRlJTIwYmFsYXlhZ2UlMjBoYWlyfGVufDF8MHx8fDE3OTM2OTAxNzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwaW50ZXJpb3IlMjBicmlnaHR8ZW58MXwwfHx8MTc5MzY5MDE3NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1610595426075-eed5a3f521ee?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFpciUyMHByb2R1Y3RzJTIwc2hlbGZ8ZW58MXwwfHx8MTc5MzY5MDE3Nnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "laura adai",
+        "profileUrl": "https://unsplash.com/@lauraadaiphoto",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-fork-on-gray-ceramic-bowl-0AVMttCo5sM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adam Winger",
+        "profileUrl": "https://unsplash.com/@awcreativeut",
+        "photoPage": "https://unsplash.com/photos/hairstylist-blow-drying-client-hair-FkAZqQJTbXM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Guilherme Petri",
+        "profileUrl": "https://unsplash.com/@guipetri",
+        "photoPage": "https://unsplash.com/photos/salon-chairs-at-white-vanity-PtOfbGkU3uI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Giorgio Trovato",
+        "profileUrl": "https://unsplash.com/@giorgiotrovato",
+        "photoPage": "https://unsplash.com/photos/hairstylist-curling-hair-in-salon-wSpkThmoZQc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Greg Trowman",
+        "profileUrl": "https://unsplash.com/@gregtrow",
+        "photoPage": "https://unsplash.com/photos/salon-chairs-with-mirrors-and-products-jsuWg7IXx1k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alexandra Tran",
+        "profileUrl": "https://unsplash.com/@alexgoesglobal",
+        "photoPage": "https://unsplash.com/photos/black-and-white-spray-bottle-beside-clear-drinking-glass-mWVvelLg21Q"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.chandlerchamber.com/list/member/hair-by-sheryl-16285",
+    "https://unsplash.com/photos/brown-wooden-fork-on-gray-ceramic-bowl-0AVMttCo5sM",
+    "https://unsplash.com/photos/hairstylist-blow-drying-client-hair-FkAZqQJTbXM",
+    "https://unsplash.com/photos/salon-chairs-at-white-vanity-PtOfbGkU3uI",
+    "https://unsplash.com/photos/hairstylist-curling-hair-in-salon-wSpkThmoZQc",
+    "https://unsplash.com/photos/salon-chairs-with-mirrors-and-products-jsuWg7IXx1k",
+    "https://unsplash.com/photos/black-and-white-spray-bottle-beside-clear-drinking-glass-mWVvelLg21Q"
+  ]
+}
