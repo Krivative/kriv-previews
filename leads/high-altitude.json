@@ -1,0 +1,90 @@
+{
+  "slug": "high-altitude",
+  "template": "salon-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "High Altitude Play, Ltd",
+    "phoneDisplay": "(720) 968-4924",
+    "phoneE164": "+17209684924",
+    "address": {
+      "city": "Aurora",
+      "region": "ON",
+      "postalCode": "80014",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *High Altitude Play, Ltd.*",
+    "sub": "A concept website prepared by KRIV for High Altitude Play, Ltd."
+  },
+  "seo": {
+    "title": "High Altitude Play, Ltd | Concept preview",
+    "description": "Concept preview of a website for High Altitude Play, Ltd in Aurora, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1628745277862-bc0b2d68c50c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2xlYW4lMjBtb2Rlcm4lMjBraXRjaGVufGVufDF8MHx8fDE3OTM3Njc5NTV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dGlkeSUyMGJyaWdodCUyMGxpdmluZyUyMHJvb218ZW58MXwwfHx8MTc5Mzc2Nzk1NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1626379481874-3dc5678fa8ca?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y2xlYW5pbmclMjBzdXBwbGllcyUyMGhvbWV8ZW58MXwwfHx8MTc5Mzc2Nzk1Nnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1600210491305-7396500b5b31?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWFkZSUyMGJlZCUyMGJyaWdodCUyMGJlZHJvb218ZW58MXwwfHx8MTc5Mzc2Nzk1Nnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1714399417136-d328f3ea14c7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2xlYW4lMjBiYXRocm9vbSUyMHNpbmt8ZW58MXwwfHx8MTc5Mzc2Nzk1N3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y2xlYW4lMjBtb2Rlcm4lMjBraXRjaGVufGVufDF8MHx8fDE3OTM3Njc5NTV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Zac Gudakov",
+        "profileUrl": "https://unsplash.com/@zacgudakov",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-kitchen-counter-UPbYh3A5cdg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-mirror-c0JoR_-2x3E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Giorgio Trovato",
+        "profileUrl": "https://unsplash.com/@giorgiotrovato",
+        "photoPage": "https://unsplash.com/photos/white-plastic-bottles-on-white-plastic-container-XxAy813D66I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Collov Home Design",
+        "profileUrl": "https://unsplash.com/@collovhome",
+        "photoPage": "https://unsplash.com/photos/white-and-blue-bed-linen-MopQfWaJFiw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Clay Banks",
+        "profileUrl": "https://unsplash.com/@claybanks",
+        "photoPage": "https://unsplash.com/photos/a-bathroom-sink-with-a-soap-dispenser-next-to-it-oXhOXnooj5c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "roam in color",
+        "profileUrl": "https://unsplash.com/@roamincolor",
+        "photoPage": "https://unsplash.com/photos/four-brown-stools-RryFk4n-vOs"
+      }
+    ]
+  },
+  "sources": [
+    "https://aurorachamber.chambermaster.com/list/member/high-altitude-play-ltd-16629",
+    "http://www.atozrecreation.com/about",
+    "http://www.atozrecreation.com/",
+    "https://unsplash.com/photos/white-and-brown-kitchen-counter-UPbYh3A5cdg",
+    "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-mirror-c0JoR_-2x3E",
+    "https://unsplash.com/photos/white-plastic-bottles-on-white-plastic-container-XxAy813D66I",
+    "https://unsplash.com/photos/white-and-blue-bed-linen-MopQfWaJFiw",
+    "https://unsplash.com/photos/a-bathroom-sink-with-a-soap-dispenser-next-to-it-oXhOXnooj5c",
+    "https://unsplash.com/photos/four-brown-stools-RryFk4n-vOs"
+  ]
+}
