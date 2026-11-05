@@ -1,0 +1,125 @@
+{
+  "slug": "erin-ridge",
+  "template": "chiro-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "Erin Ridge Veterinary Centre",
+    "category": "Veterinary clinic",
+    "phoneDisplay": "(780) 419-2108",
+    "phoneE164": "+17804192108",
+    "address": {
+      "line1": "105",
+      "city": "975 St. Albert Trail",
+      "region": "AB",
+      "postalCode": "T8N 4K6",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "St. Albert, Alberta",
+    "headline": "Passionate about *pet care.*",
+    "sub": "A family-centered, locally owned veterinary centre with a full range of services, from first shots to geriatric care."
+  },
+  "services": {
+    "title": "Services",
+    "items": [
+      {
+        "name": "Wellness exams and vaccinations",
+        "blurb": "Check-ups and vaccinations at every age."
+      },
+      {
+        "name": "Surgery, spays and neuters",
+        "blurb": "Surgical cases, spays and neuters."
+      },
+      {
+        "name": "Dentistry",
+        "blurb": "Dental care for pets."
+      },
+      {
+        "name": "Diagnostics",
+        "blurb": "In-house diagnostics."
+      },
+      {
+        "name": "Nutrition and behaviour",
+        "blurb": "Nutrition advice and behavioural care."
+      },
+      {
+        "name": "Emergencies, geriatric and final care",
+        "blurb": "Pet emergencies, senior pets and final care."
+      }
+    ]
+  },
+  "about": {
+    "title": "Your pet's health, to heart",
+    "body": "Erin Ridge Veterinary Centre is a family-centered, patient-oriented facility in a new St. Albert location, with first-class technology and a warm, confident team. It keeps pets healthy from the pediatric through the geriatric stages."
+  },
+  "seo": {
+    "title": "Erin Ridge Veterinary Centre | Concept preview",
+    "description": "Concept preview of a website for Erin Ridge Veterinary Centre in 975 St. Albert Trail, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1630359486912-4b085e38f1e7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dmV0ZXJpbmFyaWFuJTIwZXhhbWluaW5nJTIwZG9nfGVufDF8MHx8fDE3OTM2ODkwNTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1788044908314-6a11871f9de4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2F0JTIwYXQlMjB2ZXRlcmluYXJ5JTIwY2xpbmljfGVufDF8MHx8fDE3OTM2ODkwNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFwcHklMjBkb2clMjBwb3J0cmFpdHxlbnwxfDB8fHwxNzkzNjg5MDUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1725409796872-8b41e8eca929?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8a2l0dGVuJTIwY2hlY2t1cHxlbnwxfDB8fHwxNzkzNjg5MDU0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1630438994394-3deff7a591bf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHZldGVyaW5hcmlhbiUyMGV4YW1pbmluZyUyMGRvZ3xlbnwxfDB8fHwxNzkzNjg5MDUxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1759164955427-14ca448a839d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y2F0JTIwYXQlMjB2ZXRlcmluYXJ5JTIwY2xpbmljfGVufDF8MHx8fDE3OTM2ODkwNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Karsten Winegeart",
+        "profileUrl": "https://unsplash.com/@_karsten",
+        "photoPage": "https://unsplash.com/photos/white-french-bulldog-wearing-blue-and-white-polka-dot-shirt-uy5l-VJ8dRM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kristin Kenney",
+        "profileUrl": "https://unsplash.com/@kkinnyc",
+        "photoPage": "https://unsplash.com/photos/tabby-cat-with-cone-and-bandage-nxZI1ztak0c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Pauline Loroy",
+        "profileUrl": "https://unsplash.com/@paulinel",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-long-coat-large-dog-U3aF7hgUSrk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Judy Beth Morris",
+        "profileUrl": "https://unsplash.com/@judy_beth_morris_idaho",
+        "photoPage": "https://unsplash.com/photos/a-white-kitten-being-examined-by-a-veterinator-5Bi6MWlWMbw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Karsten Winegeart",
+        "profileUrl": "https://unsplash.com/@_karsten",
+        "photoPage": "https://unsplash.com/photos/white-and-black-short-coated-dog-wearing-white-and-black-polka-dot-shirt-loJL4ijUobg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Thức Trần",
+        "profileUrl": "https://unsplash.com/@thucne",
+        "photoPage": "https://unsplash.com/photos/a-cat-wearing-a-cone-sits-on-a-stool-outdoors-T470rcAf6no"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.erinridgevet.com/",
+    "https://business.stalbertchamber.com/list/member/erin-ridge-veterinary-centre-10772",
+    "http://www.erinridgevet.com/services",
+    "https://unsplash.com/photos/white-french-bulldog-wearing-blue-and-white-polka-dot-shirt-uy5l-VJ8dRM",
+    "https://unsplash.com/photos/tabby-cat-with-cone-and-bandage-nxZI1ztak0c",
+    "https://unsplash.com/photos/white-and-brown-long-coat-large-dog-U3aF7hgUSrk",
+    "https://unsplash.com/photos/a-white-kitten-being-examined-by-a-veterinator-5Bi6MWlWMbw",
+    "https://unsplash.com/photos/white-and-black-short-coated-dog-wearing-white-and-black-polka-dot-shirt-loJL4ijUobg",
+    "https://unsplash.com/photos/a-cat-wearing-a-cone-sits-on-a-stool-outdoors-T470rcAf6no"
+  ]
+}
