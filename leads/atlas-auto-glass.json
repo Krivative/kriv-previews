@@ -1,0 +1,126 @@
+{
+  "slug": "atlas-auto-glass",
+  "template": "auto-bold",
+  "contentNiche": "auto",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Atlas Auto Glass, LLC",
+    "category": "Auto glass replacement",
+    "phoneDisplay": "(512) 506-0909",
+    "phoneE164": "+15125060909",
+    "address": {
+      "city": "Georgetown",
+      "region": "TX",
+      "postalCode": "78626",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Sunday-Saturday",
+        "time": "8-5 PM"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Georgetown & Austin",
+    "headline": "Windshields, windows and *mirrors.*",
+    "sub": "Windshield, door glass, back glass and side mirror replacement, with in-shop or mobile service and ADAS calibration."
+  },
+  "services": {
+    "title": "Auto glass services",
+    "items": [
+      {
+        "name": "Windshield replacement",
+        "blurb": "Front windshield replacement with OEM or aftermarket glass."
+      },
+      {
+        "name": "Back glass replacement",
+        "blurb": "Rear window glass replaced in the shop or on a mobile visit."
+      },
+      {
+        "name": "Door glass replacement",
+        "blurb": "Side window glass for car doors."
+      },
+      {
+        "name": "Side and rear view mirrors",
+        "blurb": "Side and rear view mirror replacements."
+      },
+      {
+        "name": "Rock chip repair",
+        "blurb": "Rock chips repaired before they spread."
+      },
+      {
+        "name": "ADAS calibration",
+        "blurb": "Driver-assistance camera calibration after a glass replacement."
+      },
+      {
+        "name": "Window regulators and motors",
+        "blurb": "Window regulator and motor replacements."
+      },
+      {
+        "name": "Sunroof, quarter and vent glass",
+        "blurb": "Sunroof, quarter glass and vent glass replacements."
+      }
+    ]
+  },
+  "about": {
+    "title": "A family-owned glass shop",
+    "body": "Atlas Auto Glass is a family-owned business serving Georgetown and Austin. It offers both OEM and aftermarket glass, accepts out-of-pocket payments and insurance claims, and lets customers choose in-shop service or mobile service within its service radius. It also handles fleet accounts, from cars and vans to semi trucks and heavy equipment."
+  },
+  "seo": {
+    "title": "Atlas Auto Glass, LLC | Concept preview",
+    "description": "Concept preview of a website for Atlas Auto Glass, LLC in Georgetown, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://irp.cdn-website.com/6e560248/dms3rep/multi/opt/image-03-1920w.jpeg",
+      "https://irp.cdn-website.com/6e560248/dms3rep/multi/opt/IMG_20190831_112924-1920w.jpg",
+      "https://irp.cdn-website.com/6e560248/dms3rep/multi/opt/PXL_20230921_222650599-01-1920w.jpeg",
+      "https://irp.cdn-website.com/6e560248/dms3rep/multi/opt/PXL_20230428_223159980.PORTRAIT-01-a53267c3-1920w.jpeg",
+      "https://images.unsplash.com/photo-1618934116136-16d28f184b10?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2FyJTIwd2luZHNoaWVsZCUyMHJlcGxhY2VtZW50fGVufDF8MHx8fDE3OTM2ODQxMTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1595977910374-793e731cb36e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8d2luZHNoaWVsZCUyMGdsYXNzJTIwaW5zdGFsbGF0aW9ufGVufDF8MHx8fDE3OTM2ODQxMTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.atlasglassrepair.com/fleets"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.atlasglassrepair.com/fleets"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.atlasglassrepair.com/fleets"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.atlasglassrepair.com/fleets"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Max Tokarev",
+        "profileUrl": "https://unsplash.com/@matokarev",
+        "photoPage": "https://unsplash.com/photos/black-car-door-with-white-window-blinds-jVdFirJ0u4M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Frames For Your Heart",
+        "profileUrl": "https://unsplash.com/@framesforyourheart",
+        "photoPage": "https://unsplash.com/photos/car-on-road-during-daytime-RVuIR7PC0TM"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.atlasglassrepair.com/",
+    "http://www.atlasglassrepair.com/auto-glass-replacements",
+    "https://georgetownchambertx.chambermaster.com/list/member/atlas-auto-glass-llc-5476",
+    "http://www.atlasglassrepair.com/fleets",
+    "https://unsplash.com/photos/black-car-door-with-white-window-blinds-jVdFirJ0u4M",
+    "https://unsplash.com/photos/car-on-road-during-daytime-RVuIR7PC0TM"
+  ]
+}
