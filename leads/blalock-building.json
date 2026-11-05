@@ -1,0 +1,89 @@
+{
+  "slug": "blalock-building",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Blalock Building Company",
+    "phoneDisplay": "(205) 541-4864",
+    "phoneE164": "+12055414864",
+    "address": {
+      "city": "Boerne",
+      "region": "TX",
+      "postalCode": "78006",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Blalock Building Company.*",
+    "sub": "A concept website prepared by KRIV for Blalock Building Company."
+  },
+  "seo": {
+    "title": "Blalock Building Company | Concept preview",
+    "description": "Concept preview of a website for Blalock Building Company in Boerne, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1634580871828-8e6ad9190242?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1582057811341-a22d524c6a4c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599707233265-10accf051fe0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560283543-854926acac9c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1687169512324-e447122cbd4f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1723107638694-b7b98672d10d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "David Lawver",
+        "profileUrl": "https://unsplash.com/@dlawver79",
+        "photoPage": "https://unsplash.com/photos/a-construction-site-with-workers-and-construction-equipment-20PiITKUr_c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "T",
+        "profileUrl": "https://unsplash.com/@t0nn",
+        "photoPage": "https://unsplash.com/photos/grayscale-photo-of-chair-and-table-oD7Da13jles"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Frames For Your Heart",
+        "profileUrl": "https://unsplash.com/@framesforyourheart",
+        "photoPage": "https://unsplash.com/photos/orange-crane-on-top-of-building-fIwZ5l_Jb04"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Julian Guttzeit",
+        "profileUrl": "https://unsplash.com/@julianguttzeit",
+        "photoPage": "https://unsplash.com/photos/yellow-tower-crane-wmy7rNiKYQ4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-house-under-construction-with-a-pile-of-dirt-in-front-of-it-HZwmePT_nlY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Centar MURID",
+        "profileUrl": "https://unsplash.com/@murid",
+        "photoPage": "https://unsplash.com/photos/an-aerial-view-of-a-building-site-in-the-middle-of-a-field-dYylnRnT0dY"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.blalockbc.com/",
+    "https://boernechamber.chambermaster.com/list/member/blalock-building-company-25006",
+    "https://unsplash.com/photos/a-construction-site-with-workers-and-construction-equipment-20PiITKUr_c",
+    "https://unsplash.com/photos/grayscale-photo-of-chair-and-table-oD7Da13jles",
+    "https://unsplash.com/photos/orange-crane-on-top-of-building-fIwZ5l_Jb04",
+    "https://unsplash.com/photos/yellow-tower-crane-wmy7rNiKYQ4",
+    "https://unsplash.com/photos/a-house-under-construction-with-a-pile-of-dirt-in-front-of-it-HZwmePT_nlY",
+    "https://unsplash.com/photos/an-aerial-view-of-a-building-site-in-the-middle-of-a-field-dYylnRnT0dY"
+  ]
+}
