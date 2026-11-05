@@ -1,0 +1,89 @@
+{
+  "slug": "matt-slater",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Matt Slater",
+    "phoneDisplay": "(602) 730-4212",
+    "phoneE164": "+16027304212",
+    "address": {
+      "city": "Scottsdale",
+      "region": "AZ",
+      "postalCode": "85255",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Matt Slater.*",
+    "sub": "A concept website prepared by KRIV for Matt Slater."
+  },
+  "seo": {
+    "title": "Matt Slater | Concept preview",
+    "description": "Concept preview of a website for Matt Slater in Scottsdale, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1693639767415-27ff64ce4da2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1769284022654-66c6b07dae78?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1735795798441-89cb505e1970?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1662726905747-1ccbd1a9b3d3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8Y29tbWVyY2lhbCUyMGJ1aWxkaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1617105686107-830fda34d025?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1693639385915-d7a7ddefe8e1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-house-under-construction-with-scaffolding-around-it-rxfWPJUUClo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Julia Taubitz",
+        "profileUrl": "https://unsplash.com/@justmejuliee",
+        "photoPage": "https://unsplash.com/photos/construction-site-with-crane-and-building-structures-19qZndwJMME"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "K O",
+        "profileUrl": "https://unsplash.com/@kauro",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-lots-of-papers-IzFXEH0jb0w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hiba Ghouich",
+        "profileUrl": "https://unsplash.com/@hiba_gho",
+        "photoPage": "https://unsplash.com/photos/a-construction-site-with-cranes-mOA2DAtcd1w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Zeynep S.",
+        "profileUrl": "https://unsplash.com/@ispywithmylittleeye",
+        "photoPage": "https://unsplash.com/photos/white-clouds-and-blue-sky-during-daytime-LVewTMR-J-A"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-with-scaffolding-and-a-clock--rhzWLDBb7Q"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.scottsdalechamber.com/list/member/matt-slater-35038",
+    "https://business.scottsdalechamber.com/list/member/james-sherrin-38979",
+    "https://unsplash.com/photos/a-house-under-construction-with-scaffolding-around-it-rxfWPJUUClo",
+    "https://unsplash.com/photos/construction-site-with-crane-and-building-structures-19qZndwJMME",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-lots-of-papers-IzFXEH0jb0w",
+    "https://unsplash.com/photos/a-construction-site-with-cranes-mOA2DAtcd1w",
+    "https://unsplash.com/photos/white-clouds-and-blue-sky-during-daytime-LVewTMR-J-A",
+    "https://unsplash.com/photos/a-building-under-construction-with-scaffolding-and-a-clock--rhzWLDBb7Q"
+  ]
+}
