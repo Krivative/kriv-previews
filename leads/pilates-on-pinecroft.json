@@ -1,0 +1,104 @@
+{
+  "slug": "pilates-on-pinecroft",
+  "template": "gym-calm",
+  "contentNiche": "gym",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Pilates on Pinecroft",
+    "category": "Fitness studio",
+    "phoneDisplay": "(832) 381-2679",
+    "phoneE164": "+18323812679",
+    "address": {
+      "line1": "9303 Pinecroft Drive.",
+      "city": "Suite 200",
+      "region": "TX",
+      "postalCode": "77380",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday – Thursday,",
+        "time": "8:00 a.m. – 7:00 p.m."
+      },
+      {
+        "days": "Friday,",
+        "time": "8:00 a.m. – 1:00 p.m."
+      },
+      {
+        "days": "Saturday,",
+        "time": "8:00 a.m. – 10:00 a.m."
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Pilates on Pinecroft.*",
+    "sub": "A concept website prepared by KRIV for Pilates on Pinecroft."
+  },
+  "seo": {
+    "title": "Pilates on Pinecroft | Concept preview",
+    "description": "Concept preview of a website for Pilates on Pinecroft in Suite 200, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1521805103424-d8f8430e8933?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Z3ltJTIwd2VpZ2h0c3xlbnwxfDB8fHwxNzkzNzYyODA1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1687783615494-b4a1f1af8b58?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwxfDB8fHwxNzkzNzYyODA2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Z3ltJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dHJhaW5pbmclMjBlcXVpcG1lbnR8ZW58MXwwfHx8MTc5Mzc2MjgwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1544033527-b192daee1f5b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Z3ltJTIwd2VpZ2h0c3xlbnwxfDB8fHwxNzkzNzYyODA1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1646239646963-b0b9be56d6b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fHlvZ2ElMjBzdHVkaW98ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Victor Freitas",
+        "profileUrl": "https://unsplash.com/@victorfreitas",
+        "photoPage": "https://unsplash.com/photos/black-barbell-on-tile-flooring-Yuv-iwByVRQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Olga Pukhalskaya",
+        "profileUrl": "https://unsplash.com/@pukhalskaya_olga",
+        "photoPage": "https://unsplash.com/photos/a-large-room-with-a-lot-of-yoga-mats-on-the-floor-dwka5DDrnY0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sven Mieke",
+        "profileUrl": "https://unsplash.com/@sxoxm",
+        "photoPage": "https://unsplash.com/photos/treadmills-in-gym-with-wooden-floors-MsCgmHuirDo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kelly Sikkema",
+        "profileUrl": "https://unsplash.com/@kellysikkema",
+        "photoPage": "https://unsplash.com/photos/dumbbells-and-resistance-band-workout-IZOAOjvwhaM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Luis Reyes",
+        "profileUrl": "https://unsplash.com/@tuga760",
+        "photoPage": "https://unsplash.com/photos/gray-scale-photo-of-dumbbells-mTorQ9gFfOg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Samantha Sheppard",
+        "profileUrl": "https://unsplash.com/@samsheppardphoto",
+        "photoPage": "https://unsplash.com/photos/a-yoga-mat-with-two-blocks-on-top-of-it-b8Q5fHBsyik"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.pilatesonpinecroft.com/",
+    "https://business.woodlandschamber.org/list/member/pilates-on-pinecroft-the-woodlands-69232",
+    "http://pilatesonpinecroft.com/contact-pilates-on-pinecroft-the-woodlands/",
+    "https://unsplash.com/photos/black-barbell-on-tile-flooring-Yuv-iwByVRQ",
+    "https://unsplash.com/photos/a-large-room-with-a-lot-of-yoga-mats-on-the-floor-dwka5DDrnY0",
+    "https://unsplash.com/photos/treadmills-in-gym-with-wooden-floors-MsCgmHuirDo",
+    "https://unsplash.com/photos/dumbbells-and-resistance-band-workout-IZOAOjvwhaM",
+    "https://unsplash.com/photos/gray-scale-photo-of-dumbbells-mTorQ9gFfOg",
+    "https://unsplash.com/photos/a-yoga-mat-with-two-blocks-on-top-of-it-b8Q5fHBsyik"
+  ]
+}
