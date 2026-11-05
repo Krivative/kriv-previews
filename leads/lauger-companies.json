@@ -1,0 +1,87 @@
+{
+  "slug": "lauger-companies",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Lauger Companies",
+    "phoneDisplay": "(361) 576-0003",
+    "phoneE164": "+13615760003",
+    "address": {
+      "city": "Victoria",
+      "postalCode": "77905",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Lauger Companies.*",
+    "sub": "A concept website prepared by KRIV for Lauger Companies."
+  },
+  "seo": {
+    "title": "Lauger Companies | Concept preview",
+    "description": "Concept preview of a website for Lauger Companies in Victoria, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1636714289409-e06a4dfc617c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1556156657-b2925b706f19?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1769284013173-47150b8c7e51?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1433840496881-cbd845929862?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1596541513035-630fea51dbb4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8Y29tbWVyY2lhbCUyMGJ1aWxkaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631472965545-5c99a4ce43db?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nicolas Beuret",
+        "profileUrl": "https://unsplash.com/@galerieseven",
+        "photoPage": "https://unsplash.com/photos/a-group-of-cranes-are-silhouetted-against-the-evening-sky-8i19Rm2EFUM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Avel Chuklanov",
+        "profileUrl": "https://unsplash.com/@chuklanov",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-building-a0BEHFMKqTE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Julia Taubitz",
+        "profileUrl": "https://unsplash.com/@justmejuliee",
+        "photoPage": "https://unsplash.com/photos/construction-site-with-complex-concrete-structures-and-scaffolding-OKZRUxijthA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergey Zolkin",
+        "profileUrl": "https://unsplash.com/@szolkin",
+        "photoPage": "https://unsplash.com/photos/beam-design-printed-paper-on-desk-m9qMoh-scfE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Milo Bunnik",
+        "profileUrl": "https://unsplash.com/@mostpeoplecallmemilo",
+        "photoPage": "https://unsplash.com/photos/white-and-blue-concrete-building-5pjp_dwPx1w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Förtsch",
+        "profileUrl": "https://unsplash.com/@michael_f",
+        "photoPage": "https://unsplash.com/photos/a-group-of-cranes-that-are-standing-in-the-dirt-ZtyBXcsXDCM"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.laugercompaniesinc.com/",
+    "https://unsplash.com/photos/a-group-of-cranes-are-silhouetted-against-the-evening-sky-8i19Rm2EFUM",
+    "https://unsplash.com/photos/brown-wooden-building-a0BEHFMKqTE",
+    "https://unsplash.com/photos/construction-site-with-complex-concrete-structures-and-scaffolding-OKZRUxijthA",
+    "https://unsplash.com/photos/beam-design-printed-paper-on-desk-m9qMoh-scfE",
+    "https://unsplash.com/photos/white-and-blue-concrete-building-5pjp_dwPx1w",
+    "https://unsplash.com/photos/a-group-of-cranes-that-are-standing-in-the-dirt-ZtyBXcsXDCM"
+  ]
+}
