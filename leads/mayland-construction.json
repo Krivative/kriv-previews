@@ -1,0 +1,87 @@
+{
+  "slug": "mayland-construction",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Mayland Construction",
+    "phoneDisplay": "(346) 386-9020",
+    "phoneE164": "+13463869020",
+    "address": {
+      "city": "The Woodlands",
+      "region": "TX",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Mayland Construction.*",
+    "sub": "A concept website prepared by KRIV for Mayland Construction."
+  },
+  "seo": {
+    "title": "Mayland Construction | Concept preview",
+    "description": "Concept preview of a website for Mayland Construction in The Woodlands, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29tbWVyY2lhbCUyMGJ1aWxkaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1746364742672-c6383331b032?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1676802540678-2dceb1820113?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1768677903496-becc4be07258?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8Y29uc3RydWN0aW9uJTIwd29ya2VycyUyMHNpdGV8ZW58MXwwfHx8MTc5MzY5NjU5NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1685464197144-790d716b8649?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8Y29uY3JldGUlMjBmb3VuZGF0aW9uJTIwcG91cnxlbnwxfDB8fHwxNzkzNjk2NTk0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1721244654392-9c912a6eb236?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Ben Allan",
+        "profileUrl": "https://unsplash.com/@ballonandon",
+        "photoPage": "https://unsplash.com/photos/grayscale-photo-of-crane-in-front-of-building-BIeC4YK2MTA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Raymond Yeung",
+        "profileUrl": "https://unsplash.com/@optiny",
+        "photoPage": "https://unsplash.com/photos/construction-cranes-populate-the-cityscape-hbe2OSnR4vU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-wooden-structure-with-a-sky-background-w6g9DqZUNkI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Toni  Reed",
+        "profileUrl": "https://unsplash.com/@trfotos",
+        "photoPage": "https://unsplash.com/photos/construction-worker-inspects-rebar-on-a-building-site-dSjrv4w1g1Q"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mélyna Côté",
+        "profileUrl": "https://unsplash.com/@laptiteminimaliste",
+        "photoPage": "https://unsplash.com/photos/a-group-of-construction-workers-working-on-a-building-NxwMP5V57Zg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Amsterdam City Archives",
+        "profileUrl": "https://unsplash.com/@amsterdamcityarchives",
+        "photoPage": "https://unsplash.com/photos/a-blueprint-of-a-building-with-a-bunch-of-windows-URnyBZCnlIs"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.maylandconstruction.com/",
+    "https://unsplash.com/photos/grayscale-photo-of-crane-in-front-of-building-BIeC4YK2MTA",
+    "https://unsplash.com/photos/construction-cranes-populate-the-cityscape-hbe2OSnR4vU",
+    "https://unsplash.com/photos/a-wooden-structure-with-a-sky-background-w6g9DqZUNkI",
+    "https://unsplash.com/photos/construction-worker-inspects-rebar-on-a-building-site-dSjrv4w1g1Q",
+    "https://unsplash.com/photos/a-group-of-construction-workers-working-on-a-building-NxwMP5V57Zg",
+    "https://unsplash.com/photos/a-blueprint-of-a-building-with-a-bunch-of-windows-URnyBZCnlIs"
+  ]
+}
