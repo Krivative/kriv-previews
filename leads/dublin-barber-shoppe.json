@@ -1,0 +1,119 @@
+{
+  "slug": "dublin-barber-shoppe",
+  "template": "spa-bold",
+  "contentNiche": "salon",
+  "lang": "en-US",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "Dublin Barber Shoppe, LLC",
+    "category": "Barber shop",
+    "phoneDisplay": "(614) 889-8328",
+    "phoneE164": "+16148898328",
+    "address": {
+      "city": "Dublin",
+      "region": "OH",
+      "postalCode": "43017",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Historic Dublin, Ohio · Est. 1938",
+    "headline": "Classic cuts on High Street *since 1938.*",
+    "sub": "A traditional barber shop with a modern edge in the heart of Dublin's Historic District. Appointments and walk-ins welcome."
+  },
+  "services": {
+    "title": "Cuts and trims",
+    "items": [
+      {
+        "name": "Regular haircut",
+        "blurb": "A classic cut, just the way you like it."
+      },
+      {
+        "name": "Flattop",
+        "blurb": "The traditional flattop."
+      },
+      {
+        "name": "Buzz cut",
+        "blurb": "One length all over."
+      },
+      {
+        "name": "Haircut with beard trim",
+        "blurb": "A one-hour cut and beard trim."
+      },
+      {
+        "name": "Beard trim",
+        "blurb": "Beard trims on their own."
+      },
+      {
+        "name": "Lineup and neck cleanup",
+        "blurb": "A quick tidy between cuts."
+      }
+    ]
+  },
+  "about": {
+    "title": "The tradition continues",
+    "body": "Mose Meyers opened the Dublin Barber Shoppe in 1938, offering men traditional haircuts in a traditional setting. Jack Price became a partner in 1967 and later the owner, when Dublin had only 350 residents. His son Craig joined him in 1996 and owns the shop today, where he and his barbers keep giving friendly, precise service."
+  },
+  "seo": {
+    "title": "Dublin Barber Shoppe, LLC | Concept preview",
+    "description": "Concept preview of a website for Dublin Barber Shoppe, LLC in Dublin, OH, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://dublinbarbershoppe.com/wp-content/themes/trusty18/images/storefront_homephoto_1900x600.2.jpg",
+      "https://dublinbarbershoppe.com/wp-content/uploads/jackandcraigSML.jpg",
+      "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmFyYmVyc2hvcCUyMGNoYWlyJTIwdmludGFnZXxlbnwxfDB8fHwxNzkzNjk2NDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmFyYmVyJTIwdG9vbHMlMjBjbGlwcGVycyUyMGNvbWJ8ZW58MXwwfHx8MTc5MzY5NjUwMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1524230616393-d6229fcd2eff?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8c3RyYWlnaHQlMjByYXpvciUyMHNoYXZlfGVufDF8MHx8fDE3OTM2OTY1MDF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1702865272115-5afdbae975af?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YmFyYmVyc2hvcCUyMGNoYWlyJTIwdmludGFnZXxlbnwxfDB8fHwxNzkzNjk2NDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.dublinbarbershoppe.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "https://dublinbarbershoppe.com/our-history/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nathon Oski",
+        "profileUrl": "https://unsplash.com/@onatecan",
+        "photoPage": "https://unsplash.com/photos/black-leather-barber-chair-near-brown-brick-wall-EW_rqoSdDes"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andrea Donato",
+        "profileUrl": "https://unsplash.com/@andreadonato",
+        "photoPage": "https://unsplash.com/photos/hair-clippers-and-grooming-tools-MNu0n-3BIKs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Josh Sorenson",
+        "profileUrl": "https://unsplash.com/@joshsorenson",
+        "photoPage": "https://unsplash.com/photos/black-straight-razor-beside-beige-ceramic-mug-and-shaving-cream-brush-FvKpUZCbZ-s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Redd Francisco",
+        "profileUrl": "https://unsplash.com/@reddfrancisco",
+        "photoPage": "https://unsplash.com/photos/a-barber-shop-with-a-chair-and-a-mirror-BBGyxhtPpC0"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.dublinchamber.org/list/member/dublin-barber-shoppe-llc-977",
+    "http://www.dublinbarbershoppe.com/",
+    "https://dublinbarbershoppe.com/our-history/",
+    "https://dublinbarbershoppe.com/services/",
+    "https://unsplash.com/photos/black-leather-barber-chair-near-brown-brick-wall-EW_rqoSdDes",
+    "https://unsplash.com/photos/hair-clippers-and-grooming-tools-MNu0n-3BIKs",
+    "https://unsplash.com/photos/black-straight-razor-beside-beige-ceramic-mug-and-shaving-cream-brush-FvKpUZCbZ-s",
+    "https://unsplash.com/photos/a-barber-shop-with-a-chair-and-a-mirror-BBGyxhtPpC0"
+  ]
+}
