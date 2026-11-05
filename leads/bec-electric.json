@@ -1,0 +1,120 @@
+{
+  "slug": "bec-electric",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "BEC Electric",
+    "category": "Electrical contractor",
+    "phoneDisplay": "(780) 569-5232",
+    "phoneE164": "+17805695232",
+    "address": {
+      "city": "St. Albert",
+      "region": "AB",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "St. Albert, Alberta",
+    "headline": "Electrical for commercial, industrial and *new homes.*",
+    "sub": "Electrical installations, repairs and service for commercial, light industrial and residential buildings across Alberta."
+  },
+  "services": {
+    "title": "What BEC does",
+    "items": [
+      {
+        "name": "Commercial projects",
+        "blurb": "Working with general contractors on clinics, retail stores and offices."
+      },
+      {
+        "name": "Panel upgrades",
+        "blurb": "Commercial and industrial panel and service upgrades, up to code."
+      },
+      {
+        "name": "New home construction",
+        "blurb": "Working with builders, designers and homeowners on modern, efficient homes."
+      },
+      {
+        "name": "Commercial fire alarms",
+        "blurb": "Fire alarm installations for commercial buildings."
+      },
+      {
+        "name": "Service and maintenance",
+        "blurb": "Maintenance of commercial and light industrial electrical systems."
+      },
+      {
+        "name": "EV and renewable energy",
+        "blurb": "EV installations and renewable energy products and services."
+      }
+    ]
+  },
+  "about": {
+    "title": "Complete electrical systems",
+    "body": "BEC Electric has installed many complete electrical systems for commercial and light industrial buildings around St. Albert and throughout Alberta. It works with general contractors on clinics, retail stores and offices, and with builders, designers and homeowners on new homes."
+  },
+  "seo": {
+    "title": "BEC Electric | Concept preview",
+    "description": "Concept preview of a website for BEC Electric in St. Albert, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://www.becelectric.ca/gallery_gen/d44db948f353a6332ec5f9dcd44bbf33_fit.png",
+      "https://images.unsplash.com/photo-1635335874521-7987db781153?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZWxlY3RyaWNhbCUyMHBhbmVsJTIwdXBncmFkZXxlbnwxfDB8fHwxNzkzNjg1NTUxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1608574839637-2f7d0290d01d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29tbWVyY2lhbCUyMGVsZWN0cmljaWFuJTIwY29uZHVpdHxlbnwxfDB8fHwxNzkzNjg1NTUyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZXYlMjBjaGFyZ2VyJTIwaW5zdGFsbGF0aW9ufGVufDF8MHx8fDE3OTM2ODU1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1653353436174-a8e724190fd3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZmlyZSUyMGFsYXJtJTIwcGFuZWx8ZW58MXwwfHx8MTc5MzY4NTU1M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1656733911001-16912b79d2bf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bmV3JTIwaG9tZSUyMGNvbnN0cnVjdGlvbiUyMHdpcmluZ3xlbnwxfDB8fHwxNzkzNjg1NTUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.becelectric.ca/Services/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "mostafa mahmoudi",
+        "profileUrl": "https://unsplash.com/@mostafa_mahmoudi24",
+        "photoPage": "https://unsplash.com/photos/a-bunch-of-wires-are-plugged-into-a-switch-box-47jO5Y8nsYo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Wonderlane",
+        "profileUrl": "https://unsplash.com/@wonderlane",
+        "photoPage": "https://unsplash.com/photos/white-wooden-shelf-with-books-al566xggq38"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "CHUTTERSNAP",
+        "profileUrl": "https://unsplash.com/@chuttersnap",
+        "photoPage": "https://unsplash.com/photos/electric-vehicle-charging-cable-plugged-into-car-xJLsHl0hIik"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "iSawRed",
+        "profileUrl": "https://unsplash.com/@isawred",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-red-fire-hydrant-PDbrz9VEAFA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Samuel Cruz",
+        "profileUrl": "https://unsplash.com/@samuelcruz",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-wood-floor-and-a-bench-17nDFVkBYK0"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.becelectric.ca/",
+    "https://business.stalbertchamber.com/list/member/bec-electric-10827",
+    "http://www.becelectric.ca/Services/",
+    "https://unsplash.com/photos/a-bunch-of-wires-are-plugged-into-a-switch-box-47jO5Y8nsYo",
+    "https://unsplash.com/photos/white-wooden-shelf-with-books-al566xggq38",
+    "https://unsplash.com/photos/electric-vehicle-charging-cable-plugged-into-car-xJLsHl0hIik",
+    "https://unsplash.com/photos/a-close-up-of-a-red-fire-hydrant-PDbrz9VEAFA",
+    "https://unsplash.com/photos/a-room-with-a-wood-floor-and-a-bench-17nDFVkBYK0"
+  ]
+}
