@@ -1,0 +1,126 @@
+{
+  "slug": "oml-construction",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "OML Construction Services Ltd.",
+    "category": "Construction company",
+    "phoneDisplay": "(780) 487-0772",
+    "phoneE164": "+17804870772",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "postalCode": "T5S 2H5",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Edmonton, Alberta",
+    "headline": "Built smart to *build smarter.*",
+    "sub": "Commercial, light industrial and multi-family residential construction across Western Canada."
+  },
+  "services": {
+    "title": "How OML builds",
+    "items": [
+      {
+        "name": "Construction management",
+        "blurb": "Managing new building projects from start to finish."
+      },
+      {
+        "name": "General contracting",
+        "blurb": "New buildings and renovations."
+      },
+      {
+        "name": "Design-build",
+        "blurb": "Design and construction under one team."
+      },
+      {
+        "name": "Pre-construction",
+        "blurb": "Planning that brings certainty on cost, quality and schedule."
+      }
+    ]
+  },
+  "about": {
+    "title": "Three generations in Canadian construction",
+    "body": "OML Construction was founded in 2006 by Mike Olson, grandson of Stuart Olson and the third generation of his family in the Canadian construction industry. OML gives clients clear, continuous updates and real-time metrics throughout a project, and puts the right team on the right job every time."
+  },
+  "custom": {
+    "title": "Sectors",
+    "items": [
+      {
+        "name": "Commercial",
+        "blurb": "Commercial construction projects."
+      },
+      {
+        "name": "Industrial",
+        "blurb": "Light industrial projects."
+      },
+      {
+        "name": "Institutional",
+        "blurb": "Institutional projects."
+      },
+      {
+        "name": "Residential",
+        "blurb": "Multi-family residential projects."
+      }
+    ]
+  },
+  "seo": {
+    "title": "OML Construction Services Ltd. | Concept preview",
+    "description": "Concept preview of a website for OML Construction Services Ltd. in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://www.omlconstruction.com/img/accordian/light-industrial-ph.png",
+      "http://www.omlconstruction.com/img/accordian/commercial-ph.png",
+      "http://www.omlconstruction.com/img/accordian/residential-ph.png",
+      "http://www.omlconstruction.com/img/h-sect2.png",
+      "https://images.unsplash.com/photo-1599707254554-027aeb4deacd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1768926968986-a88590ce5025?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Y29uc3RydWN0aW9uJTIwd29ya2VycyUyMHNpdGV8ZW58MXwwfHx8MTc5MzY5NjU5NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.omlconstruction.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.omlconstruction.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.omlconstruction.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.omlconstruction.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Frames For Your Heart",
+        "profileUrl": "https://unsplash.com/@framesforyourheart",
+        "photoPage": "https://unsplash.com/photos/yellow-crane-near-building-during-daytime-VoI2jd75M6Q"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Wasif Ali",
+        "profileUrl": "https://unsplash.com/@wasifboi",
+        "photoPage": "https://unsplash.com/photos/construction-workers-in-hard-hats-and-safety-vests-on-site-fBtNXtM4o3k"
+      }
+    ]
+  },
+  "sources": [
+    "https://edmontonchamber.chambermaster.com/list/member/oml-construction-services-ltd-16091",
+    "http://www.omlconstruction.com/",
+    "http://www.omlconstruction.com/about/",
+    "http://www.omlconstruction.com/contact/",
+    "https://unsplash.com/photos/yellow-crane-near-building-during-daytime-VoI2jd75M6Q",
+    "https://unsplash.com/photos/construction-workers-in-hard-hats-and-safety-vests-on-site-fBtNXtM4o3k"
+  ]
+}
