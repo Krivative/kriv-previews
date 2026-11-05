@@ -1,0 +1,110 @@
+{
+  "slug": "engineered-packaged-systems",
+  "template": "plumbing-bold",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Engineered Packaged Systems, Inc",
+    "category": "Commercial and industrial HVAC/R",
+    "phoneDisplay": "(409) 866-5213",
+    "phoneE164": "+14098665213",
+    "address": {
+      "city": "Beaumont",
+      "region": "TX",
+      "postalCode": "77707",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Mon - Fri",
+        "time": "8AM to 5PM"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Beaumont, Texas",
+    "headline": "HVAC for land, sea and *offshore.*",
+    "sub": "Custom-designed HVAC and refrigeration for commercial, industrial, marine and offshore industries."
+  },
+  "services": {
+    "title": "Systems and service",
+    "items": [
+      {
+        "name": "Commercial HVAC repair and maintenance",
+        "blurb": "Service, preventive maintenance and repairs on all major brands."
+      },
+      {
+        "name": "Standard and modified HVAC/R",
+        "blurb": "Standard and modified systems for commercial buildings."
+      },
+      {
+        "name": "Explosion-proof HVAC/R",
+        "blurb": "Explosion-proof systems for hazardous locations."
+      },
+      {
+        "name": "Marine and offshore HVAC/R",
+        "blurb": "HVAC and refrigeration for marine and offshore industries."
+      },
+      {
+        "name": "Industrial chillers and process cooling",
+        "blurb": "Industrial chillers, pump systems and process cooling."
+      }
+    ]
+  },
+  "about": {
+    "title": "Engineered in Beaumont",
+    "body": "Engineered Packaged Systems was formed in 1984 as a privately owned corporation in Beaumont, Texas. Its engineering department custom designs, installs, modifies and services HVAC systems, and its service technicians care for all major commercial brands, including equipment EPS did not install."
+  },
+  "seo": {
+    "title": "Engineered Packaged Systems, Inc | Concept preview",
+    "description": "Concept preview of a website for Engineered Packaged Systems, Inc in Beaumont, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://engpkgsys.com/wp-content/uploads/2023/06/contact-us-1536x936.jpg",
+      "https://engpkgsys.com/wp-content/uploads/2023/04/Services_Industrial-Chiller.webp",
+      "https://engpkgsys.com/wp-content/uploads/2023/04/Services_Commercial-standard-modified-ac-packaged-units.webp",
+      "https://engpkgsys.com/wp-content/uploads/2023/04/Services_Explosion-Proof-HVAC-%E2%80%93-Hazardous-Area-Rated.webp",
+      "https://engpkgsys.com/wp-content/uploads/2023/04/Services_Marine-and-offshore-packaged-systems.webp",
+      "https://images.unsplash.com/photo-1620203853151-496c7228306c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aW5kdXN0cmlhbCUyMGNoaWxsZXJ8ZW58MXwwfHx8MTc5MzY4OTAwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.engpkgsys.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.engpkgsys.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.engpkgsys.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.engpkgsys.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.engpkgsys.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ricardo Gomez Angel",
+        "profileUrl": "https://unsplash.com/@rgaleriacom",
+        "photoPage": "https://unsplash.com/photos/industrial-metal-pipes-and-valves-41X6FwTwPh4"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.engpkgsys.com/",
+    "https://engpkgsys.com/contact-us/",
+    "https://engpkgsys.com/commercial-hvac-repair-and-maintenance/",
+    "https://unsplash.com/photos/industrial-metal-pipes-and-valves-41X6FwTwPh4"
+  ]
+}
