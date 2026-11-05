@@ -1,0 +1,113 @@
+{
+  "slug": "j-tech-mechanical",
+  "template": "plumbing-calm",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-10-27",
+  "expiresAt": "2026-11-26",
+  "status": "approved",
+  "business": {
+    "name": "J-Tech Mechanical",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(281) 252-0360",
+    "phoneE164": "+12812520360",
+    "address": {
+      "city": "Magnolia",
+      "region": "TX",
+      "postalCode": "77354",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Magnolia, Texas",
+    "headline": "The comfort your family *relies on.*",
+    "sub": "Furnace and air conditioner repair, installation and maintenance, mini-splits and indoor air quality, with 24/7 emergency support."
+  },
+  "services": {
+    "title": "HVAC services",
+    "items": [
+      {
+        "name": "Air conditioning",
+        "blurb": "Air conditioner repair, installation and maintenance."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Furnace repair, installation and maintenance."
+      },
+      {
+        "name": "Mini-split installation",
+        "blurb": "Mini-split systems installed."
+      },
+      {
+        "name": "Indoor air quality",
+        "blurb": "Air filtration, ventilation, humidifiers and dehumidifiers."
+      },
+      {
+        "name": "Heat pumps and air handlers",
+        "blurb": "Heat pumps, air handlers, packaged systems and thermostats."
+      },
+      {
+        "name": "Zoning systems",
+        "blurb": "System zoning for different parts of the home."
+      }
+    ]
+  },
+  "seo": {
+    "title": "J-Tech Mechanical | Concept preview",
+    "description": "Concept preview of a website for J-Tech Mechanical in Magnolia, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://www.jtechmechanical.com/app/uploads/sites/102/2025/09/JTechVan-Hero-1180x700-1.jpg",
+      "https://www.jtechmechanical.com/app/uploads/sites/102/2025/05/title1-800x450.png",
+      "https://images.unsplash.com/photo-1792799881226-e841c0f9c125?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8YWlyJTIwY29uZGl0aW9uZXIlMjBpbnN0YWxsYXRpb24lMjB0ZWNobmljaWFufGVufDF8MHx8fDE3OTM2OTQ0NzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762329858510-46aec8fa54b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZnVybmFjZSUyMHJlcGFpcnxlbnwxfDB8fHwxNzkzNjk0NDcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762341123870-d706f257a12e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWluaSUyMHNwbGl0JTIwYWlyJTIwY29uZGl0aW9uZXIlMjB3YWxsfGVufDF8MHx8fDE3OTM2OTQ0NzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGVhdCUyMHB1bXAlMjBvdXRkb29yfGVufDF8MHx8fDE3OTM2OTQ0NzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.jtechmechanical.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.jtechmechanical.com/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Joel Muniz",
+        "profileUrl": "https://unsplash.com/@jmuniz",
+        "photoPage": "https://unsplash.com/photos/technician-servicing-outdoor-air-conditioning-unit-8RbiLgfqoqQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Zulfugar Karimov",
+        "profileUrl": "https://unsplash.com/@zulfugarkarimov",
+        "photoPage": "https://unsplash.com/photos/close-up-of-vintage-audio-equipment-sliders-kYXlFoTzgmg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Zulfugar Karimov",
+        "profileUrl": "https://unsplash.com/@zulfugarkarimov",
+        "photoPage": "https://unsplash.com/photos/white-air-conditioner-unit-displaying-22-degrees-mM0vW68NY0g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "alpha innotec",
+        "profileUrl": "https://unsplash.com/@alpha_innotec",
+        "photoPage": "https://unsplash.com/photos/outdoor-heat-pump-unit-next-to-a-brick-building-4VCm8l6wLQY"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.jtechmechanical.com/",
+    "https://greatermagnoliaparkwaychamber.chambermaster.com/list/member/j-tech-mechanical-4643",
+    "https://unsplash.com/photos/technician-servicing-outdoor-air-conditioning-unit-8RbiLgfqoqQ",
+    "https://unsplash.com/photos/close-up-of-vintage-audio-equipment-sliders-kYXlFoTzgmg",
+    "https://unsplash.com/photos/white-air-conditioner-unit-displaying-22-degrees-mM0vW68NY0g",
+    "https://unsplash.com/photos/outdoor-heat-pump-unit-next-to-a-brick-building-4VCm8l6wLQY"
+  ]
+}
