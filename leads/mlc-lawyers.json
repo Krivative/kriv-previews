@@ -1,0 +1,88 @@
+{
+  "slug": "mlc-lawyers",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "MLC Lawyers Law Corporation",
+    "phoneDisplay": "(604) 538-9887",
+    "phoneE164": "+16045389887",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V4A 1W9",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *MLC Lawyers Law Corporation.*",
+    "sub": "A concept website prepared by KRIV for MLC Lawyers Law Corporation."
+  },
+  "seo": {
+    "title": "MLC Lawyers Law Corporation | Concept preview",
+    "description": "Concept preview of a website for MLC Lawyers Law Corporation in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1528208079124-a2387f039c99?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1508107536691-b1449928187d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bW9kZXJuJTIwb2ZmaWNlfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1526566942522-80916a974d73?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1575282343536-469af953c6e7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1517502884422-41eaead166d4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "wu yi",
+        "profileUrl": "https://unsplash.com/@takeshi2",
+        "photoPage": "https://unsplash.com/photos/unfold-book-on-desk-3lJMJ3g37IE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Annie Spratt",
+        "profileUrl": "https://unsplash.com/@anniespratt",
+        "photoPage": "https://unsplash.com/photos/photo-of-library-shelves-GWCvnsMtiBg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nastuh Abootalebi",
+        "profileUrl": "https://unsplash.com/@sunday_digital",
+        "photoPage": "https://unsplash.com/photos/hallway-between-glass-panel-doors-yWwob8kwOCk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ella Jardim",
+        "profileUrl": "https://unsplash.com/@daniellajardim",
+        "photoPage": "https://unsplash.com/photos/pink-mug-on-stacked-books-wOGhHamMqLc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aleix Ventayol",
+        "profileUrl": "https://unsplash.com/@ventayol",
+        "photoPage": "https://unsplash.com/photos/black-book-on-shelf-yPoM-wmzKMM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dane Deaner",
+        "profileUrl": "https://unsplash.com/@danedeaner",
+        "photoPage": "https://unsplash.com/photos/beige-wooden-conference-table-_-KLkj7on_c"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.morinlaw.ca/",
+    "https://unsplash.com/photos/unfold-book-on-desk-3lJMJ3g37IE",
+    "https://unsplash.com/photos/photo-of-library-shelves-GWCvnsMtiBg",
+    "https://unsplash.com/photos/hallway-between-glass-panel-doors-yWwob8kwOCk",
+    "https://unsplash.com/photos/pink-mug-on-stacked-books-wOGhHamMqLc",
+    "https://unsplash.com/photos/black-book-on-shelf-yPoM-wmzKMM",
+    "https://unsplash.com/photos/beige-wooden-conference-table-_-KLkj7on_c"
+  ]
+}
