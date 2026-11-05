@@ -1,0 +1,58 @@
+{
+  "slug": "amacon-construction-limited",
+  "template": "cafe-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "Amacon Construction Limited",
+    "phoneDisplay": "(604) 602-7700",
+    "phoneE164": "+16046027700",
+    "address": {
+      "line1": "Suite 500",
+      "city": "856 Homer Street",
+      "region": "AB",
+      "postalCode": "V6B 2W5",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Amacon Construction Limited.*",
+    "sub": "A concept website prepared by KRIV for Amacon Construction Limited."
+  },
+  "seo": {
+    "title": "Amacon Construction Limited | Concept preview",
+    "description": "Concept preview of a website for Amacon Construction Limited in 856 Homer Street, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkzNjcwOTY5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixid=M3wxMTEyNjU1fDB8MXxhbGx8fHx8fHx8fHwxNzkzNjcwOTY5fA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "todd kent",
+        "profileUrl": "https://unsplash.com/@churchoftodd",
+        "photoPage": "https://unsplash.com/photos/gray-wooden-house-178j8tJrNlc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Frames For Your Heart",
+        "profileUrl": "https://unsplash.com/@framesforyourheart",
+        "photoPage": "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-mR1CIDduGLc"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.stalbertchamber.com/list/member/amacon-construction-limited-6971",
+    "https://www.grandinparcvillage.com/contact/",
+    "https://unsplash.com/photos/gray-wooden-house-178j8tJrNlc",
+    "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-mR1CIDduGLc"
+  ]
+}
