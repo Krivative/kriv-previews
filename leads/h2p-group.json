@@ -1,0 +1,116 @@
+{
+  "slug": "h2p-group",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "H2P Group Inc.",
+    "category": "Design and construction management",
+    "phoneDisplay": "(780) 809-8574",
+    "phoneE164": "+17808098574",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "postalCode": "T5L 4K8",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Sherwood Park, Alberta",
+    "headline": "Design and construction, *fully integrated.*",
+    "sub": "H2P Projects is committed to providing fully integrated design and construction management services for industrial and commercial facilities."
+  },
+  "services": {
+    "title": "What H2P does",
+    "items": [
+      {
+        "name": "Site and facility assessment",
+        "blurb": "Assessing sites and existing facilities before a project starts."
+      },
+      {
+        "name": "Design and engineering management",
+        "blurb": "Coordinating and managing the design and engineering team."
+      },
+      {
+        "name": "Construction and project management",
+        "blurb": "Seasoned superintendents directing the work on site to completion."
+      },
+      {
+        "name": "Maintenance",
+        "blurb": "Ongoing maintenance for industrial and commercial facilities."
+      }
+    ]
+  },
+  "about": {
+    "title": "One team from concept to completion",
+    "body": "H2P believes design and construction must be integrated to balance design, quality and cost. Its staff oversee every phase, from conceptual design and development through construction documents and tendering to the site, where its construction superintendents direct the work force to completion. It brings 35 years of experience in architectural design to new buildings, interior renovations, additions and full retrofits."
+  },
+  "seo": {
+    "title": "H2P Group Inc. | Concept preview",
+    "description": "Concept preview of a website for H2P Group Inc. in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1768128834406-f5b1b962af9d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aW5kdXN0cmlhbCUyMGZhY2lsaXR5JTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2ODk2Mzl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/uploads/14123892966835548e7bd/14369636?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29tbWVyY2lhbCUyMGJ1aWxkaW5nJTIwc3RlZWwlMjBmcmFtZXxlbnwxfDB8fHwxNzkzNjg5NjQwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1542621334-a254cf47733d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMHNpdGV8ZW58MXwwfHx8MTc5MzY4OTY0MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718816281270-ed6ef8357859?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8aW50ZXJpb3IlMjByZW5vdmF0aW9uJTIwY29tbWVyY2lhbHxlbnwxfDB8fHwxNzkzNjg1NTg4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29uc3RydWN0aW9uJTIwcHJvamVjdCUyMG1hbmFnZW1lbnQlMjBtZWV0aW5nfGVufDF8MHx8fDE3OTM2ODk2NDF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1739599211500-74e04a9ca175?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aW5kdXN0cmlhbCUyMGZhY2lsaXR5JTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2ODk2Mzl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "waa towaw",
+        "profileUrl": "https://unsplash.com/@toowaaw",
+        "photoPage": "https://unsplash.com/photos/industrial-plant-illuminated-at-night-with-complex-machinery-qObu9oxpjSs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "D R",
+        "profileUrl": "https://unsplash.com/@dkphotos22",
+        "photoPage": "https://unsplash.com/photos/steel-beams-of-building-roof-structure-dSRhwPe6v9c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sven Mieke",
+        "profileUrl": "https://unsplash.com/@sxoxm",
+        "photoPage": "https://unsplash.com/photos/brown-pencil-on-white-printing-paper-fteR0e2BzKo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Steffen Lemmerzahl",
+        "profileUrl": "https://unsplash.com/@steffen_l",
+        "photoPage": "https://unsplash.com/photos/a-large-room-with-windows-and-a-ladder-Dqvb5xO0_Vg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Scott Blake",
+        "profileUrl": "https://unsplash.com/@sunburned_surveyor",
+        "photoPage": "https://unsplash.com/photos/seven-construction-workers-standing-on-white-field-x-ghf9LjrVg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mark Owen Wilkinson Hughes",
+        "profileUrl": "https://unsplash.com/@markowihu",
+        "photoPage": "https://unsplash.com/photos/a-large-mirror-reflecting-a-buildings-windows-fiJF3vMJ4Q4"
+      }
+    ]
+  },
+  "sources": [
+    "https://edmontonchamber.chambermaster.com/list/member/h2p-group-inc-26187",
+    "http://h2pinc.ca/Contact.html",
+    "http://h2pinc.ca/",
+    "https://unsplash.com/photos/industrial-plant-illuminated-at-night-with-complex-machinery-qObu9oxpjSs",
+    "https://unsplash.com/photos/steel-beams-of-building-roof-structure-dSRhwPe6v9c",
+    "https://unsplash.com/photos/brown-pencil-on-white-printing-paper-fteR0e2BzKo",
+    "https://unsplash.com/photos/a-large-room-with-windows-and-a-ladder-Dqvb5xO0_Vg",
+    "https://unsplash.com/photos/seven-construction-workers-standing-on-white-field-x-ghf9LjrVg",
+    "https://unsplash.com/photos/a-large-mirror-reflecting-a-buildings-windows-fiJF3vMJ4Q4"
+  ]
+}
