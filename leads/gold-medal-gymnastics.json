@@ -1,0 +1,128 @@
+{
+  "slug": "gold-medal-gymnastics",
+  "template": "gym-bold",
+  "contentNiche": "gym",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Gold Medal Gymnastics",
+    "category": "Gymnastics, ninja and dance",
+    "phoneDisplay": "(480) 857-7335",
+    "phoneE164": "+14808577335",
+    "address": {
+      "city": "Chandler",
+      "region": "AZ",
+      "postalCode": "85225",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Friday",
+        "time": "9 AM - 8 PM"
+      },
+      {
+        "days": "Saturday",
+        "time": "9 AM - 2 PM"
+      },
+      {
+        "days": "Monday through Thursday",
+        "time": "8:00 AM to 5:00 PM Friday by appointment only"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Chandler & Tempe, Arizona",
+    "headline": "Strong is *beautiful.*",
+    "sub": "Gymnastics, ninja and dance for young athletes, founded by 1996 Olympic gold medalist Amanda Borden-Cochran."
+  },
+  "services": {
+    "title": "Programs",
+    "items": [
+      {
+        "name": "Gymnastics",
+        "blurb": "Classes for gymnasts of every age and skill level."
+      },
+      {
+        "name": "Ninja",
+        "blurb": "Ninja classes that build strength."
+      },
+      {
+        "name": "Dance",
+        "blurb": "Dance classes alongside gymnastics and ninja."
+      },
+      {
+        "name": "Team and hosted meets",
+        "blurb": "A competitive team, hosted meets and recruitable athletes."
+      },
+      {
+        "name": "Camps",
+        "blurb": "Camps through the year."
+      }
+    ]
+  },
+  "about": {
+    "title": "Founded by an Olympic champion",
+    "body": "Amanda Borden was captain of the U.S. Olympic gymnastics team, the Magnificent Seven, which won gold at the 1996 Games in Atlanta. She has developed a progressional program for every ability and skill level. The gym's mission is a safe, positive place where young athletes pursue goals, build social skills and gain self confidence."
+  },
+  "seo": {
+    "title": "Gold Medal Gymnastics | Concept preview",
+    "description": "Concept preview of a website for Gold Medal Gymnastics in Chandler, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://irp.cdn-website.com/b8232f79/dms3rep/multi/opt/gmg_facility-2377__large-2880w.jpg?jxl&v=jxl",
+      "https://irp.cdn-website.com/b8232f79/dms3rep/multi/opt/img23__large-2880w.jpg?jxl&v=jxl",
+      "https://images.unsplash.com/photo-1573858129038-6f98c3cb2ac7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Z3ltbmFzdGljcyUyMGd5bXxlbnwxfDB8fHwxNzkzNjg5NjA2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1505619730259-b1288d154955?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmFsYW5jZSUyMGJlYW0lMjBneW1uYXN0fGVufDF8MHx8fDE3OTM2ODk2MDZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1573870974825-093bed3f2b17?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGtpZHMlMjBneW1uYXN0aWNzJTIwY2xhc3N8ZW58MXwwfHx8MTc5MzY4OTYwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1773708926616-ebc77941a4ba?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8ZGFuY2UlMjBzdHVkaW8lMjBraWRzfGVufDF8MHx8fDE3OTM2ODk2MDh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.goldmedalgym.com/about-gold-medal-gymnastics"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.goldmedalgym.com/about-gold-medal-gymnastics"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eduardo Cano Photo Co.",
+        "profileUrl": "https://unsplash.com/@eduardocanophotoco",
+        "photoPage": "https://unsplash.com/photos/white-plastic-hoop-pD95KcO1fZ8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eugene Lim",
+        "profileUrl": "https://unsplash.com/@overide",
+        "photoPage": "https://unsplash.com/photos/gymnas-jumping-near-the-white-board-pOwltFP-q30"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hal Gatewood",
+        "profileUrl": "https://unsplash.com/@halacious",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-pair-of-scissors-hanging-from-a-hook-03uFS7BMUoI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kazuo ota",
+        "profileUrl": "https://unsplash.com/@kazuo513",
+        "photoPage": "https://unsplash.com/photos/ballet-instructor-watches-young-dancers-on-stage-Gd4Dce2SP4Y"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.goldmedalgym.com/",
+    "http://www.goldmedalgym.com/contact-gold-medal-gymnastics",
+    "http://www.goldmedalgym.com/about-gold-medal-gymnastics",
+    "https://business.chandlerchamber.com/list/member/gold-medal-gymnastics-chandler-29356",
+    "https://unsplash.com/photos/white-plastic-hoop-pD95KcO1fZ8",
+    "https://unsplash.com/photos/gymnas-jumping-near-the-white-board-pOwltFP-q30",
+    "https://unsplash.com/photos/a-close-up-of-a-pair-of-scissors-hanging-from-a-hook-03uFS7BMUoI",
+    "https://unsplash.com/photos/ballet-instructor-watches-young-dancers-on-stage-Gd4Dce2SP4Y"
+  ]
+}
