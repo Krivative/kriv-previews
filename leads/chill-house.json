@@ -1,0 +1,89 @@
+{
+  "slug": "chill-house",
+  "template": "gym-calm",
+  "contentNiche": "gym",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "CHILL House",
+    "phoneDisplay": "(585) 730-0727",
+    "phoneE164": "+15857300727",
+    "address": {
+      "city": "Phoenix",
+      "region": "AZ",
+      "postalCode": "85054",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *CHILL House.*",
+    "sub": "A concept website prepared by KRIV for CHILL House."
+  },
+  "seo": {
+    "title": "CHILL House | Concept preview",
+    "description": "Concept preview of a website for CHILL House in Phoenix, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1542766788-a2f588f447ee?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Z3ltJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1676989121400-63ba765d7f55?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8dHJhaW5pbmclMjBlcXVpcG1lbnR8ZW58MXwwfHx8MTc5Mzc2MjgwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1558611848-73f7eb4001a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Z3ltJTIwd2VpZ2h0c3xlbnwxfDB8fHwxNzkzNzYyODA1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHlvZ2ElMjBzdHVkaW98ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1671970922029-0430d2ae122c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8Z3ltJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1767552273968-da3464e2986c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8dHJhaW5pbmclMjBlcXVpcG1lbnR8ZW58MXwwfHx8MTc5Mzc2MjgwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "gina lin",
+        "profileUrl": "https://unsplash.com/@shuttch",
+        "photoPage": "https://unsplash.com/photos/black-and-gray-treadmill-m27OTMegUyA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jametlene Reskp",
+        "profileUrl": "https://unsplash.com/@reskp",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-bunch-of-hanging-items-on-the-wall-RUwIFg-tq-M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jelmer Assink",
+        "profileUrl": "https://unsplash.com/@jelmerassink",
+        "photoPage": "https://unsplash.com/photos/barbell-on-rack-gzeTjGu3b_k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Frames For Your Heart",
+        "profileUrl": "https://unsplash.com/@framesforyourheart",
+        "photoPage": "https://unsplash.com/photos/blue-swimming-pool-near-green-potted-plant-3jztLhBPrUo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jinish Shah",
+        "profileUrl": "https://unsplash.com/@jinishshah_",
+        "photoPage": "https://unsplash.com/photos/a-gym-filled-with-lots-of-exercise-equipment-GNWUPn44-eg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "George Pagan III",
+        "profileUrl": "https://unsplash.com/@gpthree",
+        "photoPage": "https://unsplash.com/photos/gym-equipment-with-weights-and-machines-UpJkZIv4fM4"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.chillhouse.biz/",
+    "https://business.scottsdalechamber.com/list/member/chill-house-40183",
+    "https://unsplash.com/photos/black-and-gray-treadmill-m27OTMegUyA",
+    "https://unsplash.com/photos/a-room-with-a-bunch-of-hanging-items-on-the-wall-RUwIFg-tq-M",
+    "https://unsplash.com/photos/barbell-on-rack-gzeTjGu3b_k",
+    "https://unsplash.com/photos/blue-swimming-pool-near-green-potted-plant-3jztLhBPrUo",
+    "https://unsplash.com/photos/a-gym-filled-with-lots-of-exercise-equipment-GNWUPn44-eg",
+    "https://unsplash.com/photos/gym-equipment-with-weights-and-machines-UpJkZIv4fM4"
+  ]
+}
