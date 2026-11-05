@@ -1,0 +1,112 @@
+{
+  "slug": "complete-accounting-solutions",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Complete Accounting Solutions",
+    "phoneDisplay": "(604) 498-2655",
+    "phoneE164": "+16044982655",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V4N 4A9",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Complete Accounting Solutions.*",
+    "sub": "A concept website prepared by KRIV for Complete Accounting Solutions."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Advanced corporate and personal tax planning",
+        "blurb": "Learn about advanced corporate and personal tax planning."
+      },
+      {
+        "name": "Small Business Accounting",
+        "blurb": "We offer assistance to every type of client whether it’s personal accounting , small business accounting , or corporate accounting ."
+      },
+      {
+        "name": "Corporate Accounting",
+        "blurb": "We offer assistance to every type of client whether it’s personal accounting , small business accounting , or corporate accounting ."
+      },
+      {
+        "name": "Tax Deductible Mortgage",
+        "blurb": "Learn about tax deductible mortgage."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Complete Accounting Solutions | Concept preview",
+    "description": "Concept preview of a website for Complete Accounting Solutions in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1706169582307-8ae586631e8a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1728631191055-aa24c9eff7f6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622131815526-eaae1e615381?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1705907014910-979144d70805?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631193816258-28b44b21e78b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1462826303086-329426d1aef5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-desk-with-a-keyboard-mouse-and-cell-phone-90oiU5NfTfI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-wooden-table-YbZcQvorzII"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "TheStandingDesk",
+        "profileUrl": "https://unsplash.com/@thestandingdesk",
+        "photoPage": "https://unsplash.com/photos/black-laptop-computer-on-table-7OPkQBNVl9A"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-cell-phone-keyboard-mouse-and-mouse-pad-on-a-pink-surface-p2zR1G1ry20"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Petr",
+        "profileUrl": "https://unsplash.com/@mpetrucho",
+        "photoPage": "https://unsplash.com/photos/office-workspace-with-rows-of-desks-Ugnm0F4e00U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Benjamin Child",
+        "profileUrl": "https://unsplash.com/@bchild311",
+        "photoPage": "https://unsplash.com/photos/rectangular-brown-wooden-table-with-chair-lot-inside-building-0sT9YhNgSEs"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.completeaccounting.ca/",
+    "https://completeaccounting.ca/contact/",
+    "https://completeaccounting.ca/services/",
+    "https://completeaccounting.ca/about/",
+    "https://unsplash.com/photos/a-desk-with-a-keyboard-mouse-and-cell-phone-90oiU5NfTfI",
+    "https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-wooden-table-YbZcQvorzII",
+    "https://unsplash.com/photos/black-laptop-computer-on-table-7OPkQBNVl9A",
+    "https://unsplash.com/photos/a-cell-phone-keyboard-mouse-and-mouse-pad-on-a-pink-surface-p2zR1G1ry20",
+    "https://unsplash.com/photos/office-workspace-with-rows-of-desks-Ugnm0F4e00U",
+    "https://unsplash.com/photos/rectangular-brown-wooden-table-with-chair-lot-inside-building-0sT9YhNgSEs"
+  ]
+}
