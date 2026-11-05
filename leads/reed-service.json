@@ -1,0 +1,123 @@
+{
+  "slug": "reed-service",
+  "template": "auto-calm",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-11-01",
+  "expiresAt": "2026-12-01",
+  "status": "approved",
+  "business": {
+    "name": "Reed Service Company",
+    "category": "Heating and air conditioning",
+    "phoneDisplay": "(409) 842-0336",
+    "phoneE164": "+14098420336",
+    "address": {
+      "city": "Beaumont",
+      "region": "TX",
+      "postalCode": "77707",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday — Friday",
+        "time": "8am — 4pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Southeast Texas since 1974",
+    "headline": "Heating and cooling for *Southeast Texas.*",
+    "sub": "Same-day AC repair, heating service, maintenance and air quality for Beaumont, Port Arthur, Orange and Lumberton, with 24/7 emergency service."
+  },
+  "services": {
+    "title": "Heating and cooling services",
+    "items": [
+      {
+        "name": "Cooling",
+        "blurb": "Same-day AC repair and service."
+      },
+      {
+        "name": "Heating",
+        "blurb": "Fast, reliable heating service."
+      },
+      {
+        "name": "System care",
+        "blurb": "Routine HVAC maintenance that prevents breakdowns."
+      },
+      {
+        "name": "Air quality",
+        "blurb": "Indoor air quality solutions."
+      },
+      {
+        "name": "New equipment",
+        "blurb": "Full-system installations."
+      },
+      {
+        "name": "24/7 emergency service",
+        "blurb": "Emergency heating and cooling, day or night."
+      }
+    ]
+  },
+  "about": {
+    "title": "Honest work, done right the first time",
+    "body": "Reed Service Company has served Beaumont and the surrounding area since 1974. Its NATE-certified technicians handle maintenance, repairs and full-system installations, and the team is committed to treating every home with care and respect."
+  },
+  "seo": {
+    "title": "Reed Service Company | Concept preview",
+    "description": "Concept preview of a website for Reed Service Company in Beaumont, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "http://reedservice.com/wp-content/uploads/2026/02/RSC-COMPANY-PHOTO-2026-1-scaled.jpeg",
+      "http://reedservice.com/wp-content/uploads/2018/12/Reed-Service-Building.jpg",
+      "https://images.unsplash.com/photo-1679303777007-c6c4522beb02?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aHZhYyUyMHRlY2huaWNpYW4lMjBhaXIlMjBjb25kaXRpb25lcnxlbnwxfDB8fHwxNzkzNzAwMzk2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1751486289950-5c4898a4c773?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZnVybmFjZSUyMG1haW50ZW5hbmNlfGVufDF8MHx8fDE3OTM3MDAzOTh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dGhlcm1vc3RhdCUyMHdhbGwlMjBob21lfGVufDF8MHx8fDE3OTM3MDAzOTh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1588294020274-1e23a4815b72?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YWlyJTIwZmlsdGVyJTIwcmVwbGFjZW1lbnR8ZW58MXwwfHx8MTc5MzcwMDM5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.reedservice.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "http://www.reedservice.com/about-us/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ticka Kao",
+        "profileUrl": "https://unsplash.com/@tin1023565",
+        "photoPage": "https://unsplash.com/photos/a-wall-mounted-air-conditioner-mounted-on-the-side-of-a-building-1KNFO2dpoiM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Fabian Kleiser",
+        "profileUrl": "https://unsplash.com/@fabiankleiser",
+        "photoPage": "https://unsplash.com/photos/pipes-and-equipment-are-installed-on-a-wall-DHhp30Dn2i8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dan LeFebvre",
+        "profileUrl": "https://unsplash.com/@danlefeb",
+        "photoPage": "https://unsplash.com/photos/gray-nest-thermostat-displaying-at-63-RFAHj4tI37Y"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dylan Gillis",
+        "profileUrl": "https://unsplash.com/@mainermedia",
+        "photoPage": "https://unsplash.com/photos/white-and-red-industrial-machine-nDPQr_7rkm4"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.reedservice.com/",
+    "http://www.reedservice.com/contact-us/",
+    "http://www.reedservice.com/about-us/",
+    "https://unsplash.com/photos/a-wall-mounted-air-conditioner-mounted-on-the-side-of-a-building-1KNFO2dpoiM",
+    "https://unsplash.com/photos/pipes-and-equipment-are-installed-on-a-wall-DHhp30Dn2i8",
+    "https://unsplash.com/photos/gray-nest-thermostat-displaying-at-63-RFAHj4tI37Y",
+    "https://unsplash.com/photos/white-and-red-industrial-machine-nDPQr_7rkm4"
+  ]
+}
