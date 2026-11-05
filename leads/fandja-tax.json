@@ -1,0 +1,99 @@
+{
+  "slug": "fandja-tax",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Fandja Tax Consulting & Compliance PLLC",
+    "phoneDisplay": "(832) 531-4678",
+    "phoneE164": "+18325314678",
+    "address": {
+      "line1": "10160 Highway 242",
+      "city": "Ste 800 PMB 527",
+      "region": "TX",
+      "postalCode": "77385",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Fandja Tax Consulting & Compliance PLLC.*",
+    "sub": "A concept website prepared by KRIV for Fandja Tax Consulting & Compliance PLLC."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Consulting & Strategy",
+        "blurb": "Oure services include Bookkeeping, IRS Representation, Consulting & Strategy, Nonprofit Tax, Business Tax and Individual Tax Returns."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Fandja Tax Consulting & Compliance PLLC | Concept preview",
+    "description": "Concept preview of a website for Fandja Tax Consulting & Compliance PLLC in Ste 800 PMB 527, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1762318953799-918e21d1fec4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NTM0OTl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1734328819658-0c3ceef27c46?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1641060272821-df59e2c0b5ed?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1724906019868-93ad2c79414f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1740220321128-b06e20bd28a5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NTM0OTl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/glasses-resting-on-an-open-notebook-with-office-supplies--EpdNWq6_70"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-pile-of-money-sitting-on-top-of-a-table-jaHmB2Z996I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Iggy Love",
+        "profileUrl": "https://unsplash.com/@neoiggy",
+        "photoPage": "https://unsplash.com/photos/a-long-hallway-with-glass-walls-and-a-white-floor-upICLsVPpjE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bernd 📷 Dittrich",
+        "profileUrl": "https://unsplash.com/@hdbernd",
+        "photoPage": "https://unsplash.com/photos/a-view-of-a-building-with-a-lot-of-windows-3dil0Olji38"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-pile-of-money-sitting-next-to-a-calculator-Bb5Q2ImiJGM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nastuh Abootalebi",
+        "profileUrl": "https://unsplash.com/@sunday_digital",
+        "photoPage": "https://unsplash.com/photos/room-with-glass-divider-and-white-curtain-rSpMla5RItA"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.woodlandschamber.org/list/member/fandja-tax-consulting-compliance-pllc-conroes-71782",
+    "http://www.fandjacpa.com/",
+    "https://unsplash.com/photos/glasses-resting-on-an-open-notebook-with-office-supplies--EpdNWq6_70",
+    "https://unsplash.com/photos/a-pile-of-money-sitting-on-top-of-a-table-jaHmB2Z996I",
+    "https://unsplash.com/photos/a-long-hallway-with-glass-walls-and-a-white-floor-upICLsVPpjE",
+    "https://unsplash.com/photos/a-view-of-a-building-with-a-lot-of-windows-3dil0Olji38",
+    "https://unsplash.com/photos/a-pile-of-money-sitting-next-to-a-calculator-Bb5Q2ImiJGM",
+    "https://unsplash.com/photos/room-with-glass-divider-and-white-curtain-rSpMla5RItA"
+  ]
+}
