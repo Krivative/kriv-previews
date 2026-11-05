@@ -1,0 +1,151 @@
+{
+  "slug": "8-square",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-02",
+  "expiresAt": "2026-12-02",
+  "status": "approved",
+  "business": {
+    "name": "8 Square Roofing & Construction",
+    "category": "Roofing and construction",
+    "phoneDisplay": "(512) 422-1776",
+    "phoneE164": "+15124221776",
+    "address": {
+      "city": "Austin",
+      "region": "TX",
+      "postalCode": "78704",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Mon",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Tue",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Wed",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Thu",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Fri",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Sat",
+        "time": "7 AM–7 PM"
+      },
+      {
+        "days": "Sun",
+        "time": "7 AM–7 PM"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Austin, Texas",
+    "headline": "Residential and commercial *roofing.*",
+    "sub": "Drone and on-roof inspections, line-item quotes, repairs, new roofs and remodeling in Austin and Central Texas."
+  },
+  "services": {
+    "title": "Roofing and construction",
+    "items": [
+      {
+        "name": "Luxury residential roofing",
+        "blurb": "New roofs for homes."
+      },
+      {
+        "name": "Multi-family roofing",
+        "blurb": "Roofing for multi-family properties."
+      },
+      {
+        "name": "Commercial roofing",
+        "blurb": "Flat, metal and TPO roofs built for Texas heat."
+      },
+      {
+        "name": "Emergency roof repairs",
+        "blurb": "From small leaks to full rebuilds."
+      },
+      {
+        "name": "Storm-damage inspection",
+        "blurb": "Drones plus boots on the roof, with thermal drone leak detection."
+      },
+      {
+        "name": "Maintenance program",
+        "blurb": "Annual roof tune-ups."
+      },
+      {
+        "name": "Pools, outdoor living and remodeling",
+        "blurb": "Pool remodels, outdoor living and remodeling projects."
+      }
+    ]
+  },
+  "about": {
+    "title": "Inspect, fix, protect",
+    "body": "8 Square Roofing has worked on Austin and Central Texas properties since 2001. Its plan is simple: a fast, photo-documented inspection, expert crews with premium materials, then warranties and an annual maintenance program that extends roof life."
+  },
+  "seo": {
+    "title": "8 Square Roofing & Construction | Concept preview",
+    "description": "Concept preview of a website for 8 Square Roofing & Construction in Austin, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://8squareroofing.com/wp-content/uploads/2025/07/zohair-mirza-1l0iZaM8ms-unsplash-scaled.jpg",
+      "https://8squareroofing.com/wp-content/uploads/2025/07/sigmund-dRXYCE5eQpk-unsplash-scaled.jpg",
+      "https://images.unsplash.com/photo-1755168648692-ef8937b7e63e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fHJvb2ZlciUyMGluc3RhbGxpbmclMjBzaGluZ2xlc3xlbnwxfDB8fHwxNzkzNjg1NTEwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1602193230480-7840a38eb0c3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWV0YWwlMjBzdGFuZGluZyUyMHNlYW0lMjByb29mfGVufDF8MHx8fDE3OTM2ODU1MTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1768677432858-b9a8608dd849?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29tbWVyY2lhbCUyMGZsYXQlMjByb29mJTIwdHBvfGVufDF8MHx8fDE3OTM2ODU1MTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1755114203680-d39d95efa82c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cm9vZiUyMGRyb25lJTIwaW5zcGVjdGlvbnxlbnwxfDB8fHwxNzkzNjg1NTEyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Business",
+        "source": "http://www.8squareroofing.com/"
+      },
+      {
+        "provider": "Business",
+        "source": "https://8squareroofing.com/services/"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "LXS Photography",
+        "profileUrl": "https://unsplash.com/@lxsphotography",
+        "photoPage": "https://unsplash.com/photos/construction-workers-using-power-drills-on-a-roof-BqscJWwv6bw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ryunosuke Kikuno",
+        "profileUrl": "https://unsplash.com/@ryunosuke_kikuno",
+        "photoPage": "https://unsplash.com/photos/black-and-white-glass-building-Mu9uo42SXEY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Toni  Reed",
+        "profileUrl": "https://unsplash.com/@trfotos",
+        "photoPage": "https://unsplash.com/photos/rooftops-of-modern-buildings-in-a-city-Ba_o2rvI5aY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Paragon Exterior",
+        "profileUrl": "https://unsplash.com/@paragonexterior",
+        "photoPage": "https://unsplash.com/photos/aerial-view-of-a-suburban-house-with-a-grey-roof--uvuU43FAwQ"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.8squareroofing.com/",
+    "https://8squareroofing.com/contact/",
+    "https://8squareroofing.com/services/",
+    "https://unsplash.com/photos/construction-workers-using-power-drills-on-a-roof-BqscJWwv6bw",
+    "https://unsplash.com/photos/black-and-white-glass-building-Mu9uo42SXEY",
+    "https://unsplash.com/photos/rooftops-of-modern-buildings-in-a-city-Ba_o2rvI5aY",
+    "https://unsplash.com/photos/aerial-view-of-a-suburban-house-with-a-grey-roof--uvuU43FAwQ"
+  ]
+}
