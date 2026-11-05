@@ -1,0 +1,89 @@
+{
+  "slug": "brookville-veterinary-clinic",
+  "template": "dental-clear",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Brookville Veterinary Clinic",
+    "phoneDisplay": "(905) 854-2216",
+    "phoneE164": "+19058542216",
+    "address": {
+      "city": "Campbellville",
+      "region": "ON",
+      "postalCode": "L0P 1B0",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Brookville Veterinary Clinic.*",
+    "sub": "A concept website prepared by KRIV for Brookville Veterinary Clinic."
+  },
+  "seo": {
+    "title": "Brookville Veterinary Clinic | Concept preview",
+    "description": "Concept preview of a website for Brookville Veterinary Clinic in Campbellville, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1544568100-847a948585b9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFwcHklMjBkb2clMjBvdXRkb29yc3xlbnwxfDB8fHwxNzkzODQxMDA1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cHVwcHklMjBwb3J0cmFpdHxlbnwxfDB8fHwxNzkzODQxMDA2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1651409701894-420edc9c1bd2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8Y2F0JTIwYXQlMjB2ZXR8ZW58MXwwfHx8MTc5Mzg0MTAwNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560132248-d946352460e3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aGFwcHklMjBkb2clMjBvdXRkb29yc3xlbnwxfDB8fHwxNzkzODQxMDA1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1735465685965-3b6f0cac8a52?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cHVwcHklMjBwb3J0cmFpdHxlbnwxfDB8fHwxNzkzODQxMDA2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1587945133178-1f8136579a98?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8dmV0ZXJpbmFyeSUyMGNsaW5pYyUyMGRvZ3xlbnwxfDB8fHwxNzkzODQxMDA0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jamie Street",
+        "profileUrl": "https://unsplash.com/@jamie452",
+        "photoPage": "https://unsplash.com/photos/medium-coated-brown-dog-during-daytime-UtrE5DcgEyg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Berkay Gumustekin",
+        "profileUrl": "https://unsplash.com/@berkaygumustekin",
+        "photoPage": "https://unsplash.com/photos/selective-focus-photography-of-short-coated-brown-puppy-facing-right-side-ngqyo2AYYnE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Fatane Rahimi",
+        "profileUrl": "https://unsplash.com/@fatane",
+        "photoPage": "https://unsplash.com/photos/a-black-cat-with-green-eyes-CwB_5q5OLwQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Matthew Fournier",
+        "profileUrl": "https://unsplash.com/@mattyfours",
+        "photoPage": "https://unsplash.com/photos/white-long-coat-small-dog-Ya-CK-_v_ZE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sanela Arsenić",
+        "profileUrl": "https://unsplash.com/@sarsenic",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-dog-looking-at-the-camera-Ognooibzo9o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Iris Wang",
+        "profileUrl": "https://unsplash.com/@irishappens",
+        "photoPage": "https://unsplash.com/photos/black-white-and-brown-long-coated-dog-9Xllq94_lqQ"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.brookvillevet.com/",
+    "http://brookvillevet.com/contact-us/",
+    "https://unsplash.com/photos/medium-coated-brown-dog-during-daytime-UtrE5DcgEyg",
+    "https://unsplash.com/photos/selective-focus-photography-of-short-coated-brown-puppy-facing-right-side-ngqyo2AYYnE",
+    "https://unsplash.com/photos/a-black-cat-with-green-eyes-CwB_5q5OLwQ",
+    "https://unsplash.com/photos/white-long-coat-small-dog-Ya-CK-_v_ZE",
+    "https://unsplash.com/photos/a-close-up-of-a-dog-looking-at-the-camera-Ognooibzo9o",
+    "https://unsplash.com/photos/black-white-and-brown-long-coated-dog-9Xllq94_lqQ"
+  ]
+}
