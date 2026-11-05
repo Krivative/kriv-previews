@@ -1,0 +1,88 @@
+{
+  "slug": "bradson-contracting-ltd",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Bradson Contracting Ltd.",
+    "phoneDisplay": "(289) 851-7777",
+    "phoneE164": "+12898517777",
+    "address": {
+      "city": "Burlington",
+      "region": "ON",
+      "postalCode": "L7L 4X8",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Bradson Contracting Ltd..*",
+    "sub": "A concept website prepared by KRIV for Bradson Contracting Ltd.."
+  },
+  "seo": {
+    "title": "Bradson Contracting Ltd. | Concept preview",
+    "description": "Concept preview of a website for Bradson Contracting Ltd. in Burlington, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1587582423116-ec07293f0395?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1640101086894-7d70c3e70179?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29uY3JldGUlMjBmb3VuZGF0aW9uJTIwcG91cnxlbnwxfDB8fHwxNzkzNjk2NTk0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1575230167650-dce335edc7f4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1556156653-e5a7c69cc263?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1610079732357-0d20c1a98ceb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y29uY3JldGUlMjBmb3VuZGF0aW9uJTIwcG91cnxlbnwxfDB8fHwxNzkzNjk2NTk0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Josh Olalde",
+        "profileUrl": "https://unsplash.com/@josholalde",
+        "photoPage": "https://unsplash.com/photos/construction-worker-in-hard-hat-on-building-frame-X1P1_EDNnok"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Fons Heijnsbroek",
+        "profileUrl": "https://unsplash.com/@fonsheijnsbroek_amsterdam_photos",
+        "photoPage": "https://unsplash.com/photos/a-group-of-construction-workers-standing-around-a-construction-site-4xLxkDeiJC0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Artem Labunsky",
+        "profileUrl": "https://unsplash.com/@labunsky",
+        "photoPage": "https://unsplash.com/photos/several-tower-cranes-c9p30E94OUU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Avel Chuklanov",
+        "profileUrl": "https://unsplash.com/@chuklanov",
+        "photoPage": "https://unsplash.com/photos/beige-wooden-house-layout-IB0VA6VdqBw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Scott Blake",
+        "profileUrl": "https://unsplash.com/@sunburned_surveyor",
+        "photoPage": "https://unsplash.com/photos/yellow-and-black-heavy-equipment-on-brown-field-during-daytime-DodJfxuH46I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Daniel McCullough",
+        "profileUrl": "https://unsplash.com/@d_mccullough",
+        "photoPage": "https://unsplash.com/photos/an-architect-working-on-a-draft-with-a-pencil-and-ruler-HtBlQdxfG9k"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.bradsoncontracting.com/",
+    "https://unsplash.com/photos/construction-worker-in-hard-hat-on-building-frame-X1P1_EDNnok",
+    "https://unsplash.com/photos/a-group-of-construction-workers-standing-around-a-construction-site-4xLxkDeiJC0",
+    "https://unsplash.com/photos/several-tower-cranes-c9p30E94OUU",
+    "https://unsplash.com/photos/beige-wooden-house-layout-IB0VA6VdqBw",
+    "https://unsplash.com/photos/yellow-and-black-heavy-equipment-on-brown-field-during-daytime-DodJfxuH46I",
+    "https://unsplash.com/photos/an-architect-working-on-a-draft-with-a-pencil-and-ruler-HtBlQdxfG9k"
+  ]
+}
