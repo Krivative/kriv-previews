@@ -1,0 +1,90 @@
+{
+  "slug": "clarkson-concepts",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Clarkson Concepts, Inc",
+    "phoneDisplay": "(407) 929-0750",
+    "phoneE164": "+14079290750",
+    "address": {
+      "city": "Winter Park",
+      "region": "FL",
+      "postalCode": "32789",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Clarkson Concepts, Inc.*",
+    "sub": "A concept website prepared by KRIV for Clarkson Concepts, Inc."
+  },
+  "seo": {
+    "title": "Clarkson Concepts, Inc | Concept preview",
+    "description": "Concept preview of a website for Clarkson Concepts, Inc in Winter Park, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1608783424912-392157b94f59?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGNyYW5lfGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1676802037786-3697d60497ae?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8YnVpbGRpbmclMjBmcmFtaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM3NTM0MzB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1775880303572-791fbbb73d32?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGNvbnN0cnVjdGlvbiUyMHdvcmtlcnMlMjBzaXRlfGVufDF8MHx8fDE3OTM2OTY1OTR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1784644579477-3fa2b0af8ac2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1742415106102-77bbfe14b872?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8YXJjaGl0ZWN0JTIwYmx1ZXByaW50cyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1693661391267-ad955aeeb564?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8Y29tbWVyY2lhbCUyMGJ1aWxkaW5nJTIwY29uc3RydWN0aW9ufGVufDF8MHx8fDE3OTM2OTY1OTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nacho A",
+        "profileUrl": "https://unsplash.com/@nacho_a",
+        "photoPage": "https://unsplash.com/photos/orange-crane-under-white-sky-qOEbHkeIxBE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-house-under-construction-with-wooden-framing-kkdfOe0iRu8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adhitya Sibikumar",
+        "profileUrl": "https://unsplash.com/@adhitya_2505",
+        "photoPage": "https://unsplash.com/photos/construction-workers-in-hard-hats-near-a-building-9j0HxsTPBlk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Turquo Cabbit",
+        "profileUrl": "https://unsplash.com/@turquocabbit",
+        "photoPage": "https://unsplash.com/photos/construction-site-with-concrete-mixer-truck-and-excavator-QJvSg1fxhgU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Community Archives of Belleville and Hastings County",
+        "profileUrl": "https://unsplash.com/@communityarchives",
+        "photoPage": "https://unsplash.com/photos/blueprint-for-sterling-theatre-and-community-hall-3mkG8QHHIAw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Benjamin White",
+        "profileUrl": "https://unsplash.com/@bjwhite66212",
+        "photoPage": "https://unsplash.com/photos/a-large-building-with-a-crane-on-top-of-it-6ZshT5udWxs"
+      }
+    ]
+  },
+  "sources": [
+    "http://clarksonconcepts.com/about.html",
+    "https://business.winterpark.org/list/member/clarkson-concepts-inc-5104059",
+    "http://clarksonconcepts.com/",
+    "https://unsplash.com/photos/orange-crane-under-white-sky-qOEbHkeIxBE",
+    "https://unsplash.com/photos/a-house-under-construction-with-wooden-framing-kkdfOe0iRu8",
+    "https://unsplash.com/photos/construction-workers-in-hard-hats-near-a-building-9j0HxsTPBlk",
+    "https://unsplash.com/photos/construction-site-with-concrete-mixer-truck-and-excavator-QJvSg1fxhgU",
+    "https://unsplash.com/photos/blueprint-for-sterling-theatre-and-community-hall-3mkG8QHHIAw",
+    "https://unsplash.com/photos/a-large-building-with-a-crane-on-top-of-it-6ZshT5udWxs"
+  ]
+}
