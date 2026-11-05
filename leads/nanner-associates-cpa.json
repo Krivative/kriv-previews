@@ -1,0 +1,114 @@
+{
+  "slug": "nanner-associates-cpa",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Nanner & Associates CPA",
+    "category": "Accounting firm",
+    "phoneDisplay": "(604) 575-4588",
+    "phoneE164": "+16045754588",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3S 5K7",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Nanner & Associates CPA.*",
+    "sub": "A concept website prepared by KRIV for Nanner & Associates CPA."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Accounting",
+        "blurb": "A multi service accounting firm for all your personal and business accounting needs."
+      },
+      {
+        "name": "Taxation",
+        "blurb": "Learn about taxation."
+      },
+      {
+        "name": "Trust Audit",
+        "blurb": "As an independent accountant we provide an opinion, we perform real state trust audit and law society of BC trust audit."
+      },
+      {
+        "name": "Business Planning",
+        "blurb": "Learn about business planning."
+      },
+      {
+        "name": "Lawyer Consulting",
+        "blurb": "Learn about lawyer consulting."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Nanner & Associates CPA | Concept preview",
+    "description": "Concept preview of a website for Nanner & Associates CPA in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1724304406928-c43b01912fa1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NTM0OTl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1746459001269-1dc33c7c5223?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1657978837873-5a6938c382ec?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1758708536050-e911f468ea83?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NTM0OTl8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1725258080098-727051947997?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNjk0MTcyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/house-key-and-calculator-for-real-estate-RVk8EwpRwNs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/desk-setup-with-digital-camera-keyboard-and-other-accessories-EGNJ55GsyFo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maciej Drążkiewicz",
+        "profileUrl": "https://unsplash.com/@drazkiewicz_architekt",
+        "photoPage": "https://unsplash.com/photos/a-room-with-couches-and-tables-2JZfDEvURVI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jonathan Cosens Photography",
+        "profileUrl": "https://unsplash.com/@jcosens",
+        "photoPage": "https://unsplash.com/photos/desk-with-books-papers-and-calculator-in-tray-rBpTZ6msfgs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-calculator-sitting-on-top-of-a-pile-of-money-zR7nFjjIAWE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bernd 📷 Dittrich",
+        "profileUrl": "https://unsplash.com/@hdbernd",
+        "photoPage": "https://unsplash.com/photos/an-office-with-a-lot-of-desks-and-chairs-pYlBAu3de0w"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.businessinsurrey.com/list/member/nanner-associates-cpa-41127",
+    "http://www.nanner.ca/",
+    "https://unsplash.com/photos/house-key-and-calculator-for-real-estate-RVk8EwpRwNs",
+    "https://unsplash.com/photos/desk-setup-with-digital-camera-keyboard-and-other-accessories-EGNJ55GsyFo",
+    "https://unsplash.com/photos/a-room-with-couches-and-tables-2JZfDEvURVI",
+    "https://unsplash.com/photos/desk-with-books-papers-and-calculator-in-tray-rBpTZ6msfgs",
+    "https://unsplash.com/photos/a-calculator-sitting-on-top-of-a-pile-of-money-zR7nFjjIAWE",
+    "https://unsplash.com/photos/an-office-with-a-lot-of-desks-and-chairs-pYlBAu3de0w"
+  ]
+}
