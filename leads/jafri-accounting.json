@@ -1,0 +1,89 @@
+{
+  "slug": "jafri-accounting",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Jafri Accounting Services Ltd",
+    "phoneDisplay": "(604) 786-0810",
+    "phoneE164": "+16047860810",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3W 1N6",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Jafri Accounting Services Ltd.*",
+    "sub": "A concept website prepared by KRIV for Jafri Accounting Services Ltd."
+  },
+  "seo": {
+    "title": "Jafri Accounting Services Ltd | Concept preview",
+    "description": "Concept preview of a website for Jafri Accounting Services Ltd in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1649209979970-f01d950cc5ed?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1766802106922-f9bbec6ba516?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8ZG9jdW1lbnRzJTIwZGVza3xlbnwxfDB8fHwxNzkzNzUzNDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1746221331496-a87689fc8eb9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1764025851210-9ad5ed83e01f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8ZG9jdW1lbnRzJTIwZGVza3xlbnwxfDB8fHwxNzkzNzUzNDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762318986860-a7b18dd0da02?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8b2ZmaWNlJTIwZGVzayUyMGNhbGN1bGF0b3J8ZW58MXwwfHx8MTc5Mzc1MzQ5OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1780246031989-88eea0166715?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8ZG9jdW1lbnRzJTIwZGVza3xlbnwxfDB8fHwxNzkzNzUzNDk5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "FIN",
+        "profileUrl": "https://unsplash.com/@fin21",
+        "photoPage": "https://unsplash.com/photos/a-calculator-sitting-on-top-of-a-wooden-table-0rHxkbcvQAE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ximin Lin",
+        "profileUrl": "https://unsplash.com/@ximinlin",
+        "photoPage": "https://unsplash.com/photos/an-antique-desk-with-papers-and-writing-tools-BfskrV9-HQw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "maks_d",
+        "profileUrl": "https://unsplash.com/@maks_d",
+        "photoPage": "https://unsplash.com/photos/calculator-and-office-supplies-on-a-desk-54bvLAWhWAM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Duskfall Crew",
+        "profileUrl": "https://unsplash.com/@duskfallcrew",
+        "photoPage": "https://unsplash.com/photos/a-black-stapler-rests-on-a-desk-with-papers-qWM6whL_7vM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/calculator-glasses-and-pens-on-a-white-desk-OZ1TJu60Or4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Magic Fan",
+        "profileUrl": "https://unsplash.com/@magicunsplash",
+        "photoPage": "https://unsplash.com/photos/open-book-old-books-and-a-quill-on-a-desk-asJcxnofSWg"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.jafriservices.org/",
+    "https://business.businessinsurrey.com/list/member/jafri-accounting-services-ltd-surrey-42169",
+    "https://unsplash.com/photos/a-calculator-sitting-on-top-of-a-wooden-table-0rHxkbcvQAE",
+    "https://unsplash.com/photos/an-antique-desk-with-papers-and-writing-tools-BfskrV9-HQw",
+    "https://unsplash.com/photos/calculator-and-office-supplies-on-a-desk-54bvLAWhWAM",
+    "https://unsplash.com/photos/a-black-stapler-rests-on-a-desk-with-papers-qWM6whL_7vM",
+    "https://unsplash.com/photos/calculator-glasses-and-pens-on-a-white-desk-OZ1TJu60Or4",
+    "https://unsplash.com/photos/open-book-old-books-and-a-quill-on-a-desk-asJcxnofSWg"
+  ]
+}
