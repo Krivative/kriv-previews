@@ -1,0 +1,87 @@
+{
+  "slug": "roofing-home",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Roofing & Home Remodeling Contractor",
+    "category": "Roofing",
+    "phoneDisplay": "(281) 789-7082",
+    "phoneE164": "+12817897082",
+    "address": {
+      "city": "Magnolia",
+      "region": "TX",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Roofing & Home Remodeling Contractor.*",
+    "sub": "A concept website prepared by KRIV for Roofing & Home Remodeling Contractor."
+  },
+  "seo": {
+    "title": "Roofing & Home Remodeling Contractor | Concept preview",
+    "description": "Concept preview of a website for Roofing & Home Remodeling Contractor in Magnolia, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1593786267440-550458cc882a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aG91c2UlMjBleHRlcmlvciUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5MzkwMDkwMnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8a2l0Y2hlbiUyMHJlbW9kZWwlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkwMDkwMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1740825961434-e9287638592b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fHJvb2YlMjByZXBhaXIlMjB3b3JrZXJ8ZW58MXwwfHx8MTc5MzkwMDkwMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1612935089040-89195ef54677?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aG91c2UlMjBleHRlcmlvciUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5MzkwMDkwMnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1710139323182-69622cad5c3b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bmV3JTIwcm9vZiUyMG9uJTIwaG91c2V8ZW58MXwwfHx8MTc5MzkwMDkwMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1552155235-a68a6c02d512?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8aG9tZSUyMHJlbW9kZWxpbmclMjBjb250cmFjdG9yfGVufDF8MHx8fDE3OTM5MDA5MDB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Jordan",
+        "profileUrl": "https://unsplash.com/@brett_jordan",
+        "photoPage": "https://unsplash.com/photos/brown-brick-building-during-daytime-jEP4vsHrSM8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lotus Design N Print",
+        "profileUrl": "https://unsplash.com/@lotusdnp",
+        "photoPage": "https://unsplash.com/photos/white-wooden-kitchen-cabinet-and-white-kitchen-counter-UDDULE_eIBY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "David Geneugelijk",
+        "profileUrl": "https://unsplash.com/@davidgeneugelijk",
+        "photoPage": "https://unsplash.com/photos/two-construction-workers-are-taking-a-break-d4j5hns6sj8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gennifer Miller",
+        "profileUrl": "https://unsplash.com/@tessaherondalecarstairs",
+        "photoPage": "https://unsplash.com/photos/white-wooden-house-near-green-grass-field-during-daytime-Mb_r0CIDFh8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Will Haddock",
+        "profileUrl": "https://unsplash.com/@willhaddock",
+        "photoPage": "https://unsplash.com/photos/a-row-of-houses-with-brown-shingles-and-white-windows-rmIPODeK8WM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Christa Grover",
+        "profileUrl": "https://unsplash.com/@dahlhouse",
+        "photoPage": "https://unsplash.com/photos/white-wooden-kitchen-cabinet-kfKtt3jJhho"
+      }
+    ]
+  },
+  "sources": [
+    "https://greatermagnoliaparkwaychamber.chambermaster.com/list/member/magnolia-home-xperts-5351",
+    "https://unsplash.com/photos/brown-brick-building-during-daytime-jEP4vsHrSM8",
+    "https://unsplash.com/photos/white-wooden-kitchen-cabinet-and-white-kitchen-counter-UDDULE_eIBY",
+    "https://unsplash.com/photos/two-construction-workers-are-taking-a-break-d4j5hns6sj8",
+    "https://unsplash.com/photos/white-wooden-house-near-green-grass-field-during-daytime-Mb_r0CIDFh8",
+    "https://unsplash.com/photos/a-row-of-houses-with-brown-shingles-and-white-windows-rmIPODeK8WM",
+    "https://unsplash.com/photos/white-wooden-kitchen-cabinet-kfKtt3jJhho"
+  ]
+}
