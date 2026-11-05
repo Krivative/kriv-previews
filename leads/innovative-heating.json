@@ -1,0 +1,89 @@
+{
+  "slug": "innovative-heating",
+  "template": "plumbing-calm",
+  "contentNiche": "hvac",
+  "lang": "en-CA",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Innovative Heating Ventilation Air Conditioning Ltd.",
+    "phoneDisplay": "(604) 709-0568",
+    "phoneE164": "+16047090568",
+    "address": {
+      "city": "Vancouver",
+      "region": "BC",
+      "postalCode": "V5T 2Y1",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Innovative Heating Ventilation Air Conditioning Ltd..*",
+    "sub": "A concept website prepared by KRIV for Innovative Heating Ventilation Air Conditioning Ltd.."
+  },
+  "seo": {
+    "title": "Innovative Heating Ventilation Air Conditioning Ltd. | Concept preview",
+    "description": "Concept preview of a website for Innovative Heating Ventilation Air Conditioning Ltd. in Vancouver, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1748027869634-fc2e545cfb0c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGh2YWMlMjB0ZWNobmljaWFufGVufDF8MHx8fDE3OTM3NTg1MzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1613970351372-9804e380bd09?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZnVybmFjZXxlbnwxfDB8fHwxNzkzNzU4NTMyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634114581640-9a1734fae3e5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YWlyJTIwZHVjdCUyMHZlbnR8ZW58MXwwfHx8MTc5Mzc1ODUzM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776860150250-757406c52438?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cm9vZnRvcCUyMGh2YWMlMjB1bml0c3xlbnwxfDB8fHwxNzkzNzU4NTM0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1667983453881-4992fe86ab1b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YWlyJTIwY29uZGl0aW9uZXIlMjBvdXRkb29yJTIwdW5pdHxlbnwxfDB8fHwxNzkzNjk2NjQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1723731065038-580d5f55c7f5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8ZnVybmFjZXxlbnwxfDB8fHwxNzkzNzU4NTMyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Citadel Life Safety",
+        "profileUrl": "https://unsplash.com/@citadellifesafety",
+        "photoPage": "https://unsplash.com/photos/a-construction-worker-is-examining-a-door-K4dBR3TiH4U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "yasin hemmati",
+        "profileUrl": "https://unsplash.com/@yasinb3da",
+        "photoPage": "https://unsplash.com/photos/molten-metal-pouring-into-ladle-zHK__gTTTds"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lukáš Lehotský",
+        "profileUrl": "https://unsplash.com/@llehotsky",
+        "photoPage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-large-metal-object-PqwymeR2OH0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "alpha innotec",
+        "profileUrl": "https://unsplash.com/@alpha_innotec",
+        "photoPage": "https://unsplash.com/photos/three-gray-air-conditioning-units-mounted-on-a-white-wall-VsjNRXO_c2w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kien Nguyen",
+        "profileUrl": "https://unsplash.com/@kienday",
+        "photoPage": "https://unsplash.com/photos/air-conditioning-units-on-grey-wall-994AH40vmVs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adhirej J R Nair",
+        "profileUrl": "https://unsplash.com/@adhirejj",
+        "photoPage": "https://unsplash.com/photos/a-fire-burning-inside-of-a-brick-fireplace-a0rh0Rlut8o"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.innovativehvac.com/",
+    "http://www.innovativehvac.com/about.html",
+    "https://unsplash.com/photos/a-construction-worker-is-examining-a-door-K4dBR3TiH4U",
+    "https://unsplash.com/photos/molten-metal-pouring-into-ladle-zHK__gTTTds",
+    "https://unsplash.com/photos/a-black-and-white-photo-of-a-large-metal-object-PqwymeR2OH0",
+    "https://unsplash.com/photos/three-gray-air-conditioning-units-mounted-on-a-white-wall-VsjNRXO_c2w",
+    "https://unsplash.com/photos/air-conditioning-units-on-grey-wall-994AH40vmVs",
+    "https://unsplash.com/photos/a-fire-burning-inside-of-a-brick-fireplace-a0rh0Rlut8o"
+  ]
+}
