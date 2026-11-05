@@ -1,0 +1,90 @@
+{
+  "slug": "double-r-carpentry",
+  "template": "hvac-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Double R Carpentry",
+    "phoneDisplay": "(830) 329-2881",
+    "phoneE164": "+18303292881",
+    "address": {
+      "city": "Center Point",
+      "region": "TX",
+      "postalCode": "78010",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Double R Carpentry.*",
+    "sub": "A concept website prepared by KRIV for Double R Carpentry."
+  },
+  "seo": {
+    "title": "Double R Carpentry | Concept preview",
+    "description": "Concept preview of a website for Double R Carpentry in Center Point, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1628900941064-ba8df8b51e4a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1603482360836-ffc37c5a86b7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1706067721099-025a4dbe7d3e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzY5NjU5NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1741201663493-6f032d310a7f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1576522990562-51f78a9cf223?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Akhmad Muzakir",
+        "profileUrl": "https://unsplash.com/@muzakirakhmad",
+        "photoPage": "https://unsplash.com/photos/black-pen-on-white-printer-paper-o776uI1UtuQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gunnar Ridderström",
+        "profileUrl": "https://unsplash.com/@gunnarridder",
+        "photoPage": "https://unsplash.com/photos/yellow-crane-under-blue-sky-and-white-clouds-during-daytime-Bix61Z5i2F0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "chris robert",
+        "profileUrl": "https://unsplash.com/@chris_robert",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-tall-building-TJxSdsmoW_I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Compagnons",
+        "profileUrl": "https://unsplash.com/@sigmund",
+        "photoPage": "https://unsplash.com/photos/a-group-of-construction-workers-working-on-a-building-0-u42cZfhvY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Marmi Sica",
+        "profileUrl": "https://unsplash.com/@marmis239",
+        "photoPage": "https://unsplash.com/photos/a-ruler-sits-on-blueprints-diCnQaalDWU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yael Yañez",
+        "profileUrl": "https://unsplash.com/@yaelyanez",
+        "photoPage": "https://unsplash.com/photos/unfinished-building-during-day-MnlhHVfb-TA"
+      }
+    ]
+  },
+  "sources": [
+    "http://doublercarpentry.com/",
+    "http://doublercarpentry.com/contact.php",
+    "https://boernechamber.chambermaster.com/list/member/double-r-carpentry-24762",
+    "https://unsplash.com/photos/black-pen-on-white-printer-paper-o776uI1UtuQ",
+    "https://unsplash.com/photos/yellow-crane-under-blue-sky-and-white-clouds-during-daytime-Bix61Z5i2F0",
+    "https://unsplash.com/photos/a-close-up-of-a-tall-building-TJxSdsmoW_I",
+    "https://unsplash.com/photos/a-group-of-construction-workers-working-on-a-building-0-u42cZfhvY",
+    "https://unsplash.com/photos/a-ruler-sits-on-blueprints-diCnQaalDWU",
+    "https://unsplash.com/photos/unfinished-building-during-day-MnlhHVfb-TA"
+  ]
+}
