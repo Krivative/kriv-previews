@@ -1,0 +1,88 @@
+{
+  "slug": "frank-a",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-04",
+  "expiresAt": "2026-12-04",
+  "status": "approved",
+  "business": {
+    "name": "Frank A. Hamner, P.A.",
+    "phoneDisplay": "(407) 645-4549",
+    "phoneE164": "+14076454549",
+    "address": {
+      "city": "Winter Park",
+      "region": "FL",
+      "postalCode": "32789",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Frank A. Hamner, P.A..*",
+    "sub": "A concept website prepared by KRIV for Frank A. Hamner, P.A.."
+  },
+  "seo": {
+    "title": "Frank A. Hamner, P.A. | Concept preview",
+    "description": "Concept preview of a website for Frank A. Hamner, P.A. in Winter Park, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1559133082-d15e8502d064?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1701790644702-292e25180524?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1536880879850-e5a87ee99f1d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1618414952052-289dab88b409?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1646032539375-2ecd919356ef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1531429745839-827a6a45e040?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Proxyclick Visitor Management System",
+        "profileUrl": "https://unsplash.com/@proxyclick",
+        "photoPage": "https://unsplash.com/photos/black-wooden-shelf-nezoFjwiuLQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Luis Caroca",
+        "profileUrl": "https://unsplash.com/@lundres",
+        "photoPage": "https://unsplash.com/photos/a-bookshelf-filled-with-lots-of-books-on-top-of-wooden-shelves-h_YX8re2Uu4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Debby Hudson",
+        "profileUrl": "https://unsplash.com/@hudsoncrafted",
+        "photoPage": "https://unsplash.com/photos/assorted-color-pencil-lot-in-white-ceramic-jar-vDUIhgASz6c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sara",
+        "profileUrl": "https://unsplash.com/@saracohenn",
+        "photoPage": "https://unsplash.com/photos/books-on-shelves-in-room-Skcr6X_aLjU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mediamodifier",
+        "profileUrl": "https://unsplash.com/@mediamodifier",
+        "photoPage": "https://unsplash.com/photos/a-notebook-pencils-ruler-tape-and-pencils-on-a-pink-lT4XuZoDrX8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mathew Schwartz",
+        "profileUrl": "https://unsplash.com/@cadop",
+        "photoPage": "https://unsplash.com/photos/building-interior-with-chandeliers-and-desks-onOdABjwC0M"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.fahpa.com/",
+    "https://unsplash.com/photos/black-wooden-shelf-nezoFjwiuLQ",
+    "https://unsplash.com/photos/a-bookshelf-filled-with-lots-of-books-on-top-of-wooden-shelves-h_YX8re2Uu4",
+    "https://unsplash.com/photos/assorted-color-pencil-lot-in-white-ceramic-jar-vDUIhgASz6c",
+    "https://unsplash.com/photos/books-on-shelves-in-room-Skcr6X_aLjU",
+    "https://unsplash.com/photos/a-notebook-pencils-ruler-tape-and-pencils-on-a-pink-lT4XuZoDrX8",
+    "https://unsplash.com/photos/building-interior-with-chandeliers-and-desks-onOdABjwC0M"
+  ]
+}
