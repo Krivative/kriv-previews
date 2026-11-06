@@ -1,0 +1,103 @@
+{
+  "slug": "twisted-grape",
+  "template": "cafe-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Twisted Grape Wine Bar & Cafe",
+    "phoneDisplay": "(850) 651-5100",
+    "phoneE164": "+18506515100",
+    "address": {
+      "city": "Shalimar",
+      "region": "FL",
+      "postalCode": "32579",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Mon - Thu",
+        "time": "11:00 am - 9:00 pm"
+      },
+      {
+        "days": "Fri",
+        "time": "11:00 am - 10:00 pm"
+      },
+      {
+        "days": "Sat",
+        "time": "5:00 pm - 10:00 pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Twisted Grape Wine Bar & Cafe.*",
+    "sub": "A concept website prepared by KRIV for Twisted Grape Wine Bar & Cafe."
+  },
+  "seo": {
+    "title": "Twisted Grape Wine Bar & Cafe | Concept preview",
+    "description": "Concept preview of a website for Twisted Grape Wine Bar & Cafe in Shalimar, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1599118732532-f1cdb1ae7389?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1770736929333-4fb8cd5a1657?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718939043329-b956bee61dbb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1603899949816-a3e9b885090e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634040669840-36c8b3b6e378?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1773681092966-04cc821c6cea?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Michal Balog",
+        "profileUrl": "https://unsplash.com/@mikbutcher",
+        "photoPage": "https://unsplash.com/photos/cooked-food-on-white-ceramic-plate-ihdvOzjH4zs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eirc Shi",
+        "profileUrl": "https://unsplash.com/@wwolf5566",
+        "photoPage": "https://unsplash.com/photos/modern-restaurant-interior-with-hanging-lights-knvnCoc5qH4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Lock",
+        "profileUrl": "https://unsplash.com/@milo_photo",
+        "photoPage": "https://unsplash.com/photos/a-white-bowl-with-a-flower-decoration-in-it--jpvJV_J5NY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "ZHIDA LI",
+        "profileUrl": "https://unsplash.com/@adam_l_ee",
+        "photoPage": "https://unsplash.com/photos/chef-holding-knife-slicing-meat-I9ijGjOVrc4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Florian Pinkert",
+        "profileUrl": "https://unsplash.com/@groundedinc",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-slices-of-watermelon-and-other-fruits-UY1gx7sL4_w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Donald Teel",
+        "profileUrl": "https://unsplash.com/@epartner",
+        "photoPage": "https://unsplash.com/photos/outdoor-dining-tables-and-chairs-on-brick-patio-oc4XWKM9UPI"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.twistedgrapewinebar.com/",
+    "https://www.twistedgrapewinebar.com/contact",
+    "https://www.fwbchamber.org/list/member/twisted-grape-wine-bar-cafe-7949",
+    "https://unsplash.com/photos/cooked-food-on-white-ceramic-plate-ihdvOzjH4zs",
+    "https://unsplash.com/photos/modern-restaurant-interior-with-hanging-lights-knvnCoc5qH4",
+    "https://unsplash.com/photos/a-white-bowl-with-a-flower-decoration-in-it--jpvJV_J5NY",
+    "https://unsplash.com/photos/chef-holding-knife-slicing-meat-I9ijGjOVrc4",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-slices-of-watermelon-and-other-fruits-UY1gx7sL4_w",
+    "https://unsplash.com/photos/outdoor-dining-tables-and-chairs-on-brick-patio-oc4XWKM9UPI"
+  ]
+}
