@@ -1,0 +1,91 @@
+{
+  "slug": "saffron-valley-restaurants",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Saffron Valley Restaurants",
+    "category": "Restaurant",
+    "phoneDisplay": "(801) 203-3754",
+    "phoneE164": "+18012033754",
+    "address": {
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postalCode": "84115",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Saffron Valley Restaurants.*",
+    "sub": "A concept website prepared by KRIV for Saffron Valley Restaurants."
+  },
+  "seo": {
+    "title": "Saffron Valley Restaurants | Concept preview",
+    "description": "Concept preview of a website for Saffron Valley Restaurants in Salt Lake City, UT, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1671393027109-cc86930539c3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1761983723667-99c7fd98af53?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1779738193005-c4b3ac8ef870?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1578195759404-deb08e9615a3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778104682769-f40c526add2a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1571168136613-46401b03904e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Graphe Tween",
+        "profileUrl": "https://unsplash.com/@graphetween",
+        "photoPage": "https://unsplash.com/photos/a-white-plate-topped-with-different-types-of-food-TylRhw1Ej44"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hans Westbeek",
+        "profileUrl": "https://unsplash.com/@hanswestbeek",
+        "photoPage": "https://unsplash.com/photos/rack-of-lamb-with-roasted-vegetables-and-sauce-449qWYYxEdo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jason Leung",
+        "profileUrl": "https://unsplash.com/@ninjason",
+        "photoPage": "https://unsplash.com/photos/a-gourmet-oyster-with-colorful-toppings-on-ice-KcWmCDfpM4M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yucel M",
+        "profileUrl": "https://unsplash.com/@ymoran",
+        "photoPage": "https://unsplash.com/photos/green-leaf-plant-in-white-pot-on-square-black-wooden-table-SUXcGaSnZyY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Milan Trninic",
+        "profileUrl": "https://unsplash.com/@wedesignmarbella",
+        "photoPage": "https://unsplash.com/photos/razor-clams-with-orange-sauce-and-microgreens-on-a-plate-LX23Y4E6W4M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alexander Faé",
+        "profileUrl": "https://unsplash.com/@alexfae",
+        "photoPage": "https://unsplash.com/photos/empty-tables-and-chairs-kufY1HyGEO8"
+      }
+    ]
+  },
+  "sources": [
+    "https://slchamber.chambermaster.com/list/member/saffron-valley-restaurants-92173",
+    "http://www.saffronvalley.com/about-saffron-valley-indian-cuisine-utah",
+    "http://www.saffronvalley.com/",
+    "http://www.saffronvalley.com/contact-saffron-valley",
+    "https://unsplash.com/photos/a-white-plate-topped-with-different-types-of-food-TylRhw1Ej44",
+    "https://unsplash.com/photos/rack-of-lamb-with-roasted-vegetables-and-sauce-449qWYYxEdo",
+    "https://unsplash.com/photos/a-gourmet-oyster-with-colorful-toppings-on-ice-KcWmCDfpM4M",
+    "https://unsplash.com/photos/green-leaf-plant-in-white-pot-on-square-black-wooden-table-SUXcGaSnZyY",
+    "https://unsplash.com/photos/razor-clams-with-orange-sauce-and-microgreens-on-a-plate-LX23Y4E6W4M",
+    "https://unsplash.com/photos/empty-tables-and-chairs-kufY1HyGEO8"
+  ]
+}
