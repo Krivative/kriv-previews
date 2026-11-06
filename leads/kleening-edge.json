@@ -1,0 +1,110 @@
+{
+  "slug": "kleening-edge",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Kleening Edge",
+    "phoneDisplay": "(780) 691-5682",
+    "phoneE164": "+17806915682",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Kleening Edge.*",
+    "sub": "A concept website prepared by KRIV for Kleening Edge."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Spot cleaning walls",
+        "blurb": "Learn about spot cleaning walls."
+      },
+      {
+        "name": "Cleaning baseboards and door trim",
+        "blurb": "Learn about cleaning baseboards and door trim."
+      },
+      {
+        "name": "Cleaning light switches and outlets",
+        "blurb": "Learn about cleaning light switches and outlets."
+      },
+      {
+        "name": "Cleaning mirrors",
+        "blurb": "Learn about cleaning mirrors."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Kleening Edge | Concept preview",
+    "description": "Concept preview of a website for Kleening Edge in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1603439810849-5e013dc3ce73?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1659770482088-2f4e52c7e1b0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGNvbnN0cnVjdGlvbiUyMHdvcmtlcnMlMjBzaXRlfGVufDF8MHx8fDE3OTM5Mjk4NDR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1743130940757-42d780087c3a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1786477949562-a4f175faff89?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622649396178-b56dfd532226?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1715695938525-0ed213ccd7d6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Barthelemy de Mazenod",
+        "profileUrl": "https://unsplash.com/@thebarlemy",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-frame-under-blue-sky-during-daytime-se4NQY7-zSQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Iliya Jokic",
+        "profileUrl": "https://unsplash.com/@iliya9",
+        "photoPage": "https://unsplash.com/photos/a-large-metal-structure-RM5JTqJ4FhU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nihar Reddy Jangam",
+        "profileUrl": "https://unsplash.com/@niharjreddy",
+        "photoPage": "https://unsplash.com/photos/construction-workers-pouring-and-leveling-concrete-VHPFxU6eqto"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Christian Agbede",
+        "profileUrl": "https://unsplash.com/@chriscreations__",
+        "photoPage": "https://unsplash.com/photos/architectural-floor-plan-sketch-with-markers-5BQFKcQrciI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Billy Freeman",
+        "profileUrl": "https://unsplash.com/@billyfreeman",
+        "photoPage": "https://unsplash.com/photos/red-crane-near-brown-building-V38rMuljw2Y"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jannik",
+        "profileUrl": "https://unsplash.com/@thing2196",
+        "photoPage": "https://unsplash.com/photos/a-view-of-a-city-with-scaffolding-on-the-buildings-1szHPFbKu3o"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.kleeningedge.com/",
+    "https://edmontonchamber.chambermaster.com/list/member/kleening-edge-29292",
+    "https://www.kleeningedge.com/services",
+    "https://unsplash.com/photos/brown-wooden-frame-under-blue-sky-during-daytime-se4NQY7-zSQ",
+    "https://unsplash.com/photos/a-large-metal-structure-RM5JTqJ4FhU",
+    "https://unsplash.com/photos/construction-workers-pouring-and-leveling-concrete-VHPFxU6eqto",
+    "https://unsplash.com/photos/architectural-floor-plan-sketch-with-markers-5BQFKcQrciI",
+    "https://unsplash.com/photos/red-crane-near-brown-building-V38rMuljw2Y",
+    "https://unsplash.com/photos/a-view-of-a-city-with-scaffolding-on-the-buildings-1szHPFbKu3o"
+  ]
+}
