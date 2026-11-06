@@ -1,0 +1,90 @@
+{
+  "slug": "mountain-states-fence",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Mountain States Fence Company",
+    "phoneDisplay": "(801) 261-4224",
+    "phoneE164": "+18012614224",
+    "address": {
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postalCode": "84115",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Mountain States Fence Company.*",
+    "sub": "A concept website prepared by KRIV for Mountain States Fence Company."
+  },
+  "seo": {
+    "title": "Mountain States Fence Company | Concept preview",
+    "description": "Concept preview of a website for Mountain States Fence Company in Salt Lake City, UT, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1600048841038-7c49eed72081?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1637446008339-c9cbabe4d99f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGNvbnN0cnVjdGlvbiUyMHdvcmtlcnMlMjBzaXRlfGVufDF8MHx8fDE3OTM5Mjk4NDR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1706067720748-cf8c2e4fe17b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1562601553-b67e9e26f364?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1611906622516-be9a76360430?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1694771959911-74d0c92bf021?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Erik House",
+        "profileUrl": "https://unsplash.com/@ehouse37",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-frame-on-wall-oo1PKMBZe4g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "david Griffiths",
+        "profileUrl": "https://unsplash.com/@itscakefortea",
+        "photoPage": "https://unsplash.com/photos/a-group-of-construction-vehicles-parked-in-front-of-a-factory-hgyZHIEu-bI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Compagnons",
+        "profileUrl": "https://unsplash.com/@sigmund",
+        "photoPage": "https://unsplash.com/photos/a-construction-site-with-a-lot-of-construction-equipment-rdbIaw-7JX4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Scott Blake",
+        "profileUrl": "https://unsplash.com/@sunburned_surveyor",
+        "photoPage": "https://unsplash.com/photos/red-and-white-marker-Vn5uB2EhoIo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/yellow-and-black-excavator-near-white-building-during-daytime--XlysiC_KeM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "lionel mermoz",
+        "profileUrl": "https://unsplash.com/@mermoz",
+        "photoPage": "https://unsplash.com/photos/a-crane-is-standing-next-to-a-tall-building-gVTsrqqg6Dw"
+      }
+    ]
+  },
+  "sources": [
+    "https://slchamber.chambermaster.com/list/member/mountain-states-fence-company-1819",
+    "http://www.msfence.com/",
+    "http://www.msfence.com/contact_us",
+    "https://unsplash.com/photos/brown-wooden-frame-on-wall-oo1PKMBZe4g",
+    "https://unsplash.com/photos/a-group-of-construction-vehicles-parked-in-front-of-a-factory-hgyZHIEu-bI",
+    "https://unsplash.com/photos/a-construction-site-with-a-lot-of-construction-equipment-rdbIaw-7JX4",
+    "https://unsplash.com/photos/red-and-white-marker-Vn5uB2EhoIo",
+    "https://unsplash.com/photos/yellow-and-black-excavator-near-white-building-during-daytime--XlysiC_KeM",
+    "https://unsplash.com/photos/a-crane-is-standing-next-to-a-tall-building-gVTsrqqg6Dw"
+  ]
+}
