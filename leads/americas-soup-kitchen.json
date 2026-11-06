@@ -1,0 +1,88 @@
+{
+  "slug": "americas-soup-kitchen",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "America's Soup Kitchen",
+    "phoneDisplay": "(202) 930-3775",
+    "phoneE164": "+12029303775",
+    "address": {
+      "city": "Chantilly",
+      "region": "VA",
+      "postalCode": "20152",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *America's Soup Kitchen.*",
+    "sub": "A concept website prepared by KRIV for America's Soup Kitchen."
+  },
+  "seo": {
+    "title": "America's Soup Kitchen | Concept preview",
+    "description": "Concept preview of a website for America's Soup Kitchen in Chantilly, VA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/flagged/photo-1561350117-501b4661f8d4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1618666185561-baed3459ff18?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1608816042754-d69cb2271bea?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1484344958632-f7264ab71ecc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1538333581680-29dd4752ddf2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1666479258732-5ea17469b610?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Hemant Latawa",
+        "profileUrl": "https://unsplash.com/@hemantlatawa",
+        "photoPage": "https://unsplash.com/photos/chef-holding-fry-pan-RKdkETvcYn4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nick Kimel",
+        "profileUrl": "https://unsplash.com/@nickkimel",
+        "photoPage": "https://unsplash.com/photos/egg-and-vegetable-salad-on-white-ceramic-plate-uTT5PK3mXc4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Vitor Paladini",
+        "profileUrl": "https://unsplash.com/@vtrpldn",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-table-with-chairs-V2nhzJm-2FM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jimi Filipovski",
+        "profileUrl": "https://unsplash.com/@jimiburg",
+        "photoPage": "https://unsplash.com/photos/white-ceramic-plate-0VRwj7rYnQI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alexander Faé",
+        "profileUrl": "https://unsplash.com/@alexfae",
+        "photoPage": "https://unsplash.com/photos/empty-chairs-and-tables-inside-room-with-lights-turned-on-PK1pzUGQSjc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nico Smit",
+        "profileUrl": "https://unsplash.com/@nicosmit99",
+        "photoPage": "https://unsplash.com/photos/a-chef-cooking-in-a-kitchen-25DGbmQ_KPI"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.dullessouthsoupkitchen.org/",
+    "https://unsplash.com/photos/chef-holding-fry-pan-RKdkETvcYn4",
+    "https://unsplash.com/photos/egg-and-vegetable-salad-on-white-ceramic-plate-uTT5PK3mXc4",
+    "https://unsplash.com/photos/brown-wooden-table-with-chairs-V2nhzJm-2FM",
+    "https://unsplash.com/photos/white-ceramic-plate-0VRwj7rYnQI",
+    "https://unsplash.com/photos/empty-chairs-and-tables-inside-room-with-lights-turned-on-PK1pzUGQSjc",
+    "https://unsplash.com/photos/a-chef-cooking-in-a-kitchen-25DGbmQ_KPI"
+  ]
+}
