@@ -1,0 +1,89 @@
+{
+  "slug": "jhaj-professional-services",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Jhaj & Co Professional Services Inc.",
+    "phoneDisplay": "(778) 218-2639",
+    "phoneE164": "+17782182639",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3W 0M8",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Jhaj & Co Professional Services Inc..*",
+    "sub": "A concept website prepared by KRIV for Jhaj & Co Professional Services Inc.."
+  },
+  "seo": {
+    "title": "Jhaj & Co Professional Services Inc. | Concept preview",
+    "description": "Concept preview of a website for Jhaj & Co Professional Services Inc. in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1666790676906-0295230c121d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631246957572-0c49e4ee6ff4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM3NjgyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762831063004-bbd3ea38ba3a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1636031068622-98c9c161c613?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc2ODI1M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1595846723416-99a641e1231a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1698653223247-09aaf01166fc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM3NjgyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Lotus Design N Print",
+        "profileUrl": "https://unsplash.com/@lotusdnp",
+        "photoPage": "https://unsplash.com/photos/a-large-room-with-tables-and-chairs-OqZKI15yBnM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Petr",
+        "profileUrl": "https://unsplash.com/@mpetrucho",
+        "photoPage": "https://unsplash.com/photos/black-laptop-computer-on-white-table-u4WFV0pAZpc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-notebook-pencil-and-plant-QfQW294I8sQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gianluca Cinnante",
+        "profileUrl": "https://unsplash.com/@gluca",
+        "photoPage": "https://unsplash.com/photos/a-stack-of-drawers-sitting-on-top-of-each-other-brOOz19UzQg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gian Paolo Aliatis",
+        "profileUrl": "https://unsplash.com/@gianpaoloaliatis",
+        "photoPage": "https://unsplash.com/photos/black-and-brown-wooden-table-near-blue-padded-chair-EJSNrTzz6xk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mateusz Zatorski",
+        "profileUrl": "https://unsplash.com/@knowbody",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-chairs-in-front-of-a-large-window-wN9oyogyjQc"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.businessinsurrey.com/list/member/jhaj-co-professional-services-inc-33992",
+    "http://www.jhajcga.com/",
+    "https://unsplash.com/photos/a-large-room-with-tables-and-chairs-OqZKI15yBnM",
+    "https://unsplash.com/photos/black-laptop-computer-on-white-table-u4WFV0pAZpc",
+    "https://unsplash.com/photos/desk-with-calculator-notebook-pencil-and-plant-QfQW294I8sQ",
+    "https://unsplash.com/photos/a-stack-of-drawers-sitting-on-top-of-each-other-brOOz19UzQg",
+    "https://unsplash.com/photos/black-and-brown-wooden-table-near-blue-padded-chair-EJSNrTzz6xk",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-chairs-in-front-of-a-large-window-wN9oyogyjQc"
+  ]
+}
