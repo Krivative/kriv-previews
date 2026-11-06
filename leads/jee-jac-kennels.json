@@ -1,0 +1,97 @@
+{
+  "slug": "jee-jac-kennels",
+  "template": "chiro-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Jee Jac Kennels",
+    "phoneDisplay": "(360) 757-0520",
+    "phoneE164": "+13607570520",
+    "address": {
+      "city": "Burlington",
+      "region": "WA",
+      "postalCode": "98233",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Mon-Fri",
+        "time": "9am-5pm"
+      },
+      {
+        "days": "Sat",
+        "time": "9am-12pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Jee Jac Kennels.*",
+    "sub": "A concept website prepared by KRIV for Jee Jac Kennels."
+  },
+  "seo": {
+    "title": "Jee Jac Kennels | Concept preview",
+    "description": "Concept preview of a website for Jee Jac Kennels in Burlington, WA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGFwcHklMjBkb2d8ZW58MXwwfHx8MTc5MzkyNzQ0Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1498100152307-ce63fd6c5424?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2F0JTIwcG9ydHJhaXR8ZW58MXwwfHx8MTc5MzkyNzQ0M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1616420486543-9d94ce1af95b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZG9nJTIwd2Fsa2luZyUyMHBhcmt8ZW58MXwwfHx8MTc5MzkyNzQ0M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cGV0JTIwc3VwcGxpZXN8ZW58MXwwfHx8MTc5MzkyNzQ0NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aGFwcHklMjBkb2d8ZW58MXwwfHx8MTc5MzkyNzQ0Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1552933529-e359b2477252?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y2F0JTIwcG9ydHJhaXR8ZW58MXwwfHx8MTc5MzkyNzQ0M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Victor G",
+        "profileUrl": "https://unsplash.com/@victor_vector",
+        "photoPage": "https://unsplash.com/photos/black-and-white-short-coated-dog-N04FIfHhv_k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Paul Hanaoka",
+        "profileUrl": "https://unsplash.com/@plhnk",
+        "photoPage": "https://unsplash.com/photos/shallow-focus-photography-of-tuxedo-cat-o6RbK3y7mK4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Robinson Greig",
+        "profileUrl": "https://unsplash.com/@robinson",
+        "photoPage": "https://unsplash.com/photos/2-brown-and-white-short-coated-dogs-running-on-brown-sand-during-daytime-My_XWXWdrnQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alvan Nee",
+        "profileUrl": "https://unsplash.com/@alvannee",
+        "photoPage": "https://unsplash.com/photos/two-brown-and-white-dogs-running-dirt-road-during-daytime-T-0EW-SEbsE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Joe Caione",
+        "profileUrl": "https://unsplash.com/@joeyc",
+        "photoPage": "https://unsplash.com/photos/shallow-focus-photography-of-white-shih-tzu-puppy-running-on-the-grass-qO-PIF84Vxg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tatyana Eremina",
+        "profileUrl": "https://unsplash.com/@artyana",
+        "photoPage": "https://unsplash.com/photos/orange-cat-cQDu1G6lmRM"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.jeejackennels.net/",
+    "https://unsplash.com/photos/black-and-white-short-coated-dog-N04FIfHhv_k",
+    "https://unsplash.com/photos/shallow-focus-photography-of-tuxedo-cat-o6RbK3y7mK4",
+    "https://unsplash.com/photos/2-brown-and-white-short-coated-dogs-running-on-brown-sand-during-daytime-My_XWXWdrnQ",
+    "https://unsplash.com/photos/two-brown-and-white-dogs-running-dirt-road-during-daytime-T-0EW-SEbsE",
+    "https://unsplash.com/photos/shallow-focus-photography-of-white-shih-tzu-puppy-running-on-the-grass-qO-PIF84Vxg",
+    "https://unsplash.com/photos/orange-cat-cQDu1G6lmRM"
+  ]
+}
