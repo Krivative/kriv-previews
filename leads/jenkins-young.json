@@ -1,0 +1,90 @@
+{
+  "slug": "jenkins-young",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "JENKINS & YOUNG P.C",
+    "category": "Law firm",
+    "phoneDisplay": "(806) 771-1234",
+    "phoneE164": "+18067711234",
+    "address": {
+      "city": "LUBBOCK",
+      "region": "TX",
+      "postalCode": "79408",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *JENKINS & YOUNG P.C.*",
+    "sub": "A concept website prepared by KRIV for JENKINS & YOUNG P.C."
+  },
+  "seo": {
+    "title": "JENKINS & YOUNG P.C | Concept preview",
+    "description": "Concept preview of a website for JENKINS & YOUNG P.C in LUBBOCK, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1598369626023-65bce3f9698e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1685303276798-05e7f07d3927?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1673983905644-76f4c3290a87?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1669348849154-25e23e2ccf05?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1623173619811-449e11081887?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1619771766980-368d32e44b82?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Ian Harber",
+        "profileUrl": "https://unsplash.com/@ianharber",
+        "photoPage": "https://unsplash.com/photos/black-and-silver-laptop-computer-on-brown-wooden-desk-3zWXZyg_NXI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Julie May",
+        "profileUrl": "https://unsplash.com/@jamster07721",
+        "photoPage": "https://unsplash.com/photos/a-book-shelf-filled-with-lots-of-books-0tbVzqmhu1g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ivona Rož",
+        "profileUrl": "https://unsplash.com/@ivonar",
+        "photoPage": "https://unsplash.com/photos/an-open-book-sitting-on-top-of-a-counter-next-to-a-vase-of-flowers-OjEfjf-n39E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andy Wang",
+        "profileUrl": "https://unsplash.com/@space_launch_system",
+        "photoPage": "https://unsplash.com/photos/a-library-with-books-on-shelves-3K6Qcxm6Jig"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Florencia Viadana",
+        "profileUrl": "https://unsplash.com/@florenciaviadana",
+        "photoPage": "https://unsplash.com/photos/white-and-black-labeled-book-on-white-shelf-UTbB0xzuhO8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nasser Eledroos",
+        "profileUrl": "https://unsplash.com/@nasser_",
+        "photoPage": "https://unsplash.com/photos/blue-locker-on-brown-wooden-shelf-20fmGtxKs_I"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.jwylaw.com/",
+    "https://www.jwylaw.com/contact/",
+    "https://lubbockchambertx.chambermaster.com/list/member/jenkins-young-p-c-39589",
+    "https://unsplash.com/photos/black-and-silver-laptop-computer-on-brown-wooden-desk-3zWXZyg_NXI",
+    "https://unsplash.com/photos/a-book-shelf-filled-with-lots-of-books-0tbVzqmhu1g",
+    "https://unsplash.com/photos/an-open-book-sitting-on-top-of-a-counter-next-to-a-vase-of-flowers-OjEfjf-n39E",
+    "https://unsplash.com/photos/a-library-with-books-on-shelves-3K6Qcxm6Jig",
+    "https://unsplash.com/photos/white-and-black-labeled-book-on-white-shelf-UTbB0xzuhO8",
+    "https://unsplash.com/photos/blue-locker-on-brown-wooden-shelf-20fmGtxKs_I"
+  ]
+}
