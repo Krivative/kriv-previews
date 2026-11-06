@@ -1,0 +1,86 @@
+{
+  "slug": "natura-canada",
+  "template": "dental-clear",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Natura Canada Wellness Ltd.",
+    "address": {
+      "city": "Richmond Hill",
+      "region": "ON",
+      "postalCode": "L4B 4V1",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Natura Canada Wellness Ltd..*",
+    "sub": "A concept website prepared by KRIV for Natura Canada Wellness Ltd.."
+  },
+  "seo": {
+    "title": "Natura Canada Wellness Ltd. | Concept preview",
+    "description": "Concept preview of a website for Natura Canada Wellness Ltd. in Richmond Hill, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1565647946321-a146ac24a220?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fG1lZGljYWwlMjBvZmZpY2V8ZW58MXwwfHx8MTc5Mzg1MTAyNXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1721045028160-3637f5063047?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1666679314791-1137bb733779?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fG1lZGljYWwlMjBvZmZpY2V8ZW58MXwwfHx8MTc5Mzg1MTAyNXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1788516382644-fd27b0f36ab5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5Mzg1MTAyM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985020559-7ee234a5250f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985019906-a176dbb5e6a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Abby Anaday",
+        "profileUrl": "https://unsplash.com/@aalteredstaate",
+        "photoPage": "https://unsplash.com/photos/a-hair-dryer-and-a-hairdryer-on-a-wall-Z3fXPuxa15k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lisa Anna",
+        "profileUrl": "https://unsplash.com/@lisaanna195",
+        "photoPage": "https://unsplash.com/photos/a-kitchen-with-a-counter-chairs-and-a-bar-oLtNPzG0_uU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Shawn Powar",
+        "profileUrl": "https://unsplash.com/@shawnpowar",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-table-and-a-lamp-hDeq8NBTNS8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Auroom Wellness",
+        "profileUrl": "https://unsplash.com/@auroom",
+        "photoPage": "https://unsplash.com/photos/circular-wooden-sauna-with-red-lighting-ZhIkUYK5Y6k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it-jHr2_ffX02Q"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-green-cabinet-in-an-office-with-a-plant-on-top-of-it-5v0ffpkaVdw"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.rhbot.ca/list/member/natura-canada-wellness-ltd-1277705",
+    "https://unsplash.com/photos/a-hair-dryer-and-a-hairdryer-on-a-wall-Z3fXPuxa15k",
+    "https://unsplash.com/photos/a-kitchen-with-a-counter-chairs-and-a-bar-oLtNPzG0_uU",
+    "https://unsplash.com/photos/a-room-with-a-table-and-a-lamp-hDeq8NBTNS8",
+    "https://unsplash.com/photos/circular-wooden-sauna-with-red-lighting-ZhIkUYK5Y6k",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it-jHr2_ffX02Q",
+    "https://unsplash.com/photos/a-green-cabinet-in-an-office-with-a-plant-on-top-of-it-5v0ffpkaVdw"
+  ]
+}
