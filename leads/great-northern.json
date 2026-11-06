@@ -1,0 +1,90 @@
+{
+  "slug": "great-northern",
+  "template": "plumbing-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Great Northern Trans-Port Inc.",
+    "category": "Home services",
+    "phoneDisplay": "(780) 490-4900",
+    "phoneE164": "+17804904900",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "postalCode": "T6E 5Z8",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Great Northern Trans-Port Inc..*",
+    "sub": "A concept website prepared by KRIV for Great Northern Trans-Port Inc.."
+  },
+  "seo": {
+    "title": "Great Northern Trans-Port Inc. | Concept preview",
+    "description": "Concept preview of a website for Great Northern Trans-Port Inc. in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1772305595483-6b058aff40f9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bmV3JTIwZmxvb3IlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bW9kZXJuJTIwaG9tZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTM2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1598228723793-52759bba239c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8aG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzkzNjcwOTY5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1610850760052-edbc52ef7618?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8dG9vbHMlMjB3b3JrYmVuY2h8ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1772300164438-f73307d3b645?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bmV3JTIwZmxvb3IlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Craftsman Concrete Floors",
+        "profileUrl": "https://unsplash.com/@craftsmanconcrete_official",
+        "photoPage": "https://unsplash.com/photos/workers-painting-a-large-industrial-floor-white-4yCaHDEfgfk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kam Idris",
+        "profileUrl": "https://unsplash.com/@ka_idris",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-framed-yellow-padded-chair-_HqHX3LBN18"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Johnson",
+        "profileUrl": "https://unsplash.com/@liujs",
+        "photoPage": "https://unsplash.com/photos/brown-and-white-concrete-house-near-green-trees-under-blue-sky-during-daytime-U6Q6zVDgmSs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kara Eads",
+        "profileUrl": "https://unsplash.com/@karaeads",
+        "photoPage": "https://unsplash.com/photos/living-room-L7EwHkq1B2s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Garwood",
+        "profileUrl": "https://unsplash.com/@brettgarwood",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-stick-on-brown-wooden-table-asZVvgMGshc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Craftsman Concrete Floors",
+        "profileUrl": "https://unsplash.com/@craftsmanconcrete_official",
+        "photoPage": "https://unsplash.com/photos/workers-in-a-large-empty-warehouse-with-polished-floors-vp0ffQcBqJ0"
+      }
+    ]
+  },
+  "sources": [
+    "https://edmontonchamber.chambermaster.com/list/member/great-northern-trans-port-inc-16465",
+    "http://ignitionfreight.com/",
+    "http://ignitionfreight.com/contact-ignition-freight.aspx",
+    "https://unsplash.com/photos/workers-painting-a-large-industrial-floor-white-4yCaHDEfgfk",
+    "https://unsplash.com/photos/brown-wooden-framed-yellow-padded-chair-_HqHX3LBN18",
+    "https://unsplash.com/photos/brown-and-white-concrete-house-near-green-trees-under-blue-sky-during-daytime-U6Q6zVDgmSs",
+    "https://unsplash.com/photos/living-room-L7EwHkq1B2s",
+    "https://unsplash.com/photos/brown-wooden-stick-on-brown-wooden-table-asZVvgMGshc",
+    "https://unsplash.com/photos/workers-in-a-large-empty-warehouse-with-polished-floors-vp0ffQcBqJ0"
+  ]
+}
