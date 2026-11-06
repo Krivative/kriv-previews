@@ -1,0 +1,108 @@
+{
+  "slug": "estate-house",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "The Estate House",
+    "category": "Law firm",
+    "phoneDisplay": "(780) 451-7557",
+    "phoneE164": "+17804517557",
+    "address": {
+      "city": "Edmonton",
+      "region": "AB",
+      "postalCode": "T5N 3Z9",
+      "country": "CA"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *The Estate House.*",
+    "sub": "A concept website prepared by KRIV for The Estate House."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Probate and Estate Administration",
+        "blurb": "Learn about probate and estate administration."
+      },
+      {
+        "name": "Estate Litigation",
+        "blurb": "Learn about estate litigation."
+      },
+      {
+        "name": "Wills & Estate Planning",
+        "blurb": "Learn about wills & estate planning."
+      }
+    ]
+  },
+  "seo": {
+    "title": "The Estate House | Concept preview",
+    "description": "Concept preview of a website for The Estate House in Edmonton, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1622701360439-efd38a07bda1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1775144657566-e5b093073baf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1584628804801-aa1a640cba8e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1576414160011-98dfab3aa889?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1618866569218-0fd6b98331ff?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1559897888-1740aa4d9f49?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Mediamodifier",
+        "profileUrl": "https://unsplash.com/@mediamodifier",
+        "photoPage": "https://unsplash.com/photos/white-paper-on-brown-wooden-table-VLwXSAu2Avk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Magic Fan",
+        "profileUrl": "https://unsplash.com/@magicunsplash",
+        "photoPage": "https://unsplash.com/photos/elegant-office-with-american-flag-and-presidential-desk-bEAvHnaC64s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Savannah Wakefield",
+        "profileUrl": "https://unsplash.com/@sw_creates",
+        "photoPage": "https://unsplash.com/photos/brown-folder-on-white-table--lrbAsxKlws"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Thomas Bormans",
+        "profileUrl": "https://unsplash.com/@thomasbormans",
+        "photoPage": "https://unsplash.com/photos/books-on-bookshelf-near-ladder-IHQHXj3jv6E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "R K",
+        "profileUrl": "https://unsplash.com/@farmtrue",
+        "photoPage": "https://unsplash.com/photos/black-book-on-brown-wooden-table-LIRs7R_T_fE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Pawel Lopatka",
+        "profileUrl": "https://unsplash.com/@plopatka70",
+        "photoPage": "https://unsplash.com/photos/ch-beck-book-B4Cz-oo9_Co"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.theestatehouse.ca/",
+    "https://www.theestatehouse.ca/contact-us-2/",
+    "https://edmontonchamber.chambermaster.com/list/member/the-estate-house-15865",
+    "https://www.theestatehouse.ca/services/",
+    "https://unsplash.com/photos/white-paper-on-brown-wooden-table-VLwXSAu2Avk",
+    "https://unsplash.com/photos/elegant-office-with-american-flag-and-presidential-desk-bEAvHnaC64s",
+    "https://unsplash.com/photos/brown-folder-on-white-table--lrbAsxKlws",
+    "https://unsplash.com/photos/books-on-bookshelf-near-ladder-IHQHXj3jv6E",
+    "https://unsplash.com/photos/black-book-on-brown-wooden-table-LIRs7R_T_fE",
+    "https://unsplash.com/photos/ch-beck-book-B4Cz-oo9_Co"
+  ]
+}
