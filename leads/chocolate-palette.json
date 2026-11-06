@@ -1,0 +1,89 @@
+{
+  "slug": "chocolate-palette",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "The Chocolate Palette",
+    "phoneDisplay": "(540) 385-1105",
+    "phoneE164": "+15403851105",
+    "address": {
+      "city": "Leesburg",
+      "region": "VA",
+      "postalCode": "20175",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *The Chocolate Palette.*",
+    "sub": "A concept website prepared by KRIV for The Chocolate Palette."
+  },
+  "seo": {
+    "title": "The Chocolate Palette | Concept preview",
+    "description": "Concept preview of a website for The Chocolate Palette in Leesburg, VA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1619371000980-ec90e765eb32?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1562050344-f7ad946cee35?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1789566171935-841b9a6f6301?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1533622597524-a1215e26c0a2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1580196515879-2d99ad7fd767?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8cmVzdGF1cmFudCUyMHRhYmxlfGVufDF8MHx8fDE3OTM1OTYyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1763867641117-0c1f154ee9a4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nick Kimel",
+        "profileUrl": "https://unsplash.com/@nickkimel",
+        "photoPage": "https://unsplash.com/photos/pasta-dish-on-white-ceramic-bowl-d2PocYmscRg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nadia Valko",
+        "profileUrl": "https://unsplash.com/@nadiavalko",
+        "photoPage": "https://unsplash.com/photos/dining-table-set-with-candles-0hAdietsUrE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "The Ridge Ohio",
+        "profileUrl": "https://unsplash.com/@theridgeohiomedia",
+        "photoPage": "https://unsplash.com/photos/risotto-served-on-white-plate-dtTHbU0x1Rc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sara Dubler",
+        "profileUrl": "https://unsplash.com/@ahungryblonde_",
+        "photoPage": "https://unsplash.com/photos/salad-on-white-ceramic-bow-l-T_dY6AzzVXU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nwar Igbariah",
+        "profileUrl": "https://unsplash.com/@nwarigb",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-table-with-chairs-tHbWtMFzZZs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Neon Wang",
+        "profileUrl": "https://unsplash.com/@neonwangphotography",
+        "photoPage": "https://unsplash.com/photos/four-plates-of-delicious-food-arranged-on-a-table-k-vaCkfPmQM"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.thechocolatepalette.org/",
+    "https://loudounchamber.chambermaster.com/list/member/the-chocolate-palette-30777",
+    "https://unsplash.com/photos/pasta-dish-on-white-ceramic-bowl-d2PocYmscRg",
+    "https://unsplash.com/photos/dining-table-set-with-candles-0hAdietsUrE",
+    "https://unsplash.com/photos/risotto-served-on-white-plate-dtTHbU0x1Rc",
+    "https://unsplash.com/photos/salad-on-white-ceramic-bow-l-T_dY6AzzVXU",
+    "https://unsplash.com/photos/brown-wooden-table-with-chairs-tHbWtMFzZZs",
+    "https://unsplash.com/photos/four-plates-of-delicious-food-arranged-on-a-table-k-vaCkfPmQM"
+  ]
+}
