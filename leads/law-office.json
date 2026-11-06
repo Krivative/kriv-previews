@@ -1,0 +1,90 @@
+{
+  "slug": "law-office",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-03",
+  "expiresAt": "2026-12-03",
+  "status": "approved",
+  "business": {
+    "name": "The Law Office of Rebecca Zubroski",
+    "phoneDisplay": "(703) 779-3675",
+    "phoneE164": "+17037793675",
+    "address": {
+      "city": "Leesburg",
+      "region": "VA",
+      "postalCode": "20178",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *The Law Office of Rebecca Zubroski.*",
+    "sub": "A concept website prepared by KRIV for The Law Office of Rebecca Zubroski."
+  },
+  "seo": {
+    "title": "The Law Office of Rebecca Zubroski | Concept preview",
+    "description": "Concept preview of a website for The Law Office of Rebecca Zubroski in Leesburg, VA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1628062699790-7c45262b82b4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bWVldGluZyUyMHJvb218ZW58MXwwfHx8MTc5MzY5NDE3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwb2ZmaWNlfGVufDF8MHx8fDE3OTM2OTQxNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1526566762798-8fac9c07aa98?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8b2ZmaWNlJTIwZGVzayUyMGJvb2tzfGVufDF8MHx8fDE3OTM2OTQxNzF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bGF3JTIwbGlicmFyeXxlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "freddie marriage",
+        "profileUrl": "https://unsplash.com/@fredmarriage",
+        "photoPage": "https://unsplash.com/photos/macbook-pro-on-top-of-table-vSchPA-YA_A"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Giammarco Boscaro",
+        "profileUrl": "https://unsplash.com/@giamboscaro",
+        "photoPage": "https://unsplash.com/photos/book-lot-on-black-wooden-shelf-zeH-ljawHtg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Fousert",
+        "profileUrl": "https://unsplash.com/@michaelfousert",
+        "photoPage": "https://unsplash.com/photos/office-chairs-at-conference-table-RNsKphkdBTk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nastuh Abootalebi",
+        "profileUrl": "https://unsplash.com/@sunday_digital",
+        "photoPage": "https://unsplash.com/photos/photo-of-dining-table-and-chairs-inside-room-eHD8Y1Znfpk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ella Jardim",
+        "profileUrl": "https://unsplash.com/@daniellajardim",
+        "photoPage": "https://unsplash.com/photos/pink-mug-on-books-home-office-M0zs81FNm6s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Clarisse Meyer",
+        "profileUrl": "https://unsplash.com/@clarissemeyer",
+        "photoPage": "https://unsplash.com/photos/books-in-glass-bookcase-jKU2NneZAbI"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.zubroskilaw.com/",
+    "https://loudounchamber.chambermaster.com/list/member/the-law-office-of-rebecca-zubroski-2084",
+    "http://www.zubroskilaw.com/contactus.html",
+    "https://unsplash.com/photos/macbook-pro-on-top-of-table-vSchPA-YA_A",
+    "https://unsplash.com/photos/book-lot-on-black-wooden-shelf-zeH-ljawHtg",
+    "https://unsplash.com/photos/office-chairs-at-conference-table-RNsKphkdBTk",
+    "https://unsplash.com/photos/photo-of-dining-table-and-chairs-inside-room-eHD8Y1Znfpk",
+    "https://unsplash.com/photos/pink-mug-on-books-home-office-M0zs81FNm6s",
+    "https://unsplash.com/photos/books-in-glass-bookcase-jKU2NneZAbI"
+  ]
+}
