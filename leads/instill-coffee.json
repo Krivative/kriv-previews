@@ -1,0 +1,89 @@
+{
+  "slug": "instill-coffee",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Instill Coffee Co.",
+    "phoneDisplay": "(512) 677-7549",
+    "phoneE164": "+15126777549",
+    "address": {
+      "city": "Cedar Park",
+      "region": "TX",
+      "postalCode": "78613",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Instill Coffee Co..*",
+    "sub": "A concept website prepared by KRIV for Instill Coffee Co.."
+  },
+  "seo": {
+    "title": "Instill Coffee Co. | Concept preview",
+    "description": "Concept preview of a website for Instill Coffee Co. in Cedar Park, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1769816042376-e7b16f728013?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1521917441209-e886f0404a7b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNzU3MzkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1669472546205-729832c47aa2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1625862692743-3f57873bb37c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1783887141643-1658731fe9ac?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1682778418768-16081e4470a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNzU3MzkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nihar Reddy Jangam",
+        "profileUrl": "https://unsplash.com/@niharjreddy",
+        "photoPage": "https://unsplash.com/photos/fresh-vegetables-served-on-a-white-plate-with-cutlery-GQoYAl2R7_E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sebastian Schuppik",
+        "profileUrl": "https://unsplash.com/@supa_95",
+        "photoPage": "https://unsplash.com/photos/tables-and-chairs-inside-building-H7xTpvBjJS4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cihat Hıdır",
+        "profileUrl": "https://unsplash.com/@cihathidir",
+        "photoPage": "https://unsplash.com/photos/a-plate-of-food-10sFmaxWXn8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Emma Houghton",
+        "profileUrl": "https://unsplash.com/@madebyswish",
+        "photoPage": "https://unsplash.com/photos/cooked-food-on-stainless-steel-plate-XgCI2ExTr9I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eric Vanetti",
+        "profileUrl": "https://unsplash.com/@vanetti225",
+        "photoPage": "https://unsplash.com/photos/plates-of-gourmet-pork-belly-with-orange-and-herbs-8bRdpknI3qg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Prithiviraj A",
+        "profileUrl": "https://unsplash.com/@prithiviraj",
+        "photoPage": "https://unsplash.com/photos/a-restaurant-filled-with-wooden-tables-and-chairs-vDlt9BQND-o"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.instillcoffee.com/",
+    "https://business.cedarparkchamber.org/list/member/instill-coffee-co-8526",
+    "https://unsplash.com/photos/fresh-vegetables-served-on-a-white-plate-with-cutlery-GQoYAl2R7_E",
+    "https://unsplash.com/photos/tables-and-chairs-inside-building-H7xTpvBjJS4",
+    "https://unsplash.com/photos/a-plate-of-food-10sFmaxWXn8",
+    "https://unsplash.com/photos/cooked-food-on-stainless-steel-plate-XgCI2ExTr9I",
+    "https://unsplash.com/photos/plates-of-gourmet-pork-belly-with-orange-and-herbs-8bRdpknI3qg",
+    "https://unsplash.com/photos/a-restaurant-filled-with-wooden-tables-and-chairs-vDlt9BQND-o"
+  ]
+}
