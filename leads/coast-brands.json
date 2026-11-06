@@ -1,0 +1,89 @@
+{
+  "slug": "coast-brands",
+  "template": "cafe-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "COAST BRANDS LLC",
+    "category": "Restaurant",
+    "phoneDisplay": "(312) 505-7579",
+    "phoneE164": "+13125057579",
+    "address": {
+      "city": "New Albany",
+      "region": "OH",
+      "postalCode": "43054",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *COAST BRANDS LLC.*",
+    "sub": "A concept website prepared by KRIV for COAST BRANDS LLC."
+  },
+  "seo": {
+    "title": "COAST BRANDS LLC | Concept preview",
+    "description": "Concept preview of a website for COAST BRANDS LLC in New Albany, OH, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1763867641133-537d55505d08?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1612192527395-06b72da6b35a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNzU3MzkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1637370988123-41bd9a6bcd48?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1614597445336-8a67e9314d91?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1761095596709-b513fc23b3f2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1669472546301-6ea7e733b130?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Neon Wang",
+        "profileUrl": "https://unsplash.com/@neonwangphotography",
+        "photoPage": "https://unsplash.com/photos/gourmet-dishes-served-on-a-wooden-table-btJxKVXxIoQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sung Jin Cho",
+        "profileUrl": "https://unsplash.com/@mbuff",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-table-and-chairs-vDhFB6TuKQM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mark Patterson",
+        "profileUrl": "https://unsplash.com/@mrpatt",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-a-plate-of-food-yVfagKpDeoc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Steven Ungermann",
+        "profileUrl": "https://unsplash.com/@steveungermann",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-table-with-chairs-fZ1vlupgdSY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Madeline Liu",
+        "profileUrl": "https://unsplash.com/@madeline_sd",
+        "photoPage": "https://unsplash.com/photos/artfully-arranged-gourmet-dish-with-green-and-yellow-spheres-cBptlmhBl4o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cihat Hıdır",
+        "profileUrl": "https://unsplash.com/@cihathidir",
+        "photoPage": "https://unsplash.com/photos/a-plate-of-food-SV_wr8SV5vs"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.dublinchamber.org/list/member/coast-brands-llc-22400",
+    "https://www.coastwinehouse.com/",
+    "https://unsplash.com/photos/gourmet-dishes-served-on-a-wooden-table-btJxKVXxIoQ",
+    "https://unsplash.com/photos/brown-wooden-table-and-chairs-vDhFB6TuKQM",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-a-plate-of-food-yVfagKpDeoc",
+    "https://unsplash.com/photos/brown-wooden-table-with-chairs-fZ1vlupgdSY",
+    "https://unsplash.com/photos/artfully-arranged-gourmet-dish-with-green-and-yellow-spheres-cBptlmhBl4o",
+    "https://unsplash.com/photos/a-plate-of-food-SV_wr8SV5vs"
+  ]
+}
