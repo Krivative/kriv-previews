@@ -1,0 +1,91 @@
+{
+  "slug": "nova-fine",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "NOVA Fine Home Maintenance and Repair",
+    "category": "Home services",
+    "phoneDisplay": "(703) 395-8999",
+    "phoneE164": "+17033958999",
+    "address": {
+      "city": "Springfield",
+      "region": "VA",
+      "postalCode": "22153",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *NOVA Fine Home Maintenance and Repair.*",
+    "sub": "A concept website prepared by KRIV for NOVA Fine Home Maintenance and Repair."
+  },
+  "seo": {
+    "title": "NOVA Fine Home Maintenance and Repair | Concept preview",
+    "description": "Concept preview of a website for NOVA Fine Home Maintenance and Repair in Springfield, VA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1741023705492-48561fc75bab?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1715695938540-b0388f4e759f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1693639056346-49cd9529378a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1603573712193-0a9e3db27381?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1715695938489-d9597f324a73?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1673978484388-160819578995?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Walter Martin",
+        "profileUrl": "https://unsplash.com/@rise13law",
+        "photoPage": "https://unsplash.com/photos/construction-cranes-stand-tall-over-buildings-vV3X7VTdva8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jannik",
+        "profileUrl": "https://unsplash.com/@thing2196",
+        "photoPage": "https://unsplash.com/photos/a-large-building-with-scaffolding-on-the-side-of-it-7k9sgautvFQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-with-a-crane-in-the-background-IH8207N-7tI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aleksandar Kyng",
+        "profileUrl": "https://unsplash.com/@aleksandarkyng",
+        "photoPage": "https://unsplash.com/photos/brown-and-gray-metal-tower-LOCGacfZWqQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jannik",
+        "profileUrl": "https://unsplash.com/@thing2196",
+        "photoPage": "https://unsplash.com/photos/a-crane-that-is-standing-in-the-air-n6IhU72ohHU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "d c",
+        "profileUrl": "https://unsplash.com/@dayooo",
+        "photoPage": "https://unsplash.com/photos/a-large-group-of-wooden-beams-sitting-on-top-of-a-cement-floor-giGl2fC7rGo"
+      }
+    ]
+  },
+  "sources": [
+    "https://loudounchamber.chambermaster.com/list/member/nova-fine-home-maintenance-and-repair-10091",
+    "https://www.novafinehome.com/services",
+    "http://www.novafinehome.com/",
+    "https://www.novafinehome.com/contact",
+    "https://unsplash.com/photos/construction-cranes-stand-tall-over-buildings-vV3X7VTdva8",
+    "https://unsplash.com/photos/a-large-building-with-scaffolding-on-the-side-of-it-7k9sgautvFQ",
+    "https://unsplash.com/photos/a-building-under-construction-with-a-crane-in-the-background-IH8207N-7tI",
+    "https://unsplash.com/photos/brown-and-gray-metal-tower-LOCGacfZWqQ",
+    "https://unsplash.com/photos/a-crane-that-is-standing-in-the-air-n6IhU72ohHU",
+    "https://unsplash.com/photos/a-large-group-of-wooden-beams-sitting-on-top-of-a-cement-floor-giGl2fC7rGo"
+  ]
+}
