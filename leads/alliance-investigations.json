@@ -1,0 +1,89 @@
+{
+  "slug": "alliance-investigations",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Alliance Investigations Inc",
+    "phoneDisplay": "(229) 400-1000",
+    "phoneE164": "+12294001000",
+    "address": {
+      "city": "BAINBRIDGE",
+      "region": "FL",
+      "postalCode": "39817",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Alliance Investigations Inc.*",
+    "sub": "A concept website prepared by KRIV for Alliance Investigations Inc."
+  },
+  "seo": {
+    "title": "Alliance Investigations Inc | Concept preview",
+    "description": "Concept preview of a website for Alliance Investigations Inc in BAINBRIDGE, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1464865885825-be7cd16fad8d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1600758083752-d1edc34dfbf3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5Mzk0ODM0OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622673037994-e4a73f4e5eb0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1775144657610-9a6f171e522f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5Mzk0ODM0OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1651594861888-6440e84055b0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1536869508136-25e131c20a5d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5Mzk0ODM0OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Drew Coffman",
+        "profileUrl": "https://unsplash.com/@drewcoffman",
+        "photoPage": "https://unsplash.com/photos/closeup-photo-of-educational-book-lot-D1Pa78SnrH0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Neenu Vimalkumar",
+        "profileUrl": "https://unsplash.com/@dreamquest12610",
+        "photoPage": "https://unsplash.com/photos/there-is-a-book-with-a-red-ribbon-on-it-gkqSkfC4A38"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kadarius Seegars",
+        "profileUrl": "https://unsplash.com/@kseegars",
+        "photoPage": "https://unsplash.com/photos/assorted-books-on-brown-wooden-table-w_yVIYD0Omk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Magic Fan",
+        "profileUrl": "https://unsplash.com/@magicunsplash",
+        "photoPage": "https://unsplash.com/photos/ornate-office-with-american-flag-and-antique-furniture-qY_Kdc-Xi40"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Annie Lang",
+        "profileUrl": "https://unsplash.com/@anniethingspossible",
+        "photoPage": "https://unsplash.com/photos/a-table-with-a-couple-of-objects-on-it-whxOv48gIe0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Louis Hansel",
+        "profileUrl": "https://unsplash.com/@louishansel",
+        "photoPage": "https://unsplash.com/photos/assorted-book-on-table-iGhMYg_dI70"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.fwbchamber.org/list/member/alliance-investigations-inc-11839",
+    "http://www.allianceinvestigations.biz/",
+    "https://unsplash.com/photos/closeup-photo-of-educational-book-lot-D1Pa78SnrH0",
+    "https://unsplash.com/photos/there-is-a-book-with-a-red-ribbon-on-it-gkqSkfC4A38",
+    "https://unsplash.com/photos/assorted-books-on-brown-wooden-table-w_yVIYD0Omk",
+    "https://unsplash.com/photos/ornate-office-with-american-flag-and-antique-furniture-qY_Kdc-Xi40",
+    "https://unsplash.com/photos/a-table-with-a-couple-of-objects-on-it-whxOv48gIe0",
+    "https://unsplash.com/photos/assorted-book-on-table-iGhMYg_dI70"
+  ]
+}
