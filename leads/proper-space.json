@@ -1,0 +1,89 @@
+{
+  "slug": "proper-space",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Proper Space",
+    "phoneDisplay": "(435) 757-7889",
+    "phoneE164": "+14357577889",
+    "address": {
+      "city": "Salt Lake",
+      "region": "UT",
+      "postalCode": "84105",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Proper Space.*",
+    "sub": "A concept website prepared by KRIV for Proper Space."
+  },
+  "seo": {
+    "title": "Proper Space | Concept preview",
+    "description": "Concept preview of a website for Proper Space in Salt Lake, UT, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1749883278588-837f6fc6c93c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1722435784805-ad8d59dadd9d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzR8fGNvbnN0cnVjdGlvbiUyMHdvcmtlcnMlMjBzaXRlfGVufDF8MHx8fDE3OTM5Mjk4NDR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1722280232460-e137bf2dce52?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1687530345626-629963abf6e3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1698958656652-41ac66d0e2e0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/a-new-house-is-being-framed-AMvfmsLllto"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Robin Irfan",
+        "profileUrl": "https://unsplash.com/@robinirfan",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-with-a-crane-in-the-background-UxYEwaanctE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Strange Happenings",
+        "profileUrl": "https://unsplash.com/@strangehappenings",
+        "photoPage": "https://unsplash.com/photos/a-long-wooden-dock-sitting-in-the-middle-of-a-field-hBemEqiMdVA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Vooglam Eyewear",
+        "profileUrl": "https://unsplash.com/@vooglam_official",
+        "photoPage": "https://unsplash.com/photos/desk-with-laptop-blueprints-and-tools-0dhIl78b__o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yubraj Khatri",
+        "profileUrl": "https://unsplash.com/@khatri_yubraj",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-with-scaffolding-around-it-UhtnNvAAA2k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mvrkle",
+        "profileUrl": "https://unsplash.com/@mvrkle",
+        "photoPage": "https://unsplash.com/photos/an-aerial-view-of-a-tall-structure-in-a-city-FBhb-PvvbwU"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.properspaceconstruction.com/",
+    "https://slchamber.chambermaster.com/list/member/proper-space-106668",
+    "https://unsplash.com/photos/a-new-house-is-being-framed-AMvfmsLllto",
+    "https://unsplash.com/photos/a-building-under-construction-with-a-crane-in-the-background-UxYEwaanctE",
+    "https://unsplash.com/photos/a-long-wooden-dock-sitting-in-the-middle-of-a-field-hBemEqiMdVA",
+    "https://unsplash.com/photos/desk-with-laptop-blueprints-and-tools-0dhIl78b__o",
+    "https://unsplash.com/photos/a-building-under-construction-with-scaffolding-around-it-UhtnNvAAA2k",
+    "https://unsplash.com/photos/an-aerial-view-of-a-tall-structure-in-a-city-FBhb-PvvbwU"
+  ]
+}
