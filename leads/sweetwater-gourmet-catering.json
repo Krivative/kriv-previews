@@ -1,0 +1,90 @@
+{
+  "slug": "sweetwater-gourmet-catering",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Sweetwater Gourmet Catering",
+    "phoneDisplay": "(416) 433-1847",
+    "phoneE164": "+14164331847",
+    "address": {
+      "city": "Richmond Hill",
+      "region": "ON",
+      "postalCode": "L4C 1T8",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Sweetwater Gourmet Catering.*",
+    "sub": "A concept website prepared by KRIV for Sweetwater Gourmet Catering."
+  },
+  "seo": {
+    "title": "Sweetwater Gourmet Catering | Concept preview",
+    "description": "Concept preview of a website for Sweetwater Gourmet Catering in Richmond Hill, ON, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1680643784436-71a49203783b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599795119678-63f52d65a5d9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718939043703-ed834bff9685?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1653259038915-7cf0b7a4dd6c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNzU3MzkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1618666185600-1f9f09d5eb2c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1547062200-f195b1c77e30?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Will Colavito",
+        "profileUrl": "https://unsplash.com/@willcola8",
+        "photoPage": "https://unsplash.com/photos/a-buffet-table-with-plates-of-food-on-it-x_YqAxq3FHc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "carlos aranda",
+        "profileUrl": "https://unsplash.com/@carlosaranda",
+        "photoPage": "https://unsplash.com/photos/black-and-white-ceramic-mugs-on-table-1dDleTYtRRM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Lock",
+        "profileUrl": "https://unsplash.com/@milo_photo",
+        "photoPage": "https://unsplash.com/photos/a-white-bowl-with-a-flower-decoration-in-it-SwhV7PQYs7I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Igor Rand",
+        "profileUrl": "https://unsplash.com/@igorrand",
+        "photoPage": "https://unsplash.com/photos/a-dimly-lit-restaurant-with-a-view-of-the-city-1-IeBcvLUQ4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nick Kimel",
+        "profileUrl": "https://unsplash.com/@nickkimel",
+        "photoPage": "https://unsplash.com/photos/sliced-bread-with-egg-and-vegetable-on-white-ceramic-plate-VWxrYBvjroQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Regular Man",
+        "profileUrl": "https://unsplash.com/@regularman",
+        "photoPage": "https://unsplash.com/photos/empty-black-wooden-dining-set-XHbQoXWytNk"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.sweetwatergourmet.com/",
+    "https://www.sweetwatergourmet.com/contact-reservations",
+    "https://business.rhbot.ca/list/member/sweetwater-gourmet-catering-1273033",
+    "https://unsplash.com/photos/a-buffet-table-with-plates-of-food-on-it-x_YqAxq3FHc",
+    "https://unsplash.com/photos/black-and-white-ceramic-mugs-on-table-1dDleTYtRRM",
+    "https://unsplash.com/photos/a-white-bowl-with-a-flower-decoration-in-it-SwhV7PQYs7I",
+    "https://unsplash.com/photos/a-dimly-lit-restaurant-with-a-view-of-the-city-1-IeBcvLUQ4",
+    "https://unsplash.com/photos/sliced-bread-with-egg-and-vegetable-on-white-ceramic-plate-VWxrYBvjroQ",
+    "https://unsplash.com/photos/empty-black-wooden-dining-set-XHbQoXWytNk"
+  ]
+}
