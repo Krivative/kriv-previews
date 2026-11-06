@@ -1,0 +1,118 @@
+{
+  "slug": "buckstin-brewing",
+  "template": "cafe-poster",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Buckstin Brewing Company",
+    "category": "Restaurant",
+    "phoneDisplay": "(409) 543-2843",
+    "phoneE164": "+14095432843",
+    "address": {
+      "city": "Nederland",
+      "region": "TX",
+      "postalCode": "77627",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Sun-Mon&bull;",
+        "time": "11:00 - 9:00 pm"
+      },
+      {
+        "days": "Tues-Wed&bull;",
+        "time": "11:00 - 10:00 pm"
+      },
+      {
+        "days": "Thurs- Sat &bull;",
+        "time": "11:00 - 11:00 pm"
+      },
+      {
+        "days": "Mon &bull;",
+        "time": "3:00 - 9:00 pm"
+      },
+      {
+        "days": "Tue-Thurs &bull;",
+        "time": "3:00 - 10:00 pm"
+      },
+      {
+        "days": "Fri-Sat &bull;",
+        "time": "11:00 - 11:00 pm"
+      },
+      {
+        "days": "Sun &bull; Noon",
+        "time": "9:00 pm"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Buckstin Brewing Company.*",
+    "sub": "A concept website prepared by KRIV for Buckstin Brewing Company."
+  },
+  "seo": {
+    "title": "Buckstin Brewing Company | Concept preview",
+    "description": "Concept preview of a website for Buckstin Brewing Company in Nederland, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1792955104636-be03d0fb1756?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YnJld2VyeSUyMHRhbmtzfGVufDF8MHx8fDE3OTM2ODkwNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778034951254-63452b7b77cd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YmVlciUyMGZsaWdodCUyMHRhcHJvb218ZW58MXwwfHx8MTc5Mzk0OTc4Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1594152032829-a443a4cd7390?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YnJld2VyeSUyMGJhcnJlbHN8ZW58MXwwfHx8MTc5Mzk0OTc4M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cGludCUyMG9mJTIwY3JhZnQlMjBiZWVyJTIwYmFyfGVufDF8MHx8fDE3OTM5NDk3ODN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1758978912199-e0df57bde255?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YnJld2VyeSUyMHRhbmtzfGVufDF8MHx8fDE3OTM2ODkwNzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1710758029150-d855c4357fa1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y3JhZnQlMjBiZWVyJTIwdGFwc3xlbnwxfDB8fHwxNzkzNjg5MDcwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Zan Lazarevic",
+        "profileUrl": "https://unsplash.com/@zanlazarevic",
+        "photoPage": "https://unsplash.com/photos/stainless-steel-brewery-fermentation-tanks-JfIGAxiLtJE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Declan Sun",
+        "profileUrl": "https://unsplash.com/@declansun",
+        "photoPage": "https://unsplash.com/photos/beer-taps-and-bottles-behind-a-bar-_l3w8HwJCL4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Thomas Thompson",
+        "profileUrl": "https://unsplash.com/@tomthompsonphotography",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-round-table-near-black-metal-shelf-BoVxWyS5KAE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gerrie van der Walt",
+        "profileUrl": "https://unsplash.com/@gitfo",
+        "photoPage": "https://unsplash.com/photos/clear-drinking-glass-with-beer-2uSnxq3M4GE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Luo Jin Hong",
+        "profileUrl": "https://unsplash.com/@logichom",
+        "photoPage": "https://unsplash.com/photos/two-large-stainless-steel-tanks-in-a-dark-room-AYYcEtp4wzY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bohdan Stocek",
+        "profileUrl": "https://unsplash.com/@bohdans",
+        "photoPage": "https://unsplash.com/photos/a-glass-of-beer-sitting-on-top-of-a-table-WR0vloPP47Q"
+      }
+    ]
+  },
+  "sources": [
+    "https://beaumont.chambermaster.com/list/member/buckstin-brewing-company-14046",
+    "http://www.buckstinbrewing.com/",
+    "https://unsplash.com/photos/stainless-steel-brewery-fermentation-tanks-JfIGAxiLtJE",
+    "https://unsplash.com/photos/beer-taps-and-bottles-behind-a-bar-_l3w8HwJCL4",
+    "https://unsplash.com/photos/brown-wooden-round-table-near-black-metal-shelf-BoVxWyS5KAE",
+    "https://unsplash.com/photos/clear-drinking-glass-with-beer-2uSnxq3M4GE",
+    "https://unsplash.com/photos/two-large-stainless-steel-tanks-in-a-dark-room-AYYcEtp4wzY",
+    "https://unsplash.com/photos/a-glass-of-beer-sitting-on-top-of-a-table-WR0vloPP47Q"
+  ]
+}
