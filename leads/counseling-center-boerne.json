@@ -1,0 +1,99 @@
+{
+  "slug": "counseling-center-boerne",
+  "template": "dental-clear",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Counseling Center of Boerne",
+    "phoneDisplay": "(830) 428-1457",
+    "phoneE164": "+18304281457",
+    "address": {
+      "line1": "916 E. Blanco Rd.",
+      "city": "Ste. 500",
+      "region": "TX",
+      "postalCode": "78006",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Counseling Center of Boerne.*",
+    "sub": "A concept website prepared by KRIV for Counseling Center of Boerne."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Therapy",
+        "blurb": "Individual adult l and Couples therapy."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Counseling Center of Boerne | Concept preview",
+    "description": "Concept preview of a website for Counseling Center of Boerne in Ste. 500, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bWVkaWNhbCUyMG9mZmljZXxlbnwxfDB8fHwxNzkzODUxMDI1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776886099265-6366478b341b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8dHJlYXRtZW50JTIwcm9vbXxlbnwxfDB8fHwxNzkzODUxMDIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1682365114691-f0264ad25c52?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8bWVkaWNhbCUyMG9mZmljZXxlbnwxfDB8fHwxNzkzODUxMDI1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1512677859289-868722942457?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8dHJlYXRtZW50JTIwcm9vbXxlbnwxfDB8fHwxNzkzODUxMDIzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776886089968-687a07d9fdd4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5Mzg1MTAyM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1784434675513-9bbbae1b5d0d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Martha Dominguez de Gouveia",
+        "profileUrl": "https://unsplash.com/@m_dominguez_marketing",
+        "photoPage": "https://unsplash.com/photos/gray-gatch-bed-in-hospital-k-NnVZ-z26w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Amelia Lowell",
+        "profileUrl": "https://unsplash.com/@keyhealthcare",
+        "photoPage": "https://unsplash.com/photos/modern-waiting-room-with-white-chairs-and-plants-VBzRklOb7JA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "fr0ggy5",
+        "profileUrl": "https://unsplash.com/@fr0ggy5",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-phone-and-other-items-on-the-wall-717W1DqDka0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Martha Dominguez de Gouveia",
+        "profileUrl": "https://unsplash.com/@m_dominguez_marketing",
+        "photoPage": "https://unsplash.com/photos/empty-hospital-bed-ShJUYkshceY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Amelia Lowell",
+        "profileUrl": "https://unsplash.com/@keyhealthcare",
+        "photoPage": "https://unsplash.com/photos/modern-living-room-with-black-sofas-and-art-owUBSuhloEk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "C. Stone",
+        "profileUrl": "https://unsplash.com/@sunnymoth",
+        "photoPage": "https://unsplash.com/photos/dimly-lit-room-with-a-table-lamp-chairs-and-magazines-_UJDZiZt5XY"
+      }
+    ]
+  },
+  "sources": [
+    "http://counselingcenterofboerne.com/",
+    "https://boernechamber.chambermaster.com/list/member/counseling-center-of-boerne-23806",
+    "https://unsplash.com/photos/gray-gatch-bed-in-hospital-k-NnVZ-z26w",
+    "https://unsplash.com/photos/modern-waiting-room-with-white-chairs-and-plants-VBzRklOb7JA",
+    "https://unsplash.com/photos/a-room-with-a-desk-phone-and-other-items-on-the-wall-717W1DqDka0",
+    "https://unsplash.com/photos/empty-hospital-bed-ShJUYkshceY",
+    "https://unsplash.com/photos/modern-living-room-with-black-sofas-and-art-owUBSuhloEk",
+    "https://unsplash.com/photos/dimly-lit-room-with-a-table-lamp-chairs-and-magazines-_UJDZiZt5XY"
+  ]
+}
