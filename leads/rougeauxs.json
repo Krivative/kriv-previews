@@ -1,0 +1,89 @@
+{
+  "slug": "rougeauxs",
+  "template": "cafe-poster",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Rougeaux's",
+    "category": "Restaurant",
+    "phoneDisplay": "(409) 781-1411",
+    "phoneE164": "+14097811411",
+    "address": {
+      "city": "Nome",
+      "region": "TX",
+      "postalCode": "77629",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Rougeaux's.*",
+    "sub": "A concept website prepared by KRIV for Rougeaux's."
+  },
+  "seo": {
+    "title": "Rougeaux's | Concept preview",
+    "description": "Concept preview of a website for Rougeaux's in Nome, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1470114755716-3e1124c6c3bd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1554998171-89445e31c52b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1519690889869-e705e59f72e1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1781131878762-6e1c23f890be?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1671029770042-201f223fba0f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Aditya Romansa",
+        "profileUrl": "https://unsplash.com/@adroman",
+        "photoPage": "https://unsplash.com/photos/chef-making-pasta-inside-kitchen-m6p4lqWxfy0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Louis Hansel",
+        "profileUrl": "https://unsplash.com/@louishansel",
+        "photoPage": "https://unsplash.com/photos/tray-of-food-on-white-surface-K47107aP8UU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ibrahim Boran",
+        "profileUrl": "https://unsplash.com/@ibrahimboran",
+        "photoPage": "https://unsplash.com/photos/clear-glass-cup-on-table-aBNPslolmJM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ayotunde Ikuesan",
+        "profileUrl": "https://unsplash.com/@ayotundeikuesan",
+        "photoPage": "https://unsplash.com/photos/savory-dish-with-greens-and-sauce-on-a-white-plate-BlABpymAjy8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maria Orlova",
+        "profileUrl": "https://unsplash.com/@orlovamaria",
+        "photoPage": "https://unsplash.com/photos/black-pendant-lamp-turned-on-oMTlhdFUhdI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jon Handley",
+        "profileUrl": "https://unsplash.com/@handley4eu",
+        "photoPage": "https://unsplash.com/photos/two-chefs-in-a-kitchen-preparing-a-meal-4xqKUl1UWME"
+      }
+    ]
+  },
+  "sources": [
+    "http://rougeauxs.com/",
+    "https://beaumont.chambermaster.com/list/member/rougeaux-s-14506",
+    "https://unsplash.com/photos/chef-making-pasta-inside-kitchen-m6p4lqWxfy0",
+    "https://unsplash.com/photos/tray-of-food-on-white-surface-K47107aP8UU",
+    "https://unsplash.com/photos/clear-glass-cup-on-table-aBNPslolmJM",
+    "https://unsplash.com/photos/savory-dish-with-greens-and-sauce-on-a-white-plate-BlABpymAjy8",
+    "https://unsplash.com/photos/black-pendant-lamp-turned-on-oMTlhdFUhdI",
+    "https://unsplash.com/photos/two-chefs-in-a-kitchen-preparing-a-meal-4xqKUl1UWME"
+  ]
+}
