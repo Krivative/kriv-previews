@@ -1,0 +1,106 @@
+{
+  "slug": "siegfrieds-delicatessen",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Siegfried's Delicatessen",
+    "category": "Restaurant",
+    "phoneDisplay": "(385) 355-1912",
+    "phoneE164": "+13853551912",
+    "address": {
+      "city": "Salt Lake City",
+      "region": "UT",
+      "postalCode": "84101",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Wednesday,",
+        "time": "9:00 a.m. - 6:00 p.m."
+      },
+      {
+        "days": "Thursday - Saturday,",
+        "time": "9:00 a.m. - 9:00 p.m."
+      },
+      {
+        "days": "Monday-Wednesday,",
+        "time": "11:00 a.m. - 5:00 p.m."
+      },
+      {
+        "days": "Thursday-Saturday,",
+        "time": "11:00 a.m. - 9:00 p.m."
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Siegfried's Delicatessen.*",
+    "sub": "A concept website prepared by KRIV for Siegfried's Delicatessen."
+  },
+  "seo": {
+    "title": "Siegfried's Delicatessen | Concept preview",
+    "description": "Concept preview of a website for Siegfried's Delicatessen in Salt Lake City, UT, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1625861910621-e9385ba1d993?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1791041400300-1ec0453a8215?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTR8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1629314387502-9bc947be577d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1675965218658-bd6f516742ac?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1790934422022-7ea82dbcb63b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1734330931856-77cdf1b5bba9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzc1NzM5Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Emma Houghton",
+        "profileUrl": "https://unsplash.com/@madebyswish",
+        "photoPage": "https://unsplash.com/photos/red-tomato-on-white-ceramic-plate-vXgLGbN-VDc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Theo Lonic",
+        "profileUrl": "https://unsplash.com/@thorai9akira",
+        "photoPage": "https://unsplash.com/photos/cheese-mound-with-basil-and-figs-W-Alld3ku9o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Roman Synkevych",
+        "profileUrl": "https://unsplash.com/@synkevych",
+        "photoPage": "https://unsplash.com/photos/grilled-meat-with-green-vegetable-and-tomato-on-brown-wooden-tray-1M_6_ip_gFw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "CJ Toscano",
+        "profileUrl": "https://unsplash.com/@cjtoscano",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-glasses-of-wine-bWccSy5Ivcc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Javier Balseiro",
+        "profileUrl": "https://unsplash.com/@javier_balseiro",
+        "photoPage": "https://unsplash.com/photos/seafood-skewer-with-vegetables-MM1z15tszVA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Prithiviraj A",
+        "profileUrl": "https://unsplash.com/@prithiviraj",
+        "photoPage": "https://unsplash.com/photos/a-table-topped-with-plates-filled-with-food-hGAyFWv2Q34"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.siegfriedsdelicatessen.com/",
+    "http://www.siegfriedsdelicatessen.com/contact.html",
+    "https://unsplash.com/photos/red-tomato-on-white-ceramic-plate-vXgLGbN-VDc",
+    "https://unsplash.com/photos/cheese-mound-with-basil-and-figs-W-Alld3ku9o",
+    "https://unsplash.com/photos/grilled-meat-with-green-vegetable-and-tomato-on-brown-wooden-tray-1M_6_ip_gFw",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-glasses-of-wine-bWccSy5Ivcc",
+    "https://unsplash.com/photos/seafood-skewer-with-vegetables-MM1z15tszVA",
+    "https://unsplash.com/photos/a-table-topped-with-plates-filled-with-food-hGAyFWv2Q34"
+  ]
+}
