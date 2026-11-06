@@ -1,0 +1,89 @@
+{
+  "slug": "citadel-construction",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Citadel Construction",
+    "category": "Home services",
+    "phoneDisplay": "(806) 516-9250",
+    "phoneE164": "+18065169250",
+    "address": {
+      "city": "Lubbock",
+      "region": "TX",
+      "postalCode": "79423",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Citadel Construction.*",
+    "sub": "A concept website prepared by KRIV for Citadel Construction."
+  },
+  "seo": {
+    "title": "Citadel Construction | Concept preview",
+    "description": "Concept preview of a website for Citadel Construction in Lubbock, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1586342454878-408aa841a9b9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1626385785701-a0d3b879de2c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1571417785136-c723e7346a3d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1614683361714-27866f3ea60d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1632885936573-cf65e9a9fe92?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1504149269576-9900c81eb84d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTN8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Fons Heijnsbroek",
+        "profileUrl": "https://unsplash.com/@fonsheijnsbroek_amsterdam_photos",
+        "photoPage": "https://unsplash.com/photos/red-and-white-crane-under-blue-sky-during-daytime-JJpWirD-qDU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kier in Sight Archives",
+        "profileUrl": "https://unsplash.com/@kierinsightarchives",
+        "photoPage": "https://unsplash.com/photos/gray-concrete-building-under-blue-sky-during-daytime-Fz-FzC5t0Q8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Toby Wong",
+        "profileUrl": "https://unsplash.com/@hitobywong",
+        "photoPage": "https://unsplash.com/photos/white-printer-paper-near-pen-UoSrgvl3b7s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nguyễn Hiệp",
+        "profileUrl": "https://unsplash.com/@hieptltb97",
+        "photoPage": "https://unsplash.com/photos/grayscale-photo-of-building-with-tower-crane-M3LC0qs_WYQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dhaniel Hartono",
+        "profileUrl": "https://unsplash.com/@dhanieldh",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-with-a-lot-of-cranes-in-the-background-PCDK46BCeh4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Quilia",
+        "profileUrl": "https://unsplash.com/@heyquilia",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-structure-j86QX1TMNaw"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.citadel-tx.com/",
+    "https://lubbockchambertx.chambermaster.com/list/member/citadel-construction-40334",
+    "https://unsplash.com/photos/red-and-white-crane-under-blue-sky-during-daytime-JJpWirD-qDU",
+    "https://unsplash.com/photos/gray-concrete-building-under-blue-sky-during-daytime-Fz-FzC5t0Q8",
+    "https://unsplash.com/photos/white-printer-paper-near-pen-UoSrgvl3b7s",
+    "https://unsplash.com/photos/grayscale-photo-of-building-with-tower-crane-M3LC0qs_WYQ",
+    "https://unsplash.com/photos/a-building-under-construction-with-a-lot-of-cranes-in-the-background-PCDK46BCeh4",
+    "https://unsplash.com/photos/brown-wooden-structure-j86QX1TMNaw"
+  ]
+}
