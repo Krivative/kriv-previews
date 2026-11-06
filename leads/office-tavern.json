@@ -1,0 +1,105 @@
+{
+  "slug": "office-tavern",
+  "template": "cafe-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "The Office Tavern",
+    "phoneDisplay": "(360) 982-2452",
+    "phoneE164": "+13609822452",
+    "address": {
+      "city": "Burlington",
+      "region": "WA",
+      "postalCode": "98233",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Thursday",
+        "time": "11am - 11pm"
+      },
+      {
+        "days": "Friday",
+        "time": "11am - Midnight"
+      },
+      {
+        "days": "Saturday",
+        "time": "8am - 12am"
+      },
+      {
+        "days": "Sunday",
+        "time": "8am-9pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *The Office Tavern.*",
+    "sub": "A concept website prepared by KRIV for The Office Tavern."
+  },
+  "seo": {
+    "title": "The Office Tavern | Concept preview",
+    "description": "Concept preview of a website for The Office Tavern in Burlington, WA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1616789663695-b80a1a9b429e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8Zm9vZCUyMHBsYXR0ZXJ8ZW58MXwwfHx8MTc5Mzc1NzM5M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1562713682-cde79058b2b2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1782821961510-aa2b6baed210?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8cGxhdGVkJTIwZGlzaHxlbnwxfDB8fHwxNzkzNzU3MzkyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1565650834520-0b48a5c83f43?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzNzU3MzkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1626628577132-f1e88acdd92c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM3NTczOTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1593515463811-63535505f44a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTJ8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzNTk2MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Thomas John",
+        "profileUrl": "https://unsplash.com/@shotbytj",
+        "photoPage": "https://unsplash.com/photos/red-and-white-round-fruit-on-brown-wooden-round-plate-LyYw74ZTP_k"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Wave",
+        "profileUrl": "https://unsplash.com/@michaelwave",
+        "photoPage": "https://unsplash.com/photos/two-clear-wine-glasses-gVkAiPchYhY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "hirok yam",
+        "profileUrl": "https://unsplash.com/@piqro1999",
+        "photoPage": "https://unsplash.com/photos/delicate-fish-fillet-with-crispy-skin-sprouts-and-sauce--VwE7jyvsqA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "99.films",
+        "profileUrl": "https://unsplash.com/@99films",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-chairs-and-tables-FS89E75gv04"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Anto Meneghini",
+        "profileUrl": "https://unsplash.com/@antomeneghini",
+        "photoPage": "https://unsplash.com/photos/sliced-fruits-on-brown-wooden-bowl-YiaDJAjD1S0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hayley Kim Studios",
+        "profileUrl": "https://unsplash.com/@hayleykimstudios",
+        "photoPage": "https://unsplash.com/photos/stainless-steel-fork-and-bread-knife-on-white-ceramic-plate-B-AfYMCrf-o"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.theofficetavern.com/",
+    "https://unsplash.com/photos/red-and-white-round-fruit-on-brown-wooden-round-plate-LyYw74ZTP_k",
+    "https://unsplash.com/photos/two-clear-wine-glasses-gVkAiPchYhY",
+    "https://unsplash.com/photos/delicate-fish-fillet-with-crispy-skin-sprouts-and-sauce--VwE7jyvsqA",
+    "https://unsplash.com/photos/brown-wooden-chairs-and-tables-FS89E75gv04",
+    "https://unsplash.com/photos/sliced-fruits-on-brown-wooden-bowl-YiaDJAjD1S0",
+    "https://unsplash.com/photos/stainless-steel-fork-and-bread-knife-on-white-ceramic-plate-B-AfYMCrf-o"
+  ]
+}
