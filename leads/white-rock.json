@@ -1,0 +1,118 @@
+{
+  "slug": "white-rock",
+  "template": "gym-calm",
+  "contentNiche": "gym",
+  "lang": "en-CA",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "White Rock Gymnastics Athletics Society",
+    "phoneDisplay": "(604) 542-0386",
+    "phoneE164": "+16045420386",
+    "address": {
+      "city": "Surrey",
+      "region": "BC",
+      "postalCode": "V3S 0Z5",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "time": "1:00pm to 6:00pm"
+      },
+      {
+        "days": "Tuesday",
+        "time": "1:00pm to 6:00pm"
+      },
+      {
+        "days": "Wednesday",
+        "time": "1:00pm to 6:00pm"
+      },
+      {
+        "days": "Thursday",
+        "time": "1:00pm to 6:00pm"
+      },
+      {
+        "days": "Friday",
+        "time": "9:00am - 3:00pm"
+      },
+      {
+        "days": "Saturday",
+        "time": "10:00am-2:00pm"
+      },
+      {
+        "days": "Sunday",
+        "time": "10:00am - 2:00pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *White Rock Gymnastics Athletics Society.*",
+    "sub": "A concept website prepared by KRIV for White Rock Gymnastics Athletics Society."
+  },
+  "seo": {
+    "title": "White Rock Gymnastics Athletics Society | Concept preview",
+    "description": "Concept preview of a website for White Rock Gymnastics Athletics Society in Surrey, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1792412921594-b3a7c3f513fb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YmFsYW5jZSUyMGJlYW18ZW58MXwwfHx8MTc5MzkyMTc0N3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1591311630200-ffa9120a540f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Z3ltJTIwbWF0c3xlbnwxfDB8fHwxNzkzOTIxNzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1621046590998-78ecf71d58a8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8Z3ltbmFzdGljcyUyMGd5bXxlbnwxfDB8fHwxNzkzNjg5NjA2fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1597360754684-46dda980d5fb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8YmFsYW5jZSUyMGJlYW18ZW58MXwwfHx8MTc5MzkyMTc0N3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1701826510473-98229a376d87?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Z3ltbmFzdGljcyUyMHJpbmdzfGVufDF8MHx8fDE3OTM2ODk2MDd8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1683758507025-6e74ad3ca1e5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Z3ltJTIwbWF0c3xlbnwxfDB8fHwxNzkzOTIxNzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Paris Bilal",
+        "profileUrl": "https://unsplash.com/@parisbilal",
+        "photoPage": "https://unsplash.com/photos/elephant-balancing-on-concrete-pedestal-zvpefC1kuSE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Alexandra Tran",
+        "profileUrl": "https://unsplash.com/@alexgoesglobal",
+        "photoPage": "https://unsplash.com/photos/blue-and-black-nike-athletic-shoes-fS3tGOkp0xY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brian Wangenheim",
+        "profileUrl": "https://unsplash.com/@brianwangenheim",
+        "photoPage": "https://unsplash.com/photos/red-and-blue-billiard-table-pNRjX3KrjeE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jan Canty",
+        "profileUrl": "https://unsplash.com/@jcanty123",
+        "photoPage": "https://unsplash.com/photos/blue-and-black-dragonfly-on-green-grass-during-daytime-Wket9lUNKS0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "GMB Fitness",
+        "profileUrl": "https://unsplash.com/@gmb",
+        "photoPage": "https://unsplash.com/photos/a-pair-of-scissors-hanging-from-a-wall-dMevcamq628"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Giorgio Trovato",
+        "profileUrl": "https://unsplash.com/@giorgiotrovato",
+        "photoPage": "https://unsplash.com/photos/a-pair-of-dumbbells-and-a-black-mat-on-the-floor-6rlMgGzdGwM"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.whiterockgym.org/",
+    "https://business.businessinsurrey.com/list/member/white-rock-gymnastics-athletics-society-45936",
+    "https://unsplash.com/photos/elephant-balancing-on-concrete-pedestal-zvpefC1kuSE",
+    "https://unsplash.com/photos/blue-and-black-nike-athletic-shoes-fS3tGOkp0xY",
+    "https://unsplash.com/photos/red-and-blue-billiard-table-pNRjX3KrjeE",
+    "https://unsplash.com/photos/blue-and-black-dragonfly-on-green-grass-during-daytime-Wket9lUNKS0",
+    "https://unsplash.com/photos/a-pair-of-scissors-hanging-from-a-wall-dMevcamq628",
+    "https://unsplash.com/photos/a-pair-of-dumbbells-and-a-black-mat-on-the-floor-6rlMgGzdGwM"
+  ]
+}
