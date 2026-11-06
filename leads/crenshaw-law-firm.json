@@ -1,0 +1,90 @@
+{
+  "slug": "crenshaw-law-firm",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Crenshaw Law Firm, PLLC",
+    "category": "Law firm",
+    "phoneDisplay": "(409) 504-0091",
+    "phoneE164": "+14095040091",
+    "address": {
+      "city": "Beaumont",
+      "region": "TX",
+      "postalCode": "77701",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Crenshaw Law Firm, PLLC.*",
+    "sub": "A concept website prepared by KRIV for Crenshaw Law Firm, PLLC."
+  },
+  "seo": {
+    "title": "Crenshaw Law Firm, PLLC | Concept preview",
+    "description": "Concept preview of a website for Crenshaw Law Firm, PLLC in Beaumont, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1676285436462-e27f3e96f847?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1769092992534-f2d0210162b9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5MzY5NDE3MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1596123068611-c89d922a0f0a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzNjk0MTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1676282824852-4c4d70f76cfe?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1678809575432-93f8bbd01d9a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1775144657626-29ff0a46ca90?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGxhdyUyMGxpYnJhcnl8ZW58MXwwfHx8MTc5Mzk0ODM0OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Walls.io",
+        "profileUrl": "https://unsplash.com/@walls_io",
+        "photoPage": "https://unsplash.com/photos/a-desk-with-a-keyboard-and-a-book-on-it-HhMUCxXuRN8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ilya Semenov",
+        "profileUrl": "https://unsplash.com/@si1og",
+        "photoPage": "https://unsplash.com/photos/bookshelves-filled-with-old-books-in-a-library-cJukAhcqqLE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tim Wildsmith",
+        "profileUrl": "https://unsplash.com/@timwildsmith",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-book-shelf-with-books-o2fc-C-Uotw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Walls.io",
+        "profileUrl": "https://unsplash.com/@walls_io",
+        "photoPage": "https://unsplash.com/photos/a-book-with-a-pen-and-a-pen-on-top-of-it-9NlhHdJbSoI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Omid Ajorlo",
+        "profileUrl": "https://unsplash.com/@omidajorlo7",
+        "photoPage": "https://unsplash.com/photos/a-notebook-with-a-pair-of-scissors-on-top-of-it-6uZ9X3SplDI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Magic Fan",
+        "profileUrl": "https://unsplash.com/@magicunsplash",
+        "photoPage": "https://unsplash.com/photos/grand-office-with-flags-and-bookshelves-0y2FXSJ70sc"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.crenshaw.law/",
+    "https://beaumont.chambermaster.com/list/member/crenshaw-law-firm-pllc-14343",
+    "http://www.crenshaw.law/contact-us/",
+    "https://unsplash.com/photos/a-desk-with-a-keyboard-and-a-book-on-it-HhMUCxXuRN8",
+    "https://unsplash.com/photos/bookshelves-filled-with-old-books-in-a-library-cJukAhcqqLE",
+    "https://unsplash.com/photos/brown-wooden-book-shelf-with-books-o2fc-C-Uotw",
+    "https://unsplash.com/photos/a-book-with-a-pen-and-a-pen-on-top-of-it-9NlhHdJbSoI",
+    "https://unsplash.com/photos/a-notebook-with-a-pair-of-scissors-on-top-of-it-6uZ9X3SplDI",
+    "https://unsplash.com/photos/grand-office-with-flags-and-bookshelves-0y2FXSJ70sc"
+  ]
+}
