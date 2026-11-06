@@ -1,0 +1,90 @@
+{
+  "slug": "integrity-home",
+  "template": "office-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-05",
+  "expiresAt": "2026-12-05",
+  "status": "approved",
+  "business": {
+    "name": "Integrity Home and Commercial Services",
+    "phoneDisplay": "(346) 777-2202",
+    "phoneE164": "+13467772202",
+    "address": {
+      "city": "Willis",
+      "region": "TX",
+      "postalCode": "77318",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Integrity Home and Commercial Services.*",
+    "sub": "A concept website prepared by KRIV for Integrity Home and Commercial Services."
+  },
+  "seo": {
+    "title": "Integrity Home and Commercial Services | Concept preview",
+    "description": "Concept preview of a website for Integrity Home and Commercial Services in Willis, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1741916541462-b7e91bb6d1f1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1690719095815-549c60090c9f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1742415106160-594d07f6cc23?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTh8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc1MzQzMXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1743819344477-3b67c19621e9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1653587193506-7719d772d901?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzNjk2NTkzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1630674997049-4af26f23c238?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzNzUzNDMwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Salvador Rios",
+        "profileUrl": "https://unsplash.com/@salvadorr",
+        "photoPage": "https://unsplash.com/photos/construction-crane-over-an-unfinished-building-gOQ01b8Y_L4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/the-roof-of-a-house-being-built-brPKGeqvVKI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Community Archives of Belleville and Hastings County",
+        "profileUrl": "https://unsplash.com/@communityarchives",
+        "photoPage": "https://unsplash.com/photos/blueprint-for-tudor-theatre-and-community-hall-building-ySygK1uWZac"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ben Koorengevel",
+        "profileUrl": "https://unsplash.com/@benkoorengevel",
+        "photoPage": "https://unsplash.com/photos/construction-of-several-high-rise-buildings-is-underway-gROCANC38BU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "kiryl",
+        "profileUrl": "https://unsplash.com/@kshar2",
+        "photoPage": "https://unsplash.com/photos/a-crane-is-on-top-of-a-building-under-construction-vuBmZGiDiqQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gene Gallin",
+        "profileUrl": "https://unsplash.com/@genefoto",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-building-on-green-grass-field-during-daytime-IicTi83wpXA"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.integrityhomeandcommercial.com/",
+    "https://business.woodlandschamber.org/list/member/integrity-home-and-commercial-services-llc-willis-70498",
+    "https://www.integrityhomeandcommercial.com/contact",
+    "https://unsplash.com/photos/construction-crane-over-an-unfinished-building-gOQ01b8Y_L4",
+    "https://unsplash.com/photos/the-roof-of-a-house-being-built-brPKGeqvVKI",
+    "https://unsplash.com/photos/blueprint-for-tudor-theatre-and-community-hall-building-ySygK1uWZac",
+    "https://unsplash.com/photos/construction-of-several-high-rise-buildings-is-underway-gROCANC38BU",
+    "https://unsplash.com/photos/a-crane-is-on-top-of-a-building-under-construction-vuBmZGiDiqQ",
+    "https://unsplash.com/photos/brown-wooden-building-on-green-grass-field-during-daytime-IicTi83wpXA"
+  ]
+}
