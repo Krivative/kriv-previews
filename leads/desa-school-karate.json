@@ -1,0 +1,89 @@
+{
+  "slug": "desa-school-karate",
+  "template": "salon-bold",
+  "contentNiche": "gym",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Desa School of Karate",
+    "phoneDisplay": "(780) 405-3750",
+    "phoneE164": "+17804053750",
+    "address": {
+      "city": "St. Albert",
+      "region": "AB",
+      "postalCode": "T8N 4B2",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Desa School of Karate.*",
+    "sub": "A concept website prepared by KRIV for Desa School of Karate."
+  },
+  "seo": {
+    "title": "Desa School of Karate | Concept preview",
+    "description": "Concept preview of a website for Desa School of Karate in St. Albert, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1757924284732-4189190321cf?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8Z3ltJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1644085159646-c2c7c8d27064?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8dHJhaW5pbmclMjBlcXVpcG1lbnR8ZW58MXwwfHx8MTc5Mzc2MjgwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1734630341082-0fec0e10126c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGd5bSUyMHdlaWdodHN8ZW58MXwwfHx8MTc5Mzc2MjgwNXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1651340048650-9bb75627f3de?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8Z3ltJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5Mzc2MjgwNnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1783997316933-afa75e408496?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8dHJhaW5pbmclMjBlcXVpcG1lbnR8ZW58MXwwfHx8MTc5Mzc2MjgwN3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1620188526357-ff08e03da266?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fGd5bSUyMHdlaWdodHN8ZW58MXwwfHx8MTc5Mzc2MjgwNXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Aalo Lens",
+        "profileUrl": "https://unsplash.com/@aalolens",
+        "photoPage": "https://unsplash.com/photos/modern-gym-with-treadmills-and-large-windows-uYnHRrm63uo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jan Gunnar Nygård",
+        "profileUrl": "https://unsplash.com/@jangnyg",
+        "photoPage": "https://unsplash.com/photos/a-couple-of-screws-and-a-nut-on-a-white-surface-JlXx1ZRBD28"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jason Grant",
+        "profileUrl": "https://unsplash.com/@jgrant1",
+        "photoPage": "https://unsplash.com/photos/a-row-of-dumbs-in-a-gym-m4Jqyv5VwqY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "S. Aji W",
+        "profileUrl": "https://unsplash.com/@stroompf",
+        "photoPage": "https://unsplash.com/photos/a-gym-with-exercise-equipment-HPgMcuZDndU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Miranda Markley",
+        "profileUrl": "https://unsplash.com/@mmarkley89",
+        "photoPage": "https://unsplash.com/photos/medicine-balls-and-an-orange-cone-on-a-dirt-track-gL2XUgYkebY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Eduardo Cano Photo Co.",
+        "profileUrl": "https://unsplash.com/@eduardocanophotoco",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-barbell-on-a-gym-floor-gP9rAnGJBRo"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.desakarate.com/",
+    "https://business.stalbertchamber.com/list/member/desa-school-of-karate-st-albert-15959",
+    "https://unsplash.com/photos/modern-gym-with-treadmills-and-large-windows-uYnHRrm63uo",
+    "https://unsplash.com/photos/a-couple-of-screws-and-a-nut-on-a-white-surface-JlXx1ZRBD28",
+    "https://unsplash.com/photos/a-row-of-dumbs-in-a-gym-m4Jqyv5VwqY",
+    "https://unsplash.com/photos/a-gym-with-exercise-equipment-HPgMcuZDndU",
+    "https://unsplash.com/photos/medicine-balls-and-an-orange-cone-on-a-dirt-track-gL2XUgYkebY",
+    "https://unsplash.com/photos/a-close-up-of-a-barbell-on-a-gym-floor-gP9rAnGJBRo"
+  ]
+}
