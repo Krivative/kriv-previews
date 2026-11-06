@@ -1,0 +1,89 @@
+{
+  "slug": "organic-gardener",
+  "template": "resort-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "The Organic Gardener & Company",
+    "phoneDisplay": "(780) 904-0025",
+    "phoneE164": "+17809040025",
+    "address": {
+      "city": "St Albert",
+      "region": "AB",
+      "postalCode": "T8N 0W6",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *The Organic Gardener & Company.*",
+    "sub": "A concept website prepared by KRIV for The Organic Gardener & Company."
+  },
+  "seo": {
+    "title": "The Organic Gardener & Company | Concept preview",
+    "description": "Concept preview of a website for The Organic Gardener & Company in St Albert, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1642541744624-7a2a89545a32?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Z3JlZW4lMjBsYXduJTIwZ2FyZGVufGVufDF8MHx8fDE3OTM5Mjg4ODJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1630656699311-1c1aeed681fd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bGFuZHNjYXBpbmclMjBzdG9uZSUyMHBhdGh8ZW58MXwwfHx8MTc5MzkyODg4M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778683326192-898fc982e6a6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Z2FyZGVuJTIwZGVzaWdufGVufDF8MHx8fDE3OTM5Mjg4ODN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1458245201577-fc8a130b8829?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bGF3biUyMG1vd2VyJTIwZ3Jhc3N8ZW58MXwwfHx8MTc5MzkyODg4NHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599151893427-e09096e38d6d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aGVkZ2UlMjB0cmltbWluZ3xlbnwxfDB8fHwxNzkzOTI4ODg0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1716142134244-12bc50df6fd0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Z3JlZW4lMjBsYXduJTIwZ2FyZGVufGVufDF8MHx8fDE3OTM5Mjg4ODJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Paul Arky",
+        "profileUrl": "https://unsplash.com/@paularky",
+        "photoPage": "https://unsplash.com/photos/a-long-green-lawn-with-hedges-and-a-building-in-the-background-BoVg3wUOJ_g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tassilo Gröper",
+        "profileUrl": "https://unsplash.com/@tassilogroeper",
+        "photoPage": "https://unsplash.com/photos/gray-and-brown-stone-fragments-YYrPkMIeIc8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tatyana Rubleva",
+        "profileUrl": "https://unsplash.com/@lisoglazka",
+        "photoPage": "https://unsplash.com/photos/a-black-cat-walks-through-a-lush-garden-I-GrLHl5I10"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Daniel Watson",
+        "profileUrl": "https://unsplash.com/@danielwatsondesign",
+        "photoPage": "https://unsplash.com/photos/green-and-black-lawnmower-on-green-grass-8vBpYpTGo90"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Osman Rana",
+        "profileUrl": "https://unsplash.com/@osmanrana",
+        "photoPage": "https://unsplash.com/photos/green-plant-field-under-white-sky-during-daytime-aEcF58jG1n4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Doncoombez",
+        "profileUrl": "https://unsplash.com/@coombez",
+        "photoPage": "https://unsplash.com/photos/a-small-plant-is-growing-out-of-the-grass-AcwxQktR2b0"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.theogandco.ca/",
+    "https://business.stalbertchamber.com/list/member/the-organic-gardener-company-16452",
+    "https://unsplash.com/photos/a-long-green-lawn-with-hedges-and-a-building-in-the-background-BoVg3wUOJ_g",
+    "https://unsplash.com/photos/gray-and-brown-stone-fragments-YYrPkMIeIc8",
+    "https://unsplash.com/photos/a-black-cat-walks-through-a-lush-garden-I-GrLHl5I10",
+    "https://unsplash.com/photos/green-and-black-lawnmower-on-green-grass-8vBpYpTGo90",
+    "https://unsplash.com/photos/green-plant-field-under-white-sky-during-daytime-aEcF58jG1n4",
+    "https://unsplash.com/photos/a-small-plant-is-growing-out-of-the-grass-AcwxQktR2b0"
+  ]
+}
