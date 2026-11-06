@@ -1,0 +1,89 @@
+{
+  "slug": "confections-cake",
+  "template": "cafe-poster",
+  "contentNiche": "cafe",
+  "lang": "en-CA",
+  "createdAt": "2026-11-06",
+  "expiresAt": "2026-12-06",
+  "status": "approved",
+  "business": {
+    "name": "Confections Cake Co.",
+    "phoneDisplay": "(587) 873-6502",
+    "phoneE164": "+15878736502",
+    "address": {
+      "line1": "140",
+      "city": "15 Perron Street",
+      "region": "AB",
+      "postalCode": "T8N 1E5",
+      "country": "CA"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Confections Cake Co..*",
+    "sub": "A concept website prepared by KRIV for Confections Cake Co.."
+  },
+  "seo": {
+    "title": "Confections Cake Co. | Concept preview",
+    "description": "Concept preview of a website for Confections Cake Co. in 15 Perron Street, AB, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1635902981695-4bb5b00f5713?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y29mZmVlJTIwY3VwJTIwY2FmZXxlbnwxfDB8fHwxNzkzOTI4MzQ1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1620807773206-49c1f2957417?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8ZXNwcmVzc28lMjBtYWNoaW5lfGVufDF8MHx8fDE3OTM5MjgzNDV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cGFzdHJpZXMlMjBkaXNwbGF5fGVufDF8MHx8fDE3OTM5MjgzNDZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y2FmZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM5MjgzNDZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1563311977-d285756282dc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bGF0dGUlMjBhcnR8ZW58MXwwfHx8MTc5MzkyODM0N3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1625802269761-0f297f2f7d6c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y29mZmVlJTIwY3VwJTIwY2FmZXxlbnwxfDB8fHwxNzkzOTI4MzQ1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nam Quach",
+        "profileUrl": "https://unsplash.com/@namquach",
+        "photoPage": "https://unsplash.com/photos/a-cup-of-cappuccino-on-a-wooden-tray-YzhCLuEUZsc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kevin Schmid",
+        "profileUrl": "https://unsplash.com/@lighttouchedphotography",
+        "photoPage": "https://unsplash.com/photos/black-and-silver-coffee-maker-ftA71vetxuo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yeh Xintong",
+        "profileUrl": "https://unsplash.com/@blsnki",
+        "photoPage": "https://unsplash.com/photos/breads-in-display-shelf-go3DT3PpIw4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nafinia Putra",
+        "profileUrl": "https://unsplash.com/@nputra",
+        "photoPage": "https://unsplash.com/photos/black-kitchen-appliance-on-kitchen-island-with-pendant-lights-Kwdp-0pok-I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Armin Lotfi",
+        "profileUrl": "https://unsplash.com/@armin_lotfi",
+        "photoPage": "https://unsplash.com/photos/cappuccino-gURxlcD9I0U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "KULJEET PUNIA",
+        "profileUrl": "https://unsplash.com/@kuljeet_07",
+        "photoPage": "https://unsplash.com/photos/white-ceramic-mug-with-coffee-bCPq0FcZG3Y"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.confectionscakeco.com/",
+    "https://unsplash.com/photos/a-cup-of-cappuccino-on-a-wooden-tray-YzhCLuEUZsc",
+    "https://unsplash.com/photos/black-and-silver-coffee-maker-ftA71vetxuo",
+    "https://unsplash.com/photos/breads-in-display-shelf-go3DT3PpIw4",
+    "https://unsplash.com/photos/black-kitchen-appliance-on-kitchen-island-with-pendant-lights-Kwdp-0pok-I",
+    "https://unsplash.com/photos/cappuccino-gURxlcD9I0U",
+    "https://unsplash.com/photos/white-ceramic-mug-with-coffee-bCPq0FcZG3Y"
+  ]
+}
