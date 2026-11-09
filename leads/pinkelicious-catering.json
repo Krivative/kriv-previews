@@ -1,0 +1,87 @@
+{
+  "slug": "pinkelicious-catering",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Pinkelicious Catering By Chef Mylene",
+    "phoneDisplay": "(786) 973-3613",
+    "phoneE164": "+17869733613",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Pinkelicious Catering By Chef Mylene.*",
+    "sub": "A concept website prepared by KRIV for Pinkelicious Catering By Chef Mylene."
+  },
+  "seo": {
+    "title": "Pinkelicious Catering By Chef Mylene | Concept preview",
+    "description": "Concept preview of a website for Pinkelicious Catering By Chef Mylene in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1785695916465-5ad09b162408?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622140739492-f82f386260b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1661039145735-14f449754dab?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1666600638841-4fe4a01ae260?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1786052594800-f3d1c9d2561a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "David B Townsend",
+        "profileUrl": "https://unsplash.com/@dbtownsend",
+        "photoPage": "https://unsplash.com/photos/grilled-salmon-yellow-rice-roasted-brussels-sprouts-and-fresh-greens-ft2OCzzaUW8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brands&People",
+        "profileUrl": "https://unsplash.com/@brandsandpeople",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-table-and-chairs-iFyLBKmCrmQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Terry Jaskiw",
+        "profileUrl": "https://unsplash.com/@darkjett",
+        "photoPage": "https://unsplash.com/photos/a-table-is-filled-with-food-UqQshThJtU0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Yosuke Ota",
+        "profileUrl": "https://unsplash.com/@yosuke_ota",
+        "photoPage": "https://unsplash.com/photos/a-candle-on-a-table-5Hmmadtt-tc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "César O'neill",
+        "profileUrl": "https://unsplash.com/@cesaroneill",
+        "photoPage": "https://unsplash.com/photos/delicious-eggs-benedict-served-with-greens-and-decorative-garnish-TPgMv6MYUDA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ruben Ramirez",
+        "profileUrl": "https://unsplash.com/@pinchebesu",
+        "photoPage": "https://unsplash.com/photos/rustic-cafe-interior-with-wooden-furniture-xhKG01FN2uk"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/pinkelicious-catering-by-chef-mylene",
+    "https://unsplash.com/photos/grilled-salmon-yellow-rice-roasted-brussels-sprouts-and-fresh-greens-ft2OCzzaUW8",
+    "https://unsplash.com/photos/brown-wooden-table-and-chairs-iFyLBKmCrmQ",
+    "https://unsplash.com/photos/a-table-is-filled-with-food-UqQshThJtU0",
+    "https://unsplash.com/photos/a-candle-on-a-table-5Hmmadtt-tc",
+    "https://unsplash.com/photos/delicious-eggs-benedict-served-with-greens-and-decorative-garnish-TPgMv6MYUDA",
+    "https://unsplash.com/photos/rustic-cafe-interior-with-wooden-furniture-xhKG01FN2uk"
+  ]
+}
