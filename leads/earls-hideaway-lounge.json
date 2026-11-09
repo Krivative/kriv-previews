@@ -1,0 +1,89 @@
+{
+  "slug": "earls-hideaway-lounge",
+  "template": "cafe-poster",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Earl's Hideaway Lounge, Inc",
+    "phoneDisplay": "(772) 589-5700",
+    "phoneE164": "+17725895700",
+    "address": {
+      "city": "Sebastian",
+      "region": "FL",
+      "postalCode": "32958",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Earl's Hideaway Lounge, Inc.*",
+    "sub": "A concept website prepared by KRIV for Earl's Hideaway Lounge, Inc."
+  },
+  "seo": {
+    "title": "Earl's Hideaway Lounge, Inc | Concept preview",
+    "description": "Concept preview of a website for Earl's Hideaway Lounge, Inc in Sebastian, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1793195595945-7f2a3831d035?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1729394404997-c95e5c5dd736?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzR8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1701520181989-660e20523497?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1530799164-fe981d01a118?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzN8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1779635593789-ed7386554b09?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1667295805729-e2378f6ec0ef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzV8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Tommaso Ubezio",
+        "profileUrl": "https://unsplash.com/@tommasoubezio",
+        "photoPage": "https://unsplash.com/photos/grilled-octopus-with-greens-and-puree-WPL9lj-1BBU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mustafa Fatemi",
+        "profileUrl": "https://unsplash.com/@solaticace",
+        "photoPage": "https://unsplash.com/photos/a-dining-room-with-a-table-chairs-and-pictures-on-the-wall-ZZwUrJlmRTU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kat von Wood",
+        "profileUrl": "https://unsplash.com/@kat_von_wood",
+        "photoPage": "https://unsplash.com/photos/a-platter-of-meats-and-cheeses-on-a-cutting-board-ltV1nSbPRIk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mitchell Hollander",
+        "profileUrl": "https://unsplash.com/@mitchures",
+        "photoPage": "https://unsplash.com/photos/empty-restaurant-Yx-lrVk1ZHY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Blake Wisz",
+        "profileUrl": "https://unsplash.com/@blakewisz",
+        "photoPage": "https://unsplash.com/photos/fried-shrimp-and-oysters-on-ice-garnished-with-a-flower-JGJqURk_-aI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Antoine Kaelin",
+        "profileUrl": "https://unsplash.com/@antoinekaelin",
+        "photoPage": "https://unsplash.com/photos/a-room-with-tables-and-chairs-s_SEzrWy4Js"
+      }
+    ]
+  },
+  "sources": [
+    "https://sebastianchamberfl.chambermaster.com/list/member/earl-s-hideaway-lounge-inc-606",
+    "http://www.earlshideaway.com/",
+    "https://unsplash.com/photos/grilled-octopus-with-greens-and-puree-WPL9lj-1BBU",
+    "https://unsplash.com/photos/a-dining-room-with-a-table-chairs-and-pictures-on-the-wall-ZZwUrJlmRTU",
+    "https://unsplash.com/photos/a-platter-of-meats-and-cheeses-on-a-cutting-board-ltV1nSbPRIk",
+    "https://unsplash.com/photos/empty-restaurant-Yx-lrVk1ZHY",
+    "https://unsplash.com/photos/fried-shrimp-and-oysters-on-ice-garnished-with-a-flower-JGJqURk_-aI",
+    "https://unsplash.com/photos/a-room-with-tables-and-chairs-s_SEzrWy4Js"
+  ]
+}
