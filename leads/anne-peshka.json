@@ -1,0 +1,90 @@
+{
+  "slug": "anne-peshka",
+  "template": "resort-bold",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Anne Peshka",
+    "phoneDisplay": "(941) 979-7779",
+    "phoneE164": "+19419797779",
+    "address": {
+      "city": "Venice",
+      "region": "FL",
+      "postalCode": "34293",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Anne Peshka.*",
+    "sub": "A concept website prepared by KRIV for Anne Peshka."
+  },
+  "seo": {
+    "title": "Anne Peshka | Concept preview",
+    "description": "Concept preview of a website for Anne Peshka in Venice, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1572523473094-46c0d60ceb29?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1748063578185-3d68121b11ff?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643804926339-e94f0a655185?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1556231673-79c47d27cde0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Eilis Garvey",
+        "profileUrl": "https://unsplash.com/@eilisgarvey",
+        "photoPage": "https://unsplash.com/photos/trees-beside-white-and-brown-house-during-daytime-CXqrVACLPdk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Arthur BAUDRY",
+        "profileUrl": "https://unsplash.com/@bipow",
+        "photoPage": "https://unsplash.com/photos/modern-house-exterior-glows-with-lights-4vioYQ9Nn9Y"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Filip Szalbot",
+        "profileUrl": "https://unsplash.com/@fess0",
+        "photoPage": "https://unsplash.com/photos/a-bunch-of-keys-sitting-on-top-of-a-wooden-table-PxiAc1aElFQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aaron Huber",
+        "profileUrl": "https://unsplash.com/@aahubs",
+        "photoPage": "https://unsplash.com/photos/white-kitchen-room-set-G7sE2S4Lab4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Neal E. Johnson",
+        "profileUrl": "https://unsplash.com/@neal_johnson",
+        "photoPage": "https://unsplash.com/photos/aerial-photography-of-houses-during-daytime-ddK3u7QVWJQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Salman Saqib",
+        "profileUrl": "https://unsplash.com/@salmansaqib",
+        "photoPage": "https://unsplash.com/photos/a-modern-house-with-a-pool-and-lounge-chairs-WaC-JFfF21M"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.annepeshka.com/",
+    "https://northportchamber.chambermaster.com/list/member/anne-peshka-4112",
+    "https://annepeshka.com/terms-of-service/",
+    "https://unsplash.com/photos/trees-beside-white-and-brown-house-during-daytime-CXqrVACLPdk",
+    "https://unsplash.com/photos/modern-house-exterior-glows-with-lights-4vioYQ9Nn9Y",
+    "https://unsplash.com/photos/a-bunch-of-keys-sitting-on-top-of-a-wooden-table-PxiAc1aElFQ",
+    "https://unsplash.com/photos/white-kitchen-room-set-G7sE2S4Lab4",
+    "https://unsplash.com/photos/aerial-photography-of-houses-during-daytime-ddK3u7QVWJQ",
+    "https://unsplash.com/photos/a-modern-house-with-a-pool-and-lounge-chairs-WaC-JFfF21M"
+  ]
+}
