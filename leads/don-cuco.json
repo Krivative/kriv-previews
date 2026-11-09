@@ -1,0 +1,88 @@
+{
+  "slug": "don-cuco",
+  "template": "cafe-poster",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Don Cuco Mexican Restaurant",
+    "category": "Restaurant",
+    "phoneDisplay": "(818) 955-8895",
+    "phoneE164": "+18189558895",
+    "address": {
+      "city": "CA",
+      "region": "CA",
+      "postalCode": "91502",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Don Cuco Mexican Restaurant.*",
+    "sub": "A concept website prepared by KRIV for Don Cuco Mexican Restaurant."
+  },
+  "seo": {
+    "title": "Don Cuco Mexican Restaurant | Concept preview",
+    "description": "Concept preview of a website for Don Cuco Mexican Restaurant in CA, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1684160244466-b89ef03b7638?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1639873179448-2e7eb329d3aa?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778689949417-17815771b32a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1729394405014-0a6bd5c63c59?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1695390837115-408e49a2041e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1771574205963-0c1d84ac7354?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Debby Hudson",
+        "profileUrl": "https://unsplash.com/@hudsoncrafted",
+        "photoPage": "https://unsplash.com/photos/a-white-plate-topped-with-fruits-and-vegetables-U-O9DCDI4E8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adam Bartoszewicz",
+        "profileUrl": "https://unsplash.com/@bartoshevicz",
+        "photoPage": "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-glasses-of-wine-U9hAM8uNMAE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adam Fathony",
+        "profileUrl": "https://unsplash.com/@adamfathony",
+        "photoPage": "https://unsplash.com/photos/a-plate-with-sausages-mushrooms-and-mashed-potatoes-1vu9LPsNmrw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mustafa Fatemi",
+        "profileUrl": "https://unsplash.com/@solaticace",
+        "photoPage": "https://unsplash.com/photos/a-restaurant-with-tables-chairs-and-pictures-on-the-wall-RH7aAPxQsFE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Payam Moin Afshari",
+        "profileUrl": "https://unsplash.com/@panevesht",
+        "photoPage": "https://unsplash.com/photos/a-white-plate-topped-with-meat-and-vegetables-pfIINRrjdM0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Adhitya Sibikumar",
+        "profileUrl": "https://unsplash.com/@adhitya_2505",
+        "photoPage": "https://unsplash.com/photos/elegant-restaurant-interior-with-red-chairs-and-modern-lighting-t0wBZ5XxvmY"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/don-cuco-mexican-restaurant",
+    "https://unsplash.com/photos/a-white-plate-topped-with-fruits-and-vegetables-U-O9DCDI4E8",
+    "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-glasses-of-wine-U9hAM8uNMAE",
+    "https://unsplash.com/photos/a-plate-with-sausages-mushrooms-and-mashed-potatoes-1vu9LPsNmrw",
+    "https://unsplash.com/photos/a-restaurant-with-tables-chairs-and-pictures-on-the-wall-RH7aAPxQsFE",
+    "https://unsplash.com/photos/a-white-plate-topped-with-meat-and-vegetables-pfIINRrjdM0",
+    "https://unsplash.com/photos/elegant-restaurant-interior-with-red-chairs-and-modern-lighting-t0wBZ5XxvmY"
+  ]
+}
