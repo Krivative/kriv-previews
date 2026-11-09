@@ -1,0 +1,89 @@
+{
+  "slug": "tropical-breeze-bookkeeping",
+  "template": "office-bold",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Tropical Breeze Bookkeeping, LLC",
+    "phoneDisplay": "(941) 928-8256",
+    "phoneE164": "+19419288256",
+    "address": {
+      "city": "North Port",
+      "region": "FL",
+      "postalCode": "34291",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Tropical Breeze Bookkeeping, LLC.*",
+    "sub": "A concept website prepared by KRIV for Tropical Breeze Bookkeeping, LLC."
+  },
+  "seo": {
+    "title": "Tropical Breeze Bookkeeping, LLC | Concept preview",
+    "description": "Concept preview of a website for Tropical Breeze Bookkeeping, LLC in North Port, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1775590766317-8fd3ef7d721c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718220268527-4477fd170775?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzV8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762427354397-854a52e0ded7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1657978838440-758528710220?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzZ8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762427354220-ee06e69ee817?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzN8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1791209135230-08ce0343b7a7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzR8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Sasun Bughdaryan",
+        "profileUrl": "https://unsplash.com/@sasun1990",
+        "photoPage": "https://unsplash.com/photos/model-house-with-calculator-and-pen-on-desk-jkO_wMw4168"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Bernd 📷 Dittrich",
+        "profileUrl": "https://unsplash.com/@hdbernd",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-table-chairs-and-potted-trees-m0B-uK0GNAM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-charts-and-pencil-dspKrJYp644"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maciej Drążkiewicz",
+        "profileUrl": "https://unsplash.com/@drazkiewicz_architekt",
+        "photoPage": "https://unsplash.com/photos/a-large-room-with-a-bar-and-chairs-LYO6Aznnp7c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-glasses-and-drawing-tools-pqMG4axFz_o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Barney Goodman",
+        "profileUrl": "https://unsplash.com/@bgoodpic",
+        "photoPage": "https://unsplash.com/photos/cow-print-mug-and-calculator-xMlBGq5Gqus"
+      }
+    ]
+  },
+  "sources": [
+    "https://northportchamber.chambermaster.com/list/member/tropical-breeze-bookkeeping-llc-3837",
+    "http://www.tropicalbreezebookkeeping.com/",
+    "https://unsplash.com/photos/model-house-with-calculator-and-pen-on-desk-jkO_wMw4168",
+    "https://unsplash.com/photos/a-room-with-a-table-chairs-and-potted-trees-m0B-uK0GNAM",
+    "https://unsplash.com/photos/desk-with-calculator-charts-and-pencil-dspKrJYp644",
+    "https://unsplash.com/photos/a-large-room-with-a-bar-and-chairs-LYO6Aznnp7c",
+    "https://unsplash.com/photos/desk-with-calculator-glasses-and-drawing-tools-pqMG4axFz_o",
+    "https://unsplash.com/photos/cow-print-mug-and-calculator-xMlBGq5Gqus"
+  ]
+}
