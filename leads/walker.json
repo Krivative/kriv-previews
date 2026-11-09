@@ -1,0 +1,88 @@
+{
+  "slug": "walker",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Walker & Company",
+    "phoneDisplay": "(407) 645-0500",
+    "phoneE164": "+14076450500",
+    "address": {
+      "city": "Winter Park",
+      "region": "FL",
+      "postalCode": "32790",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Walker & Company.*",
+    "sub": "A concept website prepared by KRIV for Walker & Company."
+  },
+  "seo": {
+    "title": "Walker & Company | Concept preview",
+    "description": "Concept preview of a website for Walker & Company in Winter Park, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1785585508606-36e0b82f4887?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634580871716-6d25eadc484a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzN8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1782879549420-7cd9dc53d334?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzV8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1733065567694-635cc501ce33?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1774867633782-03465eea0760?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777793919219-5b1fd98af8cb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzR8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/wooden-framing-of-a-building-under-construction-with-scaffolding-pb2rODOfXz8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "David Lawver",
+        "profileUrl": "https://unsplash.com/@dlawver79",
+        "photoPage": "https://unsplash.com/photos/a-construction-site-with-trucks-and-construction-equipment-P1pHywMsLMw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Declan Sun",
+        "profileUrl": "https://unsplash.com/@declansun",
+        "photoPage": "https://unsplash.com/photos/architectural-model-with-blueprints-on-wall-1hEhb26Bn20"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Haberdoedas",
+        "profileUrl": "https://unsplash.com/@haberdoedas",
+        "photoPage": "https://unsplash.com/photos/a-large-crane-is-sitting-on-top-of-a-building-G1NVlnz38zU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/new-houses-under-construction-with-wooden-framing-9GAdLexoV7U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergej *****",
+        "profileUrl": "https://unsplash.com/@skstrannik",
+        "photoPage": "https://unsplash.com/photos/piles-of-gravel-and-concrete-blocks-at-a-construction-site-PTT7deSomWU"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.winterpark.org/list/member/walker-company-5007738",
+    "https://unsplash.com/photos/wooden-framing-of-a-building-under-construction-with-scaffolding-pb2rODOfXz8",
+    "https://unsplash.com/photos/a-construction-site-with-trucks-and-construction-equipment-P1pHywMsLMw",
+    "https://unsplash.com/photos/architectural-model-with-blueprints-on-wall-1hEhb26Bn20",
+    "https://unsplash.com/photos/a-large-crane-is-sitting-on-top-of-a-building-G1NVlnz38zU",
+    "https://unsplash.com/photos/new-houses-under-construction-with-wooden-framing-9GAdLexoV7U",
+    "https://unsplash.com/photos/piles-of-gravel-and-concrete-blocks-at-a-construction-site-PTT7deSomWU"
+  ]
+}
