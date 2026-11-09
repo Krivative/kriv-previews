@@ -1,0 +1,98 @@
+{
+  "slug": "wild-rose",
+  "template": "auto-bold",
+  "contentNiche": "auto",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Wild Rose Motors LTD",
+    "category": "Auto repair",
+    "phoneDisplay": "(714) 260-4867",
+    "phoneE164": "+17142604867",
+    "address": {
+      "city": "Anaheim",
+      "region": "CA",
+      "postalCode": "92807",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Friday",
+        "time": "9:00AM - 6:00PM"
+      },
+      {
+        "days": "Saturdays",
+        "time": "10:00AM - 5:00PM"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Wild Rose Motors LTD.*",
+    "sub": "A concept website prepared by KRIV for Wild Rose Motors LTD."
+  },
+  "seo": {
+    "title": "Wild Rose Motors LTD | Concept preview",
+    "description": "Concept preview of a website for Wild Rose Motors LTD in Anaheim, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1725289339928-06ee31684df5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8Y2FyJTIwZW5naW5lfGVufDF8MHx8fDE3OTQxMzA2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1613206485381-b028e578e791?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bWVjaGFuaWMlMjB0b29sc3xlbnwxfDB8fHwxNzk0MTMwNjIxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dGlyZSUyMGNoYW5nZXxlbnwxfDB8fHwxNzk0MTMwNjIyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1577801342097-045874893030?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8Y2FyJTIwcmVwYWlyJTIwZ2FyYWdlfGVufDF8MHx8fDE3OTM3MDA0Njh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1527383418406-f85a3b146499?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8Y2FyJTIwZW5naW5lfGVufDF8MHx8fDE3OTQxMzA2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bWVjaGFuaWMlMjB0b29sc3xlbnwxfDB8fHwxNzk0MTMwNjIxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Luca Hooijer",
+        "profileUrl": "https://unsplash.com/@luxunderscore",
+        "photoPage": "https://unsplash.com/photos/the-engine-compartment-of-a-car-with-the-hood-up-u3RhNe3QJeM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dmitriy Demidov",
+        "profileUrl": "https://unsplash.com/@fotograw",
+        "photoPage": "https://unsplash.com/photos/a-group-of-wrenches-arranged-in-a-circle-iuuJC_pjLU0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Robert Laursoo",
+        "profileUrl": "https://unsplash.com/@robineero",
+        "photoPage": "https://unsplash.com/photos/piles-of-car-tires-WHPOFFzY9gU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Florian Olivo",
+        "profileUrl": "https://unsplash.com/@florianolv",
+        "photoPage": "https://unsplash.com/photos/unfinished-cars-indoors-pu-bYLy6YtY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tim Mossholder",
+        "profileUrl": "https://unsplash.com/@timmossholder",
+        "photoPage": "https://unsplash.com/photos/car-engine-bay-VurHDpO4VYI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Elena Rouame",
+        "profileUrl": "https://unsplash.com/@roum",
+        "photoPage": "https://unsplash.com/photos/red-and-silver-hand-tool-9JU2CKqtw0M"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.anaheimchamber.org/list/member/wild-rose-motors-ltd-17077",
+    "http://www.wildrose911.com/",
+    "https://unsplash.com/photos/the-engine-compartment-of-a-car-with-the-hood-up-u3RhNe3QJeM",
+    "https://unsplash.com/photos/a-group-of-wrenches-arranged-in-a-circle-iuuJC_pjLU0",
+    "https://unsplash.com/photos/piles-of-car-tires-WHPOFFzY9gU",
+    "https://unsplash.com/photos/unfinished-cars-indoors-pu-bYLy6YtY",
+    "https://unsplash.com/photos/car-engine-bay-VurHDpO4VYI",
+    "https://unsplash.com/photos/red-and-silver-hand-tool-9JU2CKqtw0M"
+  ]
+}
