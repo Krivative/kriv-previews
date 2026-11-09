@@ -1,0 +1,87 @@
+{
+  "slug": "gibbons-construction-consulting",
+  "template": "hvac-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Gibbons Construction Consulting",
+    "phoneDisplay": "(818) 669-6080",
+    "phoneE164": "+18186696080",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Gibbons Construction Consulting.*",
+    "sub": "A concept website prepared by KRIV for Gibbons Construction Consulting."
+  },
+  "seo": {
+    "title": "Gibbons Construction Consulting | Concept preview",
+    "description": "Concept preview of a website for Gibbons Construction Consulting in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1764737740462-2a310c7b2c39?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1582009015232-30bd941b6810?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1622197988057-e12210881762?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777105931951-edcf01fc8891?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1591709887107-230fe6d1eeea?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1789289779041-35f112a61074?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Vooglam Eyewear",
+        "profileUrl": "https://unsplash.com/@vooglam_official",
+        "photoPage": "https://unsplash.com/photos/designer-sketching-eyeglasses-with-laptop-and-tools-Wlg-hDGCQ08"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Milo Bunnik",
+        "profileUrl": "https://unsplash.com/@mostpeoplecallmemilo",
+        "photoPage": "https://unsplash.com/photos/white-and-blue-concrete-building-during-daytime-yum-_nNjf_o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nathan Staz",
+        "profileUrl": "https://unsplash.com/@nathanstaz",
+        "photoPage": "https://unsplash.com/photos/blue-metal-bridge-with-red-and-white-flag-during-daytime-SPgQ-K-3xzA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/wooden-house-frame-under-construction-behind-a-fence-nCiRDhiVeP8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Jordan",
+        "profileUrl": "https://unsplash.com/@brett_jordan",
+        "photoPage": "https://unsplash.com/photos/green-and-black-tent-on-brown-wooden-floor-8I0JDevj-vY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Egor Myznik",
+        "profileUrl": "https://unsplash.com/@vonshnauzer",
+        "photoPage": "https://unsplash.com/photos/markers-on-detailed-line-map-cd4yF9UDtf0"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/gibbons-construction-consulting",
+    "https://unsplash.com/photos/designer-sketching-eyeglasses-with-laptop-and-tools-Wlg-hDGCQ08",
+    "https://unsplash.com/photos/white-and-blue-concrete-building-during-daytime-yum-_nNjf_o",
+    "https://unsplash.com/photos/blue-metal-bridge-with-red-and-white-flag-during-daytime-SPgQ-K-3xzA",
+    "https://unsplash.com/photos/wooden-house-frame-under-construction-behind-a-fence-nCiRDhiVeP8",
+    "https://unsplash.com/photos/green-and-black-tent-on-brown-wooden-floor-8I0JDevj-vY",
+    "https://unsplash.com/photos/markers-on-detailed-line-map-cd4yF9UDtf0"
+  ]
+}
