@@ -1,0 +1,89 @@
+{
+  "slug": "dl3-construction",
+  "template": "auto-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "DL3 Construction",
+    "phoneDisplay": "(850) 978-1551",
+    "phoneE164": "+18509781551",
+    "address": {
+      "city": "Fort Walton Beach",
+      "region": "FL",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *DL3 Construction.*",
+    "sub": "A concept website prepared by KRIV for DL3 Construction."
+  },
+  "seo": {
+    "title": "DL3 Construction | Concept preview",
+    "description": "Concept preview of a website for DL3 Construction in Fort Walton Beach, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1562618351-931da3bbd11f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1635338340243-c53b2ae2631f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1785585508688-bd34cc669261?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1745305945877-e155ee0e6052?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1731702981680-a38f38529d76?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1655045850845-1663631c2580?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Nikola",
+        "profileUrl": "https://unsplash.com/@nikden",
+        "photoPage": "https://unsplash.com/photos/glass-high-rise-building-QFdxUrF_CLY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tayla Kohler",
+        "profileUrl": "https://unsplash.com/@taylaktictac",
+        "photoPage": "https://unsplash.com/photos/a-crane-is-standing-in-front-of-a-building-x3E8onrSIQo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/new-buildings-wooden-framework-against-a-clear-blue-sky-HyXaImG33-U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Markus Kammermann",
+        "profileUrl": "https://unsplash.com/@makabera",
+        "photoPage": "https://unsplash.com/photos/concrete-is-being-leveled-with-a-screed-4YbgiADkpYE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gallen-Kallelan Museon",
+        "profileUrl": "https://unsplash.com/@gallenkallelan",
+        "photoPage": "https://unsplash.com/photos/architectural-drafting-table-with-blueprints-and-tools-KFRS0B2q05I"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ruben Hanssen",
+        "profileUrl": "https://unsplash.com/@rhfhanssen",
+        "photoPage": "https://unsplash.com/photos/a-tall-building-in-a-city-sDKZV3SHUKg"
+      }
+    ]
+  },
+  "sources": [
+    "http://dl3construction.com/",
+    "https://www.fwbchamber.org/list/member/dl3-construction-11796",
+    "https://www.dl3construction.com/blank-page",
+    "https://unsplash.com/photos/glass-high-rise-building-QFdxUrF_CLY",
+    "https://unsplash.com/photos/a-crane-is-standing-in-front-of-a-building-x3E8onrSIQo",
+    "https://unsplash.com/photos/new-buildings-wooden-framework-against-a-clear-blue-sky-HyXaImG33-U",
+    "https://unsplash.com/photos/concrete-is-being-leveled-with-a-screed-4YbgiADkpYE",
+    "https://unsplash.com/photos/architectural-drafting-table-with-blueprints-and-tools-KFRS0B2q05I",
+    "https://unsplash.com/photos/a-tall-building-in-a-city-sDKZV3SHUKg"
+  ]
+}
