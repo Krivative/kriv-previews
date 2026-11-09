@@ -1,0 +1,88 @@
+{
+  "slug": "north-port-realty",
+  "template": "resort-bold",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "NORTH PORT REALTY",
+    "phoneDisplay": "(941) 301-3851",
+    "phoneE164": "+19413013851",
+    "address": {
+      "city": "North Port",
+      "region": "FL",
+      "postalCode": "34287",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *NORTH PORT REALTY.*",
+    "sub": "A concept website prepared by KRIV for NORTH PORT REALTY."
+  },
+  "seo": {
+    "title": "NORTH PORT REALTY | Concept preview",
+    "description": "Concept preview of a website for NORTH PORT REALTY in North Port, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1785553766146-c7c5856eba39?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1706808849777-96e0d7be3bb7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631509716275-59e9d106504a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8YnJpZ2h0JTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560184897-ae75f418493e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1791820606716-d0ce89190f20?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fHN1YnVyYmFuJTIwc3RyZWV0JTIwaG9tZXN8ZW58MXwwfHx8MTc5NDE4MDA5MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/modern-houses-with-cars-parked-on-a-suburban-street-Lhd9HdnQRBc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Salman Saqib",
+        "profileUrl": "https://unsplash.com/@salmansaqib",
+        "photoPage": "https://unsplash.com/photos/a-modern-house-with-a-large-front-yard-URD4NdWyd60"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/green-and-purple-flower-in-blue-ceramic-vase-on-brown-wooden-table-fCfzthk-1mU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Francesca Tosolini",
+        "profileUrl": "https://unsplash.com/@fromitaly",
+        "photoPage": "https://unsplash.com/photos/blue-porch-with-wicker-furniture-XcVm8mn7NUM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "roam in color",
+        "profileUrl": "https://unsplash.com/@roamincolor",
+        "photoPage": "https://unsplash.com/photos/kitchen-with-white-cabinets-and-tiles-z3QZ6gjGRt4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mohamad Kazemi",
+        "profileUrl": "https://unsplash.com/@morekaccino",
+        "photoPage": "https://unsplash.com/photos/aerial-view-of-road-and-city-lCsxeQzuxP0"
+      }
+    ]
+  },
+  "sources": [
+    "https://northportchamber.chambermaster.com/list/member/north-port-realty-4369",
+    "https://unsplash.com/photos/modern-houses-with-cars-parked-on-a-suburban-street-Lhd9HdnQRBc",
+    "https://unsplash.com/photos/a-modern-house-with-a-large-front-yard-URD4NdWyd60",
+    "https://unsplash.com/photos/green-and-purple-flower-in-blue-ceramic-vase-on-brown-wooden-table-fCfzthk-1mU",
+    "https://unsplash.com/photos/blue-porch-with-wicker-furniture-XcVm8mn7NUM",
+    "https://unsplash.com/photos/kitchen-with-white-cabinets-and-tiles-z3QZ6gjGRt4",
+    "https://unsplash.com/photos/aerial-view-of-road-and-city-lCsxeQzuxP0"
+  ]
+}
