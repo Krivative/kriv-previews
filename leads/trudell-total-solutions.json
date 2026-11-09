@@ -1,0 +1,104 @@
+{
+  "slug": "trudell-total-solutions",
+  "template": "hvac-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Trudell Total Solutions",
+    "phoneDisplay": "(941) 599-2313",
+    "phoneE164": "+19415992313",
+    "address": {
+      "city": "North Port",
+      "region": "FL",
+      "postalCode": "34286",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday to Friday from",
+        "time": "8 am to 5:30 pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Trudell Total Solutions.*",
+    "sub": "A concept website prepared by KRIV for Trudell Total Solutions."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Remodeling",
+        "blurb": "At Trudell Total Solutions, we are committed to delivering exceptional remodeling services."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Trudell Total Solutions | Concept preview",
+    "description": "Concept preview of a website for Trudell Total Solutions in North Port, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1721244654394-36a7bc2da288?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzZ8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1675502520018-f2bab49c8bf1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1638716142190-66572e6a1953?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1605286605133-b1f48e279cd0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzV8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1588757470003-419f6a827196?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778114960445-e588433bd890?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Amsterdam City Archives",
+        "profileUrl": "https://unsplash.com/@amsterdamcityarchives",
+        "photoPage": "https://unsplash.com/photos/architectural-blueprint-of-a-multi-story-building-9tmKEDz03uw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brother Yoon",
+        "profileUrl": "https://unsplash.com/@brother_yoon",
+        "photoPage": "https://unsplash.com/photos/a-crane-is-silhouetted-against-the-evening-sky-VyiankYKNzo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Chiel Habils",
+        "profileUrl": "https://unsplash.com/@chielh",
+        "photoPage": "https://unsplash.com/photos/a-yellow-crane-sitting-on-top-of-a-building-Zcrv-nCNKb0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brady Rogers",
+        "profileUrl": "https://unsplash.com/@bradydrogers",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-wooden-house-near-bare-trees-during-daytime-v91TxVlqVd0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Milo Bunnik",
+        "profileUrl": "https://unsplash.com/@mostpeoplecallmemilo",
+        "photoPage": "https://unsplash.com/photos/white-concrete-building-during-daytime-7zb61IiSIV8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "W. D.",
+        "profileUrl": "https://unsplash.com/@mopedwill",
+        "photoPage": "https://unsplash.com/photos/view-through-window-frame-of-construction-site-3yPhVMz8IvU"
+      }
+    ]
+  },
+  "sources": [
+    "https://trudelltotalsolutions.com/",
+    "https://trudelltotalsolutions.com/contact-us",
+    "https://northportchamber.chambermaster.com/list/member/trudell-total-solutions-4286",
+    "https://unsplash.com/photos/architectural-blueprint-of-a-multi-story-building-9tmKEDz03uw",
+    "https://unsplash.com/photos/a-crane-is-silhouetted-against-the-evening-sky-VyiankYKNzo",
+    "https://unsplash.com/photos/a-yellow-crane-sitting-on-top-of-a-building-Zcrv-nCNKb0",
+    "https://unsplash.com/photos/white-and-brown-wooden-house-near-bare-trees-during-daytime-v91TxVlqVd0",
+    "https://unsplash.com/photos/white-concrete-building-during-daytime-7zb61IiSIV8",
+    "https://unsplash.com/photos/view-through-window-frame-of-construction-site-3yPhVMz8IvU"
+  ]
+}
