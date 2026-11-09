@@ -1,0 +1,88 @@
+{
+  "slug": "satara-mystical-wellness",
+  "template": "aesthetic-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "SATARA Mystical Wellness",
+    "phoneDisplay": "(747) 241-8091",
+    "phoneE164": "+17472418091",
+    "address": {
+      "city": "CA",
+      "region": "CA",
+      "postalCode": "91505",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *SATARA Mystical Wellness.*",
+    "sub": "A concept website prepared by KRIV for SATARA Mystical Wellness."
+  },
+  "seo": {
+    "title": "SATARA Mystical Wellness | Concept preview",
+    "description": "Concept preview of a website for SATARA Mystical Wellness in CA, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1672985020602-1ed2ee4ad28b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTZ8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985023428-a32e90d1895f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTd8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzkzODUxMDI0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1766299892549-b56b257d1ddd?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985021463-10dff20cae39?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTl8fHBoeXNpY2FsJTIwdGhlcmFweXxlbnwxfDB8fHwxNzk0MTMyMDYxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1793799640986-747329664670?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-xvQOYgPhDCI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-white-room-with-a-green-cabinet-and-a-black-door-FBx4LTHrHEg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brian Wangenheim",
+        "profileUrl": "https://unsplash.com/@brianwangenheim",
+        "photoPage": "https://unsplash.com/photos/medical-diagnostic-tools-mounted-on-a-wall-K7Qh7RFtUuo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-white-table-and-a-green-cabinet-seZgtzB4ZAs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "sporlab",
+        "profileUrl": "https://unsplash.com/@sporlab",
+        "photoPage": "https://unsplash.com/photos/pair-of-blue-and-white-adidas-running-shoes-XiZ7pRvCzro"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "runda choo",
+        "profileUrl": "https://unsplash.com/@rundachoo",
+        "photoPage": "https://unsplash.com/photos/grey-curtains-on-ceiling-track-KYl6UJH-q9E"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/satara-mystical-wellness",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-xvQOYgPhDCI",
+    "https://unsplash.com/photos/a-white-room-with-a-green-cabinet-and-a-black-door-FBx4LTHrHEg",
+    "https://unsplash.com/photos/medical-diagnostic-tools-mounted-on-a-wall-K7Qh7RFtUuo",
+    "https://unsplash.com/photos/a-room-with-a-white-table-and-a-green-cabinet-seZgtzB4ZAs",
+    "https://unsplash.com/photos/pair-of-blue-and-white-adidas-running-shoes-XiZ7pRvCzro",
+    "https://unsplash.com/photos/grey-curtains-on-ceiling-track-KYl6UJH-q9E"
+  ]
+}
