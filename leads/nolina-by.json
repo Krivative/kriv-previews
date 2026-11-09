@@ -1,0 +1,89 @@
+{
+  "slug": "nolina-by",
+  "template": "resort-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Nolina by Johnson Development",
+    "phoneDisplay": "(512) 843-4228",
+    "phoneE164": "+15128434228",
+    "address": {
+      "city": "Georgetown",
+      "region": "TX",
+      "postalCode": "78633",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Nolina by Johnson Development.*",
+    "sub": "A concept website prepared by KRIV for Nolina by Johnson Development."
+  },
+  "seo": {
+    "title": "Nolina by Johnson Development | Concept preview",
+    "description": "Concept preview of a website for Nolina by Johnson Development in Georgetown, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YnJpZ2h0JTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1741156386380-0236c72eb6f9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1632583824020-937ae9564495?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Lotus Design N Print",
+        "profileUrl": "https://unsplash.com/@lotusdnp",
+        "photoPage": "https://unsplash.com/photos/modern-kitchen-with-grey-cabinets-RwXneIyqxAw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Marcus Lenk",
+        "profileUrl": "https://unsplash.com/@marcuslenk",
+        "photoPage": "https://unsplash.com/photos/line-of-houses-during-day-wKO0rx50VWo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Salman Saqib",
+        "profileUrl": "https://unsplash.com/@salmansaqib",
+        "photoPage": "https://unsplash.com/photos/a-building-with-a-pool-z6UAWpQAhXs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Francesca Tosolini",
+        "profileUrl": "https://unsplash.com/@fromitaly",
+        "photoPage": "https://unsplash.com/photos/beige-couch-and-armchair-tHkJAMcO3QE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/holding-house-keys-in-front-of-the-entrance-bqUZEAeWuok"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kam Idris",
+        "profileUrl": "https://unsplash.com/@ka_idris",
+        "photoPage": "https://unsplash.com/photos/a-modern-kitchen-with-a-bar-and-stools-vqMQN9zImG4"
+      }
+    ]
+  },
+  "sources": [
+    "https://georgetownchambertx.chambermaster.com/list/member/nolina-by-johnson-development-5467",
+    "https://www.nolinaliving.com/",
+    "https://unsplash.com/photos/modern-kitchen-with-grey-cabinets-RwXneIyqxAw",
+    "https://unsplash.com/photos/line-of-houses-during-day-wKO0rx50VWo",
+    "https://unsplash.com/photos/a-building-with-a-pool-z6UAWpQAhXs",
+    "https://unsplash.com/photos/beige-couch-and-armchair-tHkJAMcO3QE",
+    "https://unsplash.com/photos/holding-house-keys-in-front-of-the-entrance-bqUZEAeWuok",
+    "https://unsplash.com/photos/a-modern-kitchen-with-a-bar-and-stools-vqMQN9zImG4"
+  ]
+}
