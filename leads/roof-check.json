@@ -1,0 +1,89 @@
+{
+  "slug": "roof-check",
+  "template": "hvac-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Roof Check, LLC",
+    "category": "Roofing",
+    "phoneDisplay": "(325) 518-8214",
+    "phoneE164": "+13255188214",
+    "address": {
+      "city": "Georgetown",
+      "region": "TX",
+      "postalCode": "78628",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Roof Check, LLC.*",
+    "sub": "A concept website prepared by KRIV for Roof Check, LLC."
+  },
+  "seo": {
+    "title": "Roof Check, LLC | Concept preview",
+    "description": "Concept preview of a website for Roof Check, LLC in Georgetown, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1631639324100-2ed305cb32a4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bmV3JTIwcm9vZiUyMGhvdXNlfGVufDF8MHx8fDE3OTM2OTY1ODB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1628774942553-bd4b553e7457?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8cm9vZiUyMHRpbGVzJTIwY2xvc2V1cHxlbnwxfDB8fHwxNzkzNzY1MzE5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1602193069473-0c78775ec7e1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8bWV0YWwlMjByb29mfGVufDF8MHx8fDE3OTM2OTY1Nzh8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1763665814485-a0a1b6f51ed7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHJvb2YlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5Mzc2NTMxOHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1570690732090-275b8807dd76?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bmV3JTIwcm9vZiUyMGhvdXNlfGVufDF8MHx8fDE3OTM2OTY1ODB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1603517431529-6ba96d7525bb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8cm9vZiUyMHRpbGVzJTIwY2xvc2V1cHxlbnwxfDB8fHwxNzkzNzY1MzE5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jason Jarrach",
+        "profileUrl": "https://unsplash.com/@jasonjarr",
+        "photoPage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-house-under-construction-gjaqI7Esz4E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mufid Majnun",
+        "profileUrl": "https://unsplash.com/@mufidpwt",
+        "photoPage": "https://unsplash.com/photos/brown-and-white-roof-tiles-WAtsqewJXhM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ryunosuke Kikuno",
+        "profileUrl": "https://unsplash.com/@ryunosuke_kikuno",
+        "photoPage": "https://unsplash.com/photos/gray-and-white-wooden-house-under-white-clouds-JuM5hLwbRG8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sergej *****",
+        "profileUrl": "https://unsplash.com/@skstrannik",
+        "photoPage": "https://unsplash.com/photos/construction-workers-installing-roofing-materials-on-a-house-vJlPP2qB1vI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Payam Moghtader",
+        "profileUrl": "https://unsplash.com/@payamm",
+        "photoPage": "https://unsplash.com/photos/white-brick-house-with-green-roof-GdnDnW5KBzs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Greg Rosenke",
+        "profileUrl": "https://unsplash.com/@greg_rosenke",
+        "photoPage": "https://unsplash.com/photos/black-and-white-roof-tiles-keFTK0YykFs"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.roofcheck.pro/",
+    "https://georgetownchambertx.chambermaster.com/list/member/roof-check-llc-5533",
+    "https://unsplash.com/photos/a-black-and-white-photo-of-a-house-under-construction-gjaqI7Esz4E",
+    "https://unsplash.com/photos/brown-and-white-roof-tiles-WAtsqewJXhM",
+    "https://unsplash.com/photos/gray-and-white-wooden-house-under-white-clouds-JuM5hLwbRG8",
+    "https://unsplash.com/photos/construction-workers-installing-roofing-materials-on-a-house-vJlPP2qB1vI",
+    "https://unsplash.com/photos/white-brick-house-with-green-roof-GdnDnW5KBzs",
+    "https://unsplash.com/photos/black-and-white-roof-tiles-keFTK0YykFs"
+  ]
+}
