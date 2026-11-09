@@ -1,0 +1,88 @@
+{
+  "slug": "keller-williams",
+  "template": "resort-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Keller Williams Realty Lone Star",
+    "phoneDisplay": "(512) 868-1771",
+    "phoneE164": "+15128681771",
+    "address": {
+      "city": "Georgetown",
+      "region": "TX",
+      "postalCode": "78626",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Keller Williams Realty Lone Star.*",
+    "sub": "A concept website prepared by KRIV for Keller Williams Realty Lone Star."
+  },
+  "seo": {
+    "title": "Keller Williams Realty Lone Star | Concept preview",
+    "description": "Concept preview of a website for Keller Williams Realty Lone Star in Georgetown, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1524813686514-a57563d77965?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1632829882891-5047ccc421bc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YnJpZ2h0JTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/flagged/photo-1564767609342-620cb19b2357?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Ярослав Алексеенко",
+        "profileUrl": "https://unsplash.com/@webaliser",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tierra Mallorca",
+        "profileUrl": "https://unsplash.com/@tierramallorca",
+        "photoPage": "https://unsplash.com/photos/white-and-red-wooden-house-miniature-on-brown-table-rgJ1J8SDEAY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Naomi Hébert",
+        "profileUrl": "https://unsplash.com/@naomish",
+        "photoPage": "https://unsplash.com/photos/gray-steel-3-door-refrigerator-near-modular-kitchen-MP0bgaS_d1c"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tom Rumble",
+        "profileUrl": "https://unsplash.com/@tomrumble",
+        "photoPage": "https://unsplash.com/photos/top-view-photography-of-houses-at-daytime-7lvzopTxjOU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-fire-place-EVjqpcn79AM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maria Ziegler",
+        "profileUrl": "https://unsplash.com/@schluesseldienstvergleich_eu",
+        "photoPage": "https://unsplash.com/photos/keys-on-hand-jJnZg7vBfMs"
+      }
+    ]
+  },
+  "sources": [
+    "https://kwlonestar.com/",
+    "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo",
+    "https://unsplash.com/photos/white-and-red-wooden-house-miniature-on-brown-table-rgJ1J8SDEAY",
+    "https://unsplash.com/photos/gray-steel-3-door-refrigerator-near-modular-kitchen-MP0bgaS_d1c",
+    "https://unsplash.com/photos/top-view-photography-of-houses-at-daytime-7lvzopTxjOU",
+    "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-fire-place-EVjqpcn79AM",
+    "https://unsplash.com/photos/keys-on-hand-jJnZg7vBfMs"
+  ]
+}
