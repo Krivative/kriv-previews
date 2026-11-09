@@ -1,0 +1,89 @@
+{
+  "slug": "law-office-72ff419a",
+  "template": "office-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Law Office of Pemberton and Green",
+    "phoneDisplay": "(903) 455-1876",
+    "phoneE164": "+19034551876",
+    "address": {
+      "city": "Greenville",
+      "region": "TX",
+      "postalCode": "75401",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Law Office of Pemberton and Green.*",
+    "sub": "A concept website prepared by KRIV for Law Office of Pemberton and Green."
+  },
+  "seo": {
+    "title": "Law Office of Pemberton and Green | Concept preview",
+    "description": "Concept preview of a website for Law Office of Pemberton and Green in Greenville, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1616130007484-24a2c05fdfbe?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1584628805026-9e14c9cd2330?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1613926161474-fcc7a939e051?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1620205391376-7cde81ffb112?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1658083735442-1c80aef9b4b1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjl8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1722182877533-7378b60bf1e8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fG9mZmljZSUyMGRlc2slMjBib29rc3xlbnwxfDB8fHwxNzkzOTQ4MzQ4fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jill Nissen",
+        "profileUrl": "https://unsplash.com/@theproofphotography",
+        "photoPage": "https://unsplash.com/photos/white-ceramic-cup-on-white-ceramic-saucer-eUjbbtJ0yMw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Savannah Wakefield",
+        "profileUrl": "https://unsplash.com/@sw_creates",
+        "photoPage": "https://unsplash.com/photos/green-book-with-pencils-on-white-table-XUfyxE02Z2M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Delano Ramdas",
+        "profileUrl": "https://unsplash.com/@delanodzr",
+        "photoPage": "https://unsplash.com/photos/black-and-green-plastic-containers-1E6vgtfLkLA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Estonia Incorporated",
+        "profileUrl": "https://unsplash.com/@estoniaincorporated",
+        "photoPage": "https://unsplash.com/photos/red-and-white-ceramic-mug-beside-silver-imac-7aI2SDsjnU0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ionela Mat",
+        "profileUrl": "https://unsplash.com/@ionelaaaaa",
+        "photoPage": "https://unsplash.com/photos/a-stack-of-books-LzdrjtYFJi8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Peter Herrmann",
+        "profileUrl": "https://unsplash.com/@tama66",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-lot-of-books-in-it-O_DUcg4cDlc"
+      }
+    ]
+  },
+  "sources": [
+    "https://greenvillechambertx.chambermaster.com/list/member/law-office-of-pemberton-and-green-650",
+    "http://www.pgnwlaw.com/",
+    "https://unsplash.com/photos/white-ceramic-cup-on-white-ceramic-saucer-eUjbbtJ0yMw",
+    "https://unsplash.com/photos/green-book-with-pencils-on-white-table-XUfyxE02Z2M",
+    "https://unsplash.com/photos/black-and-green-plastic-containers-1E6vgtfLkLA",
+    "https://unsplash.com/photos/red-and-white-ceramic-mug-beside-silver-imac-7aI2SDsjnU0",
+    "https://unsplash.com/photos/a-stack-of-books-LzdrjtYFJi8",
+    "https://unsplash.com/photos/a-room-with-a-lot-of-books-in-it-O_DUcg4cDlc"
+  ]
+}
