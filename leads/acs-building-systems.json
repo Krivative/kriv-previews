@@ -1,0 +1,94 @@
+{
+  "slug": "acs-building-systems",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-07",
+  "expiresAt": "2026-12-07",
+  "status": "approved",
+  "business": {
+    "name": "ACS Building Systems Inc.",
+    "phoneDisplay": "(604) 762-0405",
+    "phoneE164": "+16047620405",
+    "address": {
+      "city": "North Vancouver",
+      "region": "BC",
+      "postalCode": "V7K 1X6",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon-Fri",
+        "time": "9am – 5pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *ACS Building Systems Inc..*",
+    "sub": "A concept website prepared by KRIV for ACS Building Systems Inc.."
+  },
+  "seo": {
+    "title": "ACS Building Systems Inc. | Concept preview",
+    "description": "Concept preview of a website for ACS Building Systems Inc. in North Vancouver, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1663949233461-43ac152a6fa9?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1640213011613-b5d095e3993b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzZ8fGNvbnN0cnVjdGlvbiUyMHdvcmtlcnMlMjBzaXRlfGVufDF8MHx8fDE3OTM5Mjk4NDR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1728922385137-ba5bc7c226f7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1660594161043-28b49b363632?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1747192904662-e03e8da1e0ab?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGNvbW1lcmNpYWwlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTM0NDA3fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1609668477087-9db6c2eb56ed?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "rizkyusuf",
+        "profileUrl": "https://unsplash.com/@rezekim523",
+        "photoPage": "https://unsplash.com/photos/a-building-under-construction-KCiavuYDbWI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "david Griffiths",
+        "profileUrl": "https://unsplash.com/@itscakefortea",
+        "photoPage": "https://unsplash.com/photos/a-group-of-construction-equipment-sitting-in-the-dirt-yeTAHAnkEtg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "noe fornells",
+        "profileUrl": "https://unsplash.com/@noe_kf",
+        "photoPage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-construction-site-tGXH1PKX5qY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dillon Wanner",
+        "profileUrl": "https://unsplash.com/@dillydallying",
+        "photoPage": "https://unsplash.com/photos/a-stack-of-flyers-on-a-table-BchliBX7Hjg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Saumya jain",
+        "profileUrl": "https://unsplash.com/@saumyajain009",
+        "photoPage": "https://unsplash.com/photos/a-building-is-under-construction-with-scaffolding-2wqCQc9WpIw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jan Huber",
+        "profileUrl": "https://unsplash.com/@jan_huber",
+        "photoPage": "https://unsplash.com/photos/silhouette-of-trees-under-cloudy-sky-during-sunset-K_POMQL99nc"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.nvchamber.ca/list/member/acs-building-systems-inc-3581",
+    "http://www.acswaterproofing.ca/",
+    "https://unsplash.com/photos/a-building-under-construction-KCiavuYDbWI",
+    "https://unsplash.com/photos/a-group-of-construction-equipment-sitting-in-the-dirt-yeTAHAnkEtg",
+    "https://unsplash.com/photos/a-black-and-white-photo-of-a-construction-site-tGXH1PKX5qY",
+    "https://unsplash.com/photos/a-stack-of-flyers-on-a-table-BchliBX7Hjg",
+    "https://unsplash.com/photos/a-building-is-under-construction-with-scaffolding-2wqCQc9WpIw",
+    "https://unsplash.com/photos/silhouette-of-trees-under-cloudy-sky-during-sunset-K_POMQL99nc"
+  ]
+}
