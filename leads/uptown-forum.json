@@ -1,0 +1,98 @@
+{
+  "slug": "uptown-forum",
+  "template": "aesthetic-calm",
+  "contentNiche": "aesthetic",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Uptown Forum LLC",
+    "phoneDisplay": "(833) 686-2900",
+    "phoneE164": "+18336862900",
+    "address": {
+      "city": "Greenville",
+      "region": "TX",
+      "postalCode": "75401",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Fri-Sat",
+        "time": "11am-8:30pm"
+      },
+      {
+        "days": "Tues-Thurs",
+        "time": "10:00am-8:00pm Fri & Sat 10:00am-8:30pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Uptown Forum LLC.*",
+    "sub": "A concept website prepared by KRIV for Uptown Forum LLC."
+  },
+  "seo": {
+    "title": "Uptown Forum LLC | Concept preview",
+    "description": "Concept preview of a website for Uptown Forum LLC in Greenville, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c2tpbmNhcmUlMjBwcm9kdWN0c3xlbnwxfDB8fHwxNzk0MTk0ODMyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c3BhJTIwdG93ZWxzfGVufDF8MHx8fDE3OTQxOTQ4MzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1671493234884-b1611bcf3e69?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c2VydW0lMjBib3R0bGVzfGVufDF8MHx8fDE3OTQxOTQ4MzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1693578538512-fc66f318c833?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8c3BhJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5NDE5NDgzNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8c2tpbmNhcmUlMjBwcm9kdWN0c3xlbnwxfDB8fHwxNzk0MTk0ODMyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8c3BhJTIwdG93ZWxzfGVufDF8MHx8fDE3OTQxOTQ4MzN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Jocelyn Morales",
+        "profileUrl": "https://unsplash.com/@molnj",
+        "photoPage": "https://unsplash.com/photos/white-cosmetic-cream-smear-JiqTLjzEH18"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Camille Brodard",
+        "profileUrl": "https://unsplash.com/@kmile_ch",
+        "photoPage": "https://unsplash.com/photos/white-plastic-pump-bottle-beside-pink-tulips-and-gray-towel-VxAwTeiqDao"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Denise Chan",
+        "profileUrl": "https://unsplash.com/@elchan",
+        "photoPage": "https://unsplash.com/photos/two-small-brown-bottles-sitting-on-top-of-a-table-SUKlXOejFG8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sherzod Gulomov",
+        "profileUrl": "https://unsplash.com/@s_g_arch",
+        "photoPage": "https://unsplash.com/photos/a-couple-of-chairs-sitting-next-to-each-other-in-a-room-npE_I2GzpHY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "pmv chamara",
+        "profileUrl": "https://unsplash.com/@pmvch",
+        "photoPage": "https://unsplash.com/photos/pink-cosmetic-containers-and-makeup-brush-dMjkQJs58uo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Denny Müller",
+        "profileUrl": "https://unsplash.com/@redaquamedia",
+        "photoPage": "https://unsplash.com/photos/four-green-towels-s9zGsWDiFO4"
+      }
+    ]
+  },
+  "sources": [
+    "https://greenvillechambertx.chambermaster.com/list/member/uptown-forum-llc-3045",
+    "http://www.uptownforum.net/",
+    "https://unsplash.com/photos/white-cosmetic-cream-smear-JiqTLjzEH18",
+    "https://unsplash.com/photos/white-plastic-pump-bottle-beside-pink-tulips-and-gray-towel-VxAwTeiqDao",
+    "https://unsplash.com/photos/two-small-brown-bottles-sitting-on-top-of-a-table-SUKlXOejFG8",
+    "https://unsplash.com/photos/a-couple-of-chairs-sitting-next-to-each-other-in-a-room-npE_I2GzpHY",
+    "https://unsplash.com/photos/pink-cosmetic-containers-and-makeup-brush-dMjkQJs58uo",
+    "https://unsplash.com/photos/four-green-towels-s9zGsWDiFO4"
+  ]
+}
