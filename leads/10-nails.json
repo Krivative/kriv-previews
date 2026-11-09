@@ -1,0 +1,89 @@
+{
+  "slug": "10-nails",
+  "template": "aesthetic-bold",
+  "contentNiche": "salon",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "The 10 of Nails",
+    "category": "Salon",
+    "phoneDisplay": "(818) 935-2315",
+    "phoneE164": "+18189352315",
+    "address": {
+      "line1": "2114 W. Magnolia Blvd. Suite A",
+      "city": "Burbank",
+      "region": "CA",
+      "postalCode": "91506",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *The 10 of Nails.*",
+    "sub": "A concept website prepared by KRIV for The 10 of Nails."
+  },
+  "seo": {
+    "title": "The 10 of Nails | Concept preview",
+    "description": "Concept preview of a website for The 10 of Nails in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1716139368032-d0cbb81de678?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bWFuaWN1cmUlMjB0YWJsZXxlbnwxfDB8fHwxNzk0MTI4NDU1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1650176491728-a5e6edd08575?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bmFpbCUyMHNhbG9uJTIwbWFuaWN1cmV8ZW58MXwwfHx8MTc5MzY5NDUzNXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1544816135-b44f18b3c5d6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bmFpbCUyMHBvbGlzaCUyMGNvbG9yc3xlbnwxfDB8fHwxNzk0MTI4NDU0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1611518579441-0ff6fca98727?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bWFuaWN1cmUlMjB0YWJsZXxlbnwxfDB8fHwxNzk0MTI4NDU1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1667242197482-ffe672de74da?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bmFpbCUyMHBvbGlzaCUyMGNvbG9yc3xlbnwxfDB8fHwxNzk0MTI4NDU0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599474217443-56aa0c5c3c9b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bWFuaWN1cmUlMjB0YWJsZXxlbnwxfDB8fHwxNzk0MTI4NDU1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Alin Gavriliuc",
+        "profileUrl": "https://unsplash.com/@alingavriliuc",
+        "photoPage": "https://unsplash.com/photos/a-white-table-with-a-glass-of-toothbrushes-on-top-of-it-G5Sd-5q9L4o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "H&CO",
+        "profileUrl": "https://unsplash.com/@hngstrm",
+        "photoPage": "https://unsplash.com/photos/a-row-of-different-colored-rolls-of-toilet-paper-heaQs3-HTSw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Kelly Sikkema",
+        "profileUrl": "https://unsplash.com/@kellysikkema",
+        "photoPage": "https://unsplash.com/photos/pink-and-clear-labeled-bottle-sggvubXCOQ0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hermes Rivera",
+        "profileUrl": "https://unsplash.com/@hermez777",
+        "photoPage": "https://unsplash.com/photos/white-plastic-bottle-on-table-tNlCXchWR3E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maria Lupan",
+        "profileUrl": "https://unsplash.com/@luandmario",
+        "photoPage": "https://unsplash.com/photos/a-group-of-different-colored-bottles-jzC0pvbXdN8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "MChe Lee",
+        "profileUrl": "https://unsplash.com/@mclee",
+        "photoPage": "https://unsplash.com/photos/black-and-white-electric-wires-on-brown-wooden-floor-GCdyqIqfGSQ"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/the-10-of-nails",
+    "https://unsplash.com/photos/a-white-table-with-a-glass-of-toothbrushes-on-top-of-it-G5Sd-5q9L4o",
+    "https://unsplash.com/photos/a-row-of-different-colored-rolls-of-toilet-paper-heaQs3-HTSw",
+    "https://unsplash.com/photos/pink-and-clear-labeled-bottle-sggvubXCOQ0",
+    "https://unsplash.com/photos/white-plastic-bottle-on-table-tNlCXchWR3E",
+    "https://unsplash.com/photos/a-group-of-different-colored-bottles-jzC0pvbXdN8",
+    "https://unsplash.com/photos/black-and-white-electric-wires-on-brown-wooden-floor-GCdyqIqfGSQ"
+  ]
+}
