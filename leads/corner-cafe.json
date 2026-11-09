@@ -1,0 +1,88 @@
+{
+  "slug": "corner-cafe",
+  "template": "restaurant-calm",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-07",
+  "expiresAt": "2026-12-07",
+  "status": "approved",
+  "business": {
+    "name": "Corner Cafe",
+    "phoneDisplay": "(850) 803-0263",
+    "phoneE164": "+18508030263",
+    "address": {
+      "city": "Fort Walton Beach",
+      "region": "FL",
+      "postalCode": "32547",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Corner Cafe.*",
+    "sub": "A concept website prepared by KRIV for Corner Cafe."
+  },
+  "seo": {
+    "title": "Corner Cafe | Concept preview",
+    "description": "Concept preview of a website for Corner Cafe in Fort Walton Beach, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1784571249204-b7abc327787b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1709548145082-04d0cde481d4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1617473345933-609b7153daf4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGNoZWYlMjBjb29raW5nfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1665989215795-f67f4723087d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776614277456-0fcbc6712eb6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718939043990-83078968ae7e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Alfonso Betancourt",
+        "profileUrl": "https://unsplash.com/@tigredemar",
+        "photoPage": "https://unsplash.com/photos/a-gourmet-dish-with-grilled-food-guacamole-beans-and-lime-SRddPrqUpX8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Oliver Guhr",
+        "profileUrl": "https://unsplash.com/@oliverguhr",
+        "photoPage": "https://unsplash.com/photos/a-dimly-lit-restaurant-with-tables-and-chairs-EjHiN2KxTO4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "MealPro",
+        "profileUrl": "https://unsplash.com/@mealpro",
+        "photoPage": "https://unsplash.com/photos/chef-holding-green-and-yellow-plastic-tray-DqczrdE5fOE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ben Koorengevel",
+        "profileUrl": "https://unsplash.com/@benkoorengevel",
+        "photoPage": "https://unsplash.com/photos/a-table-full-of-food-CBCOGvb6-Lg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Timon Reinhard",
+        "profileUrl": "https://unsplash.com/@timonreinhard",
+        "photoPage": "https://unsplash.com/photos/empty-modern-restaurant-interior-with-tables-and-chairs-xdH_meHcePo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Lock",
+        "profileUrl": "https://unsplash.com/@milo_photo",
+        "photoPage": "https://unsplash.com/photos/a-bowl-of-food-sitting-on-top-of-a-table-rK5ZiyEj-3Q"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.fwbchamber.org/list/member/corner-cafe-9339",
+    "https://unsplash.com/photos/a-gourmet-dish-with-grilled-food-guacamole-beans-and-lime-SRddPrqUpX8",
+    "https://unsplash.com/photos/a-dimly-lit-restaurant-with-tables-and-chairs-EjHiN2KxTO4",
+    "https://unsplash.com/photos/chef-holding-green-and-yellow-plastic-tray-DqczrdE5fOE",
+    "https://unsplash.com/photos/a-table-full-of-food-CBCOGvb6-Lg",
+    "https://unsplash.com/photos/empty-modern-restaurant-interior-with-tables-and-chairs-xdH_meHcePo",
+    "https://unsplash.com/photos/a-bowl-of-food-sitting-on-top-of-a-table-rK5ZiyEj-3Q"
+  ]
+}
