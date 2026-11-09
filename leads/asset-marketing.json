@@ -1,0 +1,89 @@
+{
+  "slug": "asset-marketing",
+  "template": "resort-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Asset Marketing & Property Management, Inc.",
+    "category": "Property management",
+    "phoneDisplay": "(941) 743-4000",
+    "phoneE164": "+19417434000",
+    "address": {
+      "city": "Port Charlotte",
+      "region": "FL",
+      "postalCode": "33952",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Asset Marketing & Property Management, Inc..*",
+    "sub": "A concept website prepared by KRIV for Asset Marketing & Property Management, Inc.."
+  },
+  "seo": {
+    "title": "Asset Marketing & Property Management, Inc. | Concept preview",
+    "description": "Concept preview of a website for Asset Marketing & Property Management, Inc. in Port Charlotte, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YXBhcnRtZW50JTIwYnVpbGRpbmclMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTg3MDEyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1628592102751-ba83b0314276?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwYXBhcnRtZW50JTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5NDE4NzAxMnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1694501522559-980c07631b21?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8dG93bmhvdXNlcyUyMHN0cmVldHxlbnwxfDB8fHwxNzk0MTg3MDEzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YXBhcnRtZW50JTIwYmFsY29ueXxlbnwxfDB8fHwxNzk0MTg3MDEzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1624204386084-dd8c05e32226?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YXBhcnRtZW50JTIwYnVpbGRpbmclMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTg3MDEyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1666282167632-c613fbeb163c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8bW9kZXJuJTIwYXBhcnRtZW50JTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc5NDE4NzAxMnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Luke van Zyl",
+        "profileUrl": "https://unsplash.com/@lukevz",
+        "photoPage": "https://unsplash.com/photos/black-and-white-cocnrete-building-low-angle-photography-koH7IVuwRLw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Huy Nguyen",
+        "profileUrl": "https://unsplash.com/@huynguyen_pch",
+        "photoPage": "https://unsplash.com/photos/living-room-with-television-and-armchair-AB-q9lwCVv8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Loris Boulinguez",
+        "profileUrl": "https://unsplash.com/@cli_k",
+        "photoPage": "https://unsplash.com/photos/a-street-lined-with-tall-red-brick-buildings-YjmnoFxpgIU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ján Jakub Naništa",
+        "profileUrl": "https://unsplash.com/@janjakubnanista",
+        "photoPage": "https://unsplash.com/photos/white-and-blue-concrete-4-storey-building-UHyrjKPsshk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Tobias Wilden",
+        "profileUrl": "https://unsplash.com/@tobiasw",
+        "photoPage": "https://unsplash.com/photos/apartment-building-reflecting-pink-sky-4453DIQWtsQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lotus Design N Print",
+        "profileUrl": "https://unsplash.com/@lotusdnp",
+        "photoPage": "https://unsplash.com/photos/a-living-room-with-a-couch-and-a-coffee-table-cnXTU42C0sg"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.ampmrentals.com/",
+    "http://www.ampmrentals.com/contact",
+    "https://unsplash.com/photos/black-and-white-cocnrete-building-low-angle-photography-koH7IVuwRLw",
+    "https://unsplash.com/photos/living-room-with-television-and-armchair-AB-q9lwCVv8",
+    "https://unsplash.com/photos/a-street-lined-with-tall-red-brick-buildings-YjmnoFxpgIU",
+    "https://unsplash.com/photos/white-and-blue-concrete-4-storey-building-UHyrjKPsshk",
+    "https://unsplash.com/photos/apartment-building-reflecting-pink-sky-4453DIQWtsQ",
+    "https://unsplash.com/photos/a-living-room-with-a-couch-and-a-coffee-table-cnXTU42C0sg"
+  ]
+}
