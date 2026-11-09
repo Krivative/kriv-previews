@@ -1,0 +1,87 @@
+{
+  "slug": "baileys-bookkeeping-plus",
+  "template": "office-bold",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Bailey's Bookkeeping Plus",
+    "phoneDisplay": "(760) 802-2739",
+    "phoneE164": "+17608022739",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Bailey's Bookkeeping Plus.*",
+    "sub": "A concept website prepared by KRIV for Bailey's Bookkeeping Plus."
+  },
+  "seo": {
+    "title": "Bailey's Bookkeeping Plus | Concept preview",
+    "description": "Concept preview of a website for Bailey's Bookkeeping Plus in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1771366629899-2b695442ad31?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1703355685952-03ed19f70f51?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjh8fG1vZGVybiUyMG9mZmljZXxlbnwxfDB8fHwxNzkzNzY4MjUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762427354136-404f0c16dcd6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1792161394906-a630d24759a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fGRvY3VtZW50cyUyMGRlc2t8ZW58MXwwfHx8MTc5Mzc2ODI1M3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fG1lZXRpbmclMjByb29tfGVufDF8MHx8fDE3OTM3NjgyNTN8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1762265591492-1454ae17f31a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fG9mZmljZSUyMGRlc2slMjBjYWxjdWxhdG9yfGVufDF8MHx8fDE3OTM3NjgyNTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Calvin Wise",
+        "profileUrl": "https://unsplash.com/@wiseboysca",
+        "photoPage": "https://unsplash.com/photos/retro-desk-with-vintage-computer-and-drawing-supplies-6PAGsCSXSFc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Aleksandrs Karevs",
+        "profileUrl": "https://unsplash.com/@ohmycamera",
+        "photoPage": "https://unsplash.com/photos/a-conference-room-with-a-large-table-and-chairs-ZCDA1-cih6o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-plant-glasses-and-pencil-rMubJVYu9Wc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Chloë Forbes-Kindlen",
+        "profileUrl": "https://unsplash.com/@chloeforbesk",
+        "photoPage": "https://unsplash.com/photos/clip-file-and-book-on-desk-CfCkGvzwG1U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nastuh Abootalebi",
+        "profileUrl": "https://unsplash.com/@sunday_digital",
+        "photoPage": "https://unsplash.com/photos/pink-dining-table-with-four-chairs-inside-room-J1rNS2qv8BQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Cht Gsml",
+        "profileUrl": "https://unsplash.com/@karepesinde",
+        "photoPage": "https://unsplash.com/photos/desk-with-calculator-papers-and-prayer-beads-MWa1Ui1ZPT4"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/bailey's-bookkeeping-plus",
+    "https://unsplash.com/photos/retro-desk-with-vintage-computer-and-drawing-supplies-6PAGsCSXSFc",
+    "https://unsplash.com/photos/a-conference-room-with-a-large-table-and-chairs-ZCDA1-cih6o",
+    "https://unsplash.com/photos/desk-with-calculator-plant-glasses-and-pencil-rMubJVYu9Wc",
+    "https://unsplash.com/photos/clip-file-and-book-on-desk-CfCkGvzwG1U",
+    "https://unsplash.com/photos/pink-dining-table-with-four-chairs-inside-room-J1rNS2qv8BQ",
+    "https://unsplash.com/photos/desk-with-calculator-papers-and-prayer-beads-MWa1Ui1ZPT4"
+  ]
+}
