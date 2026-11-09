@@ -1,0 +1,88 @@
+{
+  "slug": "schafer-electric",
+  "template": "hvac-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Schafer Electric, Inc.",
+    "phoneDisplay": "(818) 845-1622",
+    "phoneE164": "+18188451622",
+    "address": {
+      "city": "CA",
+      "region": "CA",
+      "postalCode": "91504",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Schafer Electric, Inc..*",
+    "sub": "A concept website prepared by KRIV for Schafer Electric, Inc.."
+  },
+  "seo": {
+    "title": "Schafer Electric, Inc. | Concept preview",
+    "description": "Concept preview of a website for Schafer Electric, Inc. in CA, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8ZWxlY3RyaWNhbCUyMGNhYmxlc3xlbnwxfDB8fHwxNzkzNzUzNTUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1607631697491-61972eecf928?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8ZWxlY3RyaWNhbCUyMHBhbmVsfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1583482183008-5bc2179b1a64?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bGVkJTIwbGlnaHRpbmclMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5MzY4ODk3OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1567409378873-888d6fa7debc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8ZXYlMjBjaGFyZ2VyfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1518181835702-6eef8b4b2113?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8ZWxlY3RyaWNhbCUyMGNhYmxlc3xlbnwxfDB8fHwxNzkzNzUzNTUzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1566417110090-6b15a06ec800?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8ZWxlY3RyaWNhbCUyMHBhbmVsfGVufDF8MHx8fDE3OTM3NTM1NTJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Scott Rodgerson",
+        "profileUrl": "https://unsplash.com/@scottrodgerson",
+        "photoPage": "https://unsplash.com/photos/a-bunch-of-blue-wires-connected-to-each-other-PSpf_XgOM5w"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Bridges",
+        "profileUrl": "https://unsplash.com/@esptroy",
+        "photoPage": "https://unsplash.com/photos/black-and-gray-audio-mixer-kXC6XhVL1e4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mark Thompson",
+        "profileUrl": "https://unsplash.com/@markthompson_media",
+        "photoPage": "https://unsplash.com/photos/purple-green-and-yellow-lighted-building-during-night-time-TVHnYq9PZJQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Andrew Roberts",
+        "profileUrl": "https://unsplash.com/@studiodenley",
+        "photoPage": "https://unsplash.com/photos/black-vehicle-2JvEjF0tf50"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Steve A Johnson",
+        "profileUrl": "https://unsplash.com/@steve_j",
+        "photoPage": "https://unsplash.com/photos/gray-and-white-rolled-cable-hokONTrHIAQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Bridges",
+        "profileUrl": "https://unsplash.com/@esptroy",
+        "photoPage": "https://unsplash.com/photos/gray-power-switch-box-maXnRLszYY0"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/schafer-electric%2C-inc.",
+    "https://unsplash.com/photos/a-bunch-of-blue-wires-connected-to-each-other-PSpf_XgOM5w",
+    "https://unsplash.com/photos/black-and-gray-audio-mixer-kXC6XhVL1e4",
+    "https://unsplash.com/photos/purple-green-and-yellow-lighted-building-during-night-time-TVHnYq9PZJQ",
+    "https://unsplash.com/photos/black-vehicle-2JvEjF0tf50",
+    "https://unsplash.com/photos/gray-and-white-rolled-cable-hokONTrHIAQ",
+    "https://unsplash.com/photos/gray-power-switch-box-maXnRLszYY0"
+  ]
+}
