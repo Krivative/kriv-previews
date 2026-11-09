@@ -1,0 +1,118 @@
+{
+  "slug": "zapata-womens",
+  "template": "dental-clear",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Zapata Women's Health Center",
+    "phoneDisplay": "(903) 454-2130",
+    "phoneE164": "+19034542130",
+    "address": {
+      "city": "Greenville",
+      "region": "TX",
+      "postalCode": "75402",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "time": "8:30 am - 12:00"
+      },
+      {
+        "days": "Tuesday",
+        "time": "8:30 am - 12:00"
+      },
+      {
+        "days": "Wednesday",
+        "time": "8:30 am - 12:00"
+      },
+      {
+        "days": "Thursday",
+        "time": "8:30 am - 12:00"
+      },
+      {
+        "days": "Friday",
+        "time": "8:30 am - 12:00"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Zapata Women's Health Center.*",
+    "sub": "A concept website prepared by KRIV for Zapata Women's Health Center."
+  },
+  "services": {
+    "title": "What we do",
+    "items": [
+      {
+        "name": "Annual Exams",
+        "blurb": "Learn about annual exams."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Zapata Women's Health Center | Concept preview",
+    "description": "Concept preview of a website for Zapata Women's Health Center in Greenville, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1720180244494-c56d7f57e2b5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1716003798181-ba3b75f5183c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1781710524112-d8a950e6a529?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1667964395374-b789035b8133?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1785688835731-324a926f6bba?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzV8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjZ8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "camera obscura",
+        "profileUrl": "https://unsplash.com/@cameraobscura2000",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-thermometer-and-a-hose-0sWa1CAu_p0"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hardeep Singh",
+        "profileUrl": "https://unsplash.com/@hardeepjpg",
+        "photoPage": "https://unsplash.com/photos/a-vase-filled-with-white-flowers-sitting-on-top-of-a-counter--kcOh37bUWc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Navy Medicine",
+        "profileUrl": "https://unsplash.com/@navymedicine",
+        "photoPage": "https://unsplash.com/photos/surgeons-perform-operation-under-bright-lights-_Ja9A239xTo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Na sen",
+        "profileUrl": "https://unsplash.com/@nasen",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-a-computer-DFEpFhpPYoQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "yaser mobarakabadi",
+        "profileUrl": "https://unsplash.com/@hara0029",
+        "photoPage": "https://unsplash.com/photos/surgeons-performing-an-operation-in-a-brightly-lit-operating-room-b3y2aiqfbE4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Deliberate Directions",
+        "profileUrl": "https://unsplash.com/@deliberatedirections",
+        "photoPage": "https://unsplash.com/photos/a-modern-office-space-with-stylish-decor-cFJcDGUWnes"
+      }
+    ]
+  },
+  "sources": [
+    "https://zapatawhc.com/",
+    "https://unsplash.com/photos/a-close-up-of-a-thermometer-and-a-hose-0sWa1CAu_p0",
+    "https://unsplash.com/photos/a-vase-filled-with-white-flowers-sitting-on-top-of-a-counter--kcOh37bUWc",
+    "https://unsplash.com/photos/surgeons-perform-operation-under-bright-lights-_Ja9A239xTo",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-a-computer-DFEpFhpPYoQ",
+    "https://unsplash.com/photos/surgeons-performing-an-operation-in-a-brightly-lit-operating-room-b3y2aiqfbE4",
+    "https://unsplash.com/photos/a-modern-office-space-with-stylish-decor-cFJcDGUWnes"
+  ]
+}
