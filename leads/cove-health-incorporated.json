@@ -1,0 +1,106 @@
+{
+  "slug": "cove-health-incorporated",
+  "template": "chiro-calm",
+  "contentNiche": "general",
+  "lang": "en-CA",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Cove Health Incorporated",
+    "phoneDisplay": "(604) 929-1978",
+    "phoneE164": "+16049291978",
+    "address": {
+      "city": "North Vancouver",
+      "region": "BC",
+      "postalCode": "V7G 1M9",
+      "country": "CA"
+    },
+    "hours": [
+      {
+        "days": "Mon - Sat",
+        "time": "9:30 AM - 6:00 PM"
+      },
+      {
+        "days": "Mon- Fri",
+        "time": "9:30 AM - 6:30 PM"
+      },
+      {
+        "days": "Saturday",
+        "time": "9:30 AM - 5:30 PM"
+      },
+      {
+        "days": "Mon-Fri",
+        "time": "9am – 5pm"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Cove Health Incorporated.*",
+    "sub": "A concept website prepared by KRIV for Cove Health Incorporated."
+  },
+  "seo": {
+    "title": "Cove Health Incorporated | Concept preview",
+    "description": "Concept preview of a website for Cove Health Incorporated in North Vancouver, BC, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1771918521550-13c68e5d2173?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjB8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1778151270902-cb0ca572f2ee?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985023318-1efa6c4abd4b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjF8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1514499007249-cd680c1d1060?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fHBoeXNpY2FsJTIwdGhlcmFweXxlbnwxfDB8fHwxNzk0MTMyMDYxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1720180244462-648c13ee01e5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fHRyZWF0bWVudCUyMHJvb218ZW58MXwwfHx8MTc5NDEzMjA2MHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1672985023380-56700b379213?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjJ8fGNsaW5pYyUyMHJlY2VwdGlvbnxlbnwxfDB8fHwxNzk0MTMyMDYwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Wafiq Raza",
+        "profileUrl": "https://unsplash.com/@wafiqraza",
+        "photoPage": "https://unsplash.com/photos/a-reception-desk-with-artwork-on-the-wall--1_q0o5I5D8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Irshad Pathan",
+        "profileUrl": "https://unsplash.com/@alrighthospital",
+        "photoPage": "https://unsplash.com/photos/a-modern-hospital-room-with-an-adjustable-bed-3EIraOmufG4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it-v8PFw8Tx-yE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jesper Aggergaard",
+        "profileUrl": "https://unsplash.com/@aggergakker",
+        "photoPage": "https://unsplash.com/photos/black-corded-device-on-table-top-38Hg7GMTogo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "camera obscura",
+        "profileUrl": "https://unsplash.com/@cameraobscura2000",
+        "photoPage": "https://unsplash.com/photos/a-close-up-of-a-group-of-medical-instruments-NGiuYCI6phY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Birk Enwald",
+        "profileUrl": "https://unsplash.com/@birkenwald",
+        "photoPage": "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it--MvvB3zzrXE"
+      }
+    ]
+  },
+  "sources": [
+    "https://business.nvchamber.ca/list/member/cove-health-incorporated-3033",
+    "http://www.covehealth.ca/",
+    "https://unsplash.com/photos/a-reception-desk-with-artwork-on-the-wall--1_q0o5I5D8",
+    "https://unsplash.com/photos/a-modern-hospital-room-with-an-adjustable-bed-3EIraOmufG4",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it-v8PFw8Tx-yE",
+    "https://unsplash.com/photos/black-corded-device-on-table-top-38Hg7GMTogo",
+    "https://unsplash.com/photos/a-close-up-of-a-group-of-medical-instruments-NGiuYCI6phY",
+    "https://unsplash.com/photos/a-room-with-a-desk-and-a-chair-in-it--MvvB3zzrXE"
+  ]
+}
