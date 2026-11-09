@@ -1,0 +1,95 @@
+{
+  "slug": "vision-flooring",
+  "template": "plumbing-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Vision Flooring",
+    "phoneDisplay": "(480) 558-9777",
+    "phoneE164": "+14805589777",
+    "address": {
+      "line1": "480 E Warner Rd",
+      "city": "#4",
+      "region": "AZ",
+      "postalCode": "85225",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday through Thursday",
+        "time": "8:00 AM to 5:00 PM Friday by appointment only"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Vision Flooring.*",
+    "sub": "A concept website prepared by KRIV for Vision Flooring."
+  },
+  "seo": {
+    "title": "Vision Flooring | Concept preview",
+    "description": "Concept preview of a website for Vision Flooring in #4, AZ, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8bW9kZXJuJTIwaG9tZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTM2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1599619585752-c3edb42a414c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1644185711758-7f7237b215b0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8dG9vbHMlMjB3b3JrYmVuY2h8ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1563869996856-015b65f5d9a1?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bmV3JTIwZmxvb3IlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1724582586529-62622e50c0b3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bW9kZXJuJTIwaG9tZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTM2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8aG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzkzNjcwOTY5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Bailey Alexander",
+        "profileUrl": "https://unsplash.com/@baileyal3xander",
+        "photoPage": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-kitchen-PE4pFgcYzoQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Karl Solano",
+        "profileUrl": "https://unsplash.com/@karlsolano",
+        "photoPage": "https://unsplash.com/photos/paint-roller-in-white-paint-tray-eQ-8iUrb07g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nifty Leather",
+        "profileUrl": "https://unsplash.com/@niftyleather",
+        "photoPage": "https://unsplash.com/photos/a-wooden-table-topped-with-a-cutting-board-and-a-pair-of-scissors-JynUFLb77N8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ricardo Gomez Angel",
+        "profileUrl": "https://unsplash.com/@rgaleriacom",
+        "photoPage": "https://unsplash.com/photos/white-wall-building-during-daytime-g3VL7Jglmbg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Prydumano Design",
+        "profileUrl": "https://unsplash.com/@prydumanodesign",
+        "photoPage": "https://unsplash.com/photos/a-modern-living-room-with-a-large-window-vIbxvHj9m9g"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "vu anh",
+        "profileUrl": "https://unsplash.com/@naomi365photography",
+        "photoPage": "https://unsplash.com/photos/brown-and-black-wooden-house-TiVPTYCG_3E"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.visionflooringaz.com/",
+    "https://business.chandlerchamber.com/list/member/vision-flooring-18731",
+    "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-kitchen-PE4pFgcYzoQ",
+    "https://unsplash.com/photos/paint-roller-in-white-paint-tray-eQ-8iUrb07g",
+    "https://unsplash.com/photos/a-wooden-table-topped-with-a-cutting-board-and-a-pair-of-scissors-JynUFLb77N8",
+    "https://unsplash.com/photos/white-wall-building-during-daytime-g3VL7Jglmbg",
+    "https://unsplash.com/photos/a-modern-living-room-with-a-large-window-vIbxvHj9m9g",
+    "https://unsplash.com/photos/brown-and-black-wooden-house-TiVPTYCG_3E"
+  ]
+}
