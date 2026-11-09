@@ -1,0 +1,92 @@
+{
+  "slug": "zobel-real-estate",
+  "template": "resort-bold",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Zobel Real Estate, Inc.",
+    "phoneDisplay": "(941) 629-6600",
+    "phoneE164": "+19416296600",
+    "address": {
+      "line1": "21202 Olean Blvd.",
+      "city": "Ste. A3",
+      "region": "FL",
+      "postalCode": "33952",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "A fresh look for *Zobel Real Estate, Inc..*",
+    "sub": "A concept website prepared by KRIV for Zobel Real Estate, Inc.."
+  },
+  "seo": {
+    "title": "Zobel Real Estate, Inc. | Concept preview",
+    "description": "Concept preview of a website for Zobel Real Estate, Inc. in Ste. A3, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1562770584-eaf50b017307?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1722605090433-41d1183a792d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8a2l0Y2hlbiUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1779241883587-21546986f21b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8c3VidXJiYW4lMjBzdHJlZXQlMjBob21lc3xlbnwxfDB8fHwxNzk0MTgwMDkxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8YnJpZ2h0JTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1585914641050-fa9883c4e21c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8aG91c2UlMjBrZXlzfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Kelly Sikkema",
+        "profileUrl": "https://unsplash.com/@kellysikkema",
+        "photoPage": "https://unsplash.com/photos/gray-key-Nel8STCcWy8"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Stephen Owen",
+        "profileUrl": "https://unsplash.com/@stephenowen23",
+        "photoPage": "https://unsplash.com/photos/a-kitchen-with-white-cabinets-and-marble-counter-tops-rjjAKAp0KSw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Hansheng Zhao",
+        "profileUrl": "https://unsplash.com/@co",
+        "photoPage": "https://unsplash.com/photos/green-trees-line-a-peaceful-residential-street-SkkFuczPylM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "John Fornander",
+        "profileUrl": "https://unsplash.com/@johnfo",
+        "photoPage": "https://unsplash.com/photos/modern-white-villa-with-swimming-pool-Id7u0EkTjBE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/gray-and-white-sofa-set-trG8989WjFA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jaye Haych",
+        "profileUrl": "https://unsplash.com/@jaye_haych",
+        "photoPage": "https://unsplash.com/photos/black-and-silver-padlock-on-white-door-7tkDoo2L_Eg"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.zobelrealestate.com/about.php",
+    "http://www.zobelrealestate.com/",
+    "http://www.zobelrealestate.com/contact",
+    "https://northportchamber.chambermaster.com/list/member/zobel-real-estate-inc-285",
+    "https://unsplash.com/photos/gray-key-Nel8STCcWy8",
+    "https://unsplash.com/photos/a-kitchen-with-white-cabinets-and-marble-counter-tops-rjjAKAp0KSw",
+    "https://unsplash.com/photos/green-trees-line-a-peaceful-residential-street-SkkFuczPylM",
+    "https://unsplash.com/photos/modern-white-villa-with-swimming-pool-Id7u0EkTjBE",
+    "https://unsplash.com/photos/gray-and-white-sofa-set-trG8989WjFA",
+    "https://unsplash.com/photos/black-and-silver-padlock-on-white-door-7tkDoo2L_Eg"
+  ]
+}
