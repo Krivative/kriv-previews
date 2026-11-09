@@ -1,0 +1,87 @@
+{
+  "slug": "jmr-plumbing",
+  "template": "plumbing-calm",
+  "contentNiche": "plumbing",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "JMR Plumbing",
+    "category": "Plumbing",
+    "phoneDisplay": "(323) 382-4592",
+    "phoneE164": "+13233824592",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": []
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *JMR Plumbing.*",
+    "sub": "A concept website prepared by KRIV for JMR Plumbing."
+  },
+  "seo": {
+    "title": "JMR Plumbing | Concept preview",
+    "description": "Concept preview of a website for JMR Plumbing in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1538474705339-e87de81450e8?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cGx1bWJpbmclMjBwaXBlc3xlbnwxfDB8fHwxNzk0MTI4MjE0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8cGx1bWJlciUyMHRvb2xzfGVufDF8MHx8fDE3OTQxMjgyMTR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1521207418485-99c705420785?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8a2l0Y2hlbiUyMGZhdWNldHxlbnwxfDB8fHwxNzk0MTI4MjE1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MXx8YmF0aHJvb20lMjBzaW5rfGVufDF8MHx8fDE3OTQxMjgyMTZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1454988501794-2992f706932e?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8cGx1bWJlciUyMHRvb2xzfGVufDF8MHx8fDE3OTQxMjgyMTR8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1629078692818-c5a0443f4ae3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8a2l0Y2hlbiUyMGZhdWNldHxlbnwxfDB8fHwxNzk0MTI4MjE1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Samuel  Sianipar",
+        "profileUrl": "https://unsplash.com/@samthewam24",
+        "photoPage": "https://unsplash.com/photos/grayscale-photography-of-metal-pipes-scUBcasSvbE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Quilia",
+        "profileUrl": "https://unsplash.com/@heyquilia",
+        "photoPage": "https://unsplash.com/photos/selective-focus-photography-of-mechanics-tool-lot-60krlMMeWxU"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Imani",
+        "profileUrl": "https://unsplash.com/@spider_mani",
+        "photoPage": "https://unsplash.com/photos/a-faucet-running-water-from-a-kitchen-sink-vDQ-e3RtaoE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Backbone",
+        "profileUrl": "https://unsplash.com/@bkbn",
+        "photoPage": "https://unsplash.com/photos/a-bathroom-with-a-toilet-sink-and-bathtub-L4iRkKL5dng"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Wesley Caribe",
+        "profileUrl": "https://unsplash.com/@wesleycaribe",
+        "photoPage": "https://unsplash.com/photos/flat-lay-photography-of-assorted-color-mechanical-tool-set-TtN_obfWlGw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Steven Ungermann",
+        "profileUrl": "https://unsplash.com/@steveungermann",
+        "photoPage": "https://unsplash.com/photos/stainless-steel-faucet-turned-off-IcNpBCQS3fk"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/jmr-plumbing",
+    "https://unsplash.com/photos/grayscale-photography-of-metal-pipes-scUBcasSvbE",
+    "https://unsplash.com/photos/selective-focus-photography-of-mechanics-tool-lot-60krlMMeWxU",
+    "https://unsplash.com/photos/a-faucet-running-water-from-a-kitchen-sink-vDQ-e3RtaoE",
+    "https://unsplash.com/photos/a-bathroom-with-a-toilet-sink-and-bathtub-L4iRkKL5dng",
+    "https://unsplash.com/photos/flat-lay-photography-of-assorted-color-mechanical-tool-set-TtN_obfWlGw",
+    "https://unsplash.com/photos/stainless-steel-faucet-turned-off-IcNpBCQS3fk"
+  ]
+}
