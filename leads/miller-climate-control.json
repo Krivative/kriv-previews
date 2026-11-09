@@ -1,0 +1,93 @@
+{
+  "slug": "miller-climate-control",
+  "template": "plumbing-calm",
+  "contentNiche": "hvac",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Miller Climate Control, LLC",
+    "phoneDisplay": "(512) 956-5040",
+    "phoneE164": "+15129565040",
+    "address": {
+      "city": "Georgetown",
+      "region": "TX",
+      "postalCode": "78626",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Monday - Sunday",
+        "time": "6am - Midnight"
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Meet *Miller Climate Control, LLC.*",
+    "sub": "A concept website prepared by KRIV for Miller Climate Control, LLC."
+  },
+  "seo": {
+    "title": "Miller Climate Control, LLC | Concept preview",
+    "description": "Concept preview of a website for Miller Climate Control, LLC in Georgetown, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1637958596366-15de843a9683?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8YWlyJTIwZHVjdCUyMHZlbnR8ZW58MXwwfHx8MTc5Mzc1ODUzM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1636569608385-58efc32690ea?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8dGhlcm1vc3RhdCUyMHdhbGx8ZW58MXwwfHx8MTc5Mzc1ODUzNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1747999703278-ef065c39cb18?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTV8fGh2YWMlMjB0ZWNobmljaWFufGVufDF8MHx8fDE3OTM3NTg1MzJ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1555814523-4ab2bb6b72cb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8ZnVybmFjZXxlbnwxfDB8fHwxNzkzNzU4NTMyfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1634114582073-c34f96202b65?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8YWlyJTIwZHVjdCUyMHZlbnR8ZW58MXwwfHx8MTc5Mzc1ODUzM3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8dGhlcm1vc3RhdCUyMHdhbGx8ZW58MXwwfHx8MTc5Mzc1ODUzNHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Vadim Babenko",
+        "profileUrl": "https://unsplash.com/@vakerbv",
+        "photoPage": "https://unsplash.com/photos/a-white-wall-with-three-round-windows-and-a-blue-fire-hydrant-V8dqQvO9oBA"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sean",
+        "profileUrl": "https://unsplash.com/@paus_d_",
+        "photoPage": "https://unsplash.com/photos/graphical-user-interface-YO5q_7BN7kQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "TECNIC Bioprocess Solutions",
+        "profileUrl": "https://unsplash.com/@tecnic",
+        "photoPage": "https://unsplash.com/photos/a-worker-is-using-a-grinder-in-the-workshop-8LrKlAXG_FQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Amruth Pillai",
+        "profileUrl": "https://unsplash.com/@amruthpillai",
+        "photoPage": "https://unsplash.com/photos/a-fire-burning-in-a-fireplace-with-lots-of-flames-mxVw6RZwi6o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lukáš Lehotský",
+        "profileUrl": "https://unsplash.com/@llehotsky",
+        "photoPage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-couple-of-pipes-s9JkUXyzDgI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Dan LeFebvre",
+        "profileUrl": "https://unsplash.com/@danlefeb",
+        "photoPage": "https://unsplash.com/photos/white-thermostat-at-62-mAwE-fqgDXc"
+      }
+    ]
+  },
+  "sources": [
+    "http://www.millerclimatecontrol.com/",
+    "https://unsplash.com/photos/a-white-wall-with-three-round-windows-and-a-blue-fire-hydrant-V8dqQvO9oBA",
+    "https://unsplash.com/photos/graphical-user-interface-YO5q_7BN7kQ",
+    "https://unsplash.com/photos/a-worker-is-using-a-grinder-in-the-workshop-8LrKlAXG_FQ",
+    "https://unsplash.com/photos/a-fire-burning-in-a-fireplace-with-lots-of-flames-mxVw6RZwi6o",
+    "https://unsplash.com/photos/a-black-and-white-photo-of-a-couple-of-pipes-s9JkUXyzDgI",
+    "https://unsplash.com/photos/white-thermostat-at-62-mAwE-fqgDXc"
+  ]
+}
