@@ -1,0 +1,88 @@
+{
+  "slug": "c2-management",
+  "template": "hvac-calm",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "C2 Management",
+    "phoneDisplay": "(540) 431-2329",
+    "phoneE164": "+15404312329",
+    "address": {
+      "city": "Berryville",
+      "region": "VA",
+      "postalCode": "22611",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *C2 Management.*",
+    "sub": "A concept website prepared by KRIV for C2 Management."
+  },
+  "seo": {
+    "title": "C2 Management | Concept preview",
+    "description": "Concept preview of a website for C2 Management in Berryville, VA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1634586648651-f1fb9ec10d90?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8N3x8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1699947636289-98d1ba5069e2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8dG9vbHMlMjB3b3JrYmVuY2h8ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1772306814076-ff65f53ac438?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8bmV3JTIwZmxvb3IlMjBpbnN0YWxsYXRpb258ZW58MXwwfHx8MTc5Mzc1MzYyMHww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NXx8bW9kZXJuJTIwaG9tZSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTM3NTM2MjF8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Nnx8aG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzkzNjcwOTY5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OHx8aG9tZSUyMHJlbm92YXRpb258ZW58MXwwfHx8MTc5Mzc1MzYxOXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Stefan Lehner",
+        "profileUrl": "https://unsplash.com/@st_lehner",
+        "photoPage": "https://unsplash.com/photos/room-renovation-with-metal-support-poles-biRt6RXejuk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Max Payload",
+        "profileUrl": "https://unsplash.com/@max_payload",
+        "photoPage": "https://unsplash.com/photos/a-workbench-filled-with-lots-of-clutter-and-tools-9fXNkJrf_tw"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Craftsman Concrete Floors",
+        "profileUrl": "https://unsplash.com/@craftsmanconcrete_official",
+        "photoPage": "https://unsplash.com/photos/empty-modern-warehouse-interior-with-polished-concrete-floor-pmWQwdO9Rpg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lotus Design N Print",
+        "profileUrl": "https://unsplash.com/@lotusdnp",
+        "photoPage": "https://unsplash.com/photos/living-room-with-dining-area-wRzBarqn3hs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Sieuwert Otterloo",
+        "profileUrl": "https://unsplash.com/@sieuwert",
+        "photoPage": "https://unsplash.com/photos/grey-house-in-fort-myers-aren8nutd1Q"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Nolan Issac",
+        "profileUrl": "https://unsplash.com/@nolanissac",
+        "photoPage": "https://unsplash.com/photos/abandoned-room-with-peeling-wallpaper-K5sjajgbTFw"
+      }
+    ]
+  },
+  "sources": [
+    "https://loudounchamber.chambermaster.com/list/member/c2-management-23769",
+    "https://unsplash.com/photos/room-renovation-with-metal-support-poles-biRt6RXejuk",
+    "https://unsplash.com/photos/a-workbench-filled-with-lots-of-clutter-and-tools-9fXNkJrf_tw",
+    "https://unsplash.com/photos/empty-modern-warehouse-interior-with-polished-concrete-floor-pmWQwdO9Rpg",
+    "https://unsplash.com/photos/living-room-with-dining-area-wRzBarqn3hs",
+    "https://unsplash.com/photos/grey-house-in-fort-myers-aren8nutd1Q",
+    "https://unsplash.com/photos/abandoned-room-with-peeling-wallpaper-K5sjajgbTFw"
+  ]
+}
