@@ -1,0 +1,87 @@
+{
+  "slug": "candy-clouds-catering",
+  "template": "cafe-poster",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "Candy Clouds Catering",
+    "phoneDisplay": "(818) 940-8484",
+    "phoneE164": "+18189408484",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *Candy Clouds Catering.*",
+    "sub": "A concept website prepared by KRIV for Candy Clouds Catering."
+  },
+  "seo": {
+    "title": "Candy Clouds Catering | Concept preview",
+    "description": "Concept preview of a website for Candy Clouds Catering in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1552960226-639240203497?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1689343116801-d1e1a9d252d7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1658280024253-34cafdfbb002?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1776856878909-84e9474ac6a6?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1744793981680-1914b08bf994?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1777502286570-2725dff09ce5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "takahiro taguchi",
+        "profileUrl": "https://unsplash.com/@tak_tag",
+        "photoPage": "https://unsplash.com/photos/lighted-lamps-in-room-8l_RuuZrOyY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Natalia Rüdisüli",
+        "profileUrl": "https://unsplash.com/@nruedisueli",
+        "photoPage": "https://unsplash.com/photos/a-platter-of-cheese-and-crackers-on-a-table-Ijp5eB0bv5E"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Rebecca Chandler",
+        "profileUrl": "https://unsplash.com/@rebecca_luckyducks",
+        "photoPage": "https://unsplash.com/photos/a-dining-room-table-with-chairs-around-it-fE3kcMhB1oc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Wharton",
+        "profileUrl": "https://unsplash.com/@brettwharton",
+        "photoPage": "https://unsplash.com/photos/sliced-steak-with-broccolini-and-sauce-on-a-plate-bLMa5GmAeYo"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Haberdoedas",
+        "profileUrl": "https://unsplash.com/@haberdoedas",
+        "photoPage": "https://unsplash.com/photos/a-waitress-serves-cake-and-coffee-tALGo5tBS3M"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Martin Baron",
+        "profileUrl": "https://unsplash.com/@elmartinbaron",
+        "photoPage": "https://unsplash.com/photos/modern-restaurant-interior-with-warm-lighting-and-seating-3QlfYs8VNc0"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/candy-clouds-desserts",
+    "https://unsplash.com/photos/lighted-lamps-in-room-8l_RuuZrOyY",
+    "https://unsplash.com/photos/a-platter-of-cheese-and-crackers-on-a-table-Ijp5eB0bv5E",
+    "https://unsplash.com/photos/a-dining-room-table-with-chairs-around-it-fE3kcMhB1oc",
+    "https://unsplash.com/photos/sliced-steak-with-broccolini-and-sauce-on-a-plate-bLMa5GmAeYo",
+    "https://unsplash.com/photos/a-waitress-serves-cake-and-coffee-tALGo5tBS3M",
+    "https://unsplash.com/photos/modern-restaurant-interior-with-warm-lighting-and-seating-3QlfYs8VNc0"
+  ]
+}
