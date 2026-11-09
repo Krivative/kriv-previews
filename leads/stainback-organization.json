@@ -1,0 +1,91 @@
+{
+  "slug": "stainback-organization",
+  "template": "resort-calm",
+  "contentNiche": "office",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "The Stainback Organization",
+    "phoneDisplay": "(214) 363-3900",
+    "phoneE164": "+12143633900",
+    "address": {
+      "line1": "5622 Dyer St.",
+      "city": "Suite 200",
+      "region": "TX",
+      "postalCode": "75206",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Explore *The Stainback Organization.*",
+    "sub": "A concept website prepared by KRIV for The Stainback Organization."
+  },
+  "seo": {
+    "title": "The Stainback Organization | Concept preview",
+    "description": "Concept preview of a website for The Stainback Organization in Suite 200, TX, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8bW9kZXJuJTIwaG91c2UlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDg5fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1704040686510-b747ff423ebb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8OXx8YnJpZ2h0JTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yfGVufDF8MHx8fDE3OTQxODAwOTB8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1733244766159-f58f4184fd38?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGhvdXNlJTIwa2V5c3xlbnwxfDB8fHwxNzk0MTgwMDkwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1785301694717-60af839a412c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTF8fHN1YnVyYmFuJTIwc3RyZWV0JTIwaG9tZXN8ZW58MXwwfHx8MTc5NDE4MDA5MXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fG1vZGVybiUyMGhvdXNlJTIwZXh0ZXJpb3J8ZW58MXwwfHx8MTc5NDE4MDA4OXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1631510390389-c1e4fb20ff31?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MTB8fGJyaWdodCUyMGxpdmluZyUyMHJvb20lMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzk0MTgwMDkwfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Zac Gudakov",
+        "profileUrl": "https://unsplash.com/@zacgudakov",
+        "photoPage": "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-5QLCohwVndQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Ariel Domenden",
+        "profileUrl": "https://unsplash.com/@hypvisual",
+        "photoPage": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-large-window-aObxGPf7J1o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Jakub Żerdzicki",
+        "profileUrl": "https://unsplash.com/@jakubzerdzicki",
+        "photoPage": "https://unsplash.com/photos/a-hand-holding-a-key-to-a-door-3HfGnyPfWqQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Chris Grant",
+        "profileUrl": "https://unsplash.com/@christheisland",
+        "photoPage": "https://unsplash.com/photos/overhead-view-of-a-suburban-neighborhood-and-winding-river-3PW1xgeFmbE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Stephan Bechert",
+        "profileUrl": "https://unsplash.com/@steve4c",
+        "photoPage": "https://unsplash.com/photos/landscape-photo-of-2-storey-house-yFV39g6AZ5o"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Spacejoy",
+        "profileUrl": "https://unsplash.com/@spacejoy",
+        "photoPage": "https://unsplash.com/photos/white-and-gray-sofa-chair-near-window-Kh4tedFdHz4"
+      }
+    ]
+  },
+  "sources": [
+    "http://stainback.com/",
+    "http://stainback.com/contact/",
+    "https://greenvillechambertx.chambermaster.com/list/member/the-stainback-organization-28077",
+    "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-5QLCohwVndQ",
+    "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-large-window-aObxGPf7J1o",
+    "https://unsplash.com/photos/a-hand-holding-a-key-to-a-door-3HfGnyPfWqQ",
+    "https://unsplash.com/photos/overhead-view-of-a-suburban-neighborhood-and-winding-river-3PW1xgeFmbE",
+    "https://unsplash.com/photos/landscape-photo-of-2-storey-house-yFV39g6AZ5o",
+    "https://unsplash.com/photos/white-and-gray-sofa-chair-near-window-Kh4tedFdHz4"
+  ]
+}
