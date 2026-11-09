@@ -1,0 +1,85 @@
+{
+  "slug": "david-frank",
+  "template": "hvac-bold",
+  "contentNiche": "general",
+  "lang": "en-US",
+  "createdAt": "2026-11-08",
+  "expiresAt": "2026-12-08",
+  "status": "approved",
+  "business": {
+    "name": "David Frank Boyd Construction",
+    "address": {
+      "city": "Burbank",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *David Frank Boyd Construction.*",
+    "sub": "A concept website prepared by KRIV for David Frank Boyd Construction."
+  },
+  "seo": {
+    "title": "David Frank Boyd Construction | Concept preview",
+    "description": "Concept preview of a website for David Frank Boyd Construction in Burbank, CA, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1785585508559-53a645d498f4?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjN8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1591638436214-1efb2036e616?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1562601555-513820e5d0eb?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mjd8fGFyY2hpdGVjdCUyMGJsdWVwcmludHMlMjBjb25zdHJ1Y3Rpb258ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1611679447961-6b4dc2c9cbf7?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBjcmFuZXxlbnwxfDB8fHwxNzkzOTI5ODQzfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1774869174949-9fd84ba6cc0c?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjR8fGJ1aWxkaW5nJTIwZnJhbWluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfDB8fHwxNzkzOTI5ODQ0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1783753444974-c1fcd211eb0b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MjV8fGNvbmNyZXRlJTIwZm91bmRhdGlvbiUyMHBvdXJ8ZW58MXwwfHx8MTc5MzkyOTg0NXww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/building-construction-with-exposed-wooden-beams-and-scaffolding-cO3Ci8rtCGI"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Brett Jordan",
+        "profileUrl": "https://unsplash.com/@brett_jordan",
+        "photoPage": "https://unsplash.com/photos/brown-concrete-blocks-on-brown-soil-BPCCshc3Adg"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Scott Blake",
+        "profileUrl": "https://unsplash.com/@sunburned_surveyor",
+        "photoPage": "https://unsplash.com/photos/white-printer-paper-BBQzXsbVnGs"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Maximilian Jaenicke",
+        "profileUrl": "https://unsplash.com/@maxican",
+        "photoPage": "https://unsplash.com/photos/blue-and-white-metal-tower-under-white-clouds-l0yj31Qv9lM"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Troy Mortier",
+        "profileUrl": "https://unsplash.com/@troyscanon",
+        "photoPage": "https://unsplash.com/photos/several-houses-under-construction-with-wooden-frames-AmGQi4pF_lE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Vadym Alyekseyenko",
+        "profileUrl": "https://unsplash.com/@vadym_alyekseyenko",
+        "photoPage": "https://unsplash.com/photos/construction-yard-with-trucks-concrete-blocks-and-aggregate-piles-93Jdcn4XVIk"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.burbankchamber.org/directory/david-frank-boyd-construction",
+    "https://unsplash.com/photos/building-construction-with-exposed-wooden-beams-and-scaffolding-cO3Ci8rtCGI",
+    "https://unsplash.com/photos/brown-concrete-blocks-on-brown-soil-BPCCshc3Adg",
+    "https://unsplash.com/photos/white-printer-paper-BBQzXsbVnGs",
+    "https://unsplash.com/photos/blue-and-white-metal-tower-under-white-clouds-l0yj31Qv9lM",
+    "https://unsplash.com/photos/several-houses-under-construction-with-wooden-frames-AmGQi4pF_lE",
+    "https://unsplash.com/photos/construction-yard-with-trucks-concrete-blocks-and-aggregate-piles-93Jdcn4XVIk"
+  ]
+}
