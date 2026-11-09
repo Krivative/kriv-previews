@@ -1,0 +1,88 @@
+{
+  "slug": "pink-fire-pizza",
+  "template": "restaurant-bold",
+  "contentNiche": "restaurant",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Pink Fire Pizza",
+    "phoneDisplay": "(941) 564-6151",
+    "phoneE164": "+19415646151",
+    "address": {
+      "city": "North Port",
+      "region": "FL",
+      "postalCode": "34287",
+      "country": "US"
+    },
+    "hours": [],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Pink Fire Pizza.*",
+    "sub": "A concept website prepared by KRIV for Pink Fire Pizza."
+  },
+  "seo": {
+    "title": "Pink Fire Pizza | Concept preview",
+    "description": "Concept preview of a website for Pink Fire Pizza in North Port, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1702165640807-0de256b9ec16?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1604931920035-e6316baed0e3?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1718939044138-5b76d9dd938b?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzB8fHBsYXRlZCUyMGRpc2h8ZW58MXwwfHx8MTc5Mzk0NDk3Mnww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1669410647983-ef742ccdfe6d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzN8fHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfDB8fHwxNzkzOTQ0OTc0fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1728129386664-1bb3196f1bce?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzF8fGZvb2QlMjBwbGF0dGVyfGVufDF8MHx8fDE3OTM5NDQ5NzV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1745794621090-d856c53b0cc2?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8MzJ8fHJlc3RhdXJhbnQlMjB0YWJsZXxlbnwxfDB8fHwxNzkzOTQ0OTcxfDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "Melody Zimmerman",
+        "profileUrl": "https://unsplash.com/@prairiepilgrim",
+        "photoPage": "https://unsplash.com/photos/a-white-plate-topped-with-food-on-top-of-a-table-nEdoEeX9zeQ"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Gabriella Clare Marino",
+        "profileUrl": "https://unsplash.com/@gabiontheroad",
+        "photoPage": "https://unsplash.com/photos/brown-wooden-chair-beside-table-FvgjdZ3hjkk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Michael Lock",
+        "profileUrl": "https://unsplash.com/@milo_photo",
+        "photoPage": "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-wine-glasses-gs-N7kzECrc"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Elevandos Medya",
+        "profileUrl": "https://unsplash.com/@elevandos",
+        "photoPage": "https://unsplash.com/photos/a-restaurant-with-tables-and-chairs-5roXmTjPA-s"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Haberdoedas",
+        "profileUrl": "https://unsplash.com/@haberdoedas",
+        "photoPage": "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-a-glass-of-water-bCaKKLduRYk"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Clay Banks",
+        "profileUrl": "https://unsplash.com/@claybanks",
+        "photoPage": "https://unsplash.com/photos/modern-dining-room-with-table-chairs-and-kitchen-urH155LONWs"
+      }
+    ]
+  },
+  "sources": [
+    "http://pinkfirepizza.com/",
+    "https://unsplash.com/photos/a-white-plate-topped-with-food-on-top-of-a-table-nEdoEeX9zeQ",
+    "https://unsplash.com/photos/brown-wooden-chair-beside-table-FvgjdZ3hjkk",
+    "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-wine-glasses-gs-N7kzECrc",
+    "https://unsplash.com/photos/a-restaurant-with-tables-and-chairs-5roXmTjPA-s",
+    "https://unsplash.com/photos/a-table-topped-with-plates-of-food-and-a-glass-of-water-bCaKKLduRYk",
+    "https://unsplash.com/photos/modern-dining-room-with-table-chairs-and-kitchen-urH155LONWs"
+  ]
+}
