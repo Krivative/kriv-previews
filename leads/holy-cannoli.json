@@ -1,0 +1,99 @@
+{
+  "slug": "holy-cannoli",
+  "template": "cafe-calm",
+  "contentNiche": "cafe",
+  "lang": "en-US",
+  "createdAt": "2026-11-09",
+  "expiresAt": "2026-12-09",
+  "status": "approved",
+  "business": {
+    "name": "Holy Cannoli Bakery & Cafe",
+    "phoneDisplay": "(772) 202-4931",
+    "phoneE164": "+17722024931",
+    "address": {
+      "city": "Barefoot Bay",
+      "region": "FL",
+      "postalCode": "32976",
+      "country": "US"
+    },
+    "hours": [
+      {
+        "days": "Tues.-Sat.",
+        "time": "8 A.M. - 6 P.M."
+      },
+      {
+        "days": "Sunday",
+        "time": "8 A.M. - 3 P.M."
+      }
+    ],
+    "category": ""
+  },
+  "design": {},
+  "hero": {
+    "headline": "Welcome to *Holy Cannoli Bakery & Cafe.*",
+    "sub": "A concept website prepared by KRIV for Holy Cannoli Bakery & Cafe."
+  },
+  "seo": {
+    "title": "Holy Cannoli Bakery & Cafe | Concept preview",
+    "description": "Concept preview of a website for Holy Cannoli Bakery & Cafe in Barefoot Bay, FL, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [
+      "https://images.unsplash.com/photo-1475296204602-08d15839e95f?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8Mnx8ZXNwcmVzc28lMjBtYWNoaW5lfGVufDF8MHx8fDE3OTM5MjgzNDV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8cGFzdHJpZXMlMjBkaXNwbGF5fGVufDF8MHx8fDE3OTM5MjgzNDZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1503240778100-fd245e17a273?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8bGF0dGUlMjBhcnR8ZW58MXwwfHx8MTc5MzkyODM0N3ww&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1640225388773-676754ec7b1d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8Y29mZmVlJTIwY3VwJTIwY2FmZXxlbnwxfDB8fHwxNzkzOTI4MzQ1fDA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8M3x8ZXNwcmVzc28lMjBtYWNoaW5lfGVufDF8MHx8fDE3OTM5MjgzNDV8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max",
+      "https://images.unsplash.com/photo-1643944471768-2d2eac3afb6d?ixid=M3wxMTEyNjU1fDB8MXxzZWFyY2h8NHx8cGFzdHJpZXMlMjBkaXNwbGF5fGVufDF8MHx8fDE3OTM5MjgzNDZ8MA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max"
+    ],
+    "photoCredits": [
+      {
+        "provider": "Unsplash",
+        "photographer": "GC Libraries Creative Tech Lab",
+        "profileUrl": "https://unsplash.com/@goldcoastmedialab",
+        "photoPage": "https://unsplash.com/photos/espresso-dripping-into-a-porcelain-mug-from-a-steel-machine-wiOEVPVRfW4"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Mink Mingle",
+        "profileUrl": "https://unsplash.com/@minkmingle",
+        "photoPage": "https://unsplash.com/photos/close-up-photography-of-baked-treats-on-tray-qZ5lPCPvdXE"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Lex Sirikiat",
+        "profileUrl": "https://unsplash.com/@pundalex",
+        "photoPage": "https://unsplash.com/photos/coffee-on-white-ceramic-mug-1tEkissU8dY"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "choi wooseok",
+        "profileUrl": "https://unsplash.com/@pigeon__pic",
+        "photoPage": "https://unsplash.com/photos/a-cappuccino-with-a-heart-on-it-on-a-wooden-tray-ZcjIOuWLl0U"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "tabitha turner",
+        "profileUrl": "https://unsplash.com/@tabithaturnervisuals",
+        "photoPage": "https://unsplash.com/photos/white-ceramic-cup-on-brown-wooden-table-KWZ-rg9o76A"
+      },
+      {
+        "provider": "Unsplash",
+        "photographer": "Peace Creative",
+        "profileUrl": "https://unsplash.com/@peacecreativestudio",
+        "photoPage": "https://unsplash.com/photos/a-display-case-filled-with-lots-of-different-types-of-pastries-pVY9k8pzTzM"
+      }
+    ]
+  },
+  "sources": [
+    "https://sebastianchamberfl.chambermaster.com/list/member/holy-cannoli-bakery-cafe-32685",
+    "http://www.holycannolibakery.com/contact-us.html",
+    "http://www.holycannolibakery.com/",
+    "https://unsplash.com/photos/espresso-dripping-into-a-porcelain-mug-from-a-steel-machine-wiOEVPVRfW4",
+    "https://unsplash.com/photos/close-up-photography-of-baked-treats-on-tray-qZ5lPCPvdXE",
+    "https://unsplash.com/photos/coffee-on-white-ceramic-mug-1tEkissU8dY",
+    "https://unsplash.com/photos/a-cappuccino-with-a-heart-on-it-on-a-wooden-tray-ZcjIOuWLl0U",
+    "https://unsplash.com/photos/white-ceramic-cup-on-brown-wooden-table-KWZ-rg9o76A",
+    "https://unsplash.com/photos/a-display-case-filled-with-lots-of-different-types-of-pastries-pVY9k8pzTzM"
+  ]
+}
