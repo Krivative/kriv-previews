@@ -27,7 +27,7 @@ export function PhRatesPage() {
       <OfferSections audience={audiences.general} />
 
       <section className={o.block} aria-labelledby="offer-next">
-        <p className={o.eyebrow}>10 / Next step</p>
+        <p className={o.eyebrow}>11 / Next step</p>
         <h2 id="offer-next">Start with a conversation.</h2>
         <p>Tell KRIV about your business and which service you would like to try first. This page has no form and collects no information.</p>
         <p className={o.actions}>

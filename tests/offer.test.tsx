@@ -9,7 +9,7 @@ import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import {
-  addOns, allThreeMonthly, annualPrice, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
+  addOns, allThreeMonthly, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
 
 const pco = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "pco-dental-clinic.json"), "utf8"));
@@ -25,7 +25,11 @@ function render(input: unknown, offer = false) {
 // Every figure both pages must show (Kriv's prices, 2026-11-16).
 const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000", "PHP 16,000", "12 image posts a month",
   "PHP 13,000 per month", "Regular rate PHP 15,000 per month", "PHP 156,000",
-  "15 months for PHP 156,000, about PHP 10,400 per month", "14 months for PHP 156,000, about PHP 11,143 per month", "13 months for PHP 156,000, about PHP 12,000 per month",
+  "15 months for the price of 12", "PHP 2,000 saved every month", "What you save on each service",
+  // Website: 15 months month by month, the annual price, the saving.
+  "PHP 45,000", "PHP 36,000", "PHP 9,000",
+  // CRM: 15, 14 and 13 months at the regular rate against the annual price.
+  "PHP 225,000", "PHP 210,000", "PHP 195,000", "PHP 69,000", "PHP 54,000", "PHP 39,000",
   "Days 15 to 17", "From day 24", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 per month",
   "Human VA trial", "AI VA trial", "Referral program", "Change orders", "physical store in the Philippines"];
 
@@ -44,6 +48,29 @@ describe("Philippines-market offer figures", () => {
     expect(decisionWindows.slice(0, 3).map(totalMonths)).toEqual([15, 14, 13]);
     expect(decisionWindows.slice(0, 3).map(effectiveMonthly)).toEqual([10400, 11143, 12000]);
     expect(decisionWindows.slice(0, 3).map(regularCost)).toEqual([225000, 210000, 195000]);
+  });
+});
+
+describe("annual plans and savings", () => {
+  const [three, two, one] = decisionWindows;
+  const plan = (name: string) => annualPlans.find((p) => p.name === name)!;
+  it("covers every monthly service", () => {
+    expect(annualPlans.map((p) => [p.name, p.monthly, p.regular])).toEqual([
+      ["Website", 3000, 3000], ["Content creation", 3000, 3000], ["AI live seller", 10000, 10000],
+      ["All three together", 16000, 16000], ["CRM and system with automations", 13000, 15000], ["AI agent", 2500, 2500],
+    ]);
+  });
+  it("charges twelve months and counts the extra months as the saving", () => {
+    expect(annualPlans.map(annualPay)).toEqual([36000, 36000, 120000, 192000, 156000, 30000]);
+    expect([three, two, one].map((w) => annualWorth(plan("Website"), w))).toEqual([45000, 42000, 39000]);
+    expect([three, two, one].map((w) => annualSaving(plan("Website"), w))).toEqual([9000, 6000, 3000]);
+    expect([three, two, one].map((w) => annualSaving(plan("AI live seller"), w))).toEqual([30000, 20000, 10000]);
+    expect([three, two, one].map((w) => annualSaving(plan("All three together"), w))).toEqual([48000, 32000, 16000]);
+    expect([three, two, one].map((w) => annualSaving(plan("AI agent"), w))).toEqual([7500, 5000, 2500]);
+  });
+  it("combines the promo and the extra months for the CRM", () => {
+    expect([three, two, one].map((w) => annualWorth(plan("CRM and system with automations"), w))).toEqual([225000, 210000, 195000]);
+    expect([three, two, one].map((w) => annualSaving(plan("CRM and system with automations"), w))).toEqual([69000, 54000, 39000]);
   });
 });
 

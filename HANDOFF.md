@@ -12,6 +12,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Annual plans with savings on every service (2026-11-16, Claude Code)
+
+- The prices-and-look work below went LIVE first: Kriv said "Publish now"; main fast-forwarded to `4589642`; kriv.agency/ph-rates and kriv.agency/for/pco-dental-clinic/offer verified over HTTP (200, noindex, 13,000 promo and 156,000 shown, no "pending" text, no forms).
+- Then Kriv asked that every price show the monthly rate projected over the year, a markdown, and the saving. Kriv's choices: the same extra months as the CRM on every service, and for the CRM the saving combines the promo and the extra months. Branch `claude/ph-annual-savings` (from main `4589642`). Local only until Kriv approves publishing.
+- `annualPlans`, `annualPay`, `annualWorth`, `annualSaving` in `src/offers/ph-local.ts`: pay 12 months at today's rate; the covered months (15, 14, 13) priced month by month at the regular rate are struck through; the difference is the saving. Website and Content creation: pay 36,000, save 9,000 / 6,000 / 3,000. AI live seller: pay 120,000, save 30,000 / 20,000 / 10,000. All three: pay 192,000, save 48,000 / 32,000 / 16,000. AI agent: pay 30,000, save 7,500 / 5,000 / 2,500. CRM: pay 156,000 against 225,000 / 210,000 / 195,000 at the 15,000 regular rate, save 69,000 / 54,000 / 39,000. The CRM card also says 2,000 saved every month on the monthly plan.
+- New section "06 / Annual plans" on both pages (one table per service; stacked labels on phones). The decision windows moved there from the CRM section.
+- Verified: lint, typecheck, 698 tests, build, 22 smoke checks; viewed at 375, 768 and desktop widths with no overflow.
+
 ### Kriv's PH prices, more included, kriv.agency look (2026-11-16, Claude Code)
 
 - Kriv shared the other agency's two PDFs and asked to match their pricing with more included, keep the 3,000 prices, use kriv.agency branding and remove every "pending Kriv's approval" mark. Branch `claude/ph-pricing-kriv-brand` (from local main `f01b4c2`). Local only until Kriv approves the push: the live pages still show the old draft figures.

@@ -134,6 +134,33 @@ export function regularCost(w: DecisionWindow): number {
   return crm.regularMonthly * totalMonths(w);
 }
 
+// Annual plans (Kriv, 2026-11-16): every monthly service can be paid yearly.
+// The client pays twelve months at today's rate and gets the same extra months
+// as the CRM. Each page shows what those months would cost month by month at the
+// regular rate, the annual price, and the difference as the saving. Only the
+// CRM has a regular rate above today's rate, so its saving combines both.
+export type AnnualPlan = { name: string; monthly: number; regular: number };
+export const annualPlans: AnnualPlan[] = [
+  ...monthlyServices.map((s) => ({ name: s.name, monthly: s.monthly, regular: s.monthly })),
+  { name: "All three together", monthly: allThreeMonthly, regular: allThreeMonthly },
+  { name: "CRM and system with automations", monthly: crm.promoMonthly, regular: crm.regularMonthly },
+];
+
+/** Twelve months at today's rate: what the client pays for the year. */
+export function annualPay(p: AnnualPlan): number {
+  return p.monthly * crm.baseMonths;
+}
+
+/** The months covered in this window, priced month by month at the regular rate. */
+export function annualWorth(p: AnnualPlan, w: DecisionWindow): number {
+  return p.regular * totalMonths(w);
+}
+
+/** Month-by-month cost minus the annual price. */
+export function annualSaving(p: AnnualPlan, w: DecisionWindow): number {
+  return annualWorth(p, w) - annualPay(p);
+}
+
 export const addOns = [
   {
     name: "Branding kit", price: 7500, unit: "one-time",
@@ -144,6 +171,8 @@ export const addOns = [
     includes: ["An AI agent that handles repeatable steps for {client}", "Built from information and wording {client} approves", "Set up and supervised by KRIV staff"],
   },
 ] as const;
+
+annualPlans.push({ name: "AI agent", monthly: addOns[1].price, regular: addOns[1].price });
 
 export const vaTrials = [
   { name: "Human VA trial", body: "A KRIV virtual assistant, a real person, works on agreed tasks for {client}." },

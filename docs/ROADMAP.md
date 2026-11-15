@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: Kriv's PH prices (CRM 15,000 regular, 13,000 promo, stacking annual months), fuller inclusions and the kriv.agency look applied to the quotation and rates pages on `claude/ph-pricing-kriv-brand` (local, awaiting Kriv's OK to publish)
+Updated: 2026-11-16 - Last step finished: annual plans with savings on every service built on `claude/ph-annual-savings` (local, awaiting Kriv's OK to publish); Kriv's PH prices and the kriv.agency look are live
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,7 +8,9 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Kriv: review the new prices and look on `claude/ph-pricing-kriv-brand` and approve publishing; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
+- [x] Kriv's PH prices and kriv.agency look published (Kriv's go-ahead, 2026-11-16): main at `4589642`, live pages verified
+- [x] Annual plans with savings on every service (Claude Code, 2026-11-16): pay 12 months, get 15, 14 or 13; month-by-month cost struck through and the saving shown; 698 tests, build and 22 smoke checks pass. Local on `claude/ph-annual-savings`
+- [ ] Kriv: approve publishing the annual savings; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
 - [x] Kriv's PH prices and kriv.agency look (Claude Code, 2026-11-16): CRM 15,000 regular and 13,000 promo with stacking annual months, Branding kit 7,500, AI agent 2,500, content from 12 image posts at 3,000; draft marks and placeholders removed from both KRIV pages. Lint, typecheck, 695 tests, build and 22 smoke checks pass
 
 - [x] General Philippine rates page live (Kriv's go-ahead, 2026-11-16): main at `177ed76`; kriv.agency/ph-rates answers 200 with noindex

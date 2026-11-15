@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
 import {
-  KRIV_EMAIL, PH_ELIGIBILITY, REFERRAL, TRIAL_DAYS, VA_NOTE, addOns, aiTrialIdeas, allThreeMonthly, annualPrice, audiences, contentTiers, crm, crmIncludes,
-  decisionWindows, effectiveMonthly, everyPlan, exclusions, fill, monthlyServices, php, regularCost, terms, totalMonths, vaTrials, type Audience,
+  KRIV_EMAIL, PH_ELIGIBILITY, REFERRAL, TRIAL_DAYS, VA_NOTE, addOns, aiTrialIdeas, allThreeMonthly, annualPay, annualPlans, annualPrice, annualSaving, annualWorth,
+  audiences, contentTiers, crm, crmIncludes, decisionWindows, everyPlan, exclusions, fill, monthlyServices, php, terms, totalMonths, vaTrials, type Audience,
 } from "@/offers/ph-local";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
@@ -31,9 +31,11 @@ export function audienceFor(site: SiteData): Audience {
   return site.contentNiche === "dental" ? audiences.clinic : audiences.general;
 }
 
-/** Trial, rates, CRM plan, add-ons, VA and AI trials, referral and terms: identical figures on every page. */
+/** Trial, rates, CRM plan, add-ons, annual plans, VA and AI trials, referral and terms: identical figures on every page. */
 export function OfferSections({ audience }: { audience: Audience }) {
   const t = (text: string) => fill(text, audience);
+  const freeWindows = decisionWindows.filter((w) => w.freeMonths > 0);
+  const days = (w: (typeof decisionWindows)[number]) => (w.toDay ? `Days ${w.fromDay} to ${w.toDay}` : `From day ${w.fromDay}`);
   return <>
     <section className={o.block} aria-labelledby="offer-trial">
       <p className={o.eyebrow}>01 / With every plan</p>
@@ -84,24 +86,9 @@ export function OfferSections({ audience }: { audience: Audience }) {
           <p className={o.tag}>Promo rate</p>
           <p className={o.price}>{php(crm.promoMonthly)} <span>per month</span></p>
           <p className={o.small}>Regular rate <s>{php(crm.regularMonthly)}</s> per month. No setup fee.</p>
-          <p>Go annual and the promo stacks: pay {crm.baseMonths} months at the promo rate, {php(annualPrice)}, and KRIV adds extra months free.</p>
+          <p>That is {php(crm.regularMonthly - crm.promoMonthly)} saved every month. Go annual and the promo stacks: pay {crm.baseMonths} months at the promo rate, {php(annualPrice)}, and KRIV adds extra months free.</p>
         </div>
       </div>
-      <h3 className={o.subhead}>Extra months on the annual plan</h3>
-      <p>The sooner you decide after your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}.</p>
-      <ul className={o.windows}>
-        {decisionWindows.map((w) => <li key={w.fromDay}>
-          <h3>{w.toDay ? `Days ${w.fromDay} to ${w.toDay}` : `From day ${w.fromDay}`}</h3>
-          {w.freeMonths ? <>
-            <p className={o.price}>{w.freeMonths} {w.freeMonths === 1 ? "month" : "months"} free</p>
-            <p>{totalMonths(w)} months for {php(annualPrice)}, about {php(effectiveMonthly(w))} per month.</p>
-            <p className={o.small}>{totalMonths(w)} months at the regular rate: {php(regularCost(w))}.</p>
-          </> : <>
-            <p className={o.price}>Monthly</p>
-            <p>The extra months have passed. The promo rate of {php(crm.promoMonthly)} per month still applies.</p>
-          </>}
-        </li>)}
-      </ul>
     </section>
 
     <section className={o.block} aria-labelledby="offer-addons">
@@ -116,8 +103,45 @@ export function OfferSections({ audience }: { audience: Audience }) {
       </ul>
     </section>
 
+    <section className={o.block} aria-labelledby="offer-annual-plans">
+      <p className={o.eyebrow}>06 / Annual plans</p>
+      <h2 id="offer-annual-plans">Pay for twelve months. <em>Get up to fifteen.</em></h2>
+      <p>Any monthly service can be paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide after your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}.</p>
+      <ul className={o.windows}>
+        {decisionWindows.map((w) => <li key={w.fromDay}>
+          <h3>{days(w)}</h3>
+          {w.freeMonths ? <>
+            <p className={o.price}>{w.freeMonths} {w.freeMonths === 1 ? "month" : "months"} free</p>
+            <p>{totalMonths(w)} months for the price of {crm.baseMonths}.</p>
+          </> : <>
+            <p className={o.price}>Monthly</p>
+            <p>The extra months have passed. Monthly rates apply, including the CRM promo rate.</p>
+          </>}
+        </li>)}
+      </ul>
+      <h3 className={o.subhead}>What you save on each service</h3>
+      <p>Each line shows what those months would cost paid month by month, what you pay on the annual plan, and the difference.</p>
+      <div className={o.savings}>
+        {annualPlans.map((plan) => <table key={plan.name}>
+          <caption>
+            <strong>{plan.name}</strong>
+            <span>{php(plan.monthly)} per month{plan.regular > plan.monthly ? <>, regular <s>{php(plan.regular)}</s></> : null}. Annual plan: {php(annualPay(plan))}.</span>
+          </caption>
+          <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Month by month</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
+          <tbody>{freeWindows.map((w) => <tr key={w.fromDay}>
+            <th scope="row">{days(w)}</th>
+            <td>{totalMonths(w)} months</td>
+            <td><s>{php(annualWorth(plan, w))}</s></td>
+            <td>{php(annualPay(plan))}</td>
+            <td className={o.saved}>{php(annualSaving(plan, w))}</td>
+          </tr>)}</tbody>
+        </table>)}
+      </div>
+      <p className={o.small}>Month by month means the same number of months at the regular monthly rate. For the CRM that is {php(crm.regularMonthly)} a month, so its saving includes the promo.</p>
+    </section>
+
     <section className={o.block} aria-labelledby="offer-va">
-      <p className={o.eyebrow}>06 / Also free to try</p>
+      <p className={o.eyebrow}>07 / Also free to try</p>
       <h2 id="offer-va">A virtual assistant trial, <em>two ways.</em></h2>
       <ul className={o.cards}>
         {vaTrials.map((item) => <li key={item.name}><h3>{item.name}</h3><p>{t(item.body)}</p></li>)}
@@ -126,7 +150,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-ai">
-      <p className={o.eyebrow}>07 / {audience.aiEyebrow}</p>
+      <p className={o.eyebrow}>08 / {audience.aiEyebrow}</p>
       <h2 id="offer-ai">AI trials <em>on the house.</em></h2>
       <p>{t("Try the AI agent on real work before adding it. Each trial is set up and supervised by KRIV staff and uses only information and wording {client} approves.")}</p>
       <ul className={o.cards}>
@@ -135,13 +159,13 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-referral">
-      <p className={o.eyebrow}>08 / Referrals</p>
+      <p className={o.eyebrow}>09 / Referrals</p>
       <h2 id="offer-referral">Referral program</h2>
       <p>{REFERRAL}</p>
     </section>
 
     <section className={o.block} aria-labelledby="offer-terms">
-      <p className={o.eyebrow}>09 / The fine print, in plain words</p>
+      <p className={o.eyebrow}>10 / The fine print, in plain words</p>
       <h2 id="offer-terms">Scope and terms</h2>
       <div className={o.terms}>
         <div><h3>Not included</h3><ul>{exclusions.map((line) => <li key={line}>{t(line)}</li>)}</ul></div>
@@ -180,7 +204,7 @@ export function OfferPage({ site }: { site: SiteData }) {
       <OfferSections audience={audienceFor(site)} />
 
       <section className={o.block} aria-labelledby="offer-next">
-        <p className={o.eyebrow}>10 / Next step</p>
+        <p className={o.eyebrow}>11 / Next step</p>
         <h2 id="offer-next">Start with a conversation.</h2>
         <p>To start a free trial or ask a question, reply to Kriv directly or write to {KRIV_EMAIL}. This page has no form and collects no information.</p>
         <p><a className={o.button} {...inert}>Start my free trial <span aria-hidden="true">+</span></a></p>
