@@ -1,12 +1,15 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: general Philippine rates page built at /ph-rates on `claude/ph-rates-page` (local, not pushed); PCO Dental Clinic is live with placeholders; waiting for Kriv's facts, settled prices and a go-live decision for the rates page
+Updated: 2026-11-16 - Last step finished: Kriv's PH prices (CRM 15,000 regular, 13,000 promo, stacking annual months), fuller inclusions and the kriv.agency look applied to the quotation and rates pages on `claude/ph-pricing-kriv-brand` (local, awaiting Kriv's OK to publish)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
+
+- [ ] Kriv: review the new prices and look on `claude/ph-pricing-kriv-brand` and approve publishing; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
+- [x] Kriv's PH prices and kriv.agency look (Claude Code, 2026-11-16): CRM 15,000 regular and 13,000 promo with stacking annual months, Branding kit 7,500, AI agent 2,500, content from 12 image posts at 3,000; draft marks and placeholders removed from both KRIV pages. Lint, typecheck, 695 tests, build and 22 smoke checks pass
 
 - [x] General Philippine rates page live (Kriv's go-ahead, 2026-11-16): main at `177ed76`; kriv.agency/ph-rates answers 200 with noindex
 - [ ] Kriv: settle the draft prices and placeholders shown on kriv.agency/ph-rates and PCO's quotation, and give the contact link for the rates page

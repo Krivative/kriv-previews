@@ -12,6 +12,17 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Kriv's PH prices, more included, kriv.agency look (2026-11-16, Claude Code)
+
+- Kriv shared the other agency's two PDFs and asked to match their pricing with more included, keep the 3,000 prices, use kriv.agency branding and remove every "pending Kriv's approval" mark. Branch `claude/ph-pricing-kriv-brand` (from local main `f01b4c2`). Local only until Kriv approves the push: the live pages still show the old draft figures.
+- Prices now in `src/offers/ph-local.ts` (Kriv's answers): Website 3,000 and Content creation 3,000 a month (kept); AI live seller 10,000 a month (kept); all three 16,000. CRM and system with automations: regular 15,000 a month, promo 13,000 a month, no setup fee; annual = 12 months at the promo rate (156,000) plus 3, 2 or 1 extra months by decision window (15, 14, 13 months: about 10,400, 11,143 and 12,000 a month); from day 24 the promo monthly rate. This replaces the earlier reading of 13,000 as a yearly price. Branding kit 7,500 one-time. AI agent (a bot for repeatable steps) 2,500 a month.
+- Content creation is 12 image posts a month at 3,000 (Kriv), shown as the first of three tiers; "Daily" and "Full social media management" (daily posts and stories, audience replies, niche research) show "Quoted for ..." because Kriv gave no prices for them.
+- Wording the agent chose and Kriv has not reviewed line by line: the inclusion lists for each service, "Revision rounds are agreed in writing before work starts", the referral line (no reward stated), the VA line (hours and tasks agreed before the trial), the AI live seller description, the AI agent price (matched to the other agency's 2,500). No promo end date is stated.
+- Look: `offer.module.css` now sets kriv.agency's tokens itself (ground #101112, type #EFEFE8, lime #E7FA78, grey #A7A9A4, square corners, Arial/Helvetica, mono labels, "kriv ×" wordmark), so the quotation and the rates page look the same whatever template the lead uses. The PCO concept site keeps the clinic design.
+- The rates page now has two live links, both KRIV's own: `https://kriv.agency/book` and `mailto:hello@kriv.agency` (both taken from kriv.agency). A lead's quotation still has no live outbound links.
+- The other agency's name appears on no page (tests check). Its documents were read from Kriv's Downloads with Kriv's instruction and are not copied into the repo.
+- Verified: lint, typecheck, 695 tests, build, 22 smoke checks; viewed at 375, 768 and desktop widths; no "pending", "draft" or [BRACKET] text on either KRIV page.
+
 ### General Philippine rates page (2026-11-16, Claude Code)
 
 - LIVE (Kriv said "Go live now", 2026-11-16): main fast-forwarded to `177ed76` and pushed; production deployed within a minute. Verified over HTTP: `https://kriv.agency/ph-rates` and `https://kriv.agency/for/ph-rates` answer 200 with X-Robots-Tag noindex, the noindex meta, the prices and no forms; PCO's two pages still answer 200. The notes below were written before the go-live. This note itself is a local commit, not yet pushed.
