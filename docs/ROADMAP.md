@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: PCO Dental Clinic concept and the Philippines offer and quotation page built as drafts on `claude/pco-dental-mockup` (local, not pushed); waiting for Kriv's facts and price approval
+Updated: 2026-11-16 - Last step finished: PCO Dental Clinic concept and offer page live at kriv.agency/pco-dental-clinic (Kriv's go-ahead), still with placeholders and draft prices; waiting for PCO's facts and settled prices
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,7 +8,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Kriv: PCO Dental Clinic (branch `claude/pco-dental-mockup`, commit `8bac937`, not pushed). Send the clinic's real address, phone or Messenger link, hours, dentists, services, logo and photos; confirm the annual plan assumption (13,000 PHP for 12 months of CRM and system with automations, free months added on top) and list its extra services, VA trial hour cap and tasks, referral rules, Branding Kit price, revision limit and quote numbering; then approve the draft prices and say whether to push
+- [x] PCO Dental Clinic live (Kriv's go-ahead, Claude Code, 2026-11-16): merged by Kriv as PR #1, published as `1b6f2af`; kriv.agency/pco-dental-clinic and kriv.agency/for/pco-dental-clinic/offer answer 200 with banner and noindex
+- [ ] Kriv: PCO Dental Clinic is live with placeholders. Send the clinic's real address, phone or Messenger link, hours, dentists, services, logo and photos; confirm the annual plan assumption (13,000 PHP for 12 months of CRM and system with automations, free months added on top) and list its extra services, VA trial hour cap and tasks, referral rules, Branding Kit price, revision limit and quote numbering; then approve the draft prices and say whether to push
 - [x] PCO Dental Clinic concept and Philippines offer page (Claude Code, 2026-11-16): draft lead on Clear / atrium with marked placeholders and an inert booking action; offer and quotation page at `/pco-dental-clinic/offer` (PH addresses only, every price marked as a draft). Lint, typecheck, 692 tests, build and 21 smoke checks pass; viewed at phone, tablet and desktop widths. Roadmap PDF not generated (Playwright not installed on this machine)
 
 - [ ] Open the fictional Sales demo using Open KRIV Sales Demo.vbs; then use Open KRIV.vbs for the existing Desk after closing any older server. Settings are preserved; the existing worker can resume on normal Desk startup

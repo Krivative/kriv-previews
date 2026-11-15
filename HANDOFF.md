@@ -12,6 +12,12 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### PCO Dental Clinic live (2026-11-16, Claude Code)
+
+- Kriv merged the branch into main on GitHub (PR #1, `b8b8f10`) and then told the agent to go live. Status set to `approved` and pushed to main as `1b6f2af` ("Publish pco-dental-clinic"); the push deployed production within a minute.
+- Verified over HTTP: `https://kriv.agency/pco-dental-clinic` 200 and `https://kriv.agency/for/pco-dental-clinic/offer` 200, both with X-Robots-Tag noindex, the noindex meta, the concept banner and no forms. The offer page works at the `/for/...` address only (`kriv.agency/pco-dental-clinic/offer` is 404, as for every lead's inner pages); the site's own link uses the working address.
+- It is live with placeholders and draft-marked prices, by Kriv's choice. Next: replace the placeholders with PCO's real facts and Kriv's settled prices (list in the section below).
+
 ### PCO Dental Clinic concept and Philippines offer page (2026-11-16, Claude Code)
 
 - Branch `claude/pco-dental-mockup` from main `ba7e0f2`; code commit `8bac937`. Local only: not pushed, not merged, not deployed. No open PRs on GitHub at the start of the session. Built on a Mac in a fresh clone (no access to `kriv-leads`, the Desk or any secrets; none were needed).
