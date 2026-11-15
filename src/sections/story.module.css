@@ -1,0 +1,117 @@
+/* "The two timelines" animated story on KRIV's own pages (preview-only).
+   Colours and fonts come from offer.module.css's tokens. Mobile first.
+   Without scripts, or with reduced motion, every chapter is simply visible.
+   The script sets data-armed on the story and data-seen on each chapter as it
+   scrolls into view; only then do the chapters wait and then play. */
+.story { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; scroll-margin-top: 64px; }
+.chapter { background: var(--surface); padding: 30px 20px; display: grid; gap: 16px; align-content: start; overflow: hidden; }
+.chapter:nth-child(even) { background: var(--bg); }
+.kicker { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+.story .chapter h3 { font-size: clamp(1.6rem, 5.4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.045em; font-weight: 500; }
+.story .chapter h3 em { display: block; font-style: normal; color: var(--muted); }
+.story h4 { margin: 0; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; }
+.chapter > p { max-width: 62ch; color: var(--muted); }
+.story ul, .story ol { list-style: none; margin: 0; padding: 0; }
+
+/* Chapter 1: the fork */
+.fork { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.fork span { padding: 14px 12px; border: 1px solid var(--line); }
+.trunk { grid-column: 1 / -1; text-align: center; color: var(--ink); }
+.branchA { color: var(--muted); }
+.branchB { color: var(--accent-ink); background: var(--accent); border-color: var(--accent) !important; }
+
+/* Chapters 2 and 3: a tile per month */
+.months { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.months li { display: grid; gap: 2px; padding: 10px 6px; border: 1px solid var(--line); text-align: center; background: var(--bg); }
+.chapter:nth-child(even) .months li { background: var(--surface); }
+.months span { font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted); }
+.months small { font-size: 0.78rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.months li[data-free] { background: var(--accent) !important; border-color: var(--accent); color: var(--accent-ink); }
+.months li[data-free] span { color: var(--accent-ink); }
+.sum { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 14px; border-top: 1px solid var(--line); max-width: none !important; }
+.sum span { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.sum strong { font-size: clamp(1.8rem, 7vw, 2.8rem); font-weight: 500; letter-spacing: -0.05em; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Chapter 4: two bars */
+.bars { display: grid; gap: 14px; }
+.bars > div { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center; }
+.bars span { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.bars b { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.bars i { grid-column: 1 / -1; display: block; height: 22px; width: var(--w); background: var(--line); transform-origin: left; }
+.bars [data-win] i { background: var(--accent); }
+.bars [data-win] b { color: var(--accent); }
+.punch { color: var(--ink) !important; font-size: 1.1rem; }
+
+/* Chapter 5: analogies */
+.analogies { display: grid; gap: 10px; }
+.analogies li { border: 1px solid var(--line); padding: 18px 16px; display: grid; gap: 6px; background: var(--surface); }
+.analogies p { color: var(--muted); font-size: 0.95rem; }
+
+/* Chapter 6: gains */
+.gains { display: grid; gap: 10px; }
+.gains li { position: relative; padding-left: 26px; }
+.gains li::before { content: "+"; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono); }
+
+/* Chapter 7: the closing portal */
+.portals { display: grid; gap: 8px; }
+.portals li { display: grid; gap: 4px; padding: 16px; border: 1px solid var(--accent); }
+.portals li:nth-child(2) { border-color: color-mix(in srgb, var(--accent) 65%, var(--line)); }
+.portals li:nth-child(3) { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.portals li[data-closed] { border-color: var(--line); color: var(--muted); }
+.portals span { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.portals strong { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.04em; }
+.portals small { font-size: 0.85rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.portals li[data-closed] small { color: var(--muted); }
+.note { font-size: 0.85rem; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; max-width: none !important; }
+.controls a { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 52px; padding: 14px 22px; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; transition: gap 0.2s; }
+.controls a:hover { gap: 40px; }
+.controls button { font: inherit; min-height: 52px; padding: 14px 18px; background: none; color: var(--ink); border: 1px solid var(--line); border-radius: 0; cursor: pointer; transition: border-color 0.2s; }
+.controls button:hover { border-color: var(--ink); }
+.controls :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (min-width: 640px) {
+  .chapter { padding: 44px 32px; }
+  .analogies { grid-template-columns: repeat(3, 1fr); }
+  .portals { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1000px) {
+  .chapter { padding: 60px 48px; }
+  .months { grid-template-columns: repeat(15, 1fr); gap: 4px; }
+}
+
+/* ---------- The animation ---------- */
+@keyframes story-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes story-tile { from { opacity: 0; transform: translateY(14px) scale(0.9); } to { opacity: 1; transform: none; } }
+@keyframes story-free { 0% { opacity: 0; transform: scale(0.4) rotate(-8deg); } 70% { opacity: 1; transform: scale(1.12); } 100% { opacity: 1; transform: none; } }
+@keyframes story-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes story-branch { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+@keyframes story-close { from { opacity: 0; transform: scaleX(1.25); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Armed: wait out of sight until the chapter is seen. */
+  .story[data-armed] .chapter:not([data-seen]) > *,
+  .story[data-armed] .chapter:not([data-seen]) :is(.months li, .analogies li, .gains li, .portals li, .bars i, .fork span) { opacity: 0; animation: none; }
+
+  .chapter[data-seen] > * { animation: story-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .chapter[data-seen] > :nth-child(2) { animation-delay: 0.08s; }
+  .chapter[data-seen] > :nth-child(3) { animation-delay: 0.16s; }
+  .chapter[data-seen] > :nth-child(4) { animation-delay: 0.24s; }
+  .chapter[data-seen] > :nth-child(5) { animation-delay: 0.9s; }
+  .chapter[data-seen] > :nth-child(6) { animation-delay: 1s; }
+
+  .chapter[data-seen] .trunk { animation: story-rise 0.5s 0.3s both; }
+  .chapter[data-seen] .branchA { animation: story-branch 0.6s 0.8s both; }
+  .chapter[data-seen] .branchB { animation: story-branch 0.6s 1.1s both; }
+
+  .chapter[data-seen] .months li { animation: story-tile 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(0.35s + var(--i) * 70ms); }
+  .chapter[data-seen] .months li[data-free] { animation: story-free 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(0.6s + var(--i) * 90ms); }
+  .chapter[data-seen] .sum { animation-delay: 1.5s; }
+
+  .chapter[data-seen] .bars i { animation: story-grow 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s both; }
+  .chapter[data-seen] .bars [data-win] i { animation-delay: 0.9s; }
+  .chapter[data-seen] .punch { animation-delay: 1.7s; }
+
+  .chapter[data-seen] :is(.analogies li, .gains li) { animation: story-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(0.35s + var(--i) * 0.22s); }
+  .chapter[data-seen] .portals li { animation: story-close 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(0.4s + var(--i) * 0.3s); }
+}

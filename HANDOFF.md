@@ -12,6 +12,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
+
+- Kriv asked to turn the annual discount into an animation that explains and justifies it, with analogies and a "lore or multiverse" to make the structure clear. Branch `claude/ph-annual-story` (from `claude/ph-interactive` `d47d297`, which is also still unpublished). Local only until Kriv approves publishing.
+- `src/sections/AnnualStory.tsx` + `story.module.css`, shown as the section "Why annual" on both pages, before the savings tables. One business, two timelines that split when the free trial ends, in seven chapters: the fork; Timeline A month by month (15 month tiles, 45,000); Timeline B annual (12 paid tiles, 3 free tiles drop in, 36,000); side-by-side bars (9,000 apart); three everyday analogies (tingi or the big pack, the suki price, a year of rent); what the annual plan also gives; the closing portal (15, 14, 13 months, then monthly only). Ends with a link to the plan builder and a Replay button.
+- It uses the Website's figures from `ph-local.ts` (nothing typed by hand) and says the same rule applies to every monthly service. It claims no results: the benefits listed are one payment, a settled price for the months paid, upkeep throughout, the trial and no setup fee, and ownership. Timeline A is described fairly as flexible.
+- Each chapter plays as it scrolls into view. Without scripts, or with reduced motion, the whole story is plain visible content. Chapters are detected by measuring on scroll with a slow backup tick; the section menu now uses the same method (IntersectionObserver proved unreliable in the test pane at phone size).
+- Verified: lint, typecheck, 702 tests, build, 22 smoke checks; watched every chapter play at 375, 768 and desktop widths with no overflow; Replay works.
+
 ### Interaction and motion on KRIV's two pages (2026-11-16, Claude Code)
 
 - The annual savings work below went LIVE first: Kriv said "Publish now"; main at `1462bd4`; live pages verified over HTTP.

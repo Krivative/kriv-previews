@@ -89,6 +89,22 @@ describe("plan builder and section menu", () => {
   });
 });
 
+describe("the two timelines story", () => {
+  const general = text(renderToStaticMarkup(<PhRatesPage />));
+  const clinic = text(render(pco, true));
+  it("tells all seven chapters with the Website's own figures, readable without scripts", () => {
+    for (const part of ["The two timelines", "Chapter 1 / The fork", "Chapter 2 / Timeline A", "Chapter 3 / Timeline B", "Chapter 4 / Side by side",
+      "Chapter 5 / You already know this", "Chapter 6 / More than the discount", "Chapter 7 / The portal closes",
+      "15 months PHP 45,000", "15 months PHP 36,000", "Same 15 months. PHP 9,000 apart.", "Tingi or the big pack", "The suki price", "A year of rent",
+      "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "Monthly only", "Replay the story"]) expect(general).toContain(part);
+  });
+  it("speaks to the right audience and promises nothing", () => {
+    expect(general).toContain("PHP 9,000 stays with your business");
+    expect(clinic).toContain("PHP 9,000 stays with the clinic");
+    expect(general).not.toMatch(/guarantee|more customers|more leads|ahead of your competitors|\{\w+\}/i);
+  });
+});
+
 describe("offer eligibility and schema", () => {
   it("accepts the offer for a Philippine address only", () => {
     expect(SiteData.safeParse(pco).success).toBe(true);

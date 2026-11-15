@@ -90,12 +90,16 @@ export type NavItem = { id: string; label: string };
 export function SectionNav({ items }: { items: NavItem[] }) {
   const [active, setActive] = useState(items[0]?.id);
   useEffect(() => {
-    const targets = items.map((item) => document.getElementById(item.id)?.closest("section")).filter((el): el is HTMLElement => Boolean(el));
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.querySelector("[id]")?.id ?? entry.target.id);
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const targets = items.map((item) => document.getElementById(item.id)).filter((el): el is HTMLElement => Boolean(el));
+    // The current section is the last heading that has passed the upper third of the window.
+    const check = () => {
+      const line = window.innerHeight * 0.35;
+      const passed = targets.filter((el) => el.getBoundingClientRect().top < line);
+      setActive((passed[passed.length - 1] ?? targets[0])?.id);
+    };
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => { window.removeEventListener("scroll", check); window.removeEventListener("resize", check); };
   }, [items]);
   return <nav className={o.sectionNav} aria-label="On this page">
     <div>{items.map((item) => <a key={item.id} href={`#${item.id}`} aria-current={item.id === active ? "true" : undefined}>{item.label}</a>)}</div>

@@ -8,6 +8,7 @@ import {
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
 import { PlanBuilder, SectionNav, type NavItem } from "./PlanBuilder";
+import { AnnualStory } from "./AnnualStory";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -34,6 +35,7 @@ export const offerNav: NavItem[] = [
   { id: "offer-content", label: "Content" },
   { id: "offer-annual", label: "CRM" },
   { id: "offer-addons", label: "Add-ons" },
+  { id: "offer-story", label: "The story" },
   { id: "offer-annual-plans", label: "Annual savings" },
   { id: "offer-va", label: "Free trials" },
   { id: "offer-terms", label: "Terms" },
@@ -122,6 +124,13 @@ export function OfferSections({ audience }: { audience: Audience }) {
           <ul className={o.ticks}>{item.includes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
         </li>)}
       </ul>
+    </section>
+
+    <section className={o.block} aria-labelledby="offer-story">
+      <p className={o.eyebrow}>Why annual</p>
+      <h2 id="offer-story">The two timelines. <em>A short story about one website.</em></h2>
+      <p>Picture the same business in two timelines. They are identical until the free trial ends. Scroll to watch each one play out.</p>
+      <AnnualStory audience={audience} />
     </section>
 
     <section className={o.block} aria-labelledby="offer-annual-plans">
