@@ -14,6 +14,8 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### General Philippine rates page (2026-11-16, Claude Code)
 
+- LIVE (Kriv said "Go live now", 2026-11-16): main fast-forwarded to `177ed76` and pushed; production deployed within a minute. Verified over HTTP: `https://kriv.agency/ph-rates` and `https://kriv.agency/for/ph-rates` answer 200 with X-Robots-Tag noindex, the noindex meta, the prices and no forms; PCO's two pages still answer 200. The notes below were written before the go-live. This note itself is a local commit, not yet pushed.
+
 - Kriv asked for a page with the general PH prices, not tied to one client. Built on branch `claude/ph-rates-page` (from main `1b6f2af` plus the local docs commit `2088f81`). Local only: not pushed, not merged, not deployed.
 - Route `/ph-rates` (`src/app/ph-rates/page.tsx`, `src/sections/PhRatesPage.tsx`): the same figures as PCO's quotation, read from `src/offers/ph-local.ts`, with no client named, no quote details and no concept banner (it is KRIV's own page, not a preview of a business). Still noindex, no forms, no outbound links. `ph-rates` is now a reserved slug. Look borrowed from `office-calm`.
 - `ph-local.ts` texts now carry {tokens} (`fill`, `audiences.clinic` / `audiences.general`); `OfferSections` in `OfferPage.tsx` is the shared body. PCO's quotation reads the same as before apart from "the clinic's website" (was "the clinic website").

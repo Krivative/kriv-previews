@@ -8,7 +8,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Kriv: decide whether the general Philippine rates page goes live, at which address, and how visitors reach KRIV from it (branch `claude/ph-rates-page`, local only)
+- [x] General Philippine rates page live (Kriv's go-ahead, 2026-11-16): main at `177ed76`; kriv.agency/ph-rates answers 200 with noindex
+- [ ] Kriv: settle the draft prices and placeholders shown on kriv.agency/ph-rates and PCO's quotation, and give the contact link for the rates page
 - [x] General Philippine rates page (Claude Code, 2026-11-16): `/ph-rates`, same draft figures as PCO's quotation with no client named; noindex, no forms, no outbound links. Lint, typecheck, 695 tests, build and 22 smoke checks pass; viewed at phone, tablet and desktop widths
 
 - [x] PCO Dental Clinic live (Kriv's go-ahead, Claude Code, 2026-11-16): merged by Kriv as PR #1, published as `1b6f2af`; kriv.agency/pco-dental-clinic and kriv.agency/for/pco-dental-clinic/offer answer 200 with banner and noindex
