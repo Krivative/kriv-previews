@@ -12,6 +12,19 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Interaction and motion on KRIV's two pages (2026-11-16, Claude Code)
+
+- The annual savings work below went LIVE first: Kriv said "Publish now"; main at `1462bd4`; live pages verified over HTTP.
+- Kriv then said the website lacks movement and interactivity. The agent read that as the rates page and the quotation (the pages just built) and added, on branch `claude/ph-interactive` (from main `1462bd4`), local only until Kriv approves publishing:
+  - Plan builder (`src/sections/PlanBuilder.tsx`, a client component): tap services and the branding kit on and off, switch monthly or annual, pick the decision window; the total, months, month-by-month cost and saving update on the page. Buttons only: no form, no input, nothing stored or sent. It starts on Website plus Content creation, annual, 3 months free (72,000 for 15 months, save 18,000).
+  - Sticky section menu with the current section marked and a reading-progress line; smooth in-page jumps.
+  - The per-service savings are expandable rows (native details), first one open.
+  - Motion: the intro rises in, sections rise as they scroll into view, totals pop when they change, a lime line draws across cards on hover. All of it is off under reduced motion, and scroll effects apply only where the browser supports them.
+  - Section numbers now come from a CSS counter.
+- Guardrails unchanged: noindex, concept banner on the quotation, no forms or inputs, no outbound links on the quotation; the rates page still links only to KRIV's booking page and email. Tests and the smoke check now allow type="button" buttons on these two pages and still refuse form, input, select and textarea.
+- Verified: lint, typecheck, 700 tests, build, 22 smoke checks; the builder was clicked through in a browser (totals matched the tested figures) at 375, 768 and desktop widths with no overflow.
+- Not changed: the PCO concept site itself, which uses the shared Clear / atrium design.
+
 ### Annual plans with savings on every service (2026-11-16, Claude Code)
 
 - The prices-and-look work below went LIVE first: Kriv said "Publish now"; main fast-forwarded to `4589642`; kriv.agency/ph-rates and kriv.agency/for/pco-dental-clinic/offer verified over HTTP (200, noindex, 13,000 promo and 156,000 shown, no "pending" text, no forms).

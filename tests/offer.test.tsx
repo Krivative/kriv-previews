@@ -74,6 +74,21 @@ describe("annual plans and savings", () => {
   });
 });
 
+describe("plan builder and section menu", () => {
+  const html = renderToStaticMarkup(<PhRatesPage />);
+  const words = text(html);
+  it("starts on Website and Content creation, annual, with the saving shown", () => {
+    for (const part of ["Build your plan", "You pay for the year", "PHP 72,000", "PHP 90,000", "PHP 18,000", "about PHP 4,800 a month", "nothing is saved or sent"]) expect(words).toContain(part);
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(4);
+  });
+  it("links every menu item to a section on the page", () => {
+    const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
+    const anchors = hrefs(html).filter((href) => href.startsWith("#"));
+    expect(anchors.length).toBeGreaterThanOrEqual(10);
+    for (const href of anchors) expect(ids.has(href.slice(1))).toBe(true);
+  });
+});
+
 describe("offer eligibility and schema", () => {
   it("accepts the offer for a Philippine address only", () => {
     expect(SiteData.safeParse(pco).success).toBe(true);
@@ -114,8 +129,10 @@ describe("offer and quotation page", () => {
   const words = text(html);
   it("keeps every preview guardrail", () => {
     expect(html).toContain(banner("PCO Dental Clinic"));
-    expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
-    expect(hrefs(html).every((href) => href === "#main-content" || href === "/pco-dental-clinic")).toBe(true);
+    expect(html).not.toMatch(/<form\b|<input\b|<select\b|<textarea\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
+    expect(hrefs(html).every((href) => href.startsWith("#") || href === "/pco-dental-clinic")).toBe(true);
+    // The plan builder's buttons only switch what the page shows.
+    expect([...html.matchAll(/<button\b[^>]*>/g)].every((m) => /type="button"/.test(m[0]))).toBe(true);
   });
   it("carries the quote details and Kriv's prices, with no draft marks", () => {
     for (const part of ["KRIV-PH-2026-001", "16 November 2026", "16 December 2026", "Prepared for", "The clinic owns its accounts and data", ...figures]) expect(words).toContain(part);
@@ -137,8 +154,9 @@ describe("general Philippine rates page", () => {
     expect(words).not.toMatch(/pending|draft|\{\w+\}|\[[A-Z ]+[:\]]/i);
   });
   it("has no forms, links only to KRIV's own booking page and email, and makes no guarantees", () => {
-    expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="tel:/);
-    expect(hrefs(html)).toEqual(["#main-content", "https://kriv.agency/book", "mailto:hello@kriv.agency"]);
+    expect(html).not.toMatch(/<form\b|<input\b|<select\b|<textarea\b|<a\b[^>]*href="tel:/);
+    expect(hrefs(html).filter((href) => !href.startsWith("#"))).toEqual(["https://kriv.agency/book", "mailto:hello@kriv.agency"]);
+    expect([...html.matchAll(/<button\b[^>]*>/g)].every((m) => /type="button"/.test(m[0]))).toBe(true);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
   });
   it("reserves its address and fills every wording token", () => {

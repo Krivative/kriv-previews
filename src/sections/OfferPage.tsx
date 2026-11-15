@@ -7,6 +7,7 @@ import {
 } from "@/offers/ph-local";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
+import { PlanBuilder, SectionNav, type NavItem } from "./PlanBuilder";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -26,6 +27,19 @@ export function KrivMark() {
   return <span className={o.kriv}>kriv<span aria-hidden="true">×</span></span>;
 }
 
+/** The sections of OfferSections plus the closing one, for the sticky menu. */
+export const offerNav: NavItem[] = [
+  { id: "offer-builder", label: "Build your plan" },
+  { id: "offer-monthly", label: "Monthly" },
+  { id: "offer-content", label: "Content" },
+  { id: "offer-annual", label: "CRM" },
+  { id: "offer-addons", label: "Add-ons" },
+  { id: "offer-annual-plans", label: "Annual savings" },
+  { id: "offer-va", label: "Free trials" },
+  { id: "offer-terms", label: "Terms" },
+  { id: "offer-next", label: "Start" },
+];
+
 /** The audience a lead's quotation is written for. */
 export function audienceFor(site: SiteData): Audience {
   return site.contentNiche === "dental" ? audiences.clinic : audiences.general;
@@ -38,7 +52,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
   const days = (w: (typeof decisionWindows)[number]) => (w.toDay ? `Days ${w.fromDay} to ${w.toDay}` : `From day ${w.fromDay}`);
   return <>
     <section className={o.block} aria-labelledby="offer-trial">
-      <p className={o.eyebrow}>01 / With every plan</p>
+      <p className={o.eyebrow}>With every plan</p>
       <h2 id="offer-trial">Start free. <em>Stay because it works for you.</em></h2>
       <ul className={o.facts}>
         {everyPlan.map((item) => <li key={item.name}><h3>{item.name}</h3><p>{t(item.body)}</p></li>)}
@@ -46,8 +60,15 @@ export function OfferSections({ audience }: { audience: Audience }) {
       <p className={o.small}>{PH_ELIGIBILITY}</p>
     </section>
 
+    <section className={o.block} aria-labelledby="offer-builder">
+      <p className={o.eyebrow}>Build your plan</p>
+      <h2 id="offer-builder">Pick what you need. <em>See the total and the saving.</em></h2>
+      <p>Tap services on and off and switch between monthly and annual. The figures are worked out on this page only; nothing is saved or sent.</p>
+      <PlanBuilder />
+    </section>
+
     <section className={o.block} aria-labelledby="offer-monthly">
-      <p className={o.eyebrow}>02 / Monthly services</p>
+      <p className={o.eyebrow}>Monthly services</p>
       <h2 id="offer-monthly">Pay month to month. <em>No setup fee.</em></h2>
       <ul className={o.cards}>
         {monthlyServices.map((item) => <li key={item.name}>
@@ -65,7 +86,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-content">
-      <p className={o.eyebrow}>03 / Content packages</p>
+      <p className={o.eyebrow}>Content packages</p>
       <h2 id="offer-content">From posts <em>to full social media management.</em></h2>
       <p>Start with posts and grow into a managed presence: someone who posts daily, answers {t("{your}")} audience and studies {t("{your}")} niche.</p>
       <ul className={o.cards}>
@@ -78,7 +99,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-annual">
-      <p className={o.eyebrow}>04 / CRM and system with automations</p>
+      <p className={o.eyebrow}>CRM and system with automations</p>
       <h2 id="offer-annual">One organised place for every inquiry. <em>Follow-ups that send themselves.</em></h2>
       <div className={o.split}>
         <ul className={o.ticks}>{crmIncludes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
@@ -92,7 +113,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-addons">
-      <p className={o.eyebrow}>05 / Add-ons</p>
+      <p className={o.eyebrow}>Add-ons</p>
       <h2 id="offer-addons">Add to any plan, <em>whenever you are ready.</em></h2>
       <ul className={o.cards}>
         {addOns.map((item) => <li key={item.name}>
@@ -104,7 +125,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-annual-plans">
-      <p className={o.eyebrow}>06 / Annual plans</p>
+      <p className={o.eyebrow}>Annual plans</p>
       <h2 id="offer-annual-plans">Pay for twelve months. <em>Get up to fifteen.</em></h2>
       <p>Any monthly service can be paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide after your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}.</p>
       <ul className={o.windows}>
@@ -120,28 +141,32 @@ export function OfferSections({ audience }: { audience: Audience }) {
         </li>)}
       </ul>
       <h3 className={o.subhead}>What you save on each service</h3>
-      <p>Each line shows what those months would cost paid month by month, what you pay on the annual plan, and the difference.</p>
+      <p>Open a service to see what those months would cost paid month by month, what you pay on the annual plan, and the difference.</p>
       <div className={o.savings}>
-        {annualPlans.map((plan) => <table key={plan.name}>
-          <caption>
+        {annualPlans.map((plan, i) => <details key={plan.name} open={i === 0}>
+          <summary>
             <strong>{plan.name}</strong>
-            <span>{php(plan.monthly)} per month{plan.regular > plan.monthly ? <>, regular <s>{php(plan.regular)}</s></> : null}. Annual plan: {php(annualPay(plan))}.</span>
-          </caption>
-          <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Month by month</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
-          <tbody>{freeWindows.map((w) => <tr key={w.fromDay}>
-            <th scope="row">{days(w)}</th>
-            <td>{totalMonths(w)} months</td>
-            <td><s>{php(annualWorth(plan, w))}</s></td>
-            <td>{php(annualPay(plan))}</td>
-            <td className={o.saved}>{php(annualSaving(plan, w))}</td>
-          </tr>)}</tbody>
-        </table>)}
+            <span>save up to {php(annualSaving(plan, freeWindows[0]))}</span>
+            <span className={o.toggle} aria-hidden="true">+</span>
+          </summary>
+          <p className={o.small}>{php(plan.monthly)} per month{plan.regular > plan.monthly ? <>, regular <s>{php(plan.regular)}</s></> : null}. Annual plan: {php(annualPay(plan))}.</p>
+          <table>
+            <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Month by month</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
+            <tbody>{freeWindows.map((w) => <tr key={w.fromDay}>
+              <th scope="row">{days(w)}</th>
+              <td>{totalMonths(w)} months</td>
+              <td><s>{php(annualWorth(plan, w))}</s></td>
+              <td>{php(annualPay(plan))}</td>
+              <td className={o.saved}>{php(annualSaving(plan, w))}</td>
+            </tr>)}</tbody>
+          </table>
+        </details>)}
       </div>
       <p className={o.small}>Month by month means the same number of months at the regular monthly rate. For the CRM that is {php(crm.regularMonthly)} a month, so its saving includes the promo.</p>
     </section>
 
     <section className={o.block} aria-labelledby="offer-va">
-      <p className={o.eyebrow}>07 / Also free to try</p>
+      <p className={o.eyebrow}>Also free to try</p>
       <h2 id="offer-va">A virtual assistant trial, <em>two ways.</em></h2>
       <ul className={o.cards}>
         {vaTrials.map((item) => <li key={item.name}><h3>{item.name}</h3><p>{t(item.body)}</p></li>)}
@@ -150,7 +175,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-ai">
-      <p className={o.eyebrow}>08 / {audience.aiEyebrow}</p>
+      <p className={o.eyebrow}>{audience.aiEyebrow}</p>
       <h2 id="offer-ai">AI trials <em>on the house.</em></h2>
       <p>{t("Try the AI agent on real work before adding it. Each trial is set up and supervised by KRIV staff and uses only information and wording {client} approves.")}</p>
       <ul className={o.cards}>
@@ -159,13 +184,13 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-referral">
-      <p className={o.eyebrow}>09 / Referrals</p>
+      <p className={o.eyebrow}>Referrals</p>
       <h2 id="offer-referral">Referral program</h2>
       <p>{REFERRAL}</p>
     </section>
 
     <section className={o.block} aria-labelledby="offer-terms">
-      <p className={o.eyebrow}>10 / The fine print, in plain words</p>
+      <p className={o.eyebrow}>The fine print, in plain words</p>
       <h2 id="offer-terms">Scope and terms</h2>
       <div className={o.terms}>
         <div><h3>Not included</h3><ul>{exclusions.map((line) => <li key={line}>{t(line)}</li>)}</ul></div>
@@ -188,6 +213,7 @@ export function OfferPage({ site }: { site: SiteData }) {
       <KrivMark />
       <Link href={pageHref(site)} prefetch={false}>Back to the concept website <span aria-hidden="true">↗</span></Link>
     </header>
+    <SectionNav items={offerNav} />
     <main id="main-content" className={o.main}>
       <section className={o.intro}>
         <p className={o.eyebrow}>Offer and quotation</p>
@@ -204,7 +230,7 @@ export function OfferPage({ site }: { site: SiteData }) {
       <OfferSections audience={audienceFor(site)} />
 
       <section className={o.block} aria-labelledby="offer-next">
-        <p className={o.eyebrow}>11 / Next step</p>
+        <p className={o.eyebrow}>Next step</p>
         <h2 id="offer-next">Start with a conversation.</h2>
         <p>To start a free trial or ask a question, reply to Kriv directly or write to {KRIV_EMAIL}. This page has no form and collects no information.</p>
         <p><a className={o.button} {...inert}>Start my free trial <span aria-hidden="true">+</span></a></p>

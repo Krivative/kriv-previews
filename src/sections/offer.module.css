@@ -28,6 +28,8 @@
   line-height: 1.55;
 }
 .root * { min-width: 0; }
+html:has(.root) { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html:has(.root) { scroll-behavior: auto; } }
 .root p { margin: 0; }
 .root h1, .root h2, .root h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); text-wrap: balance; margin: 0; }
 .root h1 { font-size: clamp(2.3rem, 7vw, 4.6rem); line-height: 1.02; }
@@ -79,21 +81,6 @@
 .promo { border: 1px solid var(--accent); background: var(--surface); padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
 .promo > p:last-child { color: var(--muted); font-size: 0.95rem; }
 
-.savings { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
-.savings table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
-.savings caption { text-align: left; padding: 20px 20px 12px; background: var(--surface); }
-.savings caption strong { display: block; font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em; }
-.savings caption span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.85rem; }
-.savings thead { display: none; }
-.savings tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 14px 20px; border-top: 1px solid var(--line); }
-.savings tbody th { grid-column: 1 / -1; text-align: left; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-.savings td { padding: 0; }
-.savings td::before { display: block; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.savings td:nth-of-type(1)::before { content: "You get"; }
-.savings td:nth-of-type(2)::before { content: "Month by month"; }
-.savings td:nth-of-type(3)::before { content: "You pay"; }
-.savings td:nth-of-type(4)::before { content: "You save"; }
-.savings td.saved { color: var(--accent); font-weight: 600; }
 .terms { display: grid; gap: 22px; }
 .terms h3 { margin-bottom: 6px; }
 .terms ul { list-style: disc; padding-left: 20px; display: grid; gap: 4px; }
@@ -114,7 +101,92 @@
   .meta { grid-template-columns: 1fr 1fr; column-gap: 40px; }
   .cards, .windows, .facts { grid-template-columns: 1fr 1fr; }
 }
+@media (min-width: 1000px) {
+  .intro { padding-block: 72px 12px; }
+  .block { padding-block: 64px; }
+  .windows, .facts { grid-template-columns: repeat(4, 1fr); }
+  .split { grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+}
+
+/* ---------- Section numbers, from a counter so sections can move freely ---------- */
+.main { counter-reset: offer-section; }
+.block > .eyebrow::before { counter-increment: offer-section; content: counter(offer-section, decimal-leading-zero) " / "; color: var(--accent); }
+.block { scroll-margin-top: 64px; }
+.block h2 { scroll-margin-top: 96px; }
+
+/* ---------- Sticky section menu with a reading-progress line ---------- */
+.sectionNav { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.sectionNav > div { max-width: 1120px; margin-inline: auto; padding-inline: 12px; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.sectionNav > div::-webkit-scrollbar { display: none; }
+.sectionNav a { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 12px; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+.sectionNav a:hover { color: var(--ink); }
+.sectionNav a[aria-current] { color: var(--accent); border-bottom-color: var(--accent); }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+
+/* ---------- Plan builder ---------- */
+.builder { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.builderSteps, .builderResult { background: var(--surface); padding: 22px 20px; display: grid; gap: 22px; align-content: start; }
+.builderSteps > div { display: grid; gap: 10px; }
+.root .builder button { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 0; cursor: pointer; text-align: left; min-height: 52px; padding: 10px 14px; transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s; }
+.root .builder button:hover { border-color: var(--ink); }
+.root .builder button:active { transform: scale(0.985); }
+.root .builder button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.root .builder button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.root .builder button small { font-size: 0.75rem; opacity: 0.75; }
+.chips { display: grid; gap: 8px; }
+.chips button { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; }
+.chips button > span:first-child { font-weight: 600; }
+.chips button > span:first-child::before { content: "+"; display: inline-block; width: 1.2em; font-family: var(--font-mono); transition: transform 0.25s; }
+.chips button[aria-pressed="true"] > span:first-child::before { transform: rotate(45deg); }
+.chips button > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.segments { display: grid; gap: 8px; }
+.segments button { display: grid; gap: 2px; font-weight: 600; }
+.segments button small { font-weight: 400; }
+.builderResult { background: var(--bg); gap: 10px; }
+.resultLabel { color: var(--muted); font-size: 0.9rem; }
+.root p.total { font-size: clamp(2.6rem, 9vw, 4rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.resultLines { margin: 8px 0 0; display: grid; border-top: 1px solid var(--line); }
+.resultLines > div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.resultLines dt { color: var(--muted); font-size: 0.9rem; }
+.resultLines dd { margin: 0; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.resultSave dd { color: var(--accent); }
+.resultNote { color: var(--muted); font-size: 0.85rem; }
+
+/* ---------- Savings per service: one expandable row each ---------- */
+.savings { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.savings details { background: var(--surface); }
+.savings summary { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px; padding: 18px 20px; cursor: pointer; list-style: none; transition: background 0.18s; }
+.savings summary::-webkit-details-marker { display: none; }
+.savings summary:hover { background: color-mix(in srgb, var(--surface) 80%, var(--ink) 6%); }
+.savings summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.savings summary strong { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em; }
+.savings summary > span:nth-of-type(1) { grid-column: 1; color: var(--accent); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.toggle { grid-column: 2; grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 1.3rem; color: var(--accent); transition: transform 0.25s; }
+.savings details[open] .toggle { transform: rotate(45deg); }
+.savings details > p { padding: 0 20px 12px; }
+.savings table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.savings thead { display: none; }
+.savings tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 14px 20px; border-top: 1px solid var(--line); }
+.savings tbody th { grid-column: 1 / -1; text-align: left; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.savings td { padding: 0; }
+.savings td::before { display: block; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.savings td:nth-of-type(1)::before { content: "You get"; }
+.savings td:nth-of-type(2)::before { content: "Month by month"; }
+.savings td:nth-of-type(3)::before { content: "You pay"; }
+.savings td:nth-of-type(4)::before { content: "You save"; }
+.savings td.saved { color: var(--accent); font-weight: 600; }
+
+/* ---------- Hover: a lime line draws across the card ---------- */
+.cards > li, .windows > li, .facts > li { position: relative; transition: background 0.2s; }
+.cards > li::after, .windows > li::after, .facts > li::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.cards > li:hover::after, .windows > li:hover::after, .facts > li:hover::after { transform: scaleX(1); }
+.cards > li.feature::after { background: var(--accent-ink); }
+.button { transition: gap 0.2s, filter 0.2s; }
+.button[href]:hover { gap: 40px; filter: brightness(1.06); }
+
 @media (min-width: 760px) {
+  .chips { grid-template-columns: 1fr 1fr; }
+  .segments { grid-auto-flow: column; grid-auto-columns: 1fr; }
   .savings thead { display: table-header-group; }
   .savings thead th { padding: 8px 20px; text-align: left; font-family: var(--font-mono); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--line); }
   .savings tbody tr { display: table-row; padding: 0; }
@@ -122,8 +194,27 @@
   .savings td::before { display: none; }
 }
 @media (min-width: 1000px) {
-  .intro { padding-block: 72px 12px; }
-  .block { padding-block: 64px; }
-  .windows, .facts { grid-template-columns: repeat(4, 1fr); }
-  .split { grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+  .builder { grid-template-columns: 1.35fr 1fr; }
+  .chips { grid-template-columns: 1fr; }
+  .builderResult { position: sticky; top: 64px; align-self: start; }
+}
+
+/* ---------- Motion. Off for reduced motion; scroll effects only where supported,
+   so every browser shows the full page. ---------- */
+@keyframes offer-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes offer-pop { from { opacity: 0.2; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes offer-progress { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  .intro > * { animation: offer-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .intro > :nth-child(2) { animation-delay: 0.1s; }
+  .intro > :nth-child(3) { animation-delay: 0.2s; }
+  .intro > :nth-child(4) { animation-delay: 0.3s; }
+  .total, .resultSave dd { animation: offer-pop 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @supports (animation-timeline: view()) {
+    .block > * { animation: offer-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+    .progress { animation: offer-progress linear both; animation-timeline: scroll(root); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root *, .root *::after { transition: none !important; }
 }

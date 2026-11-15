@@ -1,5 +1,6 @@
 import { KRIV_BOOKING, KRIV_EMAIL, PH_ELIGIBILITY, TRIAL_DAYS, audiences } from "@/offers/ph-local";
-import { KrivMark, OfferSections } from "./OfferPage";
+import { KrivMark, OfferSections, offerNav } from "./OfferPage";
+import { SectionNav } from "./PlanBuilder";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -8,7 +9,7 @@ import o from "./offer.module.css";
 // own page in KRIV's own look, not a preview of anyone's business, so it
 // carries no concept banner and its two contact links (KRIV's booking page and
 // email) are live. It keeps the rest: noindex (layout and headers), no forms,
-// nothing collected.
+// nothing collected. Its only scripts are the plan builder and the section menu.
 
 export function PhRatesPage() {
   return <div className={`${s.site} ${o.root}`} lang="en-PH">
@@ -17,6 +18,7 @@ export function PhRatesPage() {
       <KrivMark />
       <span className={o.eyebrow}>Philippine rates</span>
     </header>
+    <SectionNav items={offerNav} />
     <main id="main-content" className={o.main}>
       <section className={o.intro}>
         <p className={o.eyebrow}>Philippine rates</p>
@@ -27,7 +29,7 @@ export function PhRatesPage() {
       <OfferSections audience={audiences.general} />
 
       <section className={o.block} aria-labelledby="offer-next">
-        <p className={o.eyebrow}>11 / Next step</p>
+        <p className={o.eyebrow}>Next step</p>
         <h2 id="offer-next">Start with a conversation.</h2>
         <p>Tell KRIV about your business and which service you would like to try first. This page has no form and collects no information.</p>
         <p className={o.actions}>
