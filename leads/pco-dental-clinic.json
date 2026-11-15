@@ -1,0 +1,137 @@
+{
+  "slug": "pco-dental-clinic",
+  "template": "dental-clear",
+  "contentNiche": "dental",
+  "lang": "en-PH",
+  "createdAt": "2026-11-16",
+  "expiresAt": "2026-12-16",
+  "status": "draft",
+  "business": {
+    "name": "PCO Dental Clinic",
+    "category": "Dental clinic",
+    "phoneDisplay": "[CLINIC PHONE: +63 XXX XXX XXXX]",
+    "address": {
+      "line1": "[CLINIC ADDRESS]",
+      "city": "[CITY]",
+      "region": "[PROVINCE]",
+      "country": "PH"
+    },
+    "hours": [
+      {
+        "days": "[OPENING DAYS]",
+        "time": "[OPENING HOURS]"
+      }
+    ]
+  },
+  "design": {},
+  "hero": {
+    "eyebrow": "Dental clinic in [CITY]",
+    "headline": "Welcome to *PCO Dental Clinic.*",
+    "sub": "A concept website prepared by KRIV for PCO Dental Clinic. Details shown in [BRACKETS] are placeholders until the clinic confirms them.",
+    "primary": {
+      "label": "Book an appointment",
+      "href": "#visit"
+    }
+  },
+  "services": {
+    "title": "Our *services*",
+    "intro": "Placeholders only. The clinic's real services go here once PCO Dental Clinic confirms them.",
+    "items": [
+      {
+        "name": "[SERVICE 1]",
+        "blurb": "[Short description in the clinic's own words. To be confirmed with PCO Dental Clinic.]"
+      },
+      {
+        "name": "[SERVICE 2]",
+        "blurb": "[Short description in the clinic's own words. To be confirmed with PCO Dental Clinic.]"
+      },
+      {
+        "name": "[SERVICE 3]",
+        "blurb": "[Short description in the clinic's own words. To be confirmed with PCO Dental Clinic.]"
+      },
+      {
+        "name": "[SERVICE 4]",
+        "blurb": "[Short description in the clinic's own words. To be confirmed with PCO Dental Clinic.]"
+      }
+    ]
+  },
+  "about": {
+    "title": "About *PCO Dental Clinic*",
+    "body": "[CLINIC INTRODUCTION: two or three sentences in the clinic's own words, supplied by PCO Dental Clinic.]",
+    "sections": [
+      {
+        "title": "Our team",
+        "body": "[DENTIST NAME, ROLE] and [TEAM MEMBER NAME, ROLE]. Names, roles and photos appear here only after the clinic supplies and approves them."
+      },
+      {
+        "title": "Why choose us",
+        "body": "[REASON 1] [REASON 2] [REASON 3] Each reason will be written in the clinic's own words. This concept makes no claims on the clinic's behalf."
+      }
+    ]
+  },
+  "custom": {
+    "title": "How to *book*",
+    "body": "A simple three-step outline. Every step is a placeholder until the clinic confirms how it takes bookings.",
+    "items": [
+      {
+        "name": "Get in touch",
+        "blurb": "[BOOKING CHANNEL: the clinic's Messenger link or +63 phone number]"
+      },
+      {
+        "name": "Choose a schedule",
+        "blurb": "[HOW THE CLINIC OFFERS APPOINTMENT TIMES: to be confirmed]"
+      },
+      {
+        "name": "Receive your confirmation",
+        "blurb": "[HOW THE CLINIC CONFIRMS A BOOKING: to be confirmed]"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Where is the clinic?",
+      "a": "[CLINIC ADDRESS], [CITY], [PROVINCE]. [LANDMARK OR DIRECTIONS, if the clinic wants them shown.]"
+    },
+    {
+      "q": "What are the opening hours?",
+      "a": "[OPENING DAYS] from [OPENING HOURS]. To be confirmed with the clinic."
+    },
+    {
+      "q": "How do I book an appointment?",
+      "a": "[BOOKING CHANNEL: the clinic's Messenger link or +63 phone number]. See the booking steps on this page."
+    },
+    {
+      "q": "Which services are offered?",
+      "a": "[LIST OF SERVICES, confirmed by the clinic.]"
+    },
+    {
+      "q": "How much do treatments cost?",
+      "a": "[The clinic's own answer.] This concept shows no treatment prices."
+    },
+    {
+      "q": "Is this the clinic's real website?",
+      "a": "No. This is a concept preview prepared by KRIV. Calls, messages and booking are disabled here, and no information is collected."
+    }
+  ],
+  "close": {
+    "headline": "Ready to *book a visit?*",
+    "sub": "Booking is disabled in this concept. The clinic's real contact details replace the placeholders below."
+  },
+  "seo": {
+    "title": "PCO Dental Clinic | Concept preview",
+    "description": "Concept preview of a website for PCO Dental Clinic in the Philippines, prepared by KRIV."
+  },
+  "brand": {
+    "photos": [],
+    "photoCredits": []
+  },
+  "offer": {
+    "plan": "ph-local",
+    "quoteNumber": "KRIV-PH-2026-001",
+    "quoteDate": "2026-11-16",
+    "validUntil": "2026-12-16"
+  },
+  "sources": [
+    "https://www.facebook.com/profile.php?id=61563627773407"
+  ]
+}

@@ -1,0 +1,61 @@
+/* KRIV offer and quotation page (preview-only; not shared with Site Arsenal).
+   Mobile first. Colours and fonts come from the lead's template tokens. */
+.root { background: var(--bg); color: var(--ink); min-height: 100svh; }
+.root * { min-width: 0; }
+.root p { margin: 0; }
+.root h1, .root h2, .root h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); text-wrap: balance; margin: 0; }
+.root h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.08; }
+.root h2 { font-size: clamp(1.6rem, 3.6vw, 2.4rem); line-height: 1.15; }
+.root h3 { font-size: 1.15rem; line-height: 1.3; }
+.root ul { list-style: none; margin: 0; padding: 0; }
+.root :where(a):focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+
+.top, .main, .foot { max-width: 1040px; margin-inline: auto; padding-inline: 20px; }
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding-block: 18px; border-bottom: 1px solid var(--line); font-size: 0.85rem; }
+.kriv { font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.top a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 4px; }
+
+.eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px !important; }
+.intro { padding-block: 44px 8px; display: grid; gap: 20px; }
+.lead { font-size: 1.1rem; max-width: 56ch; color: var(--muted); }
+.notice { border: 1px solid var(--accent); border-left-width: 5px; background: var(--surface); padding: 14px 16px; border-radius: 8px; font-size: 0.92rem; max-width: 68ch; }
+.meta { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; border-top: 1px solid var(--line); }
+.meta > div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.meta dt { color: var(--muted); font-size: 0.85rem; }
+.meta dd { margin: 0; font-weight: 600; text-align: right; }
+
+.block { padding-block: 40px; border-top: 1px solid var(--line); display: grid; gap: 14px; }
+.intro + .block { margin-top: 36px; }
+.block > p { max-width: 68ch; }
+.small { font-size: 0.85rem; color: var(--muted); }
+
+.cards, .windows { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 8px !important; }
+.cards > li, .windows > li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.cards > li.feature { border-color: var(--accent); border-width: 2px; }
+.price { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.price span { font-family: var(--font-body); font-size: 0.85rem; color: var(--muted); }
+.draft { display: inline-block; justify-self: start; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 999px; border: 1px dashed var(--accent); color: var(--accent); }
+
+.root ul.includes { list-style: disc; padding-left: 20px; display: grid; gap: 4px; max-width: 68ch; }
+.terms { display: grid; gap: 22px; }
+.terms h3 { margin-bottom: 6px; }
+.terms ul { list-style: disc; padding-left: 20px; display: grid; gap: 4px; }
+.terms p, .terms li { max-width: 68ch; }
+
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 26px; border-radius: var(--button-radius); background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; opacity: 0.6; cursor: default; }
+
+.foot { padding-block: 28px 44px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); display: grid; gap: 6px; }
+
+.pointer { margin: 0; padding: 14px 20px; text-align: center; font-size: 0.85rem; background: var(--ink); color: var(--bg); }
+.pointer a { color: inherit; text-underline-offset: 4px; }
+
+@media (min-width: 640px) {
+  .top, .main, .foot { padding-inline: 32px; }
+  .meta { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  .cards, .windows { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .intro { padding-block: 64px 8px; }
+  .block { padding-block: 56px; }
+  .windows { grid-template-columns: repeat(4, 1fr); }
+}
