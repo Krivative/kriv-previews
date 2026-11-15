@@ -69,7 +69,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     <section className={o.block} aria-labelledby="offer-builder">
       <p className={o.eyebrow}>Build your plan</p>
       <h2 id="offer-builder">Pick what you need. <em>See the total and the saving.</em></h2>
-      <p>Tap services on and off and switch between monthly and annual. The figures are worked out on this page only; nothing is saved or sent.</p>
+      <p>Start with one service, then add more to see the bundle discount on the annual plan. The figures are worked out on this page only; nothing is saved or sent.</p>
       <PlanBuilder />
     </section>
 

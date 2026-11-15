@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TRIAL_DAYS, addOns, annualPlans, crm, decisionWindows, php, totalMonths } from "@/offers/ph-local";
+import { MAX_BUNDLE_SAVING, TRIAL_DAYS, addOns, annualPlans, bundleQuote, bundleTiers, crm, decisionWindows, percent, php } from "@/offers/ph-local";
 import o from "./offer.module.css";
 
 // Interactive parts of KRIV's own pages. Everything here is arithmetic on the
@@ -14,7 +14,7 @@ const freeWindows = decisionWindows.filter((w) => w.freeMonths > 0);
 
 /** Pick services and a way to pay; the total and the saving update as you tap. */
 export function PlanBuilder() {
-  const [picked, setPicked] = useState<string[]>(["Website", "Content creation"]);
+  const [picked, setPicked] = useState<string[]>(["Website"]);
   const [withKit, setWithKit] = useState(false);
   const [annual, setAnnual] = useState(true);
   const [windowIndex, setWindowIndex] = useState(0);
@@ -22,10 +22,8 @@ export function PlanBuilder() {
   const plans = choices.filter((p) => picked.includes(p.name));
   const monthly = plans.reduce((sum, p) => sum + p.monthly, 0);
   const regular = plans.reduce((sum, p) => sum + p.regular, 0);
-  const w = freeWindows[windowIndex];
-  const months = totalMonths(w);
-  const pay = monthly * crm.baseMonths;
-  const worth = regular * months;
+  const { months, worth, rate, pay, capped, bundleSaving, saving, savingRate } = bundleQuote(plans, freeWindows[windowIndex]);
+  const best = bundleQuote(plans, freeWindows[0]);
   const toggle = (name: string) => setPicked((now) => (now.includes(name) ? now.filter((n) => n !== name) : [...now, name]));
 
   return <div className={o.builder}>
@@ -40,6 +38,12 @@ export function PlanBuilder() {
             <span>{kit.name}</span><span>{php(kit.price)}<small> {kit.unit}</small></span>
           </button>
         </div>
+        <p className={o.resultNote}>Start with one, or add more. On the annual plan, taking services together brings a bundle discount, up to {percent(MAX_BUNDLE_SAVING)} off the month by month total.</p>
+        <ol className={o.tiers} aria-label="Bundle discount by number of services">
+          {bundleTiers.map((tier) => <li key={tier.services} data-on={plans.length >= tier.services ? "" : undefined} data-now={rate === tier.rate ? "" : undefined}>
+            <span>{tier.services} services</span><strong>{percent(tier.rate)} off</strong>
+          </li>)}
+        </ol>
       </div>
       <div>
         <p className={o.tag}>2. Choose how to pay</p>
@@ -64,9 +68,10 @@ export function PlanBuilder() {
         <p className={o.resultLabel}>You pay for the year</p>
         <p className={o.total} key={`a-${pay}`}>{php(pay)}</p>
         <dl className={o.resultLines}>
-          <div><dt>You get</dt><dd>{months} months</dd></div>
+          <div><dt>You get</dt><dd><s>{crm.baseMonths}</s> {months} months</dd></div>
           <div><dt>Month by month</dt><dd><s>{php(worth)}</s></dd></div>
-          <div className={o.resultSave}><dt>You save</dt><dd key={`s-${worth - pay}`}>{php(worth - pay)}</dd></div>
+          {bundleSaving > 0 ? <div className={o.resultSave}><dt>Bundle discount, {plans.length} services</dt><dd>{capped ? php(bundleSaving) : `${percent(rate)} off, ${php(bundleSaving)}`}</dd></div> : null}
+          <div className={o.resultSave}><dt>You save</dt><dd key={`s-${saving}`}>{php(saving)} ({percent(savingRate)} off)</dd></div>
           <div><dt>Works out to</dt><dd>about {php(pay / months)} a month</dd></div>
         </dl>
       </> : <>
@@ -75,9 +80,10 @@ export function PlanBuilder() {
         <dl className={o.resultLines}>
           <div><dt>12 months, month by month</dt><dd>{php(monthly * crm.baseMonths)}</dd></div>
           {regular > monthly ? <div className={o.resultSave}><dt>CRM promo saves</dt><dd>{php(regular - monthly)} a month</dd></div> : null}
-          <div><dt>Go annual and save</dt><dd>up to {php(regular * totalMonths(freeWindows[0]) - pay)}</dd></div>
+          <div><dt>Go annual and save</dt><dd>up to {php(best.saving)} ({percent(best.savingRate)} off)</dd></div>
         </dl>
       </>}
+      {annual && capped ? <p className={o.resultNote}>The total saving stops at {percent(MAX_BUNDLE_SAVING)} of the month by month price.</p> : null}
       {withKit ? <p className={o.resultNote}>Plus the {kit.name.toLowerCase()}: {php(kit.price)}, paid once.</p> : null}
       <p className={o.resultNote}>First {TRIAL_DAYS} days free. No setup fee.</p>
     </div>

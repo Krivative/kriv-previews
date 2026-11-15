@@ -140,6 +140,29 @@ export function regularCost(w: DecisionWindow): number {
 // regular rate, the annual price, and the difference as the saving. Only the
 // CRM has a regular rate above today's rate, so its saving combines both.
 export type AnnualPlan = { name: string; monthly: number; regular: number };
+
+/** Bundle discount on the annual price, by how many monthly services are taken together. */
+export const bundleTiers = [
+  { services: 2, rate: 0.1 },
+  { services: 3, rate: 0.15 },
+  { services: 4, rate: 0.2 },
+  { services: 5, rate: 0.25 },
+];
+/** The most any annual bundle saves against paying the regular rate month by month. */
+export const MAX_BUNDLE_SAVING = 0.4;
+export const percent = (rate: number) => `${Math.round(rate * 100)}%`;
+export function bundleRate(count: number): number {
+  return bundleTiers.reduce((rate, tier) => (count >= tier.services ? tier.rate : rate), 0);
+}
+/** An annual quote for several services: the bundle discount comes off the yearly price, on top of the free months, and the whole saving stops at MAX_BUNDLE_SAVING. */
+export function bundleQuote(plans: AnnualPlan[], w: DecisionWindow) {
+  const months = totalMonths(w);
+  const worth = plans.reduce((sum, p) => sum + p.regular, 0) * months;
+  const base = plans.reduce((sum, p) => sum + p.monthly, 0) * crm.baseMonths;
+  const rate = bundleRate(plans.length);
+  const pay = Math.max(Math.round(base * (1 - rate)), Math.round(worth * (1 - MAX_BUNDLE_SAVING)));
+  return { months, worth, base, rate, pay, capped: pay > Math.round(base * (1 - rate)), bundleSaving: base - pay, saving: worth - pay, savingRate: worth ? (worth - pay) / worth : 0 };
+}
 export const annualPlans: AnnualPlan[] = [
   ...monthlyServices.map((s) => ({ name: s.name, monthly: s.monthly, regular: s.monthly })),
   { name: "All three together", monthly: allThreeMonthly, regular: allThreeMonthly },

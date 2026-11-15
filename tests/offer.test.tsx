@@ -9,7 +9,7 @@ import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import {
-  addOns, allThreeMonthly, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
+  addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
 
 const pco = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "pco-dental-clinic.json"), "utf8"));
@@ -77,9 +77,20 @@ describe("annual plans and savings", () => {
 describe("plan builder and section menu", () => {
   const html = renderToStaticMarkup(<PhRatesPage />);
   const words = text(html);
-  it("starts on Website and Content creation, annual, with the saving shown", () => {
-    for (const part of ["Build your plan", "You pay for the year", "PHP 72,000", "PHP 90,000", "PHP 18,000", "about PHP 4,800 a month", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(4);
+  it("gives a tiered bundle discount on the annual plan, never more than 40% in all", () => {
+    const pick = (...names: string[]) => annualPlans.filter((p) => names.includes(p.name));
+    const best = decisionWindows[0];
+    expect(bundleQuote(pick("Website"), best)).toMatchObject({ pay: 36000, worth: 45000, rate: 0, saving: 9000 });
+    expect(bundleQuote(pick("Website", "Content creation"), best)).toMatchObject({ pay: 64800, worth: 90000, rate: 0.1, saving: 25200 });
+    expect(bundleQuote(pick("Website", "Content creation", "AI live seller"), best).savingRate).toBeCloseTo(0.32);
+    const all = bundleQuote(annualPlans.filter((p) => p.name !== "All three together"), best);
+    expect(all.rate).toBe(0.25);
+    expect(all.savingRate).toBeCloseTo(0.4);
+    expect(all.pay).toBe(Math.round(all.worth * 0.6));
+  });
+  it("starts on the Website alone, annual, with the saving shown", () => {
+    for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(3);
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));

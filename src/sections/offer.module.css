@@ -13,6 +13,7 @@
   --line: rgba(170, 200, 212, 0.16);
   --accent: #e7fa78;
   --accent-ink: #0d141c;
+  --strike: #ff6b6b;
   --radius: 22px;
   --radius-small: 14px;
   --button-radius: 999px;
@@ -43,7 +44,8 @@ html:has(.root) { scroll-behavior: smooth; }
 /* The second phrase of a heading sits in grey, upright. */
 .root h1 em, .root h2 em { display: block; font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--muted); }
 .root ul { list-style: none; margin: 0; padding: 0; }
-.root s { color: var(--muted); }
+.root s { color: var(--strike); text-decoration-thickness: 1.5px; }
+.cards > li.feature s { color: inherit; }
 .root :where(a) { color: var(--accent); text-underline-offset: 4px; }
 .root :where(a):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
@@ -147,6 +149,12 @@ html:has(.root) { scroll-behavior: smooth; }
 .chips button > span:first-child::before { content: "+"; display: inline-block; width: 1.2em; font-family: var(--font-mono); transition: transform 0.25s; }
 .chips button[aria-pressed="true"] > span:first-child::before { transform: rotate(45deg); }
 .chips button > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tiers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.tiers li { display: grid; gap: 2px; padding: 9px 6px; text-align: center; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s; }
+.tiers span { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.tiers strong { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tiers li[data-on] { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: var(--ink); }
+.tiers li[data-now] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); transform: translateY(-2px); }
 .segments { display: grid; gap: 8px; }
 .segments button { display: grid; gap: 2px; font-weight: 600; }
 .segments button small { font-weight: 400; }
