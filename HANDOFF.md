@@ -14,6 +14,9 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv asked that visitors also cannot scroll back during the story, so the lock holds. Branch `claude/story-no-back` (from main `98eef76`). Local only until Kriv approves publishing.
+  - `JourneyScroller.tsx`: during the first pass the story only plays forward. A wheel, swipe, key, scrollbar drag or menu link towards an earlier chapter is refused with "The story plays forward. You can move freely once it ends." From chapter 1 the visitor can still scroll up to the page header. After the last chapter both directions are free, as before. Reduced-motion visitors are still never held.
+  - Separate unpublished branch `claude/story-voices` holds the "Mira" dental set and the voice profiles.
 - Kriv asked for a randomizer for story, lore and style, so each website looks different without recoding. Branch `claude/story-randomizer` (from `claude/journey-paging` `b2a75cd`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed.
   - `src/stories/journey-style.ts`: eight themes (colours, typefaces, corner shapes), four ways of naming chapters (chapters, scenes, stops, pages), the drawing on the left or right, four ring styles. `journeyStyle(site)` picks each from a seed; the default seed is the lead's slug, so every story lead gets its own steady look. All themes are dark grounds for now.
   - `storyStyle` in a lead record pins any part or gives a new seed. PCO is pinned to its existing look (night-lime, chapters, right, dotted), so it is unchanged. `pnpm story:shuffle <slug>` writes a new random seed into a lead's record (`--theme <name>` pins a theme, `--clear` returns to the default).

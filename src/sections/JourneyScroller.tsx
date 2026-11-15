@@ -7,9 +7,10 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 //    fills the window while its narration plays.
 //  - The next chapter opens only when the current one has finished: its
 //    recording has ended, or, with no sound, after a short reading pause.
-//  - Going back is always allowed. Once every chapter has been through once,
-//    the page scrolls freely, on this visit and later ones (remembered in the
-//    browser only).
+//  - During that first pass the story only plays forward: no going back to an
+//    earlier chapter. Once every chapter has been through once, the page
+//    scrolls freely in both directions, on this visit and later ones
+//    (remembered in the browser only).
 //  - Visitors who ask their device for reduced motion are never held.
 // It reads scroll position and plays local audio: nothing is sent anywhere.
 // Without scripts the story is a plain page of chapters with a still drawing.
@@ -30,7 +31,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const [step, setStep] = useState(0);
   const [opened, setOpened] = useState(0); // the furthest chapter the visitor may go to
   const [free, setFree] = useState(false);
-  const [held, setHeld] = useState(false);
+  const [held, setHeld] = useState<"" | "playing" | "forward">("");
   const current = useRef(0);
   const open = useRef(0);
   const freed = useRef(false);
@@ -59,6 +60,9 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const scenes = [...el.querySelectorAll<SVGElement>("[data-journey-scene]")];
     const topOf = (n: number) => steps[n].getBoundingClientRect().top + window.scrollY;
     const limit = () => topOf(Math.min(open.current, steps.length - 1));
+    // The earliest point the visitor may be at: the chapter they have reached (the page top before chapter 2).
+    let reached = 0;
+    const floor = () => (reached > 0 ? topOf(reached) : 0);
     let busy = 0;
     let lastWheel = 0;
     let touchY: number | null = null;
@@ -74,7 +78,10 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
 
     const check = () => {
       // Hold: nothing past the furthest opened chapter, however the page is moved.
-      if (!freed.current && Date.now() >= busy && window.scrollY > limit() + 4) window.scrollTo({ top: limit(), behavior: "instant" });
+      if (!freed.current && Date.now() >= busy) {
+        if (window.scrollY > limit() + 4) window.scrollTo({ top: limit(), behavior: "instant" });
+        else if (window.scrollY < floor() - 4) window.scrollTo({ top: floor(), behavior: "instant" });
+      }
       const line = window.innerHeight * 0.6;
       let now = 0;
       steps.forEach((s, i) => { if (s.getBoundingClientRect().top < line) now = i; });
@@ -84,6 +91,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
         steps[now]?.setAttribute("data-active", "");
         scenes[now]?.setAttribute("data-active", "");
         current.current = now;
+        if (now > reached) reached = now;
         setStep(now);
       }
     };
@@ -93,7 +101,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const tick = window.setInterval(check, 500);
 
     const inStory = () => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5; };
-    const hold = () => { setHeld(true); window.clearTimeout(holdTimer); holdTimer = window.setTimeout(() => setHeld(false), 2200); };
+    const hold = (why: "playing" | "forward") => { setHeld(why); window.clearTimeout(holdTimer); holdTimer = window.setTimeout(() => setHeld(""), 2400); };
     const go = (n: number) => {
       busy = Date.now() + 1000;
       const top = n < 0 ? 0 : n >= steps.length ? el.getBoundingClientRect().bottom + window.scrollY : topOf(n);
@@ -105,8 +113,8 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const move = (direction: number) => {
       if (Date.now() < busy) return;
       const now = current.current;
-      if (direction < 0) return go(now - 1);
-      if (now + 1 > open.current) return hold();
+      if (direction < 0) return now === 0 ? go(-1) : hold("forward");
+      if (now + 1 > open.current) return hold("playing");
       go(now + 1);
     };
     const paging = () => !freed.current && inStory();
@@ -140,7 +148,10 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       if (freed.current || !(event.target instanceof Element)) return;
       const hash = event.target.closest("a")?.getAttribute("href");
       const target = hash?.startsWith("#") ? document.getElementById(hash.slice(1)) : null;
-      if (target && target.getBoundingClientRect().top + window.scrollY > limit() + 4) { event.preventDefault(); hold(); }
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      if (top > limit() + 4) { event.preventDefault(); hold("playing"); }
+      else if (top < floor() - 4) { event.preventDefault(); hold("forward"); }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -227,7 +238,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     else setVoice((v) => !v);
   };
   const ready = opened > step;
-  const cue = free ? "" : held ? "This chapter is still playing. The next one opens when it ends." : ready ? "Scroll for the next chapter" : "";
+  const cue = free ? "" : held === "playing" ? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? "The story plays forward. You can move freely once it ends." : ready ? "Scroll for the next chapter" : "";
 
   return <div ref={root} className={className} data-free={free ? "" : undefined} data-ready={ready ? "" : undefined} data-held={held ? "" : undefined}>
     <p className={voiceClassName}><button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button></p>
