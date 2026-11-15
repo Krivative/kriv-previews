@@ -1,42 +1,47 @@
 /* KRIV's own pages: a lead's offer and quotation, and the Philippine rates page
    (preview-only; not shared with Site Arsenal). Mobile first.
-   The look follows kriv.agency (read 2026-11-16): near-black ground, off-white
-   type, lime accent, square corners, tight grotesque headings with the second
-   phrase in grey, small spaced mono labels. The tokens are set here, so these
-   pages look the same whichever template the lead's concept site uses. */
+   The look (Kriv's direction, 2026-11-16): deep navy ground with a soft glow,
+   wide thin uppercase headings, rounded glass cards, pill buttons and small
+   spaced mono labels. KRIV's own wordmark, lime accent and words stay. The
+   tokens are set here, so these pages look the same whichever template the
+   lead's concept site uses. */
 .root {
-  --bg: #101112;
-  --surface: #171a18;
-  --ink: #efefe8;
-  --muted: #a7a9a4;
-  --line: #3d4237;
+  --bg: #0d141c;
+  --surface: #16222e;
+  --ink: #eceef1;
+  --muted: #8d9cab;
+  --line: rgba(170, 200, 212, 0.16);
   --accent: #e7fa78;
-  --accent-ink: #101112;
-  --radius: 0px;
-  --button-radius: 0px;
-  --display-weight: 500;
-  --display-tracking: -0.045em;
-  --display-case: none;
-  --font-display: Arial, Helvetica, sans-serif;
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-accent: Arial, Helvetica, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  background: var(--bg);
+  --accent-ink: #0d141c;
+  --radius: 22px;
+  --radius-small: 14px;
+  --button-radius: 999px;
+  --display-weight: 300;
+  --display-tracking: 0.07em;
+  --display-case: uppercase;
+  --font-display: "Lexend Zetta", "Manrope", Arial, sans-serif;
+  --font-body: "Manrope", Arial, Helvetica, sans-serif;
+  --font-accent: "Manrope", Arial, Helvetica, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background:
+    radial-gradient(60rem 36rem at 85% -6rem, rgba(60, 150, 170, 0.16), transparent 70%),
+    radial-gradient(48rem 30rem at -10% 38rem, rgba(60, 150, 170, 0.09), transparent 70%),
+    var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
   min-height: 100svh;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 .root * { min-width: 0; }
 html:has(.root) { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html:has(.root) { scroll-behavior: auto; } }
 .root p { margin: 0; }
-.root h1, .root h2, .root h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); text-wrap: balance; margin: 0; }
-.root h1 { font-size: clamp(2.3rem, 7vw, 4.6rem); line-height: 1.02; }
-.root h2 { font-size: clamp(1.7rem, 4vw, 2.7rem); line-height: 1.08; }
-.root h3 { font-size: 1.1rem; line-height: 1.25; letter-spacing: -0.02em; }
-/* kriv.agency sets the second phrase of a heading in grey, upright. */
-.root h1 em, .root h2 em { display: block; font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; color: var(--muted); }
+.root h1, .root h2, .root h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); text-transform: var(--display-case); text-wrap: balance; overflow-wrap: break-word; color: #f6f8fa; margin: 0; }
+.root h1 { font-size: clamp(1.3rem, 4.4vw, 2.9rem); line-height: 1.22; font-weight: 200; }
+.root h2 { font-size: clamp(1.1rem, 2.9vw, 1.9rem); line-height: 1.28; }
+.root h3 { font-size: 0.86rem; line-height: 1.45; letter-spacing: 0.06em; font-weight: 400; }
+/* The second phrase of a heading sits in grey, upright. */
+.root h1 em, .root h2 em { display: block; font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--muted); }
 .root ul { list-style: none; margin: 0; padding: 0; }
 .root s { color: var(--muted); }
 .root :where(a) { color: var(--accent); text-underline-offset: 4px; }
@@ -45,11 +50,14 @@ html:has(.root) { scroll-behavior: smooth; }
 .top, .main, .foot { max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
 .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding-block: 18px; border-bottom: 1px solid var(--line); font-size: 0.85rem; }
 .top a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); }
-.kriv { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+.kriv { font-family: var(--font-body); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
 .kriv span { color: var(--accent); margin-left: 4px; font-weight: 400; }
 
 .eyebrow, .tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
 .block > .eyebrow, .intro > .eyebrow { margin-bottom: 6px; }
+/* The opening label is a glass pill with a small glowing dot. */
+.intro > .eyebrow { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(170, 200, 212, 0.22); border-radius: 999px; background: color-mix(in srgb, var(--surface) 80%, transparent); backdrop-filter: blur(12px); color: var(--ink); }
+.intro > .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .tag { color: var(--accent); }
 .intro { padding-block: 48px 12px; display: grid; gap: 22px; }
 .lead { font-size: 1.1rem; max-width: 54ch; color: var(--muted); }
@@ -64,13 +72,13 @@ html:has(.root) { scroll-behavior: smooth; }
 .small { font-size: 0.85rem; color: var(--muted); }
 .subhead { margin-top: 20px !important; font-size: 1.3rem !important; }
 
-.cards, .windows, .facts { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px !important; }
-.cards > li, .windows > li, .facts > li { background: var(--surface); padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
-.facts > li { background: var(--bg); }
+.cards, .windows, .facts { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 8px !important; }
+.cards > li, .windows > li, .facts > li { background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: var(--radius); overflow: clip; padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
 .facts p, .cards > li > p, .windows p { color: var(--muted); font-size: 0.95rem; }
-.cards > li.feature { background: var(--accent); color: var(--accent-ink); }
+.cards > li.feature { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.cards > li.feature h3 { color: var(--accent-ink); }
 .cards > li.feature p, .cards > li.feature .price, .cards > li.feature .price span { color: var(--accent-ink) !important; }
-.root p.price { font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; letter-spacing: -0.04em; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink) !important; }
+.root p.price { font-family: var(--font-body); font-size: 1.9rem; font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--ink) !important; }
 .root p.price span { font-size: 0.8rem; letter-spacing: 0; color: var(--muted); }
 
 .ticks { display: grid; gap: 8px; }
@@ -78,7 +86,7 @@ html:has(.root) { scroll-behavior: smooth; }
 .ticks > li::before { content: "+"; position: absolute; left: 0; top: 0; color: var(--accent); font-family: var(--font-mono); }
 
 .split { display: grid; gap: 24px; margin-top: 8px; }
-.promo { border: 1px solid var(--accent); background: var(--surface); padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
+.promo { border: 1px solid var(--accent); border-radius: var(--radius); box-shadow: 0 0 50px rgba(231, 250, 120, 0.08), 0 14px 50px rgba(0, 0, 0, 0.35); background: color-mix(in srgb, var(--surface) 82%, transparent); padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
 .promo > p:last-child { color: var(--muted); font-size: 0.95rem; }
 
 .terms { display: grid; gap: 22px; }
@@ -87,13 +95,13 @@ html:has(.root) { scroll-behavior: smooth; }
 .terms p, .terms li { max-width: 68ch; color: var(--muted); }
 
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
-.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 52px; padding: 14px 22px; background: var(--accent); color: var(--accent-ink) !important; font-weight: 600; text-decoration: none; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 52px; padding: 14px 26px; border-radius: var(--button-radius); background: var(--accent); color: var(--accent-ink) !important; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; text-decoration: none; }
 .button:not([href]) { opacity: 0.6; cursor: default; }
 
 .foot { padding-block: 28px 44px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); display: grid; gap: 6px; }
 
 /* The one line under a lead's concept site that points to the offer. */
-.pointer { margin: 0; padding: 14px 20px; text-align: center; font-size: 0.85rem; background: #101112; color: #efefe8; }
+.pointer { margin: 0; padding: 14px 20px; text-align: center; font-size: 0.85rem; background: #0d141c; color: #eceef1; }
 .pointer a { color: #e7fa78; text-underline-offset: 4px; }
 
 @media (min-width: 640px) {
@@ -124,10 +132,10 @@ html:has(.root) { scroll-behavior: smooth; }
 .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
 
 /* ---------- Plan builder ---------- */
-.builder { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.builder { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: clip; margin-top: 8px; box-shadow: 0 0 50px rgba(60, 150, 170, 0.12), 0 14px 50px rgba(0, 0, 0, 0.35); }
 .builderSteps, .builderResult { background: var(--surface); padding: 22px 20px; display: grid; gap: 22px; align-content: start; }
 .builderSteps > div { display: grid; gap: 10px; }
-.root .builder button { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 0; cursor: pointer; text-align: left; min-height: 52px; padding: 10px 14px; transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s; }
+.root .builder button { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-small); cursor: pointer; text-align: left; min-height: 52px; padding: 10px 14px; transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s; }
 .root .builder button:hover { border-color: var(--ink); }
 .root .builder button:active { transform: scale(0.985); }
 .root .builder button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -144,7 +152,7 @@ html:has(.root) { scroll-behavior: smooth; }
 .segments button small { font-weight: 400; }
 .builderResult { background: var(--bg); gap: 10px; }
 .resultLabel { color: var(--muted); font-size: 0.9rem; }
-.root p.total { font-size: clamp(2.6rem, 9vw, 4rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.root p.total { font-size: clamp(2.6rem, 9vw, 4rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
 .resultLines { margin: 8px 0 0; display: grid; border-top: 1px solid var(--line); }
 .resultLines > div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
 .resultLines dt { color: var(--muted); font-size: 0.9rem; }
@@ -153,13 +161,13 @@ html:has(.root) { scroll-behavior: smooth; }
 .resultNote { color: var(--muted); font-size: 0.85rem; }
 
 /* ---------- Savings per service: one expandable row each ---------- */
-.savings { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 8px; }
+.savings { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: clip; margin-top: 8px; }
 .savings details { background: var(--surface); }
 .savings summary { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px; padding: 18px 20px; cursor: pointer; list-style: none; transition: background 0.18s; }
 .savings summary::-webkit-details-marker { display: none; }
 .savings summary:hover { background: color-mix(in srgb, var(--surface) 80%, var(--ink) 6%); }
 .savings summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.savings summary strong { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em; }
+.savings summary strong { font-size: 1.05rem; font-weight: 600; }
 .savings summary > span:nth-of-type(1) { grid-column: 1; color: var(--accent); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 .toggle { grid-column: 2; grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 1.3rem; color: var(--accent); transition: transform 0.25s; }
 .savings details[open] .toggle { transform: rotate(45deg); }
@@ -176,8 +184,9 @@ html:has(.root) { scroll-behavior: smooth; }
 .savings td:nth-of-type(4)::before { content: "You save"; }
 .savings td.saved { color: var(--accent); font-weight: 600; }
 
-/* ---------- Hover: a lime line draws across the card ---------- */
-.cards > li, .windows > li, .facts > li { position: relative; transition: background 0.2s; }
+/* ---------- Hover: the card lifts and a lime line draws across it ---------- */
+.cards > li, .windows > li, .facts > li { position: relative; transition: background 0.2s, transform 0.25s, border-color 0.25s; }
+.cards > li:hover, .windows > li:hover, .facts > li:hover { transform: translateY(-3px); border-color: rgba(170, 200, 212, 0.34); }
 .cards > li::after, .windows > li::after, .facts > li::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .cards > li:hover::after, .windows > li:hover::after, .facts > li:hover::after { transform: scaleX(1); }
 .cards > li.feature::after { background: var(--accent-ink); }

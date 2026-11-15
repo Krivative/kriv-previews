@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: animated "two timelines" story explaining the annual plan added to the rates page and quotation and published to main with the interactive work on Kriv's "Publish now"
+Updated: 2026-11-16 - Last step finished: rates page and quotation restyled (navy, wide uppercase headings, rounded glass cards, pill buttons) on `claude/ph-navy-style` (local, awaiting Kriv's OK to publish); story and interactive work published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 

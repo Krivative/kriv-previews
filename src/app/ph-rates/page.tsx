@@ -6,7 +6,7 @@ import { PhRatesPage } from "@/sections/PhRatesPage";
 // take the name. noindex comes from the root layout and next.config.ts.
 export const metadata: Metadata = {
   title: "Philippine rates | KRIV Agency",
-  description: "KRIV Agency's draft rates for businesses with a physical store in the Philippines.",
+  description: "KRIV Agency's rates for businesses with a physical store in the Philippines.",
 };
 
 export default function PhRates() {
