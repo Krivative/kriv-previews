@@ -52,8 +52,8 @@ describe("offer eligibility and schema", () => {
 
 describe("PCO Dental Clinic concept (Philippines)", () => {
   const site = SiteData.parse(pco);
-  it("is a 30-day draft with Philippine formats", () => {
-    expect(site.status).toBe("draft");
+  it("is a 30-day preview with Philippine formats", () => {
+    expect(site.status).toBe("approved");
     expect(site.expiresAt).toBe("2026-12-16");
     expect(addressText(site.business.address)).toBe("[CLINIC ADDRESS], [CITY], [PROVINCE]");
     expect(phoneText({ phoneDisplay: "+63 917 123 4567", phoneE164: "+639171234567" })).toBe("+63 917 123 4567");
