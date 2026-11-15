@@ -24,7 +24,7 @@ import o from "./offer.module.css";
 const longDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 /** Web fonts for KRIV's own pages: a wide display face, a plain body face and a mono for labels. */
-const OFFER_FONTS = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Lexend+Zetta:wght@200;300;400&family=Manrope:wght@400;500;600;700&display=swap";
+export const OFFER_FONTS = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Lexend+Zetta:wght@200;300;400&family=Manrope:wght@400;500;600;700&display=swap";
 
 /** The kriv.agency wordmark: lowercase name and the lime cross. */
 export function KrivMark() {

@@ -86,6 +86,8 @@ export const SiteData = z.object({
     socials: z.record(z.string(), z.string().url()).default({}),
     hours: z.array(z.object({ days: z.string(), time: z.string() })).default([]),
   }),
+  // Preview-only: tells the home page as a scroll journey (src/sections/JourneySite.tsx).
+  story: z.literal("dental-journey").optional(),
   // Lead-level tailoring knobs. Everything is optional; the template supplies defaults.
   design: z
     .object({

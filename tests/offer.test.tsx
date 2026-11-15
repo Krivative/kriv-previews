@@ -8,6 +8,7 @@ import { PhRatesPage } from "@/sections/PhRatesPage";
 import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
+import { dentalJourney } from "@/stories/dental-journey";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -144,10 +145,43 @@ describe("PCO Dental Clinic concept (Philippines)", () => {
   it("shows the banner, an inert booking action and only internal links", () => {
     const html = render(pco);
     expect(html).toContain(banner("PCO Dental Clinic"));
-    expect(html).toMatch(/<a aria-disabled="true"[^>]*>Book an appointment<\/a>/);
+    expect(html).toMatch(/<a [^>]*aria-disabled="true"[^>]*>Book an appointment/);
+    expect(html).not.toMatch(/<a [^>]*href="[^"]*"[^>]*>Book an appointment/);
     expect(html).not.toMatch(/<form\b|<input\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
     const known = [...sitePages(site), offerPage(site)!].map((p) => pageHref(site, p.path));
     for (const href of hrefs(html)) expect(href.startsWith("#") || known.includes(href)).toBe(true);
+  });
+});
+
+describe("PCO scroll journey", () => {
+  const html = render(pco);
+  const words = text(html);
+  it("tells the story of one tooth in eight chapters, each with its narration", () => {
+    expect(html.match(/data-journey-step/g)?.length).toBe(8);
+    expect(dentalJourney.length).toBe(8);
+    for (const step of dentalJourney) {
+      expect(words).toContain(step.title);
+      expect(words).toContain(step.narration.replace(/'/g, "'"));
+      expect(html).toContain(`id="journey-${step.id}"`);
+    }
+    expect(html.match(/<h1\b/g)?.length).toBe(1);
+  });
+  it("keeps the clinic's placeholders and details after the story", () => {
+    for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], [CITY], [PROVINCE]", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
+  });
+  it("makes no claims for the clinic and names no other agency", () => {
+    expect(words).not.toMatch(/wayaway|award|guarantee|best dentist|painless|years of experience|\d+\+? (?:patients|reviews)|★/i);
+    expect(words).toContain("makes no claims about the clinic");
+  });
+  it("has one narration button and no form", () => {
+    expect(html.match(/<button\b/g)?.length).toBe(1);
+    expect(html).toMatch(/<button type="button" aria-pressed="false">Narration off<\/button>/);
+    expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
+  });
+  it("leaves the inner pages on the lead's template", () => {
+    const site = SiteData.parse(pco);
+    const about = sitePages(site).find((p) => p.kind === "about");
+    if (about) expect(renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={about} />)).not.toContain("data-journey-step");
   });
 });
 

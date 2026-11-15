@@ -1,0 +1,140 @@
+/* The scroll journey on a dental lead's home page (preview-only). One drawing
+   stays in view and changes with the chapter the reader has scrolled to; the
+   script sets data-step on .journey and data-active on the chapter in view.
+   Without scripts, or with reduced motion, it is a plain page of chapters with
+   a still drawing. Colours and type come from offer.module.css's tokens. */
+.root { --crumb: #d9b98a; --plaque: #cfc77c; --decay: #2a1d1a; }
+html:has(.journey) { scroll-snap-type: y proximity; }
+.top { border-bottom: 0; }
+.name { font-family: var(--font-display); font-weight: 300; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: #f6f8fa; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.root .nav a { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+.root .nav a:hover { color: var(--accent); }
+
+.journey { position: relative; }
+.dots { position: sticky; top: 10px; z-index: 3; height: 0; margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 2px; }
+.dots a { display: grid; place-items: center; width: 26px; height: 32px; }
+.dots a::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(170, 200, 212, 0.35); transition: transform 0.3s, background 0.3s, width 0.3s; }
+.dots a:hover::before { background: var(--ink); }
+.journey[data-step="0"] .dots li:nth-child(1) a::before,
+.journey[data-step="1"] .dots li:nth-child(2) a::before,
+.journey[data-step="2"] .dots li:nth-child(3) a::before,
+.journey[data-step="3"] .dots li:nth-child(4) a::before,
+.journey[data-step="4"] .dots li:nth-child(5) a::before,
+.journey[data-step="5"] .dots li:nth-child(6) a::before,
+.journey[data-step="6"] .dots li:nth-child(7) a::before,
+.journey[data-step="7"] .dots li:nth-child(8) a::before { background: var(--accent); width: 20px; border-radius: 999px; box-shadow: 0 0 12px var(--accent); }
+
+.voice { position: sticky; top: 44px; z-index: 4; height: 0; margin: 0; padding-inline: 16px; display: flex; justify-content: center; }
+.root .voice button { font: inherit; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(170, 200, 212, 0.34); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); color: var(--ink); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.root .voice button::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--muted); }
+.root .voice button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.root .voice button[aria-pressed="true"]::before { background: var(--accent-ink); }
+.root .voice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.stage { position: sticky; top: 0; z-index: 2; height: 50svh; display: grid; place-items: center; padding-top: 90px; background: linear-gradient(var(--bg) 86%, transparent); pointer-events: none; }
+.art { width: min(84%, 37svh); height: auto; aspect-ratio: 1; overflow: visible; }
+.steps { position: relative; z-index: 1; margin-top: -50svh; }
+.step { min-height: 100svh; padding: 53svh 20px 28px; display: grid; align-content: start; scroll-snap-align: start; }
+.words { display: grid; gap: 14px; max-width: 46ch; transition: opacity 0.6s, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.words b { color: var(--accent); font-weight: 400; }
+.journey[data-step] .step:not([data-active]) .words { opacity: 0.16; transform: translateY(16px); }
+.clinic { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.narration { font-size: 1.08rem; color: var(--ink); }
+.note { padding: 12px 14px; border: 1px dashed rgba(170, 200, 212, 0.34); border-radius: 14px; font-size: 0.88rem; color: var(--muted); }
+.hint { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.hint span { display: inline-block; }
+
+/* ---------- The drawing ---------- */
+.art * { transform-box: fill-box; transform-origin: center; }
+.orbit { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 2 10; }
+.orbit2 { fill: none; stroke: rgba(60, 150, 170, 0.5); stroke-width: 1.5; stroke-dasharray: 70 872; stroke-linecap: round; }
+.smile { opacity: 0; transition: opacity 0.6s; }
+.smile rect { fill: color-mix(in srgb, var(--surface) 80%, transparent); stroke: var(--ink); stroke-width: 2.5; }
+.smile path { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; }
+.tooth { transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s; }
+.body { fill: color-mix(in srgb, var(--surface) 86%, #ffffff 6%); stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
+.enamel { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; filter: drop-shadow(0 0 8px var(--accent)); transition: stroke-dashoffset 1.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.4s; }
+.shine { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; opacity: 0.45; }
+.crumbs circle { fill: var(--crumb); opacity: 0; }
+.plaque circle { fill: var(--plaque); opacity: 0; transform: scale(0); transition: opacity 0.5s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i) * 70ms); }
+.spot { opacity: 0; transition: opacity 0.5s; }
+.spot circle:first-child { fill: var(--decay); stroke: var(--strike); stroke-width: 2; }
+.ring { fill: none; stroke: var(--strike); stroke-width: 2; transition: stroke 0.5s; }
+.mirror { opacity: 0; transform: translate(70px, 70px); transition: opacity 0.6s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.mirror line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+.mirror circle { fill: rgba(170, 200, 212, 0.16); stroke: var(--ink); stroke-width: 4; }
+.brush { opacity: 0; transition: opacity 0.5s; }
+.brush > rect { fill: var(--ink); }
+.brush g rect { fill: var(--accent); }
+.floss { fill: none; stroke: #f6f8fa; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: stroke-dashoffset 1.4s 0.3s, opacity 0.3s; }
+.sparks path { fill: var(--accent); opacity: 0; transform: scale(0); }
+
+/* Chapter 1: the smile. Chapter 2: the tooth steps forward and its enamel is traced. */
+.journey[data-step="0"] .smile { opacity: 1; }
+.journey[data-step="0"] .tooth { opacity: 0; transform: scale(0.25); }
+.journey[data-step="1"] .enamel, .journey[data-step="7"] .enamel { stroke-dashoffset: 0; opacity: 1; }
+/* Chapter 4 and 5: the film gathers, then a spot appears. */
+.journey[data-step="3"] .plaque circle, .journey[data-step="4"] .plaque circle { opacity: 0.9; transform: scale(1); }
+.journey[data-step="4"] .spot, .journey[data-step="5"] .spot { opacity: 1; }
+/* Chapter 6: the mirror arrives, the film clears, the spot is found. */
+.journey[data-step="5"] .mirror { opacity: 1; transform: none; }
+.journey[data-step="5"] .ring { stroke: var(--accent); }
+/* Chapter 7: brush and floss. */
+.journey[data-step="6"] .brush { opacity: 1; }
+.journey[data-step="6"] .floss { stroke-dashoffset: 0; opacity: 1; }
+
+@keyframes journey-turn { to { transform: rotate(360deg); } }
+@keyframes journey-fall { 0% { opacity: 0; transform: translateY(-24px); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(84px); } }
+@keyframes journey-pulse { 0% { transform: scale(0.5); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes journey-brush { from { transform: translateX(-26px); } to { transform: translateX(86px); } }
+@keyframes journey-twinkle { 0%, 100% { opacity: 0; transform: scale(0.2) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+@keyframes journey-bob { 0%, 100% { transform: none; } 50% { transform: translateY(6px); } }
+@keyframes journey-teeth { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .orbit { animation: journey-turn 90s linear infinite; }
+  .orbit2 { animation: journey-turn 22s linear infinite reverse; }
+  .hint span { animation: journey-bob 1.6s ease-in-out infinite; }
+  .journey[data-step="0"] .smile rect { animation: journey-teeth 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 80ms); }
+  .journey[data-step="2"] .crumbs circle { animation: journey-fall 1.9s ease-in infinite; animation-delay: calc(var(--i) * 0.28s); }
+  .journey[data-step="4"] .ring { animation: journey-pulse 1.5s ease-out infinite; }
+  .journey[data-step="6"] .brush { animation: journey-brush 0.8s ease-in-out infinite alternate; }
+  .journey[data-step="7"] .sparks path { animation: journey-twinkle 2.2s ease-in-out infinite; animation-delay: calc(var(--i) * 0.4s); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.journey) { scroll-snap-type: none; }
+  .journey[data-step] .step:not([data-active]) .words { opacity: 1; transform: none; }
+  .journey[data-step="2"] .crumbs circle, .journey[data-step="7"] .sparks path { opacity: 1; transform: none; }
+}
+
+/* ---------- The clinic's details, after the story ---------- */
+.clinicMain dt { white-space: nowrap; }
+.numbered { counter-reset: journey-book; }
+.numbered > li { counter-increment: journey-book; }
+.numbered > li h3::before { content: counter(journey-book, decimal-leading-zero) " "; font-family: var(--font-mono); color: var(--accent); margin-right: 6px; }
+.faq { border-top: 1px solid var(--line); margin-top: 8px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; cursor: pointer; list-style: none; font-weight: 600; color: #f6f8fa; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary span { font-family: var(--font-mono); color: var(--accent); transition: transform 0.25s; }
+.faq details[open] summary span { transform: rotate(45deg); }
+.faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.faq details p { padding: 0 0 16px; color: var(--muted); max-width: 66ch; }
+
+@media (min-width: 900px) {
+  .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
+  .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
+  .dots { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 50svh; flex-direction: column; justify-content: flex-start; align-items: flex-end; height: 0; transform: translateY(-112px); padding-right: 12px; }
+  .dots a { width: 32px; height: 28px; }
+  .journey[data-step="0"] .dots li:nth-child(1) a::before,
+.journey[data-step="1"] .dots li:nth-child(2) a::before,
+.journey[data-step="2"] .dots li:nth-child(3) a::before,
+.journey[data-step="3"] .dots li:nth-child(4) a::before,
+.journey[data-step="4"] .dots li:nth-child(5) a::before,
+.journey[data-step="5"] .dots li:nth-child(6) a::before,
+.journey[data-step="6"] .dots li:nth-child(7) a::before,
+.journey[data-step="7"] .dots li:nth-child(8) a::before { width: 7px; height: 20px; }
+  .stage { grid-column: 2; grid-row: 1; align-self: start; height: 100svh; padding: 0 24px; background: none; }
+  .art { width: min(100%, 76svh); }
+  .steps { grid-column: 1; grid-row: 1; margin-top: 0; }
+  .step { padding: 0 20px 0 48px; align-content: center; }
+}

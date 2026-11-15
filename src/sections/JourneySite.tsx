@@ -1,0 +1,157 @@
+import type { CSSProperties, ReactNode } from "react";
+import type { SiteData } from "@/lib/site-schema";
+import { addressText, phoneText } from "@/lib/us-format";
+import { dentalJourney } from "@/stories/dental-journey";
+import { Ribbon, conceptNotice } from "./Chrome";
+import { inert } from "./inert";
+import { JourneyScroller } from "./JourneyScroller";
+import { OFFER_FONTS } from "./OfferPage";
+import s from "./sections.module.css";
+import o from "./offer.module.css";
+import j from "./journey.module.css";
+
+// A lead's home page told as a scroll journey (preview-only; set with
+// `story` in the lead record). One drawing of a tooth stays in view and changes
+// with each chapter while the narration scrolls past; the clinic's own details
+// follow. It keeps every guardrail: the concept banner, inert actions, no form,
+// and placeholders wherever the clinic has not confirmed a fact.
+
+const i = (n: number) => ({ "--i": n }) as CSSProperties;
+const TOOTH = "M200 96 C176 78 122 84 120 148 C119 196 138 214 144 262 C148 296 152 334 168 334 C184 334 182 286 200 286 C218 286 216 334 232 334 C248 334 252 296 256 262 C262 214 281 196 280 148 C278 84 224 78 200 96 Z";
+const plaque = [[138, 118, 9], [160, 100, 7], [186, 104, 8], [214, 104, 8], [240, 100, 7], [262, 118, 9], [130, 150, 8], [270, 150, 8], [150, 132, 6], [250, 132, 6], [200, 116, 7], [174, 124, 5], [226, 124, 5]];
+const crumbs = [[150, 30, 5], [188, 10, 4], [222, 24, 6], [256, 6, 4], [172, 44, 3], [238, 48, 3]];
+const smile = [-3, -2, -1, 0, 1, 2, 3];
+
+/** *word* in a lead's titles marks the phrase the heading sets in grey. */
+function mark(text: string): ReactNode {
+  return text.split("*").map((part, n) => (n % 2 ? <em key={n}>{part}</em> : part));
+}
+
+function Stage() {
+  return <div className={j.stage} aria-hidden="true">
+    <svg viewBox="0 0 400 400" className={j.art}>
+      <circle className={j.orbit} cx="200" cy="205" r="176" />
+      <circle className={j.orbit2} cx="200" cy="205" r="150" />
+      <g className={j.smile}>
+        {smile.map((n) => <rect key={n} x={200 + n * 44 - 18} y={170 + Math.abs(n) * Math.abs(n) * -7} width="36" height="52" rx="12" style={i(n + 3)} />)}
+        <path d="M62 196 Q200 336 338 196" />
+      </g>
+      <g className={j.tooth}>
+        <path className={j.body} d={TOOTH} />
+        <path className={j.enamel} d={TOOTH} pathLength={100} />
+        <path className={j.shine} d="M146 140 C146 116 160 106 176 104" />
+        <g className={j.crumbs}>{crumbs.map(([x, y, r], n) => <circle key={n} cx={x} cy={y} r={r} style={i(n)} />)}</g>
+        <g className={j.plaque}>{plaque.map(([x, y, r], n) => <circle key={n} cx={x} cy={y} r={r} style={i(n)} />)}</g>
+        <g className={j.spot}><circle cx="232" cy="158" r="7" /><circle className={j.ring} cx="232" cy="158" r="20" /></g>
+        <g className={j.mirror}><line x1="300" y1="300" x2="352" y2="360" /><circle cx="286" cy="284" r="24" /></g>
+        <g className={j.brush}><rect x="96" y="40" width="120" height="16" rx="8" /><g>{[0, 1, 2, 3, 4, 5].map((n) => <rect key={n} x={104 + n * 12} y="56" width="7" height="20" rx="3" />)}</g></g>
+        <path className={j.floss} d="M96 250 C150 210 250 300 304 236" pathLength={100} />
+        <g className={j.sparks}>{[[110, 96], [296, 110], [316, 226], [88, 236]].map(([x, y], n) => <path key={n} d={`M${x} ${y - 10} L${x + 3} ${y - 3} L${x + 10} ${y} L${x + 3} ${y + 3} L${x} ${y + 10} L${x - 3} ${y + 3} L${x - 10} ${y} L${x - 3} ${y - 3} Z`} style={i(n)} />)}</g>
+      </g>
+    </svg>
+  </div>;
+}
+
+export function JourneySite({ site }: { site: SiteData }) {
+  const { business } = site;
+  const cta = site.hero.primary;
+  const book = cta ? <a className={o.button} {...inert}>{cta.label} <span aria-hidden="true">+</span></a> : null;
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang}>
+    <link rel="stylesheet" href={OFFER_FONTS} precedence="fonts" />
+    <Ribbon site={site} />
+    <a className={s.skipLink} href="#main-content">Skip to content</a>
+    <header className={`${o.top} ${j.top}`}>
+      <span className={j.name}>{business.name}</span>
+      <nav aria-label="On this page" className={j.nav}>
+        <a href="#journey-smile">The story</a>
+        {site.services ? <a href="#services">Services</a> : null}
+        {site.about ? <a href="#about">About</a> : null}
+        <a href="#visit">Visit</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <JourneyScroller className={j.journey} voiceClassName={j.voice}>
+        <ol className={j.dots} aria-label="Chapters of the story">
+          {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
+        </ol>
+        <Stage />
+        <div className={j.steps}>
+          {dentalJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
+            <div className={j.words}>
+              <p className={o.eyebrow}><b>Chapter {n + 1}</b> / {step.chapter}</p>
+              {n === 0 ? <>
+                <p className={j.clinic}>{site.hero.eyebrow ?? business.category}</p>
+                <h1 id={`journey-${step.id}-title`}>{step.title}</h1>
+              </> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
+              <p className={j.narration} data-narration="">{step.narration}</p>
+              {step.note ? <p className={j.note}>{step.note}</p> : null}
+              {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Turn on narration to hear each chapter.</p> : null}
+              {n === dentalJourney.length - 1 ? <p className={o.actions}>{book}<a href="#services">Meet the clinic</a></p> : null}
+            </div>
+          </section>)}
+        </div>
+      </JourneyScroller>
+
+      <div className={`${o.main} ${j.clinicMain}`}>
+        <section className={o.intro}>
+          <p className={o.eyebrow}>{business.category}</p>
+          <h2>{mark(site.hero.headline)}</h2>
+          <p className={o.lead}>{site.hero.sub}</p>
+        </section>
+
+        {site.services ? <section className={o.block} aria-labelledby="services">
+          <p className={o.eyebrow}>Services</p>
+          <h2 id="services">{mark(site.services.title ?? "Our *services*")}</h2>
+          {site.services.intro ? <p>{site.services.intro}</p> : null}
+          <ul className={o.cards}>
+            {site.services.items.map((item) => <li key={item.name}><h3>{item.name}</h3>{item.blurb ? <p>{item.blurb}</p> : null}</li>)}
+          </ul>
+        </section> : null}
+
+        {site.about ? <section className={o.block} aria-labelledby="about">
+          <p className={o.eyebrow}>About</p>
+          <h2 id="about">{mark(site.about.title ?? `About *${business.name}*`)}</h2>
+          <p>{site.about.body}</p>
+          {site.about.sections?.length ? <ul className={o.cards}>
+            {site.about.sections.map((part) => <li key={part.title}><h3>{part.title}</h3><p>{part.body}</p></li>)}
+          </ul> : null}
+        </section> : null}
+
+        {site.custom ? <section className={o.block} aria-labelledby="book">
+          <p className={o.eyebrow}>Booking</p>
+          <h2 id="book">{mark(site.custom.title)}</h2>
+          {site.custom.body ? <p>{site.custom.body}</p> : null}
+          <ol className={`${o.cards} ${j.numbered}`}>
+            {site.custom.items.map((item) => <li key={item.name}><h3>{item.name}</h3>{item.blurb ? <p>{item.blurb}</p> : null}</li>)}
+          </ol>
+        </section> : null}
+
+        <section className={o.block} aria-labelledby="visit">
+          <p className={o.eyebrow}>Visit</p>
+          <h2 id="visit">{mark(site.close?.headline ?? "Plan your *visit*")}</h2>
+          {site.close?.sub ? <p>{site.close.sub}</p> : null}
+          <dl className={o.meta}>
+            <div><dt>Address</dt><dd>{addressText(business.address)}</dd></div>
+            <div><dt>Phone</dt><dd>{phoneText(business)}</dd></div>
+            {business.hours.map((h) => <div key={h.days}><dt>{h.days}</dt><dd>{h.time}</dd></div>)}
+          </dl>
+          <p className={o.actions}>{book}</p>
+        </section>
+
+        {site.faqs?.length ? <section className={o.block} aria-labelledby="faq">
+          <p className={o.eyebrow}>Questions</p>
+          <h2 id="faq">Good to <em>know</em></h2>
+          <div className={j.faq}>
+            {site.faqs.map((f) => <details key={f.q}><summary>{f.q}<span aria-hidden="true">+</span></summary><p>{f.a}</p></details>)}
+          </div>
+        </section> : null}
+      </div>
+    </main>
+    <footer className={o.foot}>
+      <p>{business.name}</p>
+      <p>{conceptNotice(business.name)}</p>
+      <p>The story of the tooth uses general dental knowledge. It is not medical advice and makes no claims about the clinic.</p>
+    </footer>
+  </div>;
+}

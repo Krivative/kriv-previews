@@ -14,6 +14,12 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv asked for the sample website to tell a story in the walkthrough's style: each scroll moves to the next step with narration, an unusual animation that shows why dentistry matters, and room for the doctors' own voice. Then asked for a voice-over on each scroll. Branch `claude/pco-journey` (from main `e4f42fc`). Local only until Kriv approves publishing.
+  - `"story": "dental-journey"` in the lead record makes the home page a scroll journey (`src/sections/JourneySite.tsx`, `JourneyScroller.tsx`, `journey.module.css`, words in `src/stories/dental-journey.ts`). Eight chapters follow one tooth through a day; one drawing stays in view and changes per chapter. The clinic's placeholders (services, about, booking, visit, questions) follow in the same navy look. Inner pages and other leads are unchanged. `SiteRenderer.tsx` has one added branch for it (preview-only; not in Site Arsenal).
+  - The story uses general dental knowledge only: no claims about the clinic, no prices, no people. Two [BRACKET] slots are for the dentists' own words.
+  - Narration: a "Narration" button (off by default, as browsers require) reads each chapter as it scrolls into view, using a voice built into the visitor's device (local voices only). A chapter can take a recorded file instead (`audio` in the story file). No recording exists yet: the agent cannot hear the videos Kriv attached or reproduce their voice, so Kriv needs to supply the audio or name the voice tool.
+  - Guardrails kept: concept banner, noindex, inert booking action, no form. Tests in `tests/offer.test.tsx` ("PCO scroll journey").
+  - Open: Kriv also asked to rework the ph-rates page as a story; not started, scope to confirm.
 - Kriv said the choosing still felt wrong: a second service must not stack by itself. Branch `claude/ph-builder-single` (from main `50b51bf`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed.
   - The builder now has two modes. "One service" (default): tapping a service switches to it. "Combine services": services add up and the bundle tiers show. Going back to one keeps the first chosen. The branding kit is a separate optional add-on.
 - Kriv then asked for changes to the plan builder. Branch `claude/ph-bundle-tiers` (from main `1ec23ff`). Kriv confirmed the tiers and said "Yes, publish" on 2026-11-16: main fast-forwarded to this branch and pushed.
