@@ -14,6 +14,8 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv said the choosing still felt wrong: a second service must not stack by itself. Branch `claude/ph-builder-single` (from main `50b51bf`). Local only until Kriv approves publishing.
+  - The builder now has two modes. "One service" (default): tapping a service switches to it. "Combine services": services add up and the bundle tiers show. Going back to one keeps the first chosen. The branding kit is a separate optional add-on.
 - Kriv then asked for changes to the plan builder. Branch `claude/ph-bundle-tiers` (from main `1ec23ff`). Kriv confirmed the tiers and said "Yes, publish" on 2026-11-16: main fast-forwarded to this branch and pushed.
   - The builder starts with one service (Website). Crossed-out figures are red (`--strike`), and "You get" reads 12 (crossed out) then 15 months.
   - Choosing several services gives a tiered bundle discount on the annual price, on top of the free months: `bundleTiers` in `src/offers/ph-local.ts` (2 services 10%, 3 15%, 4 20%, 5 25%). With 3 free months that is 28%, 32%, 36% and 40% off the month by month total. `MAX_BUNDLE_SAVING` stops the whole saving at 40% (only reached when the CRM promo is in a five-service bundle).

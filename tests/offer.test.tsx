@@ -90,7 +90,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(3);
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(4);
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));

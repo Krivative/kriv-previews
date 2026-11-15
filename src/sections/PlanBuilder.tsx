@@ -15,6 +15,7 @@ const freeWindows = decisionWindows.filter((w) => w.freeMonths > 0);
 /** Pick services and a way to pay; the total and the saving update as you tap. */
 export function PlanBuilder() {
   const [picked, setPicked] = useState<string[]>(["Website"]);
+  const [multi, setMulti] = useState(false);
   const [withKit, setWithKit] = useState(false);
   const [annual, setAnnual] = useState(true);
   const [windowIndex, setWindowIndex] = useState(0);
@@ -24,26 +25,37 @@ export function PlanBuilder() {
   const regular = plans.reduce((sum, p) => sum + p.regular, 0);
   const { months, worth, rate, pay, capped, bundleSaving, saving, savingRate } = bundleQuote(plans, freeWindows[windowIndex]);
   const best = bundleQuote(plans, freeWindows[0]);
-  const toggle = (name: string) => setPicked((now) => (now.includes(name) ? now.filter((n) => n !== name) : [...now, name]));
+  // One at a time: tapping a service switches to it. Only "Combine services" lets them add up.
+  const toggle = (name: string) => setPicked((now) => (!multi ? [name] : now.includes(name) ? now.filter((n) => n !== name) : [...now, name]));
+  const setMode = (next: boolean) => { setMulti(next); if (!next) setPicked((now) => now.slice(0, 1)); };
 
   return <div className={o.builder}>
     <div className={o.builderSteps}>
       <div>
-        <p className={o.tag}>1. Choose services</p>
-        <div className={o.chips}>
+        <p className={o.tag}>1. Choose {multi ? "services" : "a service"}</p>
+        <div className={o.segments} role="group" aria-label="One service or several">
+          <button type="button" aria-pressed={!multi} onClick={() => setMode(false)}>One service<small>Tap to switch</small></button>
+          <button type="button" aria-pressed={multi} onClick={() => setMode(true)}>Combine services<small>Bundle discount, up to {percent(MAX_BUNDLE_SAVING)} off</small></button>
+        </div>
+        <div className={o.chips} data-multi={multi ? "" : undefined}>
           {choices.map((p) => <button key={p.name} type="button" aria-pressed={picked.includes(p.name)} onClick={() => toggle(p.name)}>
             <span>{p.name}</span><span>{php(p.monthly)}<small> / month</small></span>
           </button>)}
+        </div>
+        {multi ? <>
+          <p className={o.resultNote}>On the annual plan, services taken together get a bundle discount, up to {percent(MAX_BUNDLE_SAVING)} off the month by month total.</p>
+          <ol className={o.tiers} aria-label="Bundle discount by number of services">
+            {bundleTiers.map((tier) => <li key={tier.services} data-on={plans.length >= tier.services ? "" : undefined} data-now={rate === tier.rate ? "" : undefined}>
+              <span>{tier.services} services</span><strong>{percent(tier.rate)} off</strong>
+            </li>)}
+          </ol>
+        </> : null}
+        <p className={o.tag}>Optional add-on</p>
+        <div className={o.chips} data-multi="">
           <button type="button" aria-pressed={withKit} onClick={() => setWithKit((v) => !v)}>
             <span>{kit.name}</span><span>{php(kit.price)}<small> {kit.unit}</small></span>
           </button>
         </div>
-        <p className={o.resultNote}>Start with one, or add more. On the annual plan, taking services together brings a bundle discount, up to {percent(MAX_BUNDLE_SAVING)} off the month by month total.</p>
-        <ol className={o.tiers} aria-label="Bundle discount by number of services">
-          {bundleTiers.map((tier) => <li key={tier.services} data-on={plans.length >= tier.services ? "" : undefined} data-now={rate === tier.rate ? "" : undefined}>
-            <span>{tier.services} services</span><strong>{percent(tier.rate)} off</strong>
-          </li>)}
-        </ol>
       </div>
       <div>
         <p className={o.tag}>2. Choose how to pay</p>
