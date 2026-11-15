@@ -12,6 +12,18 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### PCO Dental Clinic concept and Philippines offer page (2026-11-16, Claude Code)
+
+- Branch `claude/pco-dental-mockup` from main `ba7e0f2`; code commit `8bac937`. Local only: not pushed, not merged, not deployed. No open PRs on GitHub at the start of the session. Built on a Mac in a fresh clone (no access to `kriv-leads`, the Desk or any secrets; none were needed).
+- `leads/pco-dental-clinic.json`: status `draft`, template `dental-clear` (Clear / atrium), `contentNiche` dental, `lang` en-PH, country PH, expires 2026-12-16. Every clinic fact is a marked placeholder ([CLINIC ADDRESS], [CLINIC PHONE: +63 ...], [OPENING DAYS], [SERVICE 1-4], team, reasons, booking steps). No photos (the Unsplash key was not available here), no logo, no claims, no treatment prices. Only source: the clinic's Facebook URL, which tools cannot read.
+- Philippine formats needed no change: `addressText` already writes "line, city, region, postcode" outside US/CA and `phoneText` shows the business's own +63 wording (tests existed; one more added). Prices exist only on the offer page, formatted by `php()` as "PHP 13,000".
+- Offer page: `/<slug>/offer`, rendered by `src/sections/OfferPage.tsx` (+ `offer.module.css`) from `src/offers/ph-local.ts`. A lead opts in with `offer: { plan: "ph-local", quoteNumber, quoteDate, validUntil }`; the schema refuses the plan unless the address country is PH (the PH eligibility rule). The page is not in `sitePages()`, so it never appears in the concept site's menus; the concept site carries one line under its footer linking to it. Same guardrails: banner, noindex meta and header, no forms, no outbound links, disabled button.
+- Small edits to shared files (mirror to Site Arsenal if wanted, see docs/SYNC.md): `site-schema.ts` (optional `offer`), `site-pages.ts` (`offer` page kind, `offerPage()`), `SiteRenderer.tsx` (offer branch and pointer), `CollectionParts.tsx` (`Actions` shows `hero.primary` as an inert booking action; no existing lead sets it), `[...path]/page.tsx` (finds the offer page).
+- All prices are drafts pending Kriv's approval and say so on the page: Website 3,000, Content creation 3,000, AI live seller 10,000, all three 16,000 PHP a month (plain sum, no bundle discount assumed); Annual CRM 13,000 PHP. ASSUMPTION: 13,000 is the 12-month base and free months are added on top (days 15-17: 15 months, about 867 a month; 18-20: 14, about 929; 21-23: 13, about 1,000; from day 24 monthly rates only).
+- Verified: lint, typecheck, 692 tests, build, 21 smoke checks. Viewed in a browser under `next dev` at 375, 768 and 1440 px: banner present, noindex meta and X-Robots-Tag, no forms or inputs, no horizontal overflow. The production smoke script does not cover the offer page (PCO is a draft and the live fixture is a US lead).
+- Not done: the roadmap PDF (needs Playwright, not installed on this machine) and nothing was sent to anyone.
+- Waiting on Kriv: PCO's real facts and photos; the 13,000 PHP assumption and what "Annual CRM" covers; VA trial hour cap and tasks; referral rules; Branding Kit price; revision limit; AI live seller scope for a clinic; quote numbering (KRIV-PH-2026-001 is a placeholder); approval to push.
+
 ### Gmail reply setup postponed (2026-11-04, Claude Code)
 
 - Kriv chose to skip the one-time Gmail setup (docs/REPLIES.md) for now. `kriv-leads\secrets\` does not exist yet, so the Desk's reply check stays inactive (it only runs once gmail-client.json and gmail-token.json exist). Do not ask about it again until Kriv brings it up.
