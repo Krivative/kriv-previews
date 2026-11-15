@@ -14,7 +14,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
-- Kriv then asked to study the other agency's own website and take its style for the PH prices and presentation. Branch `claude/ph-navy-style` (from main `ad7fd61`). Local only until Kriv approves publishing.
+- Kriv then asked to study the other agency's own website and take its style for the PH prices and presentation. Branch `claude/ph-navy-style` (from main `ad7fd61`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed, so the navy look is live.
   - Read on 2026-11-16 (public site, style only): deep navy ground with a soft glow, wide thin uppercase headings, rounded glass cards, pill buttons, small spaced mono labels.
   - Applied through the tokens in `src/sections/offer.module.css` and `story.module.css`; fonts (Lexend Zetta, Manrope, JetBrains Mono, all open licence) load from Google Fonts via one link in `OfferSections`. No copy, images, logo or code were taken. KRIV's wordmark, lime accent and wording stay, so the pages are not a lookalike; the accent is one token (`--accent`) if Kriv wants it changed.
   - The other agency's name still appears nowhere on the pages. This replaces the earlier "kriv.agency look" on these two pages only; kriv.agency itself is untouched.
