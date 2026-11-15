@@ -103,7 +103,7 @@ function Stage() {
 }
 
 export function RatesJourney() {
-  return <JourneyScroller className={j.journey} voiceClassName={j.voice} defaultVoice={false}>
+  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} defaultVoice={false}>
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
     </ol>

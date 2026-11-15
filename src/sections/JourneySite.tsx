@@ -76,7 +76,7 @@ export function JourneySite({ site }: { site: SiteData }) {
     </header>
 
     <main id="main-content">
-      <JourneyScroller className={j.journey} voiceClassName={j.voice}>
+      <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
         </ol>

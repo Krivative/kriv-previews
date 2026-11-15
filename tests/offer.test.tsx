@@ -197,6 +197,9 @@ describe("PCO scroll journey", () => {
       expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
     }
   });
+  it("renders a place for the next-chapter cue, empty until the page runs", () => {
+    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span><\/span><\/p>/);
+  });
   it("has one narration button and no form", () => {
     expect(html.match(/<button\b/g)?.length).toBe(1);
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);

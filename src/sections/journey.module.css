@@ -46,6 +46,13 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .root .voice button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .root .voice button[aria-pressed="true"]::before { background: var(--accent-ink); }
 .root .voice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* What to do next, or why the next chapter is waiting. */
+.cue { position: sticky; top: calc(100svh - 58px); z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
+.cue span { align-self: flex-start; padding: 8px 16px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid rgba(170, 200, 212, 0.34); backdrop-filter: blur(12px); text-align: center; max-width: calc(100vw - 32px); transition: opacity 0.25s, border-color 0.25s, color 0.25s; }
+.cue span:empty { opacity: 0; padding: 0; border: 0; }
+.journey[data-ready] .cue span::after { content: " \2193"; color: var(--accent); }
+.journey[data-held] .cue span { border-color: var(--accent); color: var(--accent); }
+.journey[data-held] .cue span::after { content: none; }
 .stage { position: sticky; top: 0; z-index: 2; height: 50svh; display: grid; place-items: center; padding-top: 90px; background: linear-gradient(var(--bg) 86%, transparent); pointer-events: none; }
 .art { width: min(84%, 37svh); height: auto; aspect-ratio: 1; overflow: visible; }
 .steps { position: relative; z-index: 1; margin-top: -50svh; }
@@ -138,6 +145,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 @media (min-width: 900px) {
   .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
   .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
+  .cue { grid-column: 1 / -1; grid-row: 1; align-self: start; }
   .dots { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 50svh; flex-direction: column; justify-content: flex-start; align-items: flex-end; height: 0; transform: translateY(-112px); padding-right: 12px; }
   .dots a { width: 32px; height: 28px; }
   .journey[data-step="0"] .dots li:nth-child(1) a::before,

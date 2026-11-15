@@ -14,6 +14,10 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv asked that each scroll snap to the next chapter, that the chapter stay put while its narration plays, and that the story not be skippable until it has been through once. Branch `claude/journey-paging` (from main `24ba39f`). Local only until Kriv approves publishing.
+  - `JourneyScroller.tsx` now pages the story: one wheel, swipe or arrow key moves one chapter. The next chapter opens when the current recording reaches its end, or after a 2.5 second reading pause when no sound plays (narration off, or sound not allowed yet). Going back is always allowed. Dragging the scrollbar or using a menu link past the opened chapter is pulled back. After the last chapter the page scrolls freely, remembered in the browser (`localStorage` key `journey-done:<id>`), nothing sent anywhere.
+  - Not held: visitors with reduced motion set, and anyone without scripts. This is deliberate, for accessibility.
+  - Applies to both stories (PCO and ph-rates), since they share the engine.
 - Kriv asked to apply the story-telling style to kriv.agency and the ph-rates page, urgently. Branch `claude/ph-rates-journey` (from main `a05e3db`). Kriv said "Publish now" on 2026-11-16 for the ph-rates story: main fast-forwarded to this branch and pushed.
   - ph-rates: the page now opens with a ten-chapter scroll story, "How a KRIV plan works" (`src/stories/rates-journey.ts`, `src/sections/RatesJourney.tsx`, `rates-journey.module.css`), using the same journey engine as the PCO story. One picture per chapter; all figures come from `src/offers/ph-local.ts`. The rates, plan builder and terms follow underneath, with the section menu starting there. Narration starts off because there are no recordings; turning it on uses the device voice.
   - kriv.agency itself (`Krivative/Kriv`): NOT done. This Mac's GitHub login cannot see that repository ("Repository not found"), and the original brief said not to edit it. Kriv has now asked for it; it needs access to the repository first.
