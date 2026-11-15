@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: PCO concept home page rebuilt as a narrated scroll journey ("the story of one tooth") on `claude/pco-journey` (local, awaiting Kriv's OK to publish; recorded voice-over still needed); builder, bundle tiers, navy look and story published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: PCO concept home page rebuilt as a narrated scroll journey ("the story of one tooth") on `claude/pco-journey` (local, awaiting Kriv's OK to publish; narration uses the device voice by Kriv's choice); builder, bundle tiers, navy look and story published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
