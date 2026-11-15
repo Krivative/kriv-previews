@@ -36,7 +36,9 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey[data-step="4"] .dots li:nth-child(5) a::before,
 .journey[data-step="5"] .dots li:nth-child(6) a::before,
 .journey[data-step="6"] .dots li:nth-child(7) a::before,
-.journey[data-step="7"] .dots li:nth-child(8) a::before { background: var(--accent); width: 20px; border-radius: 999px; box-shadow: 0 0 12px var(--accent); }
+.journey[data-step="7"] .dots li:nth-child(8) a::before,
+.journey[data-step="8"] .dots li:nth-child(9) a::before,
+.journey[data-step="9"] .dots li:nth-child(10) a::before { background: var(--accent); width: 20px; border-radius: 999px; box-shadow: 0 0 12px var(--accent); }
 
 .voice { position: sticky; top: 44px; z-index: 4; height: 0; margin: 0; padding-inline: 16px; display: flex; justify-content: center; }
 .root .voice button { font: inherit; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(170, 200, 212, 0.34); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); color: var(--ink); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
@@ -145,7 +147,9 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey[data-step="4"] .dots li:nth-child(5) a::before,
 .journey[data-step="5"] .dots li:nth-child(6) a::before,
 .journey[data-step="6"] .dots li:nth-child(7) a::before,
-.journey[data-step="7"] .dots li:nth-child(8) a::before { width: 7px; height: 20px; }
+.journey[data-step="7"] .dots li:nth-child(8) a::before,
+  .journey[data-step="8"] .dots li:nth-child(9) a::before,
+  .journey[data-step="9"] .dots li:nth-child(10) a::before { width: 7px; height: 20px; }
   .stage { grid-column: 2; grid-row: 1; align-self: start; height: 100svh; padding: 0 24px; background: none; }
   .art { width: min(100%, 76svh); }
   .steps { grid-column: 1; grid-row: 1; margin-top: 0; }

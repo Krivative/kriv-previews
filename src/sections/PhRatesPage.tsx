@@ -1,6 +1,8 @@
 import { KRIV_BOOKING, KRIV_EMAIL, PH_ELIGIBILITY, TRIAL_DAYS, audiences } from "@/offers/ph-local";
 import { KrivMark, OfferSections, offerNav } from "./OfferPage";
 import { SectionNav } from "./PlanBuilder";
+import { RatesJourney } from "./RatesJourney";
+import j from "./journey.module.css";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -12,17 +14,19 @@ import o from "./offer.module.css";
 // nothing collected. Its only scripts are the plan builder and the section menu.
 
 export function PhRatesPage() {
-  return <div className={`${s.site} ${o.root}`} lang="en-PH">
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang="en-PH">
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={o.top}>
       <KrivMark />
       <span className={o.eyebrow}>Philippine rates</span>
     </header>
-    <SectionNav items={offerNav} />
-    <main id="main-content" className={o.main}>
+    <main id="main-content">
+      <RatesJourney />
+      <SectionNav items={offerNav} />
+      <div className={o.main}>
       <section className={o.intro}>
         <p className={o.eyebrow}>Philippine rates</p>
-        <h1>Simple monthly rates <em>for Philippine businesses.</em></h1>
+        <h2>Simple monthly rates <em>for Philippine businesses.</em></h2>
         <p className={o.lead}>Try any service free for {TRIAL_DAYS} days, each one personally managed by KRIV staff. Decide afterwards, with no setup fee.</p>
       </section>
 
@@ -37,6 +41,7 @@ export function PhRatesPage() {
           <a href={`mailto:${KRIV_EMAIL}`}>{KRIV_EMAIL}</a>
         </p>
       </section>
+      </div>
     </main>
     <footer className={o.foot}>
       <p>KRIV. Philippine rates.</p>

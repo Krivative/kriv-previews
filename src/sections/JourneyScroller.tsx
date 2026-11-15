@@ -14,9 +14,9 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 // through one shared player (phones only let a player that a touch started play
 // again later). If a recording cannot play, the device's own built-in voice
 // reads the chapter (only voices that run on the device, so the text stays there).
-export function JourneyScroller({ className, voiceClassName, children }: { className: string; voiceClassName: string; children: ReactNode }) {
+export function JourneyScroller({ className, voiceClassName, defaultVoice = true, children }: { className: string; voiceClassName: string; defaultVoice?: boolean; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
-  const [voice, setVoice] = useState(true);
+  const [voice, setVoice] = useState(defaultVoice);
   const [waiting, setWaiting] = useState(false);
   const [step, setStep] = useState(0);
   const current = useRef(0);
@@ -26,6 +26,8 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
     const el = root.current;
     if (!el) return;
     const steps = [...el.querySelectorAll<HTMLElement>("[data-journey-step]")];
+    // A story may draw one picture per chapter; the one in view is marked too.
+    const scenes = [...el.querySelectorAll<SVGElement>("[data-journey-scene]")];
     const check = () => {
       // The current chapter is the last one whose top has passed the middle of the window.
       const line = window.innerHeight * 0.6;
@@ -33,7 +35,9 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
       steps.forEach((s, i) => { if (s.getBoundingClientRect().top < line) now = i; });
       if (el.dataset.step !== String(now)) {
         el.dataset.step = String(now);
-        steps.forEach((s, i) => (i === now ? s.setAttribute("data-active", "") : s.removeAttribute("data-active")));
+        [...steps, ...scenes].forEach((s) => s.removeAttribute("data-active"));
+        steps[now]?.setAttribute("data-active", "");
+        scenes[now]?.setAttribute("data-active", "");
         current.current = now;
         setStep(now);
       }

@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: PCO logo redrawn (Kriv's pick, version 3), concept brand kit page added, story scrolling made snappier, and the faster voice-over set, published to main on Kriv's "Publish now"; the journey with recorded voice-over was published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: ph-rates page opens with a ten-chapter scroll story on `claude/ph-rates-journey` (local, awaiting Kriv's OK to publish); kriv.agency itself not started (no access to its repository); PCO logo, brand kit and faster voice-over published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 

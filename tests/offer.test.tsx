@@ -9,6 +9,7 @@ import { brandKitPage, offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
+import { ratesJourney } from "@/stories/rates-journey";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -226,6 +227,24 @@ describe("offer and quotation page", () => {
     expect(words).not.toMatch(/wayaway/i);
     expect(render(pco)).not.toMatch(/wayaway/i);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
+  });
+});
+
+describe("rates page scroll story", () => {
+  const html = renderToStaticMarkup(<PhRatesPage />);
+  const words = text(html);
+  it("opens with ten chapters, one picture each, and every narration", () => {
+    expect(html.match(/data-journey-step/g)?.length).toBe(10);
+    expect(html.match(/data-journey-scene/g)?.length).toBe(10);
+    expect(html.match(/<h1\b/g)?.length).toBe(1);
+    for (const step of ratesJourney) { expect(words).toContain(step.title); expect(words).toContain(step.narration); }
+  });
+  it("takes its figures from the rates and promises nothing", () => {
+    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 15 to 17 for 3 free months", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
+  });
+  it("starts with narration off, since it has no recordings", () => {
+    expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="false">Narration off<\/button>/);
+    expect(html).not.toContain("data-audio=");
   });
 });
 
