@@ -4,13 +4,13 @@ import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import { getLead } from "@/lib/leads";
 import { reviewAllowed } from "@/lib/review-access";
-import { offerPage, sitePages } from "@/lib/site-pages";
+import { offerPage, sitePages, brandKitPage } from "@/lib/site-pages";
 import type { SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
 import { Expired } from "../Expired";
 
 // The concept site's own pages, plus KRIV's offer page when the lead has one.
-const findPage = (site: SiteData, path: string[]) => [...sitePages(site), offerPage(site)].find((p) => p?.path === path.join("/"));
+const findPage = (site: SiteData, path: string[]) => [...sitePages(site), offerPage(site), brandKitPage(site)].find((p) => p?.path === path.join("/"));
 
 // A valid private review link (?review= or its cookie) also shows a draft record.
 const lookup = cache(async (slug: string, review?: string | string[]) => {

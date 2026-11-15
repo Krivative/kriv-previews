@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: Kriv's recorded voice-over wired into the PCO scroll journey (second version, narration on by default) and published to main on Kriv's "Publish now"; the journey itself was published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: PCO logo redrawn (Kriv's pick, version 3), concept brand kit page added, story scrolling made snappier, on `claude/pco-logo` (local, awaiting Kriv's OK to publish); the journey with recorded voice-over was published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 

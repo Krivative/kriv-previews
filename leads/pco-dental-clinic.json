@@ -12,8 +12,8 @@
     "phoneDisplay": "[CLINIC PHONE: +63 XXX XXX XXXX]",
     "address": {
       "line1": "[CLINIC ADDRESS]",
-      "city": "[CITY]",
-      "region": "[PROVINCE]",
+      "city": "Mandaue",
+      "region": "Cebu",
       "country": "PH"
     },
     "hours": [
@@ -26,7 +26,7 @@
   "story": "dental-journey",
   "design": {},
   "hero": {
-    "eyebrow": "Dental clinic in [CITY]",
+    "eyebrow": "Dental clinic in Mandaue",
     "headline": "Welcome to *PCO Dental Clinic.*",
     "sub": "A concept website prepared by KRIV for PCO Dental Clinic. Details shown in [BRACKETS] are placeholders until the clinic confirms them.",
     "primary": {
@@ -91,7 +91,7 @@
   "faqs": [
     {
       "q": "Where is the clinic?",
-      "a": "[CLINIC ADDRESS], [CITY], [PROVINCE]. [LANDMARK OR DIRECTIONS, if the clinic wants them shown.]"
+      "a": "[CLINIC ADDRESS], Mandaue, Cebu. [LANDMARK OR DIRECTIONS, if the clinic wants them shown.]"
     },
     {
       "q": "What are the opening hours?",

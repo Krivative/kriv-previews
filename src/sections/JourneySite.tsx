@@ -4,6 +4,9 @@ import { addressText, phoneText } from "@/lib/us-format";
 import { dentalJourney } from "@/stories/dental-journey";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
+import Link from "next/link";
+import { pageHref } from "@/lib/site-pages";
+import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { JourneyScroller } from "./JourneyScroller";
 import { OFFER_FONTS } from "./OfferPage";
 import s from "./sections.module.css";
@@ -55,18 +58,20 @@ function Stage() {
 export function JourneySite({ site }: { site: SiteData }) {
   const { business } = site;
   const cta = site.hero.primary;
+  const { letters, ring } = logoWords(site);
   const book = cta ? <a className={o.button} {...inert}>{cta.label} <span aria-hidden="true">+</span></a> : null;
   return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang}>
     <link rel="stylesheet" href={OFFER_FONTS} precedence="fonts" />
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={`${o.top} ${j.top}`}>
-      <span className={j.name}>{business.name}</span>
+      <span className={j.name}><JourneyLogo letters={letters} compact />{business.name}</span>
       <nav aria-label="On this page" className={j.nav}>
         <a href="#journey-smile">The story</a>
         {site.services ? <a href="#services">Services</a> : null}
         {site.about ? <a href="#about">About</a> : null}
         <a href="#visit">Visit</a>
+        <Link href={pageHref(site, "brand-kit")} prefetch={false}>Brand kit</Link>
       </nav>
     </header>
 
@@ -95,6 +100,10 @@ export function JourneySite({ site }: { site: SiteData }) {
 
       <div className={`${o.main} ${j.clinicMain}`}>
         <section className={o.intro}>
+          <figure className={j.logoFigure}>
+            <JourneyLogo letters={letters} ring={ring} />
+            <figcaption>A concept redraw of the clinic&apos;s logo by KRIV, for the clinic to approve. <Link href={pageHref(site, "brand-kit")} prefetch={false}>See the concept brand kit</Link>.</figcaption>
+          </figure>
           <p className={o.eyebrow}>{business.category}</p>
           <h2>{mark(site.hero.headline)}</h2>
           <p className={o.lead}>{site.hero.sub}</p>

@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import { RESERVED_SLUGS, SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
 import { PhRatesPage } from "@/sections/PhRatesPage";
-import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
+import { brandKitPage, offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
@@ -139,7 +139,7 @@ describe("PCO Dental Clinic concept (Philippines)", () => {
   it("is a 30-day preview with Philippine formats", () => {
     expect(site.status).toBe("approved");
     expect(site.expiresAt).toBe("2026-12-16");
-    expect(addressText(site.business.address)).toBe("[CLINIC ADDRESS], [CITY], [PROVINCE]");
+    expect(addressText(site.business.address)).toBe("[CLINIC ADDRESS], Mandaue, Cebu");
     expect(phoneText({ phoneDisplay: "+63 917 123 4567", phoneE164: "+639171234567" })).toBe("+63 917 123 4567");
   });
   it("shows the banner, an inert booking action and only internal links", () => {
@@ -148,7 +148,7 @@ describe("PCO Dental Clinic concept (Philippines)", () => {
     expect(html).toMatch(/<a [^>]*aria-disabled="true"[^>]*>Book an appointment/);
     expect(html).not.toMatch(/<a [^>]*href="[^"]*"[^>]*>Book an appointment/);
     expect(html).not.toMatch(/<form\b|<input\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
-    const known = [...sitePages(site), offerPage(site)!].map((p) => pageHref(site, p.path));
+    const known = [...sitePages(site), offerPage(site)!, brandKitPage(site)!].map((p) => pageHref(site, p.path));
     for (const href of hrefs(html)) expect(href.startsWith("#") || known.includes(href)).toBe(true);
   });
 });
@@ -167,7 +167,23 @@ describe("PCO scroll journey", () => {
     expect(html.match(/<h1\b/g)?.length).toBe(1);
   });
   it("keeps the clinic's placeholders and details after the story", () => {
-    for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], [CITY], [PROVINCE]", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
+    for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], Mandaue, Cebu", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
+  });
+  it("shows the concept redraw of the clinic's logo, in the header and as a badge", () => {
+    expect(html.match(/logo, concept redraw/g)?.length).toBe(2);
+    expect(html).toContain('href="/pco-dental-clinic/brand-kit"');
+    expect(html).toContain("PCO DENTAL CLINIC MANDAUE");
+    expect(words).toContain("A concept redraw of the clinic's logo by KRIV, for the clinic to approve.");
+  });
+  it("has a concept brand kit page with the logo on three grounds, colours, type and mock-ups", () => {
+    const site = SiteData.parse(pco);
+    const kit = renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={brandKitPage(site)} />);
+    const kitWords = text(kit);
+    expect(kit).toContain(banner("PCO Dental Clinic"));
+    for (const part of ["Concept brand kit", "On navy", "On lime", "On white", "#E7FA78", "Lexend Zetta", "Page cover", "Profile picture", "Square post", "Appointment card", "[DENTIST NAME]", "Every piece is a proposal for the clinic to approve."]) expect(kitWords).toContain(part);
+    expect(kit.match(/logo, concept redraw/g)?.length).toBeGreaterThanOrEqual(9);
+    expect(kit).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
+    expect(kitWords).not.toMatch(/wayaway|award|guarantee|PHP|₱/i);
   });
   it("makes no claims for the clinic and names no other agency", () => {
     expect(words).not.toMatch(/wayaway|award|guarantee|best dentist|painless|years of experience|\d+\+? (?:patients|reviews)|★/i);

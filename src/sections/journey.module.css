@@ -5,8 +5,21 @@
    a still drawing. Colours and type come from offer.module.css's tokens. */
 .root { --crumb: #d9b98a; --plaque: #cfc77c; --decay: #2a1d1a; }
 html:has(.journey) { scroll-snap-type: y proximity; }
+.root { --journey-ease: cubic-bezier(0.22, 1, 0.36, 1); }
 .top { border-bottom: 0; }
 .name { font-family: var(--font-display); font-weight: 300; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: #f6f8fa; }
+.name { display: inline-flex; align-items: center; gap: 12px; }
+.logoMark { width: 52px; height: 36px; flex: none; }
+.logoBadge { width: min(230px, 64vw); height: auto; overflow: visible; }
+.logoFigure { margin: 0; display: grid; gap: 12px; justify-items: start; }
+.logoFigure figcaption { font-size: 0.8rem; color: var(--muted); max-width: 34ch; }
+.logoRing { fill: none; stroke: var(--logo-ring); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 78 22; }
+.logoBrush { fill: var(--logo-brush); }
+.logoBristle { fill: var(--logo-bristle); }
+.logoTooth { fill: var(--logo-tooth); stroke: var(--logo-tooth); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.logoLetter { fill: var(--logo-letter); font-family: var(--font-body); font-weight: 700; text-anchor: middle; }
+.logoSmile { fill: none; stroke: var(--logo-line); stroke-width: 3.5; stroke-linecap: round; }
+.logoText { fill: var(--logo-text); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 3.2px; }
 .nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .root .nav a { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
 .root .nav a:hover { color: var(--accent); }
@@ -34,10 +47,10 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .stage { position: sticky; top: 0; z-index: 2; height: 50svh; display: grid; place-items: center; padding-top: 90px; background: linear-gradient(var(--bg) 86%, transparent); pointer-events: none; }
 .art { width: min(84%, 37svh); height: auto; aspect-ratio: 1; overflow: visible; }
 .steps { position: relative; z-index: 1; margin-top: -50svh; }
-.step { min-height: 100svh; padding: 53svh 20px 28px; display: grid; align-content: start; scroll-snap-align: start; }
-.words { display: grid; gap: 14px; max-width: 46ch; transition: opacity 0.6s, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.step { min-height: 100svh; padding: 53svh 20px 28px; display: grid; align-content: start; scroll-snap-align: start; scroll-snap-stop: always; }
+.words { display: grid; gap: 14px; max-width: 46ch; transition: opacity 0.32s ease-out, transform 0.45s var(--journey-ease); }
 .words b { color: var(--accent); font-weight: 400; }
-.journey[data-step] .step:not([data-active]) .words { opacity: 0.16; transform: translateY(16px); }
+.journey[data-step] .step:not([data-active]) .words { opacity: 0.14; transform: translateY(10px); }
 .clinic { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .narration { font-size: 1.08rem; color: var(--ink); }
 .note { padding: 12px 14px; border: 1px dashed rgba(170, 200, 212, 0.34); border-radius: 14px; font-size: 0.88rem; color: var(--muted); }
@@ -48,25 +61,25 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .art * { transform-box: fill-box; transform-origin: center; }
 .orbit { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 2 10; }
 .orbit2 { fill: none; stroke: rgba(60, 150, 170, 0.5); stroke-width: 1.5; stroke-dasharray: 70 872; stroke-linecap: round; }
-.smile { opacity: 0; transition: opacity 0.6s; }
+.smile { opacity: 0; transition: opacity 0.3s ease-out; }
 .smile rect { fill: color-mix(in srgb, var(--surface) 80%, transparent); stroke: var(--ink); stroke-width: 2.5; }
 .smile path { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; }
-.tooth { transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s; }
+.tooth { transition: transform 0.5s var(--journey-ease), opacity 0.3s ease-out; }
 .body { fill: color-mix(in srgb, var(--surface) 86%, #ffffff 6%); stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
-.enamel { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; filter: drop-shadow(0 0 8px var(--accent)); transition: stroke-dashoffset 1.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.4s; }
+.enamel { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; filter: drop-shadow(0 0 8px var(--accent)); transition: stroke-dashoffset 0.9s var(--journey-ease), opacity 0.25s; }
 .shine { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; opacity: 0.45; }
 .crumbs circle { fill: var(--crumb); opacity: 0; }
-.plaque circle { fill: var(--plaque); opacity: 0; transform: scale(0); transition: opacity 0.5s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i) * 70ms); }
-.spot { opacity: 0; transition: opacity 0.5s; }
+.plaque circle { fill: var(--plaque); opacity: 0; transform: scale(0); transition: opacity 0.28s ease-out, transform 0.36s var(--journey-ease); transition-delay: calc(var(--i) * 28ms); }
+.spot { opacity: 0; transition: opacity 0.28s ease-out; }
 .spot circle:first-child { fill: var(--decay); stroke: var(--strike); stroke-width: 2; }
-.ring { fill: none; stroke: var(--strike); stroke-width: 2; transition: stroke 0.5s; }
-.mirror { opacity: 0; transform: translate(70px, 70px); transition: opacity 0.6s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.ring { fill: none; stroke: var(--strike); stroke-width: 2; transition: stroke 0.3s; }
+.mirror { opacity: 0; transform: translate(70px, 70px); transition: opacity 0.3s ease-out, transform 0.5s var(--journey-ease); }
 .mirror line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
 .mirror circle { fill: rgba(170, 200, 212, 0.16); stroke: var(--ink); stroke-width: 4; }
-.brush { opacity: 0; transition: opacity 0.5s; }
+.brush { opacity: 0; transition: opacity 0.28s ease-out; }
 .brush > rect { fill: var(--ink); }
 .brush g rect { fill: var(--accent); }
-.floss { fill: none; stroke: #f6f8fa; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: stroke-dashoffset 1.4s 0.3s, opacity 0.3s; }
+.floss { fill: none; stroke: #f6f8fa; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: stroke-dashoffset 0.7s 0.08s var(--journey-ease), opacity 0.2s; }
 .sparks path { fill: var(--accent); opacity: 0; transform: scale(0); }
 
 /* Chapter 1: the smile. Chapter 2: the tooth steps forward and its enamel is traced. */
@@ -94,7 +107,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
   .orbit { animation: journey-turn 90s linear infinite; }
   .orbit2 { animation: journey-turn 22s linear infinite reverse; }
   .hint span { animation: journey-bob 1.6s ease-in-out infinite; }
-  .journey[data-step="0"] .smile rect { animation: journey-teeth 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 80ms); }
+  .journey[data-step="0"] .smile rect { animation: journey-teeth 0.4s var(--journey-ease) both; animation-delay: calc(var(--i) * 40ms); }
   .journey[data-step="2"] .crumbs circle { animation: journey-fall 1.9s ease-in infinite; animation-delay: calc(var(--i) * 0.28s); }
   .journey[data-step="4"] .ring { animation: journey-pulse 1.5s ease-out infinite; }
   .journey[data-step="6"] .brush { animation: journey-brush 0.8s ease-in-out infinite alternate; }

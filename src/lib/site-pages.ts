@@ -22,7 +22,7 @@ export function guideFor(site: SiteData) {
   return nicheGuides[niche] ?? { label: "Services", heading: "Plan your next step.", prepare: "Browse the information and make a note of your questions.", questions: ["Which option is right for me?", "What should I know before deciding?", "How can I confirm the details?"] };
 }
 
-export type SitePage = { path: string; title: string; kind: "home" | "services" | "service" | "about" | "contact" | "faq" | "gallery" | "offer"; serviceIndex?: number };
+export type SitePage = { path: string; title: string; kind: "home" | "services" | "service" | "about" | "contact" | "faq" | "gallery" | "offer" | "brand"; serviceIndex?: number };
 
 export function sitePages(site: SiteData): SitePage[] {
   const pages: SitePage[] = [{ path: "", title: "Home", kind: "home" }];
@@ -45,6 +45,11 @@ export function sitePages(site: SiteData): SitePage[] {
 /** KRIV's offer and quotation page. Deliberately not in sitePages(): it is not part of the concept site's navigation. */
 export function offerPage(site: SiteData): SitePage | undefined {
   return site.offer ? { path: "offer", title: "Offer and quotation", kind: "offer" } : undefined;
+}
+
+/** The concept brand kit that goes with a journey home page. Not in sitePages(): the journey links to it itself. */
+export function brandKitPage(site: SiteData): SitePage | undefined {
+  return site.story ? { path: "brand-kit", title: "Concept brand kit", kind: "brand" } : undefined;
 }
 
 // next/link applies the configured basePath; never build a link from supplied hrefs.

@@ -28,7 +28,7 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
     const steps = [...el.querySelectorAll<HTMLElement>("[data-journey-step]")];
     const check = () => {
       // The current chapter is the last one whose top has passed the middle of the window.
-      const line = window.innerHeight * 0.5;
+      const line = window.innerHeight * 0.6;
       let now = 0;
       steps.forEach((s, i) => { if (s.getBoundingClientRect().top < line) now = i; });
       if (el.dataset.step !== String(now)) {
@@ -39,10 +39,13 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
       }
     };
     check();
-    window.addEventListener("scroll", check, { passive: true });
+    // One measurement per frame while scrolling, so the drawing answers at once.
+    let frame = 0;
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; check(); }); };
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", check);
     const tick = window.setInterval(check, 500);
-    return () => { window.removeEventListener("scroll", check); window.removeEventListener("resize", check); window.clearInterval(tick); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", check); window.clearInterval(tick); cancelAnimationFrame(frame); };
   }, []);
 
   const quiet = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); }, []);
