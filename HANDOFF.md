@@ -14,7 +14,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
-- Kriv sent a voice kit for the journey (`dental-story-voiceover.zip`, 8 MP3 files, mono, 112 kbps, 11 to 16 seconds each). Branch `claude/pco-journey-voice` (from main `659b3c2`). Local only until Kriv approves publishing.
+- Kriv sent a voice kit for the journey (`dental-story-voiceover.zip`, 8 MP3 files, mono, 112 kbps, 11 to 16 seconds each). Branch `claude/pco-journey-voice` (from main `659b3c2`). Kriv said "Publish now" on 2026-11-16 (for the second version below): main fast-forwarded to this branch and pushed.
   - Kriv then sent a second version (`dental-story-voiceover-v2.zip`, same 8 names) and asked for narration on by default. The v2 files replace the first set. Narration now starts on; because browsers block sound until the visitor touches the page, the button reads "Tap to hear narration" until then and the first touch, click or key press anywhere starts the chapter in view. One shared audio player is used so phones keep allowing later chapters.
   - Files are in `public/audio/pco-journey/` and linked per chapter in `src/stories/dental-journey.ts`. With narration on, each chapter plays its recording as it scrolls into view; the device voice is the fallback if a file cannot play.
   - The agent cannot hear audio: it confirmed the files load, their lengths and that the right file plays per chapter, not the wording or the voice. The kit came with no note on the voice or its licence; Kriv to confirm commercial use.
