@@ -1,12 +1,15 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: PCO Dental Clinic concept and offer page live at kriv.agency/pco-dental-clinic (Kriv's go-ahead), still with placeholders and draft prices; waiting for PCO's facts and settled prices
+Updated: 2026-11-16 - Last step finished: general Philippine rates page built at /ph-rates on `claude/ph-rates-page` (local, not pushed); PCO Dental Clinic is live with placeholders; waiting for Kriv's facts, settled prices and a go-live decision for the rates page
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
+
+- [ ] Kriv: decide whether the general Philippine rates page goes live, at which address, and how visitors reach KRIV from it (branch `claude/ph-rates-page`, local only)
+- [x] General Philippine rates page (Claude Code, 2026-11-16): `/ph-rates`, same draft figures as PCO's quotation with no client named; noindex, no forms, no outbound links. Lint, typecheck, 695 tests, build and 22 smoke checks pass; viewed at phone, tablet and desktop widths
 
 - [x] PCO Dental Clinic live (Kriv's go-ahead, Claude Code, 2026-11-16): merged by Kriv as PR #1, published as `1b6f2af`; kriv.agency/pco-dental-clinic and kriv.agency/for/pco-dental-clinic/offer answer 200 with banner and noindex
 - [ ] Kriv: PCO Dental Clinic is live with placeholders. Send the clinic's real address, phone or Messenger link, hours, dentists, services, logo and photos; confirm the annual plan assumption (13,000 PHP for 12 months of CRM and system with automations, free months added on top) and list its extra services, VA trial hour cap and tasks, referral rules, Branding Kit price, revision limit and quote numbering; then approve the draft prices and say whether to push

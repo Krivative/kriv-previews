@@ -12,6 +12,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### General Philippine rates page (2026-11-16, Claude Code)
+
+- Kriv asked for a page with the general PH prices, not tied to one client. Built on branch `claude/ph-rates-page` (from main `1b6f2af` plus the local docs commit `2088f81`). Local only: not pushed, not merged, not deployed.
+- Route `/ph-rates` (`src/app/ph-rates/page.tsx`, `src/sections/PhRatesPage.tsx`): the same figures as PCO's quotation, read from `src/offers/ph-local.ts`, with no client named, no quote details and no concept banner (it is KRIV's own page, not a preview of a business). Still noindex, no forms, no outbound links. `ph-rates` is now a reserved slug. Look borrowed from `office-calm`.
+- `ph-local.ts` texts now carry {tokens} (`fill`, `audiences.clinic` / `audiences.general`); `OfferSections` in `OfferPage.tsx` is the shared body. PCO's quotation reads the same as before apart from "the clinic's website" (was "the clinic website").
+- Verified: lint, typecheck, 695 tests, build, 22 smoke checks (one new, for `/ph-rates`). Viewed under `next dev` at 375, 768 and 1440 px: no clinic wording, no overflow, noindex meta and header.
+- Open for Kriv: whether this page should go live at all (a public PH price list sits beside the premium international positioning), its address, how visitors should reach KRIV (placeholder on the page), and the same unsettled prices and placeholders as PCO's quotation.
+
 ### PCO Dental Clinic live (2026-11-16, Claude Code)
 
 - Kriv merged the branch into main on GitHub (PR #1, `b8b8f10`) and then told the agent to go live. Status set to `approved` and pushed to main as `1b6f2af` ("Publish pco-dental-clinic"); the push deployed production within a minute.
