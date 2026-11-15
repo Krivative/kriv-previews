@@ -14,7 +14,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
-- Kriv asked to apply the story-telling style to kriv.agency and the ph-rates page, urgently. Branch `claude/ph-rates-journey` (from main `a05e3db`). Local only until Kriv approves publishing.
+- Kriv asked to apply the story-telling style to kriv.agency and the ph-rates page, urgently. Branch `claude/ph-rates-journey` (from main `a05e3db`). Kriv said "Publish now" on 2026-11-16 for the ph-rates story: main fast-forwarded to this branch and pushed.
   - ph-rates: the page now opens with a ten-chapter scroll story, "How a KRIV plan works" (`src/stories/rates-journey.ts`, `src/sections/RatesJourney.tsx`, `rates-journey.module.css`), using the same journey engine as the PCO story. One picture per chapter; all figures come from `src/offers/ph-local.ts`. The rates, plan builder and terms follow underneath, with the section menu starting there. Narration starts off because there are no recordings; turning it on uses the device voice.
   - kriv.agency itself (`Krivative/Kriv`): NOT done. This Mac's GitHub login cannot see that repository ("Repository not found"), and the original brief said not to edit it. Kriv has now asked for it; it needs access to the repository first.
   - A skill, `story-site`, records how the PCO site was made (see `~/.claude/skills/story-site/SKILL.md` on Kriv's Mac).
