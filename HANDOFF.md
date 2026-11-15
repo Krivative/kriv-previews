@@ -14,6 +14,11 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv sent `kriv-story-voices.zip`: three recorded sets with a voice profile each (kept in `docs/voices/`). Branch `claude/story-voices` (from main `98eef76`). Local only until Kriv approves publishing.
+  - dental-story (voice "Mira", 8 files, same names as before): wired in as the fourth PCO set, links now `?v=4`.
+  - rates-story (voice "Sela", 10 files: start, trial, services, choice, monthly, annual, dates, bundle, honest, yours): NOT wired. Its chapters do not match the ph-rates story on the site (start, trial, services, paying, annual, dates, bundles, monthly, yours, decide) and the kit has no script, so the agent cannot tell what each file says. Needs the script text from Kriv; then the rates story can be rewritten to match it.
+  - agency-story (voice "Juno", 7 files: open, day, gaps, work, people, owner, next): for kriv.agency. Not used yet: no script, and the `Krivative/Kriv` repository is still not visible to this Mac's GitHub login. The MP3 files for these two sets are not in the repo; they are in Kriv's Downloads zip.
+  - Licence: the profiles say the voices are stock catalogue voices made on a paid Magnific account, and ask Kriv to confirm the plan tier and terms before publishing.
 - Kriv asked for a randomizer for story, lore and style, so each website looks different without recoding. Branch `claude/story-randomizer` (from `claude/journey-paging` `b2a75cd`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed.
   - `src/stories/journey-style.ts`: eight themes (colours, typefaces, corner shapes), four ways of naming chapters (chapters, scenes, stops, pages), the drawing on the left or right, four ring styles. `journeyStyle(site)` picks each from a seed; the default seed is the lead's slug, so every story lead gets its own steady look. All themes are dark grounds for now.
   - `storyStyle` in a lead record pins any part or gives a new seed. PCO is pinned to its existing look (night-lime, chapters, right, dotted), so it is unchanged. `pnpm story:shuffle <slug>` writes a new random seed into a lead's record (`--theme <name>` pins a theme, `--clear` returns to the default).

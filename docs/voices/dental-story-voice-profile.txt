@@ -1,0 +1,39 @@
+VOICE PROFILE: MIRA (Voice A)
+Story: dental-story
+
+Stage name: MIRA (made up for KRIV; not a real artist or group)
+Character: Warm, calm, clear
+
+TOOL
+Magnific voiceover generator (Freepik is now Magnific), ElevenLabs provider
+Voice: "Isadora Ashford", Magnific voice ID 1210
+Source: ElevenLabs shared voice library (stock catalogue voice). Not a clone of any real artist; no custom cloning used.
+
+GENERATION SETTINGS (use all of these, exactly)
+model: eleven_v4
+voiceId: 1210   (source: catalog)
+stability: 0.4
+similarityBoost: 0.75
+useSpeakerBoost: true
+speed: not adjustable on eleven_v4 (pace is set in post, see below)
+Direction prefix, placed at the very start of every chapter's text:
+[warm, calm, bright and youthful storyteller, polished and friendly, clear diction, neutral English accent, brisk but clear]
+Chapter text format: <title> [pause 0.6s] <narration>
+
+READING RULES
+- Read every word exactly as written.
+- Write numbers as spoken words in the text sent to the tool: "PHP 3,000" -> "three thousand pesos", "10%" -> "ten percent", "14" -> "fourteen".
+- "KRIV" is sent as /krɪv/ so it is said as one word (rhymes with "give"), not spelled out.
+
+POST-PROCESSING (ffmpeg, in this order)
+1. Mono, 44.1 kHz; trim leading and trailing silence below -50 dB.
+2. Pace: atempo = (speech seconds) / (words / 170 * 60), clamped 0.85 to 1.2, to land at about 170 words per minute.
+3. Loudness: two-pass loudnorm, I=-16, TP=-1.5, LRA=11, linear=true.
+4. 20 ms fade-in, 40 ms fade-out, then 0.3 s silence added at the start and end.
+5. Encode: libmp3lame, 112 kbps, mono, 44.1 kHz.
+
+REPRODUCIBILITY NOTE
+Same voice ID, model, settings and prefix give the same voice. Each take still varies a little in phrasing, as with any human or AI read, so re-record a whole story in one session where possible.
+
+COMMERCIAL LICENCE
+Magnific's voice generator page states that you own the voiceovers you create and that paid plans include "a full commercial license" (https://magnific.com/ai/voice-generator). These files were generated with paid credits on the KRIV account. Confirm the account's plan tier in Magnific settings and read Magnific's AI Terms before publishing; free-tier commercial rights are not stated.
