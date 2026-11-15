@@ -1,15 +1,12 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import type { SiteData } from "@/lib/site-schema";
-import { addressText, phoneText } from "@/lib/us-format";
 import { dentalJourney } from "@/stories/dental-journey";
-import { Ribbon, conceptNotice } from "./Chrome";
-import { inert } from "./inert";
+import { AboutBlock, BookBlock, BookButton, FaqBlock, JourneyFrame, ServicesBlock, VisitBlock, mark } from "./JourneyBlocks";
 import Link from "next/link";
 import { pageHref } from "@/lib/site-pages";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { JourneyScroller } from "./JourneyScroller";
-import { journeyLores, journeyStyle, themeVars } from "@/stories/journey-style";
-import s from "./sections.module.css";
+import { journeyLores, journeyStyle } from "@/stories/journey-style";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
 
@@ -24,11 +21,6 @@ const TOOTH = "M200 96 C176 78 122 84 120 148 C119 196 138 214 144 262 C148 296 
 const plaque = [[138, 118, 9], [160, 100, 7], [186, 104, 8], [214, 104, 8], [240, 100, 7], [262, 118, 9], [130, 150, 8], [270, 150, 8], [150, 132, 6], [250, 132, 6], [200, 116, 7], [174, 124, 5], [226, 124, 5]];
 const crumbs = [[150, 30, 5], [188, 10, 4], [222, 24, 6], [256, 6, 4], [172, 44, 3], [238, 48, 3]];
 const smile = [-3, -2, -1, 0, 1, 2, 3];
-
-/** *word* in a lead's titles marks the phrase the heading sets in grey. */
-function mark(text: string): ReactNode {
-  return text.split("*").map((part, n) => (n % 2 ? <em key={n}>{part}</em> : part));
-}
 
 function Stage() {
   return <div className={j.stage} aria-hidden="true">
@@ -57,27 +49,18 @@ function Stage() {
 
 export function JourneySite({ site }: { site: SiteData }) {
   const { business } = site;
-  const cta = site.hero.primary;
   const { letters, ring } = logoWords(site);
   const look = journeyStyle(site);
   const label = journeyLores[look.lore];
-  const book = cta ? <a className={o.button} {...inert}>{cta.label} <span aria-hidden="true">+</span></a> : null;
-  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} data-theme-name={look.theme.name} data-side={look.side} data-orbit={look.orbit}>
-    <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />
-    <Ribbon site={site} />
-    <a className={s.skipLink} href="#main-content">Skip to content</a>
-    <header className={`${o.top} ${j.top}`}>
-      <span className={j.name}><JourneyLogo letters={letters} compact />{business.name}</span>
-      <nav aria-label="On this page" className={j.nav}>
-        <a href="#journey-smile">The story</a>
-        {site.services ? <a href="#services">Services</a> : null}
-        {site.about ? <a href="#about">About</a> : null}
-        <a href="#visit">Visit</a>
-        <Link href={pageHref(site, "brand-kit")} prefetch={false}>Brand kit</Link>
-      </nav>
-    </header>
-
-    <main id="main-content">
+  const book = <BookButton site={site} />;
+  const nav = <>
+    <a href="#journey-smile">The story</a>
+    {site.services ? <a href="#services">Services</a> : null}
+    {site.about ? <a href="#about">About</a> : null}
+    <a href="#visit">Visit</a>
+    <Link href={pageHref(site, "brand-kit")} prefetch={false}>Brand kit</Link>
+  </>;
+  return <JourneyFrame site={site} nav={nav}>
       <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
@@ -110,59 +93,11 @@ export function JourneySite({ site }: { site: SiteData }) {
           <h2>{mark(site.hero.headline)}</h2>
           <p className={o.lead}>{site.hero.sub}</p>
         </section>
-
-        {site.services ? <section className={o.block} aria-labelledby="services">
-          <p className={o.eyebrow}>Services</p>
-          <h2 id="services">{mark(site.services.title ?? "Our *services*")}</h2>
-          {site.services.intro ? <p>{site.services.intro}</p> : null}
-          <ul className={o.cards}>
-            {site.services.items.map((item) => <li key={item.name}><h3>{item.name}</h3>{item.blurb ? <p>{item.blurb}</p> : null}</li>)}
-          </ul>
-        </section> : null}
-
-        {site.about ? <section className={o.block} aria-labelledby="about">
-          <p className={o.eyebrow}>About</p>
-          <h2 id="about">{mark(site.about.title ?? `About *${business.name}*`)}</h2>
-          <p>{site.about.body}</p>
-          {site.about.sections?.length ? <ul className={o.cards}>
-            {site.about.sections.map((part) => <li key={part.title}><h3>{part.title}</h3><p>{part.body}</p></li>)}
-          </ul> : null}
-        </section> : null}
-
-        {site.custom ? <section className={o.block} aria-labelledby="book">
-          <p className={o.eyebrow}>Booking</p>
-          <h2 id="book">{mark(site.custom.title)}</h2>
-          {site.custom.body ? <p>{site.custom.body}</p> : null}
-          <ol className={`${o.cards} ${j.numbered}`}>
-            {site.custom.items.map((item) => <li key={item.name}><h3>{item.name}</h3>{item.blurb ? <p>{item.blurb}</p> : null}</li>)}
-          </ol>
-        </section> : null}
-
-        <section className={o.block} aria-labelledby="visit">
-          <p className={o.eyebrow}>Visit</p>
-          <h2 id="visit">{mark(site.close?.headline ?? "Plan your *visit*")}</h2>
-          {site.close?.sub ? <p>{site.close.sub}</p> : null}
-          <dl className={o.meta}>
-            <div><dt>Address</dt><dd>{addressText(business.address)}</dd></div>
-            <div><dt>Phone</dt><dd>{phoneText(business)}</dd></div>
-            {business.hours.map((h) => <div key={h.days}><dt>{h.days}</dt><dd>{h.time}</dd></div>)}
-          </dl>
-          <p className={o.actions}>{book}</p>
-        </section>
-
-        {site.faqs?.length ? <section className={o.block} aria-labelledby="faq">
-          <p className={o.eyebrow}>Questions</p>
-          <h2 id="faq">Good to <em>know</em></h2>
-          <div className={j.faq}>
-            {site.faqs.map((f) => <details key={f.q}><summary>{f.q}<span aria-hidden="true">+</span></summary><p>{f.a}</p></details>)}
-          </div>
-        </section> : null}
+        <ServicesBlock site={site} />
+        <AboutBlock site={site} />
+        <BookBlock site={site} />
+        <VisitBlock site={site} />
+        <FaqBlock site={site} />
       </div>
-    </main>
-    <footer className={o.foot}>
-      <p>{business.name}</p>
-      <p>{conceptNotice(business.name)}</p>
-      <p>The story of the tooth uses general dental knowledge. It is not medical advice and makes no claims about the clinic.</p>
-    </footer>
-  </div>;
+  </JourneyFrame>;
 }

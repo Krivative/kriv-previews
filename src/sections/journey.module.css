@@ -20,7 +20,12 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .logoLetter { fill: var(--logo-letter); font-family: var(--font-body); font-weight: 700; text-anchor: middle; }
 .logoSmile { fill: none; stroke: var(--logo-line); stroke-width: 3.5; stroke-linecap: round; }
 .logoText { fill: var(--logo-text); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 3.2px; }
+.root a.name { text-decoration: none; color: var(--bright, #f6f8fa); min-height: 44px; }
 .nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.root .nav a[aria-current] { color: var(--accent); }
+.foot { grid-template-columns: 1fr; align-items: center; gap: 20px !important; }
+.foot > svg { width: 132px; }
+.foot > div { display: grid; gap: 6px; }
 .root .nav a { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
 .root .nav a:hover { color: var(--accent); }
 
@@ -148,6 +153,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .faq details p { padding: 0 0 16px; color: var(--muted); max-width: 66ch; }
 
 @media (min-width: 900px) {
+  .foot { grid-template-columns: auto 1fr; gap: 32px !important; }
   .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
   .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
   .cue { grid-column: 1 / -1; grid-row: 1; align-self: start; }

@@ -172,7 +172,7 @@ describe("PCO scroll journey", () => {
     for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], Mandaue, Cebu", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
   });
   it("shows the concept redraw of the clinic's logo, in the header and as a badge", () => {
-    expect(html.match(/logo, concept redraw/g)?.length).toBe(2);
+    expect(html.match(/logo, concept redraw/g)?.length).toBe(3);
     expect(html).toContain('href="/pco-dental-clinic/brand-kit"');
     expect(html).toContain("PCO DENTAL CLINIC MANDAUE");
     expect(words).toContain("A concept redraw of the clinic's logo by KRIV, for the clinic to approve.");
@@ -206,10 +206,21 @@ describe("PCO scroll journey", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
   });
-  it("leaves the inner pages on the lead's template", () => {
+  it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);
-    const about = sitePages(site).find((p) => p.kind === "about");
-    if (about) expect(renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={about} />)).not.toContain("data-journey-step");
+    const inner = sitePages(site).filter((p) => p.kind !== "home");
+    expect(inner.map((p) => p.kind)).toEqual(expect.arrayContaining(["services", "about", "faq", "contact", "service"]));
+    const known = [...sitePages(site), offerPage(site)!, brandKitPage(site)!].map((p) => pageHref(site, p.path));
+    for (const page of inner) {
+      const out = renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={page} />);
+      expect(out).toContain('data-theme-name="night-lime"');
+      expect(out.match(/logo, concept redraw/g)?.length).toBe(2);
+      expect(out).toContain(banner("PCO Dental Clinic"));
+      expect(out.match(/<h1\b/g)?.length).toBe(1);
+      expect(out).not.toContain("data-journey-step");
+      expect(out).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
+      for (const href of hrefs(out)) expect(href.startsWith("#") || known.includes(href)).toBe(true);
+    }
   });
 });
 
