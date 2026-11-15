@@ -40,6 +40,8 @@ export function Headline({ site }: ContentProps) {
 }
 export function Actions({ site }: ContentProps) {
   return <div className={c.actions}>
+    {/* A lead's own booking action (hero.primary), shown inert like every business action. */}
+    {site.hero.primary ? <a {...inert}>{site.hero.primary.label}</a> : null}
     {site.services?.items.length ? <Link href="#services" prefetch={false}>Explore {guideFor(site).label.toLowerCase()} <span aria-hidden="true">↘</span></Link> : null}
     <Link href={pageHref(site, "contact")} prefetch={false}>Contact details <span aria-hidden="true">↗</span></Link>
   </div>;

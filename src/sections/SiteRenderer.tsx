@@ -8,6 +8,7 @@ import { Orientation, PageContent, PageDirectory, Planning, ContactDetails } fro
 import type { SitePage } from "@/lib/site-pages";
 import { ComposedSite } from "./ComposedSite";
 import { CollectionSite } from "./CollectionSite";
+import { OfferPage, OfferPointer } from "./OfferPage";
 
 // Turns template tokens (+ the site's design overrides) into CSS variables and
 // renders the section list in order. Sections without data are skipped.
@@ -48,7 +49,7 @@ export function SiteRenderer({ site, template, page }: { site: SiteData; templat
       data-look={template.look}
     >
       {googleCss ? <link rel="stylesheet" href={googleCss} precedence="fonts" /> : null}
-      {template.composition && !site.design.sections ? (
+      {page?.kind === "offer" ? <OfferPage site={site} /> : template.composition && !site.design.sections ? (
         ["canvas", "index", "stage"].includes(template.composition)
           ? <ComposedSite site={site} template={template} page={page} />
           : <CollectionSite site={site} template={template} page={page} />
@@ -84,6 +85,7 @@ export function SiteRenderer({ site, template, page }: { site: SiteData; templat
       </main>
       <Footer site={site} />
       </>}
+      {page?.kind === "offer" ? null : <OfferPointer site={site} />}
     </div>
   );
 }
