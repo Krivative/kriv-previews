@@ -30,7 +30,7 @@ export const RESERVED_SLUGS = new Set([
   // Krivative/Kriv app routes and files today
   "about", "api", "book", "build", "insights", "privacy", "robots", "sitemap", "favicon",
   // this app's own prefix and Next.js internals
-  "for", "_next",
+  "for", "_next", "ph-rates",
   // likely future main-site pages
   "admin", "blog", "careers", "case-studies", "contact", "faq", "jobs", "legal", "login",
   "pricing", "projects", "services", "terms", "work",

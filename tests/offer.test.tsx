@@ -7,7 +7,9 @@ import { SiteRenderer } from "@/sections/SiteRenderer";
 import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
-import { allThreeMonthly, annualCrm, decisionWindows, effectiveMonthly, monthlyServices, php, totalMonths } from "@/offers/ph-local";
+import { PhRatesPage } from "@/sections/PhRatesPage";
+import { RESERVED_SLUGS } from "@/lib/site-schema";
+import { audiences, fill, allThreeMonthly, annualCrm, decisionWindows, effectiveMonthly, monthlyServices, php, totalMonths } from "@/offers/ph-local";
 
 const pco = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "pco-dental-clinic.json"), "utf8"));
 const banner = (name: string) => `Concept preview prepared by KRIV for ${name}. Not affiliated with or endorsed by ${name}.`;
@@ -88,5 +90,29 @@ describe("offer and quotation page", () => {
     expect(words).not.toMatch(/wayaway/i);
     expect(render(pco)).not.toMatch(/wayaway/i);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page/i);
+  });
+});
+
+describe("general Philippine rates page", () => {
+  const html = renderToStaticMarkup(<PhRatesPage />);
+  const words = text(html);
+  it("shows the same figures with no client named", () => {
+    for (const part of ["Philippine rates", "14-day free trial", "PHP 3,000", "PHP 10,000", "PHP 16,000",
+      "CRM and system with automations: PHP 13,000 for 12 months", "about PHP 867 per month", "about PHP 929 per month", "about PHP 1,000 per month",
+      "Human VA trial", "AI VA trial", "Referral program", "No setup fee", "Change orders", "Your business owns its accounts and data",
+      "physical store in the Philippines"]) expect(words).toContain(part);
+    expect(words).not.toMatch(/PCO|clinic|dental|patient|quotation|wayaway/i);
+    expect(words).not.toMatch(/\{\w+\}/);
+    expect(words.split("Draft, pending Kriv's approval").length - 1).toBeGreaterThanOrEqual(10);
+  });
+  it("has no forms, buttons or links out, and makes no guarantees", () => {
+    expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
+    expect(hrefs(html)).toEqual(["#main-content"]);
+    expect(words).not.toMatch(/guarantee|24\/7|#1|first page/i);
+  });
+  it("reserves its address and fills every wording token", () => {
+    expect(RESERVED_SLUGS.has("ph-rates")).toBe(true);
+    expect(fill("{Client} and {client}, {your} {customers}, {unknown}", audiences.clinic)).toBe("The clinic and the clinic, the clinic's patients, {unknown}");
+    expect(text(render(pco, true))).not.toMatch(/\{\w+\}/);
   });
 });
