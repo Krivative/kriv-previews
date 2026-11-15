@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: plan builder switches between services by default, with a separate Combine services mode, on `claude/ph-builder-single` (local, awaiting Kriv's OK to publish); bundle tiers, navy look, story and interactive work published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: plan builder switches between services by default, with a separate Combine services mode, published to main on Kriv's "Publish now"; bundle tiers, navy look, story and interactive work published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
