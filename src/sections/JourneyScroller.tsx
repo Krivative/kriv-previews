@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 // Marks which chapter of the journey is in view, so the drawing can change with
-// it, and reads that chapter aloud when the visitor turns narration on. Reads
-// scroll position only: nothing is stored or sent. Without scripts the journey
-// is still a complete page of chapters with a still drawing.
+// it, and plays that chapter's narration. Reads scroll position only: nothing
+// is stored or sent. Without scripts the journey is still a complete page of
+// chapters with a still drawing.
 //
-// Narration: a chapter with data-audio plays that recording. Otherwise, or if
-// the recording cannot play, the device's own built-in voice reads the words (only voices that run
-// on the device are used, so the text never leaves it). It is off until the
-// visitor presses the button, as browsers require.
+// Narration is on from the start (Kriv, 2026-11-16). Browsers do not let a page
+// make sound until the visitor has tapped, clicked or pressed a key, so until
+// then the button reads "Tap to hear narration" and the first touch anywhere
+// starts the chapter in view. A chapter with data-audio plays that recording
+// through one shared player (phones only let a player that a touch started play
+// again later). If a recording cannot play, the device's own built-in voice
+// reads the chapter (only voices that run on the device, so the text stays there).
 export function JourneyScroller({ className, voiceClassName, children }: { className: string; voiceClassName: string; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
-  const [voice, setVoice] = useState(false);
+  const [voice, setVoice] = useState(true);
+  const [waiting, setWaiting] = useState(false);
   const [step, setStep] = useState(0);
+  const current = useRef(0);
   const player = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -29,6 +34,7 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
       if (el.dataset.step !== String(now)) {
         el.dataset.step = String(now);
         steps.forEach((s, i) => (i === now ? s.setAttribute("data-active", "") : s.removeAttribute("data-active")));
+        current.current = now;
         setStep(now);
       }
     };
@@ -39,13 +45,13 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
     return () => { window.removeEventListener("scroll", check); window.removeEventListener("resize", check); window.clearInterval(tick); };
   }, []);
 
-  useEffect(() => {
-    const quiet = () => { player.current?.pause(); player.current = null; window.speechSynthesis?.cancel(); };
-    quiet();
-    if (!voice) return;
-    const chapter = root.current?.querySelectorAll<HTMLElement>("[data-journey-step]")[step];
+  const quiet = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); }, []);
+
+  /** Plays one chapter's narration: its recording, or the device voice if that fails. */
+  const play = useCallback((index: number) => {
+    const chapter = root.current?.querySelectorAll<HTMLElement>("[data-journey-step]")[index];
     if (!chapter) return;
-    // The device's own voice: used when a chapter has no recording, or its recording cannot play.
+    quiet();
     const speak = () => {
       if (!window.speechSynthesis) return;
       const words = [chapter.querySelector("h1, h2")?.textContent, chapter.querySelector("[data-narration]")?.textContent].filter(Boolean).join(" ");
@@ -57,16 +63,42 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
       window.speechSynthesis.speak(line);
     };
     const recording = chapter.dataset.audio;
-    if (recording) {
-      const audio = new Audio(recording);
-      player.current = audio;
-      audio.play().catch((error: unknown) => { if (player.current === audio && (error as { name?: string })?.name !== "AbortError") speak(); });
-    } else speak();
+    if (!recording) return speak();
+    const audio = player.current ?? (player.current = new Audio());
+    audio.setAttribute("src", recording);
+    audio.play().then(() => setWaiting(false)).catch((error: unknown) => {
+      const name = (error as { name?: string })?.name;
+      if (name === "NotAllowedError") setWaiting(true);
+      else if (name !== "AbortError") speak();
+    });
+  }, [quiet]);
+
+  // Each chapter starts its narration as it scrolls into view.
+  useEffect(() => {
+    if (!voice) return quiet();
+    play(step);
     return quiet;
-  }, [voice, step]);
+  }, [voice, step, play, quiet]);
+
+  // Until the browser allows sound, the first touch, click or key press starts it.
+  useEffect(() => {
+    if (!voice || !waiting) return;
+    const begin = (event: Event) => {
+      if (event.target instanceof Element && event.target.closest("[data-voice-button]")) return;
+      play(current.current);
+    };
+    const events = ["pointerdown", "keydown", "touchend"] as const;
+    events.forEach((name) => window.addEventListener(name, begin));
+    return () => events.forEach((name) => window.removeEventListener(name, begin));
+  }, [voice, waiting, play]);
+
+  const press = () => {
+    if (voice && waiting) play(current.current);
+    else setVoice((v) => !v);
+  };
 
   return <div ref={root} className={className}>
-    <p className={voiceClassName}><button type="button" aria-pressed={voice} onClick={() => setVoice((v) => !v)}>Narration {voice ? "on" : "off"}</button></p>
+    <p className={voiceClassName}><button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button></p>
     {children}
   </div>;
 }

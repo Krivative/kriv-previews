@@ -86,7 +86,7 @@ export function JourneySite({ site }: { site: SiteData }) {
               </> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
               <p className={j.narration} data-narration="">{step.narration}</p>
               {step.note ? <p className={j.note}>{step.note}</p> : null}
-              {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Turn on narration to hear each chapter.</p> : null}
+              {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Each chapter is read aloud. Tap anywhere to start the sound.</p> : null}
               {n === dentalJourney.length - 1 ? <p className={o.actions}>{book}<a href="#services">Meet the clinic</a></p> : null}
             </div>
           </section>)}

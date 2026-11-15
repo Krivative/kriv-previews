@@ -182,7 +182,7 @@ describe("PCO scroll journey", () => {
   });
   it("has one narration button and no form", () => {
     expect(html.match(/<button\b/g)?.length).toBe(1);
-    expect(html).toMatch(/<button type="button" aria-pressed="false">Narration off<\/button>/);
+    expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
   });
   it("leaves the inner pages on the lead's template", () => {
