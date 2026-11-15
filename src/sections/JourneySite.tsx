@@ -8,7 +8,7 @@ import Link from "next/link";
 import { pageHref } from "@/lib/site-pages";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { JourneyScroller } from "./JourneyScroller";
-import { OFFER_FONTS } from "./OfferPage";
+import { journeyLores, journeyStyle, themeVars } from "@/stories/journey-style";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
@@ -59,9 +59,11 @@ export function JourneySite({ site }: { site: SiteData }) {
   const { business } = site;
   const cta = site.hero.primary;
   const { letters, ring } = logoWords(site);
+  const look = journeyStyle(site);
+  const label = journeyLores[look.lore];
   const book = cta ? <a className={o.button} {...inert}>{cta.label} <span aria-hidden="true">+</span></a> : null;
-  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang}>
-    <link rel="stylesheet" href={OFFER_FONTS} precedence="fonts" />
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} data-theme-name={look.theme.name} data-side={look.side} data-orbit={look.orbit}>
+    <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={`${o.top} ${j.top}`}>
@@ -84,7 +86,7 @@ export function JourneySite({ site }: { site: SiteData }) {
         <div className={j.steps}>
           {dentalJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
             <div className={j.words}>
-              <p className={o.eyebrow}><b>Chapter {n + 1}</b> / {step.chapter}</p>
+              <p className={o.eyebrow}><b>{label(n + 1, dentalJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
               {n === 0 ? <>
                 <p className={j.clinic}>{site.hero.eyebrow ?? business.category}</p>
                 <h1 id={`journey-${step.id}-title`}>{step.title}</h1>

@@ -6,7 +6,7 @@ import { addOns } from "@/offers/ph-local";
 import { dentalJourney } from "@/stories/dental-journey";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
-import { OFFER_FONTS } from "./OfferPage";
+import { journeyStyle, themeVars } from "@/stories/journey-style";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
@@ -18,22 +18,23 @@ import b from "./brandkit.module.css";
 // piece is a proposal for the clinic to approve; nothing here is the clinic's
 // official material, and no contact detail is invented.
 
-const colours = [
-  { name: "Night navy", hex: "#0D141C", use: "Ground" },
-  { name: "Deep slate", hex: "#16222E", use: "Cards and panels" },
-  { name: "Soft white", hex: "#ECEEF1", use: "Text and teeth" },
-  { name: "Fresh lime", hex: "#E7FA78", use: "Accent and smile" },
-  { name: "Sea teal", hex: "#2B7F92", use: "Light backgrounds" },
-];
 const line = (id: string) => dentalJourney.find((step) => step.id === id)?.title ?? "";
 
 export function BrandKitPage({ site }: { site: SiteData }) {
   const { business } = site;
   const { letters, ring } = logoWords(site);
   const kit = addOns[0];
+  const { theme } = journeyStyle(site);
+  const colours = [
+    { name: "Ground", hex: theme.bg, use: "Backgrounds" },
+    { name: "Panel", hex: theme.surface, use: "Cards and panels" },
+    { name: "Text", hex: theme.ink, use: "Text and the logo" },
+    { name: "Accent", hex: theme.accent, use: "Buttons and highlights" },
+    { name: "Quiet", hex: theme.muted, use: "Labels and notes" },
+  ];
   const place = business.address.city.startsWith("[") ? business.category : `${business.category} in ${business.address.city}`;
-  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang}>
-    <link rel="stylesheet" href={OFFER_FONTS} precedence="fonts" />
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(theme)} data-theme-name={theme.name}>
+    <link rel="stylesheet" href={theme.googleCss} precedence="fonts" />
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={`${o.top} ${j.top}`}>
@@ -52,8 +53,8 @@ export function BrandKitPage({ site }: { site: SiteData }) {
         <h2 id="kit-logo">The clinic&apos;s logo, <em>redrawn.</em></h2>
         <p>It keeps what the clinic drew: three teeth carrying its letters, the line beneath, the toothbrush, the ring and the name around it. The same drawing works on dark, on colour and on white.</p>
         <ul className={b.grounds}>
-          <li className={b.onNavy}><JourneyLogo letters={letters} ring={ring} /><span>On navy</span></li>
-          <li className={b.onLime}><JourneyLogo letters={letters} ring={ring} tone="lime" /><span>On lime</span></li>
+          <li className={b.onNavy}><JourneyLogo letters={letters} ring={ring} /><span>On the ground colour</span></li>
+          <li className={b.onLime}><JourneyLogo letters={letters} ring={ring} tone="lime" /><span>On the accent</span></li>
           <li className={b.onLight}><JourneyLogo letters={letters} ring={ring} tone="light" /><span>On white</span></li>
         </ul>
         <ul className={b.small}>
@@ -66,7 +67,7 @@ export function BrandKitPage({ site }: { site: SiteData }) {
         <p className={o.eyebrow}>Colour</p>
         <h2 id="kit-colour">Five colours, <em>each with a job.</em></h2>
         <ul className={b.swatches}>
-          {colours.map((c) => <li key={c.hex}><i style={{ "--c": c.hex } as CSSProperties} /><strong>{c.name}</strong><code>{c.hex}</code><span>{c.use}</span></li>)}
+          {colours.map((c) => <li key={c.hex}><i style={{ "--c": c.hex } as CSSProperties} /><strong>{c.name}</strong><code>{c.hex.toUpperCase()}</code><span>{c.use}</span></li>)}
         </ul>
       </section>
 
@@ -74,8 +75,8 @@ export function BrandKitPage({ site }: { site: SiteData }) {
         <p className={o.eyebrow}>Type</p>
         <h2 id="kit-type">Three typefaces, <em>three voices.</em></h2>
         <ul className={b.type}>
-          <li><span>Headlines / Lexend Zetta</span><p className={b.display}>{line("smile")}</p></li>
-          <li><span>Reading / Manrope</span><p className={b.body}>{dentalJourney[1].narration}</p></li>
+          <li><span>Headlines / {theme.displayName}</span><p className={b.display}>{line("smile")}</p></li>
+          <li><span>Reading / {theme.bodyName}</span><p className={b.body}>{dentalJourney[1].narration}</p></li>
           <li><span>Labels / JetBrains Mono</span><p className={b.label}>Chapter 6 / The check-up</p></li>
         </ul>
       </section>

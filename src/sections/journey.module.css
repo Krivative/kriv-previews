@@ -7,7 +7,7 @@
 html:has(.journey) { scroll-snap-type: y proximity; }
 .root { --journey-ease: cubic-bezier(0.22, 1, 0.36, 1); }
 .top { border-bottom: 0; }
-.name { font-family: var(--font-display); font-weight: 300; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: #f6f8fa; }
+.name { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 0.95rem; letter-spacing: var(--display-tracking); text-transform: var(--display-case); color: var(--bright, #f6f8fa); }
 .name { display: inline-flex; align-items: center; gap: 12px; }
 .logoMark { width: 52px; height: 36px; flex: none; }
 .logoBadge { width: min(230px, 64vw); height: auto; overflow: visible; }
@@ -69,7 +69,12 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 /* ---------- The drawing ---------- */
 .art * { transform-box: fill-box; transform-origin: center; }
 .orbit { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 2 10; }
-.orbit2 { fill: none; stroke: rgba(60, 150, 170, 0.5); stroke-width: 1.5; stroke-dasharray: 70 872; stroke-linecap: round; }
+/* The ring around the drawing and the side it sits on come from the story's style. */
+.root[data-orbit="dashed"] .orbit { stroke-dasharray: 18 14; }
+.root[data-orbit="double"] .orbit { stroke-dasharray: none; stroke-width: 1; }
+.root[data-orbit="double"] .orbit2 { stroke-dasharray: none; stroke-width: 1; }
+.root[data-orbit="none"] .orbit, .root[data-orbit="none"] .orbit2 { display: none; }
+.orbit2 { fill: none; stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: 1.5; stroke-dasharray: 70 872; stroke-linecap: round; }
 .smile { opacity: 0; transition: opacity 0.3s ease-out; }
 .smile rect { fill: color-mix(in srgb, var(--surface) 80%, transparent); stroke: var(--ink); stroke-width: 2.5; }
 .smile path { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; }
@@ -88,7 +93,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .brush { opacity: 0; transition: opacity 0.28s ease-out; }
 .brush > rect { fill: var(--ink); }
 .brush g rect { fill: var(--accent); }
-.floss { fill: none; stroke: #f6f8fa; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: stroke-dashoffset 0.7s 0.08s var(--journey-ease), opacity 0.2s; }
+.floss { fill: none; stroke: var(--bright, #f6f8fa); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; transition: stroke-dashoffset 0.7s 0.08s var(--journey-ease), opacity 0.2s; }
 .sparks path { fill: var(--accent); opacity: 0; transform: scale(0); }
 
 /* Chapter 1: the smile. Chapter 2: the tooth steps forward and its enamel is traced. */
@@ -135,7 +140,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .numbered > li h3::before { content: counter(journey-book, decimal-leading-zero) " "; font-family: var(--font-mono); color: var(--accent); margin-right: 6px; }
 .faq { border-top: 1px solid var(--line); margin-top: 8px; }
 .faq details { border-bottom: 1px solid var(--line); }
-.faq summary { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; cursor: pointer; list-style: none; font-weight: 600; color: #f6f8fa; }
+.faq summary { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; cursor: pointer; list-style: none; font-weight: 600; color: var(--bright, #f6f8fa); }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary span { font-family: var(--font-mono); color: var(--accent); transition: transform 0.25s; }
 .faq details[open] summary span { transform: rotate(45deg); }
@@ -162,4 +167,8 @@ html:has(.journey) { scroll-snap-type: y proximity; }
   .art { width: min(100%, 76svh); }
   .steps { grid-column: 1; grid-row: 1; margin-top: 0; }
   .step { padding: 0 20px 0 48px; align-content: center; }
+  .root[data-side="left"] .stage { grid-column: 1; }
+  .root[data-side="left"] .steps { grid-column: 2; }
+  .root[data-side="left"] .step { padding: 0 48px 0 20px; }
+  .root[data-side="left"] .dots { align-items: flex-start; padding: 0 0 0 12px; }
 }

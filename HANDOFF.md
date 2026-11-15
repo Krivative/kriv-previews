@@ -14,6 +14,11 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv asked for a randomizer for story, lore and style, so each website looks different without recoding. Branch `claude/story-randomizer` (from `claude/journey-paging` `b2a75cd`). Local only until Kriv approves publishing.
+  - `src/stories/journey-style.ts`: eight themes (colours, typefaces, corner shapes), four ways of naming chapters (chapters, scenes, stops, pages), the drawing on the left or right, four ring styles. `journeyStyle(site)` picks each from a seed; the default seed is the lead's slug, so every story lead gets its own steady look. All themes are dark grounds for now.
+  - `storyStyle` in a lead record pins any part or gives a new seed. PCO is pinned to its existing look (night-lime, chapters, right, dotted), so it is unchanged. `pnpm story:shuffle <slug>` writes a new random seed into a lead's record (`--theme <name>` pins a theme, `--clear` returns to the default).
+  - Preview without changing anything: add `?look=<any word or number>` to a story lead's home page.
+  - Story pages, the concept logo and the brand kit all take their colours and type from the chosen theme. The words of the story do not change (the recorded voice-over reads them); a new kind of business still needs its own story file and drawing, as the `story-site` skill describes.
 - Kriv asked that each scroll snap to the next chapter, that the chapter stay put while its narration plays, and that the story not be skippable until it has been through once. Branch `claude/journey-paging` (from main `24ba39f`). Local only until Kriv approves publishing.
   - `JourneyScroller.tsx` now pages the story: one wheel, swipe or arrow key moves one chapter. The next chapter opens when the current recording reaches its end, or after a 2.5 second reading pause when no sound plays (narration off, or sound not allowed yet). Going back is always allowed. Dragging the scrollbar or using a menu link past the opened chapter is pulled back. After the last chapter the page scrolls freely, remembered in the browser (`localStorage` key `journey-done:<id>`), nothing sent anywhere.
   - Not held: visitors with reduced motion set, and anyone without scripts. This is deliberate, for accessibility.

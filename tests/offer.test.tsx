@@ -10,6 +10,7 @@ import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
 import { ratesJourney } from "@/stories/rates-journey";
+import { journeyStyle, journeyThemes } from "@/stories/journey-style";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -181,7 +182,7 @@ describe("PCO scroll journey", () => {
     const kit = renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={brandKitPage(site)} />);
     const kitWords = text(kit);
     expect(kit).toContain(banner("PCO Dental Clinic"));
-    for (const part of ["Concept brand kit", "On navy", "On lime", "On white", "#E7FA78", "Lexend Zetta", "Page cover", "Profile picture", "Square post", "Appointment card", "[DENTIST NAME]", "Every piece is a proposal for the clinic to approve."]) expect(kitWords).toContain(part);
+    for (const part of ["Concept brand kit", "On the ground colour", "On the accent", "On white", "#E7FA78", "Lexend Zetta", "Page cover", "Profile picture", "Square post", "Appointment card", "[DENTIST NAME]", "Every piece is a proposal for the clinic to approve."]) expect(kitWords).toContain(part);
     expect(kit.match(/logo, concept redraw/g)?.length).toBeGreaterThanOrEqual(9);
     expect(kit).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
     expect(kitWords).not.toMatch(/wayaway|award|guarantee|PHP|₱/i);
@@ -230,6 +231,38 @@ describe("offer and quotation page", () => {
     expect(words).not.toMatch(/wayaway/i);
     expect(render(pco)).not.toMatch(/wayaway/i);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
+  });
+});
+
+describe("story style randomizer", () => {
+  const html = render(pco);
+  it("keeps PCO on the look pinned in its record", () => {
+    const look = journeyStyle(SiteData.parse(pco));
+    expect([look.theme.name, look.lore, look.side, look.orbit]).toEqual(["night-lime", "chapters", "right", "dotted"]);
+    expect(html).toContain('data-theme-name="night-lime"');
+    expect(text(html)).toContain("Chapter 1 / The start");
+  });
+  it("gives the same seed the same look, and different seeds different looks", () => {
+    const of = (seed: string) => { const l = journeyStyle({ slug: "x", storyStyle: { seed } }); return `${l.theme.name}/${l.lore}/${l.side}/${l.orbit}`; };
+    expect(of("abc")).toBe(of("abc"));
+    const seen = new Set(Array.from({ length: 60 }, (_, n) => of(`seed-${n}`)));
+    expect(seen.size).toBeGreaterThan(25);
+    expect(new Set(Array.from({ length: 60 }, (_, n) => journeyStyle({ slug: `lead-${n}` }).theme.name)).size).toBe(journeyThemes.length);
+  });
+  it("restyles the whole story from a seed without touching its words", () => {
+    const other = render({ ...pco, storyStyle: { theme: "forest-gold", lore: "stops", side: "left", orbit: "none" } });
+    expect(other).toContain('data-theme-name="forest-gold"');
+    expect(other).toContain("Fraunces");
+    expect(text(other)).toContain("Stop 1 of 8 / The start");
+    for (const step of dentalJourney) expect(text(other)).toContain(step.narration);
+    expect(other).toContain(banner("PCO Dental Clinic"));
+  });
+  it("defines every theme in full, with readable accent text", () => {
+    for (const t of journeyThemes) {
+      for (const value of [t.bg, t.surface, t.ink, t.bright, t.muted, t.accent, t.accentInk]) expect(value).toMatch(/^#[0-9a-f]{6}$/);
+      expect(t.googleCss).toContain("https://fonts.googleapis.com/css2?");
+      expect(t.accentInk).toBe(t.bg);
+    }
   });
 });
 

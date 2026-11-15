@@ -23,8 +23,12 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/[sl
 }
 
 export default async function LeadPage({ params, searchParams }: PageProps<"/[slug]">) {
-  const lead = await lookup((await params).slug, (await searchParams).review);
+  const query = await searchParams;
+  const lead = await lookup((await params).slug, query.review);
   if (!lead) notFound();
   if (lead.kind === "expired") return <Expired />;
-  return <SiteRenderer site={lead.site} template={lead.template} />;
+  // ?look=<seed> previews a story site in another look from the randomizer, without changing its record.
+  const look = typeof query.look === "string" && /^[a-z0-9-]{1,40}$/.test(query.look) ? query.look : undefined;
+  const site = look && lead.site.story ? { ...lead.site, storyStyle: { seed: look } } : lead.site;
+  return <SiteRenderer site={site} template={lead.template} />;
 }

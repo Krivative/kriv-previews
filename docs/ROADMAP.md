@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: ph-rates page opens with a ten-chapter scroll story published to main on Kriv's "Publish now"; kriv.agency itself not started (no access to its repository); PCO logo, brand kit and faster voice-over published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: story engine pages one chapter per scroll and holds until narration ends (`claude/journey-paging`); style randomizer for story sites (`claude/story-randomizer`); both local, awaiting Kriv's OK to publish. kriv.agency itself not started (its repository is still not visible to this Mac's GitHub login). ph-rates story published earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 

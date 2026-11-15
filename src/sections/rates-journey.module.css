@@ -13,7 +13,7 @@
 .art .wordmark { font-size: 96px; font-weight: 700; letter-spacing: -5px; }
 .art .cross { font-size: 64px; font-weight: 400; fill: var(--accent); }
 .art .small { font-family: var(--font-mono); font-size: 12px; letter-spacing: 2.4px; text-transform: uppercase; fill: var(--muted); }
-.art .big { font-size: 30px; font-weight: 600; fill: #f6f8fa; }
+.art .big { font-size: 30px; font-weight: 600; fill: var(--bright, #f6f8fa); }
 .art .label { font-size: 15px; font-weight: 600; }
 .art .labelWin { fill: var(--accent-ink); }
 .art .value { font-size: 15px; font-weight: 600; fill: var(--accent); font-variant-numeric: tabular-nums; }

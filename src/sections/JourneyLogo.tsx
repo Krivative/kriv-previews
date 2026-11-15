@@ -12,12 +12,11 @@ const TOOTH = "M200 96 C176 78 122 84 120 148 C119 196 138 214 144 262 C148 296 
 // Each tooth: left edge, top edge and scale of the 160 x 250 tooth drawing.
 const teeth = [{ x: 40, y: 74, k: 0.36 }, { x: 106, y: 84, k: 0.29 }, { x: 160, y: 94, k: 0.22 }];
 
-// The same drawing on each ground it has to live on.
-const NAVY = "#0d141c";
+// The same drawing on each ground it has to live on, in the story's own colours.
 const tones = {
-  navy: { "--logo-tooth": "#eceef1", "--logo-letter": NAVY, "--logo-line": "#e7fa78", "--logo-ring": "rgba(170, 200, 212, 0.55)", "--logo-text": "#eceef1", "--logo-brush": "#eceef1", "--logo-bristle": "#e7fa78" },
-  lime: { "--logo-tooth": NAVY, "--logo-letter": "#e7fa78", "--logo-line": NAVY, "--logo-ring": "rgba(13, 20, 28, 0.45)", "--logo-text": NAVY, "--logo-brush": NAVY, "--logo-bristle": NAVY },
-  light: { "--logo-tooth": NAVY, "--logo-letter": "#ffffff", "--logo-line": "#2b7f92", "--logo-ring": "rgba(13, 20, 28, 0.35)", "--logo-text": NAVY, "--logo-brush": NAVY, "--logo-bristle": "#2b7f92" },
+  navy: { "--logo-tooth": "var(--ink)", "--logo-letter": "var(--bg)", "--logo-line": "var(--accent)", "--logo-ring": "color-mix(in srgb, var(--ink) 45%, transparent)", "--logo-text": "var(--ink)", "--logo-brush": "var(--ink)", "--logo-bristle": "var(--accent)" },
+  lime: { "--logo-tooth": "var(--bg)", "--logo-letter": "var(--accent)", "--logo-line": "var(--bg)", "--logo-ring": "color-mix(in srgb, var(--bg) 45%, transparent)", "--logo-text": "var(--bg)", "--logo-brush": "var(--bg)", "--logo-bristle": "var(--bg)" },
+  light: { "--logo-tooth": "var(--bg)", "--logo-letter": "#ffffff", "--logo-line": "var(--bg)", "--logo-ring": "color-mix(in srgb, var(--bg) 35%, transparent)", "--logo-text": "var(--bg)", "--logo-brush": "var(--bg)", "--logo-bristle": "var(--bg)" },
 } as const;
 export type LogoTone = keyof typeof tones;
 

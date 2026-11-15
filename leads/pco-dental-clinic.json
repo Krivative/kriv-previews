@@ -24,6 +24,12 @@
     ]
   },
   "story": "dental-journey",
+  "storyStyle": {
+    "theme": "night-lime",
+    "lore": "chapters",
+    "side": "right",
+    "orbit": "dotted"
+  },
   "design": {},
   "hero": {
     "eyebrow": "Dental clinic in Mandaue",

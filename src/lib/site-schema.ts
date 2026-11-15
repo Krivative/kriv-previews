@@ -1,3 +1,4 @@
+import { journeyOrbits, journeySides, loreNames, themeNames } from "@/stories/journey-style";
 import { z } from "zod";
 
 // The only contract between a lead's content (leads/<slug>.json) and the
@@ -88,6 +89,14 @@ export const SiteData = z.object({
   }),
   // Preview-only: tells the home page as a scroll journey (src/sections/JourneySite.tsx).
   story: z.literal("dental-journey").optional(),
+  // Preview-only: pins or reseeds the story's look (src/stories/journey-style.ts). Unset: seeded by the slug.
+  storyStyle: z.object({
+    seed: z.string().max(40).optional(),
+    theme: z.enum(themeNames).optional(),
+    lore: z.enum(loreNames).optional(),
+    side: z.enum(journeySides).optional(),
+    orbit: z.enum(journeyOrbits).optional(),
+  }).optional(),
   // Lead-level tailoring knobs. Everything is optional; the template supplies defaults.
   design: z
     .object({
