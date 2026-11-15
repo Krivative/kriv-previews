@@ -2,14 +2,15 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { SiteData } from "@/lib/site-schema";
+import { RESERVED_SLUGS, SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
+import { PhRatesPage } from "@/sections/PhRatesPage";
 import { offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
-import { PhRatesPage } from "@/sections/PhRatesPage";
-import { RESERVED_SLUGS } from "@/lib/site-schema";
-import { audiences, fill, allThreeMonthly, annualCrm, decisionWindows, effectiveMonthly, monthlyServices, php, totalMonths } from "@/offers/ph-local";
+import {
+  addOns, allThreeMonthly, annualPrice, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
+} from "@/offers/ph-local";
 
 const pco = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "pco-dental-clinic.json"), "utf8"));
 const banner = (name: string) => `Concept preview prepared by KRIV for ${name}. Not affiliated with or endorsed by ${name}.`;
@@ -21,17 +22,28 @@ function render(input: unknown, offer = false) {
   return renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={offer ? offerPage(site) : undefined} />);
 }
 
-describe("Philippines-market offer figures (draft)", () => {
-  it("adds up the monthly rates", () => {
+// Every figure both pages must show (Kriv's prices, 2026-11-16).
+const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000", "PHP 16,000", "12 image posts a month",
+  "PHP 13,000 per month", "Regular rate PHP 15,000 per month", "PHP 156,000",
+  "15 months for PHP 156,000, about PHP 10,400 per month", "14 months for PHP 156,000, about PHP 11,143 per month", "13 months for PHP 156,000, about PHP 12,000 per month",
+  "Days 15 to 17", "From day 24", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 per month",
+  "Human VA trial", "AI VA trial", "Referral program", "Change orders", "physical store in the Philippines"];
+
+describe("Philippines-market offer figures", () => {
+  it("keeps the 3,000 services and adds up the three monthly rates", () => {
     expect(monthlyServices.map((s) => s.monthly)).toEqual([3000, 3000, 10000]);
     expect(allThreeMonthly).toBe(16000);
     expect(php(allThreeMonthly)).toBe("PHP 16,000");
+    expect(contentTiers.map((t) => t.monthly)).toEqual([3000, null, null]);
+    expect(addOns.map((a) => [a.name, a.price, a.unit])).toEqual([["Branding kit", 7500, "one-time"], ["AI agent", 2500, "per month"]]);
   });
-  it("spreads the annual CRM price over 15, 14 and 13 months", () => {
-    expect(annualCrm).toEqual({ price: 13000, baseMonths: 12 });
+  it("stacks the CRM promo with the extra months on the annual plan", () => {
+    expect(crm).toEqual({ regularMonthly: 15000, promoMonthly: 13000, baseMonths: 12 });
+    expect(annualPrice).toBe(156000);
     expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[15, 17, 3], [18, 20, 2], [21, 23, 1], [24, undefined, 0]]);
     expect(decisionWindows.slice(0, 3).map(totalMonths)).toEqual([15, 14, 13]);
-    expect(decisionWindows.slice(0, 3).map(effectiveMonthly)).toEqual([867, 929, 1000]);
+    expect(decisionWindows.slice(0, 3).map(effectiveMonthly)).toEqual([10400, 11143, 12000]);
+    expect(decisionWindows.slice(0, 3).map(regularCost)).toEqual([225000, 210000, 195000]);
   });
 });
 
@@ -78,41 +90,32 @@ describe("offer and quotation page", () => {
     expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
     expect(hrefs(html).every((href) => href === "#main-content" || href === "/pco-dental-clinic")).toBe(true);
   });
-  it("carries the quote details and the draft prices", () => {
-    for (const part of ["KRIV-PH-2026-001", "16 November 2026", "16 December 2026", "Prepared for", "14-day free trial",
-      "PHP 3,000", "PHP 10,000", "PHP 16,000", "PHP 13,000", "about PHP 867 per month", "about PHP 929 per month", "about PHP 1,000 per month",
-      "CRM and system with automations: PHP 13,000 for 12 months", "Automations built into that system", "[EXTRA SERVICES: to be listed by Kriv]", "Days 15 to 17", "From day 24", "Human VA trial", "AI VA trial", "Referral program", "No setup fee", "Change orders", "The clinic owns its accounts and data",
-      "physical store in the Philippines"]) expect(words).toContain(part);
-    // Each of the four monthly prices, the annual price, its four windows and the no-setup-fee line is marked.
-    expect(words.split("Draft, pending Kriv's approval").length - 1).toBeGreaterThanOrEqual(10);
+  it("carries the quote details and Kriv's prices, with no draft marks", () => {
+    for (const part of ["KRIV-PH-2026-001", "16 November 2026", "16 December 2026", "Prepared for", "The clinic owns its accounts and data", ...figures]) expect(words).toContain(part);
+    expect(words).not.toMatch(/pending|draft|\{\w+\}|\[[A-Z ]+[:\]]/i);
   });
   it("names no other agency and makes no guarantees", () => {
     expect(words).not.toMatch(/wayaway/i);
     expect(render(pco)).not.toMatch(/wayaway/i);
-    expect(words).not.toMatch(/guarantee|24\/7|#1|first page/i);
+    expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
   });
 });
 
 describe("general Philippine rates page", () => {
   const html = renderToStaticMarkup(<PhRatesPage />);
   const words = text(html);
-  it("shows the same figures with no client named", () => {
-    for (const part of ["Philippine rates", "14-day free trial", "PHP 3,000", "PHP 10,000", "PHP 16,000",
-      "CRM and system with automations: PHP 13,000 for 12 months", "about PHP 867 per month", "about PHP 929 per month", "about PHP 1,000 per month",
-      "Human VA trial", "AI VA trial", "Referral program", "No setup fee", "Change orders", "Your business owns its accounts and data",
-      "physical store in the Philippines"]) expect(words).toContain(part);
+  it("shows the same figures with no client named and no draft marks", () => {
+    for (const part of ["Philippine rates", "Your business owns its accounts and data", ...figures]) expect(words).toContain(part);
     expect(words).not.toMatch(/PCO|clinic|dental|patient|quotation|wayaway/i);
-    expect(words).not.toMatch(/\{\w+\}/);
-    expect(words.split("Draft, pending Kriv's approval").length - 1).toBeGreaterThanOrEqual(10);
+    expect(words).not.toMatch(/pending|draft|\{\w+\}|\[[A-Z ]+[:\]]/i);
   });
-  it("has no forms, buttons or links out, and makes no guarantees", () => {
-    expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
-    expect(hrefs(html)).toEqual(["#main-content"]);
-    expect(words).not.toMatch(/guarantee|24\/7|#1|first page/i);
+  it("has no forms, links only to KRIV's own booking page and email, and makes no guarantees", () => {
+    expect(html).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="tel:/);
+    expect(hrefs(html)).toEqual(["#main-content", "https://kriv.agency/book", "mailto:hello@kriv.agency"]);
+    expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
   });
   it("reserves its address and fills every wording token", () => {
     expect(RESERVED_SLUGS.has("ph-rates")).toBe(true);
     expect(fill("{Client} and {client}, {your} {customers}, {unknown}", audiences.clinic)).toBe("The clinic and the clinic, the clinic's patients, {unknown}");
-    expect(text(render(pco, true))).not.toMatch(/\{\w+\}/);
   });
 });
