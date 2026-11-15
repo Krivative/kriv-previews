@@ -8,7 +8,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
-- [ ] Kriv: PCO Dental Clinic (branch `claude/pco-dental-mockup`, commit `8bac937`, not pushed). Send the clinic's real address, phone or Messenger link, hours, dentists, services, logo and photos; confirm the Annual CRM assumption (13,000 PHP for 12 months, free months added on top), VA trial hour cap and tasks, referral rules, Branding Kit price, revision limit and quote numbering; then approve the draft prices and say whether to push
+- [ ] Kriv: PCO Dental Clinic (branch `claude/pco-dental-mockup`, commit `8bac937`, not pushed). Send the clinic's real address, phone or Messenger link, hours, dentists, services, logo and photos; confirm the annual plan assumption (13,000 PHP for 12 months of CRM and system with automations, free months added on top) and list its extra services, VA trial hour cap and tasks, referral rules, Branding Kit price, revision limit and quote numbering; then approve the draft prices and say whether to push
 - [x] PCO Dental Clinic concept and Philippines offer page (Claude Code, 2026-11-16): draft lead on Clear / atrium with marked placeholders and an inert booking action; offer and quotation page at `/pco-dental-clinic/offer` (PH addresses only, every price marked as a draft). Lint, typecheck, 692 tests, build and 21 smoke checks pass; viewed at phone, tablet and desktop widths. Roadmap PDF not generated (Playwright not installed on this machine)
 
 - [ ] Open the fictional Sales demo using Open KRIV Sales Demo.vbs; then use Open KRIV.vbs for the existing Desk after closing any older server. Settings are preserved; the existing worker can resume on normal Desk startup

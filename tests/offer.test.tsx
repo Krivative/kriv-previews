@@ -79,7 +79,7 @@ describe("offer and quotation page", () => {
   it("carries the quote details and the draft prices", () => {
     for (const part of ["KRIV-PH-2026-001", "16 November 2026", "16 December 2026", "Prepared for", "14-day free trial",
       "PHP 3,000", "PHP 10,000", "PHP 16,000", "PHP 13,000", "about PHP 867 per month", "about PHP 929 per month", "about PHP 1,000 per month",
-      "Days 15 to 17", "From day 24", "Human VA trial", "AI VA trial", "Referral program", "No setup fee", "Change orders", "The clinic owns its accounts and data",
+      "CRM and system with automations: PHP 13,000 for 12 months", "Automations built into that system", "[EXTRA SERVICES: to be listed by Kriv]", "Days 15 to 17", "From day 24", "Human VA trial", "AI VA trial", "Referral program", "No setup fee", "Change orders", "The clinic owns its accounts and data",
       "physical store in the Philippines"]) expect(words).toContain(part);
     // Each of the four monthly prices, the annual price, its four windows and the no-setup-fee line is marked.
     expect(words.split("Draft, pending Kriv's approval").length - 1).toBeGreaterThanOrEqual(10);

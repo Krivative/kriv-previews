@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
 import {
-  DRAFT_MARK, PH_ELIGIBILITY, TRIAL_DAYS, VA_PLACEHOLDERS, aiTrialIdeas, allThreeMonthly, annualCrm, decisionWindows,
+  DRAFT_MARK, PH_ELIGIBILITY, TRIAL_DAYS, VA_PLACEHOLDERS, aiTrialIdeas, allThreeMonthly, annualCrm, annualIncludes, decisionWindows,
   effectiveMonthly, exclusions, monthlyServices, php, terms, totalMonths, vaTrials,
 } from "@/offers/ph-local";
 import { Ribbon, conceptNotice } from "./Chrome";
@@ -73,8 +73,9 @@ export function OfferPage({ site }: { site: SiteData }) {
 
       <section className={o.block} aria-labelledby="offer-annual">
         <p className={o.eyebrow}>Annual plan</p>
-        <h2 id="offer-annual">Annual CRM: {php(annualCrm.price)} for {annualCrm.baseMonths} months</h2>
+        <h2 id="offer-annual">CRM and system with automations: {php(annualCrm.price)} for {annualCrm.baseMonths} months</h2>
         <Draft />
+        <ul className={o.includes}>{annualIncludes.map((line) => <li key={line}>{line}</li>)}</ul>
         <p>Decide soon after your trial and KRIV adds free months on top of the {annualCrm.baseMonths}. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}.</p>
         <ul className={o.windows}>
           {decisionWindows.map((w) => <li key={w.fromDay}>

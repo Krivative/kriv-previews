@@ -27,7 +27,14 @@ export const allThreeMonthly = monthlyServices.reduce((sum, s) => sum + s.monthl
 
 // ASSUMPTION (to confirm with Kriv): PHP 13,000 is the price of the 12-month
 // base term and the free months are added on top of those 12.
+// Kriv, 2026-11-16: the 13,000 is mainly the CRM and system with automations,
+// plus extra services (which ones is still to be listed).
 export const annualCrm = { price: 13000, baseMonths: 12 } as const;
+export const annualIncludes = [
+  "CRM and system setup for the clinic, managed by KRIV staff.",
+  "Automations built into that system.",
+  "[EXTRA SERVICES: to be listed by Kriv]",
+] as const;
 
 export type DecisionWindow = { fromDay: number; toDay?: number; freeMonths: number };
 

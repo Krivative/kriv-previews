@@ -22,7 +22,8 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - All prices are drafts pending Kriv's approval and say so on the page: Website 3,000, Content creation 3,000, AI live seller 10,000, all three 16,000 PHP a month (plain sum, no bundle discount assumed); Annual CRM 13,000 PHP. ASSUMPTION: 13,000 is the 12-month base and free months are added on top (days 15-17: 15 months, about 867 a month; 18-20: 14, about 929; 21-23: 13, about 1,000; from day 24 monthly rates only).
 - Verified: lint, typecheck, 692 tests, build, 21 smoke checks. Viewed in a browser under `next dev` at 375, 768 and 1440 px: banner present, noindex meta and X-Robots-Tag, no forms or inputs, no horizontal overflow. The production smoke script does not cover the offer page (PCO is a draft and the live fixture is a US lead).
 - Not done: the roadmap PDF (needs Playwright, not installed on this machine) and nothing was sent to anyone.
-- Waiting on Kriv: PCO's real facts and photos; the 13,000 PHP assumption and what "Annual CRM" covers; VA trial hour cap and tasks; referral rules; Branding Kit price; revision limit; AI live seller scope for a clinic; quote numbering (KRIV-PH-2026-001 is a placeholder); approval to push.
+- Kriv, 2026-11-16: the 13,000 PHP is mainly the CRM and system with automations, plus extra services. The page now says so; the extra services are a placeholder. Branch pushed to GitHub at `49773bf` with Kriv's approval (not merged, not deployed); later commits are local until Kriv approves another push.
+- Waiting on Kriv: PCO's real facts and photos; whether 13,000 PHP is the 12-month base with free months on top; which extra services the annual plan includes; VA trial hour cap and tasks; referral rules; Branding Kit price; revision limit; AI live seller scope for a clinic; quote numbering (KRIV-PH-2026-001 is a placeholder); approval to push.
 
 ### Gmail reply setup postponed (2026-11-04, Claude Code)
 
