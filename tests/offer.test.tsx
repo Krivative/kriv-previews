@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -172,6 +172,13 @@ describe("PCO scroll journey", () => {
   it("makes no claims for the clinic and names no other agency", () => {
     expect(words).not.toMatch(/wayaway|award|guarantee|best dentist|painless|years of experience|\d+\+? (?:patients|reviews)|★/i);
     expect(words).toContain("makes no claims about the clinic");
+  });
+  it("gives every chapter its own recording, and the files exist", () => {
+    for (const step of dentalJourney) {
+      expect(step.audio).toMatch(/^\/for\/audio\/pco-journey\/0[1-8]-[a-z]+\.mp3$/);
+      expect(html).toContain(`data-audio="${step.audio}"`);
+      expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "")))).toBe(true);
+    }
   });
   it("has one narration button and no form", () => {
     expect(html.match(/<button\b/g)?.length).toBe(1);

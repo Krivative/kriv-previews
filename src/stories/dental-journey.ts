@@ -6,13 +6,18 @@
 // Without it, the visitor's device reads the narration aloud when narration is on.
 export type JourneyStep = { id: string; chapter: string; title: string; narration: string; note?: string; audio?: string };
 
+// Recorded voice-over supplied by Kriv on 2026-11-16 (public/audio/pco-journey).
+// Each file reads the chapter's title and narration word for word, so change a
+// line here only together with its recording. "/for" is the app's base path.
+const voice = (name: string) => `/for/audio/pco-journey/${name}.mp3`;
+
 export const dentalJourney: JourneyStep[] = [
-  { id: "smile", chapter: "The start", title: "Every smile has a story.", narration: "Scroll down and follow one tooth through an ordinary day. It is a short story about why looking after it matters." },
-  { id: "tooth", chapter: "The tooth", title: "Built for a lifetime of work.", narration: "Enamel, the outer layer of a tooth, is the hardest tissue in the human body. It has to be. It bites, chews and grinds every single day." },
-  { id: "meal", chapter: "The day", title: "It works at every meal.", narration: "Each bite leaves a little behind. Sugars and starches feed the bacteria that live in every mouth." },
-  { id: "plaque", chapter: "The film", title: "A quiet film forms.", narration: "That film is called plaque. Left alone, it hardens into tartar, which a toothbrush can no longer remove." },
-  { id: "spot", chapter: "The spot", title: "Trouble starts small.", narration: "Acids made in plaque can wear a tiny spot into the enamel. At first there is usually nothing to feel." },
-  { id: "checkup", chapter: "The check-up", title: "A dentist sees what you cannot.", narration: "A check-up looks for small changes early, when they are usually simpler to look after. A professional cleaning removes the tartar that brushing leaves behind.", note: "[DENTIST'S NOTE: one or two lines in the dentist's own words about what a first visit is like.]" },
-  { id: "home", chapter: "At home", title: "Two minutes, twice a day.", narration: "Brushing with fluoride toothpaste and cleaning between the teeth keeps plaque from settling in between visits." },
-  { id: "again", chapter: "The smile", title: "And the story goes on.", narration: "Looked after, a tooth can keep doing its work for decades. That is what a dental clinic is for.", note: "[THE CLINIC'S OWN CHAPTER: the dentists can rewrite any line of this story, or add their own.]" },
+  { id: "smile", audio: voice("01-smile"), chapter: "The start", title: "Every smile has a story.", narration: "Scroll down and follow one tooth through an ordinary day. It is a short story about why looking after it matters." },
+  { id: "tooth", audio: voice("02-tooth"), chapter: "The tooth", title: "Built for a lifetime of work.", narration: "Enamel, the outer layer of a tooth, is the hardest tissue in the human body. It has to be. It bites, chews and grinds every single day." },
+  { id: "meal", audio: voice("03-meal"), chapter: "The day", title: "It works at every meal.", narration: "Each bite leaves a little behind. Sugars and starches feed the bacteria that live in every mouth." },
+  { id: "plaque", audio: voice("04-plaque"), chapter: "The film", title: "A quiet film forms.", narration: "That film is called plaque. Left alone, it hardens into tartar, which a toothbrush can no longer remove." },
+  { id: "spot", audio: voice("05-spot"), chapter: "The spot", title: "Trouble starts small.", narration: "Acids made in plaque can wear a tiny spot into the enamel. At first there is usually nothing to feel." },
+  { id: "checkup", audio: voice("06-checkup"), chapter: "The check-up", title: "A dentist sees what you cannot.", narration: "A check-up looks for small changes early, when they are usually simpler to look after. A professional cleaning removes the tartar that brushing leaves behind.", note: "[DENTIST'S NOTE: one or two lines in the dentist's own words about what a first visit is like.]" },
+  { id: "home", audio: voice("07-home"), chapter: "At home", title: "Two minutes, twice a day.", narration: "Brushing with fluoride toothpaste and cleaning between the teeth keeps plaque from settling in between visits." },
+  { id: "again", audio: voice("08-again"), chapter: "The smile", title: "And the story goes on.", narration: "Looked after, a tooth can keep doing its work for decades. That is what a dental clinic is for.", note: "[THE CLINIC'S OWN CHAPTER: the dentists can rewrite any line of this story, or add their own.]" },
 ];

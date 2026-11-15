@@ -7,8 +7,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 // scroll position only: nothing is stored or sent. Without scripts the journey
 // is still a complete page of chapters with a still drawing.
 //
-// Narration: a chapter with data-audio plays that recording. Otherwise the
-// device's own built-in voice reads the chapter's words (only voices that run
+// Narration: a chapter with data-audio plays that recording. Otherwise, or if
+// the recording cannot play, the device's own built-in voice reads the words (only voices that run
 // on the device are used, so the text never leaves it). It is off until the
 // visitor presses the button, as browsers require.
 export function JourneyScroller({ className, voiceClassName, children }: { className: string; voiceClassName: string; children: ReactNode }) {
@@ -45,11 +45,9 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
     if (!voice) return;
     const chapter = root.current?.querySelectorAll<HTMLElement>("[data-journey-step]")[step];
     if (!chapter) return;
-    const recording = chapter.dataset.audio;
-    if (recording) {
-      player.current = new Audio(recording);
-      void player.current.play().catch(() => undefined);
-    } else if (window.speechSynthesis) {
+    // The device's own voice: used when a chapter has no recording, or its recording cannot play.
+    const speak = () => {
+      if (!window.speechSynthesis) return;
       const words = [chapter.querySelector("h1, h2")?.textContent, chapter.querySelector("[data-narration]")?.textContent].filter(Boolean).join(" ");
       const line = new SpeechSynthesisUtterance(words);
       const local = window.speechSynthesis.getVoices().filter((v) => v.localService && v.lang.startsWith("en"));
@@ -57,7 +55,13 @@ export function JourneyScroller({ className, voiceClassName, children }: { class
       line.lang = line.voice?.lang ?? "en";
       line.rate = 0.95;
       window.speechSynthesis.speak(line);
-    }
+    };
+    const recording = chapter.dataset.audio;
+    if (recording) {
+      const audio = new Audio(recording);
+      player.current = audio;
+      audio.play().catch((error: unknown) => { if (player.current === audio && (error as { name?: string })?.name !== "AbortError") speak(); });
+    } else speak();
     return quiet;
   }, [voice, step]);
 
