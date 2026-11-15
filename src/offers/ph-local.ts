@@ -220,6 +220,7 @@ export const exclusions = [
 ] as const;
 
 export const terms = [
+  { name: "Bundle discount", body: `Taking several monthly services together on the annual plan lowers the yearly price: ${bundleTiers.map((tier) => `${tier.services} services ${percent(tier.rate)}`).join(", ")}. It comes on top of the free months, and the whole saving stops at ${percent(MAX_BUNDLE_SAVING)} of the regular month by month price. One-time items do not count.` },
   { name: "Revisions", body: "Revision rounds are agreed in writing before work starts. Further rounds are quoted first." },
   { name: "Change orders", body: "Work outside this {doc} is written up as a change order with its price and timing, and starts only after {client} approves it in writing." },
   { name: "Ownership", body: "{Client} owns its accounts and data: its domain, social pages, messaging accounts, {customer} information and the content made for it. KRIV works through access {client} grants." },

@@ -14,10 +14,10 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
-- Kriv then asked for changes to the plan builder. Branch `claude/ph-bundle-tiers` (from main `1ec23ff`). Local only until Kriv approves publishing.
+- Kriv then asked for changes to the plan builder. Branch `claude/ph-bundle-tiers` (from main `1ec23ff`). Kriv confirmed the tiers and said "Yes, publish" on 2026-11-16: main fast-forwarded to this branch and pushed.
   - The builder starts with one service (Website). Crossed-out figures are red (`--strike`), and "You get" reads 12 (crossed out) then 15 months.
   - Choosing several services gives a tiered bundle discount on the annual price, on top of the free months: `bundleTiers` in `src/offers/ph-local.ts` (2 services 10%, 3 15%, 4 20%, 5 25%). With 3 free months that is 28%, 32%, 36% and 40% off the month by month total. `MAX_BUNDLE_SAVING` stops the whole saving at 40% (only reached when the CRM promo is in a five-service bundle).
-  - The tier percentages and the choice to give the bundle discount on the annual plan only are the agent's reading of "tiered, up to 40% off the real total price"; Kriv has not confirmed them. The bundle discount is in the builder only: the savings tables, the story and the terms do not mention it yet.
+  - The tier percentages and the choice to give the bundle discount on the annual plan only were the agent's reading of "tiered, up to 40% off the real total price"; Kriv confirmed them. The bundle discount is in the builder and the terms ("Bundle discount"); the savings tables and the story show single services and do not mention it.
 - Kriv then asked to study the other agency's own website and take its style for the PH prices and presentation. Branch `claude/ph-navy-style` (from main `ad7fd61`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed, so the navy look is live.
   - Read on 2026-11-16 (public site, style only): deep navy ground with a soft glow, wide thin uppercase headings, rounded glass cards, pill buttons, small spaced mono labels.
   - Applied through the tokens in `src/sections/offer.module.css` and `story.module.css`; fonts (Lexend Zetta, Manrope, JetBrains Mono, all open licence) load from Google Fonts via one link in `OfferSections`. No copy, images, logo or code were taken. KRIV's wordmark, lime accent and wording stay, so the pages are not a lookalike; the accent is one token (`--accent`) if Kriv wants it changed.

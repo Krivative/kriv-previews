@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: plan builder starts on one service, red crossed-out figures, tiered bundle discount up to 40% on `claude/ph-bundle-tiers` (local, awaiting Kriv's OK on the tiers and to publish); navy look, story and interactive work published to main earlier the same day
+Updated: 2026-11-16 - Last step finished: plan builder starts on one service, red crossed-out figures, tiered bundle discount up to 40% confirmed by Kriv and published to main; navy look, story and interactive work published to main earlier the same day
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
