@@ -14,7 +14,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
-- Kriv asked to turn the annual discount into an animation that explains and justifies it, with analogies and a "lore or multiverse" to make the structure clear. Branch `claude/ph-annual-story` (from `claude/ph-interactive` `d47d297`, which is also still unpublished). Local only until Kriv approves publishing.
+- Kriv asked to turn the annual discount into an animation that explains and justifies it, with analogies and a "lore or multiverse" to make the structure clear. Branch `claude/ph-annual-story` (from `claude/ph-interactive` `d47d297`). Kriv said "Publish now" on 2026-11-16: main fast-forwarded to this branch and pushed, so the story and the interactive work are live.
 - `src/sections/AnnualStory.tsx` + `story.module.css`, shown as the section "Why annual" on both pages, before the savings tables. One business, two timelines that split when the free trial ends, in seven chapters: the fork; Timeline A month by month (15 month tiles, 45,000); Timeline B annual (12 paid tiles, 3 free tiles drop in, 36,000); side-by-side bars (9,000 apart); three everyday analogies (tingi or the big pack, the suki price, a year of rent); what the annual plan also gives; the closing portal (15, 14, 13 months, then monthly only). Ends with a link to the plan builder and a Replay button.
 - It uses the Website's figures from `ph-local.ts` (nothing typed by hand) and says the same rule applies to every monthly service. It claims no results: the benefits listed are one payment, a settled price for the months paid, upkeep throughout, the trial and no setup fee, and ownership. Timeline A is described fairly as flexible.
 - Each chapter plays as it scrolls into view. Without scripts, or with reduced motion, the whole story is plain visible content. Chapters are detected by measuring on scroll with a slow backup tick; the section menu now uses the same method (IntersectionObserver proved unreliable in the test pane at phone size).
@@ -23,7 +23,7 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 ### Interaction and motion on KRIV's two pages (2026-11-16, Claude Code)
 
 - The annual savings work below went LIVE first: Kriv said "Publish now"; main at `1462bd4`; live pages verified over HTTP.
-- Kriv then said the website lacks movement and interactivity. The agent read that as the rates page and the quotation (the pages just built) and added, on branch `claude/ph-interactive` (from main `1462bd4`), local only until Kriv approves publishing:
+- Kriv then said the website lacks movement and interactivity. The agent read that as the rates page and the quotation (the pages just built) and added, on branch `claude/ph-interactive` (from main `1462bd4`), published with the story on 2026-11-16:
   - Plan builder (`src/sections/PlanBuilder.tsx`, a client component): tap services and the branding kit on and off, switch monthly or annual, pick the decision window; the total, months, month-by-month cost and saving update on the page. Buttons only: no form, no input, nothing stored or sent. It starts on Website plus Content creation, annual, 3 months free (72,000 for 15 months, save 18,000).
   - Sticky section menu with the current section marked and a reading-progress line; smooth in-page jumps.
   - The per-service savings are expandable rows (native details), first one open.
