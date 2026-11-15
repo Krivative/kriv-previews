@@ -191,9 +191,9 @@ describe("PCO scroll journey", () => {
   });
   it("gives every chapter its own recording, and the files exist", () => {
     for (const step of dentalJourney) {
-      expect(step.audio).toMatch(/^\/for\/audio\/pco-journey\/0[1-8]-[a-z]+\.mp3$/);
+      expect(step.audio).toMatch(/^\/for\/audio\/pco-journey\/0[1-8]-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);
-      expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "")))).toBe(true);
+      expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
     }
   });
   it("has one narration button and no form", () => {
