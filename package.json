@@ -18,7 +18,8 @@
     "preflight": "node scripts/preflight.mjs",
     "offer:ready": "node scripts/offer-ready.mjs",
     "workflow:check": "node scripts/workflow-check.mjs",
-    "look": "node scripts/look.mjs"
+    "look": "node scripts/look.mjs",
+    "recall": "node scripts/recall.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

@@ -265,5 +265,5 @@ export function OfferPage({ site }: { site: SiteData }) {
 /** The concept site's only pointer to KRIV's offer: one line beneath the footer. */
 export function OfferPointer({ site }: { site: SiteData }) {
   if (!site.offer) return null;
-  return <p className={o.pointer}>From KRIV: <Link href={pageHref(site, "offer")} prefetch={false}>see the offer and quotation for {site.business.name} <span aria-hidden="true">↗</span></Link></p>;
+  return <p className={o.pointer}>From KRIV: <Link href={pageHref(site, "offer")} prefetch={false}>{site.offer.plan === "consult-first" ? "see how working with KRIV starts, prepared for" : "see the offer and quotation for"} {site.business.name} <span aria-hidden="true">↗</span></Link></p>;
 }

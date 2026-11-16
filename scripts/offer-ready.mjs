@@ -43,7 +43,7 @@ const lead = read(target);
 if (flag === "--add") {
   if (lead.offer) { console.log(`${target} already has an offer (${lead.offer.plan}, ${lead.offer.quoteNumber}). Nothing changed.`); process.exit(0); }
   const offer = draftOffer(lead, today, `KRIV-${(lead.business?.address?.country ?? "XX")}-${today.slice(0, 4)}-${target.slice(0, 12).toUpperCase()}`);
-  if (!offer) { console.error(`No offer plan is written for ${lead.business?.address?.country ?? "this market"}. Prices and terms for it have to come from Kriv first. Nothing changed.`); process.exit(1); }
+  if (!offer) { console.error("The record has no country for the business, so no plan can be chosen. Nothing changed."); process.exit(1); }
   const { sources, ...rest } = lead;
   writeFileSync(path.join(root, "leads", `${target}.json`), `${JSON.stringify({ ...rest, offer, ...(sources ? { sources } : {}) }, null, 2)}\n`);
   console.log(`${target}: added ${JSON.stringify(offer)}. Only leads/${target}.json changed; nothing was published.`);

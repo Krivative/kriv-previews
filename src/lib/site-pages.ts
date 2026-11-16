@@ -44,7 +44,7 @@ export function sitePages(site: SiteData): SitePage[] {
 
 /** KRIV's offer and quotation page. Deliberately not in sitePages(): it is not part of the concept site's navigation. */
 export function offerPage(site: SiteData): SitePage | undefined {
-  return site.offer ? { path: "offer", title: "Offer and quotation", kind: "offer" } : undefined;
+  return site.offer ? { path: "offer", title: site.offer.plan === "consult-first" ? "How working with KRIV starts" : "Offer and quotation", kind: "offer" } : undefined;
 }
 
 /** The concept brand kit that goes with a journey home page. Not in sitePages(): the journey links to it itself. */

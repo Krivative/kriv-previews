@@ -15,6 +15,7 @@ import { JourneyInnerPage } from "./JourneyInnerPage";
 import { SneakerSite } from "./SneakerSite";
 import { DopPage, DvBrandPage } from "./DvBrandPage";
 import { DvOfferPage } from "./DvOfferPage";
+import { ConsultOfferPage } from "./ConsultOfferPage";
 
 // Turns template tokens (+ the site's design overrides) into CSS variables and
 // renders the section list in order. Sections without data are skipped.
@@ -55,7 +56,7 @@ export function SiteRenderer({ site, template, page }: { site: SiteData; templat
       data-look={template.look}
     >
       {googleCss ? <link rel="stylesheet" href={googleCss} precedence="fonts" /> : null}
-      {page?.kind === "offer" ? (site.story === "sneaker-journey" ? <DvOfferPage site={site} /> : <OfferPage site={site} />) : page?.kind === "bonus" ? <DopPage site={site} /> : page?.kind === "brand" ? (site.story === "sneaker-journey" ? <DvBrandPage site={site} /> : <BrandKitPage site={site} />) : site.story === "sneaker-journey" && (!page || page.kind === "home") ? <SneakerSite site={site} /> : site.story && (!page || page.kind === "home") ? <JourneySite site={site} /> : site.story && page && ["services", "service", "about", "faq", "contact"].includes(page.kind) ? <JourneyInnerPage site={site} page={page} /> : template.composition && !site.design.sections ? (
+      {page?.kind === "offer" ? (site.offer?.plan === "consult-first" ? <ConsultOfferPage site={site} /> : site.story === "sneaker-journey" ? <DvOfferPage site={site} /> : <OfferPage site={site} />) : page?.kind === "bonus" ? <DopPage site={site} /> : page?.kind === "brand" ? (site.story === "sneaker-journey" ? <DvBrandPage site={site} /> : <BrandKitPage site={site} />) : site.story === "sneaker-journey" && (!page || page.kind === "home") ? <SneakerSite site={site} /> : site.story && (!page || page.kind === "home") ? <JourneySite site={site} /> : site.story && page && ["services", "service", "about", "faq", "contact"].includes(page.kind) ? <JourneyInnerPage site={site} page={page} /> : template.composition && !site.design.sections ? (
         ["canvas", "index", "stage"].includes(template.composition)
           ? <ComposedSite site={site} template={template} page={page} />
           : <CollectionSite site={site} template={template} page={page} />

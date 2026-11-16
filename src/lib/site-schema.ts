@@ -171,9 +171,10 @@ export const SiteData = z.object({
 
   // KRIV's own offer and quotation for this lead, served at /<slug>/offer (not part
   // of the concept site's navigation). The figures live in src/offers/; the record
-  // holds only the quote details. "ph-local" is the Philippines-market offer.
+  // holds only the quote details. "ph-local" is the Philippines-market offer;
+  // "consult-first" is the price-free offer for any other market (src/offers/consult-first.ts).
   offer: z.object({
-    plan: z.literal("ph-local"),
+    plan: z.enum(["ph-local", "consult-first"]),
     quoteNumber: z.string().max(40),
     quoteDate: IsoDate,
     validUntil: IsoDate,
@@ -187,7 +188,9 @@ export const SiteData = z.object({
   status: LeadStatus,
 }).refine((d) => d.expiresAt >= d.createdAt, { message: "expiresAt is before createdAt", path: ["expiresAt"] })
   // Philippine rates apply only to businesses with a physical store in the Philippines.
-  .refine((d) => !d.offer || d.business.address.country === "PH", { message: "the ph-local offer needs a Philippine business address", path: ["offer", "plan"] })
+  .refine((d) => d.offer?.plan !== "ph-local" || d.business.address.country === "PH", { message: "the ph-local offer needs a Philippine business address", path: ["offer", "plan"] })
+  // The price-free offer is for markets with no price plan; a Philippine business gets the Philippine rates.
+  .refine((d) => d.offer?.plan !== "consult-first" || d.business.address.country !== "PH", { message: "a Philippine business uses the ph-local offer, not consult-first", path: ["offer", "plan"] })
   .refine((d) => !d.offer || d.offer.validUntil >= d.offer.quoteDate, { message: "validUntil is before quoteDate", path: ["offer", "validUntil"] });
 export type SiteData = z.infer<typeof SiteData>;
 export type SiteInput = z.input<typeof SiteData>;

@@ -25,14 +25,19 @@ describe("offer-ready: one lead", () => {
   it("never lets one market's prices stand in for another's", () => {
     const us = { ...ph, business: { ...ph.business, address: { country: "US" } } };
     expect(checkLead(us, today).blockers.join(" ")).toContain("written for PH");
-    expect(checkLead({ ...us, offer: undefined }, today).blockers.join(" ")).toContain("no offer plan exists for US");
-    expect(draftOffer(us, today, "Q2")).toBeNull();
-    expect(checkLead({ ...ph, offer: undefined }, today).blockers.join(" ")).toContain("offer:add");
+    // A market with no price plan gets the price-free offer, never another market's prices.
+    expect(checkLead({ ...us, offer: undefined }, today).blockers.join(" ")).toContain('"consult-first" plan fits US');
+    expect(draftOffer(us, today, "Q2")).toMatchObject({ plan: "consult-first" });
+    expect(checkLead({ ...us, offer: draftOffer(us, today, "Q2") }, today).ready).toBe(true);
+    // And a market that has prices does not hide behind the price-free page.
+    expect(checkLead({ ...ph, offer: { ...ph.offer, plan: "consult-first" } }, today).blockers.join(" ")).toContain("has its own price plan");
+    expect(draftOffer({ business: {} }, today, "Q0")).toBeNull();
+    expect(checkLead({ ...ph, offer: undefined }, today).blockers.join(" ")).toContain("--add");
   });
   it("drafts a quotation only for a market with a plan, valid no longer than the preview", () => {
     expect(draftOffer({ ...ph, offer: undefined }, today, "Q3")).toEqual({ plan: "ph-local", quoteNumber: "Q3", quoteDate: today, validUntil: "2026-12-17" });
     expect(draftOffer({ ...ph, expiresAt: "2026-11-30" }, today, "Q4")!.validUntil).toBe("2026-11-30");
-    expect(Object.keys(offerPlans)).toEqual(["ph-local"]);
+    expect(Object.keys(offerPlans)).toEqual(["ph-local", "consult-first"]);
   });
   it("warns, without blocking, when a story has no audience or its cast is still a draft", () => {
     const story = { ...ph, story: "dental-journey" };
