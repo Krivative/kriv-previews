@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: story engine pages one chapter per scroll and holds until narration ends (`claude/journey-paging`); style randomizer for story sites (`claude/story-randomizer`); both published to main on Kriv's "Publish now". kriv.agency itself not started (its repository is still not visible to this Mac's GitHub login). ph-rates story published earlier the same day
+Updated: 2026-11-16 - Last step finished: explainer voice-overs wired for the PCO story, the rates story and PCO level two on `claude/explainer-voices` (on top of the new rates decision windows, `claude/rates-trial-windows`); kriv.agency opening narration on `claude/producer-voice` in Krivative/Kriv. All local, awaiting Kriv's word to publish. Cast brief: stage 1 done on `claude/story-cast`, waiting on Kriv's pick of the rates look and host. Phone rework (part 2 of the voices brief) not started: it follows the cast, chibi and rates changes
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
