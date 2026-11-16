@@ -10,7 +10,7 @@
   --surface: #16222e;
   --ink: #eceef1;
   --muted: #8d9cab;
-  --line: rgba(170, 200, 212, 0.16);
+  --line: color-mix(in srgb, var(--ink) 16%, transparent);
   --accent: #e7fa78;
   --accent-ink: #0d141c;
   --strike: #ff6b6b;
@@ -58,7 +58,7 @@ html:has(.root) { scroll-behavior: smooth; }
 .eyebrow, .tag { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
 .block > .eyebrow, .intro > .eyebrow { margin-bottom: 6px; }
 /* The opening label is a glass pill with a small glowing dot. */
-.intro > .eyebrow { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(170, 200, 212, 0.22); border-radius: 999px; background: color-mix(in srgb, var(--surface) 80%, transparent); backdrop-filter: blur(12px); color: var(--ink); }
+.intro > .eyebrow { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 80%, transparent); backdrop-filter: blur(12px); color: var(--ink); }
 .intro > .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .tag { color: var(--accent); }
 .intro { padding-block: 48px 12px; display: grid; gap: 22px; }
@@ -197,7 +197,7 @@ html:has(.root) { scroll-behavior: smooth; }
 
 /* ---------- Hover: the card lifts and a lime line draws across it ---------- */
 .cards > li, .windows > li, .facts > li { position: relative; transition: background 0.2s, transform 0.25s, border-color 0.25s; }
-.cards > li:hover, .windows > li:hover, .facts > li:hover { transform: translateY(-3px); border-color: rgba(170, 200, 212, 0.34); }
+.cards > li:hover, .windows > li:hover, .facts > li:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--ink) 34%, transparent); }
 .cards > li::after, .windows > li::after, .facts > li::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .cards > li:hover::after, .windows > li:hover::after, .facts > li:hover::after { transform: scaleX(1); }
 .cards > li.feature::after { background: var(--accent-ink); }

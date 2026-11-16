@@ -14,9 +14,12 @@ const teeth = [{ x: 40, y: 74, k: 0.36 }, { x: 106, y: 84, k: 0.29 }, { x: 160, 
 
 // The same drawing on each ground it has to live on, in the story's own colours.
 const tones = {
+  // On the site's ground.
   navy: { "--logo-tooth": "var(--ink)", "--logo-letter": "var(--bg)", "--logo-line": "var(--accent)", "--logo-ring": "color-mix(in srgb, var(--ink) 45%, transparent)", "--logo-text": "var(--ink)", "--logo-brush": "var(--ink)", "--logo-bristle": "var(--accent)" },
-  lime: { "--logo-tooth": "var(--bg)", "--logo-letter": "var(--accent)", "--logo-line": "var(--bg)", "--logo-ring": "color-mix(in srgb, var(--bg) 45%, transparent)", "--logo-text": "var(--bg)", "--logo-brush": "var(--bg)", "--logo-bristle": "var(--bg)" },
-  light: { "--logo-tooth": "var(--bg)", "--logo-letter": "#ffffff", "--logo-line": "var(--bg)", "--logo-ring": "color-mix(in srgb, var(--bg) 35%, transparent)", "--logo-text": "var(--bg)", "--logo-brush": "var(--bg)", "--logo-bristle": "var(--bg)" },
+  // On the accent colour.
+  lime: { "--logo-tooth": "var(--accent-ink)", "--logo-letter": "var(--accent)", "--logo-line": "var(--accent-ink)", "--logo-ring": "color-mix(in srgb, var(--accent-ink) 45%, transparent)", "--logo-text": "var(--accent-ink)", "--logo-brush": "var(--accent-ink)", "--logo-bristle": "var(--accent-ink)" },
+  // On white.
+  light: { "--logo-tooth": "var(--deep, var(--bg))", "--logo-letter": "#ffffff", "--logo-line": "var(--deep, var(--bg))", "--logo-ring": "color-mix(in srgb, var(--deep, var(--bg)) 35%, transparent)", "--logo-text": "var(--deep, var(--bg))", "--logo-brush": "var(--deep, var(--bg))", "--logo-bristle": "var(--deep, var(--bg))" },
 } as const;
 export type LogoTone = keyof typeof tones;
 

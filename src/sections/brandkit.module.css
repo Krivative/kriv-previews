@@ -8,14 +8,15 @@
 .grounds span, .small li > span:last-child, .media li > span { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 .onNavy { background: var(--bg); }
 .onLime { background: var(--accent); border-color: var(--accent) !important; }
-.onLight { background: #ffffff; border-color: #ffffff !important; }
-.onLime span, .onLight span { color: var(--bg) !important; }
+.onLight { background: #ffffff; border-color: var(--line) !important; }
+.onLime span { color: var(--accent-ink) !important; }
+.onLight span { color: var(--deep, var(--bg)) !important; }
 
 .small { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .small li { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: grid; gap: 14px; align-content: space-between; background: color-mix(in srgb, var(--surface) 82%, transparent); }
 .lockup { display: inline-flex; align-items: center; gap: 12px; }
 .lockup strong { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 0.9rem; letter-spacing: var(--display-tracking); text-transform: var(--display-case); }
-.icon { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 18px; background: var(--bg); border: 1px solid rgba(170, 200, 212, 0.34); }
+.icon { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 18px; background: var(--bg); border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent); }
 .icon svg { width: 52px; height: 36px; }
 
 .swatches { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
@@ -43,8 +44,8 @@
 .post svg { justify-self: end; }
 .story { aspect-ratio: 9 / 16; padding: 12% 10%; align-content: space-between; background: var(--surface); }
 .story svg { width: 64px; height: 44px; padding: 6px 8px; box-sizing: content-box; background: var(--accent); border-radius: 12px; }
-.card { aspect-ratio: 7 / 4; padding: 8%; align-content: space-between; background: #ffffff; border-color: #ffffff; color: var(--bg); }
-.card .lockup strong { color: var(--bg); font-size: 0.66rem; }
+.card { aspect-ratio: 7 / 4; padding: 8%; align-content: space-between; background: #ffffff; border-color: #ffffff; color: var(--deep, var(--bg)); }
+.card .lockup strong { color: var(--deep, var(--bg)); font-size: 0.66rem; }
 .card p { margin: 0; font-size: 0.72rem; line-height: 1.5; color: #3b4753; }
 .app { aspect-ratio: 7 / 4; place-items: center; background: var(--surface); }
 

@@ -254,6 +254,9 @@ describe("offer and quotation page", () => {
   });
 });
 
+const luminance = (hex: string) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
+const contrast = (a: string, b: string) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05); };
+
 describe("story style randomizer", () => {
   const html = render(pco);
   it("keeps PCO on the look pinned in its record", () => {
@@ -277,11 +280,23 @@ describe("story style randomizer", () => {
     for (const step of dentalJourney) expect(text(other)).toContain(step.narration);
     expect(other).toContain(banner("PCO Dental Clinic"));
   });
-  it("defines every theme in full, with readable accent text", () => {
+  it("offers both dark and light grounds", () => {
+    expect(journeyThemes.filter((t) => t.dark).length).toBeGreaterThanOrEqual(8);
+    expect(journeyThemes.filter((t) => !t.dark).length).toBeGreaterThanOrEqual(3);
+    const light = render({ ...pco, storyStyle: { theme: "paper-pine" } });
+    expect(light).toContain('data-theme-name="paper-pine"');
+    expect(light).toContain(banner("PCO Dental Clinic"));
+  });
+  it("defines every theme in full, with readable text and accent", () => {
     for (const t of journeyThemes) {
       for (const value of [t.bg, t.surface, t.ink, t.bright, t.muted, t.accent, t.accentInk]) expect(value).toMatch(/^#[0-9a-f]{6}$/);
       expect(t.googleCss).toContain("https://fonts.googleapis.com/css2?");
-      expect(t.accentInk).toBe(t.bg);
+      expect(t.deep).toMatch(/^#[0-9a-f]{6}$/);
+      // Text must read on its ground, and button text on the accent (WCAG AA for normal text is 4.5).
+      expect(contrast(t.ink, t.bg)).toBeGreaterThan(7);
+      expect(contrast(t.muted, t.bg)).toBeGreaterThan(4.5);
+      expect(contrast(t.accentInk, t.accent)).toBeGreaterThan(4.5);
+      expect(contrast(t.accent, t.bg)).toBeGreaterThan(4.5);
     }
   });
 });

@@ -32,7 +32,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey { position: relative; overflow: clip; }
 .dots { position: sticky; top: 10px; z-index: 3; height: 0; margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 2px; }
 .dots a { display: grid; place-items: center; width: 26px; height: 32px; }
-.dots a::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(170, 200, 212, 0.35); transition: transform 0.3s, background 0.3s, width 0.3s; }
+.dots a::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 35%, transparent); transition: transform 0.3s, background 0.3s, width 0.3s; }
 .dots a:hover::before { background: var(--ink); }
 .journey[data-step="0"] .dots li:nth-child(1) a::before,
 .journey[data-step="1"] .dots li:nth-child(2) a::before,
@@ -46,14 +46,14 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey[data-step="9"] .dots li:nth-child(10) a::before { background: var(--accent); width: 20px; border-radius: 999px; box-shadow: 0 0 12px var(--accent); }
 
 .voice { position: sticky; top: 44px; z-index: 4; height: 0; margin: 0; padding-inline: 16px; display: flex; justify-content: center; }
-.root .voice button { font: inherit; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(170, 200, 212, 0.34); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); color: var(--ink); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.root .voice button { font: inherit; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); color: var(--ink); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .root .voice button::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--muted); }
 .root .voice button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .root .voice button[aria-pressed="true"]::before { background: var(--accent-ink); }
 .root .voice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 /* The site's own mark, top centre for the whole story. */
 .crest { position: sticky; top: 8px; z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
-.crest span { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid rgba(170, 200, 212, 0.28); backdrop-filter: blur(12px); }
+.crest span { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent); backdrop-filter: blur(12px); }
 .crest svg { width: 44px; height: 30px; }
 .crest b { font-family: var(--font-mono); font-weight: 400; font-size: 0.6rem; letter-spacing: 0.16em; color: var(--ink); white-space: nowrap; }
 .journey:has(.crest) .dots { top: 58px; }
@@ -62,7 +62,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey:has(.crest) .art { width: min(80%, 32svh); }
 /* What to do next, or why the next chapter is waiting. */
 .cue { position: sticky; top: calc(100svh - 58px); z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
-.cue span { align-self: flex-start; padding: 8px 16px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid rgba(170, 200, 212, 0.34); backdrop-filter: blur(12px); text-align: center; max-width: calc(100vw - 32px); transition: opacity 0.25s, border-color 0.25s, color 0.25s; }
+.cue span { align-self: flex-start; padding: 8px 16px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent); backdrop-filter: blur(12px); text-align: center; max-width: calc(100vw - 32px); transition: opacity 0.25s, border-color 0.25s, color 0.25s; }
 .cue span:empty { opacity: 0; padding: 0; border: 0; }
 .journey[data-ready] .cue span::after { content: " \2193"; color: var(--accent); }
 .journey[data-held] .cue span { border-color: var(--accent); color: var(--accent); }
@@ -76,7 +76,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey[data-step] .step:not([data-active]) .words { opacity: 0.14; transform: translateY(10px); }
 .clinic { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .narration { font-size: 1.08rem; color: var(--ink); }
-.note { padding: 12px 14px; border: 1px dashed rgba(170, 200, 212, 0.34); border-radius: 14px; font-size: 0.88rem; color: var(--muted); }
+.note { padding: 12px 14px; border: 1px dashed color-mix(in srgb, var(--ink) 34%, transparent); border-radius: 14px; font-size: 0.88rem; color: var(--muted); }
 .hint { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .hint span { display: inline-block; }
 
@@ -103,7 +103,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .ring { fill: none; stroke: var(--strike); stroke-width: 2; transition: stroke 0.3s; }
 .mirror { opacity: 0; transform: translate(70px, 70px); transition: opacity 0.3s ease-out, transform 0.5s var(--journey-ease); }
 .mirror line { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
-.mirror circle { fill: rgba(170, 200, 212, 0.16); stroke: var(--ink); stroke-width: 4; }
+.mirror circle { fill: color-mix(in srgb, var(--ink) 16%, transparent); stroke: var(--ink); stroke-width: 4; }
 .brush { opacity: 0; transition: opacity 0.28s ease-out; }
 .brush > rect { fill: var(--ink); }
 .brush g rect { fill: var(--accent); }

@@ -19,22 +19,22 @@
 .art .value { font-size: 15px; font-weight: 600; fill: var(--accent); font-variant-numeric: tabular-nums; }
 .art .struck { font-size: 20px; font-weight: 600; fill: var(--strike); text-decoration: line-through; }
 
-.pill { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: rgba(170, 200, 212, 0.34); stroke-width: 1.5; }
+.pill { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 1.5; }
 .pillWin { fill: var(--accent); stroke: var(--accent); }
-.day { fill: rgba(60, 150, 170, 0.18); stroke: rgba(170, 200, 212, 0.34); stroke-width: 1.5; opacity: 0; transition: opacity 0.24s ease-out, fill 0.3s; }
+.day { fill: rgba(60, 150, 170, 0.18); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 1.5; opacity: 0; transition: opacity 0.24s ease-out, fill 0.3s; }
 .scene[data-active] .day { opacity: 1; fill: rgba(60, 150, 170, 0.55); transition-delay: calc(60ms + var(--i) * 26ms); }
 .scene[data-active] .w3 { fill: var(--accent); stroke: var(--accent); }
 .scene[data-active] .w2 { fill: color-mix(in srgb, var(--accent) 60%, var(--bg)); }
 .scene[data-active] .w1 { fill: color-mix(in srgb, var(--accent) 30%, var(--bg)); }
 .scene[data-active] .w0 { fill: none; stroke-dasharray: 3 4; }
-.path { fill: none; stroke: rgba(170, 200, 212, 0.6); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 0.6s var(--journey-ease); }
+.path { fill: none; stroke: color-mix(in srgb, var(--ink) 60%, transparent); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 0.6s var(--journey-ease); }
 .pathWin { stroke: var(--accent); }
 .scene[data-active] .path { stroke-dashoffset: 0; }
 .node { fill: var(--ink); }
-.tile { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: rgba(170, 200, 212, 0.5); stroke-width: 1.5; }
+.tile { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.5; }
 .tileFree { fill: var(--accent); stroke: var(--accent); }
 .tileOpen { fill: none; stroke-dasharray: 4 5; }
 .bar { fill: rgba(60, 150, 170, 0.55); }
 .barWin { fill: var(--accent); }
-.own { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: rgba(170, 200, 212, 0.5); stroke-width: 1.5; }
+.own { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.5; }
 .tick { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }

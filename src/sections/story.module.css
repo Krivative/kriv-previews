@@ -37,7 +37,7 @@
 .bars > div { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center; }
 .bars span { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .bars b { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
-.bars i { grid-column: 1 / -1; display: block; height: 22px; width: var(--w); background: rgba(170, 200, 212, 0.3); border-radius: 999px; transform-origin: left; }
+.bars i { grid-column: 1 / -1; display: block; height: 22px; width: var(--w); background: color-mix(in srgb, var(--ink) 30%, transparent); border-radius: 999px; transform-origin: left; }
 .bars [data-win] i { background: var(--accent); }
 .bars [data-win] b { color: var(--accent); }
 .punch { color: var(--ink) !important; font-size: 1.1rem; }
