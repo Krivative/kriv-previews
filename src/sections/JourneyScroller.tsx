@@ -138,6 +138,8 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       steps.forEach((s, i) => { if (s.getBoundingClientRect().top < line) now = i; });
       if (el.dataset.step !== String(now)) {
         el.dataset.step = String(now);
+        // How far along the story is, 0 to 1: the world behind it (JourneyWorld) travels with it.
+        el.style.setProperty("--journey-t", String(steps.length > 1 ? now / (steps.length - 1) : 0));
         [...steps, ...scenes].forEach((s) => s.removeAttribute("data-active"));
         steps[now]?.setAttribute("data-active", "");
         scenes[now]?.setAttribute("data-active", "");

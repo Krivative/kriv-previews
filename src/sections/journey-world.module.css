@@ -1,0 +1,93 @@
+/* The world behind a story (JourneyWorld.tsx). Theme colours only, thin lines like the chapter drawings. */
+.world { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.window { position: sticky; top: 0; height: 100svh; overflow: hidden; opacity: 0.5;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%, #000 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%, #000 100%); }
+.svg { width: 100%; height: 100%; display: block; }
+
+/* Travel: each chapter moves the layers on, the near one fastest. */
+.far, .mid, .near { transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.far { transform: translateX(calc(var(--journey-t, 0) * -1100px)); }
+.mid { transform: translateX(calc(var(--journey-t, 0) * -2200px)); }
+.near { transform: translateX(calc(var(--journey-t, 0) * -3200px)); }
+
+.line { fill: none; stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.accentLine { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.accentDot, .accentFill { fill: var(--accent); }
+.solid { fill: color-mix(in srgb, var(--ink) 16%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 2.5; stroke-linejoin: round; }
+.sail { fill: color-mix(in srgb, var(--accent) 22%, var(--bg)); stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+.moon { fill: color-mix(in srgb, var(--accent) 26%, transparent); stroke: var(--accent); stroke-width: 2.5; }
+.star { fill: var(--ink); opacity: 0.5; animation: twinkle 3.6s ease-in-out infinite; }
+.mark { fill: color-mix(in srgb, var(--ink) 34%, transparent); font-family: var(--font-display); font-size: 64px; }
+.beamFill { fill: color-mix(in srgb, var(--accent) 16%, transparent); }
+.waterFar { fill: color-mix(in srgb, var(--ink) 6%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 26%, transparent); stroke-width: 2; }
+.water { fill: color-mix(in srgb, var(--ink) 9%, var(--bg)); stroke: color-mix(in srgb, var(--accent) 50%, transparent); stroke-width: 2.5; }
+.waterNear { fill: color-mix(in srgb, var(--ink) 12%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 2.5; }
+.frame { fill: none; stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 2; }
+.wheel { fill: var(--bg); stroke: var(--accent); stroke-width: 4; }
+.steam { fill: none; stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 3; stroke-linecap: round; animation: steam 3.2s ease-in-out infinite; }
+.ticket { fill: color-mix(in srgb, var(--surface) 90%, transparent); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 2; }
+.counter { fill: color-mix(in srgb, var(--ink) 8%, var(--bg)); }
+.crowd { fill: color-mix(in srgb, var(--ink) 30%, transparent); animation: twinkle 2.8s ease-in-out infinite; }
+.flag { fill: color-mix(in srgb, var(--accent) 50%, transparent); stroke: var(--accent); stroke-width: 2; transform-box: fill-box; transform-origin: left center; animation: flag 1.4s ease-in-out infinite; }
+.lane { fill: none; stroke: var(--accent); stroke-width: 6; stroke-dasharray: 60 60; animation: lane 1.6s linear infinite; }
+.plaque { fill: color-mix(in srgb, var(--plaque, #cfc77c) 40%, transparent); stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 2; }
+.tooth { fill: color-mix(in srgb, var(--ink) 18%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 2.5; stroke-linejoin: round; }
+.bubble { fill: none; stroke: color-mix(in srgb, var(--accent) 60%, transparent); stroke-width: 2; animation: rise 6s ease-in-out infinite; }
+.sparkle { fill: var(--accent); transform-box: fill-box; transform-origin: center; animation: sparkle 2.6s ease-in-out infinite; }
+
+/* Small things that move on their own. */
+.bob { animation: bob 4.5s ease-in-out infinite; }
+.drift { animation: drift 9s linear infinite; }
+.driftSlow { animation: drift 14s linear infinite reverse; }
+.beam { transform-origin: 230px 365px; animation: beam 8s ease-in-out infinite alternate; }
+.sweep { transform-box: fill-box; transform-origin: 50% 0; animation: sweep 6s ease-in-out infinite alternate; }
+.reel { animation: reel 4s linear infinite; }
+.swing { animation: swing 3s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+.cloud { animation: bob 6s ease-in-out infinite; }
+.dashes { }
+
+@keyframes twinkle { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.8; } }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes drift { from { translate: 0 0; } to { translate: -300px 0; } }
+@keyframes beam { from { rotate: -8deg; } to { rotate: 12deg; } }
+@keyframes sweep { from { rotate: -14deg; } to { rotate: 14deg; } }
+@keyframes reel { from { translate: 0 0; } to { translate: -60px 0; } }
+@keyframes swing { 0%, 100% { rotate: -4deg; } 50% { rotate: 4deg; } }
+@keyframes steam { 0% { opacity: 0; translate: 0 10px; } 40% { opacity: 1; } 100% { opacity: 0; translate: 0 -40px; } }
+@keyframes flag { 0%, 100% { scale: 1 1; } 50% { scale: 0.86 1; } }
+@keyframes lane { to { stroke-dashoffset: -120; } }
+@keyframes rise { 0%, 100% { translate: 0 0; opacity: 0.4; } 50% { translate: 0 -40px; opacity: 1; } }
+@keyframes sparkle { 0%, 100% { scale: 0.6; opacity: 0.4; } 50% { scale: 1.2; opacity: 1; } }
+
+/* The story's own locations, one per chapter: the one in view fades in, the others wait. */
+.place { opacity: 0; translate: 80px 0; transition: opacity 1.1s ease, translate 1.6s cubic-bezier(0.22, 1, 0.36, 1); }
+[data-step="0"] .place[data-place="0"],
+[data-step="1"] .place[data-place="1"],
+[data-step="2"] .place[data-place="2"],
+[data-step="3"] .place[data-place="3"],
+[data-step="4"] .place[data-place="4"],
+[data-step="5"] .place[data-place="5"],
+[data-step="6"] .place[data-place="6"],
+[data-step="7"] .place[data-place="7"],
+[data-step="8"] .place[data-place="8"],
+[data-step="9"] .place[data-place="9"] { opacity: 1; translate: 0 0; }
+/* With locations in front, a costume world is only the faint horizon behind them. */
+[data-places] .horizon { opacity: 0.3; }
+/* Locations sit behind the drawing's side; a story drawn on the left mirrors them. */
+:global([data-side="left"]) .places { transform: translateX(1600px) scaleX(-1); }
+.pulp { fill: color-mix(in srgb, var(--accent) 30%, var(--bg)); stroke: var(--accent); stroke-width: 2.5; }
+.gum { fill: color-mix(in srgb, var(--strike, #ff6b6b) 12%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 30%, transparent); stroke-width: 2.5; }
+.plaqueBand { fill: color-mix(in srgb, var(--plaque, #cfc77c) 35%, transparent); }
+.germ { fill: color-mix(in srgb, var(--plaque, #cfc77c) 45%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 2.5; }
+.wobble { animation: bob 3.6s ease-in-out infinite; }
+.decay { fill: color-mix(in srgb, var(--decay, #2a1d1a) 70%, transparent); }
+.drip { fill: color-mix(in srgb, var(--plaque, #cfc77c) 70%, transparent); animation: drip 2.8s ease-in infinite; }
+.tile { fill: none; stroke: color-mix(in srgb, var(--ink) 10%, transparent); stroke-width: 2; }
+.mirror { fill: color-mix(in srgb, var(--accent) 8%, var(--bg)); stroke: color-mix(in srgb, var(--ink) 34%, transparent); stroke-width: 3; }
+@keyframes drip { 0% { translate: 0 0; opacity: 0; } 15% { opacity: 1; } 100% { translate: 0 360px; opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .world * { animation: none !important; }
+  .place { transition: none; translate: 0 0; }
+  .far, .mid, .near { transition: none; }
+}
