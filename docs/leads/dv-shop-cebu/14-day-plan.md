@@ -101,41 +101,60 @@ Built on the six real products and prices.
 
 Fully original words. No imitation of any named artist, no existing melodies, no samples. **Not heard by Claude: a person must listen to any audio before it is used.**
 
-### Jingle (about 15 seconds)
-> D-V, legit lang, Cebu's own,
-> fresh pair out the box, now you're in the zone.
-> Clicks to kicks, keep 'em clean, keep 'em new,
-> DV Shop Cebu, we got you.
+Kriv's direction (2026-11-17): pickleball x basketball rap, all about being in the zone in sport, in every version and all its glory.
 
-### Rap track: "Clicks to Kicks" (about 90 seconds)
-> **Verse 1**
-> Twenty-twenty, started on a phone screen,
-> one post, one pair, one Cebu dream.
-> Every box we sent, we checked it twice,
-> legit lang, no fakes, that's the DV price.
+### Jingle: "In the Zone" (about 15 seconds)
+> Dink at the kitchen, dunk at the rim,
+> lace up legit and the zone lets you in.
+> Court shoes, hoop shoes, fresh every game,
+> DV Shop Cebu, we play the same.
+
+### Rap track: "In the Zone" (about 90 seconds)
+> **Intro**
+> (squeak, bounce, pop)
+> Two courts, one feeling. Let's go.
+>
+> **Verse 1: the paddle**
+> Morning on the court, the paddle feels light,
+> soft hands at the kitchen, keep the dink tight.
+> Third shot drop, now the rally gets long,
+> feet set, breathe slow, the whole crowd's gone.
+> Game FF, the Vapor Pro, the Roger on clay,
+> grip it, wipe it clean, then it's game day.
 >
 > **Hook**
-> From clicks to kicks, Celadon Town,
-> sneaker wall lit, coffee goin' round.
-> Fresh out the box, keep 'em that way,
-> DV Shop Cebu, day after day.
+> In the zone, in the zone,
+> every sound fades, the court is my home.
+> Pickleball pop or the swish of the net,
+> fresh pair on, I ain't missed one yet.
+> In the zone, in the zone,
+> Cebu to the world, never playing alone.
 >
-> **Verse 2**
-> Twenty-twenty-two, opened up the door,
-> Lapu-Lapu City, sneakers on the floor.
-> Jeepney rain, first scuff, no stress,
-> wipe it, clean it, Sole White, fresh.
+> **Verse 2: the hoop**
+> Night run now, the hardwood shines,
+> Kobe Protro, Sabrina, lace up the signs.
+> Crossover, step back, the clock says three,
+> ball leaves the hand and it's all on me.
+> Book on my feet and the LeBron on the bench,
+> legit pairs only, that's the DV standard,
+> ball don't lie and the zone don't pander.
+>
+> **Bridge**
+> Point to point, possession to possession,
+> every rep's a habit, every game's a lesson.
+> Clean the sole, the paddle, the mind,
+> leave the noise and the doubt behind.
 >
 > **Hook**
 >
 > **Outro**
-> Cash on delivery, coast to coast,
-> keep your pair the one you love the most.
+> Paddle up, ball up, Celadon Town,
+> DV Shop Cebu holds the zone down.
 
 ### Style brief
-Upbeat, warm, mid-tempo hip-hop (about 92 BPM) with a clean drum loop, a bright synth stab and handclaps; Filipino-English flow, friendly not aggressive, clear diction. Jingle: same palette, sung-spoken hook, ends on a short sound logo. No vocal impressions of any real artist, no samples, no existing melodies.
+Sports anthem hip-hop, about 96 BPM: punchy drums layered with court sounds (sneaker squeaks, the pickleball "pop", a ball bouncing on hardwood, the net swish) as percussion, a big bright synth hook and crowd-chant backing on "in the zone". Filipino-English flow, confident and hype but friendly, clear diction. Jingle: the same palette, a short chant hook ending on a paddle pop and a swish. No vocal impressions of any real artist, no samples, no existing melodies. Model names in the lyrics are products the shop lists (Asics Game FF, Nike Vapor Pro 3, On THE ROGER, Nike Kobe, Sabrina, Book, LeBron).
 
-### Audio cost (simulated 2026-11-17, nothing generated)
+### Audio cost (simulated 2026-11-17 for the earlier lengths; same lengths apply, nothing generated)
 - Rap track, 90 s, ElevenLabs Music v2: **1,800 credits**
 - Jingle, 15 s, ElevenLabs Music v2: **300 credits**
 - (Google Lyria 3, single clip: 80 credits)

@@ -26,7 +26,7 @@ const fixes = [
   { name: "Replies that answer before they're asked", body: "Ready replies for cash on delivery, \"legit ba?\", sizing, stock and shipping, in your voice. You fill in the parts only you can answer." },
   { name: "Fourteen days of content", body: "A calendar for Facebook, Instagram and TikTok, from the store tour to a 60-second clean. You approve every post; nothing goes out without you." },
   { name: "DV Shoe Care, with a story", body: `"Keep them fresh": all ${shoeCare.length} products, from the ₱90 wipes to the ₱420 kit, given their own campaign.` },
-  { name: "A DV jingle and a rap track", body: "Original lyrics written for the shop, \"Clicks to Kicks\". The audio is made only after you've read the words." },
+  { name: "A DV jingle and a rap track", body: "Original lyrics written for the shop, \"In the Zone\": pickleball meets basketball. The audio is made only after you've read the words." },
 ];
 
 export function DvOfferPage({ site }: { site: SiteData }) {
