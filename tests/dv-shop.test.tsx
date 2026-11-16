@@ -4,7 +4,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
-import { bonusPage, brandKitPage, sitePages } from "@/lib/site-pages";
+import { bonusPage, brandKitPage, offerPage, sitePages } from "@/lib/site-pages";
+import { annualPay, annualPlans, decisionWindows, php } from "@/offers/ph-local";
 import { templates } from "@/templates";
 import { journeyStyle } from "@/stories/journey-style";
 import { shoeCare, sneakerJourney } from "@/stories/sneaker-journey";
@@ -18,7 +19,7 @@ const site = SiteData.parse(record);
 const render = (page?: SitePage) => renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={page} />);
 const text = (html: string) => html.replace(/<[^>]+>/g, " ").replace(/&#x27;|&rsquo;|’/g, "'").replace(/&quot;/g, "\"").replace(/&amp;/g, "&").replace(/\s+/g, " ");
 const banner = "Concept preview prepared by KRIV for DV Shop Cebu. Not affiliated with or endorsed by DV Shop Cebu.";
-const pages = { home: render(), brand: render(brandKitPage(site)), dop: render(bonusPage(site)), contact: render(sitePages(site).find((p) => p.kind === "contact")) };
+const pages = { home: render(), brand: render(brandKitPage(site)), dop: render(bonusPage(site)), contact: render(sitePages(site).find((p) => p.kind === "contact")), offer: render(offerPage(site)) };
 
 describe("DV Shop Cebu concept", () => {
   it("wears look C as Kriv picked it: oxblood and peach, pages, kitchen brigade", () => {
@@ -53,7 +54,9 @@ describe("DV Shop Cebu concept", () => {
       expect(html).not.toMatch(/<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
       const words = text(html);
       // The refund policy says all sales are final: no money-back promise. No unverified follower counts.
-      expect(words).not.toMatch(/money[- ]back|refund|22,?900|6,?100|followers|bandwidth/i);
+      expect(words).not.toMatch(/money[- ]back|22,?900|6,?100|followers|bandwidth/i);
+      // Refunds come up only on KRIV's offer page, as a policy to make consistent; never on the shop's own pages.
+      if (html !== pages.offer) expect(words).not.toMatch(/refund/i);
       // The owner is never named by his legal name until Kriv confirms its spelling.
       expect(words).not.toMatch(/Rodol/);
     }
@@ -71,6 +74,16 @@ describe("DV Shop Cebu concept", () => {
     expect(pages.brand).toContain(`data-ring="${pick.ring}" data-letters="${pick.letters}"`);
     expect(pages.brand.match(/data-picked=""/g)?.length).toBe(1);
     expect(words).toContain("It is not DV Shop Cebu's official mark.");
+  });
+
+  it("offers Dop Dop the trial, the plan and the introduction ask, priced only from ph-local", () => {
+    const words = text(pages.offer);
+    for (const part of ["For Dop Dop, from Kriv", "Your 14 days, on us.", "What the first 14 days fix", "Day 15: one decision", "One small favour", "No pressure, no obligation", "Stopping costs nothing.",
+      "Days 1 to 5", "Days 6 to 10", "Days 11 to 14", "From day 15", "15 months for the price of 12", "12 months for the price of 12. No free months."]) expect(words).toContain(part);
+    expect(decisionWindows.map((w) => w.freeMonths)).toEqual([3, 2, 1, 0]);
+    for (const name of ["Website", "Content creation"]) expect(words).toContain(php(annualPay(annualPlans.find((p) => p.name === name)!)));
+    // The ask is an introduction only: no reward, no referral programme, no invented price.
+    expect(words).not.toMatch(/referral|reward|commission/i);
   });
 
   it("has a Dop- bonus page whose handle is only a suggestion", () => {

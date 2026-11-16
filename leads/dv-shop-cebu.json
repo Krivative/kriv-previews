@@ -57,6 +57,12 @@
     "title": "DV Shop Cebu, concept preview by KRIV",
     "description": "Authentic sneakers and DV Shoe Care in Lapu-Lapu City, Cebu. A private concept preview by KRIV."
   },
+  "offer": {
+    "plan": "ph-local",
+    "quoteNumber": "DV-TRIAL-2026-11",
+    "quoteDate": "2026-11-17",
+    "validUntil": "2026-12-17"
+  },
   "sources": [
     "https://dvshopcebu.com/",
     "https://dvshopcebu.com/pages/contact",

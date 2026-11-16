@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: annual-only offer and Kriv on the rates hero (local `claude/annual-only`, on top of `claude/story-sound`), awaiting Kriv's listen and "publish". Next: wire sound into the kriv.agency opening; update the walkthrough artifacts and videos that still mention monthly; then the phone rework.
+Updated: 2026-11-17 - Last step finished: DV Shop Cebu surprise concept, steps 1 to 10 (local `claude/dv-shop-cebu`), stopped before publish. Next: Kriv reviews the preview, approves the audio cost, connects Chrome for the read-only Facebook and Instagram check, and says "publish".
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,6 +8,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
+- [x] DV Shop Cebu surprise concept (Claude Code, 2026-11-17): public data from dvshopcebu.com; "Keep them fresh" story in look C with the shop's own photos; DV Shoe Care shelf; brand revamp (randomizer-picked badge among nine finishes); Dop- bonus page; 14-day plan, reply templates, calendar, Shoe Care campaign, original jingle and rap lyrics; offer page (trial, plan, introduction ask) priced only from `ph-local.ts`. All five checks pass. Local on `claude/dv-shop-cebu`
+- [ ] Kriv: review kriv.agency/for/dv-shop-cebu locally; approve the audio cost (2,100 credits for the 90 s rap and 15 s jingle); give delegate costs for the pricing check; connect Chrome for the Facebook and Instagram check; say "publish"
 - [x] Kriv's PH prices and kriv.agency look published (Kriv's go-ahead, 2026-11-16): main at `4589642`, live pages verified
 - [x] Annual plans with savings on every service (Claude Code, 2026-11-16): pay 12 months, get 15, 14 or 13; month-by-month cost struck through and the saving shown; 698 tests, build and 22 smoke checks pass. Local on `claude/ph-annual-savings`
 - [x] Annual savings published (Kriv's go-ahead, 2026-11-16): main at `1462bd4`, live pages verified
