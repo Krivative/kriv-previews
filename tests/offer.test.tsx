@@ -9,6 +9,7 @@ import { brandKitPage, offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
+import { levelTwoVoice } from "@/stories/clinic-level-two";
 import { ratesJourney } from "@/stories/rates-journey";
 import { journeyStyle, journeyThemes } from "@/stories/journey-style";
 import {
@@ -194,7 +195,7 @@ describe("PCO scroll journey", () => {
   it("continues after the story as level two: the clinic as connected stops on one map", () => {
     for (const id of ["inside", "services", "about", "book", "visit", "social", "faq"]) expect(html).toMatch(new RegExp(`id="${id}" class="[^"]*" data-journey-step`));
     expect(html.match(/data-journey-scene/g)?.length).toBe(7);
-    for (const part of ["Level two / Inside the clinic", "Stop 2 of 7 / Services", "Leads to → The team", "Stop 6 of 7 / On social media", "Stop 7 of 7 / Questions", "The ride ends here."]) expect(words).toContain(part);
+    for (const part of ["Level two / Inside the clinic", "Stop 1 of 6 / Services", "Leads to → The team", "Stop 5 of 6 / On social media", "Stop 6 of 6 / Questions", "The ride ends here."]) expect(words).toContain(part);
   });
   it("shows the clinic's own contact details as text, never as live links", () => {
     for (const part of ["0916 760 2325", "pcodentalclinicmandaue@gmail.com", "Barangay Ibabao-Estancia", "The clinic's Facebook page", "[OPENING HOURS]"]) expect(words).toContain(part);
@@ -219,8 +220,29 @@ describe("PCO scroll journey", () => {
   it("renders a place for the next-chapter cue, empty until the page runs", () => {
     expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span><\/span><\/p>/);
   });
+  it("gives level two one recorded line per stop, numbered as on its map", () => {
+    const stops = ["inside", "services", "about", "book", "visit", "social", "faq"];
+    expect(Object.keys(levelTwoVoice)).toEqual(stops);
+    stops.forEach((id, n) => {
+      expect(levelTwoVoice[id]).toMatch(new RegExp(`^/for/audio/pco-level-two/l2-0${n + 1}-[a-z]+\\.mp3\\?v=\\d+$`));
+      expect(html).toMatch(new RegExp(`id="${id}" class="[^"]*" data-journey-step="" data-audio="${levelTwoVoice[id].replace(/[.?]/g, "\\$&")}"`));
+      expect(existsSync(path.join(__dirname, "..", "public", levelTwoVoice[id].replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
+    });
+  });
+  it("keeps the spoken scripts beside the voice profiles, and they agree with the page on every figure", () => {
+    const script = (name: string) => readFileSync(path.join(__dirname, "..", "docs", "voices", `${name}-script.txt`), "utf8");
+    for (const name of ["dental-story", "dental-level-two", "rates-story", "agency-story"]) expect(script(name).length).toBeGreaterThan(400);
+    const rates = script("rates-story");
+    for (const part of ["three thousand pesos a month each", "ten thousand", "thirteen thousand", "two thousand five hundred", "forty-five thousand pesos", "thirty-six thousand", "Nine thousand pesos",
+      "Days one to five: three free months", "Days six to ten: two", "Days eleven to fourteen: one", "After day fourteen you can still go annual", "Ten percent off for two", "Twenty-five for five", "forty percent"]) expect(rates).toContain(part);
+    // The page's own figures for the same things.
+    expect([monthlyServices[0].monthly, monthlyServices[2].monthly, crm.promoMonthly, addOns[1].price]).toEqual([3000, 10000, 13000, 2500]);
+    expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[1, 5, 3], [6, 10, 2], [11, 14, 1], [15, undefined, 0]]);
+    expect(`${script("dental-story")} ${script("dental-level-two")}`).not.toMatch(/PCO|guarantee|painless|best |years of experience|\d+ ?%|peso/i);
+    expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
+  });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(1);
+    expect(html.match(/<button\b/g)?.length).toBe(2); // the story's narration button and level two's (one shared setting)
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
   });
@@ -322,10 +344,9 @@ describe("rates page scroll story", () => {
   it("takes its figures from the rates and promises nothing", () => {
     for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 1 to 5 of the trial for 3 free months", "From day 15 the annual plan is still open, with no free months", "By day 5: monthly or annual", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
   });
-  it("starts with narration on and gives every chapter its recording, except the two whose words changed", () => {
+  it("starts with narration on and gives every chapter its recording", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    // The decision windows moved on 2026-11-16: "dates" and "decide" wait for new recordings.
-    expect(ratesJourney.filter((step) => !step.audio).map((step) => step.id)).toEqual(["dates", "decide"]);
+    expect(ratesJourney.every((step) => step.audio?.endsWith("?v=2"))).toBe(true);
     for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);

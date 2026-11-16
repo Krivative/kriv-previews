@@ -1,0 +1,20 @@
+l2-01-inside
+Welcome to level two. The story showed you why. This map shows you how. The clinic sits in the middle, and every stop around it is one part of a visit. Follow the line from each stop to the next.
+
+l2-02-services
+First stop, the services. Think of them as the tools on the tray: each one is for a different job. The clinic lists its own here, in its own words.
+
+l2-03-team
+Second stop, the people. A clinic is the team inside it. This is where you meet who will look after you.
+
+l2-04-book
+Third stop, booking. Three small steps: get in touch, choose a time, and receive your confirmation. Each step leads straight to the next.
+
+l2-05-visit
+Fourth stop, the visit itself. Here is where to find the clinic and how to reach it, so the day goes smoothly.
+
+l2-06-social
+Fifth stop, the clinic online. Same name, same look, same clinic, wherever you come across it.
+
+l2-07-faq
+Last stop, your questions. If you were wondering about something, someone else probably was too. Open any question to see the answer.

@@ -6,12 +6,13 @@
 // Without it, the visitor's device reads the narration aloud when narration is on.
 export type JourneyStep = { id: string; chapter: string; title: string; narration: string; note?: string; audio?: string };
 
-// Recorded voice-over supplied by Kriv on 2026-11-16, fourth version: the "Mira" voice
-// (settings and licence note in docs/voices/dental-story-voice-profile.txt).
-// Each file reads the chapter's title and narration word for word, so change a
-// line here only together with its recording. "/for" is the app's base path.
-// The ?v= number changes with each new set, so browsers fetch the new files instead of a saved copy.
-const voice = (name: string) => `/for/audio/pco-journey/${name}.mp3?v=4`;
+// Recorded voice-over ("Mira", fifth set, supplied by Kriv on 2026-11-16; what she says is in
+// docs/voices/dental-story-script.txt, the voice settings in docs/voices/dental-story-voice-profile.txt).
+// The voice EXPLAINS the screen in its own words; it no longer reads the title and narration.
+// Two things must stay true: the page and the spoken script never contradict each other on a fact,
+// and when a recording cannot play, the device voice reads the on-screen title and narration instead.
+// The ?v= number changes with each new set, so browsers fetch the new files. "/for" is the app's base path.
+const voice = (name: string) => `/for/audio/pco-journey/${name}.mp3?v=5`;
 
 export const dentalJourney: JourneyStep[] = [
   { id: "smile", audio: voice("01-smile"), chapter: "The start", title: "Every smile has a story.", narration: "Scroll down and follow one tooth through an ordinary day. It is a short story about why looking after it matters." },
