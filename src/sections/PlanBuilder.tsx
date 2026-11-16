@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MAX_BUNDLE_SAVING, TRIAL_DAYS, addOns, annualPlans, bundleQuote, bundleTiers, crm, decisionWindows, percent, php } from "@/offers/ph-local";
+import { MAX_BUNDLE_SAVING, TRIAL_DAYS, addOns, annualPlans, bundleQuote, bundleTiers, crm, decisionWindows, LIVE_SELLER_COMMISSION_NOTE, liveSeller, percent, php } from "@/offers/ph-local";
 import o from "./offer.module.css";
 
 // Interactive parts of KRIV's own pages. Everything here is arithmetic on the
@@ -35,7 +35,7 @@ export function PlanBuilder() {
         </div>
         <div className={o.chips} data-multi={multi ? "" : undefined}>
           {choices.map((p) => <button key={p.name} type="button" aria-pressed={picked.includes(p.name)} onClick={() => toggle(p.name)}>
-            <span>{p.name}</span><span>{php(p.monthly)}<small> / month</small></span>
+            <span>{p.name}</span><span>{php(p.monthly * crm.baseMonths)}<small> / year</small></span>
           </button>)}
         </div>
         {multi ? <>
@@ -78,6 +78,7 @@ export function PlanBuilder() {
         </dl>
       </>}
       {capped ? <p className={o.resultNote}>The total saving stops at {percent(MAX_BUNDLE_SAVING)} of the regular value.</p> : null}
+      {picked.includes("AI live seller") ? <p className={o.resultNote}>AI live seller: want to try it first? A paid {liveSeller.starterMonths}-month starter is {php(liveSeller.starterPrice)}, then annual. {LIVE_SELLER_COMMISSION_NOTE}</p> : null}
       {withKit ? <p className={o.resultNote}>Plus the {kit.name.toLowerCase()}: {php(kit.price)}, paid once.</p> : null}
       <p className={o.resultNote}>First {TRIAL_DAYS} days free, then the annual plan. No setup fee, no month to month plan.</p>
     </div>

@@ -1,4 +1,4 @@
-import { crm, monthlyServices, addOns, php } from "@/offers/ph-local";
+import { crm, monthlyServices, addOns, php, yearly } from "@/offers/ph-local";
 import { ratesJourney } from "@/stories/rates-journey";
 import r from "./roadside.module.css";
 
@@ -11,7 +11,7 @@ const price = (name: string) => monthlyServices.find((s) => s.name === name)?.mo
 const stalls = [
   { name: "Website", price: price("Website"), line: "Your shop window online, built and looked after." },
   { name: "Content creation", price: price("Content creation"), line: "Posts made for you, approved before they go out." },
-  { name: "AI live seller", price: price("AI live seller"), line: "Live selling on your pages, supervised by KRIV staff." },
+  { name: "AI live seller", price: price("AI live seller"), line: "Sells your items online around the clock; an AI manager logs every order." },
   { name: "CRM and automations", price: crm.promoMonthly, line: "Every inquiry in one place; follow-ups send themselves." },
   { name: addOns[1].name, price: addOns[1].price, line: "Handles repeat steps, in wording you approve." },
 ];
@@ -40,7 +40,7 @@ export function Roadside() {
       <div className={r.pins}>
         {stalls.map((s, n) => <div key={s.name} className={r.pin} data-pin={n} style={{ "--n": n } as React.CSSProperties}>
           <span className={r.dot} />
-          <span className={r.card}><b>{s.name}</b><em>{php(s.price)} a month</em><small>{s.line}</small></span>
+          <span className={r.card}><b>{s.name}</b><em>{php(yearly(s.price))} a year</em><small>About {php(s.price)} a month</small><small>{s.line}</small></span>
         </div>)}
       </div>
       <div className={r.route}>

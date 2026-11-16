@@ -2,8 +2,13 @@
 // Prices set by Kriv on 2026-11-16 (see HANDOFF.md): Website and Content
 // creation stay at 3,000; the CRM is 15,000 a month with a 13,000 promo that
 // stacks with the extra free months on the annual plan; Branding kit 7,500
-// one-time; AI agent 2,500 a month; AI live seller 10,000 a month.
-// Nothing here promises results, rankings, leads, uptime or round-the-clock coverage.
+// one-time; AI agent 2,500 a month.
+// Kriv, 2026-11-16 (bazaar revamp): no monthly plans for any service. Every service shows one yearly
+// price, with the monthly equivalent in a small line under it. AI live seller: 15,000 a month regular
+// (180,000 a year), a paid three-month starter at 35,000 for those who want to try it first, then annual,
+// plus a 10% commission on total sales that is open to negotiation.
+// Nothing here promises results, rankings, leads or uptime. The live seller is described as selling
+// around the clock because that is how it is set up to run, not as a guarantee of sales.
 //
 // Two pages read this file: a lead's own quotation (/<slug>/offer) and the
 // general Philippine rates page (/ph-rates). The figures are the same on both;
@@ -73,14 +78,24 @@ export const monthlyServices = [
     ],
   },
   {
-    name: "AI live seller", monthly: 10000, note: "AI-assisted live selling on {your} social channels, set up and supervised by KRIV staff.",
+    name: "AI live seller", monthly: 15000, note: "An AI live seller that sells {your} items online around the clock, with an AI live manager logging every order. Set up and supervised by KRIV staff.",
     includes: [
-      "Setup around {your} products or services",
-      "Scripts and answers {client} approves first",
-      "A KRIV team member watching over each session",
+      "KRIV takes in {your} physical items, builds the catalog and gives the AI the details",
+      "The AI live seller is set up to sell online day and night, with scripts and answers {client} approves first",
+      "An AI live manager logs every order and contacts buyers in the order they claimed",
+      "If a buyer backs out, the item goes to the next person in the queue",
+      "Paid items come off the list and the selling carries on, however many items are added",
+      "A KRIV team member watching over it",
     ],
   },
 ] as const;
+
+/** The AI live seller's starter: three paid months to try it, then annual. The commission is on top. */
+export const liveSeller = { starterMonths: 3, starterPrice: 35000, commission: 0.1 } as const;
+export const LIVE_SELLER_COMMISSION_NOTE = `KRIV takes ${Math.round(liveSeller.commission * 100)}% of total sales made by the AI live seller. The rate is open to negotiation.`;
+
+/** A yearly price, and the monthly equivalent shown in a small line under it. */
+export const yearly = (monthly: number) => monthly * 12;
 
 /** All three monthly services together. No bundle discount is assumed. */
 export const allThreeMonthly = monthlyServices.reduce((sum, s) => sum + s.monthly, 0);

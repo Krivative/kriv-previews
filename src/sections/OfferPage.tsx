@@ -4,7 +4,7 @@ import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
 import {
   KRIV_EMAIL, PH_ELIGIBILITY, REFERRAL, TRIAL_DAYS, VA_NOTE, addOns, aiTrialIdeas, allThreeMonthly, annualPay, annualPlans, annualPrice, annualSaving, annualWorth,
-  audiences, contentTiers, crm, crmIncludes, decisionWindows, everyPlan, exclusions, fill, monthlyServices, php, terms, totalMonths, vaTrials, type Audience,
+  audiences, contentTiers, crm, crmIncludes, decisionWindows, everyPlan, exclusions, fill, monthlyServices, liveSeller, LIVE_SELLER_COMMISSION_NOTE, yearly, php, terms, totalMonths, vaTrials, type Audience,
 } from "@/offers/ph-local";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
@@ -76,18 +76,21 @@ export function OfferSections({ audience }: { audience: Audience }) {
 
     <section className={o.block} aria-labelledby="offer-monthly">
       <p className={o.eyebrow}>Services</p>
-      <h2 id="offer-monthly">Priced per month, <em>paid once a year.</em></h2>
+      <h2 id="offer-monthly">One yearly price <em>for each service.</em></h2>
       <p>After the {TRIAL_DAYS}-day free trial every service is on the annual plan: {crm.baseMonths} months paid at once. There is no month to month plan. No setup fee.</p>
       <ul className={o.cards}>
         {monthlyServices.map((item) => <li key={item.name}>
           <h3>{item.name}</h3>
-          <p className={o.price}>{php(item.monthly)} <span>per month</span></p>
+          <p className={o.price}>{php(yearly(item.monthly))} <span>a year</span></p>
+          <p className={o.small}>Works out to {php(item.monthly)} a month.</p>
+          {item.name === "AI live seller" ? <p className={o.small}>Want to try it first? A paid {liveSeller.starterMonths}-month starter is {php(liveSeller.starterPrice)}, then annual. {LIVE_SELLER_COMMISSION_NOTE}</p> : null}
           <p>{t(item.note)}</p>
           <ul className={o.ticks}>{item.includes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
         </li>)}
         <li className={o.feature}>
           <h3>All three together</h3>
-          <p className={o.price}>{php(allThreeMonthly)} <span>per month</span></p>
+          <p className={o.price}>{php(yearly(allThreeMonthly))} <span>a year</span></p>
+          <p className={o.small}>Works out to {php(allThreeMonthly)} a month, before the bundle discount.</p>
           <p>Website, content creation and AI live seller, run by one KRIV team.</p>
         </li>
       </ul>
@@ -100,7 +103,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
       <ul className={o.cards}>
         {contentTiers.map((tier) => <li key={tier.name}>
           <h3>{tier.name}</h3>
-          <p className={o.price}>{tier.monthly ? <>{php(tier.monthly)} <span>per month</span></> : <span>Quoted for {t("{client}")}</span>}</p>
+          <p className={o.price}>{tier.monthly ? <>{php(yearly(tier.monthly))} <span>a year</span><br /><span className={o.small}>Works out to {php(tier.monthly)} a month.</span></> : <span>Quoted for {t("{client}")}</span>}</p>
           <ul className={o.ticks}>{tier.includes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
         </li>)}
       </ul>
@@ -113,8 +116,8 @@ export function OfferSections({ audience }: { audience: Audience }) {
         <ul className={o.ticks}>{crmIncludes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
         <div className={o.promo}>
           <p className={o.tag}>Promo rate</p>
-          <p className={o.price}>{php(crm.promoMonthly)} <span>per month</span></p>
-          <p className={o.small}>Regular rate <s>{php(crm.regularMonthly)}</s> per month. No setup fee.</p>
+          <p className={o.price}>{php(annualPrice)} <span>a year</span></p>
+          <p className={o.small}>Works out to {php(crm.promoMonthly)} a month. Regular rate <s>{php(crm.regularMonthly)}</s> a month. No setup fee.</p>
           <p>That is {php(crm.regularMonthly - crm.promoMonthly)} saved on every month of the year. The annual plan is {crm.baseMonths} months at the promo rate, {php(annualPrice)}, and deciding early in the trial adds free months on top.</p>
         </div>
       </div>
@@ -126,7 +129,8 @@ export function OfferSections({ audience }: { audience: Audience }) {
       <ul className={o.cards}>
         {addOns.map((item) => <li key={item.name}>
           <h3>{item.name}</h3>
-          <p className={o.price}>{php(item.price)} <span>{item.unit}</span></p>
+          {item.unit === "per month" ? <><p className={o.price}>{php(yearly(item.price))} <span>a year</span></p><p className={o.small}>Works out to {php(item.price)} a month.</p></>
+            : <p className={o.price}>{php(item.price)} <span>{item.unit}</span></p>}
           <ul className={o.ticks}>{item.includes.map((line) => <li key={line}>{t(line)}</li>)}</ul>
         </li>)}
       </ul>
@@ -164,7 +168,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
             <span>save up to {php(annualSaving(plan, freeWindows[0]))}</span>
             <span className={o.toggle} aria-hidden="true">+</span>
           </summary>
-          <p className={o.small}>{php(plan.monthly)} per month{plan.regular > plan.monthly ? <>, regular <s>{php(plan.regular)}</s></> : null}. Annual plan: {php(annualPay(plan))}.</p>
+          <p className={o.small}>Annual plan: {php(annualPay(plan))}, which works out to {php(plan.monthly)} a month{plan.regular > plan.monthly ? <> (regular <s>{php(plan.regular)}</s>)</> : null}.</p>
           <table>
             <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Regular value</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
             <tbody>{freeWindows.map((w) => <tr key={w.fromDay}>
@@ -210,7 +214,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
       <div className={o.terms}>
         <div><h3>Not included</h3><ul>{exclusions.map((line) => <li key={line}>{t(line)}</li>)}</ul></div>
         {terms.map((item) => <div key={item.name}><h3>{item.name}</h3><p>{t(item.body)}</p></div>)}
-        <div><h3>What KRIV does not promise</h3><p>KRIV does not promise specific results, search rankings, numbers of leads or bookings, uptime figures or round-the-clock coverage. KRIV commits to the work described here and to honest reporting on it.</p></div>
+        <div><h3>What KRIV does not promise</h3><p>KRIV does not promise specific results, search rankings, numbers of leads or bookings, sales figures or uptime figures. KRIV commits to the work described here and to honest reporting on it.</p></div>
       </div>
       <p className={o.small}>All prices in Philippine pesos (PHP).</p>
     </section>

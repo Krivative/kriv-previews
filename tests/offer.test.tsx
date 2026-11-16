@@ -27,21 +27,21 @@ function render(input: unknown, offer = false) {
 }
 
 // Every figure both pages must show (Kriv's prices, 2026-11-16).
-const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000", "PHP 16,000", "12 image posts a month",
-  "PHP 13,000 per month", "Regular rate PHP 15,000 per month", "PHP 156,000",
+const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 15,000", "PHP 35,000", "PHP 180,000", "12 image posts a month",
+  "PHP 13,000 a month", "Regular rate PHP 15,000 a month", "PHP 156,000",
   "15 months for the price of 12", "PHP 2,000 saved on every month of the year", "What you save on each service",
   // Website: 15 months month by month, the annual price, the saving.
   "PHP 45,000", "PHP 36,000", "PHP 9,000",
   // CRM: 15, 14 and 13 months at the regular rate against the annual price.
   "PHP 225,000", "PHP 210,000", "PHP 195,000", "PHP 69,000", "PHP 54,000", "PHP 39,000",
-  "Days 1 to 5", "From day 15", "No free months", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 per month",
+  "Days 1 to 5", "From day 15", "No free months", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 a month",
   "Human VA trial", "AI VA trial", "Referral program", "Change orders", "physical store in the Philippines"];
 
 describe("Philippines-market offer figures", () => {
   it("keeps the 3,000 services and adds up the three monthly rates", () => {
-    expect(monthlyServices.map((s) => s.monthly)).toEqual([3000, 3000, 10000]);
-    expect(allThreeMonthly).toBe(16000);
-    expect(php(allThreeMonthly)).toBe("PHP 16,000");
+    expect(monthlyServices.map((s) => s.monthly)).toEqual([3000, 3000, 15000]);
+    expect(allThreeMonthly).toBe(21000);
+    expect(php(allThreeMonthly)).toBe("PHP 21,000");
     expect(contentTiers.map((t) => t.monthly)).toEqual([3000, null, null]);
     expect(addOns.map((a) => [a.name, a.price, a.unit])).toEqual([["Branding kit", 7500, "one-time"], ["AI agent", 2500, "per month"]]);
   });
@@ -60,16 +60,16 @@ describe("annual plans and savings", () => {
   const plan = (name: string) => annualPlans.find((p) => p.name === name)!;
   it("covers every monthly service", () => {
     expect(annualPlans.map((p) => [p.name, p.monthly, p.regular])).toEqual([
-      ["Website", 3000, 3000], ["Content creation", 3000, 3000], ["AI live seller", 10000, 10000],
-      ["All three together", 16000, 16000], ["CRM and system with automations", 13000, 15000], ["AI agent", 2500, 2500],
+      ["Website", 3000, 3000], ["Content creation", 3000, 3000], ["AI live seller", 15000, 15000],
+      ["All three together", 21000, 21000], ["CRM and system with automations", 13000, 15000], ["AI agent", 2500, 2500],
     ]);
   });
   it("charges twelve months and counts the extra months as the saving", () => {
-    expect(annualPlans.map(annualPay)).toEqual([36000, 36000, 120000, 192000, 156000, 30000]);
+    expect(annualPlans.map(annualPay)).toEqual([36000, 36000, 180000, 252000, 156000, 30000]);
     expect([three, two, one].map((w) => annualWorth(plan("Website"), w))).toEqual([45000, 42000, 39000]);
     expect([three, two, one].map((w) => annualSaving(plan("Website"), w))).toEqual([9000, 6000, 3000]);
-    expect([three, two, one].map((w) => annualSaving(plan("AI live seller"), w))).toEqual([30000, 20000, 10000]);
-    expect([three, two, one].map((w) => annualSaving(plan("All three together"), w))).toEqual([48000, 32000, 16000]);
+    expect([three, two, one].map((w) => annualSaving(plan("AI live seller"), w))).toEqual([45000, 30000, 15000]);
+    expect([three, two, one].map((w) => annualSaving(plan("All three together"), w))).toEqual([63000, 42000, 21000]);
     expect([three, two, one].map((w) => annualSaving(plan("AI agent"), w))).toEqual([7500, 5000, 2500]);
   });
   it("combines the promo and the extra months for the CRM", () => {
@@ -233,10 +233,10 @@ describe("PCO scroll journey", () => {
     const script = (name: string) => readFileSync(path.join(__dirname, "..", "docs", "voices", `${name}-script.txt`), "utf8");
     for (const name of ["dental-story", "dental-level-two", "rates-story", "agency-story"]) expect(script(name).length).toBeGreaterThan(400);
     const rates = script("rates-story");
-    for (const part of ["three thousand pesos a month each", "ten thousand", "thirteen thousand", "two thousand five hundred", "forty-five thousand pesos", "thirty-six thousand", "Nine thousand pesos",
+    for (const part of ["thirty-six thousand pesos a year each", "one hundred eighty thousand", "thirty-five thousand", "one hundred fifty-six thousand", "thirty thousand", "forty-five thousand pesos", "thirty-six thousand", "Nine thousand pesos",
       "days one to five: three free months", "Days six to ten: two", "Days eleven to fourteen: one", "After day fourteen the door still opens", "ten percent off for two", "twenty-five for five", "forty percent"]) expect(rates).toContain(part);
     // The page's own figures for the same things.
-    expect([monthlyServices[0].monthly, monthlyServices[2].monthly, crm.promoMonthly, addOns[1].price]).toEqual([3000, 10000, 13000, 2500]);
+    expect([monthlyServices[0].monthly, monthlyServices[2].monthly, crm.promoMonthly, addOns[1].price]).toEqual([3000, 15000, 13000, 2500]);
     expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[1, 5, 3], [6, 10, 2], [11, 14, 1], [15, undefined, 0]]);
     expect(`${script("dental-story")} ${script("dental-level-two")}`).not.toMatch(/PCO|guarantee|painless|best |years of experience|\d+ ?%|peso/i);
     expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
@@ -363,7 +363,7 @@ describe("rates page scroll story", () => {
   it("starts with narration on and gives every chapter its recording", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     // Annual only (2026-11-16): five chapters re-recorded (?v=3), the rest keep the second set.
-    expect(ratesJourney.every((step) => step.audio?.endsWith("?v=4"))).toBe(true);
+    expect(ratesJourney.every((step) => /\?v=[45]$/.test(step.audio ?? ""))).toBe(true);
     for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);

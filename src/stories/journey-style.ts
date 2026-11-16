@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { chibiCostumes, journeyWorlds, pickBazaar, worldFor, type JourneyWorld } from "./bazaar";
 
 // The randomizer for story sites (preview-only). A story site's look is not
 // coded per client: it is chosen from the lists below by a seed. By default the
@@ -100,7 +101,7 @@ export const journeyEntrances = ["edge", "under-words", "behind"] as const; // w
 type Pick<T extends readonly string[]> = T[number];
 
 export type StoryStyleChoice = {
-  seed?: string; theme?: string; lore?: JourneyLore; genre?: JourneyGenre; sound?: SoundWorld; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
+  seed?: string; world?: JourneyWorld; bazaar?: string; theme?: string; lore?: JourneyLore; genre?: JourneyGenre; sound?: SoundWorld; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
   marks?: Pick<typeof journeyMarks>; brand?: Pick<typeof journeyBrands>; voice?: Pick<typeof journeyVoices>; cue?: Pick<typeof journeyCues>;
   words?: Pick<typeof journeyWords>; map?: Pick<typeof journeyMaps>; cards?: Pick<typeof journeyCards>; entrance?: Pick<typeof journeyEntrances>;
 };
@@ -141,14 +142,21 @@ export function seedNumber(text: string): number {
 const pick = <T,>(list: readonly T[], seed: string, part: string) => list[seedNumber(`${part}:${seed}`) % list.length];
 
 /** The look for one story site: whatever its record pins, and the seed's choice for the rest. */
-export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice }) {
+export function journeyStyle(site: { slug: string; contentNiche?: string; storyStyle?: StoryStyleChoice }) {
   const choice = site.storyStyle ?? {};
   const seed = choice.seed ?? site.slug;
   const lore = choice.lore ?? pick(loreNames, seed, "lore");
   // Two looks in three wear the genre that suits their chapter naming; the third is the seed's own pick.
   const genre = choice.genre ?? (seedNumber(`genre-tie:${seed}`) % 3 ? lorePartners[lore] : pick(costumes, seed, "genre"));
+  // The world comes from the client's niche (a dental clinic walks the Smile Kingdom); the bazaar from the seed.
+  const world = choice.world ?? worldFor(site.contentNiche);
+  const bazaar = pickBazaar(world, genre, seedNumber(`bazaar-tie:${seed}`), choice.bazaar);
+  const chibi = journeyWorlds[world].chibi as keyof typeof chibiCostumes;
   return {
     seed,
+    world,
+    bazaar,
+    chibi,
     genre,
     // The same rule one layer down: two in three hear their costume's room, the third the seed's pick.
     sound: choice.sound ?? (seedNumber(`sound-tie:${seed}`) % 3 ? genre : pick(soundWorlds, seed, "sound")) as SoundWorld,
@@ -173,7 +181,7 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
 /** The look as data attributes on the page's root: the stylesheets do the rest. */
 export function lookAttributes(look: ReturnType<typeof journeyStyle>) {
   const l = look.layout;
-  return { "data-theme-name": look.theme.name, "data-genre": look.genre, "data-sound": look.sound, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
+  return { "data-theme-name": look.theme.name, "data-genre": look.genre, "data-world": look.world, "data-bazaar": look.bazaar.name, "data-sound": look.sound, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
 }
 
 /** A theme as the CSS variables the story pages are built on. */

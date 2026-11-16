@@ -1,4 +1,5 @@
 import { castModes } from "@/stories/casts/types";
+import { bazaarNames, worldNames } from "@/stories/bazaar";
 import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres, soundWorlds } from "@/stories/journey-style";
 import { z } from "zod";
 
@@ -97,6 +98,8 @@ export const SiteData = z.object({
   // Preview-only: pins or reseeds the story's look (src/stories/journey-style.ts). Unset: seeded by the slug.
   storyStyle: z.object({
     seed: z.string().max(40).optional(),
+    world: z.enum(worldNames).optional(),
+    bazaar: z.enum(bazaarNames).optional(),
     theme: z.enum(themeNames).optional(),
     lore: z.enum(loreNames).optional(),
     genre: z.enum(journeyGenres).optional(),

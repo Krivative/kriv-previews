@@ -89,7 +89,7 @@ export const ratesCast: CastFile = {
     expert: { role: "expert", name: "The price", art: pill, lines: {
       start: [{ text: "Every figure here comes from one price list.", face: "happy" }],
       trial: [{ text: "The trial costs nothing. There is no setup fee." }],
-      services: [{ text: `Website and content: ${php(monthlyServices[0].monthly)} a month each, paid yearly.` }],
+      services: [{ text: `Website: ${php(monthlyServices[0].monthly * crm.baseMonths)} a year, ${php(monthlyServices[0].monthly)} a month.` }],
       paying: [{ text: `Annual is paid once, for ${crm.baseMonths} months.` }],
       annual: [{ text: `${php(annualPay(website))} against ${php(annualWorth(website, best))}. Same ${totalMonths(best)} months.` }],
       dates: [{ text: `Days ${best.fromDay} to ${best.toDay}: ${best.freeMonths} free months.` }],
