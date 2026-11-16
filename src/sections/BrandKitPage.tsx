@@ -6,6 +6,7 @@ import { addOns } from "@/offers/ph-local";
 import { dentalJourney } from "@/stories/dental-journey";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
+import { SocialShowcase } from "./JourneySocial";
 import { journeyStyle, themeVars } from "@/stories/journey-style";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
@@ -32,7 +33,6 @@ export function BrandKitPage({ site }: { site: SiteData }) {
     { name: "Accent", hex: theme.accent, use: "Buttons and highlights" },
     { name: "Quiet", hex: theme.muted, use: "Labels and notes" },
   ];
-  const place = business.address.city.startsWith("[") ? business.category : `${business.category} in ${business.address.city}`;
   return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(theme)} data-theme-name={theme.name}>
     <link rel="stylesheet" href={theme.googleCss} precedence="fonts" />
     <Ribbon site={site} />
@@ -84,24 +84,9 @@ export function BrandKitPage({ site }: { site: SiteData }) {
       <section className={o.block} aria-labelledby="kit-use">
         <p className={o.eyebrow}>In use</p>
         <h2 id="kit-use">The same look <em>on every screen.</em></h2>
-        <p>Mock-ups only. The words come from the story on the sample website; contact details stay as placeholders until the clinic confirms them.</p>
+        <p>Mock-ups only. The words come from the story on the sample website; anything the clinic has not confirmed stays a placeholder.</p>
+        <SocialShowcase site={site} />
         <ul className={b.media}>
-          <li className={b.wide}>
-            <div className={`${b.mock} ${b.cover}`}><JourneyLogo letters={letters} ring={ring} /><div><p className={b.display}>{line("smile")}</p><p className={b.label}>{place}</p></div></div>
-            <span>Page cover</span>
-          </li>
-          <li>
-            <div className={`${b.mock} ${b.profile}`}><JourneyLogo letters={letters} compact tone="lime" /></div>
-            <span>Profile picture</span>
-          </li>
-          <li>
-            <div className={`${b.mock} ${b.post}`}><p className={b.label}>At home</p><p className={b.display}>{line("home")}</p><JourneyLogo letters={letters} compact /></div>
-            <span>Square post</span>
-          </li>
-          <li>
-            <div className={`${b.mock} ${b.story}`}><JourneyLogo letters={letters} compact tone="lime" /><p className={b.display}>{line("checkup")}</p><p className={b.label}>{business.name}</p></div>
-            <span>Story or reel cover</span>
-          </li>
           <li>
             <div className={`${b.mock} ${b.card}`}><span className={b.lockup}><JourneyLogo letters={letters} compact tone="light" /><strong>{business.name}</strong></span><p>[DENTIST NAME]<br />{business.phoneDisplay ?? "[CLINIC PHONE]"}<br />{business.address.line1}</p></div>
             <span>Appointment card</span>

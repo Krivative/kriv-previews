@@ -26,6 +26,8 @@
 .numbered li { counter-increment: clinic-step; }
 .numbered strong::before { content: counter(clinic-step, decimal-leading-zero) " "; font-family: var(--font-mono); color: var(--accent); margin-right: 6px; }
 .meta dt { white-space: nowrap; }
+.meta dd { overflow-wrap: anywhere; }
+.words :global(ul) { margin-top: 0; }
 .leads { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 .root .leads a, .leads a { color: var(--accent); }
 /* Stops hold lists, so they are as tall as they need and are not snapped to. */

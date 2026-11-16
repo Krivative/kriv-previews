@@ -14,6 +14,8 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv supplied the clinic's own details (2026-11-16): Carlos Perez Building, Door 3, A.C. Cortes Ave., Barangay Ibabao-Estancia, Mandaue City 6014; phone 0916 760 2325; email pcodentalclinicmandaue@gmail.com; the Facebook page already listed as the lead's source. They are in the lead record and shown on the site. The email shows as plain text and the Facebook page as a disabled link (previews never call, email or send visitors away). Still placeholders: opening hours, services, team, booking method, landmark. Region "Cebu" is the agent's addition (Mandaue City is in Cebu).
+- Kriv asked that the brand kit's social media showcase also appear on the client's website. `JourneySocial.tsx` holds the four mock-ups (page cover, profile picture, square post, story cover); the brand kit page and a new level-two stop, "On social media", both use it. They are drawings: nothing is posted to any account.
 - Kriv asked to double-check the randomizer and use more diversity and style. On `claude/rush-pco-rates`:
   - Three light themes added (paper-pine, sky-coral, sand-violet), so there are now eleven: eight dark, three light. With four chapter namings, two sides and four rings that is 352 combinations.
   - The soft blue-grey lines everywhere are now a share of the theme's own text colour, and the concept logo's three tones are defined from the theme (`--deep` is the theme's dark colour), so both work on light grounds.

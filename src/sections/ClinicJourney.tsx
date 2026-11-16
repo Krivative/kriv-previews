@@ -4,6 +4,8 @@ import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { BookButton, mark } from "./JourneyBlocks";
+import { inert } from "./inert";
+import { SocialShowcase } from "./JourneySocial";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
@@ -40,9 +42,16 @@ export function ClinicJourney({ site }: { site: SiteData }) {
     <dl className={`${o.meta} ${c.meta}`}>
       <div><dt>Address</dt><dd>{addressText(business.address)}</dd></div>
       <div><dt>Phone</dt><dd>{phoneText(business)}</dd></div>
+      {business.email ? <div><dt>Email</dt><dd>{business.email}</dd></div> : null}
+      {business.socials.facebook ? <div><dt>Facebook</dt><dd><a {...inert}>The clinic&apos;s Facebook page</a></dd></div> : null}
       {business.hours.map((h) => <div key={h.days}><dt>{h.days}</dt><dd>{h.time}</dd></div>)}
     </dl>
     <p className={o.actions}><BookButton site={site} /></p>
+  </> });
+  stops.push({ id: "social", name: "On social media", title: <>The same look <em>on every screen</em></>, body: <>
+    <p className={j.narration}>The website is one room of the clinic. Its social pages are the others. This is how they would look in the same brand, so a patient knows it is the same clinic wherever they meet it.</p>
+    <SocialShowcase site={site} />
+    <p className={c.leads}>Mock-ups only. <Link href={pageHref(site, "brand-kit")} prefetch={false}>See the full concept brand kit</Link></p>
   </> });
   if (site.faqs?.length) stops.push({ id: "faq", name: "Questions", title: <>Good to <em>know</em></>, body: <div className={j.faq}>
     {site.faqs.map((f) => <details key={f.q}><summary>{f.q}<span aria-hidden="true">+</span></summary><p>{f.a}</p></details>)}

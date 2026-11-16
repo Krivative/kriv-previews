@@ -9,12 +9,18 @@
   "business": {
     "name": "PCO Dental Clinic",
     "category": "Dental clinic",
-    "phoneDisplay": "[CLINIC PHONE: +63 XXX XXX XXXX]",
+    "phoneDisplay": "0916 760 2325",
+    "phoneE164": "+639167602325",
+    "email": "pcodentalclinicmandaue@gmail.com",
     "address": {
-      "line1": "[CLINIC ADDRESS]",
-      "city": "Mandaue",
+      "line1": "Carlos Perez Building, Door 3, A.C. Cortes Ave., Barangay Ibabao-Estancia",
+      "city": "Mandaue City",
       "region": "Cebu",
+      "postalCode": "6014",
       "country": "PH"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/profile.php?id=61563627773407"
     },
     "hours": [
       {
@@ -32,7 +38,7 @@
   },
   "design": {},
   "hero": {
-    "eyebrow": "Dental clinic in Mandaue",
+    "eyebrow": "Dental clinic in Mandaue City",
     "headline": "Welcome to *PCO Dental Clinic.*",
     "sub": "A concept website prepared by KRIV for PCO Dental Clinic. Details shown in [BRACKETS] are placeholders until the clinic confirms them.",
     "primary": {
@@ -97,7 +103,7 @@
   "faqs": [
     {
       "q": "Where is the clinic?",
-      "a": "[CLINIC ADDRESS], Mandaue, Cebu. [LANDMARK OR DIRECTIONS, if the clinic wants them shown.]"
+      "a": "Carlos Perez Building, Door 3, A.C. Cortes Ave., Barangay Ibabao-Estancia, Mandaue City, Cebu 6014. [LANDMARK OR DIRECTIONS, if the clinic wants them shown.]"
     },
     {
       "q": "What are the opening hours?",
@@ -105,7 +111,7 @@
     },
     {
       "q": "How do I book an appointment?",
-      "a": "[BOOKING CHANNEL: the clinic's Messenger link or +63 phone number]. See the booking steps on this page."
+      "a": "[BOOKING CHANNEL: to be confirmed. The clinic's phone is 0916 760 2325 and it has a Facebook page.] See the booking steps on this page."
     },
     {
       "q": "Which services are offered?",
@@ -122,7 +128,7 @@
   ],
   "close": {
     "headline": "Ready to *book a visit?*",
-    "sub": "Booking is disabled in this concept. The clinic's real contact details replace the placeholders below."
+    "sub": "Booking is disabled in this concept. The address, phone and email are the clinic's own; opening hours are still a placeholder."
   },
   "seo": {
     "title": "PCO Dental Clinic | Concept preview",

@@ -141,7 +141,7 @@ describe("PCO Dental Clinic concept (Philippines)", () => {
   it("is a 30-day preview with Philippine formats", () => {
     expect(site.status).toBe("approved");
     expect(site.expiresAt).toBe("2026-12-16");
-    expect(addressText(site.business.address)).toBe("[CLINIC ADDRESS], Mandaue, Cebu");
+    expect(addressText(site.business.address)).toBe("Carlos Perez Building, Door 3, A.C. Cortes Ave., Barangay Ibabao-Estancia, Mandaue City, Cebu, 6014");
     expect(phoneText({ phoneDisplay: "+63 917 123 4567", phoneE164: "+639171234567" })).toBe("+63 917 123 4567");
   });
   it("shows the banner, an inert booking action and only internal links", () => {
@@ -169,10 +169,10 @@ describe("PCO scroll journey", () => {
     expect(html.match(/<h1\b/g)?.length).toBe(1);
   });
   it("keeps the clinic's placeholders and details after the story", () => {
-    for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], Mandaue, Cebu", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
+    for (const part of ["[SERVICE 1]", "Carlos Perez Building, Door 3, A.C. Cortes Ave., Barangay Ibabao-Estancia, Mandaue City, Cebu, 6014", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
   });
   it("shows the concept redraw of the clinic's logo, in the header and as a badge", () => {
-    expect(html.match(/logo, concept redraw/g)?.length).toBe(5);
+    expect(html.match(/logo, concept redraw/g)?.length).toBe(9); // header, two crests, intro badge, footer, four social mock-ups
     expect(html).toContain('href="/pco-dental-clinic/brand-kit"');
     expect(html).toContain("PCO DENTAL CLINIC MANDAUE");
     expect(words).toContain("A concept redraw of the clinic's logo by KRIV, for the clinic to approve.");
@@ -192,9 +192,18 @@ describe("PCO scroll journey", () => {
     expect(html).toContain("<b>PCO DENTAL CLINIC MANDAUE</b>");
   });
   it("continues after the story as level two: the clinic as connected stops on one map", () => {
-    for (const id of ["inside", "services", "about", "book", "visit", "faq"]) expect(html).toMatch(new RegExp(`id="${id}" class="[^"]*" data-journey-step`));
-    expect(html.match(/data-journey-scene/g)?.length).toBe(6);
-    for (const part of ["Level two / Inside the clinic", "Stop 2 of 6 / Services", "Leads to → The team", "Stop 6 of 6 / Questions", "The ride ends here."]) expect(words).toContain(part);
+    for (const id of ["inside", "services", "about", "book", "visit", "social", "faq"]) expect(html).toMatch(new RegExp(`id="${id}" class="[^"]*" data-journey-step`));
+    expect(html.match(/data-journey-scene/g)?.length).toBe(7);
+    for (const part of ["Level two / Inside the clinic", "Stop 2 of 7 / Services", "Leads to → The team", "Stop 6 of 7 / On social media", "Stop 7 of 7 / Questions", "The ride ends here."]) expect(words).toContain(part);
+  });
+  it("shows the clinic's own contact details as text, never as live links", () => {
+    for (const part of ["0916 760 2325", "pcodentalclinicmandaue@gmail.com", "Barangay Ibabao-Estancia", "The clinic's Facebook page", "[OPENING HOURS]"]) expect(words).toContain(part);
+    expect(html).not.toMatch(/href="[^"]*(facebook\.com|mailto:|tel:)/);
+    expect(html).toMatch(/<a aria-disabled="true"[^>]*>The clinic(&#x27;|')s Facebook page<\/a>/);
+    expect(html).toContain("PCO DENTAL CLINIC MANDAUE</");
+  });
+  it("shows the social media mock-ups on the clinic's own site", () => {
+    for (const part of ["Page cover", "Profile picture", "Square post", "Story or reel cover"]) expect(words).toContain(part);
   });
   it("makes no claims for the clinic and names no other agency", () => {
     expect(words).not.toMatch(/wayaway|award|guarantee|best dentist|painless|years of experience|\d+\+? (?:patients|reviews)|★/i);

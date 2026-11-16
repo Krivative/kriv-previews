@@ -48,6 +48,6 @@ export function JourneyLogo({ letters, ring, compact = false, tone = "navy" }: {
 
 /** The clinic's letters and the words around the ring, as on its own logo. */
 export function logoWords(site: { business: { name: string; address: { city: string } } }) {
-  const city = site.business.address.city.startsWith("[") ? "" : ` ${site.business.address.city}`;
+  const city = site.business.address.city.startsWith("[") ? "" : ` ${site.business.address.city.replace(/\s+City$/i, "")}`;
   return { letters: site.business.name.split(" ")[0].toUpperCase(), ring: `${site.business.name}${city}`.toUpperCase() };
 }

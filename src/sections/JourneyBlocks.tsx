@@ -110,6 +110,8 @@ export function VisitBlock({ site }: Props) {
     <dl className={o.meta}>
       <div><dt>Address</dt><dd>{addressText(business.address)}</dd></div>
       <div><dt>Phone</dt><dd>{phoneText(business)}</dd></div>
+      {business.email ? <div><dt>Email</dt><dd>{business.email}</dd></div> : null}
+      {business.socials.facebook ? <div><dt>Facebook</dt><dd><a {...inert}>The clinic&apos;s Facebook page</a></dd></div> : null}
       {business.hours.map((h) => <div key={h.days}><dt>{h.days}</dt><dd>{h.time}</dd></div>)}
     </dl>
     <p className={o.actions}><BookButton site={site} /></p>
