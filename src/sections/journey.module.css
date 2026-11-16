@@ -255,3 +255,4 @@ html:has(.journey) { scroll-snap-type: y proximity; }
   .journey:not([data-step="0"]) .stage { background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent) 40%, transparent 62%); }
 }
 .journey:has([data-scenes]) .step:not(:first-of-type) .words { background: color-mix(in srgb, var(--bg) 46%, transparent); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: var(--radius-small, 14px); padding: 14px 16px; margin-inline: -16px; }
+@media (min-width: 900px) { .stage, .journey:not([data-step="0"]) .stage { background: none; } }
