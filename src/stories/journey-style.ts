@@ -75,14 +75,14 @@ export const loreNames = Object.keys(journeyLores) as [JourneyLore, ...JourneyLo
 export type StoryStyleChoice = { seed?: string; theme?: string; lore?: JourneyLore; side?: (typeof journeySides)[number]; orbit?: (typeof journeyOrbits)[number] };
 
 /** A steady number from a string (FNV-1a, then a mixing step), so the same seed always gives the same look. */
-function hash(text: string): number {
+export function seedNumber(text: string): number {
   let h = 2166136261;
   for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
   // A final stir, so the separate choices made from one seed do not move together.
   h ^= h >>> 16; h = Math.imul(h, 0x85ebca6b); h ^= h >>> 13; h = Math.imul(h, 0xc2b2ae35); h ^= h >>> 16;
   return h >>> 0;
 }
-const pick = <T,>(list: readonly T[], seed: string, part: string) => list[hash(`${part}:${seed}`) % list.length];
+const pick = <T,>(list: readonly T[], seed: string, part: string) => list[seedNumber(`${part}:${seed}`) % list.length];
 
 /** The look for one story site: whatever its record pins, and the seed's choice for the rest. */
 export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice }) {

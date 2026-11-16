@@ -217,12 +217,13 @@ describe("PCO scroll journey", () => {
     }
   });
   it("renders a place for the next-chapter cue, empty until the page runs", () => {
-    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span><\/span><\/p>/);
+    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span class="[^"]*usher[^"]*" aria-hidden="true"><svg[\s\S]*?<\/svg><\/span><span><\/span><\/p>/);
   });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(1);
+    expect(html.match(/<button\b/g)?.length).toBe(3); // narration, the cast's quiet control, and the character itself
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
+    expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b|<img\b/);
+    expect(html.match(/<button type="button"/g)?.length).toBe(3);
   });
   it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);
