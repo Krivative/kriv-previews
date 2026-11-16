@@ -55,6 +55,9 @@ describe("PCO in the adult register", () => {
     expect(html).toContain('data-audience="adults"');
     expect(html).not.toContain("data-cast=");
     expect(html).not.toContain("data-cast-quiet");
+    // Reality first: no fantasy scenes and no story world behind an adult story, even when the record names a scene set.
+    expect(pco.storyScenes).toBeDefined();
+    expect(html).not.toContain("data-scenes");
   });
   it("keeps the guardrails and every chapter", () => {
     expect(html).toContain("Concept preview");

@@ -38,3 +38,16 @@
 .barWin { fill: var(--accent); }
 .own { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.5; }
 .tick { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.heroRing { fill:color-mix(in srgb, var(--accent) 14%, transparent); stroke:var(--accent); stroke-width:3; }
+
+/* Kriv from behind in the sponsor's hoodie: one quick, faded appearance behind the second chapter. */
+.ghost { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.ghost > div { position: sticky; top: 0; height: 100svh; display: grid; place-items: end center; overflow: hidden; }
+.ghost img { width: min(90vw, 900px); height: auto; opacity: 0; filter: grayscale(0.2); }
+[data-step="1"] .ghost img { animation: ghost 4.2s ease-in-out both; }
+@keyframes ghost { 0% { opacity: 0; translate: 0 40px; } 30%, 60% { opacity: 0.16; translate: 0 0; } 100% { opacity: 0; translate: 0 -20px; } }
+@media (prefers-reduced-motion: reduce) { [data-step="1"] .ghost img { animation: none; opacity: 0; } }
+
+/* At the bazaar on wide screens the stalls do the talking (Roadside.tsx): the drawing's list steps aside. */
+.art { transition: opacity 0.5s ease, scale 0.9s cubic-bezier(0.22, 1, 0.36, 1), translate 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+@media (min-width: 900px) { :global([data-step="2"]) .art { opacity: 0; } }

@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-17 - Last step finished: PCO restyled in a grown-up register through a new `audience` setting in the randomizer (three adult-only themes, no cast); local on `claude/pco-adult-look`, awaiting Kriv's "publish". The cast brief is complete and published. Phone audit done in its own session, waiting on Kriv's pick of a phone style. kriv.agency community restyle is in draft pull request 24 on Krivative/Kriv
+Updated: 2026-11-17 - Last step finished: PCO restyled in a grown-up register through a new `audience` setting in the randomizer (three adult-only themes, no cast); published on Kriv's word on 17 Nov, merged with the other session's sound, story worlds and DV Shop Cebu work. The cast brief is complete and published. Phone audit done in its own session, waiting on Kriv's pick of a phone style. kriv.agency community restyle is in draft pull request 24 on Krivative/Kriv. Also on main from another session: DV Shop Cebu surprise concept, story sound and story worlds
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -8,6 +8,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 ## Next up
 
+- [x] DV Shop Cebu surprise concept (Claude Code, 2026-11-17): public data from dvshopcebu.com; "Keep them fresh" story in look C with the shop's own photos; DV Shoe Care shelf; brand revamp (randomizer-picked badge among nine finishes); Dop- bonus page; 14-day plan, reply templates, calendar, Shoe Care campaign, original jingle and rap lyrics; offer page (trial, plan, introduction ask) priced only from `ph-local.ts`. All five checks pass. Local on `claude/dv-shop-cebu`
+- [ ] Kriv: review kriv.agency/for/dv-shop-cebu locally; approve the audio cost (2,100 credits for the 90 s rap and 15 s jingle); give delegate costs for the pricing check; connect Chrome for the Facebook and Instagram check; say "publish"
 - [x] Kriv's PH prices and kriv.agency look published (Kriv's go-ahead, 2026-11-16): main at `4589642`, live pages verified
 - [x] Annual plans with savings on every service (Claude Code, 2026-11-16): pay 12 months, get 15, 14 or 13; month-by-month cost struck through and the saving shown; 698 tests, build and 22 smoke checks pass. Local on `claude/ph-annual-savings`
 - [x] Annual savings published (Kriv's go-ahead, 2026-11-16): main at `1462bd4`, live pages verified

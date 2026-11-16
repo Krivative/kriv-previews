@@ -13,6 +13,7 @@ import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
 import c from "./clinic-journey.module.css";
+import { beatEffects, soundRoom } from "@/stories/story-sound";
 
 // Level two of a story site's home page (preview-only). The story of the tooth
 // is the why; this is the how: every part of the practice as a stop on one
@@ -63,7 +64,8 @@ export function ClinicJourney({ site }: { site: SiteData }) {
 
   // The map: the clinic at the centre, one place per stop around it, joined in visiting order.
   // Its shape comes from the story's style: a ring around the clinic, a line of stops, or a zigzag path.
-  const map = journeyStyle(site).layout.map;
+  const look = journeyStyle(site);
+  const map = look.layout.map;
   const last = Math.max(1, stops.length - 1);
   const place = (n: number) => {
     if (map === "line") return { x: 44 + (n * 312) / last, y: 262 };
@@ -74,7 +76,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
   const hub = map === "ring" ? { x: 200, y: 200, r: 62 } : { x: 200, y: 96, r: 52 };
   const dot = map === "ring" ? 30 : 23;
 
-  return <JourneyScroller id={`${site.slug}:clinic`} className={`${j.journey} ${c.level}`} voiceClassName={j.voice} cueClassName={j.cue} locked={false}>
+  return <JourneyScroller id={`${site.slug}:clinic`} className={`${j.journey} ${c.level}`} voiceClassName={j.voice} cueClassName={j.cue} locked={false} sound={soundRoom(look.sound, "dental")} soundButton={false}>
     <p className={j.crest}><span><JourneyLogo letters={letters} compact /><b>{ring}</b></span></p>
     <ol className={j.dots} aria-label="Stops inside the clinic">
       <li><a href="#inside" aria-label="Level two: inside the clinic" /></li>
@@ -99,7 +101,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
       </svg>
     </div>
     <div className={j.steps}>
-      <section id="inside" className={j.step} data-journey-step="" data-audio={levelTwoVoice.inside} aria-labelledby="inside-title">
+      <section id="inside" className={j.step} data-journey-step="" data-audio={levelTwoVoice.inside} data-sfx={beatEffects.dental.inside} aria-labelledby="inside-title">
         <div className={j.words}>
           <p className={o.eyebrow}><b>Level two</b> / Inside the clinic</p>
           <figure className={j.logoFigure}>
@@ -112,7 +114,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
           <p className={c.leads}>Leads to <span aria-hidden="true">→</span> <a href={`#${stops[0].id}`}>{stops[0].name}</a></p>
         </div>
       </section>
-      {stops.map((stop, n) => <section key={stop.id} id={stop.id} className={j.step} data-journey-step="" data-audio={levelTwoVoice[stop.id]} aria-labelledby={`${stop.id}-title`}>
+      {stops.map((stop, n) => <section key={stop.id} id={stop.id} className={j.step} data-journey-step="" data-audio={levelTwoVoice[stop.id]} data-sfx={beatEffects.dental[stop.id]} aria-labelledby={`${stop.id}-title`}>
         <div className={`${j.words} ${c.words}`}>
           <p className={o.eyebrow}><b>Stop {n + 1} of {stops.length}</b> / {stop.name}</p>
           <h2 id={`${stop.id}-title`}>{stop.title}</h2>

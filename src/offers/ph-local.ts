@@ -47,7 +47,7 @@ export const TRIAL_DAYS = 14;
 /** What comes with every plan, whichever service is chosen. */
 export const everyPlan = [
   { name: `${TRIAL_DAYS}-day free trial`, body: "Try any service before paying anything." },
-  { name: "No setup fee", body: "Nothing to pay at sign-up, on monthly or annual plans." },
+  { name: "No setup fee", body: "Nothing to pay at sign-up. After the trial, plans are paid yearly." },
   { name: "Managed by KRIV staff", body: "A KRIV team member runs each service and stays your point of contact." },
   { name: "Your accounts, your data", body: "{Client} owns its domain, pages, accounts and content." },
 ] as const;
@@ -222,8 +222,18 @@ export const exclusions = [
 ] as const;
 
 export const terms = [
-  { name: "Bundle discount", body: `Taking several monthly services together on the annual plan lowers the yearly price: ${bundleTiers.map((tier) => `${tier.services} services ${percent(tier.rate)}`).join(", ")}. It comes on top of the free months, and the whole saving stops at ${percent(MAX_BUNDLE_SAVING)} of the regular month by month price. One-time items do not count.` },
+  { name: "Bundle discount", body: `Stacking several services on the annual plan lowers the yearly price: ${bundleTiers.map((tier) => `${tier.services} services ${percent(tier.rate)}`).join(", ")}. It comes on top of the free months, and the whole saving stops at ${percent(MAX_BUNDLE_SAVING)} of the regular value (the same months at the regular rate). One-time items do not count.` },
   { name: "Revisions", body: "Revision rounds are agreed in writing before work starts. Further rounds are quoted first." },
   { name: "Change orders", body: "Work outside this {doc} is written up as a change order with its price and timing, and starts only after {client} approves it in writing." },
   { name: "Ownership", body: "{Client} owns its accounts and data: its domain, social pages, messaging accounts, {customer} information and the content made for it. KRIV works through access {client} grants." },
 ] as const;
+
+// The hero's sneak peek (Kriv, 2026-11-16): a suggested first stack per kind of business, priced with the
+// same rules as the plan builder (best window, bundle discount). A starting point, not a promise of results.
+const plan = (name: string) => annualPlans.find((p) => p.name === name)!;
+export const starterStacks = [
+  { business: "Health practice", why: "Bookings come in through the site; follow-ups and reminders send themselves.", plans: ["Website", "CRM and system with automations"] },
+  { business: "Restaurant or café", why: "Fresh posts bring people in; an AI agent answers the usual questions.", plans: ["Content creation", "AI agent"] },
+  { business: "Retail shop", why: "A shop online, and live selling that keeps the store open after hours.", plans: ["Website", "AI live seller"] },
+  { business: "Salon or spa", why: "Posts that show the work; bookings and follow-ups in one organised place.", plans: ["Content creation", "CRM and system with automations"] },
+].map((s) => ({ ...s, quote: bundleQuote(s.plans.map(plan), decisionWindows[0]) }));

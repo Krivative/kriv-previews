@@ -7,6 +7,7 @@ import { journeyStyle, lookAttributes, themeVars } from "@/stories/journey-style
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
+import { DvLogo, dvLogoStyle } from "./DvLogo";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
@@ -33,21 +34,25 @@ export function JourneyFrame({ site, nav, children }: Props & { nav: ReactNode; 
   const { business } = site;
   const { letters, ring } = logoWords(site);
   const look = journeyStyle(site);
+  const sneaker = site.story === "sneaker-journey";
+  const mark = sneaker ? <DvLogo style={dvLogoStyle(look.seed)} compact /> : <JourneyLogo letters={letters} compact />;
   return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} {...lookAttributes(look)}>
     <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={`${o.top} ${j.top}`}>
-      <Link href={pageHref(site)} prefetch={false} className={j.name}><JourneyLogo letters={letters} compact />{business.name}</Link>
+      <Link href={pageHref(site)} prefetch={false} className={j.name}>{mark}{business.name}</Link>
       <nav aria-label="Main navigation" className={j.nav}>{nav}</nav>
     </header>
     <main id="main-content">{children}</main>
     <footer className={`${o.foot} ${j.foot}`}>
-      <JourneyLogo letters={letters} ring={ring} />
+      {sneaker ? <DvLogo style={dvLogoStyle(look.seed)} /> : <JourneyLogo letters={letters} ring={ring} />}
       <div>
         <p>{business.name}</p>
         <p>{conceptNotice(business.name)}</p>
-        <p>The logo is a concept redraw by KRIV for the clinic to approve. The story of the tooth uses general dental knowledge. It is not medical advice and makes no claims about the clinic.</p>
+        <p>{sneaker
+          ? "The logo is a concept revamp by KRIV for the DV Shop team to approve. Facts, photos, products and prices come from DV Shop Cebu's own public pages."
+          : "The logo is a concept redraw by KRIV for the clinic to approve. The story of the tooth uses general dental knowledge. It is not medical advice and makes no claims about the clinic."}</p>
       </div>
     </footer>
   </div>;

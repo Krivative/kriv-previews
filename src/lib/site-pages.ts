@@ -22,7 +22,7 @@ export function guideFor(site: SiteData) {
   return nicheGuides[niche] ?? { label: "Services", heading: "Plan your next step.", prepare: "Browse the information and make a note of your questions.", questions: ["Which option is right for me?", "What should I know before deciding?", "How can I confirm the details?"] };
 }
 
-export type SitePage = { path: string; title: string; kind: "home" | "services" | "service" | "about" | "contact" | "faq" | "gallery" | "offer" | "brand"; serviceIndex?: number };
+export type SitePage = { path: string; title: string; kind: "home" | "services" | "service" | "about" | "contact" | "faq" | "gallery" | "offer" | "brand" | "bonus"; serviceIndex?: number };
 
 export function sitePages(site: SiteData): SitePage[] {
   const pages: SitePage[] = [{ path: "", title: "Home", kind: "home" }];
@@ -49,7 +49,12 @@ export function offerPage(site: SiteData): SitePage | undefined {
 
 /** The concept brand kit that goes with a journey home page. Not in sitePages(): the journey links to it itself. */
 export function brandKitPage(site: SiteData): SitePage | undefined {
-  return site.story ? { path: "brand-kit", title: "Concept brand kit", kind: "brand" } : undefined;
+  return site.story ? { path: "brand-kit", title: site.story === "sneaker-journey" ? "Concept brand revamp" : "Concept brand kit", kind: "brand" } : undefined;
+}
+
+/** A bonus concept page that goes with a story (DV Shop Cebu's "Dop-" personal mark). Linked from the story's own pages. */
+export function bonusPage(site: SiteData): SitePage | undefined {
+  return site.story === "sneaker-journey" ? { path: "dop", title: "Dop- personal mark", kind: "bonus" } : undefined;
 }
 
 // next/link applies the configured basePath; never build a link from supplied hrefs.

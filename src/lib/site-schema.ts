@@ -1,5 +1,5 @@
 import { castModes } from "@/stories/casts/types";
-import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres, journeyAudiences } from "@/stories/journey-style";
+import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres, soundWorlds, journeyAudiences } from "@/stories/journey-style";
 import { z } from "zod";
 
 // The only contract between a lead's content (leads/<slug>.json) and the
@@ -89,9 +89,11 @@ export const SiteData = z.object({
     hours: z.array(z.object({ days: z.string(), time: z.string() })).default([]),
   }),
   // Preview-only: tells the home page as a scroll journey (src/sections/JourneySite.tsx).
-  story: z.literal("dental-journey").optional(),
+  story: z.enum(["dental-journey", "sneaker-journey"]).optional(),
   // Preview-only: the story's cast of small characters (src/stories/casts). Unset: the serious pair plus the usher.
   storyCast: z.enum(castModes).optional(),
+  // Preview-only: painted locations behind the story (src/sections/JourneyScenes.tsx), in place of the drawn world.
+  storyScenes: z.enum(["smile-kingdom"]).optional(),
   // Preview-only: pins or reseeds the story's look (src/stories/journey-style.ts). Unset: seeded by the slug.
   storyStyle: z.object({
     seed: z.string().max(40).optional(),
@@ -99,6 +101,7 @@ export const SiteData = z.object({
     audience: z.enum(journeyAudiences).optional(),
     lore: z.enum(loreNames).optional(),
     genre: z.enum(journeyGenres).optional(),
+    sound: z.enum(soundWorlds).optional(),
     side: z.enum(journeySides).optional(),
     orbit: z.enum(journeyOrbits).optional(),
     marks: z.enum(journeyMarks).optional(),

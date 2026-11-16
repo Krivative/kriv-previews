@@ -1,0 +1,81 @@
+/* The walk down the road (Roadside.tsx). Hidden on the first stop: the hero has the screen. */
+.roadside { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.window { position: sticky; top: 0; height: 100svh; overflow: hidden; opacity: 0; transition: opacity 0.6s ease; }
+:global([data-step]):not([data-step="0"]) .window { opacity: 1; }
+
+/* Route strip, bottom left (the narration buttons hold the bottom right). */
+.route { position: absolute; left: 24px; bottom: 22px; width: min(420px, calc(100% - 48px)); padding: 10px 16px 8px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
+.road { position: relative; height: 10px; margin: 6px 6px 4px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 14%, transparent); }
+.road::after { content: ""; position: absolute; left: 0; right: 0; top: 4px; border-top: 2px dashed color-mix(in srgb, var(--ink) 26%, transparent); }
+.stop { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--surface); border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent); z-index: 1; transition: background 0.4s, border-color 0.4s; }
+[data-step="0"] .stop:nth-child(-n + 1),
+[data-step="1"] .stop:nth-child(-n + 2),
+[data-step="2"] .stop:nth-child(-n + 3),
+[data-step="3"] .stop:nth-child(-n + 4),
+[data-step="4"] .stop:nth-child(-n + 5),
+[data-step="5"] .stop:nth-child(-n + 6),
+[data-step="6"] .stop:nth-child(-n + 7),
+[data-step="7"] .stop:nth-child(-n + 8),
+[data-step="8"] .stop:nth-child(-n + 9),
+[data-step="9"] .stop:nth-child(-n + 10) { background: var(--accent); border-color: var(--accent); }
+.you { position: absolute; top: 50%; left: calc(var(--journey-t, 0) * 100%); z-index: 2; width: 0; transition: left 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.you::before { content: ""; position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 25%, transparent); animation: pulse 2s ease-in-out infinite; }
+.you span { position: absolute; white-space: nowrap; left: -14px; top: -30px; font: 600 10px/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.names { margin: 6px 0 0; font: 10px/1.3 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.names span { display: none; }
+[data-step="0"] .names [data-name="0"] { display: inline; }
+[data-step="1"] .names [data-name="1"] { display: inline; }
+[data-step="2"] .names [data-name="2"] { display: inline; }
+[data-step="3"] .names [data-name="3"] { display: inline; }
+[data-step="4"] .names [data-name="4"] { display: inline; }
+[data-step="5"] .names [data-name="5"] { display: inline; }
+[data-step="6"] .names [data-name="6"] { display: inline; }
+[data-step="7"] .names [data-name="7"] { display: inline; }
+[data-step="8"] .names [data-name="8"] { display: inline; }
+[data-step="9"] .names [data-name="9"] { display: inline; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 9px color-mix(in srgb, var(--accent) 10%, transparent); } }
+
+/* The bazaar: each service stands at its stall, like a place card on a street map. */
+.pins { position: absolute; inset: 0; }
+.pin { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0; translate: 0 14px; transition: opacity 0.5s ease, translate 0.6s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: calc(var(--n) * 0.25s + 0.6s); }
+[data-step="2"] .pin { opacity: 1; translate: 0 0; }
+.pin[data-pin="0"] { left: 4%; top: 52%; } .pin[data-pin="1"] { left: 21%; top: 46%; } .pin[data-pin="2"] { left: 40%; top: 52%; } .pin[data-pin="3"] { left: 58%; top: 72%; } .pin[data-pin="4"] { left: 78%; top: 74%; }
+.dot { order: 2; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.card { order: 1; display: grid; gap: 2px; max-width: 190px; padding: 8px 11px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 8px 22px rgba(0,0,0,.14); font-size: 12px; line-height: 1.3; color: var(--ink); }
+.card b { font-size: 13px; } .card em { font-style: normal; font-weight: 700; color: var(--accent); } .card small { color: var(--muted); }
+
+/* Phones: the route spans the bottom; the stalls line up above it as a row of short cards. */
+@media (max-width: 899px) {
+  .route { left: 12px; right: 12px; width: auto; bottom: 12px; }
+  /* The stall cards would cover the text on a phone; the chapter drawing already lists the services. */
+  .pins { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .window, .pin, .you, .stop { transition: none; } .you::before { animation: none; } }
+
+
+/* Forward arrows on the road, Street View style: a chevron lying on the ground, ahead of the visitor. */
+.arrows { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.arrowWindow { position: sticky; top: 0; height: 100svh; }
+.arrow { display: none; position: absolute; left: 25%; bottom: 112px; translate: -50% 0; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; pointer-events: auto; color: var(--ink); animation: arrive 0.6s 0.8s both cubic-bezier(0.22, 1, 0.36, 1); }
+[data-step="1"] .arrow[data-arrow="1"] { display: flex; }
+[data-step="2"] .arrow[data-arrow="2"] { display: flex; }
+[data-step="3"] .arrow[data-arrow="3"] { display: flex; }
+[data-step="4"] .arrow[data-arrow="4"] { display: flex; }
+[data-step="5"] .arrow[data-arrow="5"] { display: flex; }
+[data-step="6"] .arrow[data-arrow="6"] { display: flex; }
+[data-step="7"] .arrow[data-arrow="7"] { display: flex; }
+[data-step="8"] .arrow[data-arrow="8"] { display: flex; }
+[data-step="9"] .arrow[data-arrow="9"] { display: flex; }
+.chevron { display: grid; place-items: center; width: 92px; height: 54px; border-radius: 50%; background: color-mix(in srgb, var(--surface) 62%, transparent); border: 2px solid color-mix(in srgb, var(--surface) 90%, transparent); box-shadow: 0 10px 24px rgba(0,0,0,.18); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transform: perspective(200px) rotateX(48deg); transition: transform 0.25s, background 0.25s; }
+.chevron svg { width: 46px; height: 30px; fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; animation: nudge 1.8s ease-in-out infinite; }
+.arrow:hover .chevron, .arrow:focus-visible .chevron { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); transform: perspective(200px) rotateX(40deg) scale(1.06); }
+.arrow:focus-visible { outline: none; } .arrow:focus-visible .chevron { box-shadow: 0 0 0 3px var(--accent); }
+.arrowLabel { font: 600 10px/1.2 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); white-space: nowrap; }
+@keyframes nudge { 0%, 100% { translate: 0 2px; } 50% { translate: 0 -4px; } }
+@keyframes arrive { from { opacity: 0; translate: -50% 16px; } to { opacity: 1; translate: -50% 0; } }
+@media (max-width: 899px) { .arrow { left: 50%; bottom: 96px; } .chevron { width: 78px; height: 46px; } }
+@media (prefers-reduced-motion: reduce) { .arrow, .chevron svg { animation: none; } }
+
+@media (min-width: 1700px) { .route, .arrow, .card { zoom: 1.18; } }
+@media (min-width: 2200px) { .route, .arrow, .card { zoom: 1.42; } }
+@media (min-width: 3000px) { .route, .arrow, .card { zoom: 1.7; } }

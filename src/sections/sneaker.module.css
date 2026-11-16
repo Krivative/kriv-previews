@@ -1,0 +1,92 @@
+/* DV Shop Cebu's story (preview-only). The stage holds the shop's own photos, one per page of
+   the story; the scroller sets data-step on the story root, and the photo for that page shows.
+   Without scripts, or with reduced motion, the first photo shows and the pages read in order.
+   Colours and type come from the look's theme (offer.module.css tokens). */
+
+/* Sized, scaled and moved by journey.module.css's .art rules, like the dental drawing. */
+.shots { position: relative; aspect-ratio: 1; }
+.shot { position: absolute; inset: 0; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 24px 60px var(--shade);
+  opacity: 0; transform: translateY(18px) scale(0.96) rotate(-1.2deg); transition: opacity 0.35s ease-out, transform 0.55s var(--journey-ease, ease); }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot[data-fit="contain"] { background: #f4f1ec; }
+.shot[data-fit="contain"] img { object-fit: contain; padding: 8%; }
+.shot[data-n="0"] { opacity: 1; transform: none; }
+.journey[data-step] .shot[data-n="0"] { opacity: 0; transform: translateY(-18px) scale(0.96) rotate(1.2deg); }
+.journey[data-step="0"] .shot[data-n="0"],
+.journey[data-step="1"] .shot[data-n="1"],
+.journey[data-step="2"] .shot[data-n="2"],
+.journey[data-step="3"] .shot[data-n="3"],
+.journey[data-step="4"] .shot[data-n="4"],
+.journey[data-step="5"] .shot[data-n="5"],
+.journey[data-step="6"] .shot[data-n="6"] { opacity: 1; transform: none; }
+/* The photo for the page in view gets a quiet accent edge, like a fresh pair under the shop light. */
+.journey[data-step] .shot { outline: 2px solid transparent; outline-offset: 6px; }
+.journey[data-step="3"] .shot[data-n="3"], .journey[data-step="4"] .shot[data-n="4"] { outline-color: color-mix(in srgb, var(--accent) 70%, transparent); }
+@media (prefers-reduced-motion: reduce) { .shot { transition: none; } }
+
+/* ---------- Shoe Care shelf and best sellers ---------- */
+.shelf, .pairs { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
+.shelf li, .pairs li { display: grid; gap: 8px; align-content: start; padding: 14px; border-radius: var(--radius-small, 14px); border: 1px solid var(--line); background: var(--surface); }
+.shelf img, .pairs img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #f4f1ec; border-radius: calc(var(--radius-small, 14px) - 4px); padding: 6%; }
+.shelf h3, .pairs h3 { font-size: 1rem; margin: 4px 0 0; }
+.meta { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.meta b { color: var(--accent); font-weight: 600; letter-spacing: 0.04em; font-size: 0.9rem; }
+.ghost { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.store { display: grid; gap: 18px; margin-top: 16px; }
+.store img { width: 100%; max-height: 460px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); }
+@media (min-width: 900px) { .store { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+.credit { font-size: 0.8rem; color: var(--muted); padding: 0 0 40px; }
+
+/* ---------- The DV badge, concept revamp ---------- */
+.logoMark { width: 38px; height: 38px; flex: none; }
+.logoBadge { width: min(230px, 64vw); height: auto; overflow: visible; }
+.disc { fill: var(--dv-disc); }
+.ring { fill: none; stroke: var(--dv-ring); stroke-width: 8; }
+.ringThin { fill: none; stroke: var(--dv-ring); stroke-width: 1.5; }
+.stitch { fill: none; stroke: var(--dv-accent); stroke-width: 2; stroke-dasharray: 5 6; }
+.lettersOutline path, .lettersInline path { fill: none; stroke: var(--dv-ink); stroke-width: 9; stroke-linejoin: miter; stroke-linecap: square; }
+.lettersInline .inner path { stroke: var(--dv-disc); stroke-width: 3; }
+.lettersSolid path { fill: none; stroke: var(--dv-ink); stroke-width: 15; stroke-linejoin: miter; stroke-linecap: square; }
+.rule { stroke: var(--dv-ink); stroke-width: 2; }
+.accentLine { stroke: var(--dv-accent); stroke-width: 4; }
+.accentDot { fill: var(--dv-accent); }
+.word { fill: var(--dv-ink); font-family: var(--font-body); font-weight: 700; font-size: 17px; letter-spacing: 1.5px; text-anchor: middle; }
+.est { fill: var(--dv-ink); font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 1.6px; text-anchor: middle; opacity: 0.85; }
+.dop { fill: none; stroke: var(--dv-ink); stroke-width: 2.4; font-family: var(--font-display); font-size: 64px; text-anchor: middle; }
+.dopSolid { fill: var(--dv-ink); stroke: none; }
+.dash { stroke: var(--dv-accent); stroke-width: 9; stroke-linecap: square; }
+
+/* ---------- Brand revamp and Dop- pages ---------- */
+.variants { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.variants li { display: grid; gap: 8px; justify-items: center; padding: 14px 10px; border-radius: var(--radius-small, 14px); border: 1px solid var(--line); background: var(--surface); text-align: center; font-size: 0.78rem; color: var(--muted); }
+.variants li[data-picked] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); color: var(--ink); }
+.variants svg { width: 110px; }
+.grounds { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.grounds li { display: grid; justify-items: center; gap: 10px; padding: 26px 14px; border-radius: var(--radius); border: 1px solid var(--line); font-size: 0.8rem; }
+.grounds li:nth-child(1) { background: var(--bg); color: var(--muted); }
+.grounds li:nth-child(2) { background: var(--accent); color: var(--accent-ink); }
+.grounds li:nth-child(3) { background: #f4f1ec; color: #3a3a3a; }
+.swatches { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); }
+.swatches li { border-radius: var(--radius-small, 14px); border: 1px solid var(--line); overflow: hidden; font-size: 0.78rem; background: var(--surface); }
+.swatches i { display: block; height: 64px; }
+.swatches span { display: block; padding: 8px 10px; }
+.swatches code { font-family: var(--font-mono); color: var(--muted); }
+
+/* A mock Instagram profile and posts: drawings only, nothing is posted anywhere. */
+.phone { width: min(100%, 360px); margin: 18px auto 0; border-radius: 34px; border: 1px solid var(--line); background: #0b0b0b; color: #f4f1ec; padding: 22px 16px; display: grid; gap: 14px; box-shadow: 0 30px 70px var(--shade); }
+.profile { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; }
+.profile svg { width: 84px; }
+.handle { font-family: var(--font-mono); font-size: 0.82rem; }
+.bio { font-size: 0.82rem; line-height: 1.45; color: #d8d4cc; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.post { aspect-ratio: 1; display: grid; place-items: center; padding: 8px; text-align: center; font-family: var(--font-display); font-size: 0.78rem; line-height: 1.15; background: #1a1a1a; color: #f4f1ec; overflow: hidden; }
+.post img { width: 100%; height: 100%; object-fit: cover; }
+.post:nth-child(2) { background: var(--accent); color: var(--accent-ink); }
+.post:nth-child(4) { background: #f4f1ec; color: #0b0b0b; }
+.post:nth-child(6) { background: var(--accent); color: var(--accent-ink); }
+
+/* Phones: a photo is opaque (the dental drawing is see-through), so once it steps back it sits a little
+   lower, clear of the narration and sound buttons. */
+@media (max-width: 899px) {
+  .journey:not([data-step="0"]) .shots.shots { translate: 34% 4%; scale: 0.42; }
+}

@@ -34,7 +34,8 @@
     "audience": "adults",
     "seed": "d4",
     "lore": "chapters",
-    "brand": "top-centre"
+    "brand": "top-centre",
+    "sound": "plain"
   },
   "design": {},
   "hero": {
@@ -146,5 +147,6 @@
   },
   "sources": [
     "https://www.facebook.com/profile.php?id=61563627773407"
-  ]
+  ],
+  "storyScenes": "smile-kingdom"
 }

@@ -8,6 +8,10 @@ import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
 import r from "./rates-journey.module.css";
+import { beatEffects, soundRoom } from "@/stories/story-sound";
+import { JourneyScenes } from "./JourneyScenes";
+import { SneakPeek } from "./SneakPeek";
+import { RoadArrows, Roadside } from "./Roadside";
 
 // The scroll story at the top of the Philippine rates page (preview-only): the
 // same journey format as a lead's story. One picture per chapter stays in view
@@ -31,9 +35,13 @@ function Stage() {
       <circle className={j.orbit2} cx="200" cy="200" r="160" />
 
       <g className={r.scene} data-journey-scene="">
-        <text className={r.wordmark} x="186" y="222" textAnchor="middle">kriv</text>
-        <text className={r.cross} x="296" y="218" textAnchor="middle">×</text>
-        <text className={r.small} x="200" y="262" textAnchor="middle">Philippine rates</text>
+        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, restyled with Magnific in the Underground Apparel hoodie, KRIV's partner sponsor, front facing so the chest print shows). */}
+        <defs><clipPath id="rates-hero-clip"><circle cx="200" cy="168" r="132" /></clipPath></defs>
+        <circle className={r.heroRing} cx="200" cy="168" r="138" />
+        <image href="/for/kriv-hero-underground.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
+        <text className={r.wordmark} x="192" y="358" textAnchor="middle" style={{ fontSize: 52, letterSpacing: -3 }}>kriv</text>
+        <text className={r.cross} x="256" y="356" textAnchor="middle" style={{ fontSize: 36 }}>×</text>
+        <text className={r.small} x="200" y="388" textAnchor="middle">the brains behind the system</text>
       </g>
 
       <g className={r.scene} data-journey-scene="">
@@ -55,7 +63,7 @@ function Stage() {
         <path className={r.path} d="M200 170 C200 230 110 220 110 270" pathLength={100} />
         <path className={`${r.path} ${r.pathWin}`} d="M200 170 C200 230 290 220 290 270" pathLength={100} />
         <circle className={r.node} cx="200" cy="66" r="9" />
-        <g className={r.pop} style={i(4)}><rect className={r.pill} x="46" y="272" width="128" height="44" rx="22" /><text className={r.label} x="110" y="299" textAnchor="middle">Monthly</text></g>
+        <g className={r.pop} style={i(4)}><rect className={r.pill} x="46" y="272" width="128" height="44" rx="22" /><text className={r.label} x="110" y="299" textAnchor="middle">Stop</text></g>
         <g className={r.pop} style={i(7)}><rect className={`${r.pill} ${r.pillWin}`} x="226" y="272" width="128" height="44" rx="22" /><text className={`${r.label} ${r.labelWin}`} x="290" y="299" textAnchor="middle">Annual</text></g>
       </g>
 
@@ -82,8 +90,8 @@ function Stage() {
 
       <g className={r.scene} data-journey-scene="">
         {Array.from({ length: 6 }, (_, n) => <rect key={n} className={`${r.tile} ${n ? r.tileOpen : r.tileFree} ${r.pop}`} x={38 + n * 56} y="150" width="44" height="44" rx="10" style={i(n * 2)} />)}
-        <text className={r.big} x="200" y="252" textAnchor="middle">Month by month</text>
-        <text className={r.small} x="200" y="280" textAnchor="middle">stop at any month</text>
+        <text className={r.big} x="200" y="252" textAnchor="middle">One, or a stack</text>
+        <text className={r.small} x="200" y="280" textAnchor="middle">your call, any time</text>
       </g>
 
       <g className={r.scene} data-journey-scene="">
@@ -111,18 +119,25 @@ export function RatesJourney() {
   const label = journeyLores[look.lore];
   // KRIV's own page runs the full cast: host, price, old price and day counter.
   const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates", look);
-  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
+  // One quick appearance in the background: Kriv from behind, the sponsor's back print faded in and out
+  // once as the second chapter arrives (rates-journey.module.css, .ghost). Decoration only.
+  const ghost = <div className={r.ghost} aria-hidden="true"><div><img src="/for/kriv-back-underground.webp" alt="" width={1200} height={1200} loading="lazy" decoding="async" /></div></div>;
+  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "rates")}>
+    <JourneyScenes set="merchants-road" />
+    <Roadside />
+    <RoadArrows />
+    {ghost}
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
     </ol>
     <Stage />
     <div className={j.steps}>
-      {ratesJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
+      {ratesJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} data-sfx={beatEffects.rates[step.id]} aria-labelledby={`journey-${step.id}-title`}>
         <div className={j.words}>
           <p className={o.eyebrow}><b>{label(n + 1, ratesJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
           {n === 0 ? <h1 id={`journey-${step.id}-title`}>{step.title}</h1> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
           <p className={j.narration} data-narration="">{step.narration}</p>
-          {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Each chapter is read aloud. Tap anywhere to start the sound.</p> : null}
+          {n === 0 ? <SneakPeek /> : null}
           {n === ratesJourney.length - 1 ? <p className={o.actions}><a className={o.button} href="#offer-builder">Build your plan <span aria-hidden="true">+</span></a></p> : null}
         </div>
       </section>)}
