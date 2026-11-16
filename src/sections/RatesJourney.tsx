@@ -32,10 +32,10 @@ function Stage() {
       <circle className={j.orbit2} cx="200" cy="200" r="160" />
 
       <g className={r.scene} data-journey-scene="">
-        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, from kriv.agency). */}
+        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, restyled in a light hoodie set with Magnific). */}
         <defs><clipPath id="rates-hero-clip"><circle cx="200" cy="168" r="132" /></clipPath></defs>
         <circle className={r.heroRing} cx="200" cy="168" r="138" />
-        <image href="/for/kriv-portrait-cutout.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
+        <image href="/for/kriv-hero-light.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
         <text className={r.wordmark} x="192" y="358" textAnchor="middle" style={{ fontSize: 52, letterSpacing: -3 }}>kriv</text>
         <text className={r.cross} x="256" y="356" textAnchor="middle" style={{ fontSize: 36 }}>×</text>
         <text className={r.small} x="200" y="388" textAnchor="middle">the brains behind the system</text>

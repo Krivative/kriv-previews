@@ -12,6 +12,8 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+- 2026-11-16, ph-rates published on Kriv's "publish by priority: ph-rates, then the dental lead, then main": main fast-forwarded to `claude/annual-only` (a4603e1, carrying the sound layer too). Then Kriv asked for a different view of himself on the rates hero, restyled in a light hoodie set: generated with Magnific from his kriv.agency portrait (three-quarter view, light heather-grey zip hoodie and matching joggers, no logos), background removed, `public/kriv-hero-light.webp`; branch `claude/rates-hero-light`, published the same way. Next in Kriv's order: the dental lead (story worlds, stashed on `claude/story-worlds`), then kriv.agency.
+
 ### Annual only, and Kriv on the rates hero (2026-11-16, Claude in a cloud session)
 
 - Kriv's brief: put his styled photo on the landing hero ("I am the brains of it all, this is my love child, the system I am selling"); no monthly rate any more: a 14-day free trial, then one decision, annual with or without the early free months, and with or without stacked services. Branch `claude/annual-only`, on top of `claude/story-sound` (so it carries the sound layer). Local commit only; nothing pushed or published.
