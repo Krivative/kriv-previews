@@ -32,3 +32,7 @@
 .root .leads a, .leads a { color: var(--accent); }
 /* Stops hold lists, so they are as tall as they need and are not snapped to. */
 .level > div > section { scroll-snap-align: none; scroll-snap-stop: normal; padding-bottom: 18svh; }
+@media (min-width: 900px) {
+  /* Room for the brand mark above a stop that starts at the top of the screen. */
+  .level > div > section { padding-top: 96px; align-content: start; }
+}
