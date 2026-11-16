@@ -23,7 +23,7 @@ export function PlanBuilder() {
   const plans = choices.filter((p) => picked.includes(p.name));
   const monthly = plans.reduce((sum, p) => sum + p.monthly, 0);
   const regular = plans.reduce((sum, p) => sum + p.regular, 0);
-  const { months, worth, rate, pay, capped, bundleSaving, saving, savingRate } = bundleQuote(plans, freeWindows[windowIndex]);
+  const { months, worth, rate, pay, capped, bundleSaving, saving, savingRate } = bundleQuote(plans, decisionWindows[windowIndex]);
   const best = bundleQuote(plans, freeWindows[0]);
   // One at a time: tapping a service switches to it. Only "Combine services" lets them add up.
   const toggle = (name: string) => setPicked((now) => (!multi ? [name] : now.includes(name) ? now.filter((n) => n !== name) : [...now, name]));
@@ -61,14 +61,14 @@ export function PlanBuilder() {
         <p className={o.tag}>2. Choose how to pay</p>
         <div className={o.segments} role="group" aria-label="How to pay">
           <button type="button" aria-pressed={!annual} onClick={() => setAnnual(false)}>Monthly</button>
-          <button type="button" aria-pressed={annual} onClick={() => setAnnual(true)}>Annual, extra months free</button>
+          <button type="button" aria-pressed={annual} onClick={() => setAnnual(true)}>Annual</button>
         </div>
       </div>
       {annual ? <div>
         <p className={o.tag}>3. When would you decide?</p>
-        <div className={o.segments} role="group" aria-label="When you decide after the trial">
-          {freeWindows.map((win, i) => <button key={win.fromDay} type="button" aria-pressed={i === windowIndex} onClick={() => setWindowIndex(i)}>
-            Days {win.fromDay} to {win.toDay}<small>{win.freeMonths} {win.freeMonths === 1 ? "month" : "months"} free</small>
+        <div className={o.segments} role="group" aria-label="When you decide, counted from the first day of your trial">
+          {decisionWindows.map((win, i) => <button key={win.fromDay} type="button" aria-pressed={i === windowIndex} onClick={() => setWindowIndex(i)}>
+            {win.toDay ? `Days ${win.fromDay} to ${win.toDay}` : `From day ${win.fromDay}`}<small>{win.freeMonths ? `${win.freeMonths} ${win.freeMonths === 1 ? "month" : "months"} free` : "no free months"}</small>
           </button>)}
         </div>
       </div> : null}
@@ -80,10 +80,11 @@ export function PlanBuilder() {
         <p className={o.resultLabel}>You pay for the year</p>
         <p className={o.total} key={`a-${pay}`}>{php(pay)}</p>
         <dl className={o.resultLines}>
-          <div><dt>You get</dt><dd><s>{crm.baseMonths}</s> {months} months</dd></div>
-          <div><dt>Month by month</dt><dd><s>{php(worth)}</s></dd></div>
+          <div><dt>You get</dt><dd>{months > crm.baseMonths ? <><s>{crm.baseMonths}</s> </> : null}{months} months</dd></div>
+          <div><dt>Month by month</dt><dd>{saving > 0 ? <s>{php(worth)}</s> : php(worth)}</dd></div>
           {bundleSaving > 0 ? <div className={o.resultSave}><dt>Bundle discount, {plans.length} services</dt><dd>{capped ? php(bundleSaving) : `${percent(rate)} off, ${php(bundleSaving)}`}</dd></div> : null}
-          <div className={o.resultSave}><dt>You save</dt><dd key={`s-${saving}`}>{php(saving)} ({percent(savingRate)} off)</dd></div>
+          {saving > 0 ? <div className={o.resultSave}><dt>You save</dt><dd key={`s-${saving}`}>{php(saving)} ({percent(savingRate)} off)</dd></div>
+            : <div><dt>Free months</dt><dd>None after day {TRIAL_DAYS}</dd></div>}
           <div><dt>Works out to</dt><dd>about {php(pay / months)} a month</dd></div>
         </dl>
       </> : <>

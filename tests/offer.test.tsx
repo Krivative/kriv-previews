@@ -33,7 +33,7 @@ const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000",
   "PHP 45,000", "PHP 36,000", "PHP 9,000",
   // CRM: 15, 14 and 13 months at the regular rate against the annual price.
   "PHP 225,000", "PHP 210,000", "PHP 195,000", "PHP 69,000", "PHP 54,000", "PHP 39,000",
-  "Days 15 to 17", "From day 24", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 per month",
+  "Days 1 to 5", "From day 15", "No free months", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 per month",
   "Human VA trial", "AI VA trial", "Referral program", "Change orders", "physical store in the Philippines"];
 
 describe("Philippines-market offer figures", () => {
@@ -47,7 +47,7 @@ describe("Philippines-market offer figures", () => {
   it("stacks the CRM promo with the extra months on the annual plan", () => {
     expect(crm).toEqual({ regularMonthly: 15000, promoMonthly: 13000, baseMonths: 12 });
     expect(annualPrice).toBe(156000);
-    expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[15, 17, 3], [18, 20, 2], [21, 23, 1], [24, undefined, 0]]);
+    expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[1, 5, 3], [6, 10, 2], [11, 14, 1], [15, undefined, 0]]);
     expect(decisionWindows.slice(0, 3).map(totalMonths)).toEqual([15, 14, 13]);
     expect(decisionWindows.slice(0, 3).map(effectiveMonthly)).toEqual([10400, 11143, 12000]);
     expect(decisionWindows.slice(0, 3).map(regularCost)).toEqual([225000, 210000, 195000]);
@@ -110,7 +110,7 @@ describe("the two timelines story", () => {
     for (const part of ["The two timelines", "Chapter 1 / The fork", "Chapter 2 / Timeline A", "Chapter 3 / Timeline B", "Chapter 4 / Side by side",
       "Chapter 5 / You already know this", "Chapter 6 / More than the discount", "Chapter 7 / The portal closes",
       "15 months PHP 45,000", "15 months PHP 36,000", "Same 15 months. PHP 9,000 apart.", "Tingi or the big pack", "The suki price", "A year of rent",
-      "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "Monthly only", "Replay the story"]) expect(general).toContain(part);
+      "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "No free months", "Decide in the first 5 days of the trial", "Timeline B is still open, at 12 months for the price of 12", "Replay the story"]) expect(general).toContain(part);
   });
   it("speaks to the right audience and promises nothing", () => {
     expect(general).toContain("PHP 9,000 stays with your business");
@@ -320,15 +320,39 @@ describe("rates page scroll story", () => {
     for (const step of ratesJourney) { expect(words).toContain(step.title); expect(words).toContain(step.narration); }
   });
   it("takes its figures from the rates and promises nothing", () => {
-    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 15 to 17 for 3 free months", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
+    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 1 to 5 of the trial for 3 free months", "From day 15 the annual plan is still open, with no free months", "By day 5: monthly or annual", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
   });
-  it("starts with narration on and gives every chapter its recording", () => {
+  it("starts with narration on and gives every chapter its recording, except the two whose words changed", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    for (const step of ratesJourney) {
+    // The decision windows moved on 2026-11-16: "dates" and "decide" wait for new recordings.
+    expect(ratesJourney.filter((step) => !step.audio).map((step) => step.id)).toEqual(["dates", "decide"]);
+    for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);
       expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
     }
+  });
+});
+
+describe("free months for deciding during the trial", () => {
+  const html = renderToStaticMarkup(<PhRatesPage />);
+  const words = text(html);
+  it("puts every free-month window inside the trial, and keeps annual open after it", () => {
+    const free = decisionWindows.filter((w) => w.freeMonths > 0);
+    expect(free.every((w) => (w.toDay ?? Infinity) <= 14)).toBe(true);
+    expect(decisionWindows.at(-1)).toEqual({ fromDay: 15, freeMonths: 0 });
+    expect(totalMonths(decisionWindows.at(-1)!)).toBe(12);
+  });
+  it("says so on the page, in the builder and in the story", () => {
+    for (const part of ["The sooner you decide during your trial, the more months you get", "After that the annual plan is still open, at 12 months for the price of 12",
+      "Days 1 to 5", "Days 6 to 10", "Days 11 to 14", "From day 15", "no free months"]) expect(words).toContain(part);
+    expect(words).not.toMatch(/Days 15 to 17|Days 18 to 20|Days 21 to 23|From day 24|Monthly only|after your trial|trial ending|only Timeline A remains/);
+  });
+  it("still gives the same best figures", () => {
+    expect(annualWorth(annualPlans[0], decisionWindows[0])).toBe(45000);
+    expect(annualPay(annualPlans[0])).toBe(36000);
+    const late = bundleQuote(annualPlans.filter((p) => p.name === "Website"), decisionWindows.at(-1)!);
+    expect([late.months, late.pay, late.saving]).toEqual([12, 36000, 0]);
   });
 });
 

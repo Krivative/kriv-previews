@@ -112,11 +112,13 @@ export const crmIncludes = [
 export type DecisionWindow = { fromDay: number; toDay?: number; freeMonths: number };
 
 // Day 1 is the first day of the free trial; the trial ends on day 14.
+// Kriv, 2026-11-16: the free months are for deciding DURING the trial (the earlier, the more).
+// From day 15 the annual plan is still open, at 12 months for the price of 12, with no free months.
 export const decisionWindows: DecisionWindow[] = [
-  { fromDay: 15, toDay: 17, freeMonths: 3 },
-  { fromDay: 18, toDay: 20, freeMonths: 2 },
-  { fromDay: 21, toDay: 23, freeMonths: 1 },
-  { fromDay: 24, freeMonths: 0 },
+  { fromDay: 1, toDay: 5, freeMonths: 3 },
+  { fromDay: 6, toDay: 10, freeMonths: 2 },
+  { fromDay: 11, toDay: 14, freeMonths: 1 },
+  { fromDay: 15, freeMonths: 0 },
 ];
 
 /** Months covered by the annual price when the decision lands in this window. */

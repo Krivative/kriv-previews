@@ -140,7 +140,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     <section className={o.block} aria-labelledby="offer-annual-plans">
       <p className={o.eyebrow}>Annual plans</p>
       <h2 id="offer-annual-plans">Pay for twelve months. <em>Get up to fifteen.</em></h2>
-      <p>Any monthly service can be paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide after your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}.</p>
+      <p>Any monthly service can be paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide during your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}. After that the annual plan is still open, at {crm.baseMonths} months for the price of {crm.baseMonths}.</p>
       <ul className={o.windows}>
         {decisionWindows.map((w) => <li key={w.fromDay}>
           <h3>{days(w)}</h3>
@@ -148,8 +148,8 @@ export function OfferSections({ audience }: { audience: Audience }) {
             <p className={o.price}>{w.freeMonths} {w.freeMonths === 1 ? "month" : "months"} free</p>
             <p>{totalMonths(w)} months for the price of {crm.baseMonths}.</p>
           </> : <>
-            <p className={o.price}>Monthly</p>
-            <p>The extra months have passed. Monthly rates apply, including the CRM promo rate.</p>
+            <p className={o.price}>No free months</p>
+            <p>The annual plan is still open: {crm.baseMonths} months for the price of {crm.baseMonths}. Monthly rates are always available too, including the CRM promo rate.</p>
           </>}
         </li>)}
       </ul>

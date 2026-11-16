@@ -18,7 +18,8 @@ const on = (cx: number, cy: number, radius: number, n: number, of: number) => {
 const website = annualPlans[0];
 const best = decisionWindows[0];
 const services = [...monthlyServices.map((s) => ({ name: s.name, price: s.monthly })), { name: "CRM and system", price: crm.promoMonthly }, { name: addOns[1].name, price: addOns[1].price }];
-const zone = (day: number) => (day <= TRIAL_DAYS ? "trial" : day <= 17 ? "w3" : day <= 20 ? "w2" : day <= 23 ? "w1" : "w0");
+// Which free-month window a trial day falls in: the earlier, the brighter.
+const zone = (day: number) => `w${decisionWindows.find((w) => day >= w.fromDay && day <= (w.toDay ?? Infinity))?.freeMonths ?? 0}`;
 
 function Stage() {
   return <div className={j.stage} aria-hidden="true">
@@ -62,7 +63,7 @@ function Stage() {
       </g>
 
       <g className={r.scene} data-journey-scene="">
-        {Array.from({ length: 24 }, (_, n) => <circle key={n} className={`${r.day} ${r[zone(n + 1)]}`} r="9" {...on(200, 200, 132, n, 24)} style={i(n)} />)}
+        {Array.from({ length: TRIAL_DAYS }, (_, n) => <circle key={n} className={`${r.day} ${r[zone(n + 1)]}`} r="12" {...on(200, 200, 132, n, TRIAL_DAYS)} style={i(n)} />)}
         <text className={r.small} x="200" y="184" textAnchor="middle">decide by</text>
         <text className={r.big} x="200" y="226" textAnchor="middle">Day {best.toDay}</text>
       </g>
@@ -92,7 +93,7 @@ function Stage() {
       </g>
 
       <g className={r.scene} data-journey-scene="">
-        {[`Day ${TRIAL_DAYS}`, `Day ${best.toDay}`, "Any time"].map((when, n) => <g key={when} className={r.pop} style={i(n * 3)}>
+        {[`Day ${best.toDay}`, `Day ${TRIAL_DAYS}`, "Any time"].map((when, n) => <g key={when} className={r.pop} style={i(n * 3)}>
           <rect className={r.pill} x="70" y={104 + n * 70} width="260" height="52" rx="26" />
           <path className={r.tick} d={`M92 ${131 + n * 70} l9 9 l17 -19`} />
           <text className={r.label} x="136" y={136 + n * 70}>{when}</text>
