@@ -16,6 +16,24 @@ const stalls = [
   { name: addOns[1].name, price: addOns[1].price, line: "Handles repeat steps, in wording you approve." },
 ];
 
+/** Street View style forward arrows on the road: one per stop, shown for the stop in view. Each is a plain
+ *  link to the next stop, so the story's own hold still applies (a stop opens when its narration ends). */
+export function RoadArrows() {
+  return <nav className={r.arrows} aria-label="Walk to the next stop">
+    <div className={r.arrowWindow}>
+      {ratesJourney.map((step, n) => {
+        const next = ratesJourney[n + 1];
+        const href = next ? `#journey-${next.id}` : "#offer-builder";
+        const label = next ? `Walk on: ${next.chapter}` : "Build your plan";
+        return <a key={step.id} className={r.arrow} data-arrow={n} href={href} aria-label={label}>
+          <span className={r.chevron} aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M8 32 L30 10 L52 32" /></svg></span>
+          <span className={r.arrowLabel}>{label}</span>
+        </a>;
+      })}
+    </div>
+  </nav>;
+}
+
 export function Roadside() {
   return <div className={r.roadside} aria-hidden="true">
     <div className={r.window}>

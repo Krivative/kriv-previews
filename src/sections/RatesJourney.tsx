@@ -11,7 +11,7 @@ import r from "./rates-journey.module.css";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
 import { JourneyScenes } from "./JourneyScenes";
 import { SneakPeek } from "./SneakPeek";
-import { Roadside } from "./Roadside";
+import { RoadArrows, Roadside } from "./Roadside";
 
 // The scroll story at the top of the Philippine rates page (preview-only): the
 // same journey format as a lead's story. One picture per chapter stays in view
@@ -125,6 +125,7 @@ export function RatesJourney() {
   return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "rates")}>
     <JourneyScenes set="merchants-road" />
     <Roadside />
+    <RoadArrows />
     {ghost}
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
