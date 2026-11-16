@@ -58,4 +58,6 @@
   .character { width: 92px; height: 107px; }
   .bubble { border-radius: 16px 16px 16px 4px; transform-origin: bottom left; max-width: 250px; }
 }
+/* When the drawing sits on the left, so does the cast. */
+@media (min-width: 900px) { [data-side="left"] .cast { grid-column: 1; padding-inline: 28px 8px; } }
 @media (prefers-reduced-motion: reduce) { .cast, .usher { display: none !important; } }

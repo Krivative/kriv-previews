@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import { TRIAL_DAYS, annualPay, annualPlans, annualWorth, bundleTiers, crm, decisionWindows, monthlyServices, addOns, percent, php } from "@/offers/ph-local";
 import { ratesJourney } from "@/stories/rates-journey";
+import { buildCast } from "@/stories/casts";
+import { ratesCast } from "@/stories/casts/rates";
 import { journeyLores, ratesLook } from "@/stories/journey-style";
 import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
@@ -106,7 +108,9 @@ function Stage() {
 
 export function RatesJourney() {
   const label = journeyLores[ratesLook().lore];
-  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
+  // KRIV's own page runs the full cast: host, price, old price and day counter.
+  const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates");
+  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
     </ol>

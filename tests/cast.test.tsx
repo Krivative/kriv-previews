@@ -8,6 +8,10 @@ import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
 import { buildCast, castRoles, castVoice, expressions, moves, type CastRole } from "@/stories/casts";
 import { dentalCast } from "@/stories/casts/dental";
+import { ratesCast } from "@/stories/casts/rates";
+import { ratesJourney } from "@/stories/rates-journey";
+import { PhRatesPage } from "@/sections/PhRatesPage";
+import { MAX_BUNDLE_SAVING, annualPay, annualPlans, annualWorth, decisionWindows, monthlyServices, percent, php } from "@/offers/ph-local";
 
 const pco = JSON.parse(readFileSync(path.join(__dirname, "..", "leads", "pco-dental-clinic.json"), "utf8"));
 const ids = dentalJourney.map((step) => step.id);
@@ -119,5 +123,52 @@ describe("the cast on the PCO story", () => {
     const full = render({ ...pco, storyCast: "full" });
     expect(full).toContain("data-cast");
     expect(() => SiteData.parse({ ...pco, storyCast: "loud" })).toThrow();
+  });
+});
+
+describe("the rates cast", () => {
+  const rateIds = ratesJourney.map((step) => step.id);
+  const of = (role: CastRole) => Object.values(ratesCast.members[role].lines).flat().map((l) => l.text).join(" ");
+  it("has all four roles as inline drawings with the six faces, and draft lines", () => {
+    expect(ratesCast.draft).toBe(true);
+    for (const role of castRoles) {
+      const art = renderToStaticMarkup(<>{ratesCast.members[role].art}</>);
+      expect(art).toMatch(/^<svg viewBox="0 0 120 140" role="img"/);
+      for (const face of expressions) expect(art).toContain(`data-face="${face}"`);
+      expect(art).not.toMatch(/<image\b|href=|url\(|\.gif|\.png|\.jpg/);
+    }
+  });
+  it("gives the three speaking roles a short line for every chapter", () => {
+    for (const role of speaking) for (const id of rateIds) {
+      const lines = ratesCast.members[role].lines[id];
+      expect(lines?.length, `${role}/${id}`).toBeGreaterThan(0);
+      for (const line of lines) expect(line.text.length).toBeLessThanOrEqual(64);
+    }
+  });
+  it("takes every figure from the price list", () => {
+    const best = decisionWindows[0];
+    const words = of("expert");
+    for (const part of [php(monthlyServices[0].monthly), php(annualPay(annualPlans[0])), php(annualWorth(annualPlans[0], best)), `Days ${best.fromDay} to ${best.toDay}: ${best.freeMonths} free months`, percent(MAX_BUNDLE_SAVING), `day ${best.toDay}`]) expect(words).toContain(part);
+    // No figure is typed by hand anywhere in the cast.
+    const source = readFileSync(path.join(__dirname, "..", "src", "stories", "casts", "rates.tsx"), "utf8");
+    const quoted = [...source.matchAll(/text: (["`])((?:(?!\1).)*)\1/g)].map((m) => m[2].replace(/\$\{[^}]*\}/g, ""));
+    expect(quoted.length).toBeGreaterThan(25);
+    for (const text of quoted) expect(text, text).not.toMatch(/\d/);
+  });
+  it("keeps the heckler off the visitor, and the host fit for a workplace", () => {
+    expect(`${of("heckler")} ${ratesCast.tease.text}`).not.toMatch(/\byou(r|rs)?\b|business/i);
+    expect(`${of("guide")} ${of("expert")} ${of("heckler")}`).not.toMatch(/sexy|hot\b|babe|darling|honey|kiss|flirt|wayaway|guarantee/i);
+    const label = renderToStaticMarkup(<>{ratesCast.members.guide.art}</>).match(/aria-label="([^"]+)"/)?.[1];
+    expect(label).toBe("The host, a presenter with cat ears, in a blazer");
+  });
+  it("plays the full cast on the rates page, opened and closed by the host", () => {
+    const cast = buildCast(ratesCast, rateIds, "full", "ph-rates")!;
+    expect(cast.beats[0]?.role).toBe("guide");
+    expect(cast.beats[rateIds.length - 1]?.role).toBe("guide");
+    expect(new Set(cast.beats.map((b) => b?.role))).toEqual(new Set(speaking));
+    const html = renderToStaticMarkup(<PhRatesPage />);
+    expect(html).toMatch(/data-cast=""/);
+    expect(html).toContain("data-cast-quiet");
+    for (const step of ratesJourney) expect(html.replace(/&#x27;/g, "'")).toContain(step.narration);
   });
 });
