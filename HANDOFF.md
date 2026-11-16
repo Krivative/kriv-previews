@@ -14,6 +14,14 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Voice-over direction changed by Kriv (relayed from his side session, 2026-11-16): recordings will EXPLAIN each chapter in their own words and "gamify" the story, instead of reading the on-screen text. No code changed yet; new zips will arrive, each with a `script.txt`. When they do:
+  - The rule "spoken words match the page word for word" no longer holds. Update the comments in `src/stories/dental-journey.ts` and `rates-journey.ts`, and keep each spoken script in `docs/voices/` beside its profile so page and voice can be compared.
+  - The device-voice fallback still reads the on-screen title and narration, so it will differ from the recording. Accepted.
+  - Existing file names stay (dental 01-smile to 08-again; rates 01-start to 10-decide; agency 01-open to 07-next): raise `?v=` when swapping.
+  - New set for PCO level two, seven files (`l2-01-inside`, `l2-02-services`, `l2-03-team`, `l2-04-book`, `l2-05-visit`, `l2-06-social`, `l2-07-faq`). Level two runs with `narrate={false}` today; it needs narration per stop without the scroll lock.
+  - The new rates script already speaks the new decision windows. Do not switch it on before `claude/rates-trial-windows` is published, or voice and page will disagree.
+  - The kriv.agency opening (`Krivative/Kriv`, `components/producer-intro.tsx`) has no audio support yet; the agency set needs it added (one shared player, tap to start).
+  - Each new line runs about 12 to 20 seconds, and the story lock holds a chapter until its recording ends, so the stories will take noticeably longer to get through. Kriv has been told.
 - Rates rule changed by Kriv (relayed from his side session, 2026-11-16): the free months are for deciding DURING the 14-day trial. Days 1 to 5: 3 free months. Days 6 to 10: 2. Days 11 to 14: 1. From day 15 the annual plan is still open at 12 months for the price of 12, with no free months (before: days 15-17 / 18-20 / 21-23, then monthly only from day 24). Branch `claude/rates-trial-windows` (from main `acfdb55`). Local only until Kriv says publish.
   - Changed: `decisionWindows` in `src/offers/ph-local.ts`; wording in `OfferPage.tsx` (windows cards and intro sentence), `AnnualStory.tsx` (chapter 3 sentence, chapter 7 text and labels), `PlanBuilder.tsx` (step 3 lists all four windows, including "From day 15 / no free months"; the pay toggle reads "Annual"; with no free months the builder shows "Free months: None after day 14" and no crossed-out total), `rates-journey.ts` ("dates" and "decide" narration), `RatesJourney.tsx` (the dates picture is the 14 trial days in three bands, "decide by Day 5"; the last picture lists Day 5, Day 14, Any time).
   - Figures unchanged: the Website's best case is still PHP 36,000 against PHP 45,000.
