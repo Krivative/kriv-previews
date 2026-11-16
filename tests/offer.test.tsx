@@ -93,7 +93,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(4);
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(5); // narration on, plus the builder's four
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
@@ -298,9 +298,13 @@ describe("rates page scroll story", () => {
   it("takes its figures from the rates and promises nothing", () => {
     for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 15 to 17 for 3 free months", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
   });
-  it("starts with narration off, since it has no recordings", () => {
-    expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="false">Narration off<\/button>/);
-    expect(html).not.toContain("data-audio=");
+  it("starts with narration on and gives every chapter its recording", () => {
+    expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
+    for (const step of ratesJourney) {
+      expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
+      expect(html).toContain(`data-audio="${step.audio}"`);
+      expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
+    }
   });
 });
 
