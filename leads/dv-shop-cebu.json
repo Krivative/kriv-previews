@@ -29,7 +29,7 @@
   },
   "story": "sneaker-journey",
   "storyCast": "off",
-  "storyStyle": { "seed": "dv-shop-cebu-3" },
+  "storyStyle": { "seed": "dv-shop-cebu-3", "sound": "plain", "genre": "plain", "lore": "stops", "words": "beside", "side": "right" },
   "design": {},
   "brand": {
     "logo": "https://dvshopcebu.com/cdn/shop/files/dv_shop_logo.png",
