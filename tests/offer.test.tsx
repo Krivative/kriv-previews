@@ -399,7 +399,10 @@ describe("general Philippine rates page", () => {
   const words = text(html);
   it("shows the same figures with no client named and no draft marks", () => {
     for (const part of ["Philippine rates", "Your business owns its accounts and data", ...figures]) expect(words).toContain(part);
-    expect(words).not.toMatch(/PCO|clinic|dental|patient|quotation|wayaway/i);
+    // The bazaar's website stall shows KRIV's portfolio by name (Kriv, 2026-11-16); the rest of the page names no client.
+    const outside = text(html.replace(/<section[^>]*data-bazaar-walk[\s\S]*?<\/section>(?=<nav|<div)/, ""));
+    expect(words).toContain("PCO Dental Clinic");
+    expect(outside).not.toMatch(/PCO|clinic|dental|patient|quotation|wayaway/i);
     expect(words).not.toMatch(/pending|draft|\{\w+\}|\[[A-Z ]+[:\]]/i);
   });
   it("has no forms, links only to KRIV's own booking page and email, and makes no guarantees", () => {

@@ -2,6 +2,7 @@ import { KRIV_BOOKING, KRIV_EMAIL, PH_ELIGIBILITY, TRIAL_DAYS, audiences } from 
 import { KrivMark, OfferSections, offerNav } from "./OfferPage";
 import { SectionNav } from "./PlanBuilder";
 import { RatesJourney } from "./RatesJourney";
+import { BazaarWalk } from "./BazaarWalk";
 import j from "./journey.module.css";
 import { lookAttributes, ratesLook, themeVars } from "@/stories/journey-style";
 import s from "./sections.module.css";
@@ -25,6 +26,7 @@ export function PhRatesPage() {
     </header>
     <main id="main-content">
       <RatesJourney />
+      <BazaarWalk bazaar={look.bazaar} chibi={look.chibi} audience={audiences.general} brand="Your brand" scene="/for/scenes/merchants-road/03.webp" />
       <SectionNav items={offerNav} />
       <div className={o.main}>
       <section className={o.intro}>

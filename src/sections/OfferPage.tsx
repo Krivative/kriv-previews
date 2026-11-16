@@ -10,6 +10,7 @@ import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
 import { PlanBuilder, SectionNav, type NavItem } from "./PlanBuilder";
 import { AnnualStory } from "./AnnualStory";
+import { BazaarWalk } from "./BazaarWalk";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -226,7 +227,8 @@ export function OfferPage({ site }: { site: SiteData }) {
   if (!offer) return null;
   const name = site.business.name;
   // A story lead's quotation wears that lead's own theme, so it matches their site.
-  const theme = site.story ? journeyStyle(site).theme : undefined;
+  const look = site.story ? journeyStyle(site) : undefined;
+  const theme = look?.theme;
   return <div className={o.root} style={theme ? themeVars(theme) : undefined} data-theme-name={theme?.name}>
     {theme ? <link rel="stylesheet" href={theme.googleCss} precedence="fonts" /> : null}
     <Ribbon site={site} />
@@ -235,6 +237,7 @@ export function OfferPage({ site }: { site: SiteData }) {
       <KrivMark />
       <Link href={pageHref(site)} prefetch={false}>Back to the concept website <span aria-hidden="true">↗</span></Link>
     </header>
+    {look ? <BazaarWalk bazaar={look.bazaar} chibi={look.chibi} audience={audiences.clinic} brand={name} /> : null}
     <SectionNav items={offerNav} />
     <main id="main-content" className={o.main}>
       <section className={o.intro}>
