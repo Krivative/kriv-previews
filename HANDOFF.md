@@ -10,6 +10,29 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 - Private lead data, email drafts, finder output and private environment files under `C:\Users\user\kriv-leads\` must not be inspected, copied, changed, uploaded or exposed without Kriv's explicit permission. Do not open the Desk or run its importer as part of repository verification. Do not inspect or display secrets in any `.env.local` file. Never commit private data or credentials.
 - The older handoff below preserves Claude Code's history. Its production, outreach, network and connector observations are dated reports, not current verification. Use this checkpoint and `docs/ROADMAP.md` for current next actions.
 
+## Skills and tools for this work (read before continuing)
+
+Where each one lives, so any agent or teammate can pick the work up.
+
+| Skill or tool | What it is for | Where to find it |
+| --- | --- | --- |
+| `story-site` | How the PCO story site was made: story file, drawing, chapters, the cast | Kriv's Mac: `~/.claude/skills/story-site/SKILL.md` (not in this repo; ask Kriv for a copy) |
+| `story-site-sound` | Sound worlds picked by the randomizer seed, beat effects, the Sound button, rules (narration wins, decoration only) | This repo: `docs/skills/story-site-sound/SKILL.md`; also saved to Kriv's claude.ai skills |
+| `website-game-soundscape` | A general sound kit (ambience, effects, engine, cue sheet) for any website | This repo: `docs/skills/website-game-soundscape/SKILL.md`; offered to Kriv's claude.ai skills as a card |
+| `signature-web-studio` | Design direction, interaction patterns and motion for the sites | Kriv's claude.ai skills (synced into Claude sessions) |
+| `video-making` | Rendering walkthrough and promo videos | Kriv's claude.ai skills (synced) |
+| `built-in-browser` | Using the Claude desktop browser pane (Discord, live checks) | Kriv's claude.ai skills (synced) |
+| Scroll Craft, Herk Edit Kit | Scroll authoring and motion-card references used on kriv.agency | Local authoring skills on Kriv's Mac (see the kriv.agency handoff, `Krivative/Kriv` `docs/CINEMATIC-GRADIENT-THEME.md`) |
+| Magnific connector | All voices (ElevenLabs v4), sound effects, painted scenes, portrait restyles | claude.ai connector on Kriv's account. Voice settings per voice: `docs/voices/*-voice-profile.txt`; spoken scripts: `docs/voices/*-script.txt` |
+| Vercel connector | Checking production deploys of both sites | claude.ai connector, team `kriv5` |
+
+How the assets were made (to redo or extend them):
+- Voices: Magnific `audio_tts`, model `eleven_v4`, stability 0.4, similarity 0.75, speaker boost on; direction prefix from the voice profile; "KRIV" written as /krɪv/; numbers written out as words. Then ffmpeg: mono 44.1 kHz, trim silence, `atempo` to about 170 words a minute (0.85 to 1.2), two-pass `loudnorm` to -16 LUFS, short fades, 0.3 s padding, MP3 112k. Voices: Sela (1291) rates, Mira (1210) dental, Juno (46) kriv.agency.
+- Painted scenes: Magnific `images_generate`, 16:9, prompts in the page's own palette ("light sand and cream with lavender and violet" for rates, "deep night-navy and teal with lime" for PCO, "deep charcoal, warm ivory, subtle lime" for kriv.agency), no text, empty sky for words; saved as 1600x900 WebP (quality 74) in `public/scenes/<set>/`.
+- Portraits: Magnific `images_generate` with Kriv's kriv.agency portrait as reference, then `images_remove_background`.
+- Sound: Magnific `audio_sfx_generate`; see `docs/skills/story-site-sound/SKILL.md`.
+- Claude cannot hear audio: every voice and sound must be listened to by a person.
+
 ## Latest checkpoint
 
 - 2026-11-16, the hero steps back, and see-through text backings (published on Kriv's word). `journey.module.css`: the chapter drawing lands full size on chapter 1, then scales down into a side piece (phones: half size, moved right; desktop: 64%), and later chapters start higher on phones, so the words take the screen. Nothing above the reader changes size, so the page does not jump. Text backings are now translucent and lightly blurred (stage band, scene veil, a soft panel behind words from chapter 2 on, the sneak peek card) so the painted scene stays in view. Checked on iPhone 13, 820x1180 and 1280x800 for ph-rates and PCO.
