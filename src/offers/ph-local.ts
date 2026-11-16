@@ -2,7 +2,8 @@
 // Prices set by Kriv on 2026-11-16 (see HANDOFF.md): Website and Content
 // creation stay at 3,000; the CRM is 15,000 a month with a 13,000 promo that
 // stacks with the extra free months on the annual plan; Branding kit 7,500
-// one-time; AI agent 2,500 a month.
+// one-time; AI chat agent 2,500 a month (was "AI agent"; renamed 2026-11-16).
+// AI voice agent (2026-11-16): no price set yet; shown as priced after a short call.
 // Kriv, 2026-11-16 (bazaar revamp): no monthly plans for any service. Every service shows one yearly
 // price, with the monthly equivalent in a small line under it. AI live seller: 15,000 a month regular
 // (180,000 a year), a paid three-month starter at 35,000 for those who want to try it first, then annual,
@@ -89,6 +90,9 @@ export const monthlyServices = [
     ],
   },
 ] as const;
+
+/** The AI voice agent: answers calls. No rate set by Kriv yet, so no figure is shown anywhere. */
+export const voiceAgent = { name: "AI voice agent", priceNote: "Priced after a short call, because call volume sets the cost." } as const;
 
 /** The AI live seller's starter: three paid months to try it, then annual. The commission is on top. */
 export const liveSeller = { starterMonths: 3, starterPrice: 35000, commission: 0.1 } as const;
@@ -207,12 +211,12 @@ export const addOns = [
     includes: ["A new custom logo, with variations and transparent versions", "Colour palette and typography", "Brand guidelines and brand voice", "Social media profile assets and reusable templates"],
   },
   {
-    name: "AI agent", price: 2500, unit: "per month",
-    includes: ["An AI agent that handles repeatable steps for {client}", "Built from information and wording {client} approves", "Set up and supervised by KRIV staff"],
+    name: "AI chat agent", price: 2500, unit: "per month",
+    includes: ["An AI chat agent on Messenger, Instagram and the website that answers the usual questions and books", "Built from information and wording {client} approves", "Hands the chat to a person when judgement is needed", "Set up and supervised by KRIV staff"],
   },
 ] as const;
 
-annualPlans.push({ name: "AI agent", monthly: addOns[1].price, regular: addOns[1].price });
+annualPlans.push({ name: "AI chat agent", monthly: addOns[1].price, regular: addOns[1].price });
 
 export const vaTrials = [
   { name: "Human VA trial", body: "A KRIV virtual assistant, a real person, works on agreed tasks for {client}." },
@@ -248,7 +252,7 @@ export const terms = [
 const plan = (name: string) => annualPlans.find((p) => p.name === name)!;
 export const starterStacks = [
   { business: "Health practice", why: "Bookings come in through the site; follow-ups and reminders send themselves.", plans: ["Website", "CRM and system with automations"] },
-  { business: "Restaurant or café", why: "Fresh posts bring people in; an AI agent answers the usual questions.", plans: ["Content creation", "AI agent"] },
+  { business: "Restaurant or café", why: "Fresh posts bring people in; an AI chat agent answers the usual questions.", plans: ["Content creation", "AI chat agent"] },
   { business: "Retail shop", why: "A shop online, and live selling that keeps the store open after hours.", plans: ["Website", "AI live seller"] },
   { business: "Salon or spa", why: "Posts that show the work; bookings and follow-ups in one organised place.", plans: ["Content creation", "CRM and system with automations"] },
 ].map((s) => ({ ...s, quote: bundleQuote(s.plans.map(plan), decisionWindows[0]) }));

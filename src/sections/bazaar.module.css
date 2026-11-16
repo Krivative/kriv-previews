@@ -21,7 +21,7 @@
 article.stop { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 900px) { .stop { padding-inline: 48px; } article.stop { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; gap: 48px; } }
 .stop h2, .stop h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); text-transform: var(--display-case); color: var(--bright); font-size: clamp(32px, 5vw, 72px); line-height: 1.02; text-wrap: balance; }
-.stop h3 { font-size: clamp(28px, 3.6vw, 56px); }
+.stop h3 { font-size: clamp(26px, 3vw, 46px); overflow-wrap: normal; hyphens: manual; }
 .eyebrow { margin: 0; font: 600 12px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 .lead { margin: 0; max-width: 56ch; font-size: clamp(17px, 1.3vw, 21px); line-height: 1.55; }
 .sign { display: grid; gap: 14px; max-width: 54ch; padding: 22px; border-radius: var(--radius); background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid var(--line); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
@@ -72,3 +72,36 @@ article.stop { grid-template-columns: minmax(0, 1fr); }
 .screen[data-shot] i { display: none; }
 .screen[data-shot] b { align-self: end; justify-self: start; margin-top: auto; padding: 4px 8px; background: color-mix(in srgb, var(--bg) 85%, transparent); border-radius: 4px; }
 .screen[data-shot] { display: flex; }
+
+/* Depth: "How it's built", the CRM gap sum, the chat channels and the voice call. */
+.built { border-top: 1px solid var(--line); padding-top: 10px; }
+.built summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; min-height: 36px; font: 700 12px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.built summary::-webkit-details-marker { display: none; }
+.built summary::after { content: "+"; font-size: 18px; } .built[open] summary::after { content: "−"; }
+.built summary:focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; }
+.built ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 15px; }
+.built li::before { content: "—"; color: var(--accent); margin-right: 8px; }
+.math { display: grid; gap: 12px; width: min(100%, 720px); }
+.mathRow { padding: 14px; border-radius: var(--radius-small); border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 82%, transparent); }
+.mathRow[data-after] { border-color: var(--accent); }
+.mathLabel { margin: 0 0 10px; font: 700 11px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.mathRow[data-after] .mathLabel { color: var(--accent); }
+.mathLine { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.mathLine span { display: contents; }
+.mathLine b { display: grid; justify-items: center; min-width: 60px; padding: 8px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); font: 700 clamp(17px, 1.7vw, 24px)/1 var(--font-body); color: var(--bright); }
+.mathLine small { margin-top: 4px; font: 400 10px/1.2 var(--font-body); color: var(--muted); text-align: center; max-width: 11ch; }
+.mathLine i { font-style: normal; color: var(--muted); }
+.mathRow[data-after] .mathTotal { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.mathRow[data-after] .mathTotal small { color: var(--accent-ink); }
+.mathNote { margin: 0; font-size: 12px; color: var(--muted); }
+.agent small { flex: none; width: 78px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.agent span { flex: 1; }
+.call { display: grid; gap: 8px; width: min(100%, 420px); padding: 18px; border-radius: var(--radius); border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 85%, transparent); }
+.callHead { margin: 0; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+@keyframes ring { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); } 50% { box-shadow: 0 0 0 8px transparent; } }
+.callDot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); animation: ring 1.4s infinite; }
+@keyframes wave { 0%, 100% { scale: 1 0.3; } 50% { scale: 1 1; } }
+.wave { display: flex; align-items: center; gap: 3px; height: 40px; }
+.wave i { flex: 1; height: 100%; border-radius: 2px; background: var(--accent); animation: wave 1.1s ease-in-out infinite; animation-delay: calc(var(--i) * -0.09s); }
+.callStep { margin: 0; padding: 8px 12px; border-left: 2px solid var(--accent); background: var(--surface); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .wave i, .callDot { animation: none; } }

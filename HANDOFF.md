@@ -33,7 +33,16 @@ How the assets were made (to redo or extend them):
 - Sound: Magnific `audio_sfx_generate`; see `docs/skills/story-site-sound/SKILL.md`.
 - Claude cannot hear audio: every voice and sound must be listened to by a person.
 
-## Latest checkpoint
+## Latest checkpoint: bazaar revamp and premium tours, PREVIEW ONLY (branch `claude/bazaar-revamp`), 16 November 2026
+
+- **Randomizer is the base:** `src/stories/bazaar.ts`. The niche picks the world (dental: Smile Kingdom, agency: Composer's Citadel, else Merchant's Road), the seed picks the bazaar (world's own two times in three, else the costume's market: Studio Lot, Harbour Market, Night Market, Paddock Market), and the chibi's costume follows the world (dentist on dental). Pinnable via `storyStyle.world` / `storyStyle.bazaar`. Tests: `tests/bazaar.test.ts`.
+- **Pricing (Kriv, 16 Nov):** one yearly price per service, monthly equivalent in a small line. AI live seller 15,000 a month (180,000 a year), paid 3-month starter 35,000 then annual, 10% commission on total sales, open to negotiation. "AI agent" renamed **AI chat agent** (2,500 a month). **AI voice agent** added with NO price: shown as "priced after a short call" until Kriv sets one. All in `src/offers/ph-local.ts`.
+- **Bazaar walk** (`src/sections/BazaarWalk.tsx`, `bazaar.module.css`): part two on ph-rates and at the top of each lead's offer page. Street View road, distance to the Build stall, "Skip the bazaar". Six stalls: website (hologram portfolio with real screenshots, `public/portfolio/`), content (brand kit on socials and merch), AI live seller (chibi on stage, five-step queue), CRM (the gaps as an example sum, labelled not a forecast), AI chat agent, AI voice agent. Each stall has "How it's built".
+- **PCO level two** (`ClinicJourney.tsx`): painted Smile Kingdom backdrops per stop, a "What brings you in?" picker (`VisitPicker.tsx`, no clinical claims), and one Book button at every stop. Level two stays patient-facing; KRIV's selling lives on the offer page.
+- **Voice:** ph-rates stop 3 re-recorded twice (`?v=6`), now six stalls. NOT checked by ear.
+- **Not done:** bazaar paintings for the Pearl Market and the genre markets (they fall back to a gradient), six screen shapes for the old scenes, re-pinning stall cards per shape, phone check of the walk's later stalls at 820 and 3440 widths.
+
+## Earlier checkpoint
 
 - 2026-11-16, full screen on big desktops (Task 1 of `claude/handoff-prompt-astra.md`, done by Claude). Kriv reported side bands on 1080p and 1600p. Cause: `.journey { max-width: 1180px }` on wide screens. Now the story spans the window (scenes, world, route, ghost go edge to edge) and the two columns sit inside `min(1760px, 92vw)`. The words block, the route strip, the road arrow and the stall cards scale with CSS `zoom` at 1700px (1.18), 2200px (1.42) and 3000px (1.7); the narration buttons, chapter dots and crest keep their size (zooming them moved them off-screen). Checked ph-rates and PCO at 1440x900, 1920x1080 and 2560x1600: no side bands, no horizontal scroll. Still open: Task 2 (scene images per screen shape; the 1600x900 scenes look soft on 1600p) and Task 3.
 

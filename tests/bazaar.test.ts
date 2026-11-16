@@ -4,7 +4,7 @@ import { journeyGenres, journeyStyle, lookAttributes, ratesLook } from "@/storie
 import { SiteData } from "@/lib/site-schema";
 
 describe("the bazaar in every world", () => {
-  it("every world has its own bazaar, and every bazaar has all five stalls with names", () => {
+  it("every world has its own bazaar, and every bazaar has a stall for every service, with names", () => {
     for (const w of worldNames) expect(worldBazaars[w]).toBeTruthy();
     for (const b of allBazaars) {
       expect(Object.keys(b.stalls).sort()).toEqual([...stallKinds].sort());

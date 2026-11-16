@@ -34,7 +34,7 @@ const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 15,000",
   "PHP 45,000", "PHP 36,000", "PHP 9,000",
   // CRM: 15, 14 and 13 months at the regular rate against the annual price.
   "PHP 225,000", "PHP 210,000", "PHP 195,000", "PHP 69,000", "PHP 54,000", "PHP 39,000",
-  "Days 1 to 5", "From day 15", "No free months", "Branding kit", "PHP 7,500 one-time", "AI agent", "PHP 2,500 a month",
+  "Days 1 to 5", "From day 15", "No free months", "Branding kit", "PHP 7,500 one-time", "AI chat agent", "PHP 2,500 a month",
   "Human VA trial", "AI VA trial", "Referral program", "Change orders", "physical store in the Philippines"];
 
 describe("Philippines-market offer figures", () => {
@@ -43,7 +43,7 @@ describe("Philippines-market offer figures", () => {
     expect(allThreeMonthly).toBe(21000);
     expect(php(allThreeMonthly)).toBe("PHP 21,000");
     expect(contentTiers.map((t) => t.monthly)).toEqual([3000, null, null]);
-    expect(addOns.map((a) => [a.name, a.price, a.unit])).toEqual([["Branding kit", 7500, "one-time"], ["AI agent", 2500, "per month"]]);
+    expect(addOns.map((a) => [a.name, a.price, a.unit])).toEqual([["Branding kit", 7500, "one-time"], ["AI chat agent", 2500, "per month"]]);
   });
   it("stacks the CRM promo with the extra months on the annual plan", () => {
     expect(crm).toEqual({ regularMonthly: 15000, promoMonthly: 13000, baseMonths: 12 });
@@ -61,7 +61,7 @@ describe("annual plans and savings", () => {
   it("covers every monthly service", () => {
     expect(annualPlans.map((p) => [p.name, p.monthly, p.regular])).toEqual([
       ["Website", 3000, 3000], ["Content creation", 3000, 3000], ["AI live seller", 15000, 15000],
-      ["All three together", 21000, 21000], ["CRM and system with automations", 13000, 15000], ["AI agent", 2500, 2500],
+      ["All three together", 21000, 21000], ["CRM and system with automations", 13000, 15000], ["AI chat agent", 2500, 2500],
     ]);
   });
   it("charges twelve months and counts the extra months as the saving", () => {
@@ -70,7 +70,7 @@ describe("annual plans and savings", () => {
     expect([three, two, one].map((w) => annualSaving(plan("Website"), w))).toEqual([9000, 6000, 3000]);
     expect([three, two, one].map((w) => annualSaving(plan("AI live seller"), w))).toEqual([45000, 30000, 15000]);
     expect([three, two, one].map((w) => annualSaving(plan("All three together"), w))).toEqual([63000, 42000, 21000]);
-    expect([three, two, one].map((w) => annualSaving(plan("AI agent"), w))).toEqual([7500, 5000, 2500]);
+    expect([three, two, one].map((w) => annualSaving(plan("AI chat agent"), w))).toEqual([7500, 5000, 2500]);
   });
   it("combines the promo and the extra months for the CRM", () => {
     expect([three, two, one].map((w) => annualWorth(plan("CRM and system with automations"), w))).toEqual([225000, 210000, 195000]);
@@ -242,10 +242,12 @@ describe("PCO scroll journey", () => {
     expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
   });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(5); // narration, sound, the cast's quiet control and the character, plus level two's narration button (level two shares the story's sound button)
+    // narration, sound, the cast's quiet control and the character, level two's narration button (level two
+    // shares the story's sound button), plus the five "What brings you in?" choices (2026-11-16).
+    expect(html.match(/<button\b/g)?.length).toBe(10);
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b|<img\b/);
-    expect(html.match(/<button type="button"/g)?.length).toBe(5);
+    expect(html.match(/<button type="button"/g)?.length).toBe(10);
   });
   it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);
@@ -363,7 +365,7 @@ describe("rates page scroll story", () => {
   it("starts with narration on and gives every chapter its recording", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     // Annual only (2026-11-16): five chapters re-recorded (?v=3), the rest keep the second set.
-    expect(ratesJourney.every((step) => /\?v=[45]$/.test(step.audio ?? ""))).toBe(true);
+    expect(ratesJourney.every((step) => /\?v=[456]$/.test(step.audio ?? ""))).toBe(true);
     for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);

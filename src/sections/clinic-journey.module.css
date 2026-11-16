@@ -38,3 +38,23 @@
 }
 [data-cards="outlined"] .list li { background: transparent; border-color: color-mix(in srgb, var(--ink) 34%, transparent); }
 [data-cards="solid"] .list li { background: var(--surface); border-color: transparent; }
+
+/* Premium tour (2026-11-16): painted backdrops from the clinic's world, a "What brings you in?" picker,
+   and one clear next step at every stop. */
+.backdrops { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 0.6s; }
+.level[data-step] .backdrops { opacity: 1; }
+.backdrops > div { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; scale: 1.06; transition: opacity 0.9s ease, scale 1.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.backdrops::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 86%, transparent), color-mix(in srgb, var(--bg) 40%, transparent) 55%, color-mix(in srgb, var(--bg) 60%, transparent)); }
+@media (max-width: 899px) { .backdrops::after { background: color-mix(in srgb, var(--bg) 74%, transparent); } }
+.level[data-step="0"] [data-backdrop="0"], .level[data-step="1"] [data-backdrop="1"], .level[data-step="2"] [data-backdrop="2"], .level[data-step="3"] [data-backdrop="3"],
+.level[data-step="4"] [data-backdrop="4"], .level[data-step="5"] [data-backdrop="5"], .level[data-step="6"] [data-backdrop="6"] { opacity: 1; scale: 1; }
+.level { isolation: isolate; }
+.picker { display: grid; gap: 10px; padding: 16px; border-radius: var(--radius); border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 80%, transparent); }
+.pickerLabel { margin: 0; font: 700 12px/1.4 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.pickerChips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pickerChips button { min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: 600 13px/1.2 var(--font-body); cursor: pointer; }
+.pickerChips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.pickerChips button:focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; }
+.pickerLine { margin: 0; font-size: 16px; line-height: 1.5; }
+.next { margin: 8px 0 0; }
+@media (prefers-reduced-motion: reduce) { .backdrops > div { transition: opacity 0.3s; scale: 1; } }

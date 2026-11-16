@@ -13,6 +13,7 @@ import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
 import c from "./clinic-journey.module.css";
+import { VisitPicker } from "./VisitPicker";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
 
 // Level two of a story site's home page (preview-only). The story of the tooth
@@ -82,6 +83,8 @@ export function ClinicJourney({ site }: { site: SiteData }) {
       <li><a href="#inside" aria-label="Level two: inside the clinic" /></li>
       {stops.map((stop, n) => <li key={stop.id}><a href={`#${stop.id}`} aria-label={`Stop ${n + 1}: ${stop.name}`} /></li>)}
     </ol>
+    {/* Painted backdrops from the clinic's world, one per stop, faded in by data-step (premium tour, 2026-11-16). */}
+    <div className={c.backdrops} aria-hidden="true">{[1, 6, 8, 7, 2, 5, 4].slice(0, stops.length + 1).map((scene, n) => <div key={n} data-backdrop={n} style={{ backgroundImage: `url(/for/scenes/${look.world}/${String(scene).padStart(2, "0")}.webp)` }} />)}</div>
     <div className={j.stage} aria-hidden="true">
       <svg viewBox="0 0 400 400" className={`${j.art} ${c.map}`}>
         <circle className={j.orbit} cx="200" cy="200" r="184" />
@@ -111,6 +114,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
           <h2 id="inside-title">{mark(site.hero.headline)}</h2>
           <p className={j.narration} data-narration="">The story of the tooth is the why. This part is the how: each part of the clinic, and how one leads to the next.</p>
           <p className={j.note}>{site.hero.sub}</p>
+          <VisitPicker book={<BookButton site={site} />} />
           <p className={c.leads}>Leads to <span aria-hidden="true">→</span> <a href={`#${stops[0].id}`}>{stops[0].name}</a></p>
         </div>
       </section>
@@ -119,6 +123,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
           <p className={o.eyebrow}><b>Stop {n + 1} of {stops.length}</b> / {stop.name}</p>
           <h2 id={`${stop.id}-title`}>{stop.title}</h2>
           {stop.body}
+          <p className={c.next}><BookButton site={site} /></p>
           {stops[n + 1] ? <p className={c.leads}>Leads to <span aria-hidden="true">→</span> <a href={`#${stops[n + 1].id}`}>{stops[n + 1].name}</a></p> : <p className={c.leads}>The ride ends here. <a href="#journey-smile">Back to the story</a></p>}
         </div>
       </section>)}

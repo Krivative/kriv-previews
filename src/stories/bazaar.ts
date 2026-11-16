@@ -4,8 +4,8 @@
 // the lead's niche and the bazaar from the seed and the costume, so each client walks through a market in
 // their own world. Decoration and wording only: prices and facts come from src/offers/ph-local.ts.
 
-/** The five services, in the order the visitor meets them. Every bazaar has a stall for each. */
-export const stallKinds = ["website", "content", "live-seller", "crm", "agent"] as const;
+/** The services, in the order the visitor meets them (six since 2026-11-16: the AI agent became the chat agent, and the voice agent joined). Every bazaar has a stall for each. */
+export const stallKinds = ["website", "content", "live-seller", "crm", "agent", "voice"] as const;
 export type StallKind = (typeof stallKinds)[number];
 
 /** The painted worlds. Each has its own scenes (public/scenes/<world>) and its own bazaar. */
@@ -38,23 +38,23 @@ export type Bazaar = {
 /** The world's own markets. */
 export const worldBazaars: Record<JourneyWorld, Bazaar> = {
   "smile-kingdom": { name: "pearl-market", label: "The Pearl Market", fits: "world", setting: "under the Smile Kingdom's white towers, lanterns in mint and lime",
-    stalls: { website: "The Hall of Mirrors", content: "The Herald's Board", "live-seller": "The Bright Stage", crm: "The Appointment Clock", agent: "The Helper's Booth" } },
+    stalls: { website: "The Hall of Mirrors", content: "The Herald's Board", "live-seller": "The Bright Stage", crm: "The Appointment Clock", agent: "The Helper's Booth", voice: "The Bell Tower" } },
   "merchants-road": { name: "road-bazaar", label: "The Road Bazaar", fits: "world", setting: "where the Merchant's Road widens into tents of sand and violet",
-    stalls: { website: "The Window Maker", content: "The Poster Wall", "live-seller": "The Auction Stage", crm: "The Ledger House", agent: "The Errand Runner" } },
+    stalls: { website: "The Window Maker", content: "The Poster Wall", "live-seller": "The Auction Stage", crm: "The Ledger House", agent: "The Errand Runner", voice: "The Crier's Post" } },
   "composers-citadel": { name: "music-fair", label: "The Music Fair", fits: "world", setting: "in the citadel's courtyard, between the towers",
-    stalls: { website: "The Glass Stage", content: "The Poster Gallery", "live-seller": "The Busker's Stage", crm: "The Score Library", agent: "The Stagehand" } },
+    stalls: { website: "The Glass Stage", content: "The Poster Gallery", "live-seller": "The Busker's Stage", crm: "The Score Library", agent: "The Stagehand", voice: "The Singer's Balcony" } },
 };
 
 /** The costume's markets: the same five stalls, dressed for the genre. */
 export const genreBazaars: Bazaar[] = [
   { name: "studio-lot", label: "The Studio Lot", fits: "film-crew", setting: "a back lot of painted fronts and spotlights",
-    stalls: { website: "The Set Builder", content: "The Poster Department", "live-seller": "The Live Studio", crm: "The Call Sheet Office", agent: "The Runner's Trailer" } },
+    stalls: { website: "The Set Builder", content: "The Poster Department", "live-seller": "The Live Studio", crm: "The Call Sheet Office", agent: "The Runner's Trailer", voice: "The Phone Booth" } },
   { name: "harbour-market", label: "The Harbour Market", fits: "ships-crew", setting: "along the quay, where the ships unload",
-    stalls: { website: "The Lighthouse", content: "The Signal Flags", "live-seller": "The Auction Pier", crm: "The Harbour Log", agent: "The Deckhand's Post" } },
+    stalls: { website: "The Lighthouse", content: "The Signal Flags", "live-seller": "The Auction Pier", crm: "The Harbour Log", agent: "The Deckhand's Post", voice: "The Harbour Bell" } },
   { name: "night-market", label: "The Night Market", fits: "kitchen-brigade", setting: "a street of food stalls under string lights",
-    stalls: { website: "The Shopfront", content: "The Menu Board", "live-seller": "The Grill Stage", crm: "The Order Rail", agent: "The Runner" } },
+    stalls: { website: "The Shopfront", content: "The Menu Board", "live-seller": "The Grill Stage", crm: "The Order Rail", agent: "The Runner", voice: "The Order Window" } },
   { name: "paddock-market", label: "The Paddock Market", fits: "pit-crew", setting: "behind the pit lane, flags and tool chests",
-    stalls: { website: "The Showroom", content: "The Livery Shop", "live-seller": "The Podium", crm: "The Timing Tower", agent: "The Pit Crew Bay" } },
+    stalls: { website: "The Showroom", content: "The Livery Shop", "live-seller": "The Podium", crm: "The Timing Tower", agent: "The Pit Crew Bay", voice: "The Radio Tent" } },
 ];
 
 export const allBazaars: Bazaar[] = [...Object.values(worldBazaars), ...genreBazaars];

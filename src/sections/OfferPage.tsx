@@ -197,7 +197,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
     <section className={o.block} aria-labelledby="offer-ai">
       <p className={o.eyebrow}>{audience.aiEyebrow}</p>
       <h2 id="offer-ai">AI trials <em>on the house.</em></h2>
-      <p>{t("Try the AI agent on real work before adding it. Each trial is set up and supervised by KRIV staff and uses only information and wording {client} approves.")}</p>
+      <p>{t("Try the AI chat agent on real work before adding it. Each trial is set up and supervised by KRIV staff and uses only information and wording {client} approves.")}</p>
       <ul className={o.cards}>
         {aiTrialIdeas.map((item) => <li key={item.name}><h3>{item.name}</h3><p>{t(item.body)}</p></li>)}
       </ul>
