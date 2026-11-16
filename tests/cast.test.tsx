@@ -100,7 +100,8 @@ describe("the cast: one voice at a time", () => {
 });
 
 describe("the cast on the PCO story", () => {
-  const html = render(pco);
+  // PCO itself now runs in the adult register with no cast; this is the same story with the serious cast switched on.
+  const html = render({ ...pco, storyCast: "serious", storyStyle: { theme: "night-lime", lore: "chapters", genre: "plain", side: "right", orbit: "dotted", marks: "rail-right", brand: "top-centre", voice: "bottom-right", cue: "bottom-centre", words: "beside", map: "ring", cards: "glass", entrance: "edge" } });
   it("is on stage but silent in the page as served, with a quiet control", () => {
     expect(html).toMatch(/<div class="[^"]*cast[^"]*" data-cast="" data-on="">/);
     expect(html).toMatch(/<button type="button" class="[^"]*quiet[^"]*" data-cast-quiet="" aria-pressed="true">Cast on<\/button>/);

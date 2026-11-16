@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: story cast brief complete. Stages 1 to 4 are published; stage 5 (genre and costume layer: film crew, ship's crew, kitchen brigade, pit crew) and stage 6 (docs/STORY-CAST.md and the skill) were published on Kriv's word (main `651ffe8`). Next: the phone rework of all three sites. kriv.agency chibi and narration are still local branches
+Updated: 2026-11-17 - Last step finished: PCO restyled in a grown-up register through a new `audience` setting in the randomizer (three adult-only themes, no cast); local on `claude/pco-adult-look`, awaiting Kriv's "publish". The cast brief is complete and published. Phone audit done in its own session, waiting on Kriv's pick of a phone style. kriv.agency community restyle is in draft pull request 24 on Krivative/Kriv
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -18,6 +18,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] Costume layer published (Kriv's go-ahead, 2026-11-16): main at `651ffe8`, live pages verified
 - [ ] Kriv: approve the cast lines (drafts); say whether PCO or the rates page should wear a genre
 - [ ] Phone rework of the three sites (part 2 of the voices brief): audit, decisions, phone-native styles for Kriv's pick
+- [x] PCO in a grown-up register (Claude Code, 2026-11-17): `audience: adults` in the randomizer, three adult-only themes, no cast; 775 tests, build and 22 smoke checks pass. Local on `claude/pco-adult-look`
+- [ ] Kriv: say "publish" for the PCO adult look; decide on an adult story spine (general and aesthetic dentistry) once the clinic confirms its services; decide on the Next.js security upgrade
 - [ ] Kriv: approve publishing the interactive pages and the story; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
 - [x] Kriv's PH prices and kriv.agency look (Claude Code, 2026-11-16): CRM 15,000 regular and 13,000 promo with stacking annual months, Branding kit 7,500, AI agent 2,500, content from 12 image posts at 3,000; draft marks and placeholders removed from both KRIV pages. Lint, typecheck, 695 tests, build and 22 smoke checks pass
 

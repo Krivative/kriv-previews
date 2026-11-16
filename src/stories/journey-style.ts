@@ -20,6 +20,10 @@ export type JourneyTheme = {
   display: string; displayName: string; body: string; bodyName: string;
   weight: number; tracking: string; letterCase: "uppercase" | "none";
   radius: string; radiusSmall: string; buttonRadius: string; googleCss: string;
+  /** Suits a grown-up register (see `journeyAudiences`). `only` keeps a theme out of the general pool. */
+  adult?: boolean; only?: "adults";
+  /** Heading sizes were tuned for a wide, uppercase face; a small-bodied serif needs them larger. Default 1. */
+  scale?: number;
 };
 
 export const journeyThemes: JourneyTheme[] = [
@@ -28,7 +32,7 @@ export const journeyThemes: JourneyTheme[] = [
     radius: "22px", radiusSmall: "14px", buttonRadius: "999px", googleCss: fonts("Lexend+Zetta:wght@200;300;400", "Manrope:wght@400;500;600;700") },
   { name: "forest-gold", label: "Forest and gold", dark: true, deep: "#0f1a14", bg: "#0f1a14", surface: "#17261d", ink: "#e9efe9", bright: "#f7faf5", muted: "#93a698", accent: "#f2c14e", accentInk: "#0f1a14", glow: "rgba(96, 160, 110, 0.18)",
     display: '"Fraunces", Georgia, serif', displayName: "Fraunces", body: '"Outfit", Arial, sans-serif', bodyName: "Outfit", weight: 400, tracking: "-0.015em", letterCase: "none",
-    radius: "18px", radiusSmall: "12px", buttonRadius: "999px", googleCss: fonts("Fraunces:opsz,wght@9..144,400;9..144,500", "Outfit:wght@400;500;600;700") },
+    radius: "18px", radiusSmall: "12px", buttonRadius: "999px", googleCss: fonts("Fraunces:opsz,wght@9..144,400;9..144,500", "Outfit:wght@400;500;600;700"), adult: true },
   { name: "plum-rose", label: "Plum and rose", dark: true, deep: "#1a1020", bg: "#1a1020", surface: "#251830", ink: "#efe8f2", bright: "#fbf6fd", muted: "#a996b3", accent: "#ff9ec4", accentInk: "#1a1020", glow: "rgba(170, 100, 200, 0.2)",
     display: '"Syne", Arial, sans-serif', displayName: "Syne", body: '"Manrope", Arial, sans-serif', bodyName: "Manrope", weight: 700, tracking: "-0.02em", letterCase: "none",
     radius: "26px", radiusSmall: "16px", buttonRadius: "999px", googleCss: fonts("Syne:wght@600;700", "Manrope:wght@400;500;600;700") },
@@ -40,7 +44,7 @@ export const journeyThemes: JourneyTheme[] = [
     radius: "14px", radiusSmall: "10px", buttonRadius: "14px", googleCss: fonts("Sora:wght@500;600", "Rubik:wght@400;500;600") },
   { name: "espresso-cream", label: "Espresso and cream", dark: true, deep: "#1c1512", bg: "#1c1512", surface: "#28201b", ink: "#f0e9e2", bright: "#fdf8f1", muted: "#ab9c8f", accent: "#f3e3c3", accentInk: "#1c1512", glow: "rgba(200, 150, 100, 0.14)",
     display: '"Playfair Display", Georgia, serif', displayName: "Playfair Display", body: '"Lato", Arial, sans-serif', bodyName: "Lato", weight: 600, tracking: "0em", letterCase: "none",
-    radius: "6px", radiusSmall: "4px", buttonRadius: "6px", googleCss: fonts("Playfair+Display:wght@500;600", "Lato:wght@400;700") },
+    radius: "6px", radiusSmall: "4px", buttonRadius: "6px", googleCss: fonts("Playfair+Display:wght@500;600", "Lato:wght@400;700"), adult: true },
   { name: "ink-sky", label: "Ink and sky", dark: true, deep: "#0b1024", bg: "#0b1024", surface: "#141a36", ink: "#e6eaf6", bright: "#f6f8ff", muted: "#8f98b8", accent: "#8fd3ff", accentInk: "#0b1024", glow: "rgba(90, 120, 230, 0.2)",
     display: '"Space Grotesk", Arial, sans-serif', displayName: "Space Grotesk", body: '"Inter", Arial, sans-serif', bodyName: "Inter", weight: 500, tracking: "-0.035em", letterCase: "none",
     radius: "22px", radiusSmall: "14px", buttonRadius: "999px", googleCss: fonts("Space+Grotesk:wght@500;600", "Inter:wght@400;500;600;700") },
@@ -50,14 +54,32 @@ export const journeyThemes: JourneyTheme[] = [
   // Light grounds: the same story in daylight.
   { name: "paper-pine", label: "Paper and pine", dark: false, deep: "#14261f", bg: "#f5f2ea", surface: "#ffffff", ink: "#1d2622", bright: "#0d1512", muted: "#5d6a63", accent: "#1f6b53", accentInk: "#ffffff", glow: "rgba(31, 107, 83, 0.12)",
     display: '"Fraunces", Georgia, serif', displayName: "Fraunces", body: '"Outfit", Arial, sans-serif', bodyName: "Outfit", weight: 500, tracking: "-0.02em", letterCase: "none",
-    radius: "20px", radiusSmall: "12px", buttonRadius: "999px", googleCss: fonts("Fraunces:opsz,wght@9..144,400;9..144,500", "Outfit:wght@400;500;600;700") },
+    radius: "20px", radiusSmall: "12px", buttonRadius: "999px", googleCss: fonts("Fraunces:opsz,wght@9..144,400;9..144,500", "Outfit:wght@400;500;600;700"), adult: true },
   { name: "sky-coral", label: "Sky and coral", dark: false, deep: "#10202e", bg: "#eef4f8", surface: "#ffffff", ink: "#16232f", bright: "#0a141d", muted: "#586877", accent: "#c23a1e", accentInk: "#ffffff", glow: "rgba(70, 140, 200, 0.16)",
     display: '"Space Grotesk", Arial, sans-serif', displayName: "Space Grotesk", body: '"Inter", Arial, sans-serif', bodyName: "Inter", weight: 600, tracking: "-0.035em", letterCase: "none",
     radius: "12px", radiusSmall: "8px", buttonRadius: "12px", googleCss: fonts("Space+Grotesk:wght@500;600", "Inter:wght@400;500;600;700") },
   { name: "sand-violet", label: "Sand and violet", dark: false, deep: "#231a33", bg: "#f4eee6", surface: "#fffaf3", ink: "#2a2233", bright: "#170f22", muted: "#6c6177", accent: "#5b3fd1", accentInk: "#ffffff", glow: "rgba(120, 90, 220, 0.14)",
     display: '"Syne", Arial, sans-serif', displayName: "Syne", body: '"Manrope", Arial, sans-serif', bodyName: "Manrope", weight: 700, tracking: "-0.02em", letterCase: "none",
     radius: "28px", radiusSmall: "16px", buttonRadius: "999px", googleCss: fonts("Syne:wght@600;700", "Manrope:wght@400;500;600;700") },
+  // Grown-up registers: quiet grounds, one restrained accent, a serif for the headings. Chosen only for an adult audience.
+  { name: "porcelain-teal", label: "Porcelain and teal", dark: false, deep: "#0f2a2e", bg: "#f6f5f1", surface: "#ffffff", ink: "#1b2226", bright: "#0d1317", muted: "#5a666c", accent: "#0f5c63", accentInk: "#ffffff", glow: "rgba(15, 92, 99, 0.08)",
+    display: '"Cormorant Garamond", Georgia, serif', displayName: "Cormorant Garamond", body: '"Inter", Arial, sans-serif', bodyName: "Inter", weight: 500, tracking: "-0.01em", letterCase: "none",
+    radius: "4px", radiusSmall: "2px", buttonRadius: "4px", googleCss: fonts("Cormorant+Garamond:wght@500;600", "Inter:wght@400;500;600;700"), scale: 1.55, adult: true, only: "adults" },
+  { name: "linen-bronze", label: "Linen and bronze", dark: false, deep: "#2a1d12", bg: "#f3ede4", surface: "#fbf7f0", ink: "#2a231c", bright: "#17110b", muted: "#6b5f52", accent: "#7a4a1e", accentInk: "#ffffff", glow: "rgba(122, 74, 30, 0.08)",
+    display: '"DM Serif Display", Georgia, serif', displayName: "DM Serif Display", body: '"DM Sans", Arial, sans-serif', bodyName: "DM Sans", weight: 400, tracking: "-0.005em", letterCase: "none",
+    radius: "10px", radiusSmall: "6px", buttonRadius: "999px", googleCss: fonts("DM+Serif+Display", "DM+Sans:wght@400;500;600;700"), scale: 1.35, adult: true, only: "adults" },
+  { name: "slate-pearl", label: "Slate and pearl", dark: true, deep: "#14181c", bg: "#14181c", surface: "#1d2329", ink: "#e8eaec", bright: "#f7f8f9", muted: "#96a0a8", accent: "#e6d5b8", accentInk: "#14181c", glow: "rgba(230, 213, 184, 0.07)",
+    display: '"Marcellus", Georgia, serif', displayName: "Marcellus", body: '"Inter", Arial, sans-serif', bodyName: "Inter", weight: 400, tracking: "0.01em", letterCase: "none",
+    radius: "2px", radiusSmall: "2px", buttonRadius: "2px", googleCss: fonts("Marcellus", "Inter:wght@400;500;600;700"), scale: 1.35, adult: true, only: "adults" },
 ];
+// Who the story is for. "general" is the full, playful range. "adults" is the grown-up
+// register for general and aesthetic practices: quiet themes only, no cast unless the
+// record asks for one, no costume, no dotted or dashed rings, no glass cards. The seed
+// still chooses within that range, so two adult sites do not look alike.
+export const journeyAudiences = ["general", "adults"] as const;
+export type JourneyAudience = (typeof journeyAudiences)[number];
+const generalThemes = journeyThemes.filter((t) => !t.only);
+const adultThemes = journeyThemes.filter((t) => t.adult);
 
 // How the chapters are named: the "lore" the visitor reads the story through.
 export const journeyLores = {
@@ -95,7 +117,7 @@ export const journeyEntrances = ["edge", "under-words", "behind"] as const; // w
 type Pick<T extends readonly string[]> = T[number];
 
 export type StoryStyleChoice = {
-  seed?: string; theme?: string; lore?: JourneyLore; genre?: JourneyGenre; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
+  seed?: string; audience?: JourneyAudience; theme?: string; lore?: JourneyLore; genre?: JourneyGenre; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
   marks?: Pick<typeof journeyMarks>; brand?: Pick<typeof journeyBrands>; voice?: Pick<typeof journeyVoices>; cue?: Pick<typeof journeyCues>;
   words?: Pick<typeof journeyWords>; map?: Pick<typeof journeyMaps>; cards?: Pick<typeof journeyCards>; entrance?: Pick<typeof journeyEntrances>;
 };
@@ -139,15 +161,17 @@ const pick = <T,>(list: readonly T[], seed: string, part: string) => list[seedNu
 export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice }) {
   const choice = site.storyStyle ?? {};
   const seed = choice.seed ?? site.slug;
-  const lore = choice.lore ?? pick(loreNames, seed, "lore");
+  const adults = choice.audience === "adults";
+  const lore = choice.lore ?? pick(adults ? (["chapters", "pages"] as const) : loreNames, seed, "lore");
   return {
     seed,
+    audience: (adults ? "adults" : "general") as JourneyAudience,
     // Two looks in three wear the genre that suits their chapter naming; the third is the seed's own pick.
-    genre: choice.genre ?? (seedNumber(`genre-tie:${seed}`) % 3 ? lorePartners[lore] : pick(costumes, seed, "genre")),
-    theme: journeyThemes.find((t) => t.name === choice.theme) ?? pick(journeyThemes, seed, "theme"),
+    genre: choice.genre ?? (adults ? "plain" : seedNumber(`genre-tie:${seed}`) % 3 ? lorePartners[lore] : pick(costumes, seed, "genre")),
+    theme: journeyThemes.find((t) => t.name === choice.theme) ?? pick(adults ? adultThemes : generalThemes, seed, "theme"),
     lore,
     side: choice.side ?? pick(journeySides, seed, "side"),
-    orbit: choice.orbit ?? pick(journeyOrbits, seed, "orbit"),
+    orbit: choice.orbit ?? pick(adults ? (["none", "double"] as const) : journeyOrbits, seed, "orbit"),
     layout: resolveLayout({
       side: choice.side ?? pick(journeySides, seed, "side"),
       marks: choice.marks ?? pick(journeyMarks, seed, "marks"),
@@ -156,7 +180,7 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
       cue: choice.cue ?? pick(journeyCues, seed, "cue"),
       words: choice.words ?? pick(journeyWords, seed, "words"),
       map: choice.map ?? pick(journeyMaps, seed, "map"),
-      cards: choice.cards ?? pick(journeyCards, seed, "cards"),
+      cards: choice.cards ?? pick(adults ? (["outlined", "solid"] as const) : journeyCards, seed, "cards"),
       entrance: choice.entrance ?? pick(journeyEntrances, seed, "entrance"),
     }),
   };
@@ -165,14 +189,14 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
 /** The look as data attributes on the page's root: the stylesheets do the rest. */
 export function lookAttributes(look: ReturnType<typeof journeyStyle>) {
   const l = look.layout;
-  return { "data-theme-name": look.theme.name, "data-genre": look.genre, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
+  return { "data-theme-name": look.theme.name, "data-genre": look.genre, "data-audience": look.audience, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
 }
 
 /** A theme as the CSS variables the story pages are built on. */
 export function themeVars(t: JourneyTheme): CSSProperties {
   return {
     "--deep": t.deep, "--line": `color-mix(in srgb, ${t.ink} 16%, transparent)`, "--strike": t.dark ? "#ff6b6b" : "#c8322b", "--shade": t.dark ? "rgba(0, 0, 0, 0.35)" : "rgba(40, 30, 60, 0.14)", "--bg": t.bg, "--surface": t.surface, "--ink": t.ink, "--bright": t.bright, "--muted": t.muted, "--accent": t.accent, "--accent-ink": t.accentInk, "--glow": t.glow,
-    "--font-display": t.display, "--font-body": t.body, "--font-accent": t.body, "--display-weight": t.weight, "--display-tracking": t.tracking, "--display-case": t.letterCase,
+    "--font-display": t.display, "--font-body": t.body, "--font-accent": t.body, "--display-weight": t.weight, "--display-tracking": t.tracking, "--display-case": t.letterCase, "--display-scale": t.scale ?? 1,
     "--radius": t.radius, "--radius-small": t.radiusSmall, "--button-radius": t.buttonRadius,
   } as CSSProperties;
 }

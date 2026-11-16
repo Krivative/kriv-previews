@@ -183,7 +183,7 @@ describe("PCO scroll journey", () => {
     const kit = renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={brandKitPage(site)} />);
     const kitWords = text(kit);
     expect(kit).toContain(banner("PCO Dental Clinic"));
-    for (const part of ["Concept brand kit", "On the ground colour", "On the accent", "On white", "#E7FA78", "Lexend Zetta", "Page cover", "Profile picture", "Square post", "Appointment card", "[DENTIST NAME]", "Every piece is a proposal for the clinic to approve."]) expect(kitWords).toContain(part);
+    for (const part of ["Concept brand kit", "On the ground colour", "On the accent", "On white", "#0F5C63", "Cormorant Garamond", "Page cover", "Profile picture", "Square post", "Appointment card", "[DENTIST NAME]", "Every piece is a proposal for the clinic to approve."]) expect(kitWords).toContain(part);
     expect(kit.match(/logo, concept redraw/g)?.length).toBeGreaterThanOrEqual(9);
     expect(kit).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
     expect(kitWords).not.toMatch(/wayaway|award|guarantee|PHP|₱/i);
@@ -218,7 +218,7 @@ describe("PCO scroll journey", () => {
     }
   });
   it("renders a place for the next-chapter cue, empty until the page runs", () => {
-    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span class="[^"]*usher[^"]*" aria-hidden="true"><svg[\s\S]*?<\/svg><\/span><span><\/span><\/p>/);
+    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span><\/span><\/p>/);
   });
   it("gives level two one recorded line per stop, numbered as on its map", () => {
     const stops = ["inside", "services", "about", "book", "visit", "social", "faq"];
@@ -242,10 +242,10 @@ describe("PCO scroll journey", () => {
     expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
   });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(4); // narration, the cast's quiet control and the character, plus level two's narration button
+    expect(html.match(/<button\b/g)?.length).toBe(2); // narration for the story and for level two; PCO runs without a cast
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b|<img\b/);
-    expect(html.match(/<button type="button"/g)?.length).toBe(4);
+    expect(html.match(/<button type="button"/g)?.length).toBe(2);
   });
   it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);
@@ -254,7 +254,7 @@ describe("PCO scroll journey", () => {
     const known = [...sitePages(site), offerPage(site)!, brandKitPage(site)!].map((p) => pageHref(site, p.path));
     for (const page of inner) {
       const out = renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={page} />);
-      expect(out).toContain('data-theme-name="night-lime"');
+      expect(out).toContain('data-theme-name="porcelain-teal"');
       expect(out.match(/logo, concept redraw/g)?.length).toBe(2);
       expect(out).toContain(banner("PCO Dental Clinic"));
       expect(out.match(/<h1\b/g)?.length).toBe(1);
@@ -293,8 +293,8 @@ describe("story style randomizer", () => {
   const html = render(pco);
   it("keeps PCO on the look pinned in its record", () => {
     const look = journeyStyle(SiteData.parse(pco));
-    expect([look.theme.name, look.lore, look.side, look.orbit]).toEqual(["night-lime", "chapters", "right", "dotted"]);
-    expect(html).toContain('data-theme-name="night-lime"');
+    expect([look.theme.name, look.lore, look.side, look.orbit]).toEqual(["porcelain-teal", "chapters", "right", "none"]);
+    expect(html).toContain('data-theme-name="porcelain-teal"');
     expect(text(html)).toContain("Chapter 1 / The start");
   });
   it("gives the same seed the same look, and different seeds different looks", () => {
@@ -302,7 +302,7 @@ describe("story style randomizer", () => {
     expect(of("abc")).toBe(of("abc"));
     const seen = new Set(Array.from({ length: 60 }, (_, n) => of(`seed-${n}`)));
     expect(seen.size).toBeGreaterThan(25);
-    expect(new Set(Array.from({ length: 60 }, (_, n) => journeyStyle({ slug: `lead-${n}` }).theme.name)).size).toBe(journeyThemes.length);
+    expect(new Set(Array.from({ length: 60 }, (_, n) => journeyStyle({ slug: `lead-${n}` }).theme.name)).size).toBe(journeyThemes.filter((t) => !t.only).length);
   });
   it("restyles the whole story from a seed without touching its words", () => {
     const other = render({ ...pco, storyStyle: { theme: "forest-gold", lore: "stops", side: "left", orbit: "none" } });
@@ -331,7 +331,7 @@ describe("story style randomizer", () => {
     expect(text(page)).toContain("Stop 1 of 10 / The start");
   });
   it("dresses a story lead's quotation in that lead's own theme", () => {
-    expect(render(pco, true)).toContain('data-theme-name="night-lime"');
+    expect(render(pco, true)).toContain('data-theme-name="porcelain-teal"');
     expect(render({ ...pco, storyStyle: { theme: "forest-gold" } }, true)).toContain('data-theme-name="forest-gold"');
   });
   it("defines every theme in full, with readable text and accent", () => {

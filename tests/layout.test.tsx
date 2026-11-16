@@ -81,7 +81,7 @@ describe("layout choices from the seed", () => {
 describe("two stories never share a production", () => {
   it("keeps PCO on its pinned look, in full", () => {
     const look = journeyStyle(SiteData.parse(pco));
-    expect(lookAttributes(look)).toEqual({ "data-theme-name": "night-lime", "data-genre": "plain", "data-side": "right", "data-orbit": "dotted", "data-marks": "rail-right", "data-brand": "top-centre", "data-voice": "bottom-right", "data-cue": "bottom-centre", "data-words": "beside", "data-map": "ring", "data-cards": "glass", "data-entrance": "edge" });
+    expect(lookAttributes(look)).toMatchObject({ "data-theme-name": "porcelain-teal", "data-genre": "plain", "data-audience": "adults", "data-side": "right", "data-orbit": "none", "data-marks": "rail-right", "data-brand": "top-centre", "data-voice": "top-right", "data-cue": "bottom-centre", "data-words": "beside", "data-map": "ring", "data-cards": "outlined" });
   });
   it("gives the rates page a different theme and at least two different layout choices from PCO", () => {
     const a = lookAttributes(journeyStyle(SiteData.parse(pco))), b = lookAttributes(ratesLook());

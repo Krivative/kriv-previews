@@ -31,19 +31,10 @@
   },
   "story": "dental-journey",
   "storyStyle": {
-    "theme": "night-lime",
+    "audience": "adults",
+    "seed": "d4",
     "lore": "chapters",
-    "genre": "plain",
-    "side": "right",
-    "orbit": "dotted",
-    "marks": "rail-right",
-    "brand": "top-centre",
-    "voice": "bottom-right",
-    "cue": "bottom-centre",
-    "words": "beside",
-    "map": "ring",
-    "cards": "glass",
-    "entrance": "edge"
+    "brand": "top-centre"
   },
   "design": {},
   "hero": {
