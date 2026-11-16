@@ -1,0 +1,78 @@
+/* The cast of a story site (preview-only): small characters that step out when
+   a chapter's narration has ended. JourneyScroller sets the data attributes.
+   Characters are decoration: they sit beside the drawing, never over the
+   narration, the brand mark, the chapter marks or the controls, and they are
+   off for reduced motion and when the visitor turns them off. */
+/* Phones: at the lower right of the drawing, growing downwards from this line, so it stays under the brand mark,
+   the chapter marks and the narration button and above the words. */
+.cast { position: sticky; top: 0; transform: translateY(calc(50svh - 112px)); z-index: 3; height: 0; margin: 0; padding-inline: 10px; display: flex; flex-direction: row-reverse; align-items: flex-start; gap: 6px; pointer-events: none; }
+.cast[data-quiet], .cast:not([data-on]) { display: none; }
+.character { flex: none; width: 76px; height: 89px; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto; opacity: 0; transform: translateY(26px) scale(0.7); transform-origin: bottom center; transition: opacity 0.28s ease-out, transform 0.42s var(--journey-ease, cubic-bezier(0.22, 1, 0.36, 1)); }
+.character:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 12px; }
+.character svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.cast[data-shown] .character { opacity: 0.78; transform: scale(0.82); }
+.cast[data-speaking] .character { opacity: 1; transform: none; }
+.cast:not([data-shown]) .character { pointer-events: none; }
+.bubble { position: relative; margin: 6px 0 0; max-width: min(232px, 60vw); padding: 9px 13px; border-radius: 16px 4px 16px 16px; background: var(--surface); border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); color: var(--ink); font-size: 0.88rem; line-height: 1.35; opacity: 0; transform: translateY(8px) scale(0.92); transform-origin: top right; transition: opacity 0.22s ease-out, transform 0.3s var(--journey-ease, ease-out); }
+.bubble b { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.cast[data-speaking] .bubble { opacity: 1; transform: none; }
+
+/* The usher rides on the "next chapter" notice. */
+.usher { display: none; flex: none; width: 30px; height: 35px; margin: -8px 2px -6px -8px; }
+.usher svg { display: block; width: 100%; height: 100%; overflow: visible; }
+[data-cast-on] > p > .usher { display: inline-block; vertical-align: middle; }
+[data-cast-on] > p > .usher + span:empty { display: none; }
+[data-cast-on] > p:has(> .usher + span:empty) > .usher { display: none; }
+
+/* The quiet control sits with the narration button. */
+.quiet { margin-left: 8px; }
+
+/* ---------- Faces: only the expression in use is drawn ---------- */
+.character [data-face], .usher [data-face] { display: none; }
+.character[data-expression="neutral"] [data-face="neutral"], .character[data-expression="happy"] [data-face="happy"], .character[data-expression="surprised"] [data-face="surprised"],
+.character[data-expression="thinking"] [data-face="thinking"], .character[data-expression="cheeky"] [data-face="cheeky"], .character[data-expression="concerned"] [data-face="concerned"] { display: inline; }
+.usher [data-face="neutral"] { display: inline; }
+[data-held] > p > .usher [data-face="neutral"] { display: none; }
+[data-held] > p > .usher [data-face="concerned"] { display: inline; }
+
+/* ---------- Moves: short loops while the character speaks ---------- */
+.character [data-cast-art], .character [data-part] { transform-box: fill-box; transform-origin: bottom center; }
+.character [data-part="arm"] { transform-origin: 10% 90%; }
+@keyframes cast-hop { 0%, 100% { transform: none; } 40% { transform: translateY(-9px); } }
+@keyframes cast-nod { 0%, 100% { transform: none; } 50% { transform: rotate(5deg); } }
+@keyframes cast-shrug { 0%, 100% { transform: none; } 50% { transform: scale(1.04, 0.95); } }
+@keyframes cast-peek { 0% { transform: translateX(22px); } 60%, 100% { transform: none; } }
+@keyframes cast-wave { 0%, 100% { transform: none; } 30% { transform: rotate(-16deg); } 65% { transform: rotate(12deg); } }
+@keyframes cast-point { 0%, 100% { transform: none; } 50% { transform: rotate(-9deg) scale(1.06); } }
+.cast[data-speaking] .character[data-move="hop"] [data-cast-art] { animation: cast-hop 0.7s ease-in-out infinite; }
+.cast[data-speaking] .character[data-move="nod"] [data-cast-art] { animation: cast-nod 0.9s ease-in-out infinite; }
+.cast[data-speaking] .character[data-move="shrug"] [data-cast-art] { animation: cast-shrug 0.9s ease-in-out infinite; }
+.cast[data-speaking] .character[data-move="peek"] [data-cast-art] { animation: cast-peek 0.8s var(--journey-ease, ease-out) both; }
+.cast[data-speaking] .character[data-move="wave"] [data-part="arm"] { animation: cast-wave 0.8s ease-in-out infinite; }
+.cast[data-speaking] .character[data-move="point"] [data-part="arm"] { animation: cast-point 1s ease-in-out infinite; }
+
+@media (min-width: 900px) {
+  /* Beside the drawing, at the foot of its column, clear of the narration button on the far right. */
+  .cast { grid-column: 2; grid-row: 1; align-self: start; top: calc(100svh - 132px); transform: none; flex-direction: row; align-items: flex-end; padding-inline: 8px 150px; }
+  .bubble { margin: 0 0 30px; }
+  .character { width: 92px; height: 107px; }
+  .bubble { border-radius: 16px 16px 16px 4px; transform-origin: bottom left; max-width: 250px; }
+}
+/* When the drawing sits on the left, so does the cast. */
+@media (min-width: 900px) {
+  [data-side="left"] .cast { grid-column: 1; padding-inline: 28px 8px; }
+  /* A rail of chapter marks on the same side: stand clear of it. */
+  [data-side="left"][data-marks="rail-left"] .cast { padding-left: 64px; }
+  /* Where the cast steps out: beside the drawing at its edge (the base), from behind the drawing, or from under the words. */
+  [data-entrance="behind"] .cast { justify-content: center; padding-inline: 8px; }
+  [data-entrance="behind"] .character { transform: translateY(40px) scale(0.5); }
+}
+@media (min-width: 900px) and (min-height: 820px) {
+  /* Words centred: the cast stands in the drawing's band, on its right. */
+  [data-words="centred"] .cast { grid-column: 1; top: calc(46svh - 30px); flex-direction: row-reverse; justify-content: flex-start; padding-inline: 8px 9%; }
+}
+@media (min-width: 900px) and (min-height: 860px) {
+  [data-entrance="under-words"]:not([data-words="centred"]) .cast { grid-column: 1; padding-inline: 48px 8px; }
+  [data-entrance="under-words"][data-side="left"]:not([data-words="centred"]) .cast { grid-column: 2; padding-inline: 20px 300px; }
+}
+@media (prefers-reduced-motion: reduce) { .cast, .usher { display: none !important; } }

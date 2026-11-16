@@ -30,7 +30,9 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .root .nav a:hover { color: var(--accent); }
 
 .journey { position: relative; overflow: clip; }
-.dots { position: sticky; top: 10px; z-index: 3; height: 0; margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 2px; }
+/* Marks pinned near the top are placed with a transform, not a sticky offset, so they hold the same
+   places before the story is scrolled into as after (a sticky offset only applies once it sticks). */
+.dots { position: sticky; top: 0; transform: translateY(10px); z-index: 3; height: 0; margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 2px; }
 .dots a { display: grid; place-items: center; width: 26px; height: 32px; }
 .dots a::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 35%, transparent); transition: transform 0.3s, background 0.3s, width 0.3s; }
 .dots a:hover::before { background: var(--ink); }
@@ -45,20 +47,20 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .journey[data-step="8"] .dots li:nth-child(9) a::before,
 .journey[data-step="9"] .dots li:nth-child(10) a::before { background: var(--accent); width: 20px; border-radius: 999px; box-shadow: 0 0 12px var(--accent); }
 
-.voice { position: sticky; top: 44px; z-index: 4; height: 0; margin: 0; padding-inline: 16px; display: flex; justify-content: center; }
+.voice { position: sticky; top: 0; transform: translateY(44px); z-index: 4; height: 0; margin: 0; padding-inline: 16px; display: flex; justify-content: center; }
 .root .voice button { font: inherit; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; min-height: 40px; padding: 6px 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(12px); color: var(--ink); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .root .voice button::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--muted); }
 .root .voice button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .root .voice button[aria-pressed="true"]::before { background: var(--accent-ink); }
 .root .voice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 /* The site's own mark, top centre for the whole story. */
-.crest { position: sticky; top: 8px; z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
+.crest { position: sticky; top: 0; transform: translateY(8px); z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
 .crest span { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent); backdrop-filter: blur(12px); }
-.crest svg { width: 44px; height: 30px; }
-.crest b { font-family: var(--font-mono); font-weight: 400; font-size: 0.6rem; letter-spacing: 0.16em; color: var(--ink); white-space: nowrap; }
-.journey:has(.crest) .dots { top: 58px; }
-.journey:has(.crest) .voice { top: 90px; }
-.journey:has(.crest) .stage { padding-top: 134px; }
+.crest svg { width: 68px; height: 47px; }
+.crest b { font-family: var(--font-mono); font-weight: 400; font-size: 0.66rem; letter-spacing: 0.16em; color: var(--ink); white-space: nowrap; }
+.journey:has(.crest) .dots { transform: translateY(76px); }
+.journey:has(.crest) .voice { transform: translateY(108px); }
+.journey:has(.crest) .stage { padding-top: 152px; }
 .journey:has(.crest) .art { width: min(80%, 32svh); }
 /* What to do next, or why the next chapter is waiting. */
 .cue { position: sticky; top: calc(100svh - 58px); z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
@@ -164,13 +166,14 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 @media (min-width: 900px) {
   .foot { grid-template-columns: auto 1fr; gap: 32px !important; }
   .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
-  .crest { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 20px; }
-  .crest svg { width: 56px; height: 38px; }
-  .crest b { font-size: 0.68rem; }
-  .journey:has(.crest) .dots { top: 50svh; }
+  .crest { grid-column: 1 / -1; grid-row: 1; align-self: start; transform: translateY(20px); }
+  .crest span { padding: 8px 22px 8px 14px; gap: 14px; }
+  .crest svg { width: 104px; height: 72px; }
+  .crest b { font-size: 0.8rem; }
+  .journey:has(.crest) .dots { top: 50svh; transform: translateY(-112px); }
   .journey:has(.crest) .stage { padding-top: 0; }
   .journey:has(.crest) .art { width: min(100%, 72svh); }
-  .journey:has(.crest) .voice, .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
+  .journey:has(.crest) .voice, .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); transform: none; justify-content: flex-end; }
   .cue { grid-column: 1 / -1; grid-row: 1; align-self: start; }
   .dots { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 50svh; flex-direction: column; justify-content: flex-start; align-items: flex-end; height: 0; transform: translateY(-112px); padding-right: 12px; }
   .dots a { width: 32px; height: 28px; }
@@ -191,5 +194,37 @@ html:has(.journey) { scroll-snap-type: y proximity; }
   .root[data-side="left"] .stage { grid-column: 1; }
   .root[data-side="left"] .steps { grid-column: 2; }
   .root[data-side="left"] .step { padding: 0 48px 0 20px; }
-  .root[data-side="left"] .dots { align-items: flex-start; padding: 0 0 0 12px; }
+  /* ----- Layout choices from the story's style (wide screens only) ----- */
+  /* Chapter marks: a rail on the right (the base), a rail on the left, or a row along the top. */
+  .root[data-marks="rail-left"] .dots { align-items: flex-start; padding: 0 0 0 12px; }
+  .root[data-marks="top"] .dots, .root[data-marks="top"] .journey:has(.crest) .dots { top: 0; transform: translateY(22px); flex-direction: row; justify-content: center; align-items: flex-start; padding: 0; }
+  .root[data-marks="top"] .dots a { width: 26px; height: 32px; }
+  .root[data-marks="top"] .journey[data-step] .dots li a::before { height: 7px; }
+  /* The client's mark: top centre (the base), top left, or bottom left (mark only, to leave the bottom row free). */
+  .root[data-brand="top-left"] .crest { justify-content: flex-start; padding-left: 24px; }
+  .root[data-brand="bottom-left"] .crest { top: calc(100svh - 104px); transform: none; justify-content: flex-start; padding-left: 20px; }
+  .root[data-brand="bottom-left"] .crest b { display: none; }
+  .root[data-brand="bottom-left"] .crest span { padding: 6px 12px; }
+  /* Narration and cast buttons: bottom right (the base), bottom left, or top right. */
+  .root[data-voice="bottom-left"] .voice, .root[data-voice="bottom-left"] .journey:has(.crest) .voice { justify-content: flex-start; }
+  .root[data-voice="top-right"] .voice, .root[data-voice="top-right"] .journey:has(.crest) .voice { top: 0; transform: translateY(18px); justify-content: flex-end; }
+  /* The "next chapter" notice: bottom centre (the base), bottom left, or bottom right. */
+  .root[data-cue="bottom-left"] .cue { justify-content: flex-start; padding-left: 20px; }
+  .root[data-cue="bottom-right"] .cue { justify-content: flex-end; padding-right: 20px; }
+
+}
+
+/* Words centred under the drawing: one column, the drawing in the upper band. Only on wide AND tall screens,
+   where a chapter's words still fit under the drawing before the first scroll; elsewhere the words stay beside it. */
+@media (min-width: 900px) and (min-height: 820px) {
+  .root[data-words="centred"] .journey { grid-template-columns: minmax(0, 1fr); }
+  .root[data-words="centred"] .stage, .root[data-words="centred"] .journey:has(.crest) .stage { grid-column: 1; height: 46svh; padding: 88px 24px 0; }
+  .root[data-words="centred"] .art, .root[data-words="centred"] .journey:has(.crest) .art { width: min(56%, 34svh); }
+  .root[data-words="centred"] .steps { grid-column: 1; }
+  .root[data-words="centred"] .step { padding: 47svh 24px 112px; align-content: start; justify-items: center; text-align: center; }
+  .root[data-words="centred"] .words { justify-items: center; }
+}
+/* The cast stepping out from under the words needs the words to start high and leave the foot of their column free. */
+@media (min-width: 900px) and (min-height: 860px) {
+  .root[data-entrance="under-words"]:not([data-words="centred"]) .step { align-content: start; padding-top: 15svh; }
 }

@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
 // on every visit. `storyStyle` in the lead record can pin any part, or give a
 // new seed to reshuffle (`pnpm story:shuffle <slug>`).
 //
-// What varies: the colour theme (dark and light grounds) and typefaces, the corner shapes, how chapters
+// What varies: the colour theme (dark and light grounds) and typefaces, the layout (see below), the corner shapes, how chapters
 // are named, which side the drawing sits on, and the ring around it. What does
 // not vary: the story's words (a recorded voice-over reads them) and the
 // guardrails.
@@ -72,17 +72,59 @@ export const journeyOrbits = ["dotted", "dashed", "double", "none"] as const;
 export const themeNames = journeyThemes.map((t) => t.name) as [string, ...string[]];
 export const loreNames = Object.keys(journeyLores) as [JourneyLore, ...JourneyLore[]];
 
-export type StoryStyleChoice = { seed?: string; theme?: string; lore?: JourneyLore; side?: (typeof journeySides)[number]; orbit?: (typeof journeyOrbits)[number] };
+// ---------- Layout: where everything sits on wide screens ----------
+// Each of these is chosen by the seed and can be pinned in `storyStyle`. Phones and tablets
+// always use one arrangement that is known to be safe; the choices apply from 900px wide.
+export const journeyMarks = ["rail-right", "rail-left", "top"] as const; // the chapter marks
+export const journeyBrands = ["top-centre", "top-left", "bottom-left"] as const; // the client's mark
+export const journeyVoices = ["bottom-right", "bottom-left", "top-right"] as const; // narration and cast buttons
+export const journeyCues = ["bottom-centre", "bottom-left", "bottom-right"] as const; // the "next chapter" notice
+export const journeyWords = ["beside", "centred"] as const; // words beside the drawing, or centred under it
+export const journeyMaps = ["ring", "line", "zigzag"] as const; // the level-two map
+export const journeyCards = ["glass", "outlined", "solid"] as const;
+export const journeyEntrances = ["edge", "under-words", "behind"] as const; // where the cast steps out
+type Pick<T extends readonly string[]> = T[number];
+
+export type StoryStyleChoice = {
+  seed?: string; theme?: string; lore?: JourneyLore; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
+  marks?: Pick<typeof journeyMarks>; brand?: Pick<typeof journeyBrands>; voice?: Pick<typeof journeyVoices>; cue?: Pick<typeof journeyCues>;
+  words?: Pick<typeof journeyWords>; map?: Pick<typeof journeyMaps>; cards?: Pick<typeof journeyCards>; entrance?: Pick<typeof journeyEntrances>;
+};
+export type JourneyLayout = Required<Pick2>;
+type Pick2 = { marks: Pick<typeof journeyMarks>; brand: Pick<typeof journeyBrands>; voice: Pick<typeof journeyVoices>; cue: Pick<typeof journeyCues>; words: Pick<typeof journeyWords>; map: Pick<typeof journeyMaps>; cards: Pick<typeof journeyCards>; entrance: Pick<typeof journeyEntrances>; side: Pick<typeof journeySides> };
+
+/**
+ * Makes a set of layout choices safe: no two things may claim the same place. The rules are small and
+ * fixed, so any seed and any pin ends in an arrangement with one element per place.
+ */
+export function resolveLayout(raw: Pick2): Pick2 {
+  const l = { ...raw };
+  // A row of chapter marks along the top takes the top centre: the brand moves to the top left.
+  if (l.marks === "top" && l.brand === "top-centre") l.brand = "top-left";
+  // The bottom left holds one thing: the brand first, then the buttons, then the notice.
+  if (l.brand === "bottom-left" && l.voice === "bottom-left") l.voice = "bottom-right";
+  if (l.cue === "bottom-left" && (l.brand === "bottom-left" || l.voice === "bottom-left")) l.cue = "bottom-centre";
+  if (l.cue === "bottom-right" && l.voice === "bottom-right") l.cue = "bottom-centre";
+  // The cast can only step out from under the words when the words sit beside the drawing.
+  if (l.words === "centred" && l.entrance === "under-words") l.entrance = "edge";
+  return l;
+}
+
+/** The place each element takes, per screen width. Used by the tests to prove nothing shares a place. */
+export function layoutPlaces(l: Pick2, width: "phone" | "tablet" | "desktop"): Record<"brand" | "marks" | "voice" | "cue" | "cast", string> {
+  if (width !== "desktop") return { brand: "top-row-1", marks: "top-row-2", voice: "top-row-3", cue: "bottom-centre", cast: "drawing-lower-right" };
+  return { brand: l.brand, marks: l.marks === "top" ? "top-centre" : l.marks, voice: l.voice, cue: l.cue, cast: l.words === "centred" ? "drawing-band-right" : `cast-${l.entrance}-${l.entrance === "under-words" ? (l.side === "left" ? "right" : "left") : l.side}-above-bottom-band` };
+}
 
 /** A steady number from a string (FNV-1a, then a mixing step), so the same seed always gives the same look. */
-function hash(text: string): number {
+export function seedNumber(text: string): number {
   let h = 2166136261;
   for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
   // A final stir, so the separate choices made from one seed do not move together.
   h ^= h >>> 16; h = Math.imul(h, 0x85ebca6b); h ^= h >>> 13; h = Math.imul(h, 0xc2b2ae35); h ^= h >>> 16;
   return h >>> 0;
 }
-const pick = <T,>(list: readonly T[], seed: string, part: string) => list[hash(`${part}:${seed}`) % list.length];
+const pick = <T,>(list: readonly T[], seed: string, part: string) => list[seedNumber(`${part}:${seed}`) % list.length];
 
 /** The look for one story site: whatever its record pins, and the seed's choice for the rest. */
 export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice }) {
@@ -94,14 +136,37 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
     lore: choice.lore ?? pick(loreNames, seed, "lore"),
     side: choice.side ?? pick(journeySides, seed, "side"),
     orbit: choice.orbit ?? pick(journeyOrbits, seed, "orbit"),
+    layout: resolveLayout({
+      side: choice.side ?? pick(journeySides, seed, "side"),
+      marks: choice.marks ?? pick(journeyMarks, seed, "marks"),
+      brand: choice.brand ?? pick(journeyBrands, seed, "brand"),
+      voice: choice.voice ?? pick(journeyVoices, seed, "voice"),
+      cue: choice.cue ?? pick(journeyCues, seed, "cue"),
+      words: choice.words ?? pick(journeyWords, seed, "words"),
+      map: choice.map ?? pick(journeyMaps, seed, "map"),
+      cards: choice.cards ?? pick(journeyCards, seed, "cards"),
+      entrance: choice.entrance ?? pick(journeyEntrances, seed, "entrance"),
+    }),
   };
+}
+
+/** The look as data attributes on the page's root: the stylesheets do the rest. */
+export function lookAttributes(look: ReturnType<typeof journeyStyle>) {
+  const l = look.layout;
+  return { "data-theme-name": look.theme.name, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
 }
 
 /** A theme as the CSS variables the story pages are built on. */
 export function themeVars(t: JourneyTheme): CSSProperties {
   return {
-    "--deep": t.deep, "--line": `color-mix(in srgb, ${t.ink} 16%, transparent)`, "--strike": t.dark ? "#ff6b6b" : "#c8322b", "--bg": t.bg, "--surface": t.surface, "--ink": t.ink, "--bright": t.bright, "--muted": t.muted, "--accent": t.accent, "--accent-ink": t.accentInk, "--glow": t.glow,
+    "--deep": t.deep, "--line": `color-mix(in srgb, ${t.ink} 16%, transparent)`, "--strike": t.dark ? "#ff6b6b" : "#c8322b", "--shade": t.dark ? "rgba(0, 0, 0, 0.35)" : "rgba(40, 30, 60, 0.14)", "--bg": t.bg, "--surface": t.surface, "--ink": t.ink, "--bright": t.bright, "--muted": t.muted, "--accent": t.accent, "--accent-ink": t.accentInk, "--glow": t.glow,
     "--font-display": t.display, "--font-body": t.body, "--font-accent": t.body, "--display-weight": t.weight, "--display-tracking": t.tracking, "--display-case": t.letterCase,
     "--radius": t.radius, "--radius-small": t.radiusSmall, "--button-radius": t.buttonRadius,
   } as CSSProperties;
 }
+
+// ---------- KRIV's own rates page ----------
+// The rates page runs through the same style system as lead stories, pinned here (Kriv's pick, 2026-11-16:
+// "sand and violet"). It must never look like a client's story: see the test that compares it with PCO.
+export const ratesStyle: StoryStyleChoice = { theme: "sand-violet", lore: "stops", side: "left", orbit: "double", marks: "rail-left", brand: "top-left", voice: "bottom-right", cue: "bottom-centre", words: "beside", map: "line", cards: "outlined", entrance: "edge" };
+export const ratesLook = () => journeyStyle({ slug: "ph-rates", storyStyle: ratesStyle });

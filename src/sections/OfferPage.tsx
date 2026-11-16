@@ -1,3 +1,4 @@
+import { journeyStyle, themeVars } from "@/stories/journey-style";
 import Link from "next/link";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
@@ -219,7 +220,10 @@ export function OfferPage({ site }: { site: SiteData }) {
   const offer = site.offer;
   if (!offer) return null;
   const name = site.business.name;
-  return <div className={o.root}>
+  // A story lead's quotation wears that lead's own theme, so it matches their site.
+  const theme = site.story ? journeyStyle(site).theme : undefined;
+  return <div className={o.root} style={theme ? themeVars(theme) : undefined} data-theme-name={theme?.name}>
+    {theme ? <link rel="stylesheet" href={theme.googleCss} precedence="fonts" /> : null}
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={o.top}>

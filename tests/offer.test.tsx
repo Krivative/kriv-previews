@@ -11,7 +11,7 @@ import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
 import { levelTwoVoice } from "@/stories/clinic-level-two";
 import { ratesJourney } from "@/stories/rates-journey";
-import { journeyStyle, journeyThemes } from "@/stories/journey-style";
+import { journeyStyle, journeyThemes, ratesLook } from "@/stories/journey-style";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -94,7 +94,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(5); // narration on, plus the builder's four
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(6); // narration on, the cast on, plus the builder's four
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
@@ -218,7 +218,7 @@ describe("PCO scroll journey", () => {
     }
   });
   it("renders a place for the next-chapter cue, empty until the page runs", () => {
-    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span><\/span><\/p>/);
+    expect(html).toMatch(/<p class="[^"]*cue[^"]*" role="status"><span class="[^"]*usher[^"]*" aria-hidden="true"><svg[\s\S]*?<\/svg><\/span><span><\/span><\/p>/);
   });
   it("gives level two one recorded line per stop, numbered as on its map", () => {
     const stops = ["inside", "services", "about", "book", "visit", "social", "faq"];
@@ -242,9 +242,10 @@ describe("PCO scroll journey", () => {
     expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
   });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(2); // the story's narration button and level two's (one shared setting)
+    expect(html.match(/<button\b/g)?.length).toBe(4); // narration, the cast's quiet control and the character, plus level two's narration button
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b/);
+    expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b|<img\b/);
+    expect(html.match(/<button type="button"/g)?.length).toBe(4);
   });
   it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);
@@ -317,6 +318,21 @@ describe("story style randomizer", () => {
     const light = render({ ...pco, storyStyle: { theme: "paper-pine" } });
     expect(light).toContain('data-theme-name="paper-pine"');
     expect(light).toContain(banner("PCO Dental Clinic"));
+  });
+  it("never lets the rates page look like PCO: a different theme and at least two different layout choices", () => {
+    const pcoLook = journeyStyle(SiteData.parse(pco));
+    const rates = ratesLook();
+    expect(rates.theme.name).not.toBe(pcoLook.theme.name);
+    const layout = (l: typeof rates) => [l.lore, l.side, l.orbit];
+    expect(layout(rates).filter((choice, n) => choice !== layout(pcoLook)[n]).length).toBeGreaterThanOrEqual(2);
+    const page = renderToStaticMarkup(<PhRatesPage />);
+    expect(page).toContain('data-theme-name="sand-violet"');
+    expect(page).toContain('data-side="left"');
+    expect(text(page)).toContain("Stop 1 of 10 / The start");
+  });
+  it("dresses a story lead's quotation in that lead's own theme", () => {
+    expect(render(pco, true)).toContain('data-theme-name="night-lime"');
+    expect(render({ ...pco, storyStyle: { theme: "forest-gold" } }, true)).toContain('data-theme-name="forest-gold"');
   });
   it("defines every theme in full, with readable text and accent", () => {
     for (const t of journeyThemes) {

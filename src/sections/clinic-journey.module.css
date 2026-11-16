@@ -36,3 +36,5 @@
   /* Room for the brand mark above a stop that starts at the top of the screen. */
   .level > div > section { padding-top: 96px; align-content: start; }
 }
+[data-cards="outlined"] .list li { background: transparent; border-color: color-mix(in srgb, var(--ink) 34%, transparent); }
+[data-cards="solid"] .list li { background: var(--surface); border-color: transparent; }

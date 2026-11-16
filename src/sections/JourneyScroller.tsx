@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { castVoice, type CastBeat, type StageCast } from "@/stories/casts";
+import c from "./cast.module.css";
 
 // Runs a scroll story (Kriv's rules, 2026-11-16):
 //  - One scroll, swipe or arrow key moves exactly one chapter, and the chapter
@@ -23,11 +25,13 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 // the device's own built-in voice reads the chapter's on-screen title and narration (local voices only).
 
 const PAUSE = 2500; // reading time for a chapter that plays no sound
+const SAY = 2800; // how long a cast bubble stays up
+const QUIET = "journey-cast-quiet";
 const VOICE = "journey-voice"; // the page-wide narration on/off event
 
 // `locked={false}` turns the hold off (a level that scrolls freely but still marks
 // the stop in view); `narrate={false}` leaves out the narration and its button.
-export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, locked = true, narrate = true, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; locked?: boolean; narrate?: boolean; children: ReactNode }) {
+export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, locked = true, narrate = true, cast, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; locked?: boolean; narrate?: boolean; cast?: StageCast | null; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const [voice, setVoice] = useState(defaultVoice);
   const [waiting, setWaiting] = useState(false);
@@ -37,6 +41,15 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const [free, setFree] = useState(!locked);
   const [inView, setInView] = useState(false);
   const [held, setHeld] = useState<"" | "playing" | "forward">("");
+  // The cast: which chapter's character is on stage, whether its bubble is up, and the usher's extras.
+  const [onStage, setOnStage] = useState(-1);
+  const [said, setSaid] = useState(false);
+  const [aside, setAside] = useState<CastBeat | null>(null);
+  const [ending, setEnding] = useState(false);
+  const [quiet, setQuiet] = useState(false);
+  const [calm, setCalm] = useState(false);
+  const sayTimer = useRef(0);
+  const castRef = useRef({ quiet: false, calm: false });
   const current = useRef(0);
   const open = useRef(locked ? 0 : Number.MAX_SAFE_INTEGER);
   const freed = useRef(!locked);
@@ -48,14 +61,26 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const chapters = useCallback(() => [...(root.current?.querySelectorAll<HTMLElement>("[data-journey-step]") ?? [])], []);
 
   /** A chapter has been through: the next one opens, and after the last the story is free. */
+  /** A chapter's character steps out and says its line: only ever called once that chapter's narration is over. */
+  const say = useCallback((index: number) => {
+    if (!cast?.beats[index] || castRef.current.quiet || castRef.current.calm) return;
+    window.clearTimeout(sayTimer.current);
+    setAside(null);
+    setOnStage(index);
+    setSaid(true);
+    sayTimer.current = window.setTimeout(() => setSaid(false), SAY);
+  }, [cast]);
+
   const finish = useCallback((index: number) => {
+    if (index === current.current) say(index);
     if (index + 1 > open.current) { open.current = index + 1; setOpened(index + 1); }
     if (index >= chapters().length - 1 && !freed.current) {
       freed.current = true;
       setFree(true);
+      if (locked && cast) { setEnding(true); window.setTimeout(() => setEnding(false), SAY + 1200); }
       if (locked) try { window.localStorage.setItem(key, "1"); } catch { /* private window: this visit only */ }
     }
-  }, [chapters, key, locked]);
+  }, [chapters, key, locked, cast, say]);
 
   // Chapter in view, paging and the hold on skipping ahead.
   useEffect(() => {
@@ -78,7 +103,12 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     // A timer, not an animation frame: frames can be held back in a background tab, and a returning
     // visitor must not find the story locked because of that.
     const release = window.setTimeout(() => {
-      let done = !locked || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let hushed = false;
+      try { hushed = window.localStorage.getItem(QUIET) === "1"; } catch { /* no storage */ }
+      castRef.current = { quiet: hushed, calm: reduced };
+      setCalm(reduced); setQuiet(hushed);
+      let done = !locked || reduced;
       if (locked) try { done = done || window.localStorage.getItem(key) === "1"; } catch { /* no storage */ }
       if (done) { freed.current = true; open.current = steps.length; setOpened(steps.length); setFree(true); }
     }, 0);
@@ -111,7 +141,21 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; check(); }); };
     const tick = window.setInterval(check, 500);
 
-    const hold = (why: "playing" | "forward") => { setHeld(why); window.clearTimeout(holdTimer); holdTimer = window.setTimeout(() => setHeld(""), 2400); };
+    let teased = false;
+    const hold = (why: "playing" | "forward") => {
+      setHeld(why); setSaid(false); setAside(null);
+      window.clearTimeout(holdTimer);
+      holdTimer = window.setTimeout(() => {
+        setHeld("");
+        // Once per visit, after the usher's notice, the heckler may tease the attempt to go backwards.
+        if (why === "forward" && cast?.tease && !teased && !castRef.current.quiet && !castRef.current.calm) {
+          teased = true;
+          setAside(cast.tease);
+          window.clearTimeout(sayTimer.current);
+          sayTimer.current = window.setTimeout(() => setAside(null), SAY);
+        }
+      }, 2400);
+    };
     const go = (n: number) => {
       busy = Date.now() + 1000;
       const top = n < 0 ? 0 : n >= steps.length ? el.getBoundingClientRect().bottom + window.scrollY : topOf(n);
@@ -179,15 +223,15 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       window.removeEventListener("keydown", onKey); document.removeEventListener("click", onClick);
       window.clearInterval(tick); window.clearTimeout(holdTimer); window.clearTimeout(landTimer); cancelAnimationFrame(frame); window.clearTimeout(release);
     };
-  }, [chapters, key, locked]);
+  }, [chapters, key, locked, cast]);
 
-  const quiet = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); window.clearTimeout(timer.current); window.clearInterval(watch.current); }, []);
+  const hush = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); window.clearTimeout(timer.current); window.clearInterval(watch.current); }, []);
 
   /** Plays one chapter's narration, and marks the chapter finished when it ends. */
   const play = useCallback((index: number) => {
     const chapter = chapters()[index];
     if (!chapter) return;
-    quiet();
+    hush();
     const done = () => finish(index);
     // A backstop, so a sound that never reports its end cannot hold the story.
     const within = (ms: number) => { window.clearTimeout(timer.current); timer.current = window.setTimeout(done, ms); };
@@ -222,15 +266,15 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       // (sound not allowed yet, or the tab was put to sleep): do not hold the story for it.
       else if (audio.paused && Date.now() - began > 1500) { window.clearInterval(watch.current); setWaiting(true); within(PAUSE); }
     }, 250);
-  }, [chapters, finish, quiet]);
+  }, [chapters, finish, hush]);
 
   // Each chapter starts its narration as it comes into view; with narration off it takes a reading pause.
   useEffect(() => {
-    if (!narrate || !inView) return quiet();
+    if (!narrate || !inView) return hush();
     if (voice) play(step);
-    else { quiet(); timer.current = window.setTimeout(() => finish(step), PAUSE); }
-    return quiet;
-  }, [narrate, inView, voice, step, play, quiet, finish]);
+    else { hush(); timer.current = window.setTimeout(() => finish(step), PAUSE); }
+    return hush;
+  }, [narrate, inView, voice, step, play, hush, finish]);
 
   // Until the browser allows sound, the first touch, click or key press starts it.
   useEffect(() => {
@@ -255,11 +299,31 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     else window.dispatchEvent(new CustomEvent<boolean>(VOICE, { detail: !voice }));
   };
   const ready = opened > step;
-  const cue = free ? "" : held === "playing" ? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? "The story plays forward. You can move freely once it ends." : ready ? "Scroll for the next chapter" : "";
+  // The cast speaks one at a time, and never over the narration (see castVoice).
+  const castOn = Boolean(cast) && !quiet && !calm;
+  const beat = aside ?? (onStage === step ? cast?.beats[step] ?? null : null);
+  const voiceNow = castVoice({ enabled: Boolean(cast), quiet, reducedMotion: calm, narrating: !ready && !free, chapterEnded: Boolean(beat), held: Boolean(held) });
+  const speaking = voiceNow === "member" && (said || Boolean(aside));
+  const notice = held === "playing" ? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? "The story plays forward. You can move freely once it ends." : "";
+  // While a character is speaking the "next chapter" notice waits its turn.
+  const cue = notice || (ending && cast ? cast.end : free ? "" : ready && !speaking ? "Scroll for the next chapter" : "");
+  const hushCast = () => {
+    const next = !quiet;
+    castRef.current.quiet = next;
+    try { window.localStorage.setItem(QUIET, next ? "1" : "0"); } catch { /* this visit only */ }
+    setQuiet(next);
+  };
 
-  return <div ref={root} className={className} data-free={free ? "" : undefined} data-ready={ready ? "" : undefined} data-held={held ? "" : undefined}>
-    {narrate ? <p className={voiceClassName}><button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button></p> : null}
-    {locked ? <p className={cueClassName} role="status"><span>{cue}</span></p> : null}
+  return <div ref={root} className={className} data-free={free ? "" : undefined} data-ready={ready ? "" : undefined} data-held={held ? "" : undefined} data-cast-on={castOn ? "" : undefined}>
+    {narrate ? <p className={voiceClassName}>
+      <button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button>
+      {cast ? <button type="button" className={c.quiet} data-cast-quiet="" aria-pressed={!quiet} onClick={hushCast}>{quiet ? "Cast off" : "Cast on"}</button> : null}
+    </p> : null}
+    {locked ? <p className={cueClassName} role="status">{cast ? <span className={c.usher} aria-hidden="true">{cast.art.usher}</span> : null}<span>{cue}</span></p> : null}
+    {cast ? <div className={c.cast} data-cast="" data-on={castOn ? "" : undefined} data-quiet={quiet ? "" : undefined} data-shown={beat && castOn ? "" : undefined} data-speaking={speaking ? "" : undefined}>
+      <button type="button" className={c.character} data-role={beat?.role} data-expression={beat?.face ?? "neutral"} data-move={beat?.move ?? "hop"} tabIndex={beat && castOn ? 0 : -1} aria-label={beat ? `${beat.name} says: ${beat.text} Press to hear it again.` : "Cast"} onClick={() => (aside ? setAside(null) : say(step))}>{beat ? cast.art[beat.role] : null}</button>
+      <p className={c.bubble} aria-hidden="true">{beat ? <><b>{beat.name}</b>{beat.text}</> : null}</p>
+    </div> : null}
     {children}
   </div>;
 }

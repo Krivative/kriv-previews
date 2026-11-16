@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import type { SiteData } from "@/lib/site-schema";
 import { dentalJourney } from "@/stories/dental-journey";
+import { buildCast } from "@/stories/casts";
+import { dentalCast } from "@/stories/casts/dental";
 import { BookButton, JourneyFrame } from "./JourneyBlocks";
 import { ClinicJourney } from "./ClinicJourney";
 import Link from "next/link";
@@ -53,6 +55,7 @@ export function JourneySite({ site }: { site: SiteData }) {
   const { letters, ring } = logoWords(site);
   const look = journeyStyle(site);
   const label = journeyLores[look.lore];
+  const cast = buildCast(dentalCast, dentalJourney.map((step) => step.id), site.storyCast ?? "serious", look.seed);
   const book = <BookButton site={site} />;
   const nav = <>
     <a href="#journey-smile">The story</a>
@@ -62,7 +65,7 @@ export function JourneySite({ site }: { site: SiteData }) {
     <Link href={pageHref(site, "brand-kit")} prefetch={false}>Brand kit</Link>
   </>;
   return <JourneyFrame site={site} nav={nav}>
-      <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
+      <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
         <p className={j.crest}><span><JourneyLogo letters={letters} compact /><b>{ring}</b></span></p>
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
