@@ -12,6 +12,15 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### "Story sound": the room and the beats, picked by the seed (2026-11-16, Claude in a cloud session)
+
+- Kriv's brief: game-style ambience and sound effects for PCO dental, ph-rates and kriv.agency, combined with the randomizer so it adds depth without changing the story. Branch `claude/story-sound` (from main `651ffe8`). Local commit only: nothing pushed, merged or published without Kriv's "publish".
+- `soundWorlds` in `src/stories/journey-style.ts`: plain, film-crew, ships-crew, kitchen-brigade, pit-crew. The seed picks it like the genre picks from the lore: two looks in three hear their costume's room, the third is the seed's pick. Pinnable as `storyStyle.sound`, or `pnpm story:shuffle <slug> --sound <name>`. `data-sound` on the page root. PCO and the rates page are pinned to `plain` (their own clinic and game-lobby rooms).
+- `src/stories/story-sound.ts`: the room per world (ambient loop, plus a chapter "sting" for costume worlds) and one beat effect per chapter id for dental, level two, rates and the agency opening. `src/sections/storySound.ts`: one Web Audio engine per page.
+- Hooks in `JourneyScroller.tsx`: the room starts on the visitor's first gesture; it drops to a third while narration plays (recording or device voice); each chapter's beat effect plays once per visit AFTER its narration ends; a sting plays only on chapters that arrive without a voice. A "Sound on/off" button sits beside narration and cast (level two shares the story's), remembered in the browser. The scroll lock timing is unchanged. Reduced motion keeps the room and beats, drops stings and pitch variation.
+- Files: `public/audio/sound/` (3.7 MB, 39 MP3s, generated with ElevenLabs sound effects through Magnific; ambience at -26 LUFS, effects at -18 LUFS). `tests/sound.test.tsx` checks seeds, pins, schema, files on disk and chapter ids; two existing tests updated for the new button.
+- Checked: lint, typecheck, tests, build and smoke pass. In a real browser at 1280x800 the PCO and rates pages show "Sound on" and load their own room after the first click; no new console errors (font requests fail in the sandbox only). NOT checked: anything by ear. The agent cannot hear audio; every sound must be listened to before publishing. Not yet done: kriv.agency (`Krivative/Kriv`, `components/producer-intro.tsx`) uses the same agency map but is not wired.
+
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
 - Kriv's brief of 2026-11-16 (the cast, and the randomizer driving the rates page and the layout). Branch `claude/story-cast` (from main `acfdb55` plus the local notes commit). Local only: nothing is pushed or published without Kriv's explicit "publish". Six stages; status:

@@ -94,7 +94,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(6); // narration on, the cast on, plus the builder's four
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(7); // narration on, sound on, the cast on, plus the builder's four
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
@@ -242,10 +242,10 @@ describe("PCO scroll journey", () => {
     expect(script("agency-story")).not.toMatch(/peso|\d+ ?%|guarantee/i);
   });
   it("has one narration button and no form", () => {
-    expect(html.match(/<button\b/g)?.length).toBe(4); // narration, the cast's quiet control and the character, plus level two's narration button
+    expect(html.match(/<button\b/g)?.length).toBe(5); // narration, sound, the cast's quiet control and the character, plus level two's narration button (level two shares the story's sound button)
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     expect(html).not.toMatch(/<form\b|<input\b|<audio\b|<iframe\b|<img\b/);
-    expect(html.match(/<button type="button"/g)?.length).toBe(4);
+    expect(html.match(/<button type="button"/g)?.length).toBe(5);
   });
   it("gives every inner page the brand look, the concept logo and the banner", () => {
     const site = SiteData.parse(pco);

@@ -8,6 +8,7 @@ import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
 import r from "./rates-journey.module.css";
+import { beatEffects, soundRoom } from "@/stories/story-sound";
 
 // The scroll story at the top of the Philippine rates page (preview-only): the
 // same journey format as a lead's story. One picture per chapter stays in view
@@ -111,13 +112,13 @@ export function RatesJourney() {
   const label = journeyLores[look.lore];
   // KRIV's own page runs the full cast: host, price, old price and day counter.
   const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates", look);
-  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
+  return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "rates")}>
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
     </ol>
     <Stage />
     <div className={j.steps}>
-      {ratesJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
+      {ratesJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} data-sfx={beatEffects.rates[step.id]} aria-labelledby={`journey-${step.id}-title`}>
         <div className={j.words}>
           <p className={o.eyebrow}><b>{label(n + 1, ratesJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
           {n === 0 ? <h1 id={`journey-${step.id}-title`}>{step.title}</h1> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}

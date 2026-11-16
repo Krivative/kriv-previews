@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { cue as playCue, setRoom, setSound, soundOff, SOUND_EVENT, voice as voiceSound, wake } from "./storySound";
 import { castVoice, type CastBeat, type StageCast } from "@/stories/casts";
 import c from "./cast.module.css";
 
@@ -31,7 +32,7 @@ const VOICE = "journey-voice"; // the page-wide narration on/off event
 
 // `locked={false}` turns the hold off (a level that scrolls freely but still marks
 // the stop in view); `narrate={false}` leaves out the narration and its button.
-export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, locked = true, narrate = true, cast, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; locked?: boolean; narrate?: boolean; cast?: StageCast | null; children: ReactNode }) {
+export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, locked = true, narrate = true, cast, sound, soundButton = true, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; locked?: boolean; narrate?: boolean; cast?: StageCast | null; sound?: { ambient: string; sting: string | null } | null; soundButton?: boolean; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const [voice, setVoice] = useState(defaultVoice);
   const [waiting, setWaiting] = useState(false);
@@ -57,6 +58,12 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const timer = useRef(0);
   const watch = useRef(0);
   const key = `journey-done:${id}`;
+  // Sound (decoration only, src/sections/storySound.ts): the room, a sting when a quiet chapter arrives,
+  // and each chapter's beat effect once its narration has ended. Never over a voice.
+  const [soundOn, setSoundOn] = useState(true);
+  const voicing = useRef(false);
+  const cued = useRef(new Set<number>());
+  const speakingNow = useCallback((on: boolean) => { if (voicing.current !== on) { voicing.current = on; voiceSound(on); } }, []);
 
   const chapters = useCallback(() => [...(root.current?.querySelectorAll<HTMLElement>("[data-journey-step]") ?? [])], []);
 
@@ -72,6 +79,9 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   }, [cast]);
 
   const finish = useCallback((index: number) => {
+    speakingNow(false);
+    // The chapter's beat effect, once per chapter per visit, after its narration.
+    if (sound && !cued.current.has(index)) { cued.current.add(index); playCue(chapters()[index]?.dataset.sfx); }
     if (index === current.current) say(index);
     if (index + 1 > open.current) { open.current = index + 1; setOpened(index + 1); }
     if (index >= chapters().length - 1 && !freed.current) {
@@ -80,7 +90,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       if (locked && cast) { setEnding(true); window.setTimeout(() => setEnding(false), SAY + 1200); }
       if (locked) try { window.localStorage.setItem(key, "1"); } catch { /* private window: this visit only */ }
     }
-  }, [chapters, key, locked, cast, say]);
+  }, [chapters, key, locked, cast, say, sound, speakingNow]);
 
   // Chapter in view, paging and the hold on skipping ahead.
   useEffect(() => {
@@ -225,7 +235,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     };
   }, [chapters, key, locked, cast]);
 
-  const hush = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); window.clearTimeout(timer.current); window.clearInterval(watch.current); }, []);
+  const hush = useCallback(() => { speakingNow(false); player.current?.pause(); window.speechSynthesis?.cancel(); window.clearTimeout(timer.current); window.clearInterval(watch.current); }, [speakingNow]);
 
   /** Plays one chapter's narration, and marks the chapter finished when it ends. */
   const play = useCallback((index: number) => {
@@ -243,6 +253,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       if (local.length) line.voice = local.find((v) => v.lang === "en-PH") ?? local[0];
       line.lang = line.voice?.lang ?? "en";
       line.rate = 0.95;
+      line.addEventListener("start", () => speakingNow(true));
       line.addEventListener("end", done);
       within(1500 + words.length * 65);
       window.speechSynthesis.speak(line);
@@ -252,7 +263,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const audio = player.current ?? (player.current = new Audio());
     audio.setAttribute("src", recording);
     within(30000);
-    audio.play().then(() => setWaiting(false)).catch((error: unknown) => {
+    audio.play().then(() => { setWaiting(false); speakingNow(true); }).catch((error: unknown) => {
       const name = (error as { name?: string })?.name;
       if (name === "NotAllowedError") { setWaiting(true); within(PAUSE); }
       else if (name !== "AbortError") speak();
@@ -288,6 +299,26 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     return () => events.forEach((name) => window.removeEventListener(name, begin));
   }, [voice, waiting, play]);
 
+  // Sound: the room is set at once and starts with the visitor's first gesture (browsers allow nothing sooner).
+  useEffect(() => {
+    if (!sound) return;
+    const read = window.setTimeout(() => setSoundOn(!soundOff()), 0);
+    setRoom(sound.ambient);
+    const begin = () => wake();
+    const events = ["pointerdown", "keydown", "touchend"] as const;
+    events.forEach((name) => window.addEventListener(name, begin, { once: true }));
+    const follow = (event: Event) => setSoundOn(Boolean((event as CustomEvent<boolean>).detail));
+    window.addEventListener(SOUND_EVENT, follow);
+    return () => { window.clearTimeout(read); events.forEach((name) => window.removeEventListener(name, begin)); window.removeEventListener(SOUND_EVENT, follow); };
+  }, [sound]);
+  // A chapter that arrives without a voice (narration off, a level without narration, or a story already
+  // through) gets the world's sting. A narrated chapter does not: its voice comes first.
+  useEffect(() => {
+    if (!sound?.sting || !inView || step === 0) return;
+    if (narrate && voice && !free) return;
+    playCue(sound.sting, "sting");
+  }, [sound, inView, step, narrate, voice, free]);
+
   // Narration on or off is one setting for every story on the page (the story and its level two).
   useEffect(() => {
     const follow = (event: Event) => setVoice(Boolean((event as CustomEvent<boolean>).detail));
@@ -317,6 +348,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   return <div ref={root} className={className} data-free={free ? "" : undefined} data-ready={ready ? "" : undefined} data-held={held ? "" : undefined} data-cast-on={castOn ? "" : undefined}>
     {narrate ? <p className={voiceClassName}>
       <button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button>
+      {sound && soundButton ? <button type="button" className={c.quiet} data-sound-button="" aria-pressed={soundOn} onClick={() => setSound(!soundOn)}>{soundOn ? "Sound on" : "Sound off"}</button> : null}
       {cast ? <button type="button" className={c.quiet} data-cast-quiet="" aria-pressed={!quiet} onClick={hushCast}>{quiet ? "Cast off" : "Cast on"}</button> : null}
     </p> : null}
     {locked ? <p className={cueClassName} role="status">{cast ? <span className={c.usher} aria-hidden="true">{cast.art.usher}</span> : null}<span>{cue}</span></p> : null}

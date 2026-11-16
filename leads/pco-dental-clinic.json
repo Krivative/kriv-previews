@@ -43,7 +43,8 @@
     "words": "beside",
     "map": "ring",
     "cards": "glass",
-    "entrance": "edge"
+    "entrance": "edge",
+    "sound": "plain"
   },
   "design": {},
   "hero": {

@@ -12,6 +12,7 @@ import { JourneyScroller } from "./JourneyScroller";
 import { journeyLores, journeyStyle } from "@/stories/journey-style";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
+import { beatEffects, soundRoom } from "@/stories/story-sound";
 
 // A lead's home page told as a scroll journey (preview-only; set with
 // `story` in the lead record). One drawing of a tooth stays in view and changes
@@ -65,14 +66,14 @@ export function JourneySite({ site }: { site: SiteData }) {
     <Link href={pageHref(site, "brand-kit")} prefetch={false}>Brand kit</Link>
   </>;
   return <JourneyFrame site={site} nav={nav}>
-      <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
+      <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "dental")}>
         <p className={j.crest}><span><JourneyLogo letters={letters} compact /><b>{ring}</b></span></p>
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
         </ol>
         <Stage />
         <div className={j.steps}>
-          {dentalJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
+          {dentalJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} data-sfx={beatEffects.dental[step.id]} aria-labelledby={`journey-${step.id}-title`}>
             <div className={j.words}>
               <p className={o.eyebrow}><b>{label(n + 1, dentalJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
               {n === 0 ? <>

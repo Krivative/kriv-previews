@@ -1,5 +1,5 @@
 import { castModes } from "@/stories/casts/types";
-import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres } from "@/stories/journey-style";
+import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres, soundWorlds } from "@/stories/journey-style";
 import { z } from "zod";
 
 // The only contract between a lead's content (leads/<slug>.json) and the
@@ -98,6 +98,7 @@ export const SiteData = z.object({
     theme: z.enum(themeNames).optional(),
     lore: z.enum(loreNames).optional(),
     genre: z.enum(journeyGenres).optional(),
+    sound: z.enum(soundWorlds).optional(),
     side: z.enum(journeySides).optional(),
     orbit: z.enum(journeyOrbits).optional(),
     marks: z.enum(journeyMarks).optional(),

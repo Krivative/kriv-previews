@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: story cast brief complete. Stages 1 to 4 are published; stage 5 (genre and costume layer: film crew, ship's crew, kitchen brigade, pit crew) and stage 6 (docs/STORY-CAST.md and the skill) are local on `claude/story-cast`, awaiting Kriv's "publish". Next: the phone rework of all three sites. kriv.agency chibi and narration are still local branches
+Updated: 2026-11-16 - Last step finished: story sound (seeded sound worlds, beat effects, Sound on/off) on local branch `claude/story-sound`, awaiting Kriv's listen and "publish". Next: wire the same sound into the kriv.agency opening, then the phone rework of all three sites.
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
