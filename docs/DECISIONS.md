@@ -17,3 +17,4 @@ This is the project's long memory: a session reads STATE.md, then asks this file
 - 2026-11-17 | PCO must speak to adults: dentistry in the Philippines is general first, with most interest in aesthetics; a child-like look is wrong for it. Restyle through the randomizer, "more focused on reality". Published the same day.
 - 2026-11-17 | Workflow must be token-efficient, lose no context and remember everything cheaply: short STATE.md, this file, search instead of re-reading.
 - 2026-11-17 | Build a price-free "consult first" offer page so a lead in any market can have a presentation ("Yes, build it"). Wording restates kriv.agency; not yet approved for any live lead.
+- 2026-11-17 | Publish the workflow tooling and the consult-first page ("Publish"). The page stays off every lead until Kriv approves its wording.
