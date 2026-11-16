@@ -24,13 +24,16 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 
 const PAUSE = 2500; // reading time for a chapter that plays no sound
 
-export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; children: ReactNode }) {
+// `locked={false}` turns the hold off (a level that scrolls freely but still marks
+// the stop in view); `narrate={false}` leaves out the narration and its button.
+export function JourneyScroller({ id, className, voiceClassName, cueClassName, defaultVoice = true, locked = true, narrate = true, children }: { id: string; className: string; voiceClassName: string; cueClassName: string; defaultVoice?: boolean; locked?: boolean; narrate?: boolean; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const [voice, setVoice] = useState(defaultVoice);
   const [waiting, setWaiting] = useState(false);
   const [step, setStep] = useState(0);
   const [opened, setOpened] = useState(0); // the furthest chapter the visitor may go to
   const [free, setFree] = useState(false);
+  const [inView, setInView] = useState(false);
   const [held, setHeld] = useState<"" | "playing" | "forward">("");
   const current = useRef(0);
   const open = useRef(0);
@@ -48,9 +51,9 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     if (index >= chapters().length - 1 && !freed.current) {
       freed.current = true;
       setFree(true);
-      try { window.localStorage.setItem(key, "1"); } catch { /* private window: this visit only */ }
+      if (locked) try { window.localStorage.setItem(key, "1"); } catch { /* private window: this visit only */ }
     }
-  }, [chapters, key]);
+  }, [chapters, key, locked]);
 
   // Chapter in view, paging and the hold on skipping ahead.
   useEffect(() => {
@@ -71,12 +74,16 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
 
     // Free from the start for returning visitors and for reduced motion.
     const release = requestAnimationFrame(() => {
-      let done = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      try { done = done || window.localStorage.getItem(key) === "1"; } catch { /* no storage */ }
+      let done = !locked || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (locked) try { done = done || window.localStorage.getItem(key) === "1"; } catch { /* no storage */ }
       if (done) { freed.current = true; open.current = steps.length; setOpened(steps.length); setFree(true); }
     });
 
+    const inStory = () => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5; };
+    let seen = false;
     const check = () => {
+      // Narration only runs while this story is the one on screen.
+      if (inStory() !== seen) { seen = !seen; setInView(seen); }
       // Hold: nothing past the furthest opened chapter, however the page is moved.
       if (!freed.current && Date.now() >= busy) {
         if (window.scrollY > limit() + 4) window.scrollTo({ top: limit(), behavior: "instant" });
@@ -100,7 +107,6 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; check(); }); };
     const tick = window.setInterval(check, 500);
 
-    const inStory = () => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5; };
     const hold = (why: "playing" | "forward") => { setHeld(why); window.clearTimeout(holdTimer); holdTimer = window.setTimeout(() => setHeld(""), 2400); };
     const go = (n: number) => {
       busy = Date.now() + 1000;
@@ -169,7 +175,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       window.removeEventListener("keydown", onKey); document.removeEventListener("click", onClick);
       window.clearInterval(tick); window.clearTimeout(holdTimer); window.clearTimeout(landTimer); cancelAnimationFrame(frame); cancelAnimationFrame(release);
     };
-  }, [chapters, key]);
+  }, [chapters, key, locked]);
 
   const quiet = useCallback(() => { player.current?.pause(); window.speechSynthesis?.cancel(); window.clearTimeout(timer.current); window.clearInterval(watch.current); }, []);
 
@@ -216,10 +222,11 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
 
   // Each chapter starts its narration as it comes into view; with narration off it takes a reading pause.
   useEffect(() => {
+    if (!narrate || !inView) return quiet();
     if (voice) play(step);
     else { quiet(); timer.current = window.setTimeout(() => finish(step), PAUSE); }
     return quiet;
-  }, [voice, step, play, quiet, finish]);
+  }, [narrate, inView, voice, step, play, quiet, finish]);
 
   // Until the browser allows sound, the first touch, click or key press starts it.
   useEffect(() => {
@@ -241,8 +248,8 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const cue = free ? "" : held === "playing" ? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? "The story plays forward. You can move freely once it ends." : ready ? "Scroll for the next chapter" : "";
 
   return <div ref={root} className={className} data-free={free ? "" : undefined} data-ready={ready ? "" : undefined} data-held={held ? "" : undefined}>
-    <p className={voiceClassName}><button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button></p>
-    <p className={cueClassName} role="status"><span>{cue}</span></p>
+    {narrate ? <p className={voiceClassName}><button type="button" data-voice-button="" aria-pressed={voice} onClick={press}>{!voice ? "Narration off" : waiting ? "Tap to hear narration" : "Narration on"}</button></p> : null}
+    {locked ? <p className={cueClassName} role="status"><span>{cue}</span></p> : null}
     {children}
   </div>;
 }

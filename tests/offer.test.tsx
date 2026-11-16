@@ -159,7 +159,7 @@ describe("PCO scroll journey", () => {
   const html = render(pco);
   const words = text(html);
   it("tells the story of one tooth in eight chapters, each with its narration", () => {
-    expect(html.match(/data-journey-step/g)?.length).toBe(8);
+    expect(html.match(/id="journey-[a-z]+" class="[^"]*" data-journey-step/g)?.length).toBe(8);
     expect(dentalJourney.length).toBe(8);
     for (const step of dentalJourney) {
       expect(words).toContain(step.title);
@@ -172,7 +172,7 @@ describe("PCO scroll journey", () => {
     for (const part of ["[SERVICE 1]", "[CLINIC ADDRESS], Mandaue, Cebu", "[OPENING HOURS]", "[DENTIST'S NOTE", "Is this the clinic's real website?"]) expect(words).toContain(part);
   });
   it("shows the concept redraw of the clinic's logo, in the header and as a badge", () => {
-    expect(html.match(/logo, concept redraw/g)?.length).toBe(3);
+    expect(html.match(/logo, concept redraw/g)?.length).toBe(5);
     expect(html).toContain('href="/pco-dental-clinic/brand-kit"');
     expect(html).toContain("PCO DENTAL CLINIC MANDAUE");
     expect(words).toContain("A concept redraw of the clinic's logo by KRIV, for the clinic to approve.");
@@ -186,6 +186,15 @@ describe("PCO scroll journey", () => {
     expect(kit.match(/logo, concept redraw/g)?.length).toBeGreaterThanOrEqual(9);
     expect(kit).not.toMatch(/<form\b|<input\b|<button\b|<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
     expect(kitWords).not.toMatch(/wayaway|award|guarantee|PHP|₱/i);
+  });
+  it("carries the clinic's mark top centre through the story", () => {
+    expect(html).toMatch(/<p class="[^"]*crest[^"]*"><span><svg[^>]*aria-label="PCO logo, concept redraw"/);
+    expect(html).toContain("<b>PCO DENTAL CLINIC MANDAUE</b>");
+  });
+  it("continues after the story as level two: the clinic as connected stops on one map", () => {
+    for (const id of ["inside", "services", "about", "book", "visit", "faq"]) expect(html).toMatch(new RegExp(`id="${id}" class="[^"]*" data-journey-step`));
+    expect(html.match(/data-journey-scene/g)?.length).toBe(6);
+    for (const part of ["Level two / Inside the clinic", "Stop 2 of 6 / Services", "Leads to → The team", "Stop 6 of 6 / Questions", "The ride ends here."]) expect(words).toContain(part);
   });
   it("makes no claims for the clinic and names no other agency", () => {
     expect(words).not.toMatch(/wayaway|award|guarantee|best dentist|painless|years of experience|\d+\+? (?:patients|reviews)|★/i);

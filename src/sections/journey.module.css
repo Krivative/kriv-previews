@@ -29,7 +29,7 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .root .nav a { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
 .root .nav a:hover { color: var(--accent); }
 
-.journey { position: relative; }
+.journey { position: relative; overflow: clip; }
 .dots { position: sticky; top: 10px; z-index: 3; height: 0; margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 2px; }
 .dots a { display: grid; place-items: center; width: 26px; height: 32px; }
 .dots a::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(170, 200, 212, 0.35); transition: transform 0.3s, background 0.3s, width 0.3s; }
@@ -51,6 +51,15 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 .root .voice button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .root .voice button[aria-pressed="true"]::before { background: var(--accent-ink); }
 .root .voice button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* The site's own mark, top centre for the whole story. */
+.crest { position: sticky; top: 8px; z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
+.crest span { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid rgba(170, 200, 212, 0.28); backdrop-filter: blur(12px); }
+.crest svg { width: 44px; height: 30px; }
+.crest b { font-family: var(--font-mono); font-weight: 400; font-size: 0.6rem; letter-spacing: 0.16em; color: var(--ink); white-space: nowrap; }
+.journey:has(.crest) .dots { top: 58px; }
+.journey:has(.crest) .voice { top: 90px; }
+.journey:has(.crest) .stage { padding-top: 134px; }
+.journey:has(.crest) .art { width: min(80%, 32svh); }
 /* What to do next, or why the next chapter is waiting. */
 .cue { position: sticky; top: calc(100svh - 58px); z-index: 4; height: 0; margin: 0; display: flex; justify-content: center; pointer-events: none; }
 .cue span { align-self: flex-start; padding: 8px 16px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid rgba(170, 200, 212, 0.34); backdrop-filter: blur(12px); text-align: center; max-width: calc(100vw - 32px); transition: opacity 0.25s, border-color 0.25s, color 0.25s; }
@@ -155,7 +164,13 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 @media (min-width: 900px) {
   .foot { grid-template-columns: auto 1fr; gap: 32px !important; }
   .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
-  .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
+  .crest { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 20px; }
+  .crest svg { width: 56px; height: 38px; }
+  .crest b { font-size: 0.68rem; }
+  .journey:has(.crest) .dots { top: 50svh; }
+  .journey:has(.crest) .stage { padding-top: 0; }
+  .journey:has(.crest) .art { width: min(100%, 72svh); }
+  .journey:has(.crest) .voice, .voice { grid-column: 1 / -1; grid-row: 1; align-self: start; top: calc(100svh - 62px); justify-content: flex-end; }
   .cue { grid-column: 1 / -1; grid-row: 1; align-self: start; }
   .dots { grid-column: 1 / -1; grid-row: 1; align-self: start; top: 50svh; flex-direction: column; justify-content: flex-start; align-items: flex-end; height: 0; transform: translateY(-112px); padding-right: 12px; }
   .dots a { width: 32px; height: 28px; }

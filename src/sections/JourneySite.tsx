@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 import type { SiteData } from "@/lib/site-schema";
 import { dentalJourney } from "@/stories/dental-journey";
-import { AboutBlock, BookBlock, BookButton, FaqBlock, JourneyFrame, ServicesBlock, VisitBlock, mark } from "./JourneyBlocks";
+import { BookButton, JourneyFrame } from "./JourneyBlocks";
+import { ClinicJourney } from "./ClinicJourney";
 import Link from "next/link";
 import { pageHref } from "@/lib/site-pages";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
@@ -62,6 +63,7 @@ export function JourneySite({ site }: { site: SiteData }) {
   </>;
   return <JourneyFrame site={site} nav={nav}>
       <JourneyScroller id={site.slug} className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
+        <p className={j.crest}><span><JourneyLogo letters={letters} compact /><b>{ring}</b></span></p>
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
         </ol>
@@ -77,27 +79,12 @@ export function JourneySite({ site }: { site: SiteData }) {
               <p className={j.narration} data-narration="">{step.narration}</p>
               {step.note ? <p className={j.note}>{step.note}</p> : null}
               {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Each chapter is read aloud. Tap anywhere to start the sound.</p> : null}
-              {n === dentalJourney.length - 1 ? <p className={o.actions}>{book}<a href="#services">Meet the clinic</a></p> : null}
+              {n === dentalJourney.length - 1 ? <p className={o.actions}>{book}<a href="#inside">Step inside the clinic</a></p> : null}
             </div>
           </section>)}
         </div>
       </JourneyScroller>
 
-      <div className={`${o.main} ${j.clinicMain}`}>
-        <section className={o.intro}>
-          <figure className={j.logoFigure}>
-            <JourneyLogo letters={letters} ring={ring} />
-            <figcaption>A concept redraw of the clinic&apos;s logo by KRIV, for the clinic to approve. <Link href={pageHref(site, "brand-kit")} prefetch={false}>See the concept brand kit</Link>.</figcaption>
-          </figure>
-          <p className={o.eyebrow}>{business.category}</p>
-          <h2>{mark(site.hero.headline)}</h2>
-          <p className={o.lead}>{site.hero.sub}</p>
-        </section>
-        <ServicesBlock site={site} />
-        <AboutBlock site={site} />
-        <BookBlock site={site} />
-        <VisitBlock site={site} />
-        <FaqBlock site={site} />
-      </div>
+      <ClinicJourney site={site} />
   </JourneyFrame>;
 }

@@ -14,6 +14,10 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ### "The two timelines": animated story for the annual plan (2026-11-16, Claude Code)
 
+- Kriv (with a screenshot of the live story) asked for the brand mark top centre on the story, and for the page after the story to keep the same full-width story feel, going "a level deeper" into how the parts of the practice connect, like a ride people learn on. Same branch `claude/pco-brand-everywhere`. Local only until Kriv approves publishing.
+  - A pill with the concept logo and the clinic's name stays top centre through the story and through level two (`.crest` in `journey.module.css`).
+  - `ClinicJourney.tsx` replaces the blocks under the story on the home page: "Level two / Inside the clinic". A map stays in view (the clinic at the centre, one numbered place per stop, joined in visiting order); each stop (services, the team, booking, the visit, questions) lights its place, its line to the clinic and its way on to the next stop, and ends with "Leads to → next". All words still come from the lead record, so placeholders stay placeholders.
+  - Level two scrolls freely: `JourneyScroller` gained `locked={false}` and `narrate={false}`. It is not held because its stops hold lists and questions that are taller than a screen. Narration now only runs while its own story is on screen.
 - Kriv said the PCO brand kit was not used on the website and asked for it. The agent read this as: every page of the PCO site should carry the kit's look and logo, not only the home page. Branch `claude/pco-brand-everywhere` (from main `61b97a8`). Local only until Kriv approves publishing.
   - Inner pages (services, each service, about, questions, contact) of a story lead now render through `JourneyInnerPage.tsx` in the site's own theme, with the concept logo in the header and the full badge in the footer. Before, they used the lead's old light template.
   - `JourneyBlocks.tsx` holds the shared frame and blocks; `JourneySite.tsx` (home) uses the same ones, so the home page footer now carries the badge too. Brand kit page unchanged.
