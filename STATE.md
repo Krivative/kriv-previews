@@ -32,10 +32,10 @@ Search it for the topic you are touching (`grep -n "<topic>" HANDOFF.md`) and re
 4. An offer needs a plan for the business's market: `ph-local` (Philippine prices) or `consult-first` (no prices, any other market). `pnpm offer:ready <slug> --add` picks the right one.
 
 ## Waiting on Kriv
-- Clinic's real hours, services, team and booking method for PCO; approval of cast lines (drafts).
+- PCO: the clinic's real hours, services and team (booking method, self-description and service area now come from its public Facebook page); approval of cast lines (drafts).
 - An adult story spine for PCO (general care, then aesthetics) and its recording.
-- Approval of the "consult first" offer wording (`src/offers/consult-first.ts`) before it goes on any live lead.
-- Phone style pick (the phone audit session), kriv.agency pull request 24, Next.js security upgrade.
+- "Consult first" wording is approved (17 Nov). Add it to a lead only when that lead is next sent (`pnpm offer:ready <slug> --add`), never in bulk.
+- Phone styles A (Stories) and C (Map walk) are being built in the phone session; they will need "publish". kriv.agency: pull request 24 is superseded; `claude/community-structure` needs a pull request and Kriv's look at the preview.
 
 ## Nothing gets lost
 - Every decision from Kriv goes into `docs/DECISIONS.md` as one dated line, the day he makes it. Append only.

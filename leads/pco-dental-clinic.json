@@ -71,7 +71,7 @@
   },
   "about": {
     "title": "About *PCO Dental Clinic*",
-    "body": "[CLINIC INTRODUCTION: two or three sentences in the clinic's own words, supplied by PCO Dental Clinic.]",
+    "body": "On its Facebook page, PCO Dental Clinic describes itself as a community-based clinic with a holistic approach to dental treatment, where caring for teeth is part of overall health and wellness. The clinic will replace this with its own introduction.",
     "sections": [
       {
         "title": "Our team",
@@ -85,11 +85,11 @@
   },
   "custom": {
     "title": "How to *book*",
-    "body": "A simple three-step outline. Every step is a placeholder until the clinic confirms how it takes bookings.",
+    "body": "A simple three-step outline. The first step comes from the clinic's own Facebook page; the other two are placeholders until the clinic confirms them.",
     "items": [
       {
         "name": "Get in touch",
-        "blurb": "[BOOKING CHANNEL: the clinic's Messenger link or +63 phone number]"
+        "blurb": "Message PCO Dental Clinic on its Facebook page, or call 0916 760 2325."
       },
       {
         "name": "Choose a schedule",
@@ -112,7 +112,11 @@
     },
     {
       "q": "How do I book an appointment?",
-      "a": "[BOOKING CHANNEL: to be confirmed. The clinic's phone is 0916 760 2325 and it has a Facebook page.] See the booking steps on this page."
+      "a": "Message the clinic on its Facebook page or call 0916 760 2325. The clinic's page invites visitors to message and book. See the booking steps on this page."
+    },
+    {
+      "q": "Which areas does the clinic serve?",
+      "a": "The clinic's Facebook page lists Mandaue City, Cebu City and Lapu-Lapu City as its service area."
     },
     {
       "q": "Which services are offered?",
