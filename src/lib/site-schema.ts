@@ -89,7 +89,7 @@ export const SiteData = z.object({
     hours: z.array(z.object({ days: z.string(), time: z.string() })).default([]),
   }),
   // Preview-only: tells the home page as a scroll journey (src/sections/JourneySite.tsx).
-  story: z.literal("dental-journey").optional(),
+  story: z.enum(["dental-journey", "sneaker-journey"]).optional(),
   // Preview-only: the story's cast of small characters (src/stories/casts). Unset: the serious pair plus the usher.
   storyCast: z.enum(castModes).optional(),
   // Preview-only: painted locations behind the story (src/sections/JourneyScenes.tsx), in place of the drawn world.

@@ -10,11 +10,12 @@ import type { SoundWorld } from "./journey-style";
 // No word of a story is changed to fit a sound: write the cue to fit the chapter.
 const file = (path: string) => `/for/audio/sound/${path}.mp3?v=1`;
 
-export type SoundBusiness = "dental" | "rates" | "agency";
+export type SoundBusiness = "dental" | "rates" | "agency" | "sneaker";
 
 /** The room for a world. "plain" is the business's own room. */
 export function soundRoom(world: SoundWorld, business: SoundBusiness) {
-  const room = world === "plain" ? business : world;
+  // DV Shop Cebu has no room recording of its own yet: its plain room borrows the agency studio.
+  const room = world === "plain" ? (business === "sneaker" ? "agency" : business) : world;
   // The business rooms have no chapter-change sting of their own: their beat effects carry the story.
   return { ambient: file(`${room}/ambient`), sting: world === "plain" ? null : file(`${world}/sting`) };
 }
@@ -32,6 +33,11 @@ export const beatEffects: Record<SoundBusiness, Record<string, string>> = {
     start: file("rates/start"), trial: file("rates/unlock"), services: file("rates/select"), paying: file("rates/select"),
     annual: file("rates/coin"), dates: file("rates/timer"), bundles: file("rates/combo"), monthly: file("rates/page-flip"),
     yours: file("rates/stamp"), decide: file("rates/level-up"),
+  },
+  // DV Shop Cebu's story reuses existing effects (no new audio generated; not heard by Claude).
+  sneaker: {
+    fresh: file("rates/unlock"), legit: file("rates/stamp"), out: file("rates/page-flip"), care: file("rates/select"),
+    routine: file("agency/keys"), visit: file("rates/coin"), anywhere: file("rates/level-up"),
   },
   // kriv.agency's opening, "in the zone" (used by Krivative/Kriv, listed here so both sites share one map).
   agency: {
