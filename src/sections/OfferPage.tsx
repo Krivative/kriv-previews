@@ -35,7 +35,7 @@ export function KrivMark() {
 /** The sections of OfferSections plus the closing one, for the sticky menu. */
 export const offerNav: NavItem[] = [
   { id: "offer-builder", label: "Build your plan" },
-  { id: "offer-monthly", label: "Monthly" },
+  { id: "offer-monthly", label: "Services" },
   { id: "offer-content", label: "Content" },
   { id: "offer-annual", label: "CRM" },
   { id: "offer-addons", label: "Add-ons" },
@@ -75,8 +75,9 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-monthly">
-      <p className={o.eyebrow}>Monthly services</p>
-      <h2 id="offer-monthly">Pay month to month. <em>No setup fee.</em></h2>
+      <p className={o.eyebrow}>Services</p>
+      <h2 id="offer-monthly">Priced per month, <em>paid once a year.</em></h2>
+      <p>After the {TRIAL_DAYS}-day free trial every service is on the annual plan: {crm.baseMonths} months paid at once. There is no month to month plan. No setup fee.</p>
       <ul className={o.cards}>
         {monthlyServices.map((item) => <li key={item.name}>
           <h3>{item.name}</h3>
@@ -114,7 +115,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
           <p className={o.tag}>Promo rate</p>
           <p className={o.price}>{php(crm.promoMonthly)} <span>per month</span></p>
           <p className={o.small}>Regular rate <s>{php(crm.regularMonthly)}</s> per month. No setup fee.</p>
-          <p>That is {php(crm.regularMonthly - crm.promoMonthly)} saved every month. Go annual and the promo stacks: pay {crm.baseMonths} months at the promo rate, {php(annualPrice)}, and KRIV adds extra months free.</p>
+          <p>That is {php(crm.regularMonthly - crm.promoMonthly)} saved on every month of the year. The annual plan is {crm.baseMonths} months at the promo rate, {php(annualPrice)}, and deciding early in the trial adds free months on top.</p>
         </div>
       </div>
     </section>
@@ -132,16 +133,16 @@ export function OfferSections({ audience }: { audience: Audience }) {
     </section>
 
     <section className={o.block} aria-labelledby="offer-story">
-      <p className={o.eyebrow}>Why annual</p>
+      <p className={o.eyebrow}>Why decide early</p>
       <h2 id="offer-story">The two timelines. <em>A short story about one website.</em></h2>
-      <p>Picture the same business in two timelines. They are identical until the free trial ends. Scroll to watch each one play out.</p>
+      <p>Picture the same business in two timelines. Both go annual. One decides in the first days of the trial, the other after it ends. Scroll to watch each one play out.</p>
       <AnnualStory audience={audience} />
     </section>
 
     <section className={o.block} aria-labelledby="offer-annual-plans">
       <p className={o.eyebrow}>Annual plans</p>
       <h2 id="offer-annual-plans">Pay for twelve months. <em>Get up to fifteen.</em></h2>
-      <p>Any monthly service can be paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide during your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}. After that the annual plan is still open, at {crm.baseMonths} months for the price of {crm.baseMonths}.</p>
+      <p>Every service is paid yearly. You pay {crm.baseMonths} months and KRIV adds extra months free. The sooner you decide during your trial, the more months you get. Day 1 is the first day of your trial, and the trial ends on day {TRIAL_DAYS}. After that the annual plan is still open, at {crm.baseMonths} months for the price of {crm.baseMonths}.</p>
       <ul className={o.windows}>
         {decisionWindows.map((w) => <li key={w.fromDay}>
           <h3>{days(w)}</h3>
@@ -150,12 +151,12 @@ export function OfferSections({ audience }: { audience: Audience }) {
             <p>{totalMonths(w)} months for the price of {crm.baseMonths}.</p>
           </> : <>
             <p className={o.price}>No free months</p>
-            <p>The annual plan is still open: {crm.baseMonths} months for the price of {crm.baseMonths}. Monthly rates are always available too, including the CRM promo rate.</p>
+            <p>The annual plan is still open: {crm.baseMonths} months for the price of {crm.baseMonths}, with the CRM promo rate and any bundle discount.</p>
           </>}
         </li>)}
       </ul>
       <h3 className={o.subhead}>What you save on each service</h3>
-      <p>Open a service to see what those months would cost paid month by month, what you pay on the annual plan, and the difference.</p>
+      <p>Open a service to see the regular value of those months, what you pay on the annual plan, and the difference.</p>
       <div className={o.savings}>
         {annualPlans.map((plan, i) => <details key={plan.name} open={i === 0}>
           <summary>
@@ -165,7 +166,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
           </summary>
           <p className={o.small}>{php(plan.monthly)} per month{plan.regular > plan.monthly ? <>, regular <s>{php(plan.regular)}</s></> : null}. Annual plan: {php(annualPay(plan))}.</p>
           <table>
-            <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Month by month</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
+            <thead><tr><th scope="col">Decide on</th><th scope="col">You get</th><th scope="col">Regular value</th><th scope="col">You pay</th><th scope="col">You save</th></tr></thead>
             <tbody>{freeWindows.map((w) => <tr key={w.fromDay}>
               <th scope="row">{days(w)}</th>
               <td>{totalMonths(w)} months</td>
@@ -176,7 +177,7 @@ export function OfferSections({ audience }: { audience: Audience }) {
           </table>
         </details>)}
       </div>
-      <p className={o.small}>Month by month means the same number of months at the regular monthly rate. For the CRM that is {php(crm.regularMonthly)} a month, so its saving includes the promo.</p>
+      <p className={o.small}>Regular value means the same number of months at the regular rate. For the CRM that is {php(crm.regularMonthly)} a month, so its saving includes the promo.</p>
     </section>
 
     <section className={o.block} aria-labelledby="offer-va">

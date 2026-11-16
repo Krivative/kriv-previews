@@ -12,6 +12,17 @@ Any AI agent (Claude Code, Claude Cowork, ChatGPT/Codex or other) continuing thi
 
 ## Latest checkpoint
 
+### Annual only, and Kriv on the rates hero (2026-11-16, Claude in a cloud session)
+
+- Kriv's brief: put his styled photo on the landing hero ("I am the brains of it all, this is my love child, the system I am selling"); no monthly rate any more: a 14-day free trial, then one decision, annual with or without the early free months, and with or without stacked services. Branch `claude/annual-only`, on top of `claude/story-sound` (so it carries the sound layer). Local commit only; nothing pushed or published.
+- Hero: the rates story's first scene is Kriv's cutout portrait (copied from Krivative/Kriv `public/kriv-portrait-cutout.webp`) in an accent ring, the kriv× wordmark and "the brains behind the system"; the first chapter's text opens with "Built by Kriv, the founder and the brains behind the system." Checked at 1280x800 and 390x844.
+- Offer: the plan builder has no pay toggle (step 2 is now "When would you decide?"); "Month by month" is now "Regular value" (the same months at the regular rate) everywhere; the services section reads "Priced per month, paid once a year" and says there is no month to month plan; the CRM promo text, annual windows, savings tables, bundle term and "No setup fee" line are reworded; the page intro is "Fourteen days free. Then one yearly decision." Prices and figures are unchanged.
+- The two timelines story is now early versus late: both timelines go annual; A decides after day 14 (12 months), B by day 5 (15 months for the same price). The "tingi" analogy became "the early bird".
+- Rates story: "paying" is "One way to pay", "annual" is "What deciding early is worth", the "monthly" chapter (id kept) is "One service, or a stack", and "trial" and "decide" speak of annual or stop. Cast lines for those chapters rewritten (still drafts).
+- Voice: five rates chapters re-recorded in the Sela voice with her profile settings (02-trial, 04-paying, 05-annual, 08-choosing, 10-decide, `?v=3`); `08-monthly.mp3` removed; `docs/voices/rates-story-script.txt` updated. NOT heard by ear.
+- Not changed yet: the lead quotations use the same OfferSections, so they are annual only too; the two private walkthrough artifacts and the PCO and KRIV walkthrough videos still describe monthly payment; kriv.agency itself does not show prices.
+- Checked: lint, typecheck, 776 tests, build and smoke pass.
+
 ### "Story sound": the room and the beats, picked by the seed (2026-11-16, Claude in a cloud session)
 
 - Kriv's brief: game-style ambience and sound effects for PCO dental, ph-rates and kriv.agency, combined with the randomizer so it adds depth without changing the story. Branch `claude/story-sound` (from main `651ffe8`). Local commit only: nothing pushed, merged or published without Kriv's "publish".

@@ -29,8 +29,8 @@ export function PhRatesPage() {
       <div className={o.main}>
       <section className={o.intro}>
         <p className={o.eyebrow}>Philippine rates</p>
-        <h2>Simple monthly rates <em>for Philippine businesses.</em></h2>
-        <p className={o.lead}>Try any service free for {TRIAL_DAYS} days, each one personally managed by KRIV staff. Decide afterwards, with no setup fee.</p>
+        <h2>Fourteen days free. <em>Then one yearly decision.</em></h2>
+        <p className={o.lead}>Try any service free for {TRIAL_DAYS} days, each one personally managed by KRIV staff. Then go annual, with free months if you decide early and a bundle discount if you stack services, or stop. No month to month plan, no setup fee.</p>
       </section>
 
       <OfferSections audience={audiences.general} />

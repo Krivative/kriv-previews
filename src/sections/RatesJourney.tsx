@@ -32,9 +32,13 @@ function Stage() {
       <circle className={j.orbit2} cx="200" cy="200" r="160" />
 
       <g className={r.scene} data-journey-scene="">
-        <text className={r.wordmark} x="186" y="222" textAnchor="middle">kriv</text>
-        <text className={r.cross} x="296" y="218" textAnchor="middle">×</text>
-        <text className={r.small} x="200" y="262" textAnchor="middle">Philippine rates</text>
+        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, from kriv.agency). */}
+        <defs><clipPath id="rates-hero-clip"><circle cx="200" cy="168" r="132" /></clipPath></defs>
+        <circle className={r.heroRing} cx="200" cy="168" r="138" />
+        <image href="/for/kriv-portrait-cutout.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
+        <text className={r.wordmark} x="192" y="358" textAnchor="middle" style={{ fontSize: 52, letterSpacing: -3 }}>kriv</text>
+        <text className={r.cross} x="256" y="356" textAnchor="middle" style={{ fontSize: 36 }}>×</text>
+        <text className={r.small} x="200" y="388" textAnchor="middle">the brains behind the system</text>
       </g>
 
       <g className={r.scene} data-journey-scene="">
@@ -56,7 +60,7 @@ function Stage() {
         <path className={r.path} d="M200 170 C200 230 110 220 110 270" pathLength={100} />
         <path className={`${r.path} ${r.pathWin}`} d="M200 170 C200 230 290 220 290 270" pathLength={100} />
         <circle className={r.node} cx="200" cy="66" r="9" />
-        <g className={r.pop} style={i(4)}><rect className={r.pill} x="46" y="272" width="128" height="44" rx="22" /><text className={r.label} x="110" y="299" textAnchor="middle">Monthly</text></g>
+        <g className={r.pop} style={i(4)}><rect className={r.pill} x="46" y="272" width="128" height="44" rx="22" /><text className={r.label} x="110" y="299" textAnchor="middle">Stop</text></g>
         <g className={r.pop} style={i(7)}><rect className={`${r.pill} ${r.pillWin}`} x="226" y="272" width="128" height="44" rx="22" /><text className={`${r.label} ${r.labelWin}`} x="290" y="299" textAnchor="middle">Annual</text></g>
       </g>
 
@@ -83,8 +87,8 @@ function Stage() {
 
       <g className={r.scene} data-journey-scene="">
         {Array.from({ length: 6 }, (_, n) => <rect key={n} className={`${r.tile} ${n ? r.tileOpen : r.tileFree} ${r.pop}`} x={38 + n * 56} y="150" width="44" height="44" rx="10" style={i(n * 2)} />)}
-        <text className={r.big} x="200" y="252" textAnchor="middle">Month by month</text>
-        <text className={r.small} x="200" y="280" textAnchor="middle">stop at any month</text>
+        <text className={r.big} x="200" y="252" textAnchor="middle">One, or a stack</text>
+        <text className={r.small} x="200" y="280" textAnchor="middle">your call, any time</text>
       </g>
 
       <g className={r.scene} data-journey-scene="">

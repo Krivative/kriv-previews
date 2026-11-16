@@ -38,3 +38,4 @@
 .barWin { fill: var(--accent); }
 .own { fill: color-mix(in srgb, var(--surface) 86%, transparent); stroke: color-mix(in srgb, var(--ink) 50%, transparent); stroke-width: 1.5; }
 .tick { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.heroRing { fill:color-mix(in srgb, var(--accent) 14%, transparent); stroke:var(--accent); stroke-width:3; }

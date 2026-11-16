@@ -65,18 +65,18 @@ export function AnnualStory({ audience }: { audience: Audience }) {
     <article data-chapter className={st.chapter}>
       <p className={st.kicker}>Chapter 1 / The fork</p>
       <h3>One website. <em>Two timelines.</em></h3>
-      <p>{t(`Day ${TRIAL_DAYS}: the free trial ends and the path splits. In one timeline {client} pays month by month. In the other it takes the annual plan. Same website, same KRIV team, same work. Watch what happens to the money.`)}</p>
+      <p>{t(`Day 1 of the free trial, and the path splits. Both timelines go annual, because after the trial every plan is paid yearly. In one, {client} waits until the trial is over. In the other, it decides in the first ${best.toDay} days. Same website, same KRIV team, same price. Watch what happens to the months.`)}</p>
       <div className={st.fork} aria-hidden="true">
         <span className={st.trunk}>Free trial</span>
-        <span className={st.branchA}>Timeline A / month by month</span>
-        <span className={st.branchB}>Timeline B / annual</span>
+        <span className={st.branchA}>Timeline A / decides after day {TRIAL_DAYS}</span>
+        <span className={st.branchB}>Timeline B / decides by day {best.toDay}</span>
       </div>
     </article>
 
     <article data-chapter className={st.chapter}>
       <p className={st.kicker}>Chapter 2 / Timeline A</p>
-      <h3>Month by month, <em>the meter keeps running.</em></h3>
-      <p>Every month is another {php(plan.monthly)}. Nothing is wrong with this timeline: it is flexible and you can stop any month. But {months} months of website add up.</p>
+      <h3>Wait it out, <em>and the year is just a year.</em></h3>
+      <p>Nothing is wrong with this timeline: it uses the whole trial to be sure. It pays {php(pay)} for {crm.baseMonths} months, with no free months. To run the website for {months} months it pays {months - crm.baseMonths} more at {php(plan.monthly)} each.</p>
       <Months paid={months} />
       <p className={st.sum}><span>{months} months</span><strong>{php(worth)}</strong></p>
     </article>
@@ -84,7 +84,7 @@ export function AnnualStory({ audience }: { audience: Audience }) {
     <article data-chapter className={st.chapter}>
       <p className={st.kicker}>Chapter 3 / Timeline B</p>
       <h3>Pay for twelve. <em>Three more appear.</em></h3>
-      <p>Here you pay {php(pay)} once. Decide in the first {best.toDay} days of the trial and KRIV adds {best.freeMonths} months free. The same {months} months of website.</p>
+      <p>Here {t("{client}")} pays the same {php(pay)} once. Decide in the first {best.toDay} days of the trial and KRIV adds {best.freeMonths} months free. The same {months} months of website.</p>
       <Months paid={crm.baseMonths} free={best.freeMonths} />
       <p className={st.sum}><span>{months} months</span><strong>{php(pay)}</strong></p>
     </article>
@@ -103,8 +103,8 @@ export function AnnualStory({ audience }: { audience: Audience }) {
       <p className={st.kicker}>Chapter 5 / You already know this</p>
       <h3>You have seen this <em>before.</em></h3>
       <ul className={st.analogies}>
-        <li style={step(0)}><h4>Tingi or the big pack</h4><p>A sachet is easy on the day, but the big pack costs less per use. Monthly is tingi. Annual is the big pack.</p></li>
-        <li style={step(1)}><h4>The suki price</h4><p>The stall owner keeps the better price for the customer who commits to coming back. Annual is the suki price.</p></li>
+        <li style={step(0)}><h4>The early bird</h4><p>The first to book the venue gets the extra night free. Same venue, same price, more nights. Deciding early is the early bird.</p></li>
+        <li style={step(1)}><h4>The suki price</h4><p>The stall owner keeps the better price for the customer who commits early. Stacking services is the suki price on top.</p></li>
         <li style={step(2)}><h4>A year of rent</h4><p>Imagine paying a year of rent and the landlord hands over {best.freeMonths} extra months. That is exactly this.</p></li>
       </ul>
     </article>
@@ -134,7 +134,7 @@ export function AnnualStory({ audience }: { audience: Audience }) {
           <small>{w.freeMonths ? `Save ${php(annualSaving(plan, w))}` : "No free months"}</small>
         </li>)}
       </ol>
-      <p className={st.note}>The story uses the Website at {php(plan.monthly)} a month. The same rule applies to every monthly service.</p>
+      <p className={st.note}>The story uses the Website at {php(plan.monthly)} a month, paid yearly. The same rule applies to every service.</p>
       <p className={st.controls}>
         <a href="#offer-builder">Build your own timeline <span aria-hidden="true">+</span></a>
         <button type="button" onClick={replay}>Replay the story</button>

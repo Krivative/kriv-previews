@@ -29,7 +29,7 @@ function render(input: unknown, offer = false) {
 // Every figure both pages must show (Kriv's prices, 2026-11-16).
 const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000", "PHP 16,000", "12 image posts a month",
   "PHP 13,000 per month", "Regular rate PHP 15,000 per month", "PHP 156,000",
-  "15 months for the price of 12", "PHP 2,000 saved every month", "What you save on each service",
+  "15 months for the price of 12", "PHP 2,000 saved on every month of the year", "What you save on each service",
   // Website: 15 months month by month, the annual price, the saving.
   "PHP 45,000", "PHP 36,000", "PHP 9,000",
   // CRM: 15, 14 and 13 months at the regular rate against the annual price.
@@ -94,7 +94,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(7); // narration on, sound on, the cast on, plus the builder's four
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(6); // narration on, sound on, the cast on, plus the builder's three (annual only: no pay toggle)
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
@@ -110,7 +110,7 @@ describe("the two timelines story", () => {
   it("tells all seven chapters with the Website's own figures, readable without scripts", () => {
     for (const part of ["The two timelines", "Chapter 1 / The fork", "Chapter 2 / Timeline A", "Chapter 3 / Timeline B", "Chapter 4 / Side by side",
       "Chapter 5 / You already know this", "Chapter 6 / More than the discount", "Chapter 7 / The portal closes",
-      "15 months PHP 45,000", "15 months PHP 36,000", "Same 15 months. PHP 9,000 apart.", "Tingi or the big pack", "The suki price", "A year of rent",
+      "15 months PHP 45,000", "15 months PHP 36,000", "Same 15 months. PHP 9,000 apart.", "The early bird", "The suki price", "A year of rent",
       "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "No free months", "Decide in the first 5 days of the trial", "Timeline B is still open, at 12 months for the price of 12", "Replay the story"]) expect(general).toContain(part);
   });
   it("speaks to the right audience and promises nothing", () => {
@@ -358,11 +358,12 @@ describe("rates page scroll story", () => {
     for (const step of ratesJourney) { expect(words).toContain(step.title); expect(words).toContain(step.narration); }
   });
   it("takes its figures from the rates and promises nothing", () => {
-    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 1 to 5 of the trial for 3 free months", "From day 15 the annual plan is still open, with no free months", "By day 5: monthly or annual", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
+    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 1 to 5 of the trial for 3 free months", "From day 15 the annual plan is still open, with no free months", "By day 5: go annual for the most free months", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
   });
   it("starts with narration on and gives every chapter its recording", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    expect(ratesJourney.every((step) => step.audio?.endsWith("?v=2"))).toBe(true);
+    // Annual only (2026-11-16): five chapters re-recorded (?v=3), the rest keep the second set.
+    expect(ratesJourney.every((step) => /\?v=[23]$/.test(step.audio ?? ""))).toBe(true);
     for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);

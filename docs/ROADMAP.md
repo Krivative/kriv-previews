@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: story sound (seeded sound worlds, beat effects, Sound on/off) on local branch `claude/story-sound`, awaiting Kriv's listen and "publish". Next: wire the same sound into the kriv.agency opening, then the phone rework of all three sites.
+Updated: 2026-11-16 - Last step finished: annual-only offer and Kriv on the rates hero (local `claude/annual-only`, on top of `claude/story-sound`), awaiting Kriv's listen and "publish". Next: wire sound into the kriv.agency opening; update the walkthrough artifacts and videos that still mention monthly; then the phone rework.
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
