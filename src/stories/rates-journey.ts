@@ -12,17 +12,18 @@ const price = (name: string) => php(monthlyServices.find((s) => s.name === name)
 const firstTier = bundleTiers[0];
 const topTier = bundleTiers[bundleTiers.length - 1];
 
-// Recorded voice-over ("Sela", second set, supplied by Kriv on 2026-11-16; what she says is in
+// Recorded voice-over ("Sela", fourth set: "The Merchant's Road", 2026-11-16, each stop told as a place on a
+// fantasy road behind it, public/scenes/merchants-road; earlier: second set, supplied by Kriv on 2026-11-16; what she says is in
 // docs/voices/rates-story-script.txt, the voice settings in docs/voices/rates-story-voice-profile.txt).
 // The voice EXPLAINS the screen in its own words; it no longer reads the title and narration.
 // Every price, day and percentage she speaks must match src/offers/ph-local.ts: a change there needs
 // a new recording. When a recording cannot play, the device voice reads the on-screen text instead.
-const voice = (name: string) => `/for/audio/rates-journey/${name}.mp3?v=2`;
+const voice = (name: string) => `/for/audio/rates-journey/${name}.mp3?v=4`;
 // Chapters re-recorded for the annual-only offer (Kriv, 2026-11-16: no month to month plan after the trial).
-const voice3 = (name: string) => `/for/audio/rates-journey/${name}.mp3?v=3`;
+const voice3 = voice; // the annual-only chapters, now part of the "Merchant's Road" set (v=4)
 
 export const ratesJourney: JourneyStep[] = [
-  { id: "start", audio: voice("01-start"), chapter: "The start", title: "How a KRIV plan works.", narration: "Built by Kriv, the founder and the brains behind the system. Scroll down for a short walk through what you try, what you pay and what you decide. No pitch, only how it works." },
+  { id: "start", audio: voice("01-start"), chapter: "The start", title: "How a KRIV plan works.", narration: "Built by Kriv, the brains behind the system. A short walk through what you try, what you pay and what you decide. No pitch." },
   { id: "trial", audio: voice3("02-trial"), chapter: "The trial", title: `Days 1 to ${TRIAL_DAYS}: you try it first.`, narration: `The first ${TRIAL_DAYS} days are free. There is nothing to pay and no setup fee, and KRIV staff run the service for you. On day ${TRIAL_DAYS} you go annual or you stop.` },
   { id: "services", audio: voice("03-services"), chapter: "The services", title: "What you can take.", narration: `Five services, priced per month and paid yearly: a website and content creation at ${price("Website")} each, an AI live seller at ${price("AI live seller")}, a CRM and system with automations at ${php(crm.promoMonthly)}, and an AI agent at ${php(agent.price)}. Take one, or several.` },
   { id: "paying", audio: voice3("04-paying"), chapter: "Paying", title: "One way to pay.", narration: `After the trial there is one plan: annual. Pay for ${crm.baseMonths} months at once. Decide early in the trial and KRIV adds free months on top. There is no month to month plan.` },

@@ -94,7 +94,7 @@ describe("plan builder and section menu", () => {
   });
   it("starts on the Website alone, annual, with the saving shown", () => {
     for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(6); // narration on, sound on, the cast on, plus the builder's three (annual only: no pay toggle)
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(7); // narration on, sound on, the cast on, the sneak peek's chosen business, plus the builder's three
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
@@ -234,7 +234,7 @@ describe("PCO scroll journey", () => {
     for (const name of ["dental-story", "dental-level-two", "rates-story", "agency-story"]) expect(script(name).length).toBeGreaterThan(400);
     const rates = script("rates-story");
     for (const part of ["three thousand pesos a month each", "ten thousand", "thirteen thousand", "two thousand five hundred", "forty-five thousand pesos", "thirty-six thousand", "Nine thousand pesos",
-      "Days one to five: three free months", "Days six to ten: two", "Days eleven to fourteen: one", "After day fourteen you can still go annual", "Ten percent off for two", "Twenty-five for five", "forty percent"]) expect(rates).toContain(part);
+      "days one to five: three free months", "Days six to ten: two", "Days eleven to fourteen: one", "After day fourteen the door still opens", "ten percent off for two", "twenty-five for five", "forty percent"]) expect(rates).toContain(part);
     // The page's own figures for the same things.
     expect([monthlyServices[0].monthly, monthlyServices[2].monthly, crm.promoMonthly, addOns[1].price]).toEqual([3000, 10000, 13000, 2500]);
     expect(decisionWindows.map((w) => [w.fromDay, w.toDay, w.freeMonths])).toEqual([[1, 5, 3], [6, 10, 2], [11, 14, 1], [15, undefined, 0]]);
@@ -363,7 +363,7 @@ describe("rates page scroll story", () => {
   it("starts with narration on and gives every chapter its recording", () => {
     expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
     // Annual only (2026-11-16): five chapters re-recorded (?v=3), the rest keep the second set.
-    expect(ratesJourney.every((step) => /\?v=[23]$/.test(step.audio ?? ""))).toBe(true);
+    expect(ratesJourney.every((step) => step.audio?.endsWith("?v=4"))).toBe(true);
     for (const step of ratesJourney.filter((s) => s.audio)) {
       expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
       expect(html).toContain(`data-audio="${step.audio}"`);
@@ -404,7 +404,7 @@ describe("general Philippine rates page", () => {
   });
   it("has no forms, links only to KRIV's own booking page and email, and makes no guarantees", () => {
     expect(html).not.toMatch(/<form\b|<input\b|<select\b|<textarea\b|<a\b[^>]*href="tel:/);
-    expect(hrefs(html).filter((href) => !href.startsWith("#"))).toEqual(["https://kriv.agency/book", "mailto:hello@kriv.agency"]);
+    expect([...new Set(hrefs(html).filter((href) => !href.startsWith("#")))]).toEqual(["https://kriv.agency/book", "mailto:hello@kriv.agency"]);
     expect([...html.matchAll(/<button\b[^>]*>/g)].every((m) => /type="button"/.test(m[0]))).toBe(true);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
   });

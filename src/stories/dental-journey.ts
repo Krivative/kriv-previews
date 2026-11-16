@@ -12,7 +12,7 @@ export type JourneyStep = { id: string; chapter: string; title: string; narratio
 // Two things must stay true: the page and the spoken script never contradict each other on a fact,
 // and when a recording cannot play, the device voice reads the on-screen title and narration instead.
 // The ?v= number changes with each new set, so browsers fetch the new files. "/for" is the app's base path.
-const voice = (name: string) => `/for/audio/pco-journey/${name}.mp3?v=5`;
+const voice = (name: string) => `/for/audio/pco-journey/${name}.mp3?v=6`;
 
 export const dentalJourney: JourneyStep[] = [
   { id: "smile", audio: voice("01-smile"), chapter: "The start", title: "Every smile has a story.", narration: "Scroll down and follow one tooth through an ordinary day. It is a short story about why looking after it matters." },

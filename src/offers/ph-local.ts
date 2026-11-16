@@ -227,3 +227,13 @@ export const terms = [
   { name: "Change orders", body: "Work outside this {doc} is written up as a change order with its price and timing, and starts only after {client} approves it in writing." },
   { name: "Ownership", body: "{Client} owns its accounts and data: its domain, social pages, messaging accounts, {customer} information and the content made for it. KRIV works through access {client} grants." },
 ] as const;
+
+// The hero's sneak peek (Kriv, 2026-11-16): a suggested first stack per kind of business, priced with the
+// same rules as the plan builder (best window, bundle discount). A starting point, not a promise of results.
+const plan = (name: string) => annualPlans.find((p) => p.name === name)!;
+export const starterStacks = [
+  { business: "Health practice", why: "Bookings come in through the site; follow-ups and reminders send themselves.", plans: ["Website", "CRM and system with automations"] },
+  { business: "Restaurant or café", why: "Fresh posts bring people in; an AI agent answers the usual questions.", plans: ["Content creation", "AI agent"] },
+  { business: "Retail shop", why: "A shop online, and live selling that keeps the store open after hours.", plans: ["Website", "AI live seller"] },
+  { business: "Salon or spa", why: "Posts that show the work; bookings and follow-ups in one organised place.", plans: ["Content creation", "CRM and system with automations"] },
+].map((s) => ({ ...s, quote: bundleQuote(s.plans.map(plan), decisionWindows[0]) }));

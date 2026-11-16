@@ -9,6 +9,8 @@ import o from "./offer.module.css";
 import j from "./journey.module.css";
 import r from "./rates-journey.module.css";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
+import { JourneyScenes } from "./JourneyScenes";
+import { SneakPeek } from "./SneakPeek";
 
 // The scroll story at the top of the Philippine rates page (preview-only): the
 // same journey format as a lead's story. One picture per chapter stays in view
@@ -120,6 +122,7 @@ export function RatesJourney() {
   // once as the second chapter arrives (rates-journey.module.css, .ghost). Decoration only.
   const ghost = <div className={r.ghost} aria-hidden="true"><div><img src="/for/kriv-back-underground.webp" alt="" width={1200} height={1200} loading="lazy" decoding="async" /></div></div>;
   return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "rates")}>
+    <JourneyScenes set="merchants-road" />
     {ghost}
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
@@ -131,7 +134,7 @@ export function RatesJourney() {
           <p className={o.eyebrow}><b>{label(n + 1, ratesJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
           {n === 0 ? <h1 id={`journey-${step.id}-title`}>{step.title}</h1> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
           <p className={j.narration} data-narration="">{step.narration}</p>
-          {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Each chapter is read aloud. Tap anywhere to start the sound.</p> : null}
+          {n === 0 ? <SneakPeek /> : null}
           {n === ratesJourney.length - 1 ? <p className={o.actions}><a className={o.button} href="#offer-builder">Build your plan <span aria-hidden="true">+</span></a></p> : null}
         </div>
       </section>)}

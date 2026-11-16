@@ -15,6 +15,7 @@ import j from "./journey.module.css";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
 import { JourneyWorld } from "./JourneyWorld";
 import { DentalPlaces } from "./JourneyPlaces";
+import { JourneyScenes } from "./JourneyScenes";
 
 // A lead's home page told as a scroll journey (preview-only; set with
 // `story` in the lead record). One drawing of a tooth stays in view and changes
@@ -73,7 +74,7 @@ export function JourneySite({ site }: { site: SiteData }) {
         <ol className={j.dots} aria-label="Chapters of the story">
           {dentalJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
         </ol>
-        <JourneyWorld world={look.sound} places={<DentalPlaces />} />
+        {site.storyScenes ? <JourneyScenes set={site.storyScenes} /> : <JourneyWorld world={look.sound} places={<DentalPlaces />} />}
         <Stage />
         <div className={j.steps}>
           {dentalJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} data-sfx={beatEffects.dental[step.id]} aria-labelledby={`journey-${step.id}-title`}>

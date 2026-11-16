@@ -92,6 +92,8 @@ export const SiteData = z.object({
   story: z.literal("dental-journey").optional(),
   // Preview-only: the story's cast of small characters (src/stories/casts). Unset: the serious pair plus the usher.
   storyCast: z.enum(castModes).optional(),
+  // Preview-only: painted locations behind the story (src/sections/JourneyScenes.tsx), in place of the drawn world.
+  storyScenes: z.enum(["smile-kingdom"]).optional(),
   // Preview-only: pins or reseeds the story's look (src/stories/journey-style.ts). Unset: seeded by the slug.
   storyStyle: z.object({
     seed: z.string().max(40).optional(),

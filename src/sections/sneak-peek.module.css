@@ -1,0 +1,16 @@
+.card { margin-top: 14px; max-width: 540px; padding: 14px 18px; border-radius: var(--radius, 22px); background: color-mix(in srgb, var(--surface) 92%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: 0 18px 44px color-mix(in srgb, var(--accent) 12%, transparent); pointer-events: auto; position: relative; z-index: 3; }
+.title { margin: 0 0 10px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.chips button { font: inherit; font-size: 0.85rem; font-weight: 600; padding: 7px 12px; min-height: 36px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); background: transparent; color: var(--ink); cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.stack { margin: 0 0 4px; }
+.why { margin: 0 0 6px; color: var(--muted); font-size: 0.9rem; }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin: 6px 0 2px; white-space: nowrap; }
+.big { font-family: var(--font-display); font-size: 1.55rem; font-weight: 800; }
+.price s { color: var(--muted); }
+.save { font-weight: 700; font-size: 0.85rem; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: 999px; padding: 3px 10px; }
+.steps { margin: 4px 0 10px; font-size: 0.82rem; color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 0; }
+.cta a:first-child { background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: var(--button-radius, 999px); }
+.cta a:last-child { color: var(--accent); font-weight: 600; }
+.fine { margin: 10px 0 0; font-size: 0.7rem; color: var(--muted); }
