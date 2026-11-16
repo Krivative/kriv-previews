@@ -228,3 +228,30 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 @media (min-width: 900px) and (min-height: 860px) {
   .root[data-entrance="under-words"]:not([data-words="centred"]) .step { align-content: start; padding-top: 15svh; }
 }
+
+/* The hero steps back (Kriv, 2026-11-16): the drawing lands big on the first chapter, then, as soon as the
+   visitor moves on, it shrinks into a side piece and the words take the screen. Nothing above the reader
+   changes size, so the page never jumps: only the drawing scales and the next chapters start higher. */
+.art { transition: scale 0.9s var(--journey-ease), translate 0.9s var(--journey-ease); transform-origin: 50% 0; }
+.stage { transition: background 0.6s ease; }
+.step { transition: padding-top 0.6s var(--journey-ease); }
+@media (max-width: 899px) {
+  .journey:not([data-step="0"]) .art { scale: 0.5; translate: 30% -6%; }
+  .journey:not([data-step="0"]) .stage { background: linear-gradient(var(--bg) 46%, transparent 62%); }
+  .journey:not([data-step="0"]) .step:not(:first-of-type) { padding-top: 30svh; }
+  .journey:has(.crest):not([data-step="0"]) .step:not(:first-of-type) { padding-top: calc(152px + 14svh); }
+}
+@media (min-width: 900px) {
+  .journey:not([data-step="0"]) .art { scale: 0.64; translate: 0 6%; }
+  .root[data-side="left"] .journey:not([data-step="0"]) .art { translate: -14% 6%; }
+  .root[data-side="right"] .journey:not([data-step="0"]) .art { translate: 14% 6%; }
+}
+@media (prefers-reduced-motion: reduce) { .art, .stage, .step { transition: none; } }
+
+/* See-through text backings (Kriv, 2026-11-16): the scene stays in view behind the words, so the visitor
+   takes it in while reading. Backings are translucent and lightly blurred, never a solid block. */
+.stage { background: linear-gradient(color-mix(in srgb, var(--bg) 72%, transparent) 70%, transparent); }
+@media (max-width: 899px) {
+  .journey:not([data-step="0"]) .stage { background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent) 40%, transparent 62%); }
+}
+.journey:has([data-scenes]) .step:not(:first-of-type) .words { background: color-mix(in srgb, var(--bg) 46%, transparent); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: var(--radius-small, 14px); padding: 14px 16px; margin-inline: -16px; }
