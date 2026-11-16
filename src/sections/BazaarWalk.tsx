@@ -4,6 +4,11 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { LIVE_SELLER_COMMISSION_NOTE, addOns, crm, fill, liveSeller, monthlyServices, php, type Audience } from "@/offers/ph-local";
 import { stallKinds, type Bazaar, type ChibiCostume, type StallKind } from "@/stories/bazaar";
 import b from "./bazaar.module.css";
+import { shapedScene } from "@/lib/scene-shapes";
+import sh from "@/lib/scene-shapes.module.css";
+
+/** Each bazaar's painting; the Road Bazaar is the Merchant's Road stop 3. */
+const bazaarScene = (name: string) => name === "road-bazaar" ? "/for/scenes/merchants-road/03" : `/for/scenes/bazaars/${name}`;
 
 // Part two of a story: a walk through the bazaar with KRIV, Street View style (Kriv, 2026-11-16).
 // The visitor walks a road; each of KRIV's six services stands at its own stall a few steps past the one
@@ -104,7 +109,7 @@ function Stall({ kind, audience, chibi, brand }: { kind: StallKind; audience: Au
   return <div className={b.agent}>{[["Messenger", agentAsks[0]], ["Instagram", agentAsks[1]], ["Website", agentAsks[2]]].map(([ch, q], n) => <p key={q}><small>{ch}</small><span>{fill(q, audience)}</span><b>{n === 2 ? "Booked" : "Answered"}</b></p>)}</div>;
 }
 
-export function BazaarWalk({ bazaar, chibi, audience, brand, scene }: { bazaar: Bazaar; chibi: ChibiCostume; audience: Audience; brand: string; scene?: string }) {
+export function BazaarWalk({ bazaar, chibi, audience, brand }: { bazaar: Bazaar; chibi: ChibiCostume; audience: Audience; brand: string }) {
   const root = useRef<HTMLElement>(null);
   const [at, setAt] = useState(0);
   useEffect(() => {
@@ -119,8 +124,8 @@ export function BazaarWalk({ bazaar, chibi, audience, brand, scene }: { bazaar: 
   const t = (text: string) => fill(text, audience);
   const metres = Math.max(0, Math.round((1000 - (at * 1000) / (stallKinds.length + 1)) / 10) * 10);
 
-  return <section ref={root} className={b.walk} data-bazaar-walk="" aria-labelledby="bazaar-title" data-at={at} style={{ "--at": at, ...(scene ? { "--scene": `url(${scene})` } : {}) } as CSSProperties}>
-    <div className={b.view} aria-hidden="true"><div className={b.road} /><div className={b.lanterns} /></div>
+  return <section ref={root} className={b.walk} data-bazaar-walk="" aria-labelledby="bazaar-title" data-at={at} style={{ "--at": at } as CSSProperties}>
+    <div className={b.view} aria-hidden="true"><div className={`${b.painting} ${sh.shaped}`} style={shapedScene(bazaarScene(bazaar.name))} /><div className={b.road} /><div className={b.lanterns} /></div>
     <div className={b.hud}>
       <p className={b.distance}><b>{metres.toLocaleString("en-PH")} m</b> to the Build stall</p>
       <ol className={b.track} aria-hidden="true">{[0, ...stallKinds.map((_, n) => n + 1)].map((n) => <li key={n} data-on={n <= at ? "" : undefined} />)}</ol>

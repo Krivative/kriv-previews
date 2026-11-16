@@ -14,6 +14,8 @@ import o from "./offer.module.css";
 import j from "./journey.module.css";
 import c from "./clinic-journey.module.css";
 import { VisitPicker } from "./VisitPicker";
+import { shapedScene } from "@/lib/scene-shapes";
+import sh from "@/lib/scene-shapes.module.css";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
 
 // Level two of a story site's home page (preview-only). The story of the tooth
@@ -84,7 +86,7 @@ export function ClinicJourney({ site }: { site: SiteData }) {
       {stops.map((stop, n) => <li key={stop.id}><a href={`#${stop.id}`} aria-label={`Stop ${n + 1}: ${stop.name}`} /></li>)}
     </ol>
     {/* Painted backdrops from the clinic's world, one per stop, faded in by data-step (premium tour, 2026-11-16). */}
-    <div className={c.backdrops} aria-hidden="true">{[1, 6, 8, 7, 2, 5, 4].slice(0, stops.length + 1).map((scene, n) => <div key={n} data-backdrop={n} style={{ backgroundImage: `url(/for/scenes/${look.world}/${String(scene).padStart(2, "0")}.webp)` }} />)}</div>
+    <div className={c.backdrops} aria-hidden="true">{[1, 6, 8, 7, 2, 5, 4].slice(0, stops.length + 1).map((scene, n) => <div key={n} data-backdrop={n} className={sh.shaped} style={shapedScene(`/for/scenes/${look.world}/${String(scene).padStart(2, "0")}`)} />)}</div>
     <div className={j.stage} aria-hidden="true">
       <svg viewBox="0 0 400 400" className={`${j.art} ${c.map}`}>
         <circle className={j.orbit} cx="200" cy="200" r="184" />

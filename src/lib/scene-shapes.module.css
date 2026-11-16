@@ -1,0 +1,8 @@
+/* Picks one scene file per screen shape (see scene-shapes.ts). Phones portrait, tablets 3:4,
+   laptops and 1080p 16:9, 1600p 16:10, 1440p 16:9, ultrawide 21:9. */
+.shaped { background-image: var(--s-desktop, var(--s-fallback)); background-size: cover; background-position: center; }
+@media (max-aspect-ratio: 3/4) { .shaped { background-image: var(--s-portrait, var(--s-fallback)); } }
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/4) { .shaped { background-image: var(--s-tablet, var(--s-fallback)); } }
+@media (min-aspect-ratio: 5/4) and (max-aspect-ratio: 17/10) and (min-width: 1700px) { .shaped { background-image: var(--s-wide, var(--s-fallback)); } }
+@media (min-aspect-ratio: 17/10) and (max-aspect-ratio: 2/1) and (min-width: 2200px) { .shaped { background-image: var(--s-qhd, var(--s-fallback)); } }
+@media (min-aspect-ratio: 2/1) { .shaped { background-image: var(--s-ultra, var(--s-fallback)); } }

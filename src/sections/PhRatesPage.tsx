@@ -26,7 +26,7 @@ export function PhRatesPage() {
     </header>
     <main id="main-content">
       <RatesJourney />
-      <BazaarWalk bazaar={look.bazaar} chibi={look.chibi} audience={audiences.general} brand="Your brand" scene="/for/scenes/merchants-road/03.webp" />
+      <BazaarWalk bazaar={look.bazaar} chibi={look.chibi} audience={audiences.general} brand="Your brand" />
       <SectionNav items={offerNav} />
       <div className={o.main}>
       <section className={o.intro}>

@@ -2,7 +2,7 @@
    (--at, 0 to 6); a HUD with the distance, the track and "Skip the bazaar"; one stop per screen. */
 .walk { position: relative; isolation: isolate; color: var(--ink); background: var(--bg); }
 .view { position: sticky; top: 0; height: 100dvh; margin-bottom: -100dvh; overflow: hidden; z-index: -1; perspective: 600px; }
-.view::before { content: ""; position: absolute; inset: -6%; background: var(--scene, radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--accent) 28%, var(--deep)), var(--deep) 70%)) center / cover; scale: calc(1 + var(--at) * 0.07); transition: scale 1.2s cubic-bezier(0.22, 1, 0.36, 1); filter: saturate(0.95); }
+.painting { position: absolute; inset: -6%; scale: calc(1 + var(--at) * 0.07); transition: scale 1.2s cubic-bezier(0.22, 1, 0.36, 1); filter: saturate(0.95); }
 .view::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 80%, transparent), color-mix(in srgb, var(--bg) 35%, transparent) 60%, color-mix(in srgb, var(--bg) 55%, transparent)); }
 @media (max-width: 899px) { .view::after { background: color-mix(in srgb, var(--bg) 72%, transparent); } }
 .road { position: absolute; left: 50%; bottom: -10%; width: 60%; height: 70%; translate: -50% 0; transform: rotateX(62deg); transform-origin: bottom; background: repeating-linear-gradient(to top, transparent 0 46px, color-mix(in srgb, var(--accent) 55%, transparent) 46px 64px) center / 6px 100% no-repeat; background-position-y: calc(var(--at) * 120px); transition: background-position 1.2s cubic-bezier(0.22, 1, 0.36, 1); opacity: 0.7; }
@@ -67,7 +67,7 @@ article.stop { grid-template-columns: minmax(0, 1fr); }
 .agent b { color: var(--accent); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
 @media (min-width: 1700px) { .stop > *, .sign, .exhibit > * { zoom: 1.15; } }
 @media (min-width: 2200px) { .stop > *, .sign, .exhibit > * { zoom: 1.35; } }
-@media (prefers-reduced-motion: reduce) { .view::before, .road { transition: none; } .holo, .chibi { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .painting, .road { transition: none; } .holo, .chibi { animation: none; } }
 .screen[data-shot] { background-size: cover; background-position: top center; }
 .screen[data-shot] i { display: none; }
 .screen[data-shot] b { align-self: end; justify-self: start; margin-top: auto; padding: 4px 8px; background: color-mix(in srgb, var(--bg) 85%, transparent); border-radius: 4px; }

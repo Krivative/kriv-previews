@@ -7,10 +7,13 @@ import w from "./journey-scenes.module.css";
 export const sceneSets = { "merchants-road": 10, "smile-kingdom": 8 } as const;
 export type SceneSet = keyof typeof sceneSets;
 
+import { shapedScene } from "@/lib/scene-shapes";
+import sh from "@/lib/scene-shapes.module.css";
+
 export function JourneyScenes({ set }: { set: SceneSet }) {
   return <div className={w.scenes} aria-hidden="true" data-scenes={set}>
     <div className={w.window}>
-      {Array.from({ length: sceneSets[set] }, (_, n) => <div key={n} className={w.scene} data-scene={n} style={{ backgroundImage: `url(/for/scenes/${set}/${String(n + 1).padStart(2, "0")}.webp)` }} />)}
+      {Array.from({ length: sceneSets[set] }, (_, n) => <div key={n} className={`${w.scene} ${sh.shaped}`} data-scene={n} style={shapedScene(`/for/scenes/${set}/${String(n + 1).padStart(2, "0")}`)} />)}
       <div className={w.veil} />
     </div>
   </div>;
