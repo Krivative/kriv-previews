@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
-import { journeyStyle, themeVars } from "@/stories/journey-style";
+import { journeyStyle, lookAttributes, themeVars } from "@/stories/journey-style";
 import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
@@ -33,7 +33,7 @@ export function JourneyFrame({ site, nav, children }: Props & { nav: ReactNode; 
   const { business } = site;
   const { letters, ring } = logoWords(site);
   const look = journeyStyle(site);
-  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} data-theme-name={look.theme.name} data-side={look.side} data-orbit={look.orbit}>
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} {...lookAttributes(look)}>
     <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />
     <Ribbon site={site} />
     <a className={s.skipLink} href="#main-content">Skip to content</a>

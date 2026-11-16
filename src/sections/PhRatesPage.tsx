@@ -3,7 +3,7 @@ import { KrivMark, OfferSections, offerNav } from "./OfferPage";
 import { SectionNav } from "./PlanBuilder";
 import { RatesJourney } from "./RatesJourney";
 import j from "./journey.module.css";
-import { ratesLook, themeVars } from "@/stories/journey-style";
+import { lookAttributes, ratesLook, themeVars } from "@/stories/journey-style";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 
@@ -16,7 +16,7 @@ import o from "./offer.module.css";
 
 export function PhRatesPage() {
   const look = ratesLook();
-  return <div className={`${s.site} ${o.root} ${j.root}`} lang="en-PH" style={themeVars(look.theme)} data-theme-name={look.theme.name} data-side={look.side} data-orbit={look.orbit}>
+  return <div className={`${s.site} ${o.root} ${j.root}`} lang="en-PH" style={themeVars(look.theme)} {...lookAttributes(look)}>
     <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />
     <a className={s.skipLink} href="#main-content">Skip to content</a>
     <header className={o.top}>

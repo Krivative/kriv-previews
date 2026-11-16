@@ -34,7 +34,15 @@
     "theme": "night-lime",
     "lore": "chapters",
     "side": "right",
-    "orbit": "dotted"
+    "orbit": "dotted",
+    "marks": "rail-right",
+    "brand": "top-centre",
+    "voice": "bottom-right",
+    "cue": "bottom-centre",
+    "words": "beside",
+    "map": "ring",
+    "cards": "glass",
+    "entrance": "edge"
   },
   "design": {},
   "hero": {

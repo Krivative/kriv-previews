@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: explainer voice-overs wired for the PCO story, the rates story and PCO level two on `claude/explainer-voices` (on top of the new rates decision windows, `claude/rates-trial-windows`); kriv.agency opening narration on `claude/producer-voice` in Krivative/Kriv. All local, awaiting Kriv's word to publish. Cast brief: stage 1 done on `claude/story-cast`, waiting on Kriv's pick of the rates look and host. Phone rework (part 2 of the voices brief) not started: it follows the cast, chibi and rates changes
+Updated: 2026-11-16 - Last step finished: story cast stages 1 to 4 (cast engine, PCO dental cast, rates page in sand and violet with the cat-eared host, wider layout choices with safety tests) published to main on Kriv's word. Still to do on the cast brief: stage 5 (genre and costume layer) and stage 6 (docs and skill). Then the phone rework. kriv.agency chibi and narration are still local branches
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -13,6 +13,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] Annual savings published (Kriv's go-ahead, 2026-11-16): main at `1462bd4`, live pages verified
 - [x] Interaction and motion on the rates page and quotation (Claude Code, 2026-11-16): plan builder, sticky section menu, expandable savings, scroll and hover motion; 700 tests, build and 22 smoke checks pass. Local on `claude/ph-interactive`
 - [x] Animated "two timelines" story for the annual plan (Claude Code, 2026-11-16): seven chapters with analogies, played on scroll, readable without scripts; 702 tests, build and 22 smoke checks pass. Local on `claude/ph-annual-story`
+- [x] Story cast stages 1 to 4 (Claude Code, 2026-11-16): cast engine, PCO dental cast, rates page restyled (sand and violet) with its cat-eared host, wider layout choices in the randomizer with safety tests; all five checks pass. Published on Kriv's word
 - [ ] Kriv: approve publishing the interactive pages and the story; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
 - [x] Kriv's PH prices and kriv.agency look (Claude Code, 2026-11-16): CRM 15,000 regular and 13,000 promo with stacking annual months, Branding kit 7,500, AI agent 2,500, content from 12 image posts at 3,000; draft marks and placeholders removed from both KRIV pages. Lint, typecheck, 695 tests, build and 22 smoke checks pass
 

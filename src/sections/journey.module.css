@@ -194,5 +194,37 @@ html:has(.journey) { scroll-snap-type: y proximity; }
   .root[data-side="left"] .stage { grid-column: 1; }
   .root[data-side="left"] .steps { grid-column: 2; }
   .root[data-side="left"] .step { padding: 0 48px 0 20px; }
-  .root[data-side="left"] .dots { align-items: flex-start; padding: 0 0 0 12px; }
+  /* ----- Layout choices from the story's style (wide screens only) ----- */
+  /* Chapter marks: a rail on the right (the base), a rail on the left, or a row along the top. */
+  .root[data-marks="rail-left"] .dots { align-items: flex-start; padding: 0 0 0 12px; }
+  .root[data-marks="top"] .dots, .root[data-marks="top"] .journey:has(.crest) .dots { top: 0; transform: translateY(22px); flex-direction: row; justify-content: center; align-items: flex-start; padding: 0; }
+  .root[data-marks="top"] .dots a { width: 26px; height: 32px; }
+  .root[data-marks="top"] .journey[data-step] .dots li a::before { height: 7px; }
+  /* The client's mark: top centre (the base), top left, or bottom left (mark only, to leave the bottom row free). */
+  .root[data-brand="top-left"] .crest { justify-content: flex-start; padding-left: 24px; }
+  .root[data-brand="bottom-left"] .crest { top: calc(100svh - 104px); transform: none; justify-content: flex-start; padding-left: 20px; }
+  .root[data-brand="bottom-left"] .crest b { display: none; }
+  .root[data-brand="bottom-left"] .crest span { padding: 6px 12px; }
+  /* Narration and cast buttons: bottom right (the base), bottom left, or top right. */
+  .root[data-voice="bottom-left"] .voice, .root[data-voice="bottom-left"] .journey:has(.crest) .voice { justify-content: flex-start; }
+  .root[data-voice="top-right"] .voice, .root[data-voice="top-right"] .journey:has(.crest) .voice { top: 0; transform: translateY(18px); justify-content: flex-end; }
+  /* The "next chapter" notice: bottom centre (the base), bottom left, or bottom right. */
+  .root[data-cue="bottom-left"] .cue { justify-content: flex-start; padding-left: 20px; }
+  .root[data-cue="bottom-right"] .cue { justify-content: flex-end; padding-right: 20px; }
+
+}
+
+/* Words centred under the drawing: one column, the drawing in the upper band. Only on wide AND tall screens,
+   where a chapter's words still fit under the drawing before the first scroll; elsewhere the words stay beside it. */
+@media (min-width: 900px) and (min-height: 820px) {
+  .root[data-words="centred"] .journey { grid-template-columns: minmax(0, 1fr); }
+  .root[data-words="centred"] .stage, .root[data-words="centred"] .journey:has(.crest) .stage { grid-column: 1; height: 46svh; padding: 88px 24px 0; }
+  .root[data-words="centred"] .art, .root[data-words="centred"] .journey:has(.crest) .art { width: min(56%, 34svh); }
+  .root[data-words="centred"] .steps { grid-column: 1; }
+  .root[data-words="centred"] .step { padding: 47svh 24px 112px; align-content: start; justify-items: center; text-align: center; }
+  .root[data-words="centred"] .words { justify-items: center; }
+}
+/* The cast stepping out from under the words needs the words to start high and leave the foot of their column free. */
+@media (min-width: 900px) and (min-height: 860px) {
+  .root[data-entrance="under-words"]:not([data-words="centred"]) .step { align-content: start; padding-top: 15svh; }
 }

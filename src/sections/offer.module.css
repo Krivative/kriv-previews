@@ -238,3 +238,8 @@ html:has(.root) { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .root *, .root *::after { transition: none !important; }
 }
+
+/* ---------- Card style, from the story's look: glass (the base), outlined, or solid ---------- */
+[data-cards="outlined"] :is(.cards, .windows, .facts) > li, [data-cards="outlined"] .promo { background: transparent; backdrop-filter: none; border-color: color-mix(in srgb, var(--ink) 34%, transparent); }
+[data-cards="solid"] :is(.cards, .windows, .facts) > li, [data-cards="solid"] .promo { background: var(--surface); backdrop-filter: none; border-color: transparent; }
+[data-cards="solid"] .cards > li.feature, [data-cards="outlined"] .cards > li.feature { background: var(--accent); border-color: var(--accent); }

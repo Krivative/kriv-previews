@@ -1,5 +1,5 @@
 import { castModes } from "@/stories/casts/types";
-import { journeyOrbits, journeySides, loreNames, themeNames } from "@/stories/journey-style";
+import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames } from "@/stories/journey-style";
 import { z } from "zod";
 
 // The only contract between a lead's content (leads/<slug>.json) and the
@@ -99,6 +99,14 @@ export const SiteData = z.object({
     lore: z.enum(loreNames).optional(),
     side: z.enum(journeySides).optional(),
     orbit: z.enum(journeyOrbits).optional(),
+    marks: z.enum(journeyMarks).optional(),
+    brand: z.enum(journeyBrands).optional(),
+    voice: z.enum(journeyVoices).optional(),
+    cue: z.enum(journeyCues).optional(),
+    words: z.enum(journeyWords).optional(),
+    map: z.enum(journeyMaps).optional(),
+    cards: z.enum(journeyCards).optional(),
+    entrance: z.enum(journeyEntrances).optional(),
   }).optional(),
   // Lead-level tailoring knobs. Everything is optional; the template supplies defaults.
   design: z

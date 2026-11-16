@@ -6,6 +6,7 @@ import { addressText, phoneText } from "@/lib/us-format";
 import { BookButton, mark } from "./JourneyBlocks";
 import { inert } from "./inert";
 import { SocialShowcase } from "./JourneySocial";
+import { journeyStyle } from "@/stories/journey-style";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { levelTwoVoice } from "@/stories/clinic-level-two";
 import { JourneyScroller } from "./JourneyScroller";
@@ -61,7 +62,17 @@ export function ClinicJourney({ site }: { site: SiteData }) {
   </div> });
 
   // The map: the clinic at the centre, one place per stop around it, joined in visiting order.
-  const place = (n: number) => { const a = (n / stops.length) * Math.PI * 2 - Math.PI / 2; return { x: 200 + Math.cos(a) * 138, y: 200 + Math.sin(a) * 138 }; };
+  // Its shape comes from the story's style: a ring around the clinic, a line of stops, or a zigzag path.
+  const map = journeyStyle(site).layout.map;
+  const last = Math.max(1, stops.length - 1);
+  const place = (n: number) => {
+    if (map === "line") return { x: 44 + (n * 312) / last, y: 262 };
+    if (map === "zigzag") return { x: 44 + (n * 312) / last, y: n % 2 ? 300 : 218 };
+    const a = (n / stops.length) * Math.PI * 2 - Math.PI / 2;
+    return { x: 200 + Math.cos(a) * 138, y: 200 + Math.sin(a) * 138 };
+  };
+  const hub = map === "ring" ? { x: 200, y: 200, r: 62 } : { x: 200, y: 96, r: 52 };
+  const dot = map === "ring" ? 30 : 23;
 
   return <JourneyScroller id={`${site.slug}:clinic`} className={`${j.journey} ${c.level}`} voiceClassName={j.voice} cueClassName={j.cue} locked={false}>
     <p className={j.crest}><span><JourneyLogo letters={letters} compact /><b>{ring}</b></span></p>
@@ -72,18 +83,18 @@ export function ClinicJourney({ site }: { site: SiteData }) {
     <div className={j.stage} aria-hidden="true">
       <svg viewBox="0 0 400 400" className={`${j.art} ${c.map}`}>
         <circle className={j.orbit} cx="200" cy="200" r="184" />
-        <path className={c.route} d={`${stops.map((_, n) => `${n ? "L" : "M"}${place(n).x.toFixed(1)} ${place(n).y.toFixed(1)}`).join(" ")} Z`} />
+        <path className={c.route} d={`${stops.map((_, n) => `${n ? "L" : "M"}${place(n).x.toFixed(1)} ${place(n).y.toFixed(1)}`).join(" ")}${map === "ring" ? " Z" : ""}`} />
         <g className={c.hub} data-journey-scene="">
-          <circle cx="200" cy="200" r="62" />
-          <text x="200" y="197" textAnchor="middle">{letters}</text>
-          <text className={c.small} x="200" y="218" textAnchor="middle">the clinic</text>
+          <circle cx={hub.x} cy={hub.y} r={hub.r} />
+          <text x={hub.x} y={hub.y - 3} textAnchor="middle">{letters}</text>
+          <text className={c.small} x={hub.x} y={hub.y + 18} textAnchor="middle">the clinic</text>
         </g>
-        {stops.map((stop, n) => { const p = place(n); const next = place((n + 1) % stops.length); return <g key={stop.id} className={c.place} data-journey-scene="">
-          <line className={c.spoke} x1="200" y1="200" x2={p.x} y2={p.y} />
+        {stops.map((stop, n) => { const p = place(n); const next = map === "ring" || n < stops.length - 1 ? place((n + 1) % stops.length) : p; return <g key={stop.id} className={c.place} data-journey-scene="">
+          <line className={c.spoke} x1={hub.x} y1={hub.y} x2={p.x} y2={p.y} />
           <line className={c.leg} x1={p.x} y1={p.y} x2={next.x} y2={next.y} />
-          <circle cx={p.x} cy={p.y} r="30" />
+          <circle cx={p.x} cy={p.y} r={dot} />
           <text className={c.count} x={p.x} y={p.y + 5} textAnchor="middle">{n + 1}</text>
-          <text className={c.small} x={p.x} y={p.y + (p.y < 200 ? -40 : 50)} textAnchor="middle">{stop.name}</text>
+          <text className={c.small} x={p.x} y={p.y + (map === "ring" ? (p.y < 200 ? -40 : 50) : map === "line" ? (n % 2 ? 44 : -34) : (n % 2 ? 42 : -32))} textAnchor="middle">{map === "ring" ? stop.name : stop.name.replace(/^(The|On) /, "")}</text>
         </g>; })}
       </svg>
     </div>
