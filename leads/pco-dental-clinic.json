@@ -33,6 +33,7 @@
   "storyStyle": {
     "theme": "night-lime",
     "lore": "chapters",
+    "genre": "plain",
     "side": "right",
     "orbit": "dotted",
     "marks": "rail-right",

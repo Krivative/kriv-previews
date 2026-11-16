@@ -304,9 +304,9 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const beat = aside ?? (onStage === step ? cast?.beats[step] ?? null : null);
   const voiceNow = castVoice({ enabled: Boolean(cast), quiet, reducedMotion: calm, narrating: !ready && !free, chapterEnded: Boolean(beat), held: Boolean(held) });
   const speaking = voiceNow === "member" && (said || Boolean(aside));
-  const notice = held === "playing" ? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? "The story plays forward. You can move freely once it ends." : "";
+  const notice = held === "playing" ? cast?.words?.playing ?? "This chapter is still playing. The next one opens when it ends." : held === "forward" ? cast?.words?.forward ?? "The story plays forward. You can move freely once it ends." : "";
   // While a character is speaking the "next chapter" notice waits its turn.
-  const cue = notice || (ending && cast ? cast.end : free ? "" : ready && !speaking ? "Scroll for the next chapter" : "");
+  const cue = notice || (ending && cast ? cast.end : free ? "" : ready && !speaking ? cast?.words?.next ?? "Scroll for the next chapter" : "");
   const hushCast = () => {
     const next = !quiet;
     castRef.current.quiet = next;

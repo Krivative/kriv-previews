@@ -1,4 +1,5 @@
-import { seedNumber } from "@/stories/journey-style";
+import { loreUnits, seedNumber, type JourneyGenre, type JourneyLore } from "@/stories/journey-style";
+import { dress, genres } from "./genres";
 import type { CastBeat, CastFile, CastLine, CastMode, CastRole, Expression, Move, StageCast } from "./types";
 
 export * from "./types";
@@ -11,15 +12,19 @@ const manner: Record<CastRole, { face: Expression; move: Move }> = {
   usher: { face: "neutral", move: "hop" },
 };
 
-const beat = (file: CastFile, role: CastRole, line: CastLine): CastBeat => ({ role, name: file.members[role].name, text: line.text, face: line.face ?? manner[role].face, move: line.move ?? manner[role].move });
+const beat = (file: CastFile, role: CastRole, line: CastLine, title = ""): CastBeat => ({ role, name: `${file.members[role].name}${title}`, text: line.text, face: line.face ?? manner[role].face, move: line.move ?? manner[role].move });
 
 /**
  * Casts a story: at most one appearance per chapter. The guide opens and closes;
  * in between the speaking roles take turns, in an order set by the seed, so two
  * sites with the same cast do not play the same show.
  */
-export function buildCast(file: CastFile, chapterIds: string[], mode: CastMode, seed: string): StageCast | null {
+export function buildCast(file: CastFile, chapterIds: string[], mode: CastMode, seed: string, costume?: { genre: JourneyGenre; lore: JourneyLore }): StageCast | null {
   if (mode === "off") return null;
+  // The costume: a title after each name, one small prop on each drawing, and the usher's wording. The lines themselves never change.
+  const genre = costume && costume.genre !== "plain" ? genres[costume.genre] : null;
+  const title = (role: CastRole) => (genre ? `, ${genre.titles[role]}` : "");
+  const wear = (role: CastRole) => (genre ? dress(file.members[role].art, genre.props[role]) : file.members[role].art);
   const speaking: CastRole[] = mode === "full" ? ["guide", "expert", "heckler"] : ["guide", "expert"];
   const start = seedNumber(`cast:${seed}`);
   const beats = chapterIds.map((id, n) => {
@@ -28,13 +33,14 @@ export function buildCast(file: CastFile, chapterIds: string[], mode: CastMode, 
     const order = edge ? ["guide" as const, ...speaking] : speaking.map((_, k) => speaking[(start + n + k) % speaking.length]);
     for (const role of order) {
       const lines = file.members[role].lines[id];
-      if (lines?.length) return beat(file, role, lines[seedNumber(`line:${seed}:${id}`) % lines.length]);
+      if (lines?.length) return beat(file, role, lines[seedNumber(`line:${seed}:${id}`) % lines.length], title(role));
     }
     return null;
   });
-  const art: StageCast["art"] = { usher: file.members.usher.art };
-  for (const role of speaking) art[role] = file.members[role].art;
-  return { beats, art, tease: mode === "full" ? beat(file, "heckler", file.tease) : null, end: file.end, usherName: file.members.usher.name };
+  const art: StageCast["art"] = { usher: wear("usher") };
+  for (const role of speaking) art[role] = wear(role);
+  const words = genre && costume ? genre.words(loreUnits[costume.lore]) : undefined;
+  return { beats, art, tease: mode === "full" ? beat(file, "heckler", file.tease, title("heckler")) : null, end: file.end, usherName: `${file.members.usher.name}${title("usher")}`, words };
 }
 
 /**

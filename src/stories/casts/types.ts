@@ -37,4 +37,6 @@ export type CastFile = {
 /** One appearance: who steps out for a chapter and what they say. */
 export type CastBeat = { role: CastRole; name: string; text: string; face: Expression; move: Move };
 /** What the story engine needs on stage: one beat per chapter, the drawings, and the usher's extras. */
-export type StageCast = { beats: (CastBeat | null)[]; art: Partial<Record<CastRole, ReactNode>>; tease: CastBeat | null; end: string; usherName: string };
+/** The usher's wording for the two lock notices and the "next chapter" cue, when a genre rewords them. */
+export type UsherWords = { playing: string; forward: string; next: string };
+export type StageCast = { beats: (CastBeat | null)[]; art: Partial<Record<CastRole, ReactNode>>; tease: CastBeat | null; end: string; usherName: string; words?: UsherWords };

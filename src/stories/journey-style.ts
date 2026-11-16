@@ -67,6 +67,15 @@ export const journeyLores = {
   pages: (n: number, _of: number, name: string) => ({ lead: `Page ${n}`, rest: name }),
 } as const;
 export type JourneyLore = keyof typeof journeyLores;
+/** The word for one part of the story, for sentences such as "the next scene". */
+export const loreUnits: Record<JourneyLore, string> = { chapters: "chapter", scenes: "scene", stops: "stop", pages: "page" };
+// The cast's costume: a genre changes each character's title, one small prop and the
+// usher's wording (src/stories/casts/genres.tsx). "plain" is no costume, and is only
+// ever chosen by pinning it. Each way of naming the chapters has a genre it suits.
+export const journeyGenres = ["plain", "film-crew", "ships-crew", "kitchen-brigade", "pit-crew"] as const;
+export type JourneyGenre = (typeof journeyGenres)[number];
+export const lorePartners: Record<JourneyLore, Exclude<JourneyGenre, "plain">> = { scenes: "film-crew", chapters: "ships-crew", pages: "kitchen-brigade", stops: "pit-crew" };
+const costumes = journeyGenres.filter((g) => g !== "plain");
 export const journeySides = ["right", "left"] as const;
 export const journeyOrbits = ["dotted", "dashed", "double", "none"] as const;
 export const themeNames = journeyThemes.map((t) => t.name) as [string, ...string[]];
@@ -86,7 +95,7 @@ export const journeyEntrances = ["edge", "under-words", "behind"] as const; // w
 type Pick<T extends readonly string[]> = T[number];
 
 export type StoryStyleChoice = {
-  seed?: string; theme?: string; lore?: JourneyLore; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
+  seed?: string; theme?: string; lore?: JourneyLore; genre?: JourneyGenre; side?: Pick<typeof journeySides>; orbit?: Pick<typeof journeyOrbits>;
   marks?: Pick<typeof journeyMarks>; brand?: Pick<typeof journeyBrands>; voice?: Pick<typeof journeyVoices>; cue?: Pick<typeof journeyCues>;
   words?: Pick<typeof journeyWords>; map?: Pick<typeof journeyMaps>; cards?: Pick<typeof journeyCards>; entrance?: Pick<typeof journeyEntrances>;
 };
@@ -130,10 +139,13 @@ const pick = <T,>(list: readonly T[], seed: string, part: string) => list[seedNu
 export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice }) {
   const choice = site.storyStyle ?? {};
   const seed = choice.seed ?? site.slug;
+  const lore = choice.lore ?? pick(loreNames, seed, "lore");
   return {
     seed,
+    // Two looks in three wear the genre that suits their chapter naming; the third is the seed's own pick.
+    genre: choice.genre ?? (seedNumber(`genre-tie:${seed}`) % 3 ? lorePartners[lore] : pick(costumes, seed, "genre")),
     theme: journeyThemes.find((t) => t.name === choice.theme) ?? pick(journeyThemes, seed, "theme"),
-    lore: choice.lore ?? pick(loreNames, seed, "lore"),
+    lore,
     side: choice.side ?? pick(journeySides, seed, "side"),
     orbit: choice.orbit ?? pick(journeyOrbits, seed, "orbit"),
     layout: resolveLayout({
@@ -153,7 +165,7 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
 /** The look as data attributes on the page's root: the stylesheets do the rest. */
 export function lookAttributes(look: ReturnType<typeof journeyStyle>) {
   const l = look.layout;
-  return { "data-theme-name": look.theme.name, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
+  return { "data-theme-name": look.theme.name, "data-genre": look.genre, "data-side": look.side, "data-orbit": look.orbit, "data-marks": l.marks, "data-brand": l.brand, "data-voice": l.voice, "data-cue": l.cue, "data-words": l.words, "data-map": l.map, "data-cards": l.cards, "data-entrance": l.entrance };
 }
 
 /** A theme as the CSS variables the story pages are built on. */
@@ -168,5 +180,5 @@ export function themeVars(t: JourneyTheme): CSSProperties {
 // ---------- KRIV's own rates page ----------
 // The rates page runs through the same style system as lead stories, pinned here (Kriv's pick, 2026-11-16:
 // "sand and violet"). It must never look like a client's story: see the test that compares it with PCO.
-export const ratesStyle: StoryStyleChoice = { theme: "sand-violet", lore: "stops", side: "left", orbit: "double", marks: "rail-left", brand: "top-left", voice: "bottom-right", cue: "bottom-centre", words: "beside", map: "line", cards: "outlined", entrance: "edge" };
+export const ratesStyle: StoryStyleChoice = { theme: "sand-violet", lore: "stops", genre: "plain", side: "left", orbit: "double", marks: "rail-left", brand: "top-left", voice: "bottom-right", cue: "bottom-centre", words: "beside", map: "line", cards: "outlined", entrance: "edge" };
 export const ratesLook = () => journeyStyle({ slug: "ph-rates", storyStyle: ratesStyle });

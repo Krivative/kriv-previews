@@ -107,9 +107,10 @@ function Stage() {
 }
 
 export function RatesJourney() {
-  const label = journeyLores[ratesLook().lore];
+  const look = ratesLook();
+  const label = journeyLores[look.lore];
   // KRIV's own page runs the full cast: host, price, old price and day counter.
-  const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates");
+  const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates", look);
   return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast}>
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}

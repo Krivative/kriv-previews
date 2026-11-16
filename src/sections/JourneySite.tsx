@@ -55,7 +55,7 @@ export function JourneySite({ site }: { site: SiteData }) {
   const { letters, ring } = logoWords(site);
   const look = journeyStyle(site);
   const label = journeyLores[look.lore];
-  const cast = buildCast(dentalCast, dentalJourney.map((step) => step.id), site.storyCast ?? "serious", look.seed);
+  const cast = buildCast(dentalCast, dentalJourney.map((step) => step.id), site.storyCast ?? "serious", look.seed, look);
   const book = <BookButton site={site} />;
   const nav = <>
     <a href="#journey-smile">The story</a>

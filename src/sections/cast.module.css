@@ -76,3 +76,9 @@
   [data-entrance="under-words"][data-side="left"]:not([data-words="centred"]) .cast { grid-column: 2; padding-inline: 20px 300px; }
 }
 @media (prefers-reduced-motion: reduce) { .cast, .usher { display: none !important; } }
+
+/* ---------- Costume: one small prop per character, set by the story's genre ---------- */
+.character, .usher { position: relative; }
+.character svg[data-cast-prop], .usher svg[data-cast-prop] { position: absolute; right: -6%; bottom: 4%; width: 40%; height: auto; overflow: visible; }
+.cast[data-speaking] .character svg[data-cast-prop] { animation: cast-prop 0.5s var(--journey-ease, ease-out) both; }
+@keyframes cast-prop { from { opacity: 0; transform: translateY(6px) rotate(-14deg) scale(0.6); } to { opacity: 1; transform: none; } }

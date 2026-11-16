@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: story cast stages 1 to 4 (cast engine, PCO dental cast, rates page in sand and violet with the cat-eared host, wider layout choices with safety tests) published to main on Kriv's word. Still to do on the cast brief: stage 5 (genre and costume layer) and stage 6 (docs and skill). Then the phone rework. kriv.agency chibi and narration are still local branches
+Updated: 2026-11-16 - Last step finished: story cast brief complete. Stages 1 to 4 are published; stage 5 (genre and costume layer: film crew, ship's crew, kitchen brigade, pit crew) and stage 6 (docs/STORY-CAST.md and the skill) are local on `claude/story-cast`, awaiting Kriv's "publish". Next: the phone rework of all three sites. kriv.agency chibi and narration are still local branches
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -14,6 +14,9 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] Interaction and motion on the rates page and quotation (Claude Code, 2026-11-16): plan builder, sticky section menu, expandable savings, scroll and hover motion; 700 tests, build and 22 smoke checks pass. Local on `claude/ph-interactive`
 - [x] Animated "two timelines" story for the annual plan (Claude Code, 2026-11-16): seven chapters with analogies, played on scroll, readable without scripts; 702 tests, build and 22 smoke checks pass. Local on `claude/ph-annual-story`
 - [x] Story cast stages 1 to 4 (Claude Code, 2026-11-16): cast engine, PCO dental cast, rates page restyled (sand and violet) with its cat-eared host, wider layout choices in the randomizer with safety tests; all five checks pass. Published on Kriv's word
+- [x] Story cast stages 5 and 6 (Claude Code, 2026-11-16): genre and costume layer hooked to the seed, pinnable; docs/STORY-CAST.md; all five checks pass. Local on `claude/story-cast`
+- [ ] Kriv: say "publish" for the costume layer; approve the cast lines (drafts); say whether PCO or the rates page should wear a genre
+- [ ] Phone rework of the three sites (part 2 of the voices brief): audit, decisions, phone-native styles for Kriv's pick
 - [ ] Kriv: approve publishing the interactive pages and the story; give prices for the Daily and Full social media management tiers, the referral reward and any promo end date
 - [x] Kriv's PH prices and kriv.agency look (Claude Code, 2026-11-16): CRM 15,000 regular and 13,000 promo with stacking annual months, Branding kit 7,500, AI agent 2,500, content from 12 image posts at 3,000; draft marks and placeholders removed from both KRIV pages. Lint, typecheck, 695 tests, build and 22 smoke checks pass
 
