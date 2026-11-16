@@ -165,7 +165,9 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 
 @media (min-width: 900px) {
   .foot { grid-template-columns: auto 1fr; gap: 32px !important; }
-  .journey { display: grid; grid-template-columns: 1fr 1fr; max-width: 1180px; margin-inline: auto; }
+  /* Full screen on every desktop (Kriv, 2026-11-16): the story spans the whole window, so its scenes and
+     world go edge to edge; the two columns stay a readable width inside it, and grow with the screen. */
+  .journey { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-inline: max(0px, calc((100% - min(1760px, 92vw)) / 2)); }
   .crest { grid-column: 1 / -1; grid-row: 1; align-self: start; transform: translateY(20px); }
   .crest span { padding: 8px 22px 8px 14px; gap: 14px; }
   .crest svg { width: 104px; height: 72px; }
@@ -256,3 +258,14 @@ html:has(.journey) { scroll-snap-type: y proximity; }
 }
 .journey:has([data-scenes]) .step:not(:first-of-type) .words { background: color-mix(in srgb, var(--bg) 46%, transparent); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: var(--radius-small, 14px); padding: 14px 16px; margin-inline: -16px; }
 @media (min-width: 900px) { .stage, .journey:not([data-step="0"]) .stage { background: none; } }
+
+/* Big screens (1080p and up): the words and controls grow with the window instead of staying laptop-sized. */
+@media (min-width: 1700px) {
+  .words { zoom: 1.18; }
+}
+@media (min-width: 2200px) {
+  .words { zoom: 1.42; }
+}
+@media (min-width: 3000px) {
+  .words { zoom: 1.7; }
+}

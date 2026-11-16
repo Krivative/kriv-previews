@@ -14,3 +14,4 @@
 .cta a:first-child { background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: var(--button-radius, 999px); }
 .cta a:last-child { color: var(--accent); font-weight: 600; }
 .fine { margin: 10px 0 0; font-size: 0.7rem; color: var(--muted); }
+
