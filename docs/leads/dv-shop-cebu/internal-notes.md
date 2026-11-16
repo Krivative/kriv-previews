@@ -12,7 +12,7 @@
 - Product feed: most variants have no SKU (AJ1 Low OG "Chicago" none at all).
 
 ## Not verified / not used
-- About 22,900 Facebook likes and 6,100 Instagram followers (from Kriv): Facebook and Instagram could not be read (browser extension did not connect). Verify read-only in Kriv's browser, then show what the pages say that day.
+- Facebook and Instagram, read-only in Kriv's Chrome on 2026-11-17: Facebook "DV Shop Cebu | Lapu-Lapu City", 22K followers, 61 following, latest post 2026-11-15 on pickleball shoes (Skechers Viper Court 2.0). Instagram @dvshopcebu, 5,954 followers, 1,962 following, bio "SNEAKER STORE, Store Hours 11am-8pm Mon-Sun, www.dvshopcebu.com", highlights Customers, Best Seller, Location, Mode of Payment, Content. These counts are on the page (edition 1.1); Kriv's estimates are not. Posting rhythm could not be read beyond the latest post. Commenters' names were seen and not recorded.
 - The owner's legal name (Rodolph or Rodolf): not used anywhere; the page says "Dop Dop" and the mark is "Dop-".
 - The ph-local REFERRAL line ("referral reward"): not used on his page; the introduction ask is no pressure, no obligation, no reward.
 
@@ -21,5 +21,8 @@
 - The Carousell rating (5.0 from 75 reviews), linked inertly.
 - The concept badge revamp and the Dop- mark.
 
-## Audio: not heard
+## Audio: generated 2026-11-17, not heard
+"In the Zone" rap (90 s) and jingle (15 s), ElevenLabs Music v2 through Magnific, 2,100 credits, Kriv's approval in chat. Local copies: `shots/dv-shop-audio/` (git-ignored, not on the site). For the audio, shoe names that are also real athletes' names were swapped (Kobe Protro to "Protro", the Roger to "court shoes", the Book/LeBron line to "Signature pairs, a fresh pair on the bench") so the track names no real person.
+
+## Audio (earlier note)
 Claude cannot hear audio. The rap track, the jingle and the story's reused sound effects (rates/unlock, rates/stamp, rates/page-flip, rates/select, agency/keys, rates/coin, rates/level-up, plus the kitchen-brigade room) must be listened to by a person.

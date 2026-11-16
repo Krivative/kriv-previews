@@ -19,6 +19,10 @@
       "postalCode": "6015",
       "country": "PH"
     },
+    "socials": {
+      "facebook": "https://www.facebook.com/dvshopcebu",
+      "instagram": "https://www.instagram.com/dvshopcebu/"
+    },
     "hours": [
       { "days": "Daily", "time": "11am to 8pm" }
     ]
@@ -68,6 +72,8 @@
     "https://dvshopcebu.com/pages/contact",
     "https://dvshopcebu.com/collections/dv-shoe-care",
     "https://dvshopcebu.com/policies/refund-policy",
-    "https://www.carousell.ph/u/dvshopcebu"
+    "https://www.carousell.ph/u/dvshopcebu",
+    "https://www.facebook.com/dvshopcebu",
+    "https://www.instagram.com/dvshopcebu/"
   ]
 }

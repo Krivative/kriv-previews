@@ -54,7 +54,7 @@ describe("DV Shop Cebu concept", () => {
       expect(html).not.toMatch(/<a\b[^>]*href="(?:tel:|mailto:|https?:)/);
       const words = text(html);
       // The refund policy says all sales are final: no money-back promise. No unverified follower counts.
-      expect(words).not.toMatch(/money[- ]back|22,?900|6,?100|followers|bandwidth/i);
+      expect(words).not.toMatch(/money[- ]back|22,?900|6,?100|bandwidth/i); // Kriv's estimates; only the counts read from the pages are shown
       // Refunds come up only on KRIV's offer page, as a policy to make consistent; never on the shop's own pages.
       if (html !== pages.offer) expect(words).not.toMatch(/refund/i);
       // The owner is never named by his legal name until Kriv confirms its spelling.
@@ -64,7 +64,7 @@ describe("DV Shop Cebu concept", () => {
 
   it("states the store's real details and credits its photos", () => {
     const words = text(pages.home);
-    for (const part of ["Unit 14 G/F Bldg 2, Celadon Town, Brgy. Pajac, Lapu-Lapu City, Cebu, 6015", "11am to 8pm", "dvshopcebu@gmail.com", "DV Cafe", "Rated 5.0 from 75 reviews", "Photos, products and prices: DV Shop Cebu"]) expect(words).toContain(part);
+    for (const part of ["Unit 14 G/F Bldg 2, Celadon Town, Brgy. Pajac, Lapu-Lapu City, Cebu, 6015", "11am to 8pm", "dvshopcebu@gmail.com", "DV Cafe", "Rated 5.0 from 75 reviews", "DV Shop Cebu, 22K followers", "@dvshopcebu, 5,954 followers", "Photos, products and prices: DV Shop Cebu"]) expect(words).toContain(part);
   });
 
   it("has a brand revamp page with the randomizer's pick among nine sibling badges", () => {

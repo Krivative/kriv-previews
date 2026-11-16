@@ -1636,9 +1636,32 @@
     }
   ],
   "notVerified": {
-    "facebookLikes": "about 22,900 (from Kriv)",
-    "instagramFollowers": "about 6,100 (from Kriv)",
-    "note": "Verify read-only in Kriv browser before showing"
+    "note": "Kriv's estimates (about 22,900 Facebook likes, about 6,100 Instagram followers) are replaced by the counts read on 2026-11-17."
   },
-  "photoUse": "Logo, store photos and product photos are DV Shop Cebu property: private preview only, hotlinked from their CDN, needs the DV Shop team OK before going public."
+  "photoUse": "Logo, store photos and product photos are DV Shop Cebu property: private preview only, hotlinked from their CDN, needs the DV Shop team OK before going public.",
+  "socials": {
+    "checked": "2026-11-17",
+    "method": "Read-only in Kriv's Chrome; nothing clicked, liked or sent",
+    "facebook": {
+      "url": "https://www.facebook.com/dvshopcebu",
+      "name": "DV Shop Cebu | Lapu-Lapu City",
+      "followers": "22K",
+      "following": 61,
+      "latestPost": "2026-11-15: HOTTEST PICKLEBALL SHOES, Skechers Viper Court 2.0"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/dvshopcebu/",
+      "handle": "@dvshopcebu",
+      "followers": 5954,
+      "following": 1962,
+      "bio": "SNEAKER STORE. Store Hours 11am-8pm Mon-Sun. www.dvshopcebu.com",
+      "highlights": [
+        "Customers",
+        "Best Seller",
+        "Location",
+        "Mode of Payment",
+        "Content"
+      ]
+    }
+  }
 }

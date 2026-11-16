@@ -81,6 +81,8 @@ export function StoreBlock({ site }: { site: SiteData }) {
         <div><dt>Pay with</dt><dd>Cash on delivery nationwide, card, e-wallets, BPI, GCash, Maya, SPayLater</dd></div>
         <div><dt>Ships</dt><dd>Nationwide and worldwide</dd></div>
         <div><dt>Carousell</dt><dd><a {...inert}>Rated 5.0 from 75 reviews</a></dd></div>
+        <div><dt>Facebook</dt><dd><a {...inert}>DV Shop Cebu, 22K followers</a></dd></div>
+        <div><dt>Instagram</dt><dd><a {...inert}>@dvshopcebu, 5,954 followers</a></dd></div>
       </dl>
     </div>
   </section>;
@@ -125,7 +127,7 @@ export function SneakerSite({ site }: { site: SiteData }) {
       <AboutBlock site={site} />
       <StoreBlock site={site} />
       <FaqBlock site={site} />
-      <p className={d.credit}>Photos, products and prices: DV Shop Cebu (dvshopcebu.com), shown in a private concept preview.</p>
+      <p className={d.credit}>Photos, products and prices: DV Shop Cebu (dvshopcebu.com). Follower counts as shown on the shop&apos;s Facebook and Instagram pages on 17 November 2026.</p>
     </div>
   </JourneyFrame>;
 }
