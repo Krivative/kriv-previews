@@ -32,10 +32,10 @@ function Stage() {
       <circle className={j.orbit2} cx="200" cy="200" r="160" />
 
       <g className={r.scene} data-journey-scene="">
-        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, restyled in a light hoodie set with Magnific). */}
+        {/* The hero: Kriv, the founder, who built the system this page sells (his own photo, restyled with Magnific in the Underground Apparel hoodie, KRIV's partner sponsor, front facing so the chest print shows). */}
         <defs><clipPath id="rates-hero-clip"><circle cx="200" cy="168" r="132" /></clipPath></defs>
         <circle className={r.heroRing} cx="200" cy="168" r="138" />
-        <image href="/for/kriv-hero-light.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
+        <image href="/for/kriv-hero-underground.webp" x="40" y="22" width="320" height="320" clipPath="url(#rates-hero-clip)" preserveAspectRatio="xMidYMax slice" />
         <text className={r.wordmark} x="192" y="358" textAnchor="middle" style={{ fontSize: 52, letterSpacing: -3 }}>kriv</text>
         <text className={r.cross} x="256" y="356" textAnchor="middle" style={{ fontSize: 36 }}>×</text>
         <text className={r.small} x="200" y="388" textAnchor="middle">the brains behind the system</text>
@@ -116,7 +116,11 @@ export function RatesJourney() {
   const label = journeyLores[look.lore];
   // KRIV's own page runs the full cast: host, price, old price and day counter.
   const cast = buildCast(ratesCast, ratesJourney.map((step) => step.id), "full", "ph-rates", look);
+  // One quick appearance in the background: Kriv from behind, the sponsor's back print faded in and out
+  // once as the second chapter arrives (rates-journey.module.css, .ghost). Decoration only.
+  const ghost = <div className={r.ghost} aria-hidden="true"><div><img src="/for/kriv-back-underground.webp" alt="" width={1200} height={1200} loading="lazy" decoding="async" /></div></div>;
   return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue} cast={cast} sound={soundRoom(look.sound, "rates")}>
+    {ghost}
     <ol className={j.dots} aria-label="Chapters of the story">
       {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
     </ol>
