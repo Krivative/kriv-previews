@@ -14,7 +14,11 @@
     "shoot": "node scripts/shoot.mjs",
     "lead-desk": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning lead-desk/server.mjs",
     "sales:demo": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning scripts/sales-demo.mjs",
-    "story:shuffle": "node scripts/story-style.mjs"
+    "story:shuffle": "node scripts/story-style.mjs",
+    "preflight": "node scripts/preflight.mjs",
+    "offer:ready": "node scripts/offer-ready.mjs",
+    "workflow:check": "node scripts/workflow-check.mjs",
+    "look": "node scripts/look.mjs"
   },
   "dependencies": {
     "next": "16.4.2",
