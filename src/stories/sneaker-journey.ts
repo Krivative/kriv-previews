@@ -6,6 +6,21 @@
 // Photos are the shop's own, hotlinked from its store and credited to it: private preview only,
 // and the DV Shop team approves them before anything goes public.
 import type { JourneyStep } from "./dental-journey";
+import { journeyStyle, type JourneyTheme, type StoryStyleChoice } from "./journey-style";
+
+// Edition 2 (Kriv, 2026-11-17): "a premium sports authority website". DV's own black and white, pushed to
+// scoreboard level: pure black, heavy condensed uppercase, square corners, one volt accent. The theme lives
+// here, not in journeyThemes, so no other lead's seeded look moves.
+export const blackoutVolt: JourneyTheme = {
+  name: "blackout-volt", label: "Blackout and volt", dark: true, deep: "#050505", bg: "#050505", surface: "#121212", ink: "#ededed", bright: "#ffffff", muted: "#9d9d9d", accent: "#d4ff3a", accentInk: "#050505", glow: "rgba(212, 255, 58, 0.10)",
+  display: '"Anton", "Archivo", Impact, sans-serif', displayName: "Anton", body: '"Inter", Arial, sans-serif', bodyName: "Inter", weight: 400, tracking: "0.015em", letterCase: "uppercase",
+  radius: "0px", radiusSmall: "0px", buttonRadius: "0px",
+  googleCss: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap",
+};
+/** DV Shop Cebu's look: the seeded layout, in the blackout theme. */
+export function sneakerLook(site: { slug: string; storyStyle?: StoryStyleChoice }) {
+  return { ...journeyStyle(site), theme: blackoutVolt };
+}
 
 const cdn = (file: string, width = 1200) => `https://dvshopcebu.com/cdn/shop/files/${file}?width=${width}`;
 

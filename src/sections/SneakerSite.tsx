@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
-import { journeyLores, journeyStyle } from "@/stories/journey-style";
+import { journeyLores } from "@/stories/journey-style";
 import { beatEffects, soundRoom } from "@/stories/story-sound";
-import { bestSellers, peso, shoeCare, sneakerJourney } from "@/stories/sneaker-journey";
+import { bestSellers, peso, shoeCare, sneakerJourney, sneakerLook } from "@/stories/sneaker-journey";
 import { AboutBlock, FaqBlock, JourneyFrame } from "./JourneyBlocks";
 import { JourneyScroller } from "./JourneyScroller";
 import { DvLogo, dvLogoStyle } from "./DvLogo";
@@ -89,7 +89,7 @@ export function StoreBlock({ site }: { site: SiteData }) {
 }
 
 export function SneakerSite({ site }: { site: SiteData }) {
-  const look = journeyStyle(site);
+  const look = sneakerLook(site);
   const label = journeyLores[look.lore];
   const logo = dvLogoStyle(look.seed);
   const nav = <>
@@ -105,6 +105,7 @@ export function SneakerSite({ site }: { site: SiteData }) {
       <ol className={j.dots} aria-label="Pages of the story">
         {sneakerJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, sneakerJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
       </ol>
+      <div className={d.court} aria-hidden="true"><span>IN THE ZONE</span></div>
       <Stage />
       <div className={j.steps}>
         {sneakerJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-sfx={beatEffects.sneaker[step.id]} aria-labelledby={`journey-${step.id}-title`}>
@@ -115,7 +116,7 @@ export function SneakerSite({ site }: { site: SiteData }) {
               <h1 id={`journey-${step.id}-title`}>{step.title}</h1>
             </> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
             <p className={j.narration} data-narration="">{step.narration}</p>
-            {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span></p> : null}
+            {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Tap for the DV track, &ldquo;In the Zone&rdquo;.</p> : null}
             {n === sneakerJourney.length - 1 ? <p className={o.actions}><a className={o.button} {...inert}>Shop the pairs <span aria-hidden="true">+</span></a><a href="#shoe-care">See DV Shoe Care</a></p> : null}
           </div>
         </section>)}

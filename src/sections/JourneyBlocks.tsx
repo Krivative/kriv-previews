@@ -8,6 +8,7 @@ import { Ribbon, conceptNotice } from "./Chrome";
 import { inert } from "./inert";
 import { JourneyLogo, logoWords } from "./JourneyLogo";
 import { DvLogo, dvLogoStyle } from "./DvLogo";
+import { sneakerLook } from "@/stories/sneaker-journey";
 import s from "./sections.module.css";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
@@ -33,8 +34,8 @@ export function BookButton({ site }: Props) {
 export function JourneyFrame({ site, nav, children }: Props & { nav: ReactNode; children: ReactNode }) {
   const { business } = site;
   const { letters, ring } = logoWords(site);
-  const look = journeyStyle(site);
   const sneaker = site.story === "sneaker-journey";
+  const look = sneaker ? sneakerLook(site) : journeyStyle(site);
   const mark = sneaker ? <DvLogo style={dvLogoStyle(look.seed)} compact /> : <JourneyLogo letters={letters} compact />;
   return <div className={`${s.site} ${o.root} ${j.root}`} lang={site.lang} style={themeVars(look.theme)} {...lookAttributes(look)}>
     <link rel="stylesheet" href={look.theme.googleCss} precedence="fonts" />

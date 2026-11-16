@@ -14,8 +14,8 @@ export type SoundBusiness = "dental" | "rates" | "agency" | "sneaker";
 
 /** The room for a world. "plain" is the business's own room. */
 export function soundRoom(world: SoundWorld, business: SoundBusiness) {
-  // DV Shop Cebu has no room recording of its own yet: its plain room borrows the agency studio.
-  const room = world === "plain" ? (business === "sneaker" ? "agency" : business) : world;
+  // DV Shop Cebu's own room is its track, "In the Zone" (sneaker/ambient), looped.
+  const room = world === "plain" ? business : world;
   // The business rooms have no chapter-change sting of their own: their beat effects carry the story.
   return { ambient: file(`${room}/ambient`), sting: world === "plain" ? null : file(`${world}/sting`) };
 }

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import type { SiteData } from "@/lib/site-schema";
 import { pageHref } from "@/lib/site-pages";
-import { journeyStyle } from "@/stories/journey-style";
-import { sneakerJourney, sneakerPhotos } from "@/stories/sneaker-journey";
+import { sneakerJourney, sneakerLook, sneakerPhotos } from "@/stories/sneaker-journey";
 import { JourneyFrame } from "./JourneyBlocks";
 import { DopMark, DvLogo, allDvLogoStyles, dvLogoStyle, type DvLogoStyle } from "./DvLogo";
 import o from "./offer.module.css";
@@ -26,14 +25,14 @@ function Nav({ site, current }: { site: SiteData; current: "brand-kit" | "dop" }
 }
 
 export function DvBrandPage({ site }: { site: SiteData }) {
-  const look = journeyStyle(site);
+  const look = sneakerLook(site);
   const pick = dvLogoStyle(look.seed);
   const { theme } = look;
   const colours = [
     { name: "Black", hex: "#0B0B0B", use: "The disc, as on the shop's badge" },
     { name: "Paper", hex: "#F4F1EC", use: "Ring, letters and light grounds" },
     { name: "Ground", hex: theme.bg, use: "The story's ground" },
-    { name: "Accent", hex: theme.accent, use: "The fresh-pair highlight" },
+    { name: "Accent", hex: theme.accent, use: "Volt: the fresh-pair highlight" },
     { name: "Navy", hex: "#1D3686", use: "Kept from dvshopcebu.com" },
   ];
   return <JourneyFrame site={site} nav={<Nav site={site} current="brand-kit" />}>
@@ -81,7 +80,7 @@ export function DvBrandPage({ site }: { site: SiteData }) {
 }
 
 export function DopPage({ site }: { site: SiteData }) {
-  const pick = dvLogoStyle(journeyStyle(site).seed);
+  const pick = dvLogoStyle(sneakerLook(site).seed);
   const posts = [
     { photo: sneakerJourney[0].photo, alt: "A fresh pair" },
     { text: "Legit lang, always." },

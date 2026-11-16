@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -8,9 +8,9 @@ import { bonusPage, brandKitPage, offerPage, sitePages } from "@/lib/site-pages"
 import { annualPay, annualPlans, decisionWindows, php } from "@/offers/ph-local";
 import { templates } from "@/templates";
 import { journeyStyle } from "@/stories/journey-style";
-import { shoeCare, sneakerJourney } from "@/stories/sneaker-journey";
+import { blackoutVolt, shoeCare, sneakerJourney, sneakerLook } from "@/stories/sneaker-journey";
 import { allDvLogoStyles, dvLogoStyle } from "@/sections/DvLogo";
-import { beatEffects } from "@/stories/story-sound";
+import { beatEffects, soundRoom } from "@/stories/story-sound";
 import type { SitePage } from "@/lib/site-pages";
 
 // DV Shop Cebu, the surprise concept for Kriv's friend (2026-11-17).
@@ -22,10 +22,14 @@ const banner = "Concept preview prepared by KRIV for DV Shop Cebu. Not affiliate
 const pages = { home: render(), brand: render(brandKitPage(site)), dop: render(bonusPage(site)), contact: render(sitePages(site).find((p) => p.kind === "contact")), offer: render(offerPage(site)) };
 
 describe("DV Shop Cebu concept", () => {
-  it("wears look C as Kriv picked it: oxblood and peach, pages, kitchen brigade", () => {
-    const look = journeyStyle(site);
-    expect([look.theme.name, look.lore, look.genre, look.sound, look.layout.words, look.layout.map]).toEqual(["oxblood-peach", "pages", "kitchen-brigade", "kitchen-brigade", "centred", "line"]);
-    expect(pages.home).toContain('data-theme-name="oxblood-peach"');
+  it("wears edition 2: blackout and volt, and loops the DV track as its own room", () => {
+    const look = sneakerLook(site);
+    expect([look.theme.name, look.lore, look.genre, look.sound]).toEqual(["blackout-volt", "stops", "plain", "plain"]);
+    for (const html of Object.values(pages)) expect(html).toContain('data-theme-name="blackout-volt"');
+    const room = soundRoom(look.sound, "sneaker");
+    expect(room.ambient).toContain("sneaker/ambient");
+    expect(existsSync(path.join(__dirname, "..", "public", room.ambient.replace("/for", "").split("?")[0]))).toBe(true);
+    expect(blackoutVolt.accentInk).toBe(blackoutVolt.bg);
   });
 
   it("tells 'Keep them fresh' in seven pages, each with a photo of the shop's own", () => {
@@ -36,7 +40,7 @@ describe("DV Shop Cebu concept", () => {
       expect(step.photo).toMatch(/^https:\/\/dvshopcebu\.com\/cdn\/shop\/files\//);
       expect(beatEffects.sneaker[step.id]).toBeDefined();
     }
-    expect(words).toContain("Page 1 / Fresh out of the box");
+    expect(words).toContain("Stop 1 of 7 / Fresh out of the box");
     expect(pages.home.match(/<h1\b/g)?.length).toBe(1);
   });
 
