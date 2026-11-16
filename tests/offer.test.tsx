@@ -11,7 +11,7 @@ import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
 import { levelTwoVoice } from "@/stories/clinic-level-two";
 import { ratesJourney } from "@/stories/rates-journey";
-import { journeyStyle, journeyThemes } from "@/stories/journey-style";
+import { journeyStyle, journeyThemes, ratesLook } from "@/stories/journey-style";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -318,6 +318,21 @@ describe("story style randomizer", () => {
     const light = render({ ...pco, storyStyle: { theme: "paper-pine" } });
     expect(light).toContain('data-theme-name="paper-pine"');
     expect(light).toContain(banner("PCO Dental Clinic"));
+  });
+  it("never lets the rates page look like PCO: a different theme and at least two different layout choices", () => {
+    const pcoLook = journeyStyle(SiteData.parse(pco));
+    const rates = ratesLook();
+    expect(rates.theme.name).not.toBe(pcoLook.theme.name);
+    const layout = (l: typeof rates) => [l.lore, l.side, l.orbit];
+    expect(layout(rates).filter((choice, n) => choice !== layout(pcoLook)[n]).length).toBeGreaterThanOrEqual(2);
+    const page = renderToStaticMarkup(<PhRatesPage />);
+    expect(page).toContain('data-theme-name="sand-violet"');
+    expect(page).toContain('data-side="left"');
+    expect(text(page)).toContain("Stop 1 of 10 / The start");
+  });
+  it("dresses a story lead's quotation in that lead's own theme", () => {
+    expect(render(pco, true)).toContain('data-theme-name="night-lime"');
+    expect(render({ ...pco, storyStyle: { theme: "forest-gold" } }, true)).toContain('data-theme-name="forest-gold"');
   });
   it("defines every theme in full, with readable text and accent", () => {
     for (const t of journeyThemes) {

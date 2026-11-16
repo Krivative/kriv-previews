@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { TRIAL_DAYS, annualPay, annualPlans, annualWorth, bundleTiers, crm, decisionWindows, monthlyServices, addOns, percent, php } from "@/offers/ph-local";
 import { ratesJourney } from "@/stories/rates-journey";
+import { journeyLores, ratesLook } from "@/stories/journey-style";
 import { JourneyScroller } from "./JourneyScroller";
 import o from "./offer.module.css";
 import j from "./journey.module.css";
@@ -104,15 +105,16 @@ function Stage() {
 }
 
 export function RatesJourney() {
+  const label = journeyLores[ratesLook().lore];
   return <JourneyScroller id="ph-rates" className={j.journey} voiceClassName={j.voice} cueClassName={j.cue}>
     <ol className={j.dots} aria-label="Chapters of the story">
-      {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`Chapter ${n + 1}: ${step.chapter}`} /></li>)}
+      {ratesJourney.map((step, n) => <li key={step.id}><a href={`#journey-${step.id}`} aria-label={`${label(n + 1, ratesJourney.length, step.chapter).lead}: ${step.chapter}`} /></li>)}
     </ol>
     <Stage />
     <div className={j.steps}>
       {ratesJourney.map((step, n) => <section key={step.id} id={`journey-${step.id}`} className={j.step} data-journey-step="" data-audio={step.audio} aria-labelledby={`journey-${step.id}-title`}>
         <div className={j.words}>
-          <p className={o.eyebrow}><b>Chapter {n + 1}</b> / {step.chapter}</p>
+          <p className={o.eyebrow}><b>{label(n + 1, ratesJourney.length, step.chapter).lead}</b> / {step.chapter}</p>
           {n === 0 ? <h1 id={`journey-${step.id}-title`}>{step.title}</h1> : <h2 id={`journey-${step.id}-title`}>{step.title}</h2>}
           <p className={j.narration} data-narration="">{step.narration}</p>
           {n === 0 ? <p className={j.hint}>Scroll to begin <span aria-hidden="true">↓</span> Each chapter is read aloud. Tap anywhere to start the sound.</p> : null}

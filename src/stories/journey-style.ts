@@ -100,8 +100,14 @@ export function journeyStyle(site: { slug: string; storyStyle?: StoryStyleChoice
 /** A theme as the CSS variables the story pages are built on. */
 export function themeVars(t: JourneyTheme): CSSProperties {
   return {
-    "--deep": t.deep, "--line": `color-mix(in srgb, ${t.ink} 16%, transparent)`, "--strike": t.dark ? "#ff6b6b" : "#c8322b", "--bg": t.bg, "--surface": t.surface, "--ink": t.ink, "--bright": t.bright, "--muted": t.muted, "--accent": t.accent, "--accent-ink": t.accentInk, "--glow": t.glow,
+    "--deep": t.deep, "--line": `color-mix(in srgb, ${t.ink} 16%, transparent)`, "--strike": t.dark ? "#ff6b6b" : "#c8322b", "--shade": t.dark ? "rgba(0, 0, 0, 0.35)" : "rgba(40, 30, 60, 0.14)", "--bg": t.bg, "--surface": t.surface, "--ink": t.ink, "--bright": t.bright, "--muted": t.muted, "--accent": t.accent, "--accent-ink": t.accentInk, "--glow": t.glow,
     "--font-display": t.display, "--font-body": t.body, "--font-accent": t.body, "--display-weight": t.weight, "--display-tracking": t.tracking, "--display-case": t.letterCase,
     "--radius": t.radius, "--radius-small": t.radiusSmall, "--button-radius": t.buttonRadius,
   } as CSSProperties;
 }
+
+// ---------- KRIV's own rates page ----------
+// The rates page runs through the same style system as lead stories, pinned here (Kriv's pick, 2026-11-16:
+// "sand and violet"). It must never look like a client's story: see the test that compares it with PCO.
+export const ratesStyle: StoryStyleChoice = { theme: "sand-violet", lore: "stops", side: "left", orbit: "double" };
+export const ratesLook = () => journeyStyle({ slug: "ph-rates", storyStyle: ratesStyle });
