@@ -20,13 +20,14 @@ import c from "./cast.module.css";
 // Narration: browsers do not let a page make sound until the visitor has
 // tapped, clicked or pressed a key, so until then the button reads "Tap to hear
 // narration" and the first touch starts the chapter in view. A chapter with
-// data-audio plays that recording through one shared player (phones only let a
+// data-audio plays that recording (the voice explains the screen; it does not read it) through one shared player (phones only let a
 // player that a touch started play again later). If a recording cannot play,
-// the device's own built-in voice reads the chapter (local voices only).
+// the device's own built-in voice reads the chapter's on-screen title and narration (local voices only).
 
 const PAUSE = 2500; // reading time for a chapter that plays no sound
 const SAY = 2800; // how long a cast bubble stays up
 const QUIET = "journey-cast-quiet";
+const VOICE = "journey-voice"; // the page-wide narration on/off event
 
 // `locked={false}` turns the hold off (a level that scrolls freely but still marks
 // the stop in view); `narrate={false}` leaves out the narration and its button.
@@ -35,8 +36,9 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const [voice, setVoice] = useState(defaultVoice);
   const [waiting, setWaiting] = useState(false);
   const [step, setStep] = useState(0);
-  const [opened, setOpened] = useState(0); // the furthest chapter the visitor may go to
-  const [free, setFree] = useState(false);
+  // A story that is not locked is free from its first moment: nothing waits on a later frame to release it.
+  const [opened, setOpened] = useState(locked ? 0 : Number.MAX_SAFE_INTEGER); // the furthest chapter the visitor may go to
+  const [free, setFree] = useState(!locked);
   const [inView, setInView] = useState(false);
   const [held, setHeld] = useState<"" | "playing" | "forward">("");
   // The cast: which chapter's character is on stage, whether its bubble is up, and the usher's extras.
@@ -49,8 +51,8 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
   const sayTimer = useRef(0);
   const castRef = useRef({ quiet: false, calm: false });
   const current = useRef(0);
-  const open = useRef(0);
-  const freed = useRef(false);
+  const open = useRef(locked ? 0 : Number.MAX_SAFE_INTEGER);
+  const freed = useRef(!locked);
   const player = useRef<HTMLAudioElement | null>(null);
   const timer = useRef(0);
   const watch = useRef(0);
@@ -98,16 +100,18 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     let landTimer = 0;
 
     // Free from the start for returning visitors and for reduced motion.
-    const release = requestAnimationFrame(() => {
+    // A timer, not an animation frame: frames can be held back in a background tab, and a returning
+    // visitor must not find the story locked because of that.
+    const release = window.setTimeout(() => {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let hush = false;
-      try { hush = window.localStorage.getItem(QUIET) === "1"; } catch { /* no storage */ }
-      castRef.current = { quiet: hush, calm: reduced };
-      setCalm(reduced); setQuiet(hush);
+      let hushed = false;
+      try { hushed = window.localStorage.getItem(QUIET) === "1"; } catch { /* no storage */ }
+      castRef.current = { quiet: hushed, calm: reduced };
+      setCalm(reduced); setQuiet(hushed);
       let done = !locked || reduced;
       if (locked) try { done = done || window.localStorage.getItem(key) === "1"; } catch { /* no storage */ }
       if (done) { freed.current = true; open.current = steps.length; setOpened(steps.length); setFree(true); }
-    });
+    }, 0);
 
     const inStory = () => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5; };
     let seen = false;
@@ -217,7 +221,7 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
       window.removeEventListener("wheel", onWheel); window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove); window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("keydown", onKey); document.removeEventListener("click", onClick);
-      window.clearInterval(tick); window.clearTimeout(holdTimer); window.clearTimeout(landTimer); cancelAnimationFrame(frame); cancelAnimationFrame(release);
+      window.clearInterval(tick); window.clearTimeout(holdTimer); window.clearTimeout(landTimer); cancelAnimationFrame(frame); window.clearTimeout(release);
     };
   }, [chapters, key, locked, cast]);
 
@@ -284,9 +288,15 @@ export function JourneyScroller({ id, className, voiceClassName, cueClassName, d
     return () => events.forEach((name) => window.removeEventListener(name, begin));
   }, [voice, waiting, play]);
 
+  // Narration on or off is one setting for every story on the page (the story and its level two).
+  useEffect(() => {
+    const follow = (event: Event) => setVoice(Boolean((event as CustomEvent<boolean>).detail));
+    window.addEventListener(VOICE, follow);
+    return () => window.removeEventListener(VOICE, follow);
+  }, []);
   const press = () => {
     if (voice && waiting) play(current.current);
-    else setVoice((v) => !v);
+    else window.dispatchEvent(new CustomEvent<boolean>(VOICE, { detail: !voice }));
   };
   const ready = opened > step;
   // The cast speaks one at a time, and never over the narration (see castVoice).

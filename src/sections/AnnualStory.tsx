@@ -84,7 +84,7 @@ export function AnnualStory({ audience }: { audience: Audience }) {
     <article data-chapter className={st.chapter}>
       <p className={st.kicker}>Chapter 3 / Timeline B</p>
       <h3>Pay for twelve. <em>Three more appear.</em></h3>
-      <p>Here you pay {php(pay)} once. Decide within three days of the trial ending and KRIV adds {best.freeMonths} months free. The same {months} months of website.</p>
+      <p>Here you pay {php(pay)} once. Decide in the first {best.toDay} days of the trial and KRIV adds {best.freeMonths} months free. The same {months} months of website.</p>
       <Months paid={crm.baseMonths} free={best.freeMonths} />
       <p className={st.sum}><span>{months} months</span><strong>{php(pay)}</strong></p>
     </article>
@@ -126,12 +126,12 @@ export function AnnualStory({ audience }: { audience: Audience }) {
     <article data-chapter className={st.chapter}>
       <p className={st.kicker}>Chapter 7 / The portal closes</p>
       <h3>The sooner you choose, <em>the more months you keep.</em></h3>
-      <p>Day 1 is the first day of the trial. Each few days the door to Timeline B narrows, and from day {decisionWindows[decisionWindows.length - 1].fromDay} only Timeline A remains.</p>
+      <p>Day 1 is the first day of the trial. Every few days the free months step down. From day {decisionWindows[decisionWindows.length - 1].fromDay} Timeline B is still open, at {crm.baseMonths} months for the price of {crm.baseMonths}.</p>
       <ol className={st.portals}>
         {[best, ...laterWindows].map((w, i) => <li key={w.fromDay} style={step(i)} data-closed={w.freeMonths ? undefined : ""}>
           <span>{w.toDay ? `Days ${w.fromDay} to ${w.toDay}` : `From day ${w.fromDay}`}</span>
-          <strong>{w.freeMonths ? `${totalMonths(w)} months` : "Monthly only"}</strong>
-          <small>{w.freeMonths ? `Save ${php(annualSaving(plan, w))}` : "The extra months are gone"}</small>
+          <strong>{totalMonths(w)} months</strong>
+          <small>{w.freeMonths ? `Save ${php(annualSaving(plan, w))}` : "No free months"}</small>
         </li>)}
       </ol>
       <p className={st.note}>The story uses the Website at {php(plan.monthly)} a month. The same rule applies to every monthly service.</p>

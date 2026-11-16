@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-16 - Last step finished: stage 1 of the cast brief (cast engine and the PCO dental cast) on `claude/story-cast`, local only; waiting on Kriv's pick of the rates page look and of the rates host (fox or cat) before stages 2 and 3. PCO and rates published earlier the same day; kriv.agency opening story live (Krivative/Kriv#23)
+Updated: 2026-11-16 - Last step finished: explainer voice-overs wired for the PCO story, the rates story and PCO level two on `claude/explainer-voices` (on top of the new rates decision windows, `claude/rates-trial-windows`); kriv.agency opening narration on `claude/producer-voice` in Krivative/Kriv. All local, awaiting Kriv's word to publish. Cast brief: stage 1 done on `claude/story-cast`, waiting on Kriv's pick of the rates look and host. Phone rework (part 2 of the voices brief) not started: it follows the cast, chibi and rates changes
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
