@@ -105,7 +105,7 @@ export function PcoClientSite({ site }: { site: SiteData }) {
               <div className={s.film}>
                 <video controls playsInline preload="none" poster={`${media}/pitch-poster.webp`} aria-label="The next chapter of PCO Dental Clinic’s digital presence">
                   <source src={`${media}/pco-presentation.mp4`} type="video/mp4" />
-                  <track default kind="captions" src={`${media}/pco-presentation.vtt`} srcLang="en" label="English" />
+                  <track kind="captions" src={`${media}/pco-presentation.vtt`} srcLang="en" label="English" />
                 </video>
                 <div><strong>The next chapter of your digital presence</strong><span>1:58 · Narrated proposal</span></div>
               </div>
@@ -129,7 +129,7 @@ export function PcoClientSite({ site }: { site: SiteData }) {
                   ) : (
                     <video className={s.sampleFrame} controls playsInline preload="none" poster={path(post.day)} aria-label={post.title}>
                       <source src={`${media}/pco-reel-${post.day}.mp4`} type="video/mp4" />
-                      <track default kind="captions" src={`${media}/pco-reel-${post.day}.vtt`} srcLang="en" label="English" />
+                      <track kind="captions" src={`${media}/pco-reel-${post.day}.vtt`} srcLang="en" label="English" />
                     </video>
                   )}
                   <div className={s.cardCopy}><p className={s.kicker}>{index === 0 ? "Carousel" : index === 1 ? "15-second Reel" : "30-second Reel"}</p><h3>{post.title}</h3></div>
