@@ -46,6 +46,7 @@ How the assets were made (to redo or extend them):
 - 2026-11-22: PH and USD pricing and versioned new quotations use the typed catalog in src/offers/pricing.ts. Existing quotations keep their pricing. See docs/PRICING-REVIEW.md for the roster discrepancy, calculator rules and paired release order. Previews lint, typecheck, tests, build and HTTP smoke passed locally. Production pricing changes wait for Kriv’s preview review.
 ### PCO light editorial revision (2026-11-20, ChatGPT via Codex, GPT-6)
 
+- Published with Kriv's approval at `https://kriv.agency/pco-dental-clinic`. Vercel deployment `dpl_DyzbgFZoYZeFH2AFghBHnfVtMmoi` serves code commit `c263eb0`. Live browser checks passed at 1440, 820, 390 and 320 px, including the new WebP, inquiry demo, pricing and pitch playback. This was a direct Vercel release from a local branch. A future GitHub-based deployment can supersede it.
 - PCO's existing clinic concept and offer use a light hero, oversized Montserrat, deeper green accents, a single original ceramic molar illustration, a modular first-visit guide and light pricing cards. The supplied screenshot guided the visual approach.
 - The website carries the A5 mark, original clinic information and existing trial and pricing rules. Preview contact actions stay inactive. The campaign, films and inquiry demo remain part of the same page.
 
