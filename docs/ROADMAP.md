@@ -1,6 +1,7 @@
 # KRIV Previews roadmap
 
 Updated: 2026-11-22 - Discord, email, LinkedIn and the US free website added to the pricing catalog and menu; preflight passes. Package setup cut approved. Next up: Kriv approves the buyout fee, reviews the previews, reconciles the sent-lead roster before publish.
+Updated: 2026-11-20 - PCO A5 website concept and Dr. Peter's offer review prepared for the existing KRIV concept route. (2026-11-20, ChatGPT via Codex, GPT-6)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -14,6 +15,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] Services menu made compact: sheet with collapsible groups, package plus add-ons, folded plan details (2026-11-22).
 - [ ] Kriv approves the US buyout fee (docs/PRICING-REVIEW.md).
 - [ ] Kriv reviews the pricing previews and confirms the sent-lead roster before publish.
+- [x] Build PCO's A5 clinic website and combine it with a client offer, trial walkthrough, 30 campaign draft covers and playable proposal media. (2026-11-20, ChatGPT via Codex, GPT-6)
+- [ ] Dr. Peter: review the proposed pilot, confirm clinic information and choose first campaign pieces and a staff handoff owner. (2026-11-20, ChatGPT via Codex, GPT-6)
 
 - [x] DV Shop Cebu surprise concept (Claude Code, 2026-11-17): public data from dvshopcebu.com; "Keep them fresh" story in look C with the shop's own photos; DV Shoe Care shelf; brand revamp (randomizer-picked badge among nine finishes); Dop- bonus page; 14-day plan, reply templates, calendar, Shoe Care campaign, original jingle and rap lyrics; offer page (trial, plan, introduction ask) priced only from `ph-local.ts`. All five checks pass. Local on `claude/dv-shop-cebu`
 - [ ] Kriv: review kriv.agency/for/dv-shop-cebu locally; approve the audio cost (2,100 credits for the 90 s rap and 15 s jingle); give delegate costs for the pricing check; connect Chrome for the Facebook and Instagram check; say "publish"

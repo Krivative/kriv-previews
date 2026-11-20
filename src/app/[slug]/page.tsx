@@ -5,6 +5,7 @@ import { connection } from "next/server";
 import { getLead } from "@/lib/leads";
 import { reviewAllowed } from "@/lib/review-access";
 import { SiteRenderer } from "@/sections/SiteRenderer";
+import { PcoClientSite } from "@/sections/pco/PcoClientSite";
 import { Expired } from "./Expired";
 
 // Rendered on every request so new leads need no deploy and expiry applies the
@@ -23,12 +24,14 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/[sl
 }
 
 export default async function LeadPage({ params, searchParams }: PageProps<"/[slug]">) {
+  const { slug } = await params;
   const query = await searchParams;
-  const lead = await lookup((await params).slug, query.review);
+  const lead = await lookup(slug, query.review);
   if (!lead) notFound();
   if (lead.kind === "expired") return <Expired />;
   // ?look=<seed> previews a story site in another look from the randomizer, without changing its record.
   const look = typeof query.look === "string" && /^[a-z0-9-]{1,40}$/.test(query.look) ? query.look : undefined;
   const site = look && lead.site.story ? { ...lead.site, storyStyle: { seed: look } } : lead.site;
+  if (slug === "pco-dental-clinic" && !look) return <PcoClientSite site={site} />;
   return <SiteRenderer site={site} template={lead.template} />;
 }
