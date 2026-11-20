@@ -2,6 +2,7 @@
 
 Updated: 2026-11-22 - Discord, email, LinkedIn and the US free website added to the pricing catalog and menu; preflight passes. Package setup cut approved. Next up: Kriv approves the buyout fee, reviews the previews, reconciles the sent-lead roster before publish.
 Updated: 2026-11-20 - PCO A5 website concept and Dr. Peter's offer review prepared for the existing KRIV concept route. (2026-11-20, ChatGPT via Codex, GPT-6)
+Updated: 2026-11-20 - PCO A5 website and offer restyled in a lighter editorial direction. (2026-11-20, ChatGPT via Codex, GPT-6)
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -15,6 +16,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] Services menu made compact: sheet with collapsible groups, package plus add-ons, folded plan details (2026-11-22).
 - [ ] Kriv approves the US buyout fee (docs/PRICING-REVIEW.md).
 - [ ] Kriv reviews the pricing previews and confirms the sent-lead roster before publish.
+- [x] Restyle the PCO preview with oversized sans-serif type, original dental product imagery, rounded first-visit cards and a light pricing section. (2026-11-20, ChatGPT via Codex, GPT-6)
+
 - [x] Build PCO's A5 clinic website and combine it with a client offer, trial walkthrough, 30 campaign draft covers and playable proposal media. (2026-11-20, ChatGPT via Codex, GPT-6)
 - [ ] Dr. Peter: review the proposed pilot, confirm clinic information and choose first campaign pieces and a staff handoff owner. (2026-11-20, ChatGPT via Codex, GPT-6)
 

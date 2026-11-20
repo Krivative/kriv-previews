@@ -29,8 +29,8 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function Mark({ dark = true }: { dark?: boolean }) {
-  return <Image className={s.mark} src={`${media}/mark-${dark ? "dark" : "light"}.webp`} width={44} height={44} alt="" unoptimized />;
+function Mark() {
+  return <Image className={s.mark} src={`${media}/mark-light.webp`} width={44} height={44} alt="" unoptimized />;
 }
 
 export function PcoClientSite({ site }: { site: SiteData }) {
@@ -45,8 +45,7 @@ export function PcoClientSite({ site }: { site: SiteData }) {
         <div className={s.bar}>
           <a href="#clinic" className={s.identity}><Mark /><span>PCO Dental<span className={s.wordmarkCity}>Mandaue</span></span></a>
           <nav className={s.clinicNav} aria-label="Clinic website">
-            <a href="#first-visit">First visit</a>
-            <a href="#visit">Location</a>
+            <a href="#clinic">Home</a><a href="#first-visit">First visit</a><a href="#visit">Location</a>
           </nav>
           <a className={s.headerOffer} href="#proposal">KRIV offer <Arrow /></a>
         </div>
@@ -55,28 +54,37 @@ export function PcoClientSite({ site }: { site: SiteData }) {
         <section className={s.hero} aria-labelledby="hero-heading">
           <div className={s.heroGrid}>
             <div className={s.heroCopy}>
-              <p className={s.kickerDark}>PCO Dental Clinic · Mandaue City</p>
+              <p className={s.kicker}>PCO Dental Clinic · Mandaue City</p>
               <h1 id="hero-heading">We create<br /><em>smiles.</em></h1>
               <p>Dental care in Mandaue. Get to know the clinic, prepare for your first visit, and find out how to reach the team.</p>
-              <a className={s.buttonLight} href="#visit">Plan your visit <Arrow /></a>
+              <div className={s.heroActions}>
+                <a className={s.buttonInk} href="#visit">Plan your visit <Arrow /></a>
+                <a className={s.buttonQuiet} href="#first-visit">What to expect</a>
+              </div>
             </div>
             <figure className={s.heroPhoto}>
-              <Image src={`${media}/smile-editorial.webp`} width={1360} height={907} alt="Illustrative portrait of a smiling woman in soft sunlight" preload unoptimized />
-              <figcaption>Illustrative portrait</figcaption>
+              <Image src={`${media}/dental-sculpture.webp`} width={1080} height={1080} alt="Illustration of a translucent ceramic molar sculpture" preload unoptimized />
+              <figcaption>Dental model illustration</figcaption>
             </figure>
           </div>
         </section>
 
         <section className={s.clinicBody} aria-labelledby="first-visit">
           <div className={s.wrap}>
-            <div className={s.clinicIntro}>
-              <div><p className={s.kicker}>Your first visit</p><h2 id="first-visit">Know what<br />to ask.</h2></div>
-              <p>Whether you’re planning a checkup or have a question about your teeth, you can start by telling the team what brings you in.</p>
-            </div>
-            <div className={s.visitGuide}>
-              <details><summary>What should I bring?</summary><p>If you have recent dental records or a list of medicines, ask the clinic whether you should bring them. Write down any questions you want to cover.</p></details>
-              <details><summary>What if I’m nervous about a visit?</summary><p>Tell the team ahead of time or when you arrive. You can ask the dentist to explain the next step and agree on a signal if you need a pause.</p></details>
-              <details><summary>How can I confirm a schedule or ask about fees?</summary><p>Contact the clinic directly. The team can confirm the schedule and explain which information it needs to answer a question about fees.</p></details>
+            <div className={s.clinicMosaic}>
+              <div className={s.clinicIntro}>
+                <p className={s.kicker}>Your first visit</p><h2 id="first-visit">Know what <em>to ask.</em></h2>
+                <p>Whether you’re planning a checkup or have a question about your teeth, you can start by telling the team what brings you in.</p>
+                <div className={s.visitGuide}>
+                  <details><summary>What should I bring?</summary><p>If you have recent dental records or a list of medicines, ask the clinic whether you should bring them. Write down any questions you want to cover.</p></details>
+                  <details><summary>What if I’m nervous about a visit?</summary><p>Tell the team ahead of time or when you arrive. You can ask the dentist to explain the next step and agree on a signal if you need a pause.</p></details>
+                  <details><summary>How can I confirm a schedule or ask about fees?</summary><p>Contact the clinic directly. The team can confirm the schedule and explain which information it needs to answer a question about fees.</p></details>
+                </div>
+              </div>
+              <figure className={s.visitPhoto}>
+                <Image src={`${media}/smile-editorial.webp`} width={1360} height={907} alt="Illustrative portrait of a smiling woman in soft sunlight" unoptimized />
+                <figcaption>Illustrative portrait</figcaption>
+              </figure>
             </div>
             <div className={s.visit} id="visit">
               <div><p className={s.kicker}>Find the clinic</p><h2>Mandaue City, Cebu.</h2></div>
@@ -217,7 +225,7 @@ export function PcoClientSite({ site }: { site: SiteData }) {
           </div>
         </section>
       </main>
-      <footer className={s.footer}><div className={s.wrap}><span><Mark dark={false} /> <strong>PCO Dental Clinic</strong></span><small>Website concept and proposal by KRIV Agency</small></div></footer>
+      <footer className={s.footer}><div className={s.wrap}><span><Mark /> <strong>PCO Dental Clinic</strong></span><small>Website concept and proposal by KRIV Agency</small></div></footer>
     </div>
   );
 }

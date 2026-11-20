@@ -44,6 +44,11 @@ How the assets were made (to redo or extend them):
 - 2026-11-22 (second pass, branch `claude/project-thread-rucatg` on top of `pricing-catalog`): added Discord, email management and LinkedIn services to both markets, the LinkedIn Presence bundle (PH), the US free website headline and terms, and a menu grouped by package and add-ons with a sticky running total. The buyout fee is proposed in docs/PRICING-REVIEW.md, unpublished. Preflight: all five checks pass. Waiting on Kriv: buyout fee and preview review. Package setup cut approved the same day.
 
 - 2026-11-22: PH and USD pricing and versioned new quotations use the typed catalog in src/offers/pricing.ts. Existing quotations keep their pricing. See docs/PRICING-REVIEW.md for the roster discrepancy, calculator rules and paired release order. Previews lint, typecheck, tests, build and HTTP smoke passed locally. Production pricing changes wait for Kriv’s preview review.
+### PCO light editorial revision (2026-11-20, ChatGPT via Codex, GPT-6)
+
+- PCO's existing clinic concept and offer use a light hero, oversized Montserrat, deeper green accents, a single original ceramic molar illustration, a modular first-visit guide and light pricing cards. The supplied screenshot guided the visual approach.
+- The website carries the A5 mark, original clinic information and existing trial and pricing rules. Preview contact actions stay inactive. The campaign, films and inquiry demo remain part of the same page.
+
 ### PCO Dental clinic website and client offer (2026-11-20, ChatGPT via Codex, GPT-6)
 
 - The PCO root renders the A5 clinic website concept and Dr. Peter’s offer after the existing lead status and expiry checks. Existing alternate looks and the detailed `/offer` page remain accessible.
