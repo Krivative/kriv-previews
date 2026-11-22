@@ -46,7 +46,7 @@ Done:
 Open:
 1. Buyout fee: the proposal above (USD 3,500 / 2,000 / 1,000) needs Kriv's yes or a new figure. When approved, set `approved: true`, render it in the US plan details and change the smoke check that forbids "$3,500" on /pricing.
 2. LinkedIn Presence price: PHP 8,000 a month is more per month than its parts (6,500 a month + 5,000 once). Kriv may want to revisit it.
-3. Styling: restyling the pricing pages waits for Kriv's pick of the kriv.agency redesign look (Krivative/Kriv draft PR 33, seeds A = 7, B = 57, C = 30). Then apply that seed's colorway, type, radii and card style to `src/sections/pricing.module.css` only. Prices and behaviour stay as they are.
+3. Styling: restyling the pricing pages waits for Kriv's pick of the kriv.agency redesign look (Krivative/Kriv branch `claude/project-thread-wcrc91`, draft PR 33). The current candidates are seed 109 (signal lime with the brand spectrum) and seed 110 (its dark Care-blue sibling). The tokens are in that branch's `lib/design-seed.ts` (COLORWAYS, TYPE_PAIRS, CURATED). The pricing variant is `designFor(seed, "pricing")`, which is about 30% different from home: it re-rolls 3 of 9 traits and keeps the type, logo and light or dark base. The spectrum and section treatments are in `components/seeded/backdrop.jsx` and `seeded.css`, and the full notes are in `docs/HANDOFF-SEEDED-REDESIGN.md` on that branch. Apply them to `src/sections/pricing.module.css` only. Prices and behaviour stay as they are.
 4. Before publishing, follow the paired release order above and reconcile the sent-lead roster.
 
 ## Local review evidence
