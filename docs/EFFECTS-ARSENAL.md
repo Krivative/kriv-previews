@@ -62,7 +62,7 @@ Taps make letters jump on phones; with reduced motion the logo stays still. `PhL
 
 ### Used on
 - /ph-rates (seed 211, live).
-- PCO Dental (`src/sections/pco/pco-fx.ts`, `?fx=` seeds 302 / 303 / 319): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
+- PCO Dental (`src/sections/pco/pco-fx.ts`): `?fx=` 302 / 303 / 319 (generation 1, Kriv likes 303), 412 / 404 / 420 (generation 2), 537 / 509 / 514 (generation 3, whole site for parents): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
 
 ## The randomizer checklist (every website, not only /ph-rates)
 
@@ -78,3 +78,35 @@ When a randomizer composes a site, it rolls the small things too, not just the c
 8. **Fallbacks**: reduced motion, no JavaScript, phones (no sideways scroll), background tabs.
 
 New effects are added to this file and to a trait pool, so the arsenal only grows. Pinning a seed never removes an effect.
+
+## Generation 2 (23 Nov 2026, Kriv on PCO Dental: "completely new effects and style")
+
+### More section layers (`PhLayers2.tsx`, registered in `PhLayers.tsx`)
+| Effect | What it does | Pointer / touch |
+|---|---|---|
+| bubbles | small clear bubbles rising with a wobble, like rinse water | the pointer pops the bubbles it touches |
+| glints | four-point sparkles that twinkle like light on a clean surface | they gather and brighten near the pointer |
+| silk | bundles of fine parallel lines that sway like ribbons | the pointer presses a soft dent into them |
+| caustics | the moving light pattern on the floor of a clear pool (drawn small, scaled up soft) | brighter by the pointer |
+| nodes | drifting points that link up when close, like a care network | the pointer becomes a node and pulls links to it |
+
+### More interaction (`FxPlus.tsx`)
+- **spotlight**: a soft light in the accent colour follows the pointer across each section.
+- **3D cards**: `[data-tilt]` cards turn toward the pointer with a moving glare.
+- **scroll bar**: a thin progress bar across the top (`--scroll`).
+- **hero parallax**: `--hs` (0 to 1 over the first screen) drives a drifting, turning hero object.
+
+### Style traits a seed can roll (PCO `pco-fx.ts`, reusable as a pattern)
+- palette (variants inside the brand: clinic, pearl, mint, dusk), heading type (sans / the brand's serif), corners (soft / crisp), buttons (pill / outline);
+- entry: how things arrive (rise / wipe open / blur into focus).
+
+## Generation 3: the whole site, graphics included
+
+A seed can rebuild the content half of a site, not just decorate it: layout (split / centred / stacked with shortcuts), section order, headline,
+and code-drawn graphics in one of three art styles (`src/sections/pco/PcoArt.tsx`: fine line, glass, blueprint with labels).
+PCO's version is written for parents whose children are old enough for braces and adults weighing bigger treatments:
+questions to ask the clinic, treatment examples clearly marked "to confirm with the clinic" (the clinic has not confirmed
+its services), and a consultation-to-follow-up plan. No photos of people, no stock, no paid generation.
+
+Checklist addition: when the audience is set (for PCO, parents), the randomizer rolls layout, graphics and copy angle for that audience,
+and never claims a service, price or result the business has not confirmed.

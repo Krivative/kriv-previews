@@ -6,10 +6,12 @@ import { pageHref } from "@/lib/site-pages";
 import type { SiteData } from "@/lib/site-schema";
 import { conceptNotice } from "@/sections/Chrome";
 import { inert } from "@/sections/inert";
+import { FxPlus } from "@/sections/FxPlus";
 import { PhEffects } from "@/sections/PhEffects";
 import { PhLogoPlay } from "@/sections/PhLogoPlay";
 import { PhMarquee } from "@/sections/PhMarquee";
 import { AssistantPreview } from "./AssistantPreview";
+import { PcoFamily } from "./PcoFamily";
 import { PcoFxLayer } from "./PcoFxLayer";
 import type { PcoFx, PcoSection } from "./pco-fx";
 import campaign from "./campaign.json";
@@ -53,10 +55,18 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
   const reveal = fx ? { "data-reveal": "" } : {};
   const magnet = fx ? { "data-magnet": "" } : {};
   const count = (text: string) => fx ? <span data-count={text}>{text}</span> : text;
+  // Generation 2 seeds also restyle the page and add 3D cards, a pointer spotlight and a scroll bar (FxPlus).
+  const st = fx?.style;
+  const reveal2 = st ? reveal : {};
+  const tilt = st && st.pointer !== "spotlight" ? { "data-tilt": "" } : {};
+  const styleAttrs = st ? { "data-gen": "2", "data-palette": st.palette, "data-type": st.type, "data-radius": st.radius, "data-buttons": st.buttons, "data-entry": st.entry,
+    "data-spotlight": st.pointer !== "cards" ? "" : undefined, "data-cardtilt": st.pointer !== "spotlight" ? "" : undefined } : {};
   const facts = [`${TRIAL_DAYS}-day free trial`, "No setup fee", "Your team reviews the dental wording", "Your clinic owns its domain, accounts, content and data", "Billed annually if you continue"];
   return (
-    <div className={s.page} style={fx ? FX_TOKENS : undefined} data-fx={fx ? "" : undefined} data-seed={fx?.seed} data-motion={fx ? "reveal" : undefined} data-touch={fx?.touch} data-molar={fx?.molar}>
+    <div className={s.page} style={fx ? FX_TOKENS : undefined} data-fx={fx ? "" : undefined} data-seed={fx?.seed} data-motion={fx ? "reveal" : undefined} data-touch={fx?.touch} data-molar={fx?.molar} {...styleAttrs}>
       {fx && <PhEffects />}
+      {st && <FxPlus />}
+      {st?.bar && <div className={s.scrollBar} aria-hidden="true" />}
       <a className={s.skip} href="#clinic">Skip to the clinic website</a>
       <div role="note" className={s.concept}>{conceptNotice(business.name)}</div>
       <header className={s.header}>
@@ -69,6 +79,8 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
         </div>
       </header>
       <main id="clinic">
+        {fx?.gen === 3 ? <><PcoFamily fx={fx} site={site} />
+          <PhMarquee items={campaign.map((post) => post.title)} label="Topics in the 30-day campaign" seconds={120} /></> : <>
         <section className={s.hero} aria-labelledby="hero-heading">
           <div className={s.heroGrid} {...bg("hero")}>
             {layer("hero")}
@@ -102,7 +114,7 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
                   <details><summary>How can I confirm a schedule or ask about fees?</summary><p>Contact the clinic directly. The team can confirm the schedule and explain which information it needs to answer a question about fees.</p></details>
                 </div>
               </div>
-              <figure className={s.visitPhoto}>
+              <figure className={s.visitPhoto} {...reveal2} {...tilt}>
                 <Image src={`${media}/smile-editorial.webp`} width={1360} height={907} alt="Illustrative portrait of a smiling woman in soft sunlight" unoptimized />
                 <figcaption>Illustrative portrait</figcaption>
               </figure>
@@ -117,6 +129,7 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
             </div>
           </div>
         </section>
+        </>}
 
         <section id="proposal" className={s.proposal} aria-labelledby="proposal-heading" {...bg("proposal")}>
           {layer("proposal")}
@@ -132,7 +145,7 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
                 <p>Someone in Mandaue sees a useful dental post, finds a website that answers their first questions, and knows how to reach your team. KRIV builds and manages those three steps with you.</p>
                 <a className={s.buttonLight} href="#pilot" {...magnet}>See the 14-day trial <Arrow /></a>
               </div>
-              <div className={s.film}>
+              <div className={s.film} {...reveal2}>
                 <video controls playsInline preload="none" poster={`${media}/pitch-poster.webp`} aria-label="The next chapter of PCO Dental Clinic’s digital presence">
                   <source src={`${media}/pco-presentation.mp4`} type="video/mp4" />
                   <track kind="captions" src={`${media}/pco-presentation.vtt`} srcLang="en" label="English" />
@@ -152,7 +165,7 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
             </div>
             <div className={s.cards}>
               {spotlight.map((post, index) => (
-                <article key={post.day} className={s.card} {...reveal} style={{ "--d": index } as CSSProperties}>
+                <article key={post.day} className={s.card} {...reveal} {...tilt} style={{ "--d": index } as CSSProperties}>
                   {index === 0 ? (
                     <div className={s.sampleFrame}>
                       <Image src={path(post.day)} alt={post.title + " campaign artwork"} width={360} height={450} unoptimized />
@@ -216,11 +229,11 @@ export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null 
               <p>Choose one service or keep all three. The rates below show the monthly equivalent before annual bundle discounts. Your clinic owns its domain, accounts, content and data.</p>
             </div>
             <div className={s.priceCards}>
-              <article><h3>Website</h3><p className={s.rate}>{count(peso(website.monthly))}<small> / month</small></p><p>Mobile-first site, clinic information, inquiry setup, search setup and ongoing updates.</p></article>
-              <article><h3>Content creation</h3><p className={s.rate}>{count(peso(content.monthly))}<small> / month</small></p><p>12 branded image posts a month, with captions, planning and scheduling after your approval.</p></article>
-              <article><h3>AI inquiry assistant</h3><p className={s.rate}>{count(peso(assistant.price))}<small> / month</small></p><p>Clinic-approved answers, staff handoff and KRIV supervision.</p></article>
+              <article {...reveal2} {...tilt}><h3>Website</h3><p className={s.rate}>{count(peso(website.monthly))}<small> / month</small></p><p>Mobile-first site, clinic information, inquiry setup, search setup and ongoing updates.</p></article>
+              <article {...reveal2} {...tilt} style={{ "--d": 1 } as CSSProperties}><h3>Content creation</h3><p className={s.rate}>{count(peso(content.monthly))}<small> / month</small></p><p>12 branded image posts a month, with captions, planning and scheduling after your approval.</p></article>
+              <article {...reveal2} {...tilt} style={{ "--d": 2 } as CSSProperties}><h3>AI inquiry assistant</h3><p className={s.rate}>{count(peso(assistant.price))}<small> / month</small></p><p>Clinic-approved answers, staff handoff and KRIV supervision.</p></article>
             </div>
-            <div className={s.bundle}>
+            <div className={s.bundle} {...reveal2}>
               <div><p className={s.kicker}>All three services</p><h3>{count(peso(pilotQuotes[0].pay))}<small> annual payment</small></h3>
                 <p>Website, content, and AI assistant with the {percent(pilotQuotes[0].rate)} annual bundle discount. Get extra months of service when you decide during the trial.</p></div>
               <dl>{pilotQuotes.map((quote) => <div key={quote.fromDay}>
