@@ -26,7 +26,7 @@ Do not replace any sent terms. Public concept records cannot confirm prices supp
 
 - New items in both markets: Discord setup and community management, email management (owner's inbox, separate from the CRM), LinkedIn makeover, content, hand engagement and company page management. PH also has the LinkedIn Presence bundle; the US had no bundle price in the brief, so none is shown.
 - LinkedIn Presence (PHP 8,000 a month, setup included) costs more per month than its parts bought separately (6,500 a month plus 5,000 once), so it is cheaper only for the first three months. The menu's switch nudge never suggests it, because it would raise the monthly total. Kriv may want to revisit this.
-- US free website: the Website item has no setup fee (worth USD 5,000). Preview reading, awaiting Kriv: the same USD 5,000 comes off each package's setup (Presence 5,000 to 0, Growth 5,000 to 0, Full Business 15,000 to 10,000). If Kriv prefers to keep the package setups, restore the three numbers in `markets.us.packages`.
+- US free website: the Website item has no setup fee (worth USD 5,000). Approved by Kriv on 22 Nov: the same USD 5,000 comes off each package's setup (Presence 5,000 to 0, Growth 5,000 to 0, Full Business 15,000 to 10,000).
 - One-time items (Discord setup, LinkedIn makeover) are shown as "one time" and sit outside the PH annual discount.
 
 ### Proposed buyout fee (NOT PUBLISHED, needs Kriv's approval)

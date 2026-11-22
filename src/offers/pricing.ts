@@ -369,7 +369,7 @@ export const markets = {
   ] },
   us: { currency: "USD", items: usItems, packages: [
     // Free website (2026-11-22): the website's $5,000 setup comes off each package's setup fee
-    // (was 5,000 / 5,000 / 15,000). Preview only until Kriv confirms this reading.
+    // (was 5,000 / 5,000 / 15,000). Approved by Kriv on 2026-11-22.
     { id: "presence", label: "Presence", setup: 0, setupWorth: 7500, monthly: 5000, worth: 6000, includes: ["website", "starter", "inbox"] },
     { id: "growth", label: "Growth", setup: 0, monthly: 8000, worth: 10000, includes: ["website", "growth", "inbox"], recommended: true },
     { id: "full-business", label: "Full Business", setup: 10000, setupWorth: 25000, monthly: 12500, worth: 15000, includes: ["website", "video", "inbox", "crm", "caller"] },

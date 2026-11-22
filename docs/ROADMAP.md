@@ -1,6 +1,6 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-22 - Discord, email, LinkedIn and the US free website added to the pricing catalog and menu; preflight passes. Next up: Kriv approves the buyout fee and package setup reading, reviews the previews, reconciles the sent-lead roster before publish.
+Updated: 2026-11-22 - Discord, email, LinkedIn and the US free website added to the pricing catalog and menu; preflight passes. Package setup cut approved. Next up: Kriv approves the buyout fee, reviews the previews, reconciles the sent-lead roster before publish.
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
@@ -10,7 +10,8 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 
 - [x] 22 Nov PH and USD pricing catalog, versioned offers, calculator and sectioned pages. Previews lint, typecheck, unit tests, build and smoke checks passed locally.
 - [x] Discord, email management, LinkedIn services and the US free website offer added to the catalog and the grouped services menu (2026-11-22).
-- [ ] Kriv approves the US buyout fee and the package setup reading (docs/PRICING-REVIEW.md).
+- [x] Kriv approved taking the free website's USD 5,000 off US package setup (2026-11-22).
+- [ ] Kriv approves the US buyout fee (docs/PRICING-REVIEW.md).
 - [ ] Kriv reviews the pricing previews and confirms the sent-lead roster before publish.
 
 - [x] DV Shop Cebu surprise concept (Claude Code, 2026-11-17): public data from dvshopcebu.com; "Keep them fresh" story in look C with the shop's own photos; DV Shoe Care shelf; brand revamp (randomizer-picked badge among nine finishes); Dop- bonus page; 14-day plan, reply templates, calendar, Shoe Care campaign, original jingle and rap lyrics; offer page (trial, plan, introduction ask) priced only from `ph-local.ts`. All five checks pass. Local on `claude/dv-shop-cebu`

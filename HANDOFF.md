@@ -35,7 +35,7 @@ How the assets were made (to redo or extend them):
 
 ## Latest checkpoint
 
-- 2026-11-22 (second pass, branch `claude/project-thread-rucatg` on top of `pricing-catalog`): added Discord, email management and LinkedIn services to both markets, the LinkedIn Presence bundle (PH), the US free website headline and terms, and a menu grouped by package and add-ons with a sticky running total. The buyout fee is proposed in docs/PRICING-REVIEW.md, unpublished. Preflight: all five checks pass. Waiting on Kriv: buyout fee, package setup reading, preview review.
+- 2026-11-22 (second pass, branch `claude/project-thread-rucatg` on top of `pricing-catalog`): added Discord, email management and LinkedIn services to both markets, the LinkedIn Presence bundle (PH), the US free website headline and terms, and a menu grouped by package and add-ons with a sticky running total. The buyout fee is proposed in docs/PRICING-REVIEW.md, unpublished. Preflight: all five checks pass. Waiting on Kriv: buyout fee and preview review. Package setup cut approved the same day.
 
 - 2026-11-22: PH and USD pricing and versioned new quotations use the typed catalog in src/offers/pricing.ts. Existing quotations keep their pricing. See docs/PRICING-REVIEW.md for the roster discrepancy, calculator rules and paired release order. Previews lint, typecheck, tests, build and HTTP smoke passed locally. Production pricing changes wait for Kriv’s preview review.
 
