@@ -4,14 +4,13 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { RESERVED_SLUGS, SiteData } from "@/lib/site-schema";
 import { SiteRenderer } from "@/sections/SiteRenderer";
-import { PhRatesPage } from "@/sections/PhRatesPage";
+import { PricingPage } from "@/sections/PricingPage";
 import { brandKitPage, offerPage, pageHref, sitePages } from "@/lib/site-pages";
 import { addressText, phoneText } from "@/lib/us-format";
 import { templates } from "@/templates";
 import { dentalJourney } from "@/stories/dental-journey";
 import { levelTwoVoice } from "@/stories/clinic-level-two";
-import { ratesJourney } from "@/stories/rates-journey";
-import { journeyStyle, journeyThemes, ratesLook } from "@/stories/journey-style";
+import { journeyStyle, journeyThemes } from "@/stories/journey-style";
 import {
   addOns, allThreeMonthly, bundleQuote, annualPay, annualPlans, annualPrice, annualSaving, annualWorth, audiences, contentTiers, crm, decisionWindows, effectiveMonthly, fill, monthlyServices, php, regularCost, totalMonths,
 } from "@/offers/ph-local";
@@ -26,7 +25,7 @@ function render(input: unknown, offer = false) {
   return renderToStaticMarkup(<SiteRenderer site={site} template={templates[site.template]} page={offer ? offerPage(site) : undefined} />);
 }
 
-// Every figure both pages must show (Kriv's prices, 2026-11-16).
+// The issued quotation keeps the figures Kriv approved on 2026-11-16.
 const figures = ["14-day free trial", "No setup fee", "PHP 3,000", "PHP 10,000", "PHP 16,000", "12 image posts a month",
   "PHP 13,000 per month", "Regular rate PHP 15,000 per month", "PHP 156,000",
   "15 months for the price of 12", "PHP 2,000 saved on every month of the year", "What you save on each service",
@@ -79,7 +78,7 @@ describe("annual plans and savings", () => {
 });
 
 describe("plan builder and section menu", () => {
-  const html = renderToStaticMarkup(<PhRatesPage />);
+  const html = renderToStaticMarkup(<PricingPage region="ph" />);
   const words = text(html);
   it("gives a tiered bundle discount on the annual plan, never more than 40% in all", () => {
     const pick = (...names: string[]) => annualPlans.filter((p) => names.includes(p.name));
@@ -92,31 +91,29 @@ describe("plan builder and section menu", () => {
     expect(all.savingRate).toBeCloseTo(0.4);
     expect(all.pay).toBe(Math.round(all.worth * 0.6));
   });
-  it("starts on the Website alone, annual, with the saving shown", () => {
-    for (const part of ["Build your plan", "You pay for the year", "PHP 36,000", "PHP 45,000", "PHP 9,000 (20% off)", "about PHP 2,400 a month", "up to 40% off", "nothing is saved or sent"]) expect(words).toContain(part);
-    expect(html.match(/aria-pressed="true"/g)?.length).toBe(7); // narration on, sound on, the cast on, the sneak peek's chosen business, plus the builder's three
+  it("starts on the recommended Growth package and shows the chosen window", () => {
+    for (const part of ["Growth", "₱12,500", "₱7,500", "40% off", "15 months of service"]) expect(words).toContain(part);
+    expect(html.match(/aria-pressed="true"/g)?.length).toBe(1);
   });
   it("links every menu item to a section on the page", () => {
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
     const anchors = hrefs(html).filter((href) => href.startsWith("#"));
-    expect(anchors.length).toBeGreaterThanOrEqual(10);
+    expect(anchors.length).toBeGreaterThanOrEqual(2);
     for (const href of anchors) expect(ids.has(href.slice(1))).toBe(true);
   });
 });
 
 describe("the two timelines story", () => {
-  const general = text(renderToStaticMarkup(<PhRatesPage />));
   const clinic = text(render(pco, true));
   it("tells all seven chapters with the Website's own figures, readable without scripts", () => {
     for (const part of ["The two timelines", "Chapter 1 / The fork", "Chapter 2 / Timeline A", "Chapter 3 / Timeline B", "Chapter 4 / Side by side",
       "Chapter 5 / You already know this", "Chapter 6 / More than the discount", "Chapter 7 / The portal closes",
       "15 months PHP 45,000", "15 months PHP 36,000", "Same 15 months. PHP 9,000 apart.", "The early bird", "The suki price", "A year of rent",
-      "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "No free months", "Decide in the first 5 days of the trial", "Timeline B is still open, at 12 months for the price of 12", "Replay the story"]) expect(general).toContain(part);
+      "Save PHP 9,000", "Save PHP 6,000", "Save PHP 3,000", "No free months", "Decide in the first 5 days of the trial", "Timeline B is still open, at 12 months for the price of 12", "Replay the story"]) expect(clinic).toContain(part);
   });
-  it("speaks to the right audience and promises nothing", () => {
-    expect(general).toContain("PHP 9,000 stays with your business");
+  it("preserves the issued clinic copy", () => {
     expect(clinic).toContain("PHP 9,000 stays with the clinic");
-    expect(general).not.toMatch(/guarantee|more customers|more leads|ahead of your competitors|\{\w+\}/i);
+    expect(clinic).not.toMatch(/guarantee|more customers|more leads|ahead of your competitors|\{\w+\}/i);
   });
 });
 
@@ -319,17 +316,6 @@ describe("story style randomizer", () => {
     expect(light).toContain('data-theme-name="paper-pine"');
     expect(light).toContain(banner("PCO Dental Clinic"));
   });
-  it("never lets the rates page look like PCO: a different theme and at least two different layout choices", () => {
-    const pcoLook = journeyStyle(SiteData.parse(pco));
-    const rates = ratesLook();
-    expect(rates.theme.name).not.toBe(pcoLook.theme.name);
-    const layout = (l: typeof rates) => [l.lore, l.side, l.orbit];
-    expect(layout(rates).filter((choice, n) => choice !== layout(pcoLook)[n]).length).toBeGreaterThanOrEqual(2);
-    const page = renderToStaticMarkup(<PhRatesPage />);
-    expect(page).toContain('data-theme-name="sand-violet"');
-    expect(page).toContain('data-side="left"');
-    expect(text(page)).toContain("Stop 1 of 10 / The start");
-  });
   it("dresses a story lead's quotation in that lead's own theme", () => {
     expect(render(pco, true)).toContain('data-theme-name="porcelain-teal"');
     expect(render({ ...pco, storyStyle: { theme: "forest-gold" } }, true)).toContain('data-theme-name="forest-gold"');
@@ -348,32 +334,14 @@ describe("story style randomizer", () => {
   });
 });
 
-describe("rates page scroll story", () => {
-  const html = renderToStaticMarkup(<PhRatesPage />);
-  const words = text(html);
-  it("opens with ten chapters, one picture each, and every narration", () => {
-    expect(html.match(/data-journey-step/g)?.length).toBe(10);
-    expect(html.match(/data-journey-scene/g)?.length).toBe(10);
-    expect(html.match(/<h1\b/g)?.length).toBe(1);
-    for (const step of ratesJourney) { expect(words).toContain(step.title); expect(words).toContain(step.narration); }
-  });
-  it("takes its figures from the rates and promises nothing", () => {
-    for (const part of ["PHP 45,000", "PHP 36,000", "PHP 9,000 less", "days 1 to 5 of the trial for 3 free months", "From day 15 the annual plan is still open, with no free months", "By day 5: go annual for the most free months", "10% for 2, up to 25% for 5", "stops at 40%", "does not promise results"]) expect(words).toContain(part);
-  });
-  it("starts with narration on and gives every chapter its recording", () => {
-    expect(html).toMatch(/<button type="button" data-voice-button="" aria-pressed="true">Narration on<\/button>/);
-    // Annual only (2026-11-16): five chapters re-recorded (?v=3), the rest keep the second set.
-    expect(ratesJourney.every((step) => step.audio?.endsWith("?v=4"))).toBe(true);
-    for (const step of ratesJourney.filter((s) => s.audio)) {
-      expect(step.audio).toMatch(/^\/for\/audio\/rates-journey\/(0[1-9]|10)-[a-z]+\.mp3\?v=\d+$/);
-      expect(html).toContain(`data-audio="${step.audio}"`);
-      expect(existsSync(path.join(__dirname, "..", "public", step.audio!.replace(/^\/for\//, "").replace(/\?.*$/, "")))).toBe(true);
-    }
-  });
+it("presents sectioned rates, without historical journey or narration", () => {
+  const html = renderToStaticMarkup(<PricingPage region="ph" />);
+  expect(html.match(/<h1\b/g)?.length).toBe(1);
+  expect(html).not.toMatch(/data-journey-step|data-voice-button|<audio/);
 });
 
 describe("free months for deciding during the trial", () => {
-  const html = renderToStaticMarkup(<PhRatesPage />);
+  const html = renderToStaticMarkup(<PricingPage region="ph" />);
   const words = text(html);
   it("puts every free-month window inside the trial, and keeps annual open after it", () => {
     const free = decisionWindows.filter((w) => w.freeMonths > 0);
@@ -381,10 +349,8 @@ describe("free months for deciding during the trial", () => {
     expect(decisionWindows.at(-1)).toEqual({ fromDay: 15, freeMonths: 0 });
     expect(totalMonths(decisionWindows.at(-1)!)).toBe(12);
   });
-  it("says so on the page, in the builder and in the story", () => {
-    for (const part of ["The sooner you decide during your trial, the more months you get", "After that the annual plan is still open, at 12 months for the price of 12",
-      "Days 1 to 5", "Days 6 to 10", "Days 11 to 14", "From day 15", "no free months"]) expect(words).toContain(part);
-    expect(words).not.toMatch(/Days 15 to 17|Days 18 to 20|Days 21 to 23|From day 24|Monthly only|after your trial|trial ending|only Timeline A remains/);
+  it("exposes all four windows in the new calculator", () => {
+    for (const part of ["Days 1–5", "Days 6–10", "Days 11–14", "Day 15+"]) expect(words).toContain(part);
   });
   it("still gives the same best figures", () => {
     expect(annualWorth(annualPlans[0], decisionWindows[0])).toBe(45000);
@@ -395,16 +361,16 @@ describe("free months for deciding during the trial", () => {
 });
 
 describe("general Philippine rates page", () => {
-  const html = renderToStaticMarkup(<PhRatesPage />);
+  const html = renderToStaticMarkup(<PricingPage region="ph" />);
   const words = text(html);
   it("shows the same figures with no client named and no draft marks", () => {
-    for (const part of ["Philippine rates", "Your business owns its accounts and data", ...figures]) expect(words).toContain(part);
+    for (const part of ["Philippine pricing", "₱8,500", "₱12,500", "₱29,500", "View all services", "Growth is built to match"]) expect(words).toContain(part);
     expect(words).not.toMatch(/PCO|clinic|dental|patient|quotation|wayaway/i);
     expect(words).not.toMatch(/pending|draft|\{\w+\}|\[[A-Z ]+[:\]]/i);
   });
   it("has no forms, links only to KRIV's own booking page and email, and makes no guarantees", () => {
-    expect(html).not.toMatch(/<form\b|<input\b|<select\b|<textarea\b|<a\b[^>]*href="tel:/);
-    expect([...new Set(hrefs(html).filter((href) => !href.startsWith("#")))]).toEqual(["https://kriv.agency/book", "mailto:hello@kriv.agency"]);
+    expect(html).not.toMatch(/<form\b|<textarea\b|<a\b[^>]*href="tel:/);
+    expect([...new Set(hrefs(html).filter((href) => !href.startsWith("#")))]).toEqual(["https://kriv.agency/", "mailto:hello@kriv.agency", "https://kriv.agency/book"]);
     expect([...html.matchAll(/<button\b[^>]*>/g)].every((m) => /type="button"/.test(m[0]))).toBe(true);
     expect(words).not.toMatch(/guarantee|24\/7|#1|first page|ahead of your competitors/i);
   });
@@ -412,4 +378,15 @@ describe("general Philippine rates page", () => {
     expect(RESERVED_SLUGS.has("ph-rates")).toBe(true);
     expect(fill("{Client} and {client}, {your} {customers}, {unknown}", audiences.clinic)).toBe("The clinic and the clinic, the clinic's patients, {unknown}");
   });
+});
+
+it("uses the current catalog for a versioned quote while keeping concept actions inert", () => {
+  const issued = render(pco, true);
+  const fresh = render({ ...pco, offer: { ...pco.offer, catalogVersion: "2026-11-22" } }, true);
+  expect(issued).toContain("PHP 156,000");
+  expect(fresh).toContain("₱12,500");
+  expect(fresh).not.toContain("PHP 156,000");
+  expect(fresh).toContain(banner("PCO Dental Clinic"));
+  expect(fresh).not.toMatch(/<a[^>]+href="(?:mailto:|tel:|https:\/\/kriv.agency\/book)/);
+  expect(fresh).not.toContain("<form");
 });

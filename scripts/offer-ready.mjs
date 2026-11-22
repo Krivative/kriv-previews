@@ -42,6 +42,7 @@ const lead = read(target);
 
 if (flag === "--add") {
   if (lead.offer) { console.log(`${target} already has an offer (${lead.offer.plan}, ${lead.offer.quoteNumber}). Nothing changed.`); process.exit(0); }
+  if (["sent", "replied"].includes(lead.status)) { console.error("This lead is already with a client. Get Kriv’s approval before changing its offer."); process.exit(2); }
   const offer = draftOffer(lead, today, `KRIV-${(lead.business?.address?.country ?? "XX")}-${today.slice(0, 4)}-${target.slice(0, 12).toUpperCase()}`);
   if (!offer) { console.error("The record has no country for the business, so no plan can be chosen. Nothing changed."); process.exit(1); }
   const { sources, ...rest } = lead;

@@ -1,3 +1,4 @@
+import { PRICING_VERSION } from "@/offers/pricing";
 import { castModes } from "@/stories/casts/types";
 import { journeyBrands, journeyCards, journeyCues, journeyEntrances, journeyMaps, journeyMarks, journeyOrbits, journeySides, journeyVoices, journeyWords, loreNames, themeNames, journeyGenres, soundWorlds, journeyAudiences } from "@/stories/journey-style";
 import { z } from "zod";
@@ -174,7 +175,8 @@ export const SiteData = z.object({
   // holds only the quote details. "ph-local" is the Philippines-market offer;
   // "consult-first" is the price-free offer for any other market (src/offers/consult-first.ts).
   offer: z.object({
-    plan: z.enum(["ph-local", "consult-first"]),
+    plan: z.enum(["ph-local", "consult-first", "us-pricing"]),
+    catalogVersion: z.literal(PRICING_VERSION).optional(),
     quoteNumber: z.string().max(40),
     quoteDate: IsoDate,
     validUntil: IsoDate,
@@ -189,6 +191,7 @@ export const SiteData = z.object({
 }).refine((d) => d.expiresAt >= d.createdAt, { message: "expiresAt is before createdAt", path: ["expiresAt"] })
   // Philippine rates apply only to businesses with a physical store in the Philippines.
   .refine((d) => d.offer?.plan !== "ph-local" || d.business.address.country === "PH", { message: "the ph-local offer needs a Philippine business address", path: ["offer", "plan"] })
+  .refine((d) => d.offer?.plan !== "us-pricing" || (d.business.address.country === "US" && d.offer.catalogVersion !== undefined), { message: "USD offers need a US address and catalog version", path: ["offer", "plan"] })
   // The price-free offer is for markets with no price plan; a Philippine business gets the Philippine rates.
   .refine((d) => d.offer?.plan !== "consult-first" || d.business.address.country !== "PH", { message: "a Philippine business uses the ph-local offer, not consult-first", path: ["offer", "plan"] })
   .refine((d) => !d.offer || d.offer.validUntil >= d.offer.quoteDate, { message: "validUntil is before quoteDate", path: ["offer", "validUntil"] });

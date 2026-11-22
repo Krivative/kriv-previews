@@ -1,12 +1,19 @@
 # KRIV Previews roadmap
 
-Updated: 2026-11-17 - Last step finished: PCO restyled in a grown-up register through a new `audience` setting in the randomizer (three adult-only themes, no cast); published on Kriv's word on 17 Nov, merged with the other session's sound, story worlds and DV Shop Cebu work. The cast brief is complete and published. Phone audit done in its own session, waiting on Kriv's pick of a phone style. kriv.agency community restyle is in draft pull request 24 on Krivative/Kriv. Also on main from another session: DV Shop Cebu surprise concept, story sound and story worlds
+Updated: 2026-11-22 - Discord, email, LinkedIn and the US free website added to the pricing catalog and menu; preflight passes. Package setup cut approved. Next up: Kriv approves the buyout fee, reviews the previews, reconciles the sent-lead roster before publish.
 
 Goal: a daily run that finds qualified leads, builds a concept preview for each and writes a Gmail draft. Kriv reviews every page and sends every email by hand.
 
 Status note (2026-10-26): Claude Code's completed work and dated reports below are preserved. The Review inbox now prepares initial offers without paid AI, after Kriv enables it locally and while the Desk runs. This has been verified with synthetic fixtures, not Kriv's private database or a live pilot. The production database adapter and a scheduler that runs with the Desk closed remain unfinished. Private data under `C:\Users\user\kriv-leads\` still requires Kriv's explicit permission before agent access. No agent approval, email sending, publish, push or deployment is authorized.
 
 ## Next up
+
+- [x] 22 Nov PH and USD pricing catalog, versioned offers, calculator and sectioned pages. Previews lint, typecheck, unit tests, build and smoke checks passed locally.
+- [x] Discord, email management, LinkedIn services and the US free website offer added to the catalog and the grouped services menu (2026-11-22).
+- [x] Kriv approved taking the free website's USD 5,000 off US package setup (2026-11-22).
+- [x] Services menu made compact: sheet with collapsible groups, package plus add-ons, folded plan details (2026-11-22).
+- [ ] Kriv approves the US buyout fee (docs/PRICING-REVIEW.md).
+- [ ] Kriv reviews the pricing previews and confirms the sent-lead roster before publish.
 
 - [x] DV Shop Cebu surprise concept (Claude Code, 2026-11-17): public data from dvshopcebu.com; "Keep them fresh" story in look C with the shop's own photos; DV Shoe Care shelf; brand revamp (randomizer-picked badge among nine finishes); Dop- bonus page; 14-day plan, reply templates, calendar, Shoe Care campaign, original jingle and rap lyrics; offer page (trial, plan, introduction ask) priced only from `ph-local.ts`. All five checks pass. Local on `claude/dv-shop-cebu`
 - [ ] Kriv: review kriv.agency/for/dv-shop-cebu locally; approve the audio cost (2,100 credits for the 90 s rap and 15 s jingle); give delegate costs for the pricing check; connect Chrome for the Facebook and Instagram check; say "publish"
