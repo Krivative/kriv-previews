@@ -249,6 +249,8 @@ export type PriceItem = {
   detail: string;
   upgrades?: readonly string[];
   requires?: string;
+  /** Menu heading for an add-on that no package includes. Package items are grouped by package. */
+  group?: string;
 };
 export type PricePackage = {
   id: string;
@@ -299,7 +301,21 @@ export const pricingRules = {
     agentFees: [1500, 3000, 4000],
     allIn: ["website", "starter", "inbox", "live", "crm"],
   },
-  us: { managementMonthly: 1000, agentShare: 0.5, heavyUnits: 2, callPerMinute: 0.20 },
+  us: {
+    managementMonthly: 1000, agentShare: 0.5, heavyUnits: 2, callPerMinute: 0.20,
+    // Kriv, 2026-11-22: the website is free (no setup fee) while the client subscribes to management or a package.
+    freeWebsite: {
+      headline: "Your website, free.",
+      subline: "Pay only for the team that runs it.",
+      condition: "The website has no setup fee while you subscribe to management or a package.",
+      shopify: "Shopify sites: you pay Shopify's own monthly plan directly to Shopify.",
+      leaving: "Leaving and want to keep the site? Ask us about the buyout.",
+      // PROPOSED, NOT APPROVED: never render this until Kriv approves it (docs/PRICING-REVIEW.md).
+      proposedBuyout: { approved: false, tiers: [{ throughMonth: 6, fee: 3500 }, { throughMonth: 12, fee: 2000 }, { fee: 1000 }] },
+    },
+  },
+  // Kriv, 2026-11-22: the system only writes and schedules LinkedIn posts. Engagement is always a person.
+  linkedin: "KRIV's system only writes and schedules LinkedIn posts. Likes, comments, messages and connection requests are never automated: a KRIV team member does all engagement by hand.",
   contact: { email: KRIV_EMAIL, booking: KRIV_BOOKING },
 } as const;
 
@@ -308,13 +324,20 @@ const phItems = {
   inbox: { label: "Meta inbox AI agent", monthly: 2500, detail: "Facebook and Instagram inboxes." },
   community: { label: "Community management", monthly: 3000, detail: "Public comments, reactions, spam and complaints, with nudges to move conversations into the inbox." },
   profile: { label: "Google Business Profile care", monthly: 2500, detail: "Maintain the business listing and its information." },
-  email: { label: "Email management", monthly: 2500, detail: "Manage the business inbox." },
+  email: { label: "Email management", monthly: 2500, group: "Email", detail: "The owner's own inbox, kept in order by a KRIV team member. Not part of the CRM; email marketing stays in the CRM." },
   ads: { label: "Meta ads management", monthly: 5000, detail: "Client pays the ad budget separately." },
   caller: { label: "AI caller", monthly: 2500, detail: `Includes ${pricingRules.ph.callerMinutes} minutes, then ${php(pricingRules.ph.callerOverage)} per minute.` },
   live: { label: "AI live seller", monthly: 10000, detail: "AI-assisted live selling for your products." },
   crm: { label: "CRM", monthly: 13000, worth: 17000, detail: "All five CRM modules, also available individually.", upgrades: Object.keys(crmModules) },
   ...content,
   ...crmModules,
+  discordSetup: { label: "Discord setup", monthly: 0, setup: 10000, group: "Discord", detail: "Server, channels, roles and welcome flow, set up once." },
+  discord: { label: "Discord community management", monthly: 3000, group: "Discord", detail: "A KRIV team member looks after the server: welcomes, questions, moderation and announcements." },
+  linkedinMakeover: { label: "LinkedIn makeover", monthly: 0, setup: 5000, group: "LinkedIn", detail: "Personal profile or company page: headline, about, banner and featured section, done once." },
+  linkedinContent: { label: "LinkedIn content", monthly: 3500, group: "LinkedIn", detail: "8 posts a month, written and designed. The system schedules them; nothing else is automated." },
+  linkedinEngagement: { label: "LinkedIn engagement", monthly: 3000, group: "LinkedIn", detail: "Done by hand by a KRIV team member: comments in your industry and replies on your posts." },
+  linkedinPage: { label: "LinkedIn company page management", monthly: 3000, group: "LinkedIn", detail: "Keep the company page current and its posts on schedule." },
+  linkedinPresence: { label: "LinkedIn Presence", monthly: 8000, worth: 11500, group: "LinkedIn", detail: "Makeover, content and hand engagement together. Setup included.", upgrades: ["linkedinMakeover", "linkedinContent", "linkedinEngagement"] },
   ...Object.fromEntries(pricingRules.ph.platforms.map((name) => [
     name.toLowerCase(), { label: `${name} inbox add-on`, monthly: pricingRules.ph.extraPlatformMonthly, detail: "Requires the Meta inbox AI agent.", requires: "inbox" },
   ])),
@@ -322,13 +345,20 @@ const phItems = {
 
 const management = pricingRules.us.managementMonthly;
 const usItems = {
-  website: { label: "Website", setup: 5000, monthly: management, detail: "Website setup and ongoing management." },
+  website: { label: "Website", setup: 0, worth: 5000, monthly: management, detail: "Free website build while you subscribe. Shopify's own plan is paid to Shopify." },
   inbox: { label: "AI agent", setup: 2500, monthly: management, detail: "AI agent setup and management." },
   live: { label: "AI live seller", setup: 10000, monthly: management, detail: "Live seller setup and management." },
   crm: { label: "CRM", setup: 13000, worth: 15000, monthly: management, detail: "CRM setup and management." },
   caller: { label: "AI caller", setup: 2500, monthly: management, detail: "Caller setup and management. Calls use prepaid credits." },
   ...content,
   video: { ...content.video, detail: "15 reels and 15 posts per month, plus 3 stories a day.", upgrades: ["starter", "growth"] },
+  email: { label: "Email management", monthly: management, group: "Email", detail: "The owner's own inbox, kept in order by a KRIV team member. Not part of the CRM; email marketing stays in the CRM." },
+  discordSetup: { label: "Discord setup", monthly: 0, setup: 1500, group: "Discord", detail: "Server, channels, roles and welcome flow, set up once." },
+  discord: { label: "Discord community management", monthly: management, group: "Discord", detail: "A KRIV team member looks after the server: welcomes, questions, moderation and announcements." },
+  linkedinMakeover: { label: "LinkedIn makeover", monthly: 0, setup: 750, group: "LinkedIn", detail: "Personal profile or company page: headline, about, banner and featured section, done once." },
+  linkedinContent: { label: "LinkedIn content", monthly: management, group: "LinkedIn", detail: "8 posts a month, written and designed. The system schedules them; nothing else is automated." },
+  linkedinEngagement: { label: "LinkedIn engagement", monthly: management, group: "LinkedIn", detail: "Done by hand by a KRIV team member: comments in your industry and replies on your posts." },
+  linkedinPage: { label: "LinkedIn company page management", monthly: management, group: "LinkedIn", detail: "Keep the company page current and its posts on schedule." },
 } satisfies Record<string, PriceItem>;
 
 export const markets = {
@@ -338,8 +368,10 @@ export const markets = {
     { id: "full-business", label: "Full Business", monthly: 29500, worth: 40500, includes: ["website", "video", "inbox", "profile", "caller", "crm"] },
   ] },
   us: { currency: "USD", items: usItems, packages: [
-    { id: "presence", label: "Presence", setup: 5000, setupWorth: 7500, monthly: 5000, worth: 6000, includes: ["website", "starter", "inbox"] },
-    { id: "growth", label: "Growth", setup: 5000, monthly: 8000, worth: 10000, includes: ["website", "growth", "inbox"], recommended: true },
-    { id: "full-business", label: "Full Business", setup: 15000, setupWorth: 25000, monthly: 12500, worth: 15000, includes: ["website", "video", "inbox", "crm", "caller"] },
+    // Free website (2026-11-22): the website's $5,000 setup comes off each package's setup fee
+    // (was 5,000 / 5,000 / 15,000). Approved by Kriv on 2026-11-22.
+    { id: "presence", label: "Presence", setup: 0, setupWorth: 7500, monthly: 5000, worth: 6000, includes: ["website", "starter", "inbox"] },
+    { id: "growth", label: "Growth", setup: 0, monthly: 8000, worth: 10000, includes: ["website", "growth", "inbox"], recommended: true },
+    { id: "full-business", label: "Full Business", setup: 10000, setupWorth: 25000, monthly: 12500, worth: 15000, includes: ["website", "video", "inbox", "crm", "caller"] },
   ] },
 } satisfies Record<string, Market>;

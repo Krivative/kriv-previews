@@ -6,14 +6,19 @@ import { inert } from "./inert";
 import { PricingCalculator } from "./PricingCalculator";
 import s from "./pricing.module.css";
 
+// Seed 110 type pair from kriv.agency: Fraunces with Inter (same loading as the other pages here).
+const PRICING_FONTS = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap";
+
 export function PricingPage({ region, site }: { region: keyof typeof markets; site?: SiteData }) {
   const ph = region === "ph";
   const market = markets[region];
   const fmt = (n: number, decimals = 0) => money(n, market.currency, decimals);
   const { contact } = pricingRules;
+  const free = pricingRules.us.freeWebsite;
   const booking = site ? inert : { href: contact.booking };
   const email = site ? inert : { href: `mailto:${contact.email}` };
   return <div className={s.root} data-market={region} lang={ph ? "en-PH" : "en-US"}>
+    <link rel="stylesheet" href={PRICING_FONTS} precedence="fonts" />
     <a className={s.skip} href="#pricing-main">Skip to pricing</a>
     {site && <Ribbon site={site} />}
     <header className={s.header}>
@@ -23,8 +28,9 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
     <main id="pricing-main">
       <section className={`${s.section} ${s.hero}`}>
         <p className={s.eyebrow}>{ph ? "Philippine pricing · PHP" : "US pricing · USD"}</p>
-        <h1>{site ? `Pricing for ${site.business.name}` : "KRIV pricing."}</h1>
-        <p className={s.prose}>{ph ? `Choose a package or build your own. Try it for ${pricingRules.ph.trialDays} days, then pay annually or stop.` : "Choose a package or build your own. See setup and monthly management separately before we talk."}</p>
+        <h1>{site ? `Pricing for ${site.business.name}` : ph ? "KRIV pricing." : free.headline}</h1>
+        {!ph && <p className={s.lede}>{free.subline}</p>}
+        <p className={s.prose}>{ph ? `Choose a package or build your own. Try it for ${pricingRules.ph.trialDays} days, then pay annually or stop.` : `${free.condition} Choose a package or build your own, and see setup and monthly management separately before we talk.`}</p>
         {site?.offer && <p className={s.prose}>Quote {site.offer.quoteNumber} · Valid through <time dateTime={site.offer.validUntil}>{site.offer.validUntil}</time></p>}
       </section>
       <PricingCalculator market={market} trial={ph ? { paidMonths: pricingRules.ph.paidMonths, annualDiscount: pricingRules.ph.annualDiscount, windows: pricingRules.ph.windows, allIn: pricingRules.ph.allIn } : undefined} />
@@ -38,6 +44,8 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
       <section className={s.section} aria-labelledby="terms">
         <p className={s.eyebrow}>Plan details</p>
         <h2 id="terms">What to budget for.</h2>
+        <details className={s.fold}>
+        <summary>Read the plan details and fine print</summary>
         {ph ? <ul className={s.rules}>
           <li>{pricingRules.ph.eligibility}</li>
           <li>Annual base price is the regular monthly total × {pricingRules.ph.paidMonths}. The annual offer is paid once after the trial. It includes {pricingRules.ph.annualDiscount * 100}% off that base price, plus any free months in your decision window.</li>
@@ -48,7 +56,12 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
           <li>Single-service management is {fmt(pricingRules.us.managementMonthly)} / mo per service with no cap. The agent receives {pricingRules.us.agentShare * 100}% of the fee.</li>
           <li>Heavy services count as {pricingRules.us.heavyUnits} management units. Scope is agreed before quoting.</li>
           <li>Caller usage is {fmt(pricingRules.us.callPerMinute, 2)} per minute from prepaid credits.</li>
+          <li>{free.condition} {free.shopify}</li>
+          <li>{free.leaving}</li>
+          <li>{pricingRules.linkedin}</li>
         </ul>}
+        {ph && <p className={s.prose}>{pricingRules.linkedin}</p>}
+        </details>
       </section>
       <section className={`${s.section} ${s.contact}`} aria-labelledby="pricing-contact">
         <h2 id="pricing-contact">Let’s talk about your business.</h2>

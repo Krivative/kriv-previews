@@ -1,29 +1,29 @@
+/* Look: kriv.agency seed 110 "Ink and Care blue" (Krivative/Kriv lib/design-seed.ts, designFor(110, "pricing")).
+   Same colours, type, radius and lifted cards on both markets; prices and behaviour live elsewhere. */
 .root {
-  --paper: #f7f2ea;
-  --panel: #fffaf2;
-  --panel-alt: #eae2f7;
-  --ink: #241d30;
-  --subtle: #574d64;
-  --line: #c7bbce;
-  --accent: #382064;
-  --button-bg: #382064;
-  --button-ink: #fff;
+  --paper: #0d1116;
+  --band: #111821;
+  --panel: #16202b;
+  --panel-alt: #1b2734;
+  --ink: #eef2f6;
+  --subtle: #a3aebb;
+  --line: #263142;
+  --accent: #e7fa78;
+  --button-bg: #e7fa78;
+  --button-ink: #101112;
+  --care: #88bafa;
+  --sand: #dec99d;
+  --radius: 28px;
+  --radius-sm: 18px;
+  --display: "Fraunces", Georgia, serif;
+  --body: "Inter", system-ui, sans-serif;
   --gutter: clamp(1rem, 5vw, 5rem);
+  --lift: 0 1px 2px #0000000d, 0 18px 40px -24px #00000066;
+  --spectrum: -26px 26px 70px -30px color-mix(in srgb, #88bafa 60%, transparent), 0 34px 70px -32px color-mix(in srgb, #e7fa78 45%, transparent), 26px 26px 70px -30px color-mix(in srgb, #dec99d 55%, transparent);
   background: var(--paper);
   color: var(--ink);
-  font: 1rem/1.55 system-ui, sans-serif;
+  font: 1rem/1.6 var(--body);
   inline-size: 100%;
-}
-.root[data-market="us"] {
-  --paper: #181a16;
-  --panel: #21241d;
-  --panel-alt: #2b3023;
-  --ink: #f4f3e9;
-  --subtle: #d1d3be;
-  --line: #626950;
-  --accent: #d8ef9c;
-  --button-bg: #d8ef9c;
-  --button-ink: #171a10;
   color-scheme: dark;
 }
 .root *, .root *::before, .root *::after { box-sizing: border-box; }
@@ -46,6 +46,7 @@
 .hero { background: var(--panel); }
 .hero h1 { max-inline-size: 100%; overflow-wrap: anywhere; }
 .eyebrow { margin-bottom: .8rem !important; color: var(--subtle); font: 700 .74rem/1.5 ui-monospace, monospace; letter-spacing: .13em; text-transform: uppercase; }
+.lede { margin-top: 1rem !important; font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -.03em; color: var(--accent); }
 .prose { max-inline-size: 62ch; margin-top: 1rem !important; color: var(--subtle); }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0; margin: 1.65rem 0 0; list-style: none; }
 .card { display: flex; flex-direction: column; gap: .65rem; padding: clamp(1rem, 2.4vw, 2.1rem); border: 1px solid var(--line); background: var(--panel); min-inline-size: 0; }
@@ -53,18 +54,14 @@
 .card ul { padding-inline-start: 1.1rem; margin-block: .45rem 1.15rem; }
 .card .badge { color: var(--accent); font-size: .85rem; font-weight: 750; }
 .cardPrice strong { display: block; font-size: clamp(1.9rem, 4.2vw, 3.6rem); letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
-.card button, .menu button, .actions a { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--accent); color: var(--button-ink); background: var(--button-bg); text-decoration: none; font-weight: 750; }
+.card button, .sheet button:not(.close):not(.link):not(.ghost), .menuOpen, .actions a { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--accent); color: var(--button-ink); background: var(--button-bg); text-decoration: none; font-weight: 750; }
 .card button { margin-top: auto; }
 .card button[aria-pressed="true"] { background: transparent; color: var(--ink); }
-.menu { margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--line); }
-.menu summary { cursor: pointer; font-weight: 750; min-height: 44px; padding-block: .6rem; }
-.menuTotal { padding: .75rem; background: var(--panel-alt); margin-bottom: .75rem; }
 .items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
 .item { display: grid; grid-template-columns: auto 1fr auto; gap: .55rem; align-content: start; padding: .75rem; border: 1px solid var(--line); background: var(--panel); min-inline-size: 0; cursor: pointer; }
 .item input { margin: .35rem 0 0; align-self: start; accent-color: var(--accent); }
 .item small { display: block; color: var(--subtle); }
 .item > span:last-child { text-align: end; }
-.menu button { margin: .8rem .4rem 0 0; }
 .quote { background: var(--panel-alt); }
 .windows { display: flex; flex-wrap: wrap; gap: .55rem; border: 0; margin: 1rem 0 0; padding: 0; }
 .windows legend { padding: 0 0 .6rem; }
@@ -100,4 +97,119 @@
   .saving > span, .meter i { transition: none; }
   .calendar .fall, .rolling { display: none; }
   .static { display: inline; }
+}
+
+/* Services: a short bar on the page; the full list opens in a sheet (bottom sheet on phones, side panel on desktop). */
+.menuBar { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--line); background: var(--panel); }
+.menuBar p { margin: 0; color: var(--subtle); }
+.menuBar strong { color: var(--ink); }
+.menuOpen { flex-direction: column; align-items: flex-start !important; text-align: start; }
+.menuOpen span { font-weight: 500; font-size: .8rem; opacity: .85; }
+.sheet { position: fixed; inset: 0 0 0 auto; margin: 0; padding: 0; border: 0; inline-size: min(40rem, 100vw); max-inline-size: 100vw; block-size: 100dvh; max-block-size: 100dvh; background: var(--paper); color: var(--ink); display: none; flex-direction: column; box-shadow: -1rem 0 3rem rgb(0 0 0 / .25); }
+.sheet[open] { display: flex; animation: slideIn .28s ease-out; }
+.sheet::backdrop { background: rgb(10 8 16 / .55); }
+:global(html):has(.sheet[open]) { overflow: hidden; }
+@keyframes slideIn { from { transform: translateX(2.5rem); opacity: 0; } }
+.sheetHead { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.25rem .5rem; }
+.sheetHead h2 { font-size: clamp(1.6rem, 4vw, 2.4rem) !important; }
+.close { inline-size: 44px; block-size: 44px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 1.6rem; line-height: 1; }
+.sheetNote { padding: 0 1.25rem .75rem; color: var(--subtle); font-size: .9rem; }
+.link { border: 0; padding: 0; background: none; color: var(--ink); text-decoration: underline; font-weight: 700; min-height: 0; }
+.sheetBody { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 0 1.25rem 1rem; }
+.group { border-top: 1px solid var(--line); }
+.group summary { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; min-height: 48px; padding: .8rem 0; cursor: pointer; font-weight: 750; list-style: none; }
+.group summary::-webkit-details-marker { display: none; }
+.group summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--accent); }
+.group[open] summary::after { content: "–"; }
+.group summary span { flex: 1; }
+.group summary small { color: var(--subtle); font-weight: 500; }
+.group .items { grid-template-columns: minmax(0, 1fr); padding-bottom: 1rem; }
+.item[data-in-plan] { opacity: .78; cursor: default; }
+.item small { font-size: .8rem; }
+.sheetFoot { border-top: 1px solid var(--line); background: var(--panel-alt); padding: .75rem 1.25rem max(.75rem, env(safe-area-inset-bottom)); display: grid; gap: .6rem; }
+.footRow { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.footRow p { flex: 1; margin: 0; min-inline-size: 10rem; }
+.footRow strong { font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+.footRow small { display: block; color: var(--subtle); }
+.ghost { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--accent); background: transparent; color: var(--ink); font-weight: 750; }
+.switch { inline-size: 100%; }
+/* Fine print folds away. */
+.fold summary { cursor: pointer; font-weight: 750; min-height: 44px; padding-block: .6rem; }
+.fold[open] summary { margin-bottom: .75rem; }
+@media (max-width: 740px) {
+  .sheet { inset: auto 0 0 0; inline-size: 100vw; block-size: 92dvh; border-radius: 1rem 1rem 0 0; }
+  .sheet[open] { animation-name: slideUp; }
+  .calendar { grid-template-columns: repeat(auto-fit, minmax(3.6rem, 1fr)); }
+  .calendar > span { min-height: 2.4rem; font-size: .7rem; padding: .25rem; }
+}
+@keyframes slideUp { from { transform: translateY(3rem); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sheet[open] { animation: none; } }
+
+/* ---------- Seed 110 refinements (22 Nov 2026) ---------- */
+.root h1, .root h2, .root h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.04em; }
+.root h1 { font-size: clamp(2.8rem, 8.5vw, 7rem); line-height: 1; }
+.eyebrow { font-family: "Courier New", ui-monospace, monospace !important; letter-spacing: .1em; }
+.header { background: #101112; border-bottom-color: var(--line); }
+.mark { font-family: Arial, Helvetica, sans-serif; }
+.header > a:last-child { text-decoration: none; padding: .45rem 1rem; border: 1px solid var(--line); border-radius: 999px; font-weight: 600; font-size: .9rem; }
+.section { background: var(--paper); }
+.section:nth-of-type(even) { background: var(--band); }
+
+/* Hero: designed background, a giant outlined kriv wordmark with a soft Care-blue glow. */
+.hero { position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(50% 60% at 80% 40%, color-mix(in srgb, var(--care) 14%, transparent), transparent 70%), var(--paper); padding-block: clamp(3rem, 9vw, 8rem); }
+.hero::after { content: "kriv"; position: absolute; z-index: -1; right: -2vw; bottom: -3vw; font: 800 clamp(200px, 40vw, 600px)/.8 Arial, Helvetica, sans-serif; letter-spacing: -.075em; color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--ink) 14%, transparent); pointer-events: none; }
+.lede { font-family: var(--display); font-weight: 600; letter-spacing: -.03em; }
+
+/* Buttons and controls: rounded like the main site. */
+.card button, .sheet button:not(.close):not(.link):not(.ghost), .menuOpen, .actions a, .ghost { border-radius: var(--radius-sm); border-width: 2px; min-height: 48px; padding-inline: 1.3rem; transition: transform .15s ease, box-shadow .15s ease; }
+.card button:hover, .menuOpen:hover, .actions a:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -14px var(--accent); }
+.card button[aria-pressed="true"] { border-color: var(--line); }
+.close { border-radius: 50%; }
+
+/* Packages sit on the brand spectrum (static gradients, cheap on phones). */
+.section[aria-labelledby="packages"] { position: relative; isolation: isolate; overflow: hidden; background:
+  radial-gradient(40% 45% at 8% 20%, color-mix(in srgb, var(--care) 22%, transparent), transparent 70%),
+  radial-gradient(38% 40% at 95% 0%, color-mix(in srgb, var(--sand) 16%, transparent), transparent 70%),
+  radial-gradient(45% 45% at 55% 110%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+  var(--band); }
+.cards { gap: clamp(.9rem, 2vw, 1.5rem); }
+.card { border-radius: var(--radius); background: var(--panel); box-shadow: var(--lift); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease; }
+.card[data-recommended] { background: var(--ink); color: var(--paper); border-color: transparent; box-shadow: var(--spectrum); }
+.card[data-recommended] .badge { display: inline-block; align-self: flex-start; background: var(--paper); color: var(--accent); padding: .25rem .7rem; border-radius: 999px; font-family: "Courier New", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+.card[data-recommended] button { background: var(--paper); color: var(--accent); border-color: var(--paper); }
+.card[data-recommended] button[aria-pressed="true"] { background: transparent; color: var(--paper); border-color: var(--paper); }
+.cardPrice strong { font-family: var(--display); font-weight: 600; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--ink) 40%, transparent); box-shadow: 0 28px 60px -34px #000a; }
+  .card[data-recommended]:hover { box-shadow: var(--spectrum); }
+}
+
+/* Menu bar, services sheet and items. */
+.menuBar { border-radius: var(--radius); box-shadow: var(--lift); padding: 1rem 1.25rem; }
+.item, .windows label, .calendar > span { border-radius: 14px; }
+.item:has(input:checked) { border-color: var(--accent); }
+.sheet { background: var(--band); }
+.sheetFoot { background: var(--panel); }
+.group summary { font-family: var(--display); font-weight: 600; font-size: 1.1rem; }
+
+/* Estimate: lifted panel with the spectrum behind the number. */
+.quote { background: radial-gradient(45% 60% at 85% 30%, color-mix(in srgb, var(--care) 16%, transparent), transparent 70%), var(--paper); }
+.estimate { font-family: var(--display); font-weight: 600; letter-spacing: -.05em; }
+.estimate small { font-family: var(--body); }
+.meter { border-radius: 999px; overflow: hidden; }
+.saving > span { border-radius: 999px; }
+.calendar .gift { background: color-mix(in srgb, var(--accent) 16%, var(--panel)); color: var(--ink); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.calendar .gift strong { color: var(--accent); }
+
+/* Closing call to action: inverted band in signal lime, as on kriv.agency's dark seeds. */
+.contact { background: var(--accent) !important; color: var(--button-ink); }
+.contact .prose { color: color-mix(in srgb, var(--button-ink) 75%, transparent); }
+.actions { background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); }
+.actions a:first-child { border-color: var(--line); }
+@media (max-width: 740px) {
+  .sheet { border-radius: var(--radius) var(--radius) 0 0; }
+  .hero::after { font-size: clamp(160px, 60vw, 300px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .card button, .menuOpen, .actions a { transition: none; }
 }
