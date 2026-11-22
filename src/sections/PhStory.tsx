@@ -33,7 +33,7 @@ export function PhStory({ steps, mode }: { steps: StoryStep[]; mode: "pinned" | 
         </div>}
       </div>
     </div>
-    <ol className={p.steps}>
+    <ol className={p.steps} data-progress={mode === "timeline" ? "rail" : undefined}>
       {steps.map((s, i) => <li key={s.when} ref={(el) => { refs.current[i] = el; }} data-i={i} data-active={i === active || undefined}>
         <p className={p.when}>{s.when}</p>
         <h3>{s.title}</h3>

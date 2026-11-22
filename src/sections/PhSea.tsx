@@ -9,9 +9,11 @@ type Palette = { deep: [number, number, number]; mid: [number, number, number]; 
 const PALETTES: Record<string, Palette> = {
   dark: { deep: [9, 15, 24], mid: [28, 62, 112], light: [136, 186, 250] },
   light: { deep: [30, 104, 214], mid: [74, 150, 238], light: [236, 246, 255] },
+  // Pale enough that ink text stays readable over it (seed 204, under the paper veil).
+  tide: { deep: [96, 150, 226], mid: [150, 195, 245], light: [246, 251, 255] },
 };
 
-export function PhSea({ tone, className }: { tone: "dark" | "light"; className?: string }) {
+export function PhSea({ tone, className }: { tone: "dark" | "light" | "tide"; className?: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const el = canvas.current;
@@ -46,7 +48,7 @@ export function PhSea({ tone, className }: { tone: "dark" | "light"; className?:
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !still) { last = performance.now(); cancelAnimationFrame(frame); frame = requestAnimationFrame(tick); } });
     io.observe(el);
     let lastDrop = 0;
-    const host = el.parentElement!;
+    const host = (el.closest("section") ?? el.parentElement)!;
     function drop(e: PointerEvent) {
       if (still || performance.now() - lastDrop < 140 || ripples.length > 5) return;
       lastDrop = performance.now();

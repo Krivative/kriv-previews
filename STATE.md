@@ -33,7 +33,7 @@ Search it for the topic you are touching (`grep -n "<topic>" HANDOFF.md`) and re
 
 ## Waiting on Kriv
 - Pricing (Discord, email, LinkedIn, US free website, services sheet, seed 110 look) is LIVE: PRs 3 and 2 merged 22 Nov on Kriv's "publish". Open: the US buyout fee and the LinkedIn Presence price. Handover in docs/PRICING-REVIEW.md.
-- /ph-rates seeded redesign: candidates 201, 202, 203 on `claude/ph-rates-seeded` (22 Nov, not pushed). Waiting on Kriv's pick, then PH_PINNED_SEED and "publish".
+- /ph-rates seeded redesign on `claude/ph-rates-seeded` (not pushed). Kriv liked 203 (23 Nov); round 2 made three takes on it: 204 paper over a living sea, 205 sea-chart contours with plan cards, 206 halftone press. Waiting on Kriv's pick, then PH_PINNED_SEED and "publish".
 - Review the 22 Nov PH and USD pricing previews and reconcile the sent-lead roster in docs/PRICING-REVIEW.md before publish.
 - PCO: the clinic's real hours, services and team (booking method, self-description and service area now come from its public Facebook page); approval of cast lines (drafts).
 - An adult story spine for PCO (general care, then aesthetics) and its recording.
