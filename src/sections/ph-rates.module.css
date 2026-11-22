@@ -129,7 +129,7 @@
 @media (max-width: 640px) { .spec > div { grid-template-columns: 1fr; gap: .35rem; } }
 
 .contact { text-align: center; padding-block: clamp(4rem, 10vw, 8rem) !important; }
-.contact p { margin-inline: auto; }
+.contact p { margin-inline: auto !important; text-align: center; }
 
 /* Footer */
 .footer { position: relative; overflow: hidden; padding: 2.5rem var(--gutter) 6.5rem; background: #0d1116; color: #eef2f6; }
@@ -209,3 +209,29 @@
 /* 206 footer: the giant wordmark inks in as you reach the end of the page */
 .root[data-footer="inkfill"] .giant { opacity: 1; -webkit-text-stroke: 1.5px #ffffff3d; background-repeat: no-repeat; background-size: calc(var(--p, 1) * 100%) 100%; }
 .root[data-footer="inkfill"] .giant span { color: transparent; -webkit-text-fill-color: transparent; }
+
+/* Round 3 (23 Nov 2026): 205's hero with 204's sea and 206's dots below, and footers that play with the logo (seeds 207-209). */
+.root [data-bg] { position: relative; isolation: isolate; overflow: clip; }
+.root [data-bg] .tide { inset: -2%; inline-size: 104%; block-size: 104%; }
+
+.root[data-footer="lime"] .footer { background: #e7fa78; color: #101112; }
+.root[data-footer="care"] .footer { background: #88bafa; color: #0d1116; }
+.root[data-footer="sand"] .footer { background: #dec99d; color: #101112; }
+.root:is([data-footer="lime"], [data-footer="care"], [data-footer="sand"]) .footer nav a { color: inherit; opacity: .85; }
+.root:is([data-footer="lime"], [data-footer="care"], [data-footer="sand"]) .credit { opacity: .7; }
+.play { display: flex; align-items: flex-end; margin: 2rem 0 0 !important; font: 800 clamp(7rem, 30vw, 30rem)/.78 var(--body); letter-spacing: -.06em; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.play span { display: inline-block; will-change: transform; transform-origin: 50% 60%; }
+.play[data-play="drag"] span { cursor: grab; }
+.play[data-play="drag"] span:active { cursor: grabbing; }
+.play[data-play="repel"] .playX { cursor: pointer; }
+.playX { color: #101112; }
+.root[data-footer="lime"] .playX { color: #fff; -webkit-text-stroke: .014em #101112; }
+.root[data-footer="care"] .playX, .root[data-footer="sand"] .playX { color: #e7fa78; -webkit-text-stroke: .014em #101112; }
+.hint { margin-block-start: .6rem !important; font: 600 .72rem/1 "Courier New", monospace; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
+@media (hover: none) { .hint { display: none; } }
+/* Light colorways set --accent to ink, which turned the closing band black with an unreadable heading.
+   Give it the signal lime band instead (Care blue when the footer is already lime). */
+.root:not([data-dark]) .contact { background: #e7fa78 !important; color: #101112; }
+.root:not([data-dark]) .contact h2 { color: inherit; }
+.root:not([data-dark]) .contact p { color: #101112c4 !important; }
+.root[data-footer="lime"]:not([data-dark]) .contact { background: #88bafa !important; }

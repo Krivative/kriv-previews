@@ -31,12 +31,16 @@ export const PH_HEADLINES = ["mixed", "serif"] as const;              // sans wi
 export const PH_STORIES = ["pinned", "timeline"] as const;            // sticky plan card that changes as the trial steps scroll / 14-day line
 export const PH_FIGURES = ["figures", "none"] as const;               // offer facts as large figures (not results)
 export const PH_FINE = ["spec", "fold"] as const;                     // spec sheet / folded list (current)
-export const PH_FOOTERS = ["wordmark", "band", "inkfill"] as const;   // giant kriv wordmark / plain band / wordmark that inks in as you scroll
+export const PH_FOOTERS = ["wordmark", "band", "inkfill", "lime", "care", "sand"] as const;
+// wordmark: giant spectrum kriv× on ink / band: plain / inkfill: kriv× inks in as you scroll /
+// round 3 (23 Nov, Kriv: not black, play around the logo): lime: the letters move away from the pointer and the × turns to face it /
+// care: Care blue, the letters bob like water and splash when clicked / sand: Operations sand, pick a letter up and throw it.
 // Round 2 (23 Nov, Kriv liked 203 and asked for better backgrounds, movement and interactivity). Only used with the statement hero.
 export const PH_BACKDROPS = ["glow", "veil", "contour", "halftone"] as const; // soft colour glow / sea under a paper veil the pointer uncovers / moving sea-chart contour lines / printer's halftone dots that form the wordmark
 export const PH_MOTIONS = ["calm", "reveal"] as const;               // still / sections rise in, figures count up, the 14-day rail fills as you scroll
 export const PH_TOUCHES = ["none", "tilt", "magnet"] as const;        // nothing / plan cards drift with the pointer / buttons lean toward the pointer
 export const PH_CARDS = ["none", "corners"] as const;                // plan cards around the centred statement (fintech reference)
+export const PH_UNDERS = ["plain", "mixed"] as const;                // sections below the hero on paper / figures on 206's halftone dots and the plan story over 204's sea
 export const PH_RADII = [16, 28] as const;
 
 export type PhDesign = {
@@ -44,6 +48,7 @@ export type PhDesign = {
   story: (typeof PH_STORIES)[number]; figures: (typeof PH_FIGURES)[number]; fine: (typeof PH_FINE)[number];
   footer: (typeof PH_FOOTERS)[number]; radius: number;
   backdrop: (typeof PH_BACKDROPS)[number]; motion: (typeof PH_MOTIONS)[number]; touch: (typeof PH_TOUCHES)[number]; cards: (typeof PH_CARDS)[number];
+  under: (typeof PH_UNDERS)[number];
 };
 
 function rng(seed: number) {
@@ -56,20 +61,25 @@ type Curated = { c: string } & Omit<PhDesign, "seed" | "colorway">;
 // Round 1 candidates, composed by hand so each shows a different hero, colorway and story.
 export const PH_CURATED: Record<number, Curated> = {
   // Seed 110's dark Care blue with the living Cebu-sea hero: closest to the main site, most "weapon".
-  201: { c: "ink-care", hero: "sea", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "wordmark", radius: 28, backdrop: "glow", motion: "calm", touch: "none", cards: "none" },
+  201: { c: "ink-care", hero: "sea", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "wordmark", radius: 28, backdrop: "glow", motion: "calm", touch: "none", cards: "none", under: "plain" },
   // Light and airy Care-blue sea with floating plan cards: the portfolio piece for PH clients.
-  202: { c: "sea", hero: "floating", headline: "mixed", story: "pinned", figures: "figures", fine: "spec", footer: "wordmark", radius: 28, backdrop: "glow", motion: "calm", touch: "none", cards: "none" },
+  202: { c: "sea", hero: "floating", headline: "mixed", story: "pinned", figures: "figures", fine: "spec", footer: "wordmark", radius: 28, backdrop: "glow", motion: "calm", touch: "none", cards: "none", under: "plain" },
   // Paper editorial with the seed 110 statement hero and the 14-day line: the calmest, most document-like.
-  203: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "glow", motion: "calm", touch: "none", cards: "none" },
+  203: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "glow", motion: "calm", touch: "none", cards: "none", under: "plain" },
   // Round 2: three takes on 203 (paper editorial), each with its own background, movement and interaction.
   // Paper over a living sea: the pointer (or a slow drift on phones) lifts the paper to show water; ripples where you touch.
-  204: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "veil", motion: "reveal", touch: "magnet", cards: "none" },
+  204: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "veil", motion: "reveal", touch: "magnet", cards: "none", under: "plain" },
   // Sea chart: contour lines that drift like a nautical chart and swell around the pointer, plan cards in the corners that move with it.
-  205: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners" },
+  205: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "band", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "plain" },
   // Press: halftone dots that print the kriv wordmark on load, a wave through the dot field, dots that swell under the pointer; footer inks in.
-  206: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "inkfill", radius: 16, backdrop: "halftone", motion: "reveal", touch: "magnet", cards: "none" },
+  206: { c: "paper-ink", hero: "statement", headline: "serif", story: "timeline", figures: "figures", fine: "spec", footer: "inkfill", radius: 16, backdrop: "halftone", motion: "reveal", touch: "magnet", cards: "none", under: "plain" },
+  // Round 3 (Kriv, 23 Nov): 205's hero, 204's sea and 206's dots in the sections below, and a footer that is not black and
+  // plays with the kriv× logo, one from the new footer pool on each seed.
+  207: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "lime", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
+  208: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
+  209: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "sand", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
 };
-export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206] as const;
+export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209] as const;
 export const PH_PINNED_SEED: number | null = null; // set when Kriv picks
 
 export function phDesignFor(seed: number): PhDesign {
@@ -77,11 +87,11 @@ export function phDesignFor(seed: number): PhDesign {
   let d: PhDesign = {
     seed, colorway: pick(r, PH_COLORWAYS), hero: pick(r, PH_HEROES), headline: pick(r, PH_HEADLINES), story: pick(r, PH_STORIES),
     figures: pick(r, PH_FIGURES), fine: pick(r, PH_FINE), footer: pick(r, PH_FOOTERS), radius: pick(r, PH_RADII),
-    backdrop: pick(r, PH_BACKDROPS), motion: pick(r, PH_MOTIONS), touch: pick(r, PH_TOUCHES), cards: pick(r, PH_CARDS),
+    backdrop: pick(r, PH_BACKDROPS), motion: pick(r, PH_MOTIONS), touch: pick(r, PH_TOUCHES), cards: pick(r, PH_CARDS), under: pick(r, PH_UNDERS),
   };
   const fixed = PH_CURATED[seed];
   if (fixed) { const { c, ...rest } = fixed; d = { ...d, ...rest, colorway: PH_COLORWAYS.find((x) => x.id === c)! }; }
-  if (d.hero !== "statement") d = { ...d, backdrop: "glow", cards: "none" };
+  if (d.hero !== "statement") d = { ...d, backdrop: "glow", cards: "none", under: "plain" };
   return d;
 }
 

@@ -3,6 +3,7 @@ import { markets, pricingRules } from "@/offers/pricing";
 import { money, quoteWindow } from "@/offers/pricing-math";
 import { PhBackdrop } from "./PhBackdrop";
 import { PhEffects } from "./PhEffects";
+import { PhLogoPlay, type LogoPlay } from "./PhLogoPlay";
 import { PhSea } from "./PhSea";
 import { PhStory, type StoryStep } from "./PhStory";
 import { PricingCalculator } from "./PricingCalculator";
@@ -65,10 +66,12 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
 
   const statement = design.hero === "statement";
   const backdrop = statement && design.backdrop !== "glow" ? design.backdrop : undefined;
+  const under = design.under === "mixed";
+  const play: LogoPlay | undefined = ({ lime: "repel", care: "wave", sand: "drag" } as Record<string, LogoPlay>)[design.footer];
   const cardsAt = design.hero === "floating" ? p.float : statement && design.cards === "corners" ? p.corners : undefined;
 
   return <div className={`${s.root} ${p.root}`} style={style} lang="en-PH" data-market="ph" data-colorway={design.colorway.id} data-dark={design.colorway.dark || undefined} data-hero={design.hero} data-seed={design.seed}
-    data-backdrop={backdrop} data-motion={design.motion} data-touch={design.touch} data-footer={design.footer}>
+    data-backdrop={backdrop} data-motion={design.motion} data-touch={design.touch} data-footer={design.footer} data-under={under || undefined}>
     <PhEffects />
     <link rel="stylesheet" href={FONTS} precedence="fonts" />
     <a className={s.skip} href="#pricing-main">Skip to pricing</a>
@@ -97,13 +100,15 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
         </div>}
       </section>
 
-      {design.figures === "figures" && <section className={p.figures} aria-label="The offer in numbers">
+      {design.figures === "figures" && <section className={p.figures} aria-label="The offer in numbers" data-bg={under || undefined}>
+        {under && <PhBackdrop kind="halftone" word={false} />}
         {figures.map((f, i) => <div key={f.unit} data-reveal="" style={{ "--d": i } as CSSProperties}><p className={p.big}><span data-count={f.big}>{f.big}</span><small>{f.unit}</small></p><p>{f.text}</p></div>)}
       </section>}
 
       <PricingCalculator market={market} trial={{ paidMonths: rules.paidMonths, annualDiscount: rules.annualDiscount, windows: rules.windows, allIn: rules.allIn }} />
 
-      <section className={p.section} aria-labelledby="how">
+      <section className={p.section} aria-labelledby="how" data-bg={under || undefined}>
+        {under && <PhBackdrop kind="veil" />}
         <p className={s.eyebrow} data-reveal="">How it works</p>
         <h2 id="how" data-reveal="">How your plan <em>builds.</em></h2>
         <p className={p.sub} data-reveal="">Example: the recommended {growth.label} package, from the first day of the trial to the annual plan.</p>
@@ -125,7 +130,8 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
     </main>
     <footer className={p.footer} data-style={design.footer}>
       <nav aria-label="KRIV"><a href="https://kriv.agency/">kriv.agency</a><a href="https://kriv.agency/pricing">US pricing</a><a href={`mailto:${contact.email}`}>{contact.email}</a></nav>
-      {design.footer !== "band" && <p className={p.giant} aria-hidden="true" data-progress={design.footer === "inkfill" ? "end" : undefined}>kriv<span>×</span></p>}
+      {play && <PhLogoPlay mode={play} />}
+      {(design.footer === "wordmark" || design.footer === "inkfill") && <p className={p.giant} aria-hidden="true" data-progress={design.footer === "inkfill" ? "end" : undefined}>kriv<span>×</span></p>}
       <p className={p.credit}>Page look chosen by the KRIV design randomizer, seed {design.seed}.</p>
     </footer>
     <footer className={s.actions} aria-label="Contact KRIV">

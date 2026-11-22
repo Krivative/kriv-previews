@@ -59,7 +59,9 @@ function Veil() {
       const idle = !ptr.on || performance.now() - ptr.at > 2500;
       const w = el.clientWidth || 1, h = el.clientHeight || 1;
       const tx = idle ? 0.5 + 0.34 * Math.sin(t * 0.21) : ptr.x / w;
-      const ty = idle ? 0.48 + 0.26 * Math.sin(t * 0.29 + 1) : ptr.y / h;
+      const box = el.getBoundingClientRect(), view = Math.min(1, innerHeight / h);
+      const mid = Math.min(1, Math.max(0, (innerHeight / 2 - box.top) / h)); // centre of what is on screen
+      const ty = idle ? mid + 0.26 * view * Math.sin(t * 0.29 + 1) : ptr.y / h;
       x += (tx - x) * 0.07; y += (ty - y) * 0.07;
       el.style.setProperty("--mx", `${(x * 100).toFixed(2)}%`);
       el.style.setProperty("--my", `${(y * 100).toFixed(2)}%`);
@@ -129,7 +131,7 @@ function Contour() {
 
 // 206: a halftone dot field. The dots print the kriv wordmark on load, a slow wave runs through the field,
 // and dots swell and turn Care blue under the pointer.
-function Halftone() {
+function Halftone({ word = true }: { word?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -150,7 +152,7 @@ function Halftone() {
       o.font = `800 ${fs}px ${body}`;
       (o as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = `${-0.09 * fs}px`;
       o.textAlign = "center"; o.textBaseline = "alphabetic"; o.fillStyle = "#000";
-      o.fillText("kriv", W / 2, H + fs * 0.04);
+      if (word) o.fillText("kriv", W / 2, H + fs * 0.04);
       const data = W && H ? o.getImageData(0, 0, W, H).data : new Uint8ClampedArray(0);
       mask = new Float32Array(cols * rows);
       for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
@@ -189,12 +191,12 @@ function Halftone() {
     ro.observe(el);
     document.fonts?.ready.then(() => { build(); redraw(); });
     return () => { end(); ro.disconnect(); stop(); };
-  }, []);
+  }, [word]);
   return <canvas ref={ref} className={p.backdrop} aria-hidden="true" />;
 }
 
-export function PhBackdrop({ kind }: { kind: BackdropKind }) {
+export function PhBackdrop({ kind, word }: { kind: BackdropKind; word?: boolean }) {
   if (kind === "veil") return <><PhSea tone="tide" className={p.tide} /><Veil /></>;
   if (kind === "contour") return <Contour />;
-  return <Halftone />;
+  return <Halftone word={word} />;
 }
