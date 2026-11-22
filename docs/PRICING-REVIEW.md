@@ -16,7 +16,7 @@ Do not replace any sent terms. Public concept records cannot confirm prices supp
 ## Review details
 
 - The published monthly price is the annual baseline divided by 12. The approved 25% annual reduction and free months produce the stated all-in monthly example. Worth prices describe value and do not enter the discount calculation.
-- A switch is suggested only for a package that covers every selection and saves monthly without increasing setup. Fees paid separately to agents, usage, ad budgets and conditional services are described separately from the catalog estimate.
+- A switch is suggested only for a package that covers every selection and saves on setup or monthly fees without increasing either. Fees paid separately to agents, usage, ad budgets and conditional services are described separately from the catalog estimate.
 - US packages use the shared website, inbox and content scope, with CRM and caller on Full Business. A USD package does not inherit PH-only add-ons or policies.
 - PH caller overage and the wallet cost-plus rule are both shown as approved. Verify the accounting relationship between the overage rate and actual wallet cost before configuring billing.
 - The trial window control is an estimate. It does not establish a client's trial start or initiate payment.

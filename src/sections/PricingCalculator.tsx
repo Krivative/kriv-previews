@@ -52,6 +52,11 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
   const terms = trial && window ? quoteWindow(total.monthly, trial.paidMonths, window.freeMonths, trial.annualDiscount) : null;
   const fmt = (n: number) => money(n, market.currency);
 
+  const switchSavings = suggestion ? [
+    total.monthly > suggestion.monthly ? `${fmt(total.monthly - suggestion.monthly)} / mo` : null,
+    total.setup > (suggestion.setup ?? 0) ? `${fmt(total.setup - (suggestion.setup ?? 0))} on setup` : null,
+  ].filter(Boolean).join(" and ") : "";
+
   function toggle(id: string) {
     setPackageId("");
     setSelection((items) => {
@@ -87,7 +92,7 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
           </label>)}
         </div>
         {trial && <button type="button" onClick={() => { setSelection([...trial.allIn]); setPackageId(""); }}>Use the all-in example</button>}
-        {suggestion && <button type="button" className={s.switch} onClick={() => { setSelection([]); setPackageId(suggestion.id); if (menu.current) menu.current.open = false; quote.current?.focus(); }}>Already in {suggestion.label}, switch and save {fmt(total.monthly - suggestion.monthly)} / mo</button>}
+        {suggestion && <button type="button" className={s.switch} onClick={() => { setSelection([]); setPackageId(suggestion.id); if (menu.current) menu.current.open = false; quote.current?.focus(); }}>Already in {suggestion.label}, switch and save {switchSavings}</button>}
       </details>
     </section>
     <section className={`${s.section} ${s.quote}`} ref={quote} tabIndex={-1} aria-labelledby="estimate">

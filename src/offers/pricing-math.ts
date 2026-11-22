@@ -31,7 +31,9 @@ export function selectionTotal(market: Market, selected: string[]) {
 export function packageSavings(market: Market, selected: string[], total: ReturnType<typeof selectionTotal>) {
   return market.packages.filter((plan) => {
     const included = coveredItems(market, plan);
+    const setup = plan.setup ?? 0;
     return selected.length > 0 && selected.every((id) => included.has(id))
-      && (plan.setup ?? 0) <= total.setup && plan.monthly < total.monthly;
-  }).sort((a, b) => a.monthly - b.monthly)[0];
+      && setup <= total.setup && plan.monthly <= total.monthly
+      && (setup < total.setup || plan.monthly < total.monthly);
+  }).sort((a, b) => a.monthly - b.monthly || (a.setup ?? 0) - (b.setup ?? 0))[0];
 }

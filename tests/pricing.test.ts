@@ -23,6 +23,8 @@ describe("approved pricing catalog", () => {
     expect(packageSavings(markets.ph, selection, selectionTotal(markets.ph, selection))?.id).toBe("presence");
     const mixed = [...selection, "ads"];
     expect(packageSavings(markets.ph, mixed, selectionTotal(markets.ph, mixed))).toBeUndefined();
+    const setupOnly = ["website", "growth", "inbox"];
+    expect(packageSavings(markets.us, setupOnly, selectionTotal(markets.us, setupOnly))?.id).toBe("growth");
     const us = ["website", "video", "inbox", "crm", "caller"];
     expect(packageSavings(markets.us, us, selectionTotal(markets.us, us))?.id).toBe("full-business");
   });
