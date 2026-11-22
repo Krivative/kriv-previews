@@ -39,3 +39,4 @@ This is the project's long memory: a session reads STATE.md, then asks this file
 - 2026-11-22 | Kriv: every new service appears in the "View all services" menu, grouped under the package that includes it or as add-ons, with the same running total and "already in a package" nudge.
 - 2026-11-22 | Kriv: the free US website also takes USD 5,000 off each package's setup fee: Presence 0, Growth 0, Full Business 10,000 ("Yes, cut package setup").
 - 2026-11-22 | Kriv: keep the pricing pages short. "View all services" opens a sheet (bottom sheet on phones, side panel on desktop) with one-at-a-time collapsible groups and a running total; a chosen package keeps its services ticked and other services are added on top as add-ons; the plan details fold away.
+- 2026-11-22 | Kriv: kriv.agency's look is seed 110 (Ink and Care blue, Fraunces with Inter). Restyle /pricing and /ph-rates to it; prices and behaviour unchanged.

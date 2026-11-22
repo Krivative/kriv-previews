@@ -6,6 +6,9 @@ import { inert } from "./inert";
 import { PricingCalculator } from "./PricingCalculator";
 import s from "./pricing.module.css";
 
+// Seed 110 type pair from kriv.agency: Fraunces with Inter (same loading as the other pages here).
+const PRICING_FONTS = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap";
+
 export function PricingPage({ region, site }: { region: keyof typeof markets; site?: SiteData }) {
   const ph = region === "ph";
   const market = markets[region];
@@ -15,6 +18,7 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
   const booking = site ? inert : { href: contact.booking };
   const email = site ? inert : { href: `mailto:${contact.email}` };
   return <div className={s.root} data-market={region} lang={ph ? "en-PH" : "en-US"}>
+    <link rel="stylesheet" href={PRICING_FONTS} precedence="fonts" />
     <a className={s.skip} href="#pricing-main">Skip to pricing</a>
     {site && <Ribbon site={site} />}
     <header className={s.header}>
