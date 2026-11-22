@@ -41,7 +41,7 @@ const checks = [
   ["/test-expired/contact", 200, (b) => b.includes("This preview has expired") && !b.includes("Example Family Dental")],
   ["/does-not-exist/contact", 404, (b) => !b.includes(banner)],
   ["/ph-rates", 200, (b) => b.includes("Philippine pricing") && b.includes("₱8,500") && b.includes("₱29,500") && b.includes('name="robots" content="noindex, nofollow"') && b.includes("View all services") && !/<form\b/.test(b)],
-  ["/pricing", 200, (b) => b.includes("US pricing") && b.includes("$12,500") && b.includes("View all services") && !/ph-rates|Philippine pricing|<form\b/.test(b)],
+  ["/pricing", 200, (b) => b.includes("US pricing") && b.includes("Your website, free.") && b.includes("$12,500") && b.includes("View all services") && b.includes("LinkedIn engagement") && !/ph-rates|Philippine pricing|\$3,500|<form\b/.test(b)],
   ["/about", 404, () => true],
   ["/..%2Fpackage", 404, () => true],
   ["", 404, (b) => !b.includes("test-lead")],

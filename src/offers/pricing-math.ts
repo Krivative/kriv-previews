@@ -37,3 +37,19 @@ export function packageSavings(market: Market, selected: string[], total: Return
       && (setup < total.setup || plan.monthly < total.monthly);
   }).sort((a, b) => a.monthly - b.monthly || (a.setup ?? 0) - (b.setup ?? 0))[0];
 }
+
+/** Menu groups: each item sits under the first package that includes it, else under its add-on group. */
+export function menuGroups(market: Market) {
+  const groups = new Map<string, { title: string; packageId?: string; ids: string[] }>();
+  for (const id of Object.keys(market.items)) {
+    const plan = market.packages.find((p) => coveredItems(market, p).has(id));
+    const later = plan ? market.packages.slice(market.packages.indexOf(plan)) : [];
+    const upward = later.length > 1 && later.every((p) => coveredItems(market, p).has(id));
+    const key = plan ? `package:${plan.id}:${upward}` : `addon:${market.items[id].group ?? "More"}`;
+    const title = plan ? `${upward ? "From" : "In"} ${plan.label}` : `Add-ons · ${market.items[id].group ?? "More services"}`;
+    if (!groups.has(key)) groups.set(key, { title, packageId: plan?.id, ids: [] });
+    groups.get(key)!.ids.push(id);
+  }
+  const order = (k: string) => k.startsWith("package:") ? market.packages.findIndex((p) => k.startsWith(`package:${p.id}:`)) * 2 + (k.endsWith(":true") ? 0 : 1) : 100;
+  return [...groups.entries()].sort(([a], [b]) => order(a) - order(b)).map(([, g]) => g);
+}

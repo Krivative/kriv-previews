@@ -22,6 +22,17 @@ Do not replace any sent terms. Public concept records cannot confirm prices supp
 - The trial window control is an estimate. It does not establish a client's trial start or initiate payment.
 - The release is paired: verify the previews app's pricing route first, then activate the main site's rewrite and navigation. For a local paired preview set KRIV_PREVIEWS_ORIGIN on the main site to the running previews app before building or starting dev.
 
+## Additions, 22 November (second pass)
+
+- New items in both markets: Discord setup and community management, email management (owner's inbox, separate from the CRM), LinkedIn makeover, content, hand engagement and company page management. PH also has the LinkedIn Presence bundle; the US had no bundle price in the brief, so none is shown.
+- LinkedIn Presence (PHP 8,000 a month, setup included) costs more per month than its parts bought separately (6,500 a month plus 5,000 once), so it is cheaper only for the first three months. The menu's switch nudge never suggests it, because it would raise the monthly total. Kriv may want to revisit this.
+- US free website: the Website item has no setup fee (worth USD 5,000). Preview reading, awaiting Kriv: the same USD 5,000 comes off each package's setup (Presence 5,000 to 0, Growth 5,000 to 0, Full Business 15,000 to 10,000). If Kriv prefers to keep the package setups, restore the three numbers in `markets.us.packages`.
+- One-time items (Discord setup, LinkedIn makeover) are shown as "one time" and sit outside the PH annual discount.
+
+### Proposed buyout fee (NOT PUBLISHED, needs Kriv's approval)
+
+A client who cancels and wants to keep the free website pays a one-time buyout, stepping down with time subscribed: USD 3,500 within the first 6 months, USD 2,000 in months 7 to 12, USD 1,000 after 12 months (70%, 40% and 20% of the USD 5,000 build value). The figures live in `pricingRules.us.freeWebsite.proposedBuyout` with `approved: false`; the page only says "ask us about the buyout", and the smoke check fails if USD 3,500 appears on /pricing.
+
 ## Local review evidence
 
 - Previews: the five preflight checks passed. The clean-branch run is the release readiness record.

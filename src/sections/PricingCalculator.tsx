@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Market } from "@/offers/pricing";
-import { money, packageSavings, quoteWindow, selectionTotal } from "@/offers/pricing-math";
+import { menuGroups, money, packageSavings, quoteWindow, selectionTotal } from "@/offers/pricing-math";
 import s from "./pricing.module.css";
 
 type Trial = {
@@ -76,21 +76,24 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
           <h3>{item.label}</h3>
           <p>Worth <s>{fmt(item.worth)}</s> per month</p>
           <p className={s.cardPrice}>Yours for <strong>{fmt(item.monthly)}</strong><span> / mo</span></p>
-          {item.setup !== undefined && <p>{item.setupWorth !== undefined && <>Setup worth <s>{fmt(item.setupWorth)}</s>. </>}{fmt(item.setup)} one-time setup.</p>}
+          {item.setup !== undefined && <p>{item.setupWorth !== undefined && <>Setup worth <s>{fmt(item.setupWorth)}</s>. </>}{item.setup ? `${fmt(item.setup)} one-time setup.` : "No setup fee."}</p>}
           <ul>{item.includes.map((id) => <li key={id}>{market.items[id].label}{market.items[id].upgrades?.includes("community") && " (community management included)"}</li>)}</ul>
           <button type="button" aria-pressed={plan?.id === item.id} onClick={() => { setPackageId(item.id); setSelection([]); quote.current?.focus(); }}>{plan?.id === item.id ? "Selected" : `Choose ${item.label}`}</button>
         </article>)}
       </div>
       <details className={s.menu} ref={menu}>
         <summary>View all services</summary>
-        <div className={s.menuTotal} aria-live="polite"><strong>{fmt(total.monthly)} / mo</strong>{total.setup > 0 && <> + {fmt(total.setup)} setup</>}</div>
-        <div className={s.items}>
-          {Object.entries(market.items).map(([id, item]) => <label className={s.item} key={id}>
-            <input type="checkbox" checked={selection.includes(id)} onChange={() => toggle(id)} />
-            <span><strong>{item.label}</strong><small>{item.detail}</small></span>
-            <span>{fmt(item.monthly)} / mo{item.worth !== undefined && <small>Worth <s>{fmt(item.worth)}</s>{item.setup === undefined ? " / mo" : " setup"}</small>}{item.setup !== undefined && <small>{fmt(item.setup)} setup</small>}</span>
-          </label>)}
-        </div>
+        <div className={s.menuTotal} aria-live="polite"><strong>{fmt(total.monthly)} / mo</strong>{total.setup > 0 && <> + {fmt(total.setup)} one time</>}</div>
+        {menuGroups(market).map((group) => <fieldset className={s.group} key={group.title}>
+          <legend>{group.title}</legend>
+          <div className={s.items}>
+            {group.ids.map((id) => { const item = market.items[id]; const oneTime = item.monthly === 0 && item.setup !== undefined; return <label className={s.item} key={id}>
+              <input type="checkbox" checked={selection.includes(id)} onChange={() => toggle(id)} />
+              <span><strong>{item.label}</strong><small>{item.detail}</small></span>
+              <span>{oneTime ? <>{fmt(item.setup ?? 0)}<small>one time</small></> : <>{fmt(item.monthly)} / mo</>}{item.worth !== undefined && <small>Worth <s>{fmt(item.worth)}</s>{item.setup === undefined ? " / mo" : " setup"}</small>}{!oneTime && item.setup !== undefined && <small>{item.setup ? `${fmt(item.setup)} setup` : "Free setup"}</small>}</span>
+            </label>; })}
+          </div>
+        </fieldset>)}
         {trial && <button type="button" onClick={() => { setSelection([...trial.allIn]); setPackageId(""); }}>Use the all-in example</button>}
         {suggestion && <button type="button" className={s.switch} onClick={() => { setSelection([]); setPackageId(suggestion.id); if (menu.current) menu.current.open = false; quote.current?.focus(); }}>Already in {suggestion.label}, switch and save {switchSavings}</button>}
       </details>
@@ -107,6 +110,7 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
         {terms && window && trial ? <>
           <p>Regular <s>{fmt(total.monthly)} / mo</s> · {fmt(terms.annualBaseline)} for {trial.paidMonths} months</p>
           <p>{fmt(terms.payment)} paid once after the trial · {terms.covered} months of service</p>
+          {total.setup > 0 && <p>Plus {fmt(total.setup)} one time, not part of the annual discount</p>}
           <div className={s.saving} data-window={windowIndex}>
             <span>{terms.percent}% off</span>
             <div className={s.meter} aria-hidden="true"><i style={{ width: `${terms.percent}%` }} /></div>
