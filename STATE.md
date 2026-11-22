@@ -33,7 +33,7 @@ Search it for the topic you are touching (`grep -n "<topic>" HANDOFF.md`) and re
 
 ## Waiting on Kriv
 - Pricing (Discord, email, LinkedIn, US free website, services sheet, seed 110 look) is LIVE: PRs 3 and 2 merged 22 Nov on Kriv's "publish". Open: the US buyout fee and the LinkedIn Presence price. Handover in docs/PRICING-REVIEW.md.
-- /ph-rates seeded redesign on `claude/ph-rates-seeded` (not pushed). Round 4 (23 Nov): 208 with 206's dots under packages + estimate, randomizer layers (PhLayers.tsx) under the figures and plan details, tighter closing band, two marquees: seeds 210 (chart / aurora), 211 (drift / ripple), 212 (ripple / aurora). Waiting on Kriv's pick, then PH_PINNED_SEED and "publish".
+- /ph-rates seeded redesign on `claude/ph-rates-seeded` (not pushed): Kriv pinned seed 211 (23 Nov). Every effect is kept as a trait; catalog and randomizer checklist in `docs/EFFECTS-ARSENAL.md`. Next: Kriv says "publish", then push and open the PR.
 - Review the 22 Nov PH and USD pricing previews and reconcile the sent-lead roster in docs/PRICING-REVIEW.md before publish.
 - PCO: the clinic's real hours, services and team (booking method, self-description and service area now come from its public Facebook page); approval of cast lines (drafts).
 - An adult story spine for PCO (general care, then aesthetics) and its recording.

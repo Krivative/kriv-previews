@@ -89,7 +89,7 @@ export const PH_CURATED: Record<number, Curated> = {
   212: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
 };
 export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212] as const;
-export const PH_PINNED_SEED: number | null = null; // set when Kriv picks
+export const PH_PINNED_SEED: number | null = 211; // Kriv picked 211 on 23 Nov 2026 (208 footer, drift under the figures, ripple under the details)
 
 export function phDesignFor(seed: number): PhDesign {
   const r = rng(seed * 131 + 7);
