@@ -33,6 +33,22 @@ Do not replace any sent terms. Public concept records cannot confirm prices supp
 
 A client who cancels and wants to keep the free website pays a one-time buyout, stepping down with time subscribed: USD 3,500 within the first 6 months, USD 2,000 in months 7 to 12, USD 1,000 after 12 months (70%, 40% and 20% of the USD 5,000 build value). The figures live in `pricingRules.us.freeWebsite.proposedBuyout` with `approved: false`; the page only says "ask us about the buyout", and the smoke check fails if USD 3,500 appears on /pricing.
 
+## Handover (22 November, evening)
+
+Kirsten is continuing on another laptop and accounts. Everything for pricing is on branch `claude/project-thread-rucatg` (draft PR 3), stacked on Codex's `pricing-catalog` (draft PR 2). The Kriv side rewrite is Codex's `pricing-usd` (Krivative/Kriv draft PR 32). Nothing is in production.
+
+Done:
+- Discord, email management and LinkedIn services in both markets, with the PH LinkedIn Presence bundle. All of them are in `src/offers/pricing.ts`.
+- US free website: no setup fee, and USD 5,000 off each US package setup (approved by Kriv), with the "Your website, free." headline, Shopify note and LinkedIn guardrail.
+- The services menu opens as a sheet with folding groups and a running total. A package takes add-ons on top (`quoteTotal`). The plan details fold away.
+- All decisions are logged in docs/DECISIONS.md, and `pnpm preflight` passes.
+
+Open:
+1. Buyout fee: the proposal above (USD 3,500 / 2,000 / 1,000) needs Kriv's yes or a new figure. When approved, set `approved: true`, render it in the US plan details and change the smoke check that forbids "$3,500" on /pricing.
+2. LinkedIn Presence price: PHP 8,000 a month is more per month than its parts (6,500 a month + 5,000 once). Kriv may want to revisit it.
+3. Styling: restyling the pricing pages waits for Kriv's pick of the kriv.agency redesign look (Krivative/Kriv draft PR 33, seeds A = 7, B = 57, C = 30). Then apply that seed's colorway, type, radii and card style to `src/sections/pricing.module.css` only. Prices and behaviour stay as they are.
+4. Before publishing, follow the paired release order above and reconcile the sent-lead roster.
+
 ## Local review evidence
 
 - Previews: the five preflight checks passed. The clean-branch run is the release readiness record.

@@ -35,6 +35,8 @@ How the assets were made (to redo or extend them):
 
 ## Latest checkpoint
 
+- 2026-11-22 evening, pricing handover: all pricing work is pushed to `claude/project-thread-rucatg` (draft PR 3). The open items and next steps are in docs/PRICING-REVIEW.md under "Handover". Nothing is in production.
+
 - 2026-11-22 (third pass, same branch): services menu moved into a native <dialog> sheet with exclusive collapsible groups, sticky total and the switch nudge; package plus add-ons pricing (`quoteTotal` in pricing-math.ts); plan details folded. Page height at 390 px: US 3,114 to 2,705, PH 4,410 to 3,694 (it was 5,323 and 8,180 with the old menu open), and opening the menu no longer adds any length. Checked in Chromium at 390 and 1440: open, Esc, backdrop click, close returns focus, groups one at a time, covered services locked, add-on totals, nudge switch, no sideways scroll, no console errors.
 
 - 2026-11-22 (second pass, branch `claude/project-thread-rucatg` on top of `pricing-catalog`): added Discord, email management and LinkedIn services to both markets, the LinkedIn Presence bundle (PH), the US free website headline and terms, and a menu grouped by package and add-ons with a sticky running total. The buyout fee is proposed in docs/PRICING-REVIEW.md, unpublished. Preflight: all five checks pass. Waiting on Kriv: buyout fee and preview review. Package setup cut approved the same day.

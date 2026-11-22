@@ -32,7 +32,7 @@ Search it for the topic you are touching (`grep -n "<topic>" HANDOFF.md`) and re
 4. An offer needs a plan for the business's market: `ph-local` (Philippine prices) or `consult-first` (no prices, any other market). `pnpm offer:ready <slug> --add` picks the right one.
 
 ## Waiting on Kriv
-- Pricing additions (Discord, email, LinkedIn, US free website) on `claude/project-thread-rucatg`, stacked on `pricing-catalog`: approve the US buyout fee (docs/PRICING-REVIEW.md). Package setup cut approved 22 Nov.
+- Pricing additions (Discord, email, LinkedIn, US free website, compact services sheet) on `claude/project-thread-rucatg` (draft PR 3), stacked on `pricing-catalog`. Open: the US buyout fee, the LinkedIn Presence price, and restyling once Kriv picks the redesign look. Handover in docs/PRICING-REVIEW.md.
 - Review the 22 Nov PH and USD pricing previews and reconcile the sent-lead roster in docs/PRICING-REVIEW.md before publish.
 - PCO: the clinic's real hours, services and team (booking method, self-description and service area now come from its public Facebook page); approval of cast lines (drafts).
 - An adult story spine for PCO (general care, then aesthetics) and its recording.
