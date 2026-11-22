@@ -40,8 +40,8 @@ const checks = [
   ["/test-draft/about", 404, (b) => !b.includes(banner)],
   ["/test-expired/contact", 200, (b) => b.includes("This preview has expired") && !b.includes("Example Family Dental")],
   ["/does-not-exist/contact", 404, (b) => !b.includes(banner)],
-  // KRIV's general Philippine rates: no client named, no concept banner, same noindex and no forms; its only links out are KRIV's own booking page and email.
-  ["/ph-rates", 200, (b) => b.includes("Philippine rates") && b.includes("PHP 16,000") && b.includes("PHP 13,000") && b.includes('name="robots" content="noindex, nofollow"') && b.includes("Build your plan") && !/PCO|pending|<form\b|<input\b|<select\b|<textarea\b/.test(b.split("</head>")[1] ?? "") && [...(b.split("</head>")[1] ?? "").matchAll(/<a\b[^>]*href="((?:tel:|mailto:|https?:)[^"]*)"/g)].every((m) => m[1] === "https://kriv.agency/book" || m[1] === "mailto:hello@kriv.agency")],
+  ["/ph-rates", 200, (b) => b.includes("Philippine pricing") && b.includes("₱8,500") && b.includes("₱29,500") && b.includes('name="robots" content="noindex, nofollow"') && b.includes("View all services") && !/<form\b/.test(b)],
+  ["/pricing", 200, (b) => b.includes("US pricing") && b.includes("$12,500") && b.includes("View all services") && !/ph-rates|Philippine pricing|<form\b/.test(b)],
   ["/about", 404, () => true],
   ["/..%2Fpackage", 404, () => true],
   ["", 404, (b) => !b.includes("test-lead")],

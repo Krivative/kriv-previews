@@ -7,11 +7,13 @@
 
 /** The offer plans that exist, and the markets each one is written for. Prices live in src/offers/. */
 // "*" is every market without a price plan of its own: the price-free "consult first" offer.
-export const offerPlans = { "ph-local": { label: "Philippine rates", countries: ["PH"] }, "consult-first": { label: "Consult first (no prices)", countries: ["*"] } };
+import { PRICING_VERSION } from "../../src/offers/pricing.ts";
+
+export const offerPlans = { "ph-local": { label: "Philippine rates", countries: ["PH"] }, "us-pricing": { label: "USD pricing", countries: ["US"] }, "consult-first": { label: "Consult first (no prices)", countries: ["*"] } };
 const priced = (country) => Object.entries(offerPlans).find(([, p]) => p.countries.includes(country));
 /** The plan written for a country: its own price plan if there is one, otherwise "consult first". */
 export const planFor = (country) => (priced(country) ?? ["consult-first"])[0];
-const fits = (plan, country) => (offerPlans[plan].countries.includes("*") ? !priced(country) : offerPlans[plan].countries.includes(country));
+const fits = (plan, country) => (offerPlans[plan].countries.includes("*") ? country !== "PH" : offerPlans[plan].countries.includes(country));
 
 const PLACEHOLDER = /\[[A-Z][A-Z0-9 '’.,:/-]{2,}\]/g;
 const days = (from, to) => Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86400000);
@@ -60,7 +62,8 @@ export function draftOffer(lead, today, number) {
   if (!country) return null;
   const end = new Date(Date.parse(`${today}T00:00:00Z`) + 30 * 86400000).toISOString().slice(0, 10);
   const validUntil = lead.expiresAt && lead.expiresAt < end && lead.expiresAt >= today ? lead.expiresAt : end;
-  return { plan: planFor(country), quoteNumber: number, quoteDate: today, validUntil };
+  const plan = planFor(country);
+  return { plan, ...(plan === "consult-first" ? {} : { catalogVersion: PRICING_VERSION }), quoteNumber: number, quoteDate: today, validUntil };
 }
 
 /** Totals for a set of results: how many are ready and what holds the rest back, most common first. */
