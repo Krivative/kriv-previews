@@ -257,3 +257,48 @@
   .proposalTop nav a { font-size: .72rem; }
   .footer small { max-width: 14ch; }
 }
+
+/* Seeded effects (pco-fx.ts, 23 Nov 2026). Only active with an effects seed (data-fx on .page). */
+.page[data-fx] [data-bg] { position: relative; isolation: isolate; overflow: clip; }
+.page[data-fx] .heroGrid { overflow: hidden; }
+.page[data-fx] .proposal { --ink: #eef6f1; --care: #9fd3c9; --sand: #5fb79c; --spark: #2f7f6a; }
+.page[data-fx] .hero + div { border-block: 1px solid var(--rule); }
+
+/* Movement: headings and cards rise in, prices count up (PhEffects) */
+.page[data-js] [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--d, 0) * 110ms); }
+.page[data-js] [data-reveal][data-in] { opacity: 1; transform: none; }
+
+/* The molar: floats, and turns with the pointer when the seed's touch is tilt */
+.heroPhoto { transition: transform .9s cubic-bezier(.2, .8, .2, 1); }
+.page[data-touch="tilt"] .heroPhoto { transform: perspective(1100px) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg)) translate3d(calc(var(--tx, 0) * -10px), calc(var(--ty, 0) * -8px), 0); }
+@media (prefers-reduced-motion: no-preference) {
+  .page[data-molar="float"] .heroPhoto img { animation: molar 7s ease-in-out infinite alternate; }
+}
+@keyframes molar { from { transform: translate3d(0, -10px, 0) rotate(-1.2deg); } to { transform: translate3d(0, 12px, 0) rotate(1.4deg); } }
+.page[data-touch="magnet"] [data-magnet] { transition: translate .35s cubic-bezier(.2, .8, .2, 1), background .2s ease; }
+
+/* The trial rail fills as you scroll, each step lights up when reached */
+.page[data-js] .timeline { position: relative; }
+.page[data-js] .timeline li { border-top-color: var(--rule); transition: opacity .5s ease; }
+.page[data-js] .timeline li:not([data-lit]) { opacity: .45; }
+.page[data-js] .timeline::before { content: ""; position: absolute; inset: 0 0 auto 0; z-index: 1; block-size: 2px; background: var(--teal); transform-origin: left; transform: scaleX(var(--p, 0)); }
+@media (max-width: 680px) { .page[data-js] .timeline::before { display: none; } .page[data-js] .timeline li[data-lit] { border-top-color: var(--teal); } }
+
+/* The closing facts marquee sits at the foot of the next-step section */
+.next [data-tone="big"] { margin-block-start: clamp(2rem, 5vw, 3.5rem); border-top-color: var(--rule); }
+.next [data-tone="big"] li { color: var(--forest) !important; font-style: normal !important; }
+
+/* Footer band: the A5 mark as a toy. P, C and O are the letters; the teal line is the part that turns or spins. */
+.fxFooter { position: relative; overflow: hidden; padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); text-align: center; color: var(--navy); }
+.fxFooter[data-tone="sage"] { background: #cfe8df; }
+.fxFooter[data-tone="mint"] { background: #e3f3ec; }
+.fxFooter .pcoPlay { position: relative; display: grid; grid-template-columns: repeat(3, auto); justify-content: center; align-items: end; column-gap: .14em; margin: 0 auto !important; padding-block: .9em .75em; inline-size: max-content; font: 400 clamp(4rem, 12vw, 9.5rem)/.9 "Pco Serif", Georgia, serif; letter-spacing: 0; color: var(--navy); }
+.fxFooter .pcoPlay::before, .fxFooter .pcoPlay::after { content: ""; position: absolute; left: 50%; top: 50%; border-radius: 50%; pointer-events: none; translate: -50% -50%; }
+.fxFooter .pcoPlay::before { inline-size: 2.75em; aspect-ratio: 1; border: .028em solid var(--navy); }
+.fxFooter .pcoPlay::after { inline-size: 2.6em; aspect-ratio: 1; border: .01em solid var(--teal); }
+.fxFooter .pcoPlay > span { position: relative; z-index: 1; }
+.pcoLine { grid-column: 1 / -1; justify-self: center; display: block; inline-size: 1.25em; block-size: .035em; margin-block-start: .12em; background: var(--teal); }
+.fxFooter p:last-child { color: var(--forest); }
+@media (max-width: 680px) { .fxFooter .pcoPlay { font-size: clamp(3rem, 15vw, 4.5rem); } }
+.page[data-fx] [data-tone="line"] li { font-family: "Pco Sans", Arial, sans-serif !important; font-weight: 650 !important; letter-spacing: .14em !important; color: #43594f !important; }
+.page[data-fx] [data-tone="line"] li span { color: var(--teal) !important; }

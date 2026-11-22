@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { addOns, annualPlans, bundleQuote, contentTiers, crm, decisionWindows, monthlyServices, percent, TRIAL_DAYS } from "@/offers/ph-local";
@@ -5,7 +6,12 @@ import { pageHref } from "@/lib/site-pages";
 import type { SiteData } from "@/lib/site-schema";
 import { conceptNotice } from "@/sections/Chrome";
 import { inert } from "@/sections/inert";
+import { PhEffects } from "@/sections/PhEffects";
+import { PhLogoPlay } from "@/sections/PhLogoPlay";
+import { PhMarquee } from "@/sections/PhMarquee";
 import { AssistantPreview } from "./AssistantPreview";
+import { PcoFxLayer } from "./PcoFxLayer";
+import type { PcoFx, PcoSection } from "./pco-fx";
 import campaign from "./campaign.json";
 import s from "./pco.module.css";
 
@@ -33,12 +39,24 @@ function Mark() {
   return <Image className={s.mark} src={`${media}/mark-light.webp`} width={44} height={44} alt="" unoptimized />;
 }
 
-export function PcoClientSite({ site }: { site: SiteData }) {
+// PCO's colours as the effects arsenal's tokens (PhLayers, PhBackdrop, PhMarquee and PhLogoPlay read these).
+const FX_TOKENS = { "--care": "#087759", "--sand": "#9fd3c9", "--spark": "#cfeadf", "--line": "#dce4df", "--subtle": "#43594f", "--display": "'Pco Serif', Georgia, serif", "--body": "'Pco Sans', Arial, sans-serif", "--gutter": "0px" } as CSSProperties;
+const HINTS = { wave: "Make waves · click to splash", repel: "Push the mark around", drag: "Pick up a letter and throw it" } as const;
+
+export function PcoClientSite({ site, fx }: { site: SiteData; fx?: PcoFx | null }) {
   const { business } = site;
   const address = business.address;
   const spotlight = featured.map((day) => campaign.find((post) => post.day === day)!);
+  // With an effects seed, each section gets its moving layer; without one the page renders exactly as published.
+  const bg = (section: PcoSection) => fx ? { "data-bg": "", "data-fx": fx.layers[section] } : {};
+  const layer = (section: PcoSection) => fx && <PcoFxLayer kind={fx.layers[section]} />;
+  const reveal = fx ? { "data-reveal": "" } : {};
+  const magnet = fx ? { "data-magnet": "" } : {};
+  const count = (text: string) => fx ? <span data-count={text}>{text}</span> : text;
+  const facts = [`${TRIAL_DAYS}-day free trial`, "No setup fee", "Your team reviews the dental wording", "Your clinic owns its domain, accounts, content and data", "Billed annually if you continue"];
   return (
-    <div className={s.page}>
+    <div className={s.page} style={fx ? FX_TOKENS : undefined} data-fx={fx ? "" : undefined} data-seed={fx?.seed} data-motion={fx ? "reveal" : undefined} data-touch={fx?.touch} data-molar={fx?.molar}>
+      {fx && <PhEffects />}
       <a className={s.skip} href="#clinic">Skip to the clinic website</a>
       <div role="note" className={s.concept}>{conceptNotice(business.name)}</div>
       <header className={s.header}>
@@ -52,14 +70,15 @@ export function PcoClientSite({ site }: { site: SiteData }) {
       </header>
       <main id="clinic">
         <section className={s.hero} aria-labelledby="hero-heading">
-          <div className={s.heroGrid}>
+          <div className={s.heroGrid} {...bg("hero")}>
+            {layer("hero")}
             <div className={s.heroCopy}>
               <p className={s.kicker}>PCO Dental Clinic · Mandaue City</p>
               <h1 id="hero-heading">We create<br /><em>smiles.</em></h1>
               <p>Dental care in Mandaue. Get to know the clinic, prepare for your first visit, and find out how to reach the team.</p>
               <div className={s.heroActions}>
-                <a className={s.buttonInk} href="#visit">Plan your visit <Arrow /></a>
-                <a className={s.buttonQuiet} href="#first-visit">What to expect</a>
+                <a className={s.buttonInk} href="#visit" {...magnet}>Plan your visit <Arrow /></a>
+                <a className={s.buttonQuiet} href="#first-visit" {...magnet}>What to expect</a>
               </div>
             </div>
             <figure className={s.heroPhoto}>
@@ -68,12 +87,14 @@ export function PcoClientSite({ site }: { site: SiteData }) {
             </figure>
           </div>
         </section>
+        {fx && <PhMarquee items={campaign.map((post) => post.title)} label="Topics in the 30-day campaign" seconds={120} />}
 
-        <section className={s.clinicBody} aria-labelledby="first-visit">
+        <section className={s.clinicBody} aria-labelledby="first-visit" {...bg("clinic")}>
+          {layer("clinic")}
           <div className={s.wrap}>
             <div className={s.clinicMosaic}>
               <div className={s.clinicIntro}>
-                <p className={s.kicker}>Your first visit</p><h2 id="first-visit">Know what <em>to ask.</em></h2>
+                <p className={s.kicker}>Your first visit</p><h2 id="first-visit" {...reveal}>Know what <em>to ask.</em></h2>
                 <p>Whether you’re planning a checkup or have a question about your teeth, you can start by telling the team what brings you in.</p>
                 <div className={s.visitGuide}>
                   <details><summary>What should I bring?</summary><p>If you have recent dental records or a list of medicines, ask the clinic whether you should bring them. Write down any questions you want to cover.</p></details>
@@ -87,7 +108,7 @@ export function PcoClientSite({ site }: { site: SiteData }) {
               </figure>
             </div>
             <div className={s.visit} id="visit">
-              <div><p className={s.kicker}>Find the clinic</p><h2>Mandaue City, Cebu.</h2></div>
+              <div><p className={s.kicker}>Find the clinic</p><h2 {...reveal}>Mandaue City, Cebu.</h2></div>
               <div className={s.visitDetails}>
                 <address>{address.line1}<br />{address.city}, {address.region} {address.postalCode}</address>
                 <p><a {...inert}>{business.phoneDisplay}</a><span aria-hidden="true"> · </span><a {...inert}>Facebook</a></p>
@@ -97,7 +118,8 @@ export function PcoClientSite({ site }: { site: SiteData }) {
           </div>
         </section>
 
-        <section id="proposal" className={s.proposal} aria-labelledby="proposal-heading">
+        <section id="proposal" className={s.proposal} aria-labelledby="proposal-heading" {...bg("proposal")}>
+          {layer("proposal")}
           <div className={s.wrap}>
             <div className={s.proposalTop}>
               <span className={s.kriv}>KRIV <small>AGENCY</small></span>
@@ -106,9 +128,9 @@ export function PcoClientSite({ site }: { site: SiteData }) {
             <div className={s.proposalGrid}>
               <div>
                 <p className={s.kickerDark}>Prepared for Dr. Peter</p>
-                <h2 id="proposal-heading">Make it easier to <em>choose PCO.</em></h2>
+                <h2 id="proposal-heading" {...reveal}>Make it easier to <em>choose PCO.</em></h2>
                 <p>Someone in Mandaue sees a useful dental post, finds a website that answers their first questions, and knows how to reach your team. KRIV builds and manages those three steps with you.</p>
-                <a className={s.buttonLight} href="#pilot">See the 14-day trial <Arrow /></a>
+                <a className={s.buttonLight} href="#pilot" {...magnet}>See the 14-day trial <Arrow /></a>
               </div>
               <div className={s.film}>
                 <video controls playsInline preload="none" poster={`${media}/pitch-poster.webp`} aria-label="The next chapter of PCO Dental Clinic’s digital presence">
@@ -121,15 +143,16 @@ export function PcoClientSite({ site }: { site: SiteData }) {
           </div>
         </section>
 
-        <section id="campaign" className={s.campaign} aria-labelledby="campaign-heading">
+        <section id="campaign" className={s.campaign} aria-labelledby="campaign-heading" {...bg("campaign")}>
+          {layer("campaign")}
           <div className={s.wrap}>
             <div className={s.sectionHead}>
-              <div><p className={s.kicker}>The 30-day campaign</p><h2 id="campaign-heading">A month of questions<br />worth answering.</h2></div>
+              <div><p className={s.kicker}>The 30-day campaign</p><h2 id="campaign-heading" {...reveal}>A month of questions<br />worth answering.</h2></div>
               <p>Start with the pieces that are most useful to your patients. KRIV prepares the graphics and copy. Your team reviews the dental wording before anything goes out.</p>
             </div>
             <div className={s.cards}>
               {spotlight.map((post, index) => (
-                <article key={post.day} className={s.card}>
+                <article key={post.day} className={s.card} {...reveal} style={{ "--d": index } as CSSProperties}>
                   {index === 0 ? (
                     <div className={s.sampleFrame}>
                       <Image src={path(post.day)} alt={post.title + " campaign artwork"} width={360} height={450} unoptimized />
@@ -162,40 +185,43 @@ export function PcoClientSite({ site }: { site: SiteData }) {
           </div>
         </section>
 
-        <section className={s.assistant} aria-labelledby="assistant-heading">
+        <section className={s.assistant} aria-labelledby="assistant-heading" {...bg("assistant")}>
+          {layer("assistant")}
           <div className={`${s.wrap} ${s.twoColumns}`}>
-            <div><p className={s.kicker}>Try the assistant</p><h2 id="assistant-heading">Routine questions.<br />A clear handoff.</h2>
+            <div><p className={s.kicker}>Try the assistant</p><h2 id="assistant-heading" {...reveal}>Routine questions.<br />A clear handoff.</h2>
               <p>Patients can get clinic-approved information about where to go or how to ask about an appointment. Your team confirms bookings and handles clinical questions.</p>
             </div>
             <AssistantPreview />
           </div>
         </section>
 
-        <section id="pilot" className={s.pilot} aria-labelledby="pilot-heading">
+        <section id="pilot" className={s.pilot} aria-labelledby="pilot-heading" {...bg("pilot")}>
+          {layer("pilot")}
           <div className={s.wrap}>
             <div className={s.sectionHead}>
-              <div><p className={s.kicker}>{TRIAL_DAYS}-day free trial</p><h2 id="pilot-heading">Try it with<br />your team.</h2></div>
+              <div><p className={s.kicker}>{TRIAL_DAYS}-day free trial</p><h2 id="pilot-heading" {...reveal}>Try it with<br />your team.</h2></div>
               <p>Start with the website, a first batch of campaign drafts and a supervised inquiry assistant. There’s no setup fee. If you continue, the paid plan is billed annually.</p>
             </div>
-            <ol className={s.timeline}>{trialSteps.map(([title, body], index) => <li key={title}>
+            <ol className={s.timeline} data-progress={fx ? "rail" : undefined}>{trialSteps.map(([title, body], index) => <li key={title} data-i={fx ? index : undefined}>
               <span>0{index + 1}</span><h3>{title}</h3><p>{body}</p>
             </li>)}</ol>
           </div>
         </section>
 
-        <section id="investment" className={s.pricing} aria-labelledby="pricing-heading">
+        <section id="investment" className={s.pricing} aria-labelledby="pricing-heading" {...bg("pricing")}>
+          {layer("pricing")}
           <div className={s.wrap}>
             <div className={s.sectionHead}>
-              <div><p className={s.kickerDark}>Your options after the trial</p><h2 id="pricing-heading">What you<br />would pay.</h2></div>
+              <div><p className={s.kickerDark}>Your options after the trial</p><h2 id="pricing-heading" {...reveal}>What you<br />would pay.</h2></div>
               <p>Choose one service or keep all three. The rates below show the monthly equivalent before annual bundle discounts. Your clinic owns its domain, accounts, content and data.</p>
             </div>
             <div className={s.priceCards}>
-              <article><h3>Website</h3><p className={s.rate}>{peso(website.monthly)}<small> / month</small></p><p>Mobile-first site, clinic information, inquiry setup, search setup and ongoing updates.</p></article>
-              <article><h3>Content creation</h3><p className={s.rate}>{peso(content.monthly)}<small> / month</small></p><p>12 branded image posts a month, with captions, planning and scheduling after your approval.</p></article>
-              <article><h3>AI inquiry assistant</h3><p className={s.rate}>{peso(assistant.price)}<small> / month</small></p><p>Clinic-approved answers, staff handoff and KRIV supervision.</p></article>
+              <article><h3>Website</h3><p className={s.rate}>{count(peso(website.monthly))}<small> / month</small></p><p>Mobile-first site, clinic information, inquiry setup, search setup and ongoing updates.</p></article>
+              <article><h3>Content creation</h3><p className={s.rate}>{count(peso(content.monthly))}<small> / month</small></p><p>12 branded image posts a month, with captions, planning and scheduling after your approval.</p></article>
+              <article><h3>AI inquiry assistant</h3><p className={s.rate}>{count(peso(assistant.price))}<small> / month</small></p><p>Clinic-approved answers, staff handoff and KRIV supervision.</p></article>
             </div>
             <div className={s.bundle}>
-              <div><p className={s.kicker}>All three services</p><h3>{peso(pilotQuotes[0].pay)}<small> annual payment</small></h3>
+              <div><p className={s.kicker}>All three services</p><h3>{count(peso(pilotQuotes[0].pay))}<small> annual payment</small></h3>
                 <p>Website, content, and AI assistant with the {percent(pilotQuotes[0].rate)} annual bundle discount. Get extra months of service when you decide during the trial.</p></div>
               <dl>{pilotQuotes.map((quote) => <div key={quote.fromDay}>
                 <dt>{quote.toDay ? `Trial days ${quote.fromDay}–${quote.toDay}` : "Day 15 onward"}</dt>
@@ -213,9 +239,10 @@ export function PcoClientSite({ site }: { site: SiteData }) {
           </div>
         </section>
 
-        <section className={s.next} aria-labelledby="next-heading">
+        <section className={s.next} aria-labelledby="next-heading" {...bg("next")}>
+          {layer("next")}
           <div className={`${s.wrap} ${s.twoColumns}`}>
-            <div><p className={s.kicker}>Next step</p><h2 id="next-heading">Let’s set up<br />your trial.</h2></div>
+            <div><p className={s.kicker}>Next step</p><h2 id="next-heading" {...reveal}>Let’s set up<br />your trial.</h2></div>
             <div>
               <p>In one short kickoff, we’ll settle three things with you.</p>
               <ul><li>Choose the first campaign pieces to review.</li><li>Confirm services, hours and the best inquiry channel.</li><li>Pick who approves content and receives requests.</li></ul>
@@ -223,8 +250,12 @@ export function PcoClientSite({ site }: { site: SiteData }) {
               <a href="#clinic" className={s.back}>Back to the website preview ↑</a>
             </div>
           </div>
+          {fx?.marquee === "two" && <PhMarquee items={facts} tone="big" reverse seconds={44} />}
         </section>
       </main>
+      {fx && <div className={s.fxFooter} data-tone={fx.footerTone}>
+        <PhLogoPlay mode={fx.footer} letters={["P", "C", "O", ""]} className={s.pcoPlay} lastClass={s.pcoLine} hint={HINTS[fx.footer]} spin={false} />
+      </div>}
       <footer className={s.footer}><div className={s.wrap}><span><Mark /> <strong>PCO Dental Clinic</strong></span><small>Website concept and proposal by KRIV Agency</small></div></footer>
     </div>
   );

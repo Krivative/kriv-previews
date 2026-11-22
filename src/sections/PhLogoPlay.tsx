@@ -14,7 +14,9 @@ const HINT: Record<LogoPlay, string> = { repel: "Push the logo around", wave: "M
 
 type Body = { x: number; y: number; vx: number; vy: number; r: number; vr: number; held: boolean; gx: number; gy: number };
 
-export function PhLogoPlay({ mode }: { mode: LogoPlay }) {
+// letters / lastClass / className / hint let any brand use it: the last part is the one that spins or faces the pointer
+// (kriv×: the ×; PCO's A5 mark: the teal underline).
+export function PhLogoPlay({ mode, letters = LETTERS, lastClass, className, hint, spin = true }: { mode: LogoPlay; letters?: string[]; lastClass?: string; className?: string; hint?: string; spin?: boolean }) {
   const ref = useRef<HTMLParagraphElement>(null);
   useEffect(() => {
     const box = ref.current;
@@ -22,7 +24,7 @@ export function PhLogoPlay({ mode }: { mode: LogoPlay }) {
     const host = box.closest("footer") ?? box;
     const els = [...box.querySelectorAll<HTMLElement>("[data-l]")];
     const bodies: Body[] = els.map(() => ({ x: 0, y: 0, vx: 0, vy: 0, r: 0, vr: 0, held: false, gx: 0, gy: 0 }));
-    const last = els.length - 1;
+    const last = spin ? els.length - 1 : -1; // with spin off, the last part settles level like the letters
     let px = 0, py = 0, inside = false, lastX = 0, lastY = 0, raf = 0, visible = false;
     const t0 = performance.now();
 
@@ -48,7 +50,7 @@ export function PhLogoPlay({ mode }: { mode: LogoPlay }) {
         } else if (mode === "wave") {
           const near = inside ? Math.exp(-((dx / (size * 1.4)) ** 2)) : 0;
           ty = Math.sin(t * 2.2 + i * 0.8) * (size * 0.025 + size * 0.14 * near);
-          tr = i === last ? b.r + 1.5 : Math.sin(t * 2.2 + i * 0.8 + 1) * (2 + 6 * near);
+          tr = i === last ? b.r + 1.5 : Math.sin(t * 2.2 + i * 0.8 + 1) * (2 + 6 * near) * (spin || i < els.length - 1 ? 1 : 0.3);
         } else {
           tr = i === last ? b.r + 0.4 : 0;
         }
@@ -102,12 +104,12 @@ export function PhLogoPlay({ mode }: { mode: LogoPlay }) {
       host.removeEventListener("pointermove", move); host.removeEventListener("pointerleave", leave);
       box.removeEventListener("pointerdown", down); removeEventListener("pointerup", up);
     };
-  }, [mode]);
+  }, [mode, spin]);
 
   return <>
-    <p ref={ref} className={p.play} data-play={mode} aria-hidden="true">
-      {LETTERS.map((l, i) => <span key={l} data-l={i} className={i === LETTERS.length - 1 ? p.playX : undefined}>{l}</span>)}
+    <p ref={ref} className={`${p.play} ${className ?? ""}`} data-play={mode} aria-hidden="true">
+      {letters.map((l, i) => <span key={`${l}${i}`} data-l={i} className={i === letters.length - 1 ? lastClass ?? p.playX : undefined}>{l}</span>)}
     </p>
-    <p className={p.hint} aria-hidden="true">{HINT[mode]}</p>
+    <p className={p.hint} aria-hidden="true">{hint ?? HINT[mode]}</p>
   </>;
 }

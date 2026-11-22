@@ -6,6 +6,7 @@ import { getLead } from "@/lib/leads";
 import { reviewAllowed } from "@/lib/review-access";
 import { SiteRenderer } from "@/sections/SiteRenderer";
 import { PcoClientSite } from "@/sections/pco/PcoClientSite";
+import { pcoFxFor, pcoFxSeed } from "@/sections/pco/pco-fx";
 import { Expired } from "./Expired";
 
 // Rendered on every request so new leads need no deploy and expiry applies the
@@ -32,6 +33,10 @@ export default async function LeadPage({ params, searchParams }: PageProps<"/[sl
   // ?look=<seed> previews a story site in another look from the randomizer, without changing its record.
   const look = typeof query.look === "string" && /^[a-z0-9-]{1,40}$/.test(query.look) ? query.look : undefined;
   const site = look && lead.site.story ? { ...lead.site, storyStyle: { seed: look } } : lead.site;
-  if (slug === "pco-dental-clinic" && !look) return <PcoClientSite site={site} />;
+  if (slug === "pco-dental-clinic" && !look) {
+    // ?fx=<seed> previews the effects randomizer outside production; production shows the pinned seed (none yet).
+    const fx = pcoFxSeed(query.fx, process.env.VERCEL_ENV !== "production");
+    return <PcoClientSite site={site} fx={fx === null ? null : pcoFxFor(fx)} />;
+  }
   return <SiteRenderer site={site} template={lead.template} />;
 }

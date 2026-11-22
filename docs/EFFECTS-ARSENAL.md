@@ -58,7 +58,11 @@ Rule built in: the two sections on one page never get the same layer.
 | care (wave) | Care blue | letters bob like water, higher near the pointer; click to splash |
 | sand (drag) | Operations sand | pick up any letter and throw it; it springs home |
 | band | plain | quiet footer |
-Taps make letters jump on phones; with reduced motion the logo stays still.
+Taps make letters jump on phones; with reduced motion the logo stays still. `PhLogoPlay` takes `letters`, `lastClass`, `className`, `hint` and `spin`, so any brand's mark can be the toy: PCO Dental uses its A5 ring with P, C, O and the teal line (`spin={false}` keeps the line level).
+
+### Used on
+- /ph-rates (seed 211, live).
+- PCO Dental (`src/sections/pco/pco-fx.ts`, `?fx=` seeds 302 / 303 / 319): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
 
 ## The randomizer checklist (every website, not only /ph-rates)
 

@@ -33,7 +33,7 @@ function useCanvas(make: () => Draw) {
 const aurora = (): Draw => {
   const pts: { x: number; y: number }[] = [];
   return (c, W, H, t, ptr, el) => {
-    const cols = [token(el, "--care", "#4d8be0"), "#e7fa78", token(el, "--sand", "#b99a5c")];
+    const cols = [token(el, "--care", "#4d8be0"), token(el, "--spark", "#e7fa78"), token(el, "--sand", "#b99a5c")];
     let lead = -1;
     if (ptr.on && pts.length) { let best = Infinity; pts.forEach((q, k) => { const d = Math.hypot(q.x - ptr.x, q.y - ptr.y); if (d < best) { best = d; lead = k; } }); }
     c.clearRect(0, 0, W, H);
