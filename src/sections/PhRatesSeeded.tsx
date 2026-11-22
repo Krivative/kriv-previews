@@ -3,7 +3,9 @@ import { markets, pricingRules } from "@/offers/pricing";
 import { money, quoteWindow } from "@/offers/pricing-math";
 import { PhBackdrop } from "./PhBackdrop";
 import { PhEffects } from "./PhEffects";
+import { PhLayer } from "./PhLayers";
 import { PhLogoPlay, type LogoPlay } from "./PhLogoPlay";
+import { PhMarquee } from "./PhMarquee";
 import { PhSea } from "./PhSea";
 import { PhStory, type StoryStep } from "./PhStory";
 import { PricingCalculator } from "./PricingCalculator";
@@ -66,12 +68,14 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
 
   const statement = design.hero === "statement";
   const backdrop = statement && design.backdrop !== "glow" ? design.backdrop : undefined;
-  const under = design.under === "mixed";
+  const under = design.under !== "plain", rich = design.under === "rich";
+  const services = Object.values(market.items).map((x) => x.label);
+  const facts = [`${rules.trialDays} days free`, `${off} off the annual base`, `${best.freeMonths} free months by day ${best.toDay}`, `${fmt(0)} to KRIV from the agent fee`, `${serviceCount} services and add-ons`, "Pay once a year, or stop"];
   const play: LogoPlay | undefined = ({ lime: "repel", care: "wave", sand: "drag" } as Record<string, LogoPlay>)[design.footer];
   const cardsAt = design.hero === "floating" ? p.float : statement && design.cards === "corners" ? p.corners : undefined;
 
   return <div className={`${s.root} ${p.root}`} style={style} lang="en-PH" data-market="ph" data-colorway={design.colorway.id} data-dark={design.colorway.dark || undefined} data-hero={design.hero} data-seed={design.seed}
-    data-backdrop={backdrop} data-motion={design.motion} data-touch={design.touch} data-footer={design.footer} data-under={under || undefined}>
+    data-backdrop={backdrop} data-motion={design.motion} data-touch={design.touch} data-footer={design.footer} data-under={under ? design.under : undefined}>
     <PhEffects />
     <link rel="stylesheet" href={FONTS} precedence="fonts" />
     <a className={s.skip} href="#pricing-main">Skip to pricing</a>
@@ -100,12 +104,18 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
         </div>}
       </section>
 
-      {design.figures === "figures" && <section className={p.figures} aria-label="The offer in numbers" data-bg={under || undefined}>
-        {under && <PhBackdrop kind="halftone" word={false} />}
+      {rich && <PhMarquee items={services} label="Services you can choose" seconds={55} />}
+
+      {design.figures === "figures" && <section className={p.figures} aria-label="The offer in numbers" data-bg={under || undefined} data-layer={rich ? design.figuresLayer : undefined}>
+        {rich ? <PhLayer kind={design.figuresLayer} /> : under && <PhBackdrop kind="halftone" word={false} />}
         {figures.map((f, i) => <div key={f.unit} data-reveal="" style={{ "--d": i } as CSSProperties}><p className={p.big}><span data-count={f.big}>{f.big}</span><small>{f.unit}</small></p><p>{f.text}</p></div>)}
       </section>}
 
-      <PricingCalculator market={market} trial={{ paidMonths: rules.paidMonths, annualDiscount: rules.annualDiscount, windows: rules.windows, allIn: rules.allIn }} />
+      {(() => {
+        const calc = <PricingCalculator market={market} trial={{ paidMonths: rules.paidMonths, annualDiscount: rules.annualDiscount, windows: rules.windows, allIn: rules.allIn }} />;
+        // Round 4: 206's dots run under packages and the estimate as one surface.
+        return rich ? <div className={p.run} data-bg=""><PhBackdrop kind="halftone" word={false} pinned />{calc}</div> : calc;
+      })()}
 
       <section className={p.section} aria-labelledby="how" data-bg={under || undefined}>
         {under && <PhBackdrop kind="veil" />}
@@ -115,7 +125,8 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
         <PhStory steps={steps} mode={design.story} />
       </section>
 
-      <section className={p.section} aria-labelledby="details">
+      <section className={p.section} aria-labelledby="details" data-bg={rich || undefined}>
+        {rich && <PhLayer kind={design.detailsLayer} />}
         <p className={s.eyebrow} data-reveal="">Plan details</p>
         <h2 id="details" data-reveal="">What to budget for.</h2>
         {design.fine === "spec"
@@ -126,6 +137,7 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
       <section className={`${s.section} ${s.contact} ${p.contact}`} aria-labelledby="pricing-contact">
         <h2 id="pricing-contact" data-reveal="">Let’s talk about your business.</h2>
         <p className={s.prose}>Tell us what you’re looking for and which package or services you want to discuss.</p>
+        {rich && <PhMarquee items={facts} tone="big" reverse seconds={38} />}
       </section>
     </main>
     <footer className={p.footer} data-style={design.footer}>

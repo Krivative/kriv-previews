@@ -9,10 +9,10 @@ import p from "./ph-rates.module.css";
 // phones, draws a single still frame with reduced motion, and pauses when the hero is off screen.
 export type BackdropKind = "veil" | "contour" | "halftone";
 
-type Pointer = { x: number; y: number; on: boolean; at: number };
+export type Pointer = { x: number; y: number; on: boolean; at: number };
 
-function trackPointer(el: HTMLElement) {
-  const host = (el.closest("section") ?? el.parentElement)!;
+export function trackPointer(el: HTMLElement) {
+  const host = (el.closest<HTMLElement>("[data-bg]") ?? el.closest("section") ?? el.parentElement)!;
   const ptr: Pointer = { x: 0, y: 0, on: false, at: 0 };
   const move = (e: PointerEvent) => {
     const b = el.getBoundingClientRect();
@@ -26,7 +26,7 @@ function trackPointer(el: HTMLElement) {
 }
 
 // Runs draw(t) every frame while visible; one frame only with reduced motion. Returns [stop, redraw].
-function animate(el: Element, draw: (t: number) => void) {
+export function animate(el: Element, draw: (t: number) => void) {
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let raf = 0, visible = true, t = 0, last = performance.now();
   const tick = (now: number) => {
@@ -43,7 +43,7 @@ function animate(el: Element, draw: (t: number) => void) {
   return [() => { cancelAnimationFrame(raf); io.disconnect(); }, () => draw(still ? 99 : t)] as const;
 }
 
-function token(el: Element, name: string, fallback: string) {
+export function token(el: Element, name: string, fallback: string) {
   return getComputedStyle(el).getPropertyValue(name).trim() || fallback;
 }
 
@@ -131,7 +131,9 @@ function Contour() {
 
 // 206: a halftone dot field. The dots print the kriv wordmark on load, a slow wave runs through the field,
 // and dots swell and turn Care blue under the pointer.
-function Halftone({ word = true }: { word?: boolean }) {
+// With `pinned`, the canvas is one screen tall and sticks inside a long run of sections (packages and the estimate);
+// the dot grid is offset by the scroll so the dots stay printed on the page instead of on the glass.
+function Halftone({ word = true, pinned = false }: { word?: boolean; pinned?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -145,7 +147,7 @@ function Halftone({ word = true }: { word?: boolean }) {
     const build = () => {
       dpr = Math.min(2, devicePixelRatio || 1); W = el.clientWidth; H = el.clientHeight;
       el.width = Math.round(W * dpr); el.height = Math.round(H * dpr);
-      s = W < 700 ? 11 : 14; cols = Math.ceil(W / s); rows = Math.ceil(H / s);
+      s = W < 700 ? 11 : 14; cols = Math.ceil(W / s); rows = Math.ceil(H / s) + (pinned ? 1 : 0);
       const off = document.createElement("canvas"); off.width = W; off.height = H;
       const o = off.getContext("2d")!;
       const fs = Math.max(150, Math.min(W * 0.42, 640));
@@ -161,13 +163,15 @@ function Halftone({ word = true }: { word?: boolean }) {
       }
     };
     build();
+    const run = pinned ? el.closest<HTMLElement>("[data-bg]") : null;
     const draw = (t: number) => {
+      const oy = run ? el.getBoundingClientRect().top - run.getBoundingClientRect().top : 0, shift = -(oy % s);
       const age = still ? 99 : (performance.now() - born) / 1000; // the print-in runs on the clock, not on frame count
       if (ptr.on && px < -900) { px = ptr.x; py = ptr.y; } else if (ptr.on) { px += (ptr.x - px) * 0.25; py += (ptr.y - py) * 0.25; } else { px = -999; py = -999; }
       const field = new Path2D(), word = new Path2D(), hot = new Path2D();
       for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
-        const x = i * s + s / 2, y = j * s + s / 2, m = mask[j * cols + i];
-        const wave = 0.5 + 0.5 * Math.sin(x * 0.012 + y * 0.008 - t * 0.9);
+        const x = i * s + s / 2, y = j * s + s / 2 + shift, m = mask[j * cols + i];
+        const wave = 0.5 + 0.5 * Math.sin(x * 0.012 + (y + oy) * 0.008 - t * 0.9);
         const dx = x - px, dy = y - py, heat = Math.exp(-(dx * dx + dy * dy) / 16200);
         let r: number, path = field;
         if (m > 0.5) {
@@ -191,12 +195,13 @@ function Halftone({ word = true }: { word?: boolean }) {
     ro.observe(el);
     document.fonts?.ready.then(() => { build(); redraw(); });
     return () => { end(); ro.disconnect(); stop(); };
-  }, [word]);
+  }, [word, pinned]);
   return <canvas ref={ref} className={p.backdrop} aria-hidden="true" />;
 }
 
-export function PhBackdrop({ kind, word }: { kind: BackdropKind; word?: boolean }) {
+export function PhBackdrop({ kind, word, pinned }: { kind: BackdropKind; word?: boolean; pinned?: boolean }) {
   if (kind === "veil") return <><PhSea tone="tide" className={p.tide} /><Veil /></>;
   if (kind === "contour") return <Contour />;
+  if (pinned) return <div className={p.pin} aria-hidden="true"><Halftone word={word} pinned /></div>;
   return <Halftone word={word} />;
 }

@@ -40,7 +40,11 @@ export const PH_BACKDROPS = ["glow", "veil", "contour", "halftone"] as const; //
 export const PH_MOTIONS = ["calm", "reveal"] as const;               // still / sections rise in, figures count up, the 14-day rail fills as you scroll
 export const PH_TOUCHES = ["none", "tilt", "magnet"] as const;        // nothing / plan cards drift with the pointer / buttons lean toward the pointer
 export const PH_CARDS = ["none", "corners"] as const;                // plan cards around the centred statement (fintech reference)
-export const PH_UNDERS = ["plain", "mixed"] as const;                // sections below the hero on paper / figures on 206's halftone dots and the plan story over 204's sea
+export const PH_UNDERS = ["plain", "mixed", "rich"] as const;        // sections below the hero on paper / figures on 206's halftone dots and the plan story over 204's sea /
+// rich (round 4, Kriv 23 Nov): 206's dots run under packages and the estimate, the figures take the packages' spectrum, the plan story
+// keeps 204's sea, the figures and plan details each get a moving layer drawn by the randomizer, and two marquees run.
+export const PH_LAYERS = ["aurora", "chart", "ripple", "drift"] as const; // spectrum glows that wander / graph paper that bends round the pointer /
+// sonar rings from the pointer / thin currents like wind on water
 export const PH_RADII = [16, 28] as const;
 
 export type PhDesign = {
@@ -48,7 +52,7 @@ export type PhDesign = {
   story: (typeof PH_STORIES)[number]; figures: (typeof PH_FIGURES)[number]; fine: (typeof PH_FINE)[number];
   footer: (typeof PH_FOOTERS)[number]; radius: number;
   backdrop: (typeof PH_BACKDROPS)[number]; motion: (typeof PH_MOTIONS)[number]; touch: (typeof PH_TOUCHES)[number]; cards: (typeof PH_CARDS)[number];
-  under: (typeof PH_UNDERS)[number];
+  under: (typeof PH_UNDERS)[number]; figuresLayer: (typeof PH_LAYERS)[number]; detailsLayer: (typeof PH_LAYERS)[number];
 };
 
 function rng(seed: number) {
@@ -57,7 +61,7 @@ function rng(seed: number) {
 }
 const pick = <T,>(r: () => number, list: readonly T[]) => list[Math.floor(r() * list.length)];
 
-type Curated = { c: string } & Omit<PhDesign, "seed" | "colorway">;
+type Curated = { c: string } & Omit<PhDesign, "seed" | "colorway" | "figuresLayer" | "detailsLayer">;
 // Round 1 candidates, composed by hand so each shows a different hero, colorway and story.
 export const PH_CURATED: Record<number, Curated> = {
   // Seed 110's dark Care blue with the living Cebu-sea hero: closest to the main site, most "weapon".
@@ -78,8 +82,13 @@ export const PH_CURATED: Record<number, Curated> = {
   207: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "lime", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
   208: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
   209: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "sand", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "mixed" },
+  // Round 4 (Kriv, 23 Nov): 208 with 206's dots moved under packages and the estimate, a tighter closing band and two marquees.
+  // The moving layers under the figures and the plan details are left to the randomizer (not hand-picked).
+  210: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
+  211: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
+  212: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
 };
-export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209] as const;
+export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212] as const;
 export const PH_PINNED_SEED: number | null = null; // set when Kriv picks
 
 export function phDesignFor(seed: number): PhDesign {
@@ -88,7 +97,11 @@ export function phDesignFor(seed: number): PhDesign {
     seed, colorway: pick(r, PH_COLORWAYS), hero: pick(r, PH_HEROES), headline: pick(r, PH_HEADLINES), story: pick(r, PH_STORIES),
     figures: pick(r, PH_FIGURES), fine: pick(r, PH_FINE), footer: pick(r, PH_FOOTERS), radius: pick(r, PH_RADII),
     backdrop: pick(r, PH_BACKDROPS), motion: pick(r, PH_MOTIONS), touch: pick(r, PH_TOUCHES), cards: pick(r, PH_CARDS), under: pick(r, PH_UNDERS),
+    figuresLayer: "aurora", detailsLayer: "aurora",
   };
+  // Drawn after the older traits so seeds 201-209 keep the looks Kriv already reviewed.
+  d.figuresLayer = pick(r, PH_LAYERS);
+  d.detailsLayer = pick(r, PH_LAYERS.filter((x) => x !== d.figuresLayer));
   const fixed = PH_CURATED[seed];
   if (fixed) { const { c, ...rest } = fixed; d = { ...d, ...rest, colorway: PH_COLORWAYS.find((x) => x.id === c)! }; }
   if (d.hero !== "statement") d = { ...d, backdrop: "glow", cards: "none", under: "plain" };

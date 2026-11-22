@@ -235,3 +235,39 @@
 .root:not([data-dark]) .contact h2 { color: inherit; }
 .root:not([data-dark]) .contact p { color: #101112c4 !important; }
 .root[data-footer="lime"]:not([data-dark]) .contact { background: #88bafa !important; }
+
+/* Round 4 (23 Nov 2026, Kriv: "206's dots under packages and the estimate, randomize the rest, tighter closing band, a marquee or two"). */
+/* The figures take the packages' brand spectrum; a randomizer layer moves over it. */
+.root[data-under="rich"] .figures { background:
+  radial-gradient(40% 80% at 8% 20%, color-mix(in srgb, var(--care) 22%, transparent), transparent 70%),
+  radial-gradient(38% 80% at 95% 0%, color-mix(in srgb, var(--sand) 16%, transparent), transparent 70%),
+  radial-gradient(45% 80% at 55% 110%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+  var(--band); }
+/* Packages and the estimate share one dotted surface; the canvas is one screen tall and sticks while you scroll. */
+.run { background: var(--band); }
+.run > section { background: transparent !important; }
+.pin { position: sticky; inset-block-start: 0; z-index: -1; block-size: 100vh; block-size: 100lvh; margin-block-end: -100vh; margin-block-end: -100lvh; pointer-events: none; }
+.pin .backdrop { position: absolute; }
+
+/* Tighter closing band (round 4 seeds) */
+.root[data-under="rich"] .contact { padding-block: clamp(2.2rem, 4.5vw, 3.4rem) 0 !important; overflow: hidden; }
+.root[data-under="rich"] .contact h2 { margin-block-end: .5rem; }
+
+/* Marquees */
+.marquee { --secs: 40s; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--paper); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.marqueeTrack { display: flex; inline-size: max-content; }
+.marqueeRow { display: flex; flex-shrink: 0; margin: 0; padding: 0; list-style: none; }
+.marqueeRow li { display: flex; align-items: center; white-space: nowrap; }
+.marqueeRow li span { display: inline-block; color: var(--care); }
+.marquee[data-tone="line"] .marqueeRow li { padding-block: .95rem; font: 600 .78rem/1 "Courier New", monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--subtle); }
+.marquee[data-tone="line"] .marqueeRow li span { margin-inline: 1.4rem; font: 700 1rem/1 var(--body); letter-spacing: 0; }
+.marquee[data-tone="big"] { margin-block-start: clamp(1.6rem, 3.5vw, 2.6rem); margin-inline: calc(var(--gutter) * -1); background: transparent; border: 0; border-top: 1px solid #10111226; }
+.marquee[data-tone="big"] .marqueeRow li { padding-block: .9rem 1.1rem; font: 400 clamp(1.8rem, 4.4vw, 3.6rem)/1 var(--display); font-style: italic; letter-spacing: -.035em; color: #101112; }
+.marquee[data-tone="big"] .marqueeRow li span { margin-inline: .6em; font: 800 .7em/1 var(--body); font-style: normal; color: #101112; opacity: .35; }
+@media (prefers-reduced-motion: no-preference) {
+  .marqueeTrack { animation: marquee var(--secs) linear infinite; }
+  .marquee[data-reverse] .marqueeTrack { animation-direction: reverse; }
+  .marquee:hover .marqueeTrack { animation-play-state: paused; }
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee { overflow-x: auto; } }
