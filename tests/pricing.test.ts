@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { markets, pricingRules } from "@/offers/pricing";
-import { menuGroups, packageSavings, quoteWindow, selectionTotal } from "@/offers/pricing-math";
+import { menuGroups, packageSavings, quoteTotal, quoteWindow, selectionTotal } from "@/offers/pricing-math";
 
 describe("approved pricing catalog", () => {
   it("uses the regular monthly selection as the only annual baseline", () => {
@@ -56,10 +56,20 @@ describe("approved pricing catalog", () => {
     for (const market of [markets.ph, markets.us]) {
       const groups = menuGroups(market);
       expect(groups.flatMap((g) => g.ids).sort()).toEqual(Object.keys(market.items).sort());
-      expect(groups.find((g) => g.title === "Add-ons · LinkedIn")?.ids).toContain("linkedinContent");
-      expect(groups.find((g) => g.title === "Add-ons · Discord")?.ids).toEqual(["discordSetup", "discord"]);
-      expect(groups.find((g) => g.title === "Add-ons · Email")?.ids).toEqual(["email"]);
+      expect(groups.find((g) => g.title === "LinkedIn add-ons")?.ids).toContain("linkedinContent");
+      expect(groups.find((g) => g.title === "Discord add-ons")?.ids).toEqual(["discordSetup", "discord"]);
+      expect(groups.find((g) => g.title === "Email add-ons")?.ids).toEqual(["email"]);
       expect(groups[0].packageId).toBe(market.packages[0].id);
     }
+  });
+
+  it("adds add-ons on top of a package and never charges twice for what it covers", () => {
+    const growth = markets.ph.packages.find((p) => p.id === "growth")!;
+    expect(quoteTotal(markets.ph, growth, [])).toEqual({ monthly: 12500, setup: 0 });
+    expect(quoteTotal(markets.ph, growth, ["website", "linkedinContent", "discordSetup"])).toEqual({ monthly: 16000, setup: 10000 });
+    expect(quoteTotal(markets.ph, growth, ["viber"])).toEqual({ monthly: 13500, setup: 0 });
+    const full = markets.us.packages.find((p) => p.id === "full-business")!;
+    expect(quoteTotal(markets.us, full, ["linkedinMakeover", "email"])).toEqual({ monthly: 13500, setup: 10750 });
+    expect(quoteTotal(markets.ph, undefined, ["website"])).toEqual(selectionTotal(markets.ph, ["website"]));
   });
 });

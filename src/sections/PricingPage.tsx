@@ -40,6 +40,8 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
       <section className={s.section} aria-labelledby="terms">
         <p className={s.eyebrow}>Plan details</p>
         <h2 id="terms">What to budget for.</h2>
+        <details className={s.fold}>
+        <summary>Read the plan details and fine print</summary>
         {ph ? <ul className={s.rules}>
           <li>{pricingRules.ph.eligibility}</li>
           <li>Annual base price is the regular monthly total × {pricingRules.ph.paidMonths}. The annual offer is paid once after the trial. It includes {pricingRules.ph.annualDiscount * 100}% off that base price, plus any free months in your decision window.</li>
@@ -55,6 +57,7 @@ export function PricingPage({ region, site }: { region: keyof typeof markets; si
           <li>{pricingRules.linkedin}</li>
         </ul>}
         {ph && <p className={s.prose}>{pricingRules.linkedin}</p>}
+        </details>
       </section>
       <section className={`${s.section} ${s.contact}`} aria-labelledby="pricing-contact">
         <h2 id="pricing-contact">Let’s talk about your business.</h2>

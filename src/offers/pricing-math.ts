@@ -16,16 +16,24 @@ export function coveredItems(market: Market, plan: PricePackage) {
   return new Set(plan.includes.flatMap((id) => [id, ...market.items[id].upgrades ?? []]));
 }
 
-export function selectionTotal(market: Market, selected: string[]) {
+/** Sum of the chosen items. Items in `covered` (already paid for by a package) cost nothing. */
+export function selectionTotal(market: Market, selected: string[], covered: ReadonlySet<string> = new Set()) {
   const unique = [...new Set(selected)].filter((id) => Object.hasOwn(market.items, id));
   for (const id of [...unique]) {
     const required = market.items[id].requires;
     if (required && !unique.includes(required)) unique.push(required);
   }
-  return unique.filter((id) => !unique.some((other) => other !== id && market.items[other].upgrades?.includes(id))).reduce((sum, id) => ({
+  return unique.filter((id) => !covered.has(id) && !unique.some((other) => other !== id && market.items[other].upgrades?.includes(id))).reduce((sum, id) => ({
     monthly: sum.monthly + market.items[id].monthly,
     setup: sum.setup + (market.items[id].setup ?? 0),
   }), { monthly: 0, setup: 0 });
+}
+
+/** A package plus add-ons, or a build-your-own selection when no package is chosen. */
+export function quoteTotal(market: Market, plan: PricePackage | undefined, selected: string[]) {
+  if (!plan) return selectionTotal(market, selected);
+  const extra = selectionTotal(market, selected, coveredItems(market, plan));
+  return { monthly: plan.monthly + extra.monthly, setup: (plan.setup ?? 0) + extra.setup };
 }
 
 export function packageSavings(market: Market, selected: string[], total: ReturnType<typeof selectionTotal>) {
@@ -46,7 +54,7 @@ export function menuGroups(market: Market) {
     const later = plan ? market.packages.slice(market.packages.indexOf(plan)) : [];
     const upward = later.length > 1 && later.every((p) => coveredItems(market, p).has(id));
     const key = plan ? `package:${plan.id}:${upward}` : `addon:${market.items[id].group ?? "More"}`;
-    const title = plan ? `${upward ? "From" : "In"} ${plan.label}` : `Add-ons · ${market.items[id].group ?? "More services"}`;
+    const title = plan ? `${upward ? "From" : "In"} ${plan.label}` : market.items[id].group ? `${market.items[id].group} add-ons` : "More add-ons";
     if (!groups.has(key)) groups.set(key, { title, packageId: plan?.id, ids: [] });
     groups.get(key)!.ids.push(id);
   }

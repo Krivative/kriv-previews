@@ -11,6 +11,7 @@ Status note (2026-10-26): Claude Code's completed work and dated reports below a
 - [x] 22 Nov PH and USD pricing catalog, versioned offers, calculator and sectioned pages. Previews lint, typecheck, unit tests, build and smoke checks passed locally.
 - [x] Discord, email management, LinkedIn services and the US free website offer added to the catalog and the grouped services menu (2026-11-22).
 - [x] Kriv approved taking the free website's USD 5,000 off US package setup (2026-11-22).
+- [x] Services menu made compact: sheet with collapsible groups, package plus add-ons, folded plan details (2026-11-22).
 - [ ] Kriv approves the US buyout fee (docs/PRICING-REVIEW.md).
 - [ ] Kriv reviews the pricing previews and confirms the sent-lead roster before publish.
 

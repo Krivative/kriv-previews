@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Market } from "@/offers/pricing";
-import { menuGroups, money, packageSavings, quoteWindow, selectionTotal } from "@/offers/pricing-math";
+import { coveredItems, menuGroups, money, packageSavings, quoteTotal, quoteWindow } from "@/offers/pricing-math";
 import s from "./pricing.module.css";
 
 type Trial = {
@@ -43,27 +43,44 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
   const [packageId, setPackageId] = useState(market.packages.find((p) => p.recommended)?.id ?? market.packages[0].id);
   const [windowIndex, setWindow] = useState(0);
   const [departing, setDeparting] = useState(0);
-  const menu = useRef<HTMLDetailsElement>(null);
+  const sheet = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLButtonElement>(null);
   const quote = useRef<HTMLElement>(null);
   const plan = market.packages.find((p) => p.id === packageId);
-  const total = plan ? { monthly: plan.monthly, setup: plan.setup ?? 0 } : selectionTotal(market, selection);
+  const covered = plan ? coveredItems(market, plan) : new Set<string>();
+  const addOns = selection.filter((id) => !covered.has(id));
+  const total = quoteTotal(market, plan, selection);
   const suggestion = plan ? undefined : packageSavings(market, selection, total);
   const window = trial?.windows[windowIndex];
   const terms = trial && window ? quoteWindow(total.monthly, trial.paidMonths, window.freeMonths, trial.annualDiscount) : null;
   const fmt = (n: number) => money(n, market.currency);
+  const groups = menuGroups(market);
+  const chosen = plan ? addOns.length : selection.length;
 
   const switchSavings = suggestion ? [
     total.monthly > suggestion.monthly ? `${fmt(total.monthly - suggestion.monthly)} / mo` : null,
     total.setup > (suggestion.setup ?? 0) ? `${fmt(total.setup - (suggestion.setup ?? 0))} on setup` : null,
   ].filter(Boolean).join(" and ") : "";
 
+  // With a package chosen, ticking a service adds it on top; services the package already covers stay ticked.
   function toggle(id: string) {
-    setPackageId("");
+    if (covered.has(id)) return;
     setSelection((items) => {
       const required = market.items[id].requires;
       if (items.includes(id)) return items.filter((item) => item !== id && market.items[item].requires !== id);
       return required && !items.includes(required) ? [...items, required, id] : [...items, id];
     });
+  }
+  function choosePackage(id: string) {
+    const next = market.packages.find((p) => p.id === id);
+    const keep = next ? coveredItems(market, next) : new Set<string>();
+    setPackageId(id);
+    setSelection((items) => items.filter((item) => !keep.has(item)));
+  }
+  function openSheet() { sheet.current?.showModal(); }
+  function closeSheet(toQuote = false) {
+    sheet.current?.close();
+    (toQuote ? quote.current : opener.current)?.focus();
   }
 
   return <>
@@ -78,29 +95,44 @@ export function PricingCalculator({ market, trial }: { market: Market; trial?: T
           <p className={s.cardPrice}>Yours for <strong>{fmt(item.monthly)}</strong><span> / mo</span></p>
           {item.setup !== undefined && <p>{item.setupWorth !== undefined && <>Setup worth <s>{fmt(item.setupWorth)}</s>. </>}{item.setup ? `${fmt(item.setup)} one-time setup.` : "No setup fee."}</p>}
           <ul>{item.includes.map((id) => <li key={id}>{market.items[id].label}{market.items[id].upgrades?.includes("community") && " (community management included)"}</li>)}</ul>
-          <button type="button" aria-pressed={plan?.id === item.id} onClick={() => { setPackageId(item.id); setSelection([]); quote.current?.focus(); }}>{plan?.id === item.id ? "Selected" : `Choose ${item.label}`}</button>
+          <button type="button" aria-pressed={plan?.id === item.id} onClick={() => { choosePackage(item.id); quote.current?.focus(); }}>{plan?.id === item.id ? "Selected" : `Choose ${item.label}`}</button>
         </article>)}
       </div>
-      <details className={s.menu} ref={menu}>
-        <summary>View all services</summary>
-        <div className={s.menuTotal} aria-live="polite"><strong>{fmt(total.monthly)} / mo</strong>{total.setup > 0 && <> + {fmt(total.setup)} one time</>}</div>
-        {menuGroups(market).map((group) => <fieldset className={s.group} key={group.title}>
-          <legend>{group.title}</legend>
-          <div className={s.items}>
-            {group.ids.map((id) => { const item = market.items[id]; const oneTime = item.monthly === 0 && item.setup !== undefined; return <label className={s.item} key={id}>
-              <input type="checkbox" checked={selection.includes(id)} onChange={() => toggle(id)} />
-              <span><strong>{item.label}</strong><small>{item.detail}</small></span>
-              <span>{oneTime ? <>{fmt(item.setup ?? 0)}<small>one time</small></> : <>{fmt(item.monthly)} / mo</>}{item.worth !== undefined && <small>Worth <s>{fmt(item.worth)}</s>{item.setup === undefined ? " / mo" : " setup"}</small>}{!oneTime && item.setup !== undefined && <small>{item.setup ? `${fmt(item.setup)} setup` : "Free setup"}</small>}</span>
-            </label>; })}
+      <div className={s.menuBar}>
+        <button type="button" ref={opener} className={s.menuOpen} aria-haspopup="dialog" onClick={openSheet}>View all services<span>{Object.keys(market.items).length} services and add-ons</span></button>
+        <p aria-live="polite">{plan ? `${plan.label}${addOns.length ? ` + ${addOns.length} add-on${addOns.length > 1 ? "s" : ""}` : ""}` : selection.length ? `${selection.length} service${selection.length > 1 ? "s" : ""} chosen` : "Nothing chosen yet"} · <strong>{fmt(total.monthly)} / mo</strong>{total.setup > 0 && <> + {fmt(total.setup)} one time</>}</p>
+      </div>
+      <dialog className={s.sheet} ref={sheet} aria-labelledby="services-title" onClick={(e) => { if (e.target === e.currentTarget) closeSheet(); }} onClose={() => opener.current?.focus()}>
+        <div className={s.sheetHead}>
+          <h2 id="services-title">All services</h2>
+          <button type="button" className={s.close} onClick={() => closeSheet()} aria-label="Close services">×</button>
+        </div>
+        <p className={s.sheetNote}>{plan ? <>{plan.label} is chosen: its services are ticked. Tick anything else to add it on top. <button type="button" className={s.link} onClick={() => { setPackageId(""); setSelection([]); }}>Build your own instead</button></> : "Tick what you need. We show it when a package already covers your picks for less."}</p>
+        <div className={s.sheetBody}>
+          {groups.map((group, i) => { const picked = group.ids.filter((id) => covered.has(id) || selection.includes(id)).length; const from = Math.min(...group.ids.map((id) => market.items[id].monthly || market.items[id].setup || Infinity)); return <details className={s.group} name={`services-${market.currency}`} key={group.title} open={i === 0 || undefined}>
+            <summary><span>{group.title}</span><small>{picked ? `${picked} of ${group.ids.length} ticked` : `${group.ids.length} service${group.ids.length > 1 ? "s" : ""} · from ${fmt(from)}`}</small></summary>
+            <div className={s.items}>
+              {group.ids.map((id) => { const item = market.items[id]; const oneTime = item.monthly === 0 && item.setup !== undefined; const inPlan = covered.has(id); return <label className={s.item} key={id} data-in-plan={inPlan || undefined}>
+                <input type="checkbox" checked={inPlan || selection.includes(id)} disabled={inPlan} onChange={() => toggle(id)} />
+                <span><strong>{item.label}</strong><small>{inPlan ? `Already in ${plan!.label}` : item.detail}</small></span>
+                <span>{oneTime ? <>{fmt(item.setup ?? 0)}<small>one time</small></> : <>{fmt(item.monthly)}<small>per month</small></>}{item.worth !== undefined && <small>Worth <s>{fmt(item.worth)}</s>{item.setup === undefined ? "" : " setup"}</small>}{!oneTime && item.setup !== undefined && <small>{item.setup ? `${fmt(item.setup)} setup` : "Free setup"}</small>}</span>
+              </label>; })}
+            </div>
+          </details>; })}
+        </div>
+        <div className={s.sheetFoot}>
+          {suggestion && <button type="button" className={s.switch} onClick={() => { setSelection([]); setPackageId(suggestion.id); }}>Already in {suggestion.label}, switch and save {switchSavings}</button>}
+          <div className={s.footRow}>
+            <p aria-live="polite"><strong>{fmt(total.monthly)} / mo</strong>{total.setup > 0 && <> + {fmt(total.setup)} one time</>}<small>{plan ? `${plan.label}${addOns.length ? ` + ${addOns.length} add-on${addOns.length > 1 ? "s" : ""}` : ""}` : `${chosen} chosen`}</small></p>
+            {trial && !plan && <button type="button" className={s.ghost} onClick={() => setSelection([...trial.allIn])}>All-in example</button>}
+            <button type="button" onClick={() => closeSheet(true)}>See my estimate</button>
           </div>
-        </fieldset>)}
-        {trial && <button type="button" onClick={() => { setSelection([...trial.allIn]); setPackageId(""); }}>Use the all-in example</button>}
-        {suggestion && <button type="button" className={s.switch} onClick={() => { setSelection([]); setPackageId(suggestion.id); if (menu.current) menu.current.open = false; quote.current?.focus(); }}>Already in {suggestion.label}, switch and save {switchSavings}</button>}
-      </details>
+        </div>
+      </dialog>
     </section>
     <section className={`${s.section} ${s.quote}`} ref={quote} tabIndex={-1} aria-labelledby="estimate">
       <div className={s.eyebrow}>Your estimate</div>
-      <h2 id="estimate">{plan?.label ?? (selection.length ? "Your services" : "Choose a package or service")}</h2>
+      <h2 id="estimate">{plan ? `${plan.label}${addOns.length ? ` + ${addOns.length} add-on${addOns.length > 1 ? "s" : ""}` : ""}` : selection.length ? "Your services" : "Choose a package or service"}</h2>
       {trial && <fieldset className={s.windows}>
         <legend>When do you decide during the trial?</legend>
         {trial.windows.map((w, i) => <label key={w.fromDay}><input type="radio" name="trial-window" checked={windowIndex === i} onChange={() => { setDeparting(Math.max(0, (window?.freeMonths ?? 0) - w.freeMonths)); setWindow(i); }} />{w.toDay ? `Days ${w.fromDay}–${w.toDay}` : `Day ${w.fromDay}+`}</label>)}
