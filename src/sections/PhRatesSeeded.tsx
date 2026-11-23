@@ -87,7 +87,7 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
     <main id="pricing-main">
       <section className={p.hero} aria-labelledby="ph-title">
         {design.hero === "sea" && <PhSea tone={heroTone} className={p.sea} />}
-        {backdrop && <PhBackdrop kind={backdrop} />}
+        {backdrop === "wind" ? <PhLayer kind="wind" /> : backdrop && <PhBackdrop kind={backdrop} />}
         {statement && backdrop !== "halftone" && <span className={p.wordmark} aria-hidden="true">kriv</span>}
         <div className={p.heroText} id="ph-title">
           <p className={p.kicker}><span>PH</span> Philippine pricing · PHP</p>
@@ -107,7 +107,7 @@ export function PhRatesSeeded({ design }: { design: PhDesign }) {
       {rich && <PhMarquee items={services} label="Services you can choose" seconds={55} />}
 
       {design.figures === "figures" && <section className={p.figures} aria-label="The offer in numbers" data-bg={under || undefined} data-layer={rich ? design.figuresLayer : undefined}>
-        {rich ? <PhLayer kind={design.figuresLayer} /> : under && <PhBackdrop kind="halftone" word={false} />}
+        {rich ? design.figuresLayer === "contour" ? <PhBackdrop kind="contour" /> : <PhLayer kind={design.figuresLayer} /> : under && <PhBackdrop kind="halftone" word={false} />}
         {figures.map((f, i) => <div key={f.unit} data-reveal="" style={{ "--d": i } as CSSProperties}><p className={p.big}><span data-count={f.big}>{f.big}</span><small>{f.unit}</small></p><p>{f.text}</p></div>)}
       </section>}
 

@@ -8,7 +8,7 @@ import p from "./ph-rates.module.css";
 // Round 4 of the /ph-rates randomizer (Kriv, 23 Nov 2026): moving layers the seed puts under the offer figures
 // and the plan details. Canvases sized to their section, brand colours at low strength so the text stays readable,
 // paused off screen, one still frame with reduced motion.
-export type LayerKind = "aurora" | "chart" | "ripple" | "drift" | "bubbles" | "glints" | "silk" | "caustics" | "nodes";
+export type LayerKind = "aurora" | "chart" | "ripple" | "drift" | "wind" | "bubbles" | "glints" | "silk" | "caustics" | "nodes";
 export type Draw = (c: CanvasRenderingContext2D, W: number, H: number, t: number, ptr: Pointer, el: HTMLCanvasElement) => void;
 
 function useCanvas(make: () => Draw) {
@@ -126,7 +126,43 @@ const drift = (): Draw => {
   };
 };
 
-const MAKERS: Record<LayerKind, () => Draw> = { aurora, chart, ripple, drift, bubbles, glints, silk, caustics, nodes };
+// wind (Kriv, 24 Nov 2026: "the wind effect in 5 different intensities all together, on the hero"): drift's currents
+// as five layers at once, from a faint slow whisper to a fast Care-blue gale. Same field, so they read as one wind.
+const WIND = [
+  { area: 16000, speed: 0.45, curl: 2, width: 0.8, alpha: 0.12, care: false }, // whisper
+  { area: 13000, speed: 0.85, curl: 3.5, width: 1, alpha: 0.2, care: false },  // breeze
+  { area: 15000, speed: 1.35, curl: 5, width: 1.1, alpha: 0.32, care: true },   // steady
+  { area: 28000, speed: 2.1, curl: 7, width: 1.3, alpha: 0.55, care: true },    // gust
+  { area: 60000, speed: 3.3, curl: 9, width: 1.7, alpha: 0.85, care: true },    // gale
+] as const;
+const wind = (): Draw => {
+  const sets = WIND.map(() => [] as { x: number; y: number; life: number }[]);
+  return (c, W, H, t, ptr, el) => {
+    const ink = token(el, "--ink", "#101112"), care = token(el, "--care", "#4d8be0");
+    c.globalCompositeOperation = "destination-out"; c.fillStyle = "rgba(0,0,0,.07)"; c.fillRect(0, 0, W, H);
+    c.globalCompositeOperation = "source-over";
+    WIND.forEach((L, li) => {
+      const ps = sets[li], n = Math.min(160, Math.round((W * H) / L.area));
+      while (ps.length < n) ps.push({ x: Math.random() * W, y: Math.random() * H, life: Math.random() * 300 });
+      ps.length = n;
+      const path = new Path2D();
+      for (const q of ps) {
+        const ang = Math.sin(q.x * 0.0035 + t * 0.15) * 1.1 + Math.cos(q.y * 0.006 - t * 0.1) * 0.8;
+        let vx = (Math.cos(ang) * 1.1 + 0.55) * L.speed, vy = Math.sin(ang) * 0.8 * L.speed;
+        if (ptr.on) {
+          const dx = q.x - ptr.x, dy = q.y - ptr.y, d = Math.sqrt(dx * dx + dy * dy) + 1, k = L.curl * Math.exp(-(d * d) / 14000);
+          vx += (-dy / d) * k; vy += (dx / d) * k;
+        }
+        path.moveTo(q.x, q.y); q.x += vx; q.y += vy; path.lineTo(q.x, q.y);
+        if (--q.life < 0 || q.x > W + 5 || q.x < -5 || q.y < -5 || q.y > H + 5) { q.x = Math.random() * W * 0.4 - 5; q.y = Math.random() * H; q.life = 150 + Math.random() * 200; }
+      }
+      c.lineWidth = L.width; c.strokeStyle = L.care ? care : ink; c.globalAlpha = L.alpha; c.stroke(path);
+    });
+    c.globalAlpha = 1;
+  };
+};
+
+const MAKERS: Record<LayerKind, () => Draw> = { aurora, chart, ripple, drift, wind, bubbles, glints, silk, caustics, nodes };
 
 export function PhLayer({ kind }: { kind: LayerKind }) {
   const ref = useCanvas(MAKERS[kind]);
