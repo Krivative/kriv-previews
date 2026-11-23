@@ -110,3 +110,11 @@ its services), and a consultation-to-follow-up plan. No photos of people, no sto
 
 Checklist addition: when the audience is set (for PCO, parents), the randomizer rolls layout, graphics and copy angle for that audience,
 and never claims a service, price or result the business has not confirmed.
+
+
+## Photos with the effects (23 Nov 2026, PCO 514)
+- **Annotated photo**: a real-looking photo with a code-drawn diagram floating on it as a card (hero).
+- **X-ray card**: the photo turns into its diagram on hover or keyboard focus with a circular wipe; on touch screens the diagram sits as a small inset.
+- **Lit steps**: each timeline step has a photo that saturates when the scroll rail reaches it.
+- **Photo parallax**: `[data-parallax]` images drift a few pixels against the scroll (`--py`, FxPlus) and zoom slightly on hover.
+- Generated photos are always labelled "Illustrative photo" and never presented as the business's own place, team or customers. Make them with the business's Magnific page (Unlimited, run in the app) and keep the prompts on the board.

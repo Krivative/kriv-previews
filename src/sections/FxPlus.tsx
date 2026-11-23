@@ -14,6 +14,7 @@ export function FxPlus() {
     if (!root || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const offs: (() => void)[] = [];
 
+    const parallax = [...root.querySelectorAll<HTMLElement>("[data-parallax]")];
     let queued = false;
     const onScroll = () => {
       if (queued) return;
@@ -23,6 +24,12 @@ export function FxPlus() {
         const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
         root.style.setProperty("--scroll", (scrollY / max).toFixed(4));
         root.style.setProperty("--hs", Math.min(1, scrollY / innerHeight).toFixed(4));
+        // Photos marked data-parallax drift a little against the scroll (--py, in px) while they are on screen.
+        for (const img of parallax) {
+          const b = img.getBoundingClientRect();
+          if (b.bottom < -100 || b.top > innerHeight + 100) continue;
+          img.style.setProperty("--py", `${(((b.top + b.height / 2) / innerHeight - 0.5) * -28).toFixed(1)}px`);
+        }
       });
     };
     onScroll();

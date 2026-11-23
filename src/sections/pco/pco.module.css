@@ -445,3 +445,58 @@
   .famHeroArt, .famHero[data-layout] .famHeroArt { padding: .5rem 1rem 1.2rem; }
   .famTwo, .famCards, .famPlan .timeline { grid-template-columns: 1fr; }
 }
+
+/* ---- Generation 3 photos (Magnific, illustrative models) with the effects ---- */
+.famPhoto { position: relative; overflow: hidden; margin: 0; border-radius: 1.4rem; background: #e6efe9; }
+.famPhoto img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; scale: 1.08; translate: 0 var(--py, 0px); transition: translate .25s linear, scale .8s cubic-bezier(.2, .8, .2, 1); }
+.famPhoto figcaption { position: absolute; right: .8rem; bottom: .7rem; padding: .28rem .6rem; border-radius: 2rem; background: #f9fcf9e6; border: 1px solid #e0e9e2; font-size: .62rem; font-weight: 640; color: #314942; }
+.page[data-radius="crisp"] .famPhoto { border-radius: 6px; }
+@media (hover: hover) { .famPhoto:hover img { scale: 1.13; } }
+
+/* Hero: the photo fills the art column; the drawing sits on it as an annotation card */
+.famHeroArt { align-self: stretch; }
+.famHeroPhoto { inline-size: 100%; block-size: 100%; min-block-size: 360px; border-radius: 1.6rem; box-shadow: 0 40px 80px -50px #0b3b2d80; }
+.famHero[data-layout="stack"] .famHeroArt { padding: 0 clamp(1.2rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) 0; }
+.famHero[data-layout="split"] .famHeroArt { padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) 0; }
+.famHero[data-layout="centered"] .famHeroPhoto { aspect-ratio: 16 / 7; min-block-size: 0; }
+.famHeroNote { position: absolute; left: -2.2rem; bottom: 2.4rem; z-index: 2; inline-size: min(44%, 270px); padding: .4rem; border-radius: 1rem; background: #f8faf8e8; backdrop-filter: blur(8px); border: 1px solid #dfe8e2; box-shadow: 0 24px 50px -30px #0b3b2d66; }
+.famHeroNote svg { display: block; inline-size: 100%; block-size: auto; }
+.famHero[data-layout="centered"] .famHeroNote { left: auto; right: 2rem; }
+@media (prefers-reduced-motion: no-preference) { .famHeroNote { animation: molar 7s ease-in-out infinite alternate; } }
+
+/* Parents: a collage of two portraits and the plan drawing */
+.famCollage { position: relative; min-block-size: clamp(420px, 44vw, 560px); }
+.famCollageMain { position: absolute; inset: 0 22% 8% 0; }
+.famCollageSide { position: absolute; inline-size: 38%; aspect-ratio: 4 / 5; right: 0; top: 12%; border: 6px solid #fff; box-shadow: 0 30px 60px -34px #0b3b2d66; }
+.famCollageArt { position: absolute; right: 4%; bottom: 0; inline-size: 52%; padding: .35rem; border-radius: 1rem; background: #f8faf8f0; border: 1px solid #dfe8e2; box-shadow: 0 24px 50px -30px #0b3b2d55; }
+.famCollageArt svg { display: block; inline-size: 100%; block-size: auto; }
+
+/* Treatment cards: the photo turns into the diagram on hover or focus (an "x-ray" of the treatment) */
+.famXray { position: relative; overflow: hidden; margin: -.4rem 0 .7rem; border-radius: .9rem; aspect-ratio: 4 / 3; }
+.famXray .famPhoto { position: absolute; inset: 0; border-radius: 0; }
+.famXrayArt { position: absolute; inset: 0; display: grid; place-items: center; background: #f3f8f5f2; opacity: 0; clip-path: circle(0% at 50% 50%); transition: opacity .5s ease, clip-path .7s cubic-bezier(.7, 0, .2, 1); }
+.famXrayArt svg { margin: 0 !important; background: transparent !important; }
+.famCards article:is(:hover, :focus-visible) .famXrayArt { opacity: 1; clip-path: circle(75% at 50% 50%); }
+.famXrayHint { position: absolute; left: .6rem; bottom: .55rem; padding: .25rem .55rem; border-radius: 2rem; background: #f9fcf9e6; font-size: .6rem; font-weight: 680; letter-spacing: .06em; color: #314942; transition: opacity .3s ease; }
+.famCards article:is(:hover, :focus-visible) .famXrayHint { opacity: 0; }
+@media (hover: none) { .famXrayHint { display: none; } .famXrayArt { opacity: 1; clip-path: none; inset: auto .5rem .5rem auto; inline-size: 42%; aspect-ratio: 4 / 3; border-radius: .6rem; } }
+.famPhotoNote { margin-top: 1.4rem !important; font-size: .74rem; color: #4c675d; }
+
+/* The plan: a photo above each step */
+.famSteps li .famPhoto { aspect-ratio: 16 / 10; margin-bottom: 1rem; border-radius: 1rem; }
+.famSteps li .famPhoto img { filter: saturate(.85); transition: translate .25s linear, scale .8s ease, filter .6s ease; }
+.famSteps li[data-lit] .famPhoto img { filter: none; }
+
+/* Visit: the family walking in beside the address */
+.famVisitGrid { display: grid; grid-template-columns: .55fr 1fr; gap: 1.3rem; align-items: stretch; }
+.famVisitGrid .visit { margin-top: 0; }
+.famVisitPhoto { min-block-size: 320px; }
+
+@media (max-width: 680px) {
+  .famHeroArt, .famHero[data-layout] .famHeroArt { padding: .5rem 1rem 1.2rem; }
+  .famHeroPhoto { min-block-size: 240px; }
+  .famHeroNote { left: auto; right: 1.6rem; bottom: 1.8rem; inline-size: 46%; }
+  .famCollage { min-block-size: 420px; }
+  .famVisitGrid { grid-template-columns: 1fr; }
+  .famVisitPhoto { min-block-size: 0; aspect-ratio: 4 / 3; }
+}
