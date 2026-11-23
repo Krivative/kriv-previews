@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { animate, token, trackPointer, type Pointer } from "./PhBackdrop";
+import { bubbles, caustics, glints, nodes, silk } from "./PhLayers2";
 import p from "./ph-rates.module.css";
 
 // Round 4 of the /ph-rates randomizer (Kriv, 23 Nov 2026): moving layers the seed puts under the offer figures
 // and the plan details. Canvases sized to their section, brand colours at low strength so the text stays readable,
 // paused off screen, one still frame with reduced motion.
-export type LayerKind = "aurora" | "chart" | "ripple" | "drift";
-type Draw = (c: CanvasRenderingContext2D, W: number, H: number, t: number, ptr: Pointer, el: HTMLCanvasElement) => void;
+export type LayerKind = "aurora" | "chart" | "ripple" | "drift" | "bubbles" | "glints" | "silk" | "caustics" | "nodes";
+export type Draw = (c: CanvasRenderingContext2D, W: number, H: number, t: number, ptr: Pointer, el: HTMLCanvasElement) => void;
 
 function useCanvas(make: () => Draw) {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -33,7 +34,7 @@ function useCanvas(make: () => Draw) {
 const aurora = (): Draw => {
   const pts: { x: number; y: number }[] = [];
   return (c, W, H, t, ptr, el) => {
-    const cols = [token(el, "--care", "#4d8be0"), "#e7fa78", token(el, "--sand", "#b99a5c")];
+    const cols = [token(el, "--care", "#4d8be0"), token(el, "--spark", "#e7fa78"), token(el, "--sand", "#b99a5c")];
     let lead = -1;
     if (ptr.on && pts.length) { let best = Infinity; pts.forEach((q, k) => { const d = Math.hypot(q.x - ptr.x, q.y - ptr.y); if (d < best) { best = d; lead = k; } }); }
     c.clearRect(0, 0, W, H);
@@ -125,7 +126,7 @@ const drift = (): Draw => {
   };
 };
 
-const MAKERS: Record<LayerKind, () => Draw> = { aurora, chart, ripple, drift };
+const MAKERS: Record<LayerKind, () => Draw> = { aurora, chart, ripple, drift, bubbles, glints, silk, caustics, nodes };
 
 export function PhLayer({ kind }: { kind: LayerKind }) {
   const ref = useCanvas(MAKERS[kind]);

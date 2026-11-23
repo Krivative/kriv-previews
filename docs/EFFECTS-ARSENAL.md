@@ -58,7 +58,11 @@ Rule built in: the two sections on one page never get the same layer.
 | care (wave) | Care blue | letters bob like water, higher near the pointer; click to splash |
 | sand (drag) | Operations sand | pick up any letter and throw it; it springs home |
 | band | plain | quiet footer |
-Taps make letters jump on phones; with reduced motion the logo stays still.
+Taps make letters jump on phones; with reduced motion the logo stays still. `PhLogoPlay` takes `letters`, `lastClass`, `className`, `hint` and `spin`, so any brand's mark can be the toy: PCO Dental uses its A5 ring with P, C, O and the teal line (`spin={false}` keeps the line level).
+
+### Used on
+- /ph-rates (seed 211, live).
+- PCO Dental (`src/sections/pco/pco-fx.ts`): **seed 514 pinned and live (23 Nov 2026)**; every other seed stays reviewable with `?fx=` off production: 302 / 303 / 319 (generation 1, Kriv likes 303), 412 / 404 / 420 (generation 2), 537 / 509 / 514 (generation 3, whole site for parents): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
 
 ## The randomizer checklist (every website, not only /ph-rates)
 
@@ -74,3 +78,63 @@ When a randomizer composes a site, it rolls the small things too, not just the c
 8. **Fallbacks**: reduced motion, no JavaScript, phones (no sideways scroll), background tabs.
 
 New effects are added to this file and to a trait pool, so the arsenal only grows. Pinning a seed never removes an effect.
+
+## Generation 2 (23 Nov 2026, Kriv on PCO Dental: "completely new effects and style")
+
+### More section layers (`PhLayers2.tsx`, registered in `PhLayers.tsx`)
+| Effect | What it does | Pointer / touch |
+|---|---|---|
+| bubbles | small clear bubbles rising with a wobble, like rinse water | the pointer pops the bubbles it touches |
+| glints | four-point sparkles that twinkle like light on a clean surface | they gather and brighten near the pointer |
+| silk | bundles of fine parallel lines that sway like ribbons | the pointer presses a soft dent into them |
+| caustics | the moving light pattern on the floor of a clear pool (drawn small, scaled up soft) | brighter by the pointer |
+| nodes | drifting points that link up when close, like a care network | the pointer becomes a node and pulls links to it |
+
+### More interaction (`FxPlus.tsx`)
+- **spotlight**: a soft light in the accent colour follows the pointer across each section.
+- **3D cards**: `[data-tilt]` cards turn toward the pointer with a moving glare.
+- **scroll bar**: a thin progress bar across the top (`--scroll`).
+- **hero parallax**: `--hs` (0 to 1 over the first screen) drives a drifting, turning hero object.
+
+### Style traits a seed can roll (PCO `pco-fx.ts`, reusable as a pattern)
+- palette (variants inside the brand: clinic, pearl, mint, dusk), heading type (sans / the brand's serif), corners (soft / crisp), buttons (pill / outline);
+- entry: how things arrive (rise / wipe open / blur into focus).
+
+## Generation 3: the whole site, graphics included
+
+A seed can rebuild the content half of a site, not just decorate it: layout (split / centred / stacked with shortcuts), section order, headline,
+and code-drawn graphics in one of three art styles (`src/sections/pco/PcoArt.tsx`: fine line, glass, blueprint with labels).
+PCO's version is written for parents whose children are old enough for braces and adults weighing bigger treatments:
+questions to ask the clinic, treatment examples clearly marked "to confirm with the clinic" (the clinic has not confirmed
+its services), and a consultation-to-follow-up plan. (Illustrative photos were added later for 514; see the photos section below.)
+
+Checklist addition: when the audience is set (for PCO, parents), the randomizer rolls layout, graphics and copy angle for that audience,
+and never claims a service, price or result the business has not confirmed.
+
+
+## Photos with the effects (23 Nov 2026, PCO 514)
+- **Annotated photo**: a real-looking photo with a code-drawn diagram floating on it as a card (hero).
+- **X-ray card**: the photo turns into its diagram on hover or keyboard focus with a circular wipe; on touch screens the diagram sits as a small inset.
+- **Lit steps**: each timeline step has a photo that saturates when the scroll rail reaches it.
+- **Photo parallax**: `[data-parallax]` images drift a few pixels against the scroll (`--py`, FxPlus) and zoom slightly on hover.
+- Generated photos are always labelled "Illustrative photo" and never presented as the business's own place, team or customers. Make them with the business's Magnific page (Unlimited, run in the app) and keep the prompts on the board.
+
+
+## Complete index (everything built so far, 23 Nov 2026)
+
+Pinning 514 on PCO removed nothing: every item below stays in code and in its pool, ready for any new site.
+
+| Kind | Items | Where |
+|---|---|---|
+| Hero backgrounds | glow, veil, contour, halftone (and pinned halftone), sea | `PhBackdrop.tsx`, `PhSea.tsx` |
+| Section layers, gen 1 | aurora, chart, ripple, drift (+ contour, halftone as layers) | `PhLayers.tsx`, `PcoFxLayer.tsx` |
+| Section layers, gen 2 | bubbles, glints, silk, caustics, nodes | `PhLayers2.tsx` |
+| Movement | reveal / calm, count-ups (`data-count`), progress rails (`data-progress`, lit `data-i` steps), entries rise / wipe / blur | `PhEffects.tsx`, `pco.module.css` |
+| Interaction | tilt, magnet buttons, spotlight, 3D cards with glare, scroll progress bar, hero parallax (`--hs`), photo parallax (`--py`) | `PhEffects.tsx`, `FxPlus.tsx` |
+| Hero objects | molar float / still / parallax (drifts and turns with scroll), tilt toward the pointer | PCO `pco-fx.ts` trait `molar` |
+| Marquees | line, big; one or two (campaign titles, trial facts) | `PhMarquee.tsx` |
+| Logo footers | wordmark, inkfill, repel, wave, drag, band; any brand's letters; tones sage / mint | `PhLogoPlay.tsx` |
+| Style traits | palette (clinic, pearl, mint, dusk), heading type (sans / serif), corners (soft / crisp), buttons (pill / outline), pointer (spotlight / cards / both), bar on/off | PCO `pco-fx.ts` |
+| Whole-site traits | layout (split / centred / stacked + shortcuts), section order, headline, two extra section layers | PCO `pco-fx.ts`, `PcoFamily.tsx` |
+| Graphics | code-drawn subjects (braces, implant, crown, plan) in line / glass / blueprint | `PcoArt.tsx` |
+| Photos with effects | annotated photo, collage, x-ray card, lit steps, photo parallax, "Illustrative photo" labels | `PcoFamily.tsx`, `pco.module.css` |
