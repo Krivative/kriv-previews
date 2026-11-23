@@ -73,7 +73,7 @@ export const PCO_FX_CANDIDATES = [302, 303, 319] as const; // picked so the thre
 export const PCO_FX_CANDIDATES_2 = [412, 404, 420] as const;
 // Generation 3 (whole site, for parents): 537 split + line art + pearl serif, 509 centred + glass art + clinic greens, 514 stacked + blueprint art + dusk serif.
 export const PCO_FX_CANDIDATES_3 = [537, 509, 514] as const;
-export const PCO_FX_PINNED: number | null = null; // the live page shows no effects until Kriv picks a seed
+export const PCO_FX_PINNED: number | null = 514; // Kriv, 23 Nov 2026: "pin and publish 514"
 
 /** The effects seed for a request: ?fx=<seed> outside production, otherwise the pinned seed (or none). */
 export function pcoFxSeed(value: unknown, allowOverride: boolean): number | null {

@@ -62,7 +62,7 @@ Taps make letters jump on phones; with reduced motion the logo stays still. `PhL
 
 ### Used on
 - /ph-rates (seed 211, live).
-- PCO Dental (`src/sections/pco/pco-fx.ts`): `?fx=` 302 / 303 / 319 (generation 1, Kriv likes 303), 412 / 404 / 420 (generation 2), 537 / 509 / 514 (generation 3, whole site for parents): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
+- PCO Dental (`src/sections/pco/pco-fx.ts`): **seed 514 pinned and live (23 Nov 2026)**; every other seed stays reviewable with `?fx=` off production: 302 / 303 / 319 (generation 1, Kriv likes 303), 412 / 404 / 420 (generation 2), 537 / 509 / 514 (generation 3, whole site for parents): every arsenal layer recoloured through tokens (`--ink`, `--care`, `--sand`, `--spark`).
 
 ## The randomizer checklist (every website, not only /ph-rates)
 
@@ -106,7 +106,7 @@ A seed can rebuild the content half of a site, not just decorate it: layout (spl
 and code-drawn graphics in one of three art styles (`src/sections/pco/PcoArt.tsx`: fine line, glass, blueprint with labels).
 PCO's version is written for parents whose children are old enough for braces and adults weighing bigger treatments:
 questions to ask the clinic, treatment examples clearly marked "to confirm with the clinic" (the clinic has not confirmed
-its services), and a consultation-to-follow-up plan. No photos of people, no stock, no paid generation.
+its services), and a consultation-to-follow-up plan. (Illustrative photos were added later for 514; see the photos section below.)
 
 Checklist addition: when the audience is set (for PCO, parents), the randomizer rolls layout, graphics and copy angle for that audience,
 and never claims a service, price or result the business has not confirmed.
@@ -118,3 +118,23 @@ and never claims a service, price or result the business has not confirmed.
 - **Lit steps**: each timeline step has a photo that saturates when the scroll rail reaches it.
 - **Photo parallax**: `[data-parallax]` images drift a few pixels against the scroll (`--py`, FxPlus) and zoom slightly on hover.
 - Generated photos are always labelled "Illustrative photo" and never presented as the business's own place, team or customers. Make them with the business's Magnific page (Unlimited, run in the app) and keep the prompts on the board.
+
+
+## Complete index (everything built so far, 23 Nov 2026)
+
+Pinning 514 on PCO removed nothing: every item below stays in code and in its pool, ready for any new site.
+
+| Kind | Items | Where |
+|---|---|---|
+| Hero backgrounds | glow, veil, contour, halftone (and pinned halftone), sea | `PhBackdrop.tsx`, `PhSea.tsx` |
+| Section layers, gen 1 | aurora, chart, ripple, drift (+ contour, halftone as layers) | `PhLayers.tsx`, `PcoFxLayer.tsx` |
+| Section layers, gen 2 | bubbles, glints, silk, caustics, nodes | `PhLayers2.tsx` |
+| Movement | reveal / calm, count-ups (`data-count`), progress rails (`data-progress`, lit `data-i` steps), entries rise / wipe / blur | `PhEffects.tsx`, `pco.module.css` |
+| Interaction | tilt, magnet buttons, spotlight, 3D cards with glare, scroll progress bar, hero parallax (`--hs`), photo parallax (`--py`) | `PhEffects.tsx`, `FxPlus.tsx` |
+| Hero objects | molar float / still / parallax (drifts and turns with scroll), tilt toward the pointer | PCO `pco-fx.ts` trait `molar` |
+| Marquees | line, big; one or two (campaign titles, trial facts) | `PhMarquee.tsx` |
+| Logo footers | wordmark, inkfill, repel, wave, drag, band; any brand's letters; tones sage / mint | `PhLogoPlay.tsx` |
+| Style traits | palette (clinic, pearl, mint, dusk), heading type (sans / serif), corners (soft / crisp), buttons (pill / outline), pointer (spotlight / cards / both), bar on/off | PCO `pco-fx.ts` |
+| Whole-site traits | layout (split / centred / stacked + shortcuts), section order, headline, two extra section layers | PCO `pco-fx.ts`, `PcoFamily.tsx` |
+| Graphics | code-drawn subjects (braces, implant, crown, plan) in line / glass / blueprint | `PcoArt.tsx` |
+| Photos with effects | annotated photo, collage, x-ray card, lit steps, photo parallax, "Illustrative photo" labels | `PcoFamily.tsx`, `pco.module.css` |
