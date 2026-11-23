@@ -51,8 +51,8 @@ export type PhDesign = {
   seed: number; colorway: PhColorway; hero: (typeof PH_HEROES)[number]; headline: (typeof PH_HEADLINES)[number];
   story: (typeof PH_STORIES)[number]; figures: (typeof PH_FIGURES)[number]; fine: (typeof PH_FINE)[number];
   footer: (typeof PH_FOOTERS)[number]; radius: number;
-  backdrop: (typeof PH_BACKDROPS)[number]; motion: (typeof PH_MOTIONS)[number]; touch: (typeof PH_TOUCHES)[number]; cards: (typeof PH_CARDS)[number];
-  under: (typeof PH_UNDERS)[number]; figuresLayer: (typeof PH_LAYERS)[number]; detailsLayer: (typeof PH_LAYERS)[number];
+  backdrop: (typeof PH_BACKDROPS)[number] | "wind"; motion: (typeof PH_MOTIONS)[number]; touch: (typeof PH_TOUCHES)[number]; cards: (typeof PH_CARDS)[number];
+  under: (typeof PH_UNDERS)[number]; figuresLayer: (typeof PH_LAYERS)[number] | "contour"; detailsLayer: (typeof PH_LAYERS)[number];
 };
 
 function rng(seed: number) {
@@ -61,7 +61,7 @@ function rng(seed: number) {
 }
 const pick = <T,>(r: () => number, list: readonly T[]) => list[Math.floor(r() * list.length)];
 
-type Curated = { c: string } & Omit<PhDesign, "seed" | "colorway" | "figuresLayer" | "detailsLayer">;
+type Curated = { c: string } & Omit<PhDesign, "seed" | "colorway" | "figuresLayer" | "detailsLayer"> & Partial<Pick<PhDesign, "figuresLayer" | "detailsLayer">>;
 // Round 1 candidates, composed by hand so each shows a different hero, colorway and story.
 export const PH_CURATED: Record<number, Curated> = {
   // Seed 110's dark Care blue with the living Cebu-sea hero: closest to the main site, most "weapon".
@@ -87,9 +87,14 @@ export const PH_CURATED: Record<number, Curated> = {
   210: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
   211: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
   212: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "contour", motion: "reveal", touch: "tilt", cards: "corners", under: "rich" },
+  // Kriv, 24 Nov: 211 with its two effects switched. The wind (drift) moves up into the hero at five intensities at once;
+  // the hero's sea-chart contour lines move down under the figures. Ripple stays under the plan details.
+  213: { c: "paper-ink", hero: "statement", headline: "serif", story: "pinned", figures: "figures", fine: "spec", footer: "care", radius: 16, backdrop: "wind", motion: "reveal", touch: "tilt", cards: "corners", under: "rich", figuresLayer: "contour", detailsLayer: "ripple" },
 };
-export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212] as const;
-export const PH_PINNED_SEED: number | null = 211; // Kriv picked 211 on 23 Nov 2026 (208 footer, drift under the figures, ripple under the details)
+export const PH_CANDIDATES = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213] as const;
+// Kriv picked 211 on 23 Nov 2026 (208 footer, drift under the figures, ripple under the details); 213 is 211 with
+// those effects switched, made live on Kriv's word on 24 Nov 2026.
+export const PH_PINNED_SEED: number | null = 213;
 
 export function phDesignFor(seed: number): PhDesign {
   const r = rng(seed * 131 + 7);
